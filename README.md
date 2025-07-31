@@ -5,8 +5,6 @@ This system automates the entire document lifecycle — from data entry and repo
 
 Each user interaction is guided by context-aware forms, grammar-smart logic, and real-time validation — ensuring that even non-technical users can operate the system safely and efficiently. Document structures adapt to content flow, inputs are reused across workflows, and generated outputs are fully traceable and compliant.
 
-Originally built for national-scale daily operations at a public institution — tailored for non-technical users. This version is a fully anonymized mock-up system created solely for portfolio demonstration. It contains no real data or institution-related content.
-
 ---
 
 ## ✨ Key Features
@@ -50,3 +48,76 @@ Originally built for national-scale daily operations at a public institution —
 
 - **Auto-close and session-specific continuity**  
   Automatically saves and closes active documents across Windows sessions — ensuring integrity even during user switches.
+
+---
+
+## 🎬 Video Showcase
+
+📺 **5-Minute System Overview**  
+[🔗 Watch on YouTube](https://youtu.be/6HDiDGYvlHc)
+
+📂 ** Complete System Demonstration (18-part video series)**  
+[🔗 Watch the full showcase](https://www.youtube.com/playlist?list=PLn6Gqb2_dbpqjJ1oz8hyxCz7o1xEXOJR1)
+
+These short videos present:
+- Modular architecture and guided form logic
+- Rule-based workflows and grammar-aware document generation
+- Context-sensitive input control and dynamic layout adaptation
+- Real-time validation, update automation, and safe data resets
+- Multi-report asset tracking with traceable flow logic
+
+Each part showcases real-world automation, UX-guided workflows, and a compliance-driven architecture — built for ERP-level document processing.
+
+---
+
+## 📁 Repository Structure
+...
+
+---
+
+## 🧩 Real-World Impact & Ethical Disclaimer
+
+Originally built for national-scale daily operations at a public institution — tailored for non-technical users. 
+
+This system automated 50+ document formats — including statements, cover letters, and dispatch lists — with full workflow integration across internal units and external institutions.  
+Thanks to its dynamic template engine, users can create and reuse unlimited custom templates — enabling scalable expansion without developer support.  
+It eliminates over 2,500 manual work hours each month by automating approximately 20,000 document generations. With a 95% efficiency gain, the system standardized complex workflows across 20+ units and established an ERP-level foundation for secure, traceable, and high-volume document processing.
+
+<details>
+<summary>📊How the 2,500+ hour monthly and 95% efficiency gain was calculated</summary>
+
+**Assumptions:**
+
+- **Manual document preparation time:**  
+In public institutions, manually preparing formal documents — especially statements, annexed reports, or cover letters — typically takes **6 to 10 minutes per document**.  
+This includes locating the correct template, replacing outdated data, inserting updated content, adjusting formatting, and performing a final review.  
+I conservatively estimated **8 minutes per document** to reflect this end-to-end effort in a structured but non-automated environment.
+
+- **Average process volume per unit:**  
+Process volume varies by department size and workload. For this estimate, we assumed **100 processes per unit per month**, based on historical activity across 20+ units.
+
+- **Number of documents required per process:**  
+Each process typically involves multiple document types — such as statements, reports, annexes, and cover letters. Moreover, several documents of the same type may be generated within a single process (e.g., multiple reports or cover letters), depending on the workflow. Some require 15+ documents, others only 6–7. An average of **10 documents per process** was used.
+
+- **Automated process duration:**  
+Based on practical testing and user feedback, preparing all documents via the system takes approximately **5 minutes per process** — which corresponds to **0.5 minutes per document**, assuming 10 documents per process.
+
+---
+
+**Calculation:**
+
+- 20 units × 100 processes/month = 2,000 processes  
+- Each process produces 10 documents → 2,000 processes x 10 docs = 20,000 docs/month  
+- Manual avg: 8 min per document → (20,000 docs x 8 min)/60 min = 2,667 hours/month  
+- Automated avg: 0,5 min per document → (20,000 docs x 0,5 min)/60 min = 167 hours/month  
+- **Monthly gain: 2,667 -167 = 2,500 hours**
+- **Efficiency gain: (2,500 / 2,667) × 100 ≈ 93.75%**
+
+All calculations are based on anonymized scenarios derived from industry-standard workflows.
+
+</details>
+
+The current version is a fully anonymized mock-up system created solely for portfolio demonstration. It contains no real data or institution-related content.
+
+---
+
