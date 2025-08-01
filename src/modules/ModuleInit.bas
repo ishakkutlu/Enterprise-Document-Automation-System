@@ -18,7 +18,7 @@ ElseIf ActiveCell.Column = 9 Then
 ElseIf ActiveCell.Column = 10 Then
     TumDoc = True
     
-    'PARAF HAZIRLIK ÝÞLEMÝ
+    'PARAF HAZIRLIK Ä°ÅžLEMÄ°
     UserName = Environ("UserProfile")
     UserName = UCase(Right(UserName, 7))
     Set ItemBul = Worksheets(2).Range("DR6:DR1000").Find(What:=UserName, SearchDirection:=xlNext, _
@@ -71,7 +71,7 @@ ElseIf ActiveCell.Column = 9 Then
 ElseIf ActiveCell.Column = 10 Then
     TumDoc = True
 
-    'PARAF HAZIRLIK ÝÞLEMÝ
+    'PARAF HAZIRLIK Ä°ÅžLEMÄ°
     UserName = Environ("UserProfile")
     UserName = UCase(Right(UserName, 7))
     Set ItemBul = Worksheets(2).Range("DR6:DR1000").Find(What:=UserName, SearchDirection:=xlNext, _
@@ -118,7 +118,7 @@ ElseIf ActiveCell.Column = 17 Then
 ElseIf ActiveCell.Column = 18 Then
     TumDoc = True
 
-    'PARAF HAZIRLIK ÝÞLEMÝ
+    'PARAF HAZIRLIK Ä°ÅžLEMÄ°
     UserName = Environ("UserProfile")
     UserName = UCase(Right(UserName, 7))
     Set ItemBul = Worksheets(2).Range("DR6:DR1000").Find(What:=UserName, SearchDirection:=xlNext, _
@@ -158,10 +158,10 @@ If ActiveCell.Column = 19 Then 'XXXMud'den gelen tutanak1
 ElseIf ActiveCell.Column = 20 Then 'XXXMud gelen tutanak2
     Call ModuleReport2.Rapor2_2Tutanak2XXXMudGelen
     GoTo ModulSonu
-ElseIf ActiveCell.Column = 21 Then 'Ýlgili birim tutanak2
+ElseIf ActiveCell.Column = 21 Then 'Ä°lgili birim tutanak2
     Call ModuleReport2.Rapor2_2Tutanak2IlgiliBirim
     GoTo ModulSonu
-ElseIf ActiveCell.Column = 22 Then 'Sonuç
+ElseIf ActiveCell.Column = 22 Then 'SonuÃ§
     Call ModuleReport2.Rapor2_2SonucUstYazi
     GoTo ModulSonu
 End If
@@ -190,7 +190,7 @@ ElseIf ActiveCell.Column = 8 Then
         Call ModuleReport3.Rapor3_1Tutanak2TipB
     End If
 ElseIf ActiveCell.Column = 9 Then
-    'Rapor3_1de finansal birim üst yazýsý yok
+    'Rapor3_1de finansal birim Ã¼st yazÄ±sÄ± yok
 ElseIf ActiveCell.Column = 10 Then
     If Cells(ActiveCell.Row, 100) = "Type A" Then
         Call ModuleReport3.Rapor3_1UstYazi
@@ -200,7 +200,7 @@ ElseIf ActiveCell.Column = 10 Then
 ElseIf ActiveCell.Column = 11 Then
     TumDoc = True
 
-    'PARAF HAZIRLIK ÝÞLEMÝ
+    'PARAF HAZIRLIK Ä°ÅžLEMÄ°
     UserName = Environ("UserProfile")
     UserName = UCase(Right(UserName, 7))
     Set ItemBul = Worksheets(2).Range("DR6:DR1000").Find(What:=UserName, SearchDirection:=xlNext, _
@@ -226,7 +226,7 @@ ElseIf ActiveCell.Column = 11 Then
         GoTo ModulSonu
     End If
     
-    'All için TipB/TipA ayrýmý
+    'All iÃ§in TipB/TipA ayrÄ±mÄ±
     If Cells(ActiveCell.Row, 100) = "Type A" Then
         Call ModuleReport3.Rapor3_1Tutanak
         Call ModuleReport3.Rapor3_1Rapor
@@ -278,7 +278,7 @@ ElseIf ActiveCell.Column = 10 Then
 ElseIf ActiveCell.Column = 11 Then
     TumDoc = True
 
-    'PARAF HAZIRLIK ÝÞLEMÝ
+    'PARAF HAZIRLIK Ä°ÅžLEMÄ°
     UserName = Environ("UserProfile")
     UserName = UCase(Right(UserName, 7))
     Set ItemBul = Worksheets(2).Range("DR6:DR1000").Find(What:=UserName, SearchDirection:=xlNext, _
@@ -304,7 +304,7 @@ ElseIf ActiveCell.Column = 11 Then
         GoTo ModulSonu
     End If
     
-    'All için TipB/TipA ayrýmý
+    'All iÃ§in TipB/TipA ayrÄ±mÄ±
     If Cells(ActiveCell.Row, 28) = "Type A" Then
         Call ModuleReport3.Rapor3_2Tutanak
         Call ModuleReport3.Rapor3_2Rapor

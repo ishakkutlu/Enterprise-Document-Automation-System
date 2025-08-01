@@ -40,7 +40,7 @@ Dim ItemBul As Range
 Dim NomDeger As Variant, NomSay As Integer, RaporNoStr As String
 Dim IlkSiraVarlik As Long, SonSiraVarlik As Long
 
-'Application.DisplayAlerts = False 'Kodlar tamamlanýnca iptal et
+'Application.DisplayAlerts = False 'Kodlar tamamlanÄ±nca iptal et
 
 'Pathfinder...
 AutoPath = ThisWorkbook.Path
@@ -48,22 +48,22 @@ DestOperasyon = AutoPath & "\System Files\Operation\"
 VarlikKlasoru = AutoPath & "\System Files\System Templates\Asset Templates\"
 EsasVarlik = VarlikKlasoru & "General Primary Asset Report.xlsx"
 
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
 
-'System Files klasör adýný kontrol et.
+'System Files klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(AutoPath & "\System Files\", vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & AutoPath & "\System Files\" & ". The folder named 'System Files' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Operation klasörü adýný kontrol et.
+'Operation klasÃ¶rÃ¼ adÄ±nÄ± kontrol et.
 If Not Dir(DestOperasyon, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & DestOperasyon & ". The folder named 'Operation' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Registry Reports klasör adýný kontrol et.
+'Registry Reports klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(VarlikKlasoru, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & VarlikKlasoru & ". The folder named 'Asset Templates' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
@@ -74,20 +74,20 @@ If Not Dir(EsasVarlik, vbDirectory) <> vbNullString Then
 End If
 
 
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
 
-On Error Resume Next 'Operation içinde General Primary Asset Report.xlsx dosyasý yoksa oluþacak hata için
+On Error Resume Next 'Operation iÃ§inde General Primary Asset Report.xlsx dosyasÄ± yoksa oluÅŸacak hata iÃ§in
 OperasyonEsasVarlik = DestOpUserFolder & "General Primary Asset Report.xlsx"
-'General Primary Asset Report açýksa kaydet ve kapat.
+'General Primary Asset Report aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(OperasyonEsasVarlik)
 If OpenControl = True Then
     Workbooks("General Primary Asset Report.xlsx").Close SaveChanges:=True
 End If
 
-'Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 On Error Resume Next
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
@@ -99,7 +99,7 @@ If ContSay > 0 Then
     Kill DestOpUserFolder & "*.???"
 End If
 
-'Dosyayý operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
 fso.CopyFile (EsasVarlik), DestOpUserFolder & "General Primary Asset Report" & ".xlsx", True
 'open the file
@@ -117,8 +117,8 @@ SiraNoEsasVarlik = 1
 Devir = 0
 For Each ctl In core_asset_manager_UI.FrameGiris.Controls
     If TypeName(ctl) = "ListBox" Then
-        'RAPOR1 (GÝRÝÞ)
-        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ö" Then
+        'RAPOR1 (GÄ°RÄ°Åž)
+        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ã–" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
             IlkSira = 0
@@ -133,10 +133,10 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             If Not SonSiraBul Is Nothing Then
                 SonSira = SonSiraBul.Row
             End If
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -152,13 +152,13 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             WsVarliklar.Range("G" & SayEsasVarlik & ":G" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AR" & IlkSira & ":AR" & SonSira).Value
             
             WsVarliklar.Range("K" & SayEsasVarlik & ":K" & SayEsasVarlik + (SonSira - IlkSira)).Value = "*"
-            'ÖR yaz
+            'Ã–R yaz
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklar.Range("D" & i) <> "" Then
-                    WsVarliklar.Range("D" & i) = "ÖR/" & WsVarliklar.Range("D" & i)
+                    WsVarliklar.Range("D" & i) = "Ã–R/" & WsVarliklar.Range("D" & i)
                 End If
             Next i
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklar.Range("D" & i) = "" And WsVarliklar.Range("E" & i) <> "" Then
@@ -167,11 +167,11 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
-        'RAPOR (GÝRÝÞ)
+        'RAPOR (GÄ°RÄ°Åž)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " R" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -187,10 +187,10 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             If Not SonSiraBul Is Nothing Then
                 SonSira = SonSiraBul.Row
             End If
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -212,7 +212,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     WsVarliklar.Range("D" & i) = "R/" & WsVarliklar.Range("D" & i)
                 End If
             Next i
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklar.Range("D" & i) = "" And WsVarliklar.Range("E" & i) <> "" Then
@@ -221,11 +221,11 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
-        'RAPOR2_2 (GÝRÝÞ, KURUM ve XXXMud)
+        'RAPOR2_2 (GÄ°RÄ°Åž, KURUM ve XXXMud)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " B" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -241,8 +241,8 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             If Not SonSiraBul Is Nothing Then
                 SonSira = SonSiraBul.Row
             End If
-            'Aktarýmý baþlat
-            If Mid(ctl.List(0), InStr(ctl.List(0), "<") + 1, 1) = "T" Then 'Tümü
+            'AktarÄ±mÄ± baÅŸlat
+            If Mid(ctl.List(0), InStr(ctl.List(0), "<") + 1, 1) = "T" Then 'TÃ¼mÃ¼
                 SayEsasVarlikDongu = SayEsasVarlik
                 If Mid(ctl.List(0), InStr(ctl.List(0), ">") + 1, 8) = " (Incoming)" And _
                     ThisWorkbook.Worksheets(4).Cells(IlkSira, 188).Value = "No" Then 'Varlik paket
@@ -264,7 +264,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     
                     WsVarliklar.Range("J" & SayEsasVarlik & ":J" & SayEsasVarlik + (SonSira - IlkSira)).Value = "*"
                 Else
-                    'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                    'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                     NomSay = 0
                     NomDeger = 0
                     For i = IlkSira To SonSira
@@ -295,7 +295,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                         WsVarliklar.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                         WsVarliklar.Range("E" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
                         
-                        'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                        'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                         NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                         NomDeger = CLng(NomDeger)
                         WsVarliklar.Range("F" & SayEsasVarlikDongu).Value = NomDeger
@@ -343,7 +343,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                             WsVarliklar.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                             WsVarliklar.Range("E" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
     
-                            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                             NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                             NomDeger = CLng(NomDeger)
                             WsVarliklar.Range("F" & SayEsasVarlikDongu).Value = NomDeger
@@ -381,7 +381,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     Next j
                 End If
             Next i
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             If WsVarliklar.Range("E" & SayEsasVarlik).Value = "Package A" Or _
                 WsVarliklar.Range("E" & SayEsasVarlik).Value = "Package B" Or _
                 WsVarliklar.Range("E" & SayEsasVarlik).Value = "Package C" Then
@@ -403,11 +403,11 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     End If
                 Next i
             End If
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlikDongu  'SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
-        'RAPOR3_2 (GÝRÝÞ)
+        'RAPOR3_2 (GÄ°RÄ°Åž)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " M" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -423,10 +423,10 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             If Not SonSiraBul Is Nothing Then
                 SonSira = SonSiraBul.Row
             End If
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -447,7 +447,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             WsVarliklar.Range("G" & SayEsasVarlik & ":G" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("BF" & IlkSira & ":BF" & SonSira).Value
             
             WsVarliklar.Range("K" & SayEsasVarlik & ":K" & SayEsasVarlik + (SonSira - IlkSira)).Value = "*"
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklar.Range("D" & i) = "" And WsVarliklar.Range("E" & i) <> "" Then
@@ -466,11 +466,11 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                 Next i
             End If
                 
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
-        'RAPOR3_1 (GÝRÝÞ)
+        'RAPOR3_1 (GÄ°RÄ°Åž)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " G" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -486,10 +486,10 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             If Not SonSiraBul Is Nothing Then
                 SonSira = SonSiraBul.Row
             End If
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -510,7 +510,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             WsVarliklar.Range("G" & SayEsasVarlik & ":G" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("EF" & IlkSira & ":EF" & SonSira).Value
             
             WsVarliklar.Range("K" & SayEsasVarlik & ":K" & SayEsasVarlik + (SonSira - IlkSira)).Value = "*"
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklar.Range("D" & i) = "" And WsVarliklar.Range("E" & i) <> "" Then
@@ -529,7 +529,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                 Next i
             End If
 
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
@@ -539,8 +539,8 @@ Next ctl
 
 For Each ctl In core_asset_manager_UI.FrameCikis.Controls
     If TypeName(ctl) = "ListBox" Then
-        'RAPOR1 (ÇIKIÞLAR)
-        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ö" Then
+        'RAPOR1 (Ã‡IKIÅžLAR)
+        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ã–" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
             IlkSira = 0
@@ -555,10 +555,10 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             If Not SonSiraBul Is Nothing Then
                 SonSira = SonSiraBul.Row
             End If
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -571,19 +571,19 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             WsVarliklar.Range("D" & SayEsasVarlik & ":D" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("K" & IlkSira & ":K" & SonSira).Value
             WsVarliklar.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AL" & IlkSira & ":AL" & SonSira).Value
             'WsVarliklar.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AO" & IlkSira & ":AO" & SonSira).Value
-            If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+            If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                 WsVarliklar.Range("G" & SayEsasVarlik & ":G" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AR" & IlkSira & ":AR" & SonSira).Value
             End If
             WsVarliklar.Range("H" & SayEsasVarlik & ":H" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AR" & IlkSira & ":AR" & SonSira).Value
             
             WsVarliklar.Range("K" & SayEsasVarlik & ":K" & SayEsasVarlik + (SonSira - IlkSira)).Value = "*"
-            'ÖR yaz
+            'Ã–R yaz
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklar.Range("D" & i) <> "" Then
-                    WsVarliklar.Range("D" & i) = "ÖR/" & WsVarliklar.Range("D" & i)
+                    WsVarliklar.Range("D" & i) = "Ã–R/" & WsVarliklar.Range("D" & i)
                 End If
             Next i
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklar.Range("D" & i) = "" And WsVarliklar.Range("E" & i) <> "" Then
@@ -592,16 +592,16 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
             
-            'Devreden bakiyeden çýkýþlarýn da önceki günün devrine ilavesi(DEVÝR)
+            'Devreden bakiyeden Ã§Ä±kÄ±ÅŸlarÄ±n da Ã¶nceki gÃ¼nÃ¼n devrine ilavesi(DEVÄ°R)
             If ctl.BackColor = &H80000003 Then
                 Devir = Devir + Application.Sum(ThisWorkbook.Worksheets(3).Range("AR" & IlkSira & ":AR" & SonSira))
             End If
         End If
-        'RAPOR (ÇIKIÞLAR)
+        'RAPOR (Ã‡IKIÅžLAR)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " R" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -617,10 +617,10 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             If Not SonSiraBul Is Nothing Then
                 SonSira = SonSiraBul.Row
             End If
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
     
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -633,7 +633,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             WsVarliklar.Range("D" & SayEsasVarlik & ":D" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("K" & IlkSira & ":K" & SonSira).Value
             WsVarliklar.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AT" & IlkSira & ":AT" & SonSira).Value
             'WsVarliklar.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AW" & IlkSira & ":AW" & SonSira).Value
-            If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+            If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                 WsVarliklar.Range("G" & SayEsasVarlik & ":G" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
             End If
             WsVarliklar.Range("H" & SayEsasVarlik & ":H" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
@@ -645,7 +645,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     WsVarliklar.Range("D" & i) = "R/" & WsVarliklar.Range("D" & i)
                 End If
             Next i
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklar.Range("D" & i) = "" And WsVarliklar.Range("E" & i) <> "" Then
@@ -654,16 +654,16 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
             
-            'Devreden bakiyeden çýkýþlarýn da önceki günün devrine ilavesi (DEVÝR)
+            'Devreden bakiyeden Ã§Ä±kÄ±ÅŸlarÄ±n da Ã¶nceki gÃ¼nÃ¼n devrine ilavesi (DEVÄ°R)
             If ctl.BackColor = &H80000003 Then
                 Devir = Devir + Application.Sum(ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira))
             End If
         End If
-        'RAPOR2_2 (ÇIKIÞLAR, KURUM ve XXXMud)
+        'RAPOR2_2 (Ã‡IKIÅžLAR, KURUM ve XXXMud)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " B" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -679,8 +679,8 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             If Not SonSiraBul Is Nothing Then
                 SonSira = SonSiraBul.Row
             End If
-            'Aktarýmý baþlat
-            If Mid(ctl.List(0), InStr(ctl.List(0), "<") + 1, 1) = "T" Then 'Tümü
+            'AktarÄ±mÄ± baÅŸlat
+            If Mid(ctl.List(0), InStr(ctl.List(0), "<") + 1, 1) = "T" Then 'TÃ¼mÃ¼
                 SayEsasVarlikDongu = SayEsasVarlik
                 If Mid(ctl.List(0), InStr(ctl.List(0), ">") + 1, 8) = " (Incoming)" And _
                     ThisWorkbook.Worksheets(4).Cells(IlkSira, 188).Value = "No" Then 'Varlik paket
@@ -692,7 +692,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                         WsVarliklar.Range("E" & SayEsasVarlik).Value = "Incomplete Data Entry!"
                     End If
                     WsVarliklar.Range("F" & SayEsasVarlik).Value = "-"
-                    If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                    If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                         If ThisWorkbook.Worksheets(4).Cells(IlkSira, 202).Value <> "" Then
                             WsVarliklar.Range("G" & SayEsasVarlik).Value = ThisWorkbook.Worksheets(4).Cells(IlkSira, 202).Value 'Package A adedi
                         Else
@@ -707,7 +707,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     
                     SayEsasVarlikDongu = SayEsasVarlikDongu + (SonSira - IlkSira) + 1
                     
-                    'Devreden bakiyeden çýkýþlarýn da önceki günün devrine ilavesi (DEVÝR)
+                    'Devreden bakiyeden Ã§Ä±kÄ±ÅŸlarÄ±n da Ã¶nceki gÃ¼nÃ¼n devrine ilavesi (DEVÄ°R)
                     If ctl.BackColor = &H80000003 Then
                         Devir = Devir + ThisWorkbook.Worksheets(4).Cells(IlkSira, 202).Value 'Package A adedi
                     End If
@@ -715,7 +715,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     WsVarliklar.Range("J" & SayEsasVarlik & ":J" & SayEsasVarlik + (SonSira - IlkSira)).Value = "*"
                 Else
                     WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
-                    'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                    'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                     NomSay = 0
                     NomDeger = 0
                     For i = IlkSira To SonSira
@@ -728,13 +728,13 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     WsVarliklar.Range("D" & SayEsasVarlik & ":D" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("K" & IlkSira & ":K" & SonSira).Value
                     WsVarliklar.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AT" & IlkSira & ":AT" & SonSira).Value
                     'WsVarliklar.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AW" & IlkSira & ":AW" & SonSira).Value
-                    If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                    If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                         WsVarliklar.Range("G" & SayEsasVarlik & ":G" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
                     End If
                     WsVarliklar.Range("H" & SayEsasVarlik & ":H" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
                     SayEsasVarlikDongu = SayEsasVarlikDongu + (SonSira - IlkSira) + 1
     
-                    'Devreden bakiyeden çýkýþlarýn da önceki günün devrine ilavesi (DEVÝR)
+                    'Devreden bakiyeden Ã§Ä±kÄ±ÅŸlarÄ±n da Ã¶nceki gÃ¼nÃ¼n devrine ilavesi (DEVÄ°R)
                     If ctl.BackColor = &H80000003 Then
                         Devir = Devir + Application.Sum(ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira))
                     End If
@@ -753,18 +753,18 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                         WsVarliklar.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                         WsVarliklar.Range("E" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
                         
-                        'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                        'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                         NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                         NomDeger = CLng(NomDeger)
                         WsVarliklar.Range("F" & SayEsasVarlikDongu).Value = NomDeger
                         
                         'WsVarliklar.Range("F" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
-                        If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                        If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                             WsVarliklar.Range("G" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AZ" & j).Value
                         End If
                         WsVarliklar.Range("H" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AZ" & j).Value
                         
-                        'Devreden bakiyeden çýkýþlarýn da önceki günün devrine ilavesi (DEVÝR)
+                        'Devreden bakiyeden Ã§Ä±kÄ±ÅŸlarÄ±n da Ã¶nceki gÃ¼nÃ¼n devrine ilavesi (DEVÄ°R)
                         If ctl.BackColor = &H80000003 Then
                             Devir = Devir + Application.Sum(ThisWorkbook.Worksheets(4).Range("AZ" & j))
                         End If
@@ -794,7 +794,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     End If
                     WsVarliklar.Range("F" & SayEsasVarlik).Value = "-"
                     
-                    If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                    If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                         If ThisWorkbook.Worksheets(4).Cells(IlkSira, 202).Value <> "" Then
                             WsVarliklar.Range("G" & SayEsasVarlik).Value = ThisWorkbook.Worksheets(4).Cells(IlkSira, 202).Value 'Package A adedi
                         Else
@@ -810,7 +810,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     WsVarliklar.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlikDongu - 1).Merge
                     WsVarliklar.Range("G" & SayEsasVarlik & ":G" & SayEsasVarlikDongu - 1).Merge
                     WsVarliklar.Range("H" & SayEsasVarlik & ":H" & SayEsasVarlikDongu - 1).Merge
-                    'Devreden bakiyeden çýkýþlarýn da önceki günün devrine ilavesi (DEVÝR)
+                    'Devreden bakiyeden Ã§Ä±kÄ±ÅŸlarÄ±n da Ã¶nceki gÃ¼nÃ¼n devrine ilavesi (DEVÄ°R)
                     If ctl.BackColor = &H80000003 Then
                         Devir = Devir + ThisWorkbook.Worksheets(4).Cells(IlkSira, 202).Value 'Package A adedi
                     End If
@@ -827,18 +827,18 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                             WsVarliklar.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                             WsVarliklar.Range("E" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
     
-                            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                             NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                             NomDeger = CLng(NomDeger)
                             WsVarliklar.Range("F" & SayEsasVarlikDongu).Value = NomDeger
                             
                             'WsVarliklar.Range("F" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
-                            If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                            If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                                 WsVarliklar.Range("G" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AZ" & j).Value
                             End If
                             WsVarliklar.Range("H" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AZ" & j).Value
     
-                            'Devreden bakiyeden çýkýþlarýn da önceki günün devrine ilavesi (DEVÝR)
+                            'Devreden bakiyeden Ã§Ä±kÄ±ÅŸlarÄ±n da Ã¶nceki gÃ¼nÃ¼n devrine ilavesi (DEVÄ°R)
                             If ctl.BackColor = &H80000003 Then
                                 Devir = Devir + Application.Sum(ThisWorkbook.Worksheets(4).Range("AZ" & j))
                             End If
@@ -874,7 +874,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     Next j
                 End If
             Next i
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             If WsVarliklar.Range("E" & SayEsasVarlik).Value = "Package A" Or _
                 WsVarliklar.Range("E" & SayEsasVarlik).Value = "Package B" Or _
                 WsVarliklar.Range("E" & SayEsasVarlik).Value = "Package C" Then
@@ -896,11 +896,11 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     End If
                 Next i
             End If
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlikDongu  'SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
-        'RAPOR3_2 (ÇIKIÞLAR)
+        'RAPOR3_2 (Ã‡IKIÅžLAR)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " M" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -916,10 +916,10 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             If Not SonSiraBul Is Nothing Then
                 SonSira = SonSiraBul.Row
             End If
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -937,13 +937,13 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             
             WsVarliklar.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
             'WsVarliklar.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("BC" & IlkSira & ":BC" & SonSira).Value
-            If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+            If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                 WsVarliklar.Range("G" & SayEsasVarlik & ":G" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("BF" & IlkSira & ":BF" & SonSira).Value
             End If
             WsVarliklar.Range("H" & SayEsasVarlik & ":H" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("BF" & IlkSira & ":BF" & SonSira).Value
             
             WsVarliklar.Range("K" & SayEsasVarlik & ":K" & SayEsasVarlik + (SonSira - IlkSira)).Value = "*"
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklar.Range("D" & i) = "" And WsVarliklar.Range("E" & i) <> "" Then
@@ -963,16 +963,16 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             End If
 
             
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
 
-            'Devreden bakiyeden çýkýþlarýn da önceki günün devrine ilavesi (DEVÝR)
+            'Devreden bakiyeden Ã§Ä±kÄ±ÅŸlarÄ±n da Ã¶nceki gÃ¼nÃ¼n devrine ilavesi (DEVÄ°R)
             If ctl.BackColor = &H80000003 Then
                 Devir = Devir + Application.Sum(ThisWorkbook.Worksheets(5).Range("BF" & IlkSira & ":BF" & SonSira))
             End If
         End If
-        'RAPOR3_1 (ÇIKIÞLAR)
+        'RAPOR3_1 (Ã‡IKIÅžLAR)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " G" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -988,10 +988,10 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             If Not SonSiraBul Is Nothing Then
                 SonSira = SonSiraBul.Row
             End If
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -1009,13 +1009,13 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             
             WsVarliklar.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("DZ" & IlkSira & ":DZ" & SonSira).Value
             'WsVarliklar.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("EC" & IlkSira & ":EC" & SonSira).Value
-            If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+            If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                 WsVarliklar.Range("G" & SayEsasVarlik & ":G" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("EF" & IlkSira & ":EF" & SonSira).Value
             End If
             WsVarliklar.Range("H" & SayEsasVarlik & ":H" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("EF" & IlkSira & ":EF" & SonSira).Value
             
             WsVarliklar.Range("K" & SayEsasVarlik & ":K" & SayEsasVarlik + (SonSira - IlkSira)).Value = "*"
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklar.Range("D" & i) = "" And WsVarliklar.Range("E" & i) <> "" Then
@@ -1035,11 +1035,11 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             End If
 
             
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
 
-            'Devreden bakiyeden çýkýþlarýn da önceki günün devrine ilavesi (DEVÝR)
+            'Devreden bakiyeden Ã§Ä±kÄ±ÅŸlarÄ±n da Ã¶nceki gÃ¼nÃ¼n devrine ilavesi (DEVÄ°R)
             If ctl.BackColor = &H80000003 Then
                 Devir = Devir + Application.Sum(ThisWorkbook.Worksheets(5).Range("EF" & IlkSira & ":EF" & SonSira))
             End If
@@ -1050,7 +1050,7 @@ Next ctl
 
 
 'GoTo DuzenlemeyiAtla
-'_____________________________________________________________BAÞLANGIÇ (Direkt kaldýrsan yine de sorunsuz çalýþýr.)
+'_____________________________________________________________BAÅžLANGIÃ‡ (Direkt kaldÄ±rsan yine de sorunsuz Ã§alÄ±ÅŸÄ±r.)
 
 Dim KontB As Integer, KontR As Integer, SayEsasVarlikx As Long
 Dim SayEsasVarlikTakip As Long, a As Integer, b As Integer
@@ -1062,14 +1062,14 @@ KontR = 0
 SayEsasVarlikTakip = SayEsasVarlik
 SayEsasVarlikx = SayEsasVarlik
 
-'General Primary Asset Report düzeltme faktörü (Technique A ve diðerlerinin sýra numarasýný birleþtir.)
+'General Primary Asset Report dÃ¼zeltme faktÃ¶rÃ¼ (Technique A ve diÄŸerlerinin sÄ±ra numarasÄ±nÄ± birleÅŸtir.)
 If SayEsasVarlikx - 1 >= 7 Then
 '    'RAPOR2_2 NO ESAS ALINIYOR
     For i = 7 To SayEsasVarlik - 1
-        'Tespit etme bölümü (1)
+        'Tespit etme bÃ¶lÃ¼mÃ¼ (1)
         If WsVarliklar.Range("D" & i) <> "" And Left(WsVarliklar.Range("D" & i).Value, 1) = "B" Then
             If Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, 1) = "R" Then
-                StrRaporNo = Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, Len(WsVarliklar.Range("D" & i)) - InStr(WsVarliklar.Range("D" & i), "(") - 1) 'R/raporno þeklinde
+                StrRaporNo = Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, Len(WsVarliklar.Range("D" & i)) - InStr(WsVarliklar.Range("D" & i), "(") - 1) 'R/raporno ÅŸeklinde
                 'MsgBox "1: " & StrRaporNo
                 StrRaporNo = Mid(StrRaporNo, 3, Len(StrRaporNo)) 'Sadece rapor no
                 'MsgBox "2: " & StrRaporNo
@@ -1082,7 +1082,7 @@ If SayEsasVarlikx - 1 >= 7 Then
                     End If
                 Next j
 DonguBitir1:
-                StrRaporNo = StrRaporNox 'Alt rapor no kýrýlýmý kaldýrýldý
+                StrRaporNo = StrRaporNox 'Alt rapor no kÄ±rÄ±lÄ±mÄ± kaldÄ±rÄ±ldÄ±
                 'MsgBox StrRaporNo
 
                 If KontB = 0 Then
@@ -1110,7 +1110,7 @@ xDonguSon1:
                 'WsVarliklar.Range("J" & IlkAltSatirNo & ":J" & SonAltSatirNo).Value = WsVarliklar.Range("D" & IlkAltSatirNo).Value '"Sil"
                 WsVarliklar.Range("C" & IlkAltSatirNo & ":J" & SonAltSatirNo).UnMerge
                 WsVarliklar.Range("C" & IlkAltSatirNo & ":J" & SonAltSatirNo).ClearContents
-                'Aratma bölümü (2)
+                'Aratma bÃ¶lÃ¼mÃ¼ (2)
                 SayEsasVarlikTakip = SayEsasVarlikTakip + (SonAltSatirNo - IlkAltSatirNo + 1)
                 For j = 7 To SayEsasVarlik 'Takip - 1
                     If InStr(WsVarliklar.Range("D" & j).Value, "R/" & StrRaporNo) <> 0 Then
@@ -1146,11 +1146,11 @@ xDonguSon2:
     
     'RAPOR NO ESAS ALINIYOR
     For i = 7 To SayEsasVarlik - 1
-        'Tespit etme bölümü (1)
+        'Tespit etme bÃ¶lÃ¼mÃ¼ (1)
         If WsVarliklar.Range("D" & i) <> "" And Left(WsVarliklar.Range("D" & i).Value, 1) = "R" Then
             If Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, 1) = "B" Then
-                'StrRaporNo = Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, Len(WsVarliklar.Range("D" & i)) - InStr(WsVarliklar.Range("D" & i), "(") - 1) 'R/raporno þeklinde
-                StrRaporNo = Left(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") - 2) 'R/raporno þeklinde
+                'StrRaporNo = Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, Len(WsVarliklar.Range("D" & i)) - InStr(WsVarliklar.Range("D" & i), "(") - 1) 'R/raporno ÅŸeklinde
+                StrRaporNo = Left(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") - 2) 'R/raporno ÅŸeklinde
                 'MsgBox StrRaporNo
 
                 StrRaporNo = Mid(StrRaporNo, 3, Len(StrRaporNo)) 'Sadece rapor no
@@ -1165,7 +1165,7 @@ xDonguSon2:
                     End If
                 Next j
 DonguBitir2:
-                StrRaporNo = StrRaporNox 'Alt rapor no kýrýlýmý kaldýrýldý
+                StrRaporNo = StrRaporNox 'Alt rapor no kÄ±rÄ±lÄ±mÄ± kaldÄ±rÄ±ldÄ±
                 'MsgBox StrRaporNo
 
                 If KontR = 0 Then
@@ -1193,7 +1193,7 @@ xDonguSon3:
                 'WsVarliklar.Range("J" & IlkAltSatirNo & ":J" & SonAltSatirNo).Value = WsVarliklar.Range("D" & IlkAltSatirNo).Value '"Sil"
                 WsVarliklar.Range("C" & IlkAltSatirNo & ":J" & SonAltSatirNo).UnMerge
                 WsVarliklar.Range("C" & IlkAltSatirNo & ":J" & SonAltSatirNo).ClearContents
-                'Aratma bölümü (2)
+                'Aratma bÃ¶lÃ¼mÃ¼ (2)
                 SayEsasVarlikTakip = SayEsasVarlikTakip + (SonAltSatirNo - IlkAltSatirNo + 1)
                 For j = 7 To SayEsasVarlik 'Takip - 1
                     If InStr(WsVarliklar.Range("D" & j).Value, "R/" & StrRaporNo) <> 0 Then
@@ -1231,7 +1231,7 @@ xDonguSon4:
 
     SayEsasVarlik = SayEsasVarlikTakip
 
-    'Sýra no.lar
+    'SÄ±ra no.lar
     SiraNoEsasVarlik = 0
     'MsgBox SayEsasVarlik
     'WsVarliklar.Range("C" & 7 & ":C" & SayEsasVarlik).ClearContents
@@ -1290,24 +1290,24 @@ Else
     SayEsasVarlik = SayEsasVarlik + 1
 End If
 
-'_____________________________________________________________BÝTÝÞ
+'_____________________________________________________________BÄ°TÄ°Åž
 
 
 
-'____________________Ýkinci düzenleme bölümü, BAÞLANGIÇ (Bu bölüm sadece XXXMud'den gelen raporlarý/öðelerin çýkýþý içindir.)
+'____________________Ä°kinci dÃ¼zenleme bÃ¶lÃ¼mÃ¼, BAÅžLANGIÃ‡ (Bu bÃ¶lÃ¼m sadece XXXMud'den gelen raporlarÄ±/Ã¶ÄŸelerin Ã§Ä±kÄ±ÅŸÄ± iÃ§indir.)
 
 SayEsasVarlikTakip = SayEsasVarlik
 SayEsasVarlikx = SayEsasVarlik
 
-'Raporlarýn rapro no.'larý ile onun alt kýrýlýmýný sayýsal bir deðere dönüþtür. Bu özellik raporlarý kendi içinde sýralamada kullanýlacak.
+'RaporlarÄ±n rapro no.'larÄ± ile onun alt kÄ±rÄ±lÄ±mÄ±nÄ± sayÄ±sal bir deÄŸere dÃ¶nÃ¼ÅŸtÃ¼r. Bu Ã¶zellik raporlarÄ± kendi iÃ§inde sÄ±ralamada kullanÄ±lacak.
 If SayEsasVarlikx - 1 >= 7 Then
     'RAPOR ve RAPOR2_2 NO ESAS ALINIYOR
     For i = 7 To SayEsasVarlik - 1
         'R
         If WsVarliklar.Range("D" & i) <> "" And Left(WsVarliklar.Range("D" & i).Value, 1) = "R" Then
             If Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, 1) = "B" Then
-                'StrRaporNo = Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, Len(WsVarliklar.Range("D" & i)) - InStr(WsVarliklar.Range("D" & i), "(") - 1) 'R/raporno þeklinde
-                StrRaporNo = Left(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") - 2) 'R/raporno þeklinde
+                'StrRaporNo = Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, Len(WsVarliklar.Range("D" & i)) - InStr(WsVarliklar.Range("D" & i), "(") - 1) 'R/raporno ÅŸeklinde
+                StrRaporNo = Left(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") - 2) 'R/raporno ÅŸeklinde
                 'MsgBox StrRaporNo
             ElseIf Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, 1) <> "B" Then
                 StrRaporNo = WsVarliklar.Range("D" & i)
@@ -1316,7 +1316,7 @@ If SayEsasVarlikx - 1 >= 7 Then
         'B
         If WsVarliklar.Range("D" & i) <> "" And Left(WsVarliklar.Range("D" & i).Value, 1) = "B" Then
             If Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, 1) = "R" Then
-                StrRaporNo = Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, Len(WsVarliklar.Range("D" & i)) - InStr(WsVarliklar.Range("D" & i), "(") - 1) 'R/raporno þeklinde
+                StrRaporNo = Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, Len(WsVarliklar.Range("D" & i)) - InStr(WsVarliklar.Range("D" & i), "(") - 1) 'R/raporno ÅŸeklinde
                 'MsgBox "1: " & StrRaporNo
             End If
         End If
@@ -1325,9 +1325,9 @@ If SayEsasVarlikx - 1 >= 7 Then
         'MsgBox StrRaporNo
         '_________________________
         For a = 1 To 50
-            StrRaporNo = Replace(StrRaporNo, " ", "") 'Rapor no içinde varsa boþluklarý kaldýr
+            StrRaporNo = Replace(StrRaporNo, " ", "") 'Rapor no iÃ§inde varsa boÅŸluklarÄ± kaldÄ±r
         Next a
-        NumRaporNo = Replace(StrRaporNo, "-", "0000") '1-1'in 100001 gerçek rapor no ile çakýþma ihtimali 0'a yakýn.
+        NumRaporNo = Replace(StrRaporNo, "-", "0000") '1-1'in 100001 gerÃ§ek rapor no ile Ã§akÄ±ÅŸma ihtimali 0'a yakÄ±n.
 
         '_________________________
 
@@ -1340,7 +1340,7 @@ If SayEsasVarlikx - 1 >= 7 Then
             End If
         Next j
 DonguBitir21:
-        StrRaporNo = StrRaporNox 'Alt rapor no kýrýlýmý kaldýrýldý
+        StrRaporNo = StrRaporNox 'Alt rapor no kÄ±rÄ±lÄ±mÄ± kaldÄ±rÄ±ldÄ±
         'MsgBox StrRaporNo
 
 
@@ -1382,12 +1382,12 @@ DonguSonuIlkSiraVarlik1:
 End If
 
 
-'XXXMud'den gelen ve varlýkdaki raporlar. SIRALAMA ve BÝRLEÞTÝRME
+'XXXMud'den gelen ve varlÄ±kdaki raporlar. SIRALAMA ve BÄ°RLEÅžTÄ°RME
 For i = 7 To SayEsasVarlik - 1
     If WsVarliklar.Range("M" & i) = "" Then 'And WsVarliklar.Range("H" & i) <> "" Then
         If Left(WsVarliklar.Range("D" & i).Value, 1) = "R" Then
             If Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, 1) = "B" Then
-                StrRaporNo = Left(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") - 2) 'R/raporno þeklinde
+                StrRaporNo = Left(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") - 2) 'R/raporno ÅŸeklinde
                 'MsgBox StrRaporNo
             ElseIf Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, 1) <> "B" Then
                 StrRaporNo = WsVarliklar.Range("D" & i)
@@ -1395,7 +1395,7 @@ For i = 7 To SayEsasVarlik - 1
         End If
         If Left(WsVarliklar.Range("D" & i).Value, 1) = "B" Then
             If Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, 1) = "R" Then
-                StrRaporNo = Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, Len(WsVarliklar.Range("D" & i)) - InStr(WsVarliklar.Range("D" & i), "(") - 1) 'R/raporno þeklinde
+                StrRaporNo = Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, Len(WsVarliklar.Range("D" & i)) - InStr(WsVarliklar.Range("D" & i), "(") - 1) 'R/raporno ÅŸeklinde
             End If
         End If
 
@@ -1411,7 +1411,7 @@ For i = 7 To SayEsasVarlik - 1
             End If
         Next j
 DonguBitir22:
-        StrRaporNo = StrRaporNox 'Alt rapor no kýrýlýmý kaldýrýldý
+        StrRaporNo = StrRaporNox 'Alt rapor no kÄ±rÄ±lÄ±mÄ± kaldÄ±rÄ±ldÄ±
         'MsgBox StrRaporNo
         '_______________
 
@@ -1436,12 +1436,12 @@ DonguBitir22:
 
         WsVarliklar.Range("N" & IlkSiraVarlik) = IlkSiraVarlik
         WsVarliklar.Range("O" & SonSiraVarlik) = SonSiraVarlik
-        WsVarliklar.Range("M" & IlkSiraVarlik & ":M" & SonSiraVarlik).Value = "*" 'Ayný satýrlarda tekrar iþlem yapmasýn diye
+        WsVarliklar.Range("M" & IlkSiraVarlik & ":M" & SonSiraVarlik).Value = "*" 'AynÄ± satÄ±rlarda tekrar iÅŸlem yapmasÄ±n diye
         'Sorting Z to A by NumRaporNo
         WsVarliklar.Range("D" & IlkSiraVarlik & ":L" & SonSiraVarlik).UnMerge
         WsVarliklar.Range("D" & IlkSiraVarlik & ":L" & SonSiraVarlik).Sort key1:=Range("L" & IlkSiraVarlik & ":L" & SonSiraVarlik), order1:=xlAscending, Header:=xlNo
 
-        'Rapor no.'larý ve Package A/Package B/Package C satýrlarýný birleþtir.
+        'Rapor no.'larÄ± ve Package A/Package B/Package C satÄ±rlarÄ±nÄ± birleÅŸtir.
         For j = IlkSiraVarlik To SonSiraVarlik
             If WsVarliklar.Range("L" & j).Value <> "" Then
                 If WsVarliklar.Range("L" & j).Value = WsVarliklar.Range("L" & j + 1).Value Then
@@ -1468,13 +1468,13 @@ aDonguSonu:
 DonguSonuIlkSiraVarlik:
 Next i
 
-'Artýklarý temizle
+'ArtÄ±klarÄ± temizle
 If SayEsasVarlik < 7 Then
     SayEsasVarlik = 7
 End If
 WsVarliklar.Range("I" & 7 & ":O" & SayEsasVarlik).ClearContents
 
-'____________________Ýkinci düzenleme bölümü, BÝTÝÞ
+'____________________Ä°kinci dÃ¼zenleme bÃ¶lÃ¼mÃ¼, BÄ°TÄ°Åž
 
 
 DuzenlemeyiAtla:
@@ -1483,8 +1483,8 @@ DuzenlemeyiAtla:
 
 For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
     If TypeName(ctl) = "ListBox" Then
-        'RAPOR1 (DEVÝRLER)
-        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ö" Then
+        'RAPOR1 (DEVÄ°RLER)
+        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ã–" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
             IlkSira = 0
@@ -1502,7 +1502,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
             'Devirleri hesapla
             Devir = Devir + Application.Sum(ThisWorkbook.Worksheets(3).Range("AR" & IlkSira & ":AR" & SonSira))
         End If
-        'RAPOR (DEVÝRLER)
+        'RAPOR (DEVÄ°RLER)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " R" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -1521,7 +1521,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
             'Devirleri hesapla
             Devir = Devir + Application.Sum(ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira))
         End If
-        'RAPOR2_2 (DEVÝRLER, KURUM ve XXXMud)
+        'RAPOR2_2 (DEVÄ°RLER, KURUM ve XXXMud)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " B" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -1538,7 +1538,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                 SonSira = SonSiraBul.Row
             End If
             'Devirleri hesapla
-            If Mid(ctl.List(0), InStr(ctl.List(0), "<") + 1, 1) = "T" Then 'Tümü
+            If Mid(ctl.List(0), InStr(ctl.List(0), "<") + 1, 1) = "T" Then 'TÃ¼mÃ¼
                 If Mid(ctl.List(0), InStr(ctl.List(0), ">") + 1, 8) = " (Incoming)" And _
                     ThisWorkbook.Worksheets(4).Cells(IlkSira, 188).Value = "No" Then 'Varlik paket
                     Devir = Devir + ThisWorkbook.Worksheets(4).Cells(IlkSira, 202).Value 'Package A adedi
@@ -1564,7 +1564,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                 End If
             End If
         End If
-        'RAPOR3_2 (DEVÝRLER)
+        'RAPOR3_2 (DEVÄ°RLER)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " M" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -1583,7 +1583,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
             'Devirleri hesapla
             Devir = Devir + Application.Sum(ThisWorkbook.Worksheets(5).Range("BF" & IlkSira & ":BF" & SonSira))
         End If
-        'RAPOR3_1 (DEVÝRLER)
+        'RAPOR3_1 (DEVÄ°RLER)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " G" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -1625,18 +1625,18 @@ WsVarliklar.Range("C" & SayEsasVarlik + 2 & ":G" & SayEsasVarlik + 2).Horizontal
 WsVarliklar.Range("C" & SayEsasVarlik + 3 & ":G" & SayEsasVarlik + 3).HorizontalAlignment = xlLeft
 
 If SayEsasVarlik - 1 >= 7 Then
-    WsVarliklar.Range("G" & SayEsasVarlik) = Application.Sum(WsVarliklar.Range(Cells(7, 7), WsVarliklar.Cells(SayEsasVarlik - 1, 7))) 'Giriþ toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik) = Application.Sum(WsVarliklar.Range(Cells(7, 8), WsVarliklar.Cells(SayEsasVarlik - 1, 8))) 'Çýkýþ toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik + 2) = Devir 'Devir toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik + 3) = WsVarliklar.Range("G" & SayEsasVarlik) + Devir - WsVarliklar.Range("H" & SayEsasVarlik) 'Gün sonu toplamý 'Gün sonu toplamý
+    WsVarliklar.Range("G" & SayEsasVarlik) = Application.Sum(WsVarliklar.Range(Cells(7, 7), WsVarliklar.Cells(SayEsasVarlik - 1, 7))) 'GiriÅŸ toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik) = Application.Sum(WsVarliklar.Range(Cells(7, 8), WsVarliklar.Cells(SayEsasVarlik - 1, 8))) 'Ã‡Ä±kÄ±ÅŸ toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik + 2) = Devir 'Devir toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik + 3) = WsVarliklar.Range("G" & SayEsasVarlik) + Devir - WsVarliklar.Range("H" & SayEsasVarlik) 'GÃ¼n sonu toplamÄ± 'GÃ¼n sonu toplamÄ±
 Else
-    WsVarliklar.Range("G" & SayEsasVarlik) = 0 'Giriþ toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik) = 0 'Çýkýþ toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik + 2) = Devir 'Devir toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik + 3) = 0 + Devir - 0 'Gün sonu toplamý
+    WsVarliklar.Range("G" & SayEsasVarlik) = 0 'GiriÅŸ toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik) = 0 'Ã‡Ä±kÄ±ÅŸ toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik + 2) = Devir 'Devir toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik + 3) = 0 + Devir - 0 'GÃ¼n sonu toplamÄ±
 End If
 
-'Kontrol edilmiþtir metni.
+'Kontrol edilmiÅŸtir metni.
 WsVarliklar.Range("C" & SayEsasVarlik + 5) = "The above records have been reviewed by us."
 WsVarliklar.Range("C" & SayEsasVarlik + 5 & ":H" & SayEsasVarlik + 5).Merge
 WsVarliklar.Range("C" & SayEsasVarlik + 5 & ":H" & SayEsasVarlik + 5).HorizontalAlignment = xlCenter 'xlLeft
@@ -1691,7 +1691,7 @@ End If
 VarlikImza3Atla:
 
 
-'Ýmza satýrlarýný ayarla
+'Ä°mza satÄ±rlarÄ±nÄ± ayarla
 WsVarliklar.Range("C" & SayEsasVarlik + 10 & ":D" & SayEsasVarlik + 10).Font.Color = RGB(191, 191, 191)
 WsVarliklar.Range("C" & SayEsasVarlik + 10 & ":D" & SayEsasVarlik + 10).Merge
 WsVarliklar.Range("C" & SayEsasVarlik + 10 & ":D" & SayEsasVarlik + 10).HorizontalAlignment = xlCenter
@@ -1717,7 +1717,7 @@ WsVarliklar.Range("G" & SayEsasVarlik + 12 & ":H" & SayEsasVarlik + 12).Merge
 WsVarliklar.Range("G" & SayEsasVarlik + 12 & ":H" & SayEsasVarlik + 12).HorizontalAlignment = xlCenter
 
 
-'Kenarlýklar.
+'KenarlÄ±klar.
 Set Kenarlar = WsVarliklar.Range("C" & 7 & ":H" & SayEsasVarlik + 3)
 'Kenarlar.Borders(xlDiagonalDown).LineStyle = xlNone
 'Kenarlar.Borders(xlDiagonalUp).LineStyle = xlNone
@@ -1739,7 +1739,7 @@ Son:
 
 ThisWorkbook.Activate
 
-'Application.DisplayAlerts = True 'Kodlar tamamlanýnca iptal et
+'Application.DisplayAlerts = True 'Kodlar tamamlanÄ±nca iptal et
 
 End Sub
 
@@ -1759,30 +1759,30 @@ Dim GelenTema As String
 
 Dim NomDeger As Variant, NomSay As Integer
 
-'Application.DisplayAlerts = False 'Kodlar tamamlanýnca iptal et
+'Application.DisplayAlerts = False 'Kodlar tamamlanÄ±nca iptal et
 
 'Pathfinder...
 AutoPath = ThisWorkbook.Path
 DestOperasyon = AutoPath & "\System Files\Operation\"
 VarlikKlasoru = AutoPath & "\System Files\System Templates\Asset Templates\"
-EsasVarlik = VarlikKlasoru & "Report 1 – Supporting Asset Report.xlsx"
+EsasVarlik = VarlikKlasoru & "Report 1 â€“ Supporting Asset Report.xlsx"
 
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
 
-'System Files klasör adýný kontrol et.
+'System Files klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(AutoPath & "\System Files\", vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & AutoPath & "\System Files\" & ". The folder named 'System Files' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Operation klasörü adýný kontrol et.
+'Operation klasÃ¶rÃ¼ adÄ±nÄ± kontrol et.
 If Not Dir(DestOperasyon, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & DestOperasyon & ". The folder named 'Operation' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Registry Reports klasör adýný kontrol et.
+'Registry Reports klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(VarlikKlasoru, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & VarlikKlasoru & ". The folder named 'Asset Templates' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
@@ -1791,21 +1791,21 @@ If Not Dir(EsasVarlik, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & EsasVarlik & ". The names of folders and/or files in this directory might have been changed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
 
 
-On Error Resume Next 'Operation içinde Varlýklar.xlsx dosyasý yoksa oluþacak hata için
-OperasyonEsasVarlik = DestOpUserFolder & "Report 1 – Supporting Asset Report.xlsx"
-'Varlýklar açýksa kaydet ve kapat.
+On Error Resume Next 'Operation iÃ§inde VarlÄ±klar.xlsx dosyasÄ± yoksa oluÅŸacak hata iÃ§in
+OperasyonEsasVarlik = DestOpUserFolder & "Report 1 â€“ Supporting Asset Report.xlsx"
+'VarlÄ±klar aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(OperasyonEsasVarlik)
 If OpenControl = True Then
-    Workbooks("Report 1 – Supporting Asset Report.xlsx").Close SaveChanges:=True
+    Workbooks("Report 1 â€“ Supporting Asset Report.xlsx").Close SaveChanges:=True
 End If
 
-'Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 On Error Resume Next
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
@@ -1817,13 +1817,13 @@ If ContSay > 0 Then
     Kill DestOpUserFolder & "*.???"
 End If
 
-'Dosyayý operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
-fso.CopyFile (EsasVarlik), DestOpUserFolder & "Report 1 – Supporting Asset Report" & ".xlsx", True
+fso.CopyFile (EsasVarlik), DestOpUserFolder & "Report 1 â€“ Supporting Asset Report" & ".xlsx", True
 'open the file
 Workbooks.Open (OperasyonEsasVarlik)
 
-Set WsVarliklar = Workbooks("Report 1 – Supporting Asset Report.xlsx").Worksheets(1)
+Set WsVarliklar = Workbooks("Report 1 â€“ Supporting Asset Report.xlsx").Worksheets(1)
 WsVarliklar.Unprotect Password:="123"
 
 On Error GoTo 0
@@ -1835,8 +1835,8 @@ SiraNoEsasVarlik = 1
 'Devir = 0
 For Each ctl In core_asset_manager_UI.FrameGiris.Controls
     If TypeName(ctl) = "ListBox" Then
-        'RAPOR1 (GÝRÝÞ)
-        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ö" Then
+        'RAPOR1 (GÄ°RÄ°Åž)
+        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ã–" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
             IlkSira = 0
@@ -1860,10 +1860,10 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             Call Rapor1GelenTema
             GelenTema = GelenTemaGlobal
             
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
     
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -1882,13 +1882,13 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             WsVarliklar.Range("J" & SayEsasVarlik & ":J" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AL" & IlkSira & ":AL" & SonSira).Value
             'WsVarliklar.Range("K" & SayEsasVarlik & ":K" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AO" & IlkSira & ":AO" & SonSira).Value
             WsVarliklar.Range("M" & SayEsasVarlik & ":M" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AR" & IlkSira & ":AR" & SonSira).Value
-            'ÖR yaz
+            'Ã–R yaz
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklar.Range("D" & i) <> "" Then
-                    WsVarliklar.Range("D" & i) = "ÖR/" & WsVarliklar.Range("D" & i)
+                    WsVarliklar.Range("D" & i) = "Ã–R/" & WsVarliklar.Range("D" & i)
                 End If
             Next i
-            'Sýra ve kayýt nolar ile gönderen, belge no ve tarih, giriþ ve çýkýþ tarihini dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolar ile gÃ¶nderen, belge no ve tarih, giriÅŸ ve Ã§Ä±kÄ±ÅŸ tarihini dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklar.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklar.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Merge
@@ -1902,7 +1902,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
@@ -1912,8 +1912,8 @@ Next ctl
 
 For Each ctl In core_asset_manager_UI.FrameCikis.Controls
     If TypeName(ctl) = "ListBox" Then
-        'RAPOR1 (ÇIKIÞLAR)
-        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ö" Then
+        'RAPOR1 (Ã‡IKIÅžLAR)
+        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ã–" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
             IlkSira = 0
@@ -1937,10 +1937,10 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             Call Rapor1GelenTema
             GelenTema = GelenTemaGlobal
             
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -1958,19 +1958,19 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             WsVarliklar.Range("I" & SayEsasVarlik).Value = ThisWorkbook.Worksheets(3).Range("CR" & IlkSira)
             WsVarliklar.Range("J" & SayEsasVarlik & ":J" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AL" & IlkSira & ":AL" & SonSira).Value
             'WsVarliklar.Range("K" & SayEsasVarlik & ":K" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AO" & IlkSira & ":AO" & SonSira).Value
-            If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+            If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                 WsVarliklar.Range("M" & SayEsasVarlik & ":M" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AR" & IlkSira & ":AR" & SonSira).Value
             Else
                 WsVarliklar.Range("L" & SayEsasVarlik & ":L" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AR" & IlkSira & ":AR" & SonSira).Value
             End If
             WsVarliklar.Range("N" & SayEsasVarlik & ":N" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AR" & IlkSira & ":AR" & SonSira).Value
-            'ÖR yaz
+            'Ã–R yaz
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklar.Range("D" & i) <> "" Then
-                    WsVarliklar.Range("D" & i) = "ÖR/" & WsVarliklar.Range("D" & i)
+                    WsVarliklar.Range("D" & i) = "Ã–R/" & WsVarliklar.Range("D" & i)
                 End If
             Next i
-            'Sýra ve kayýt nolar ile gönderen, belge no ve tarih, giriþ ve çýkýþ tarihini dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolar ile gÃ¶nderen, belge no ve tarih, giriÅŸ ve Ã§Ä±kÄ±ÅŸ tarihini dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklar.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklar.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Merge
@@ -1984,7 +1984,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
@@ -1995,7 +1995,7 @@ Next ctl
 For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
     If TypeName(ctl) = "ListBox" Then
         'RAPOR1 (MEVCUT)
-        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ö" Then
+        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ã–" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
             IlkSira = 0
@@ -2019,10 +2019,10 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
             Call Rapor1GelenTema
             GelenTema = GelenTemaGlobal
             
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -2041,13 +2041,13 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
             WsVarliklar.Range("J" & SayEsasVarlik & ":J" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AL" & IlkSira & ":AL" & SonSira).Value
             'WsVarliklar.Range("K" & SayEsasVarlik & ":K" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AO" & IlkSira & ":AO" & SonSira).Value
             WsVarliklar.Range("L" & SayEsasVarlik & ":L" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AR" & IlkSira & ":AR" & SonSira).Value
-            'ÖR yaz
+            'Ã–R yaz
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklar.Range("D" & i) <> "" Then
-                    WsVarliklar.Range("D" & i) = "ÖR/" & WsVarliklar.Range("D" & i)
+                    WsVarliklar.Range("D" & i) = "Ã–R/" & WsVarliklar.Range("D" & i)
                 End If
             Next i
-            'Sýra ve kayýt nolar ile gönderen, belge no ve tarih, giriþ ve çýkýþ tarihini dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolar ile gÃ¶nderen, belge no ve tarih, giriÅŸ ve Ã§Ä±kÄ±ÅŸ tarihini dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklar.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklar.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Merge
@@ -2061,7 +2061,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
@@ -2072,7 +2072,7 @@ If WsVarliklar.Range("C7") = "" Then
     GoTo Son
 End If
 
-'Öðelere göre toplamlar
+'Ã–ÄŸelere gÃ¶re toplamlar
 WsVarliklar.Range("J" & SayEsasVarlik & ":N" & SayEsasVarlik + 3).Value = "*"
 x = SayEsasVarlik + 3
 For i = 7 To SayEsasVarlik - 1
@@ -2082,16 +2082,16 @@ For i = 7 To SayEsasVarlik - 1
         Say2 = WsVarliklar.Range("J100000").End(xlUp).Row '+ 1
         'MsgBox "SayEsasVarlik: " & SayEsasVarlik & " Say2: " & Say2
         For j = SayEsasVarlik + 2 To Say2
-            'Öðe ayný
-            If WsVarliklar.Range("J" & j) = WsVarliklar.Range("J" & i) Then 'Öðe ayný
-                If WsVarliklar.Range("L" & i) <> "" Or WsVarliklar.Range("M" & i) <> "" Or WsVarliklar.Range("N" & i) <> "" Then 'mevcut, giriþ, çýkýþ
-                    'Öðe ve öðe deðeri ayný
+            'Ã–ÄŸe aynÄ±
+            If WsVarliklar.Range("J" & j) = WsVarliklar.Range("J" & i) Then 'Ã–ÄŸe aynÄ±
+                If WsVarliklar.Range("L" & i) <> "" Or WsVarliklar.Range("M" & i) <> "" Or WsVarliklar.Range("N" & i) <> "" Then 'mevcut, giriÅŸ, Ã§Ä±kÄ±ÅŸ
+                    'Ã–ÄŸe ve Ã¶ÄŸe deÄŸeri aynÄ±
                     If WsVarliklar.Range("K" & j) = WsVarliklar.Range("K" & i) Then
                         WsVarliklar.Range("L" & j) = WsVarliklar.Range("L" & j) + WsVarliklar.Range("L" & i)
                         WsVarliklar.Range("M" & j) = WsVarliklar.Range("M" & j) + WsVarliklar.Range("M" & i)
                         WsVarliklar.Range("N" & j) = WsVarliklar.Range("N" & j) + WsVarliklar.Range("N" & i)
                         GoTo jDonguSon1
-                    Else 'Öðe ayný, öðe deðeri farklý
+                    Else 'Ã–ÄŸe aynÄ±, Ã¶ÄŸe deÄŸeri farklÄ±
                         If WsVarliklar.Range("J" & j + 1) = "" Then
                             WsVarliklar.Range("J" & j + 1) = WsVarliklar.Range("J" & i)
                             WsVarliklar.Range("K" & j + 1) = WsVarliklar.Range("K" & i)
@@ -2102,8 +2102,8 @@ For i = 7 To SayEsasVarlik - 1
                         End If
                     End If
                 End If
-            Else 'Öðe farklý
-                If WsVarliklar.Range("L" & i) <> "" Or WsVarliklar.Range("M" & i) <> "" Or WsVarliklar.Range("N" & i) <> "" Then 'mevcut, giriþ, çýkýþ
+            Else 'Ã–ÄŸe farklÄ±
+                If WsVarliklar.Range("L" & i) <> "" Or WsVarliklar.Range("M" & i) <> "" Or WsVarliklar.Range("N" & i) <> "" Then 'mevcut, giriÅŸ, Ã§Ä±kÄ±ÅŸ
                     If WsVarliklar.Range("J" & j + 1) = "" Then
                         WsVarliklar.Range("J" & j + 1) = WsVarliklar.Range("J" & i)
                         WsVarliklar.Range("K" & j + 1) = WsVarliklar.Range("K" & i)
@@ -2119,7 +2119,7 @@ jDonguSon1:
     End If
 Next i
 
-'Boþ satýrlara 0 yaz.
+'BoÅŸ satÄ±rlara 0 yaz.
 For j = SayEsasVarlik + 2 To x
     If WsVarliklar.Range("L" & j) = "" Then
         WsVarliklar.Range("L" & j).Value = 0
@@ -2139,7 +2139,7 @@ WsVarliklar.Range("C" & SayEsasVarlik) = "Total"
 WsVarliklar.Range("C" & SayEsasVarlik).Font.Bold = True
 WsVarliklar.Range("C" & SayEsasVarlik).HorizontalAlignment = xlRight
 WsVarliklar.Range("L" & SayEsasVarlik & ":O" & SayEsasVarlik).Font.Bold = True
-'Toplamlar (Sol üstteki toplam)
+'Toplamlar (Sol Ã¼stteki toplam)
 For i = 7 To SayEsasVarlik - 1
     WsVarliklar.Range("O" & i).Value = WsVarliklar.Range("L" & i).Value + WsVarliklar.Range("M" & i).Value - WsVarliklar.Range("N" & i).Value
     WsVarliklar.Range("L" & SayEsasVarlik).Value = WsVarliklar.Range("L" & SayEsasVarlik).Value + WsVarliklar.Range("L" & i).Value
@@ -2148,7 +2148,7 @@ For i = 7 To SayEsasVarlik - 1
     WsVarliklar.Range("O" & SayEsasVarlik).Value = WsVarliklar.Range("O" & SayEsasVarlik).Value + WsVarliklar.Range("O" & i).Value
 Next i
 
-'ÖZET TABLO BAÞLIÐI
+'Ã–ZET TABLO BAÅžLIÄžI
 WsVarliklar.Range("J" & SayEsasVarlik + 2).Value = "Item-Based Totals (Qty)"
 WsVarliklar.Range("J" & SayEsasVarlik + 2 & ":O" & SayEsasVarlik + 2).Font.Bold = True
 WsVarliklar.Range("J" & SayEsasVarlik + 2 & ":O" & SayEsasVarlik + 2).Merge
@@ -2163,7 +2163,7 @@ WsVarliklar.Range("O" & SayEsasVarlik + 3).Value = "Remaining Qty"
 WsVarliklar.Range("J" & SayEsasVarlik + 3 & ":O" & SayEsasVarlik + 3).Font.Bold = True
 y = SayEsasVarlik + 3
 
-'Toplamlar (öðelere göre, sað alttaki)
+'Toplamlar (Ã¶ÄŸelere gÃ¶re, saÄŸ alttaki)
 For i = SayEsasVarlik + 4 To x
     WsVarliklar.Range("O" & i).Value = WsVarliklar.Range("L" & i).Value + WsVarliklar.Range("M" & i).Value - WsVarliklar.Range("N" & i).Value
     WsVarliklar.Range("L" & x + 1).Value = WsVarliklar.Range("L" & x + 1).Value + WsVarliklar.Range("L" & i).Value
@@ -2183,7 +2183,7 @@ WsVarliklar.Range("J" & x + 1 & ":K" & x + 1).Font.Bold = True
 WsVarliklar.Range("J" & x + 1 & ":K" & x + 1).Merge
 WsVarliklar.Range("J" & x + 1 & ":K" & x + 1).HorizontalAlignment = xlLeft
 
-'Kenarlýklar.
+'KenarlÄ±klar.
 SayEsasVarlik = x + 1
 Set Kenarlar = WsVarliklar.Range("C" & 7 & ":O" & SayEsasVarlik)
 Kenarlar.Borders(xlDiagonalDown).LineStyle = xlNone
@@ -2220,7 +2220,7 @@ Son:
 
 ThisWorkbook.Activate
 
-'Application.DisplayAlerts = True 'Kodlar tamamlanýnca iptal et
+'Application.DisplayAlerts = True 'Kodlar tamamlanÄ±nca iptal et
 
 End Sub
 
@@ -2240,32 +2240,32 @@ Dim GelenTema As String
 
 Dim NomDeger As Variant, NomSay As Integer
 
-'Application.DisplayAlerts = False 'Kodlar tamamlanýnca iptal et
+'Application.DisplayAlerts = False 'Kodlar tamamlanÄ±nca iptal et
 
 'Pathfinder...
 AutoPath = ThisWorkbook.Path
 DestOperasyon = AutoPath & "\System Files\Operation\"
 VarlikKlasoru = AutoPath & "\System Files\System Templates\Asset Templates\"
-EsasVarlik = VarlikKlasoru & "Report 2.1 – Supporting Asset Report.xlsx"
+EsasVarlik = VarlikKlasoru & "Report 2.1 â€“ Supporting Asset Report.xlsx"
 
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
 
-'System Files klasör adýný kontrol et.
+'System Files klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(AutoPath & "\System Files\", vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & AutoPath & "\System Files\" & ". The folder named 'System Files' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
 
-'Operation klasörü adýný kontrol et.
+'Operation klasÃ¶rÃ¼ adÄ±nÄ± kontrol et.
 If Not Dir(DestOperasyon, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & DestOperasyon & ". The folder named 'Operation' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
 
-'Registry Reports klasör adýný kontrol et.
+'Registry Reports klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(VarlikKlasoru, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & VarlikKlasoru & ". The folder named 'Asset Templates' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
@@ -2276,21 +2276,21 @@ If Not Dir(EsasVarlik, vbDirectory) <> vbNullString Then
     GoTo Son
 End If
 
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
 
 
-On Error Resume Next 'Operation içinde Varlýklar.xlsx dosyasý yoksa oluþacak hata için
-OperasyonEsasVarlik = DestOpUserFolder & "Report 2.1 – Supporting Asset Report.xlsx"
-'Varlýklar açýksa kaydet ve kapat.
+On Error Resume Next 'Operation iÃ§inde VarlÄ±klar.xlsx dosyasÄ± yoksa oluÅŸacak hata iÃ§in
+OperasyonEsasVarlik = DestOpUserFolder & "Report 2.1 â€“ Supporting Asset Report.xlsx"
+'VarlÄ±klar aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(OperasyonEsasVarlik)
 If OpenControl = True Then
-    Workbooks("Report 2.1 – Supporting Asset Report.xlsx").Close SaveChanges:=True
+    Workbooks("Report 2.1 â€“ Supporting Asset Report.xlsx").Close SaveChanges:=True
 End If
 
-'Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 On Error Resume Next
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
@@ -2302,13 +2302,13 @@ If ContSay > 0 Then
     Kill DestOpUserFolder & "*.???"
 End If
 
-'Dosyayý operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
-fso.CopyFile (EsasVarlik), DestOpUserFolder & "Report 2.1 – Supporting Asset Report" & ".xlsx", True
+fso.CopyFile (EsasVarlik), DestOpUserFolder & "Report 2.1 â€“ Supporting Asset Report" & ".xlsx", True
 'open the file
 Workbooks.Open (OperasyonEsasVarlik)
 
-Set WsVarliklar = Workbooks("Report 2.1 – Supporting Asset Report.xlsx").Worksheets(1)
+Set WsVarliklar = Workbooks("Report 2.1 â€“ Supporting Asset Report.xlsx").Worksheets(1)
 WsVarliklar.Unprotect Password:="123"
 
 On Error GoTo 0
@@ -2320,7 +2320,7 @@ SiraNoEsasVarlik = 1
 'Devir = 0
 For Each ctl In core_asset_manager_UI.FrameGiris.Controls
     If TypeName(ctl) = "ListBox" Then
-        'Rapor (GÝRÝÞ)
+        'Rapor (GÄ°RÄ°Åž)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " R" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -2345,10 +2345,10 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             Call RaporGelenTema
             GelenTema = GelenTemaGlobal
             
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -2373,7 +2373,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     WsVarliklar.Range("D" & i) = "R/" & WsVarliklar.Range("D" & i)
                 End If
             Next i
-            'Sýra ve kayýt nolar ile gönderen, belge no ve tarih, giriþ ve çýkýþ tarihini dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolar ile gÃ¶nderen, belge no ve tarih, giriÅŸ ve Ã§Ä±kÄ±ÅŸ tarihini dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklar.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklar.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Merge
@@ -2387,7 +2387,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
@@ -2397,7 +2397,7 @@ Next ctl
 
 For Each ctl In core_asset_manager_UI.FrameCikis.Controls
     If TypeName(ctl) = "ListBox" Then
-        'Rapor (ÇIKIÞLAR)
+        'Rapor (Ã‡IKIÅžLAR)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " R" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -2422,10 +2422,10 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             Call RaporGelenTema
             GelenTema = GelenTemaGlobal
 
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -2443,7 +2443,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             WsVarliklar.Range("I" & SayEsasVarlik).Value = ThisWorkbook.Worksheets(4).Range("CZ" & IlkSira)
             WsVarliklar.Range("J" & SayEsasVarlik & ":J" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AT" & IlkSira & ":AT" & SonSira).Value
             'WsVarliklar.Range("K" & SayEsasVarlik & ":K" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AW" & IlkSira & ":AW" & SonSira).Value
-            If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+            If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                 WsVarliklar.Range("M" & SayEsasVarlik & ":M" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
             Else
                 WsVarliklar.Range("L" & SayEsasVarlik & ":L" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
@@ -2455,7 +2455,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     WsVarliklar.Range("D" & i) = "R/" & WsVarliklar.Range("D" & i)
                 End If
             Next i
-            'Sýra ve kayýt nolar ile gönderen, belge no ve tarih, giriþ ve çýkýþ tarihini dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolar ile gÃ¶nderen, belge no ve tarih, giriÅŸ ve Ã§Ä±kÄ±ÅŸ tarihini dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklar.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklar.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Merge
@@ -2469,7 +2469,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
@@ -2504,10 +2504,10 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
             Call RaporGelenTema
             GelenTema = GelenTemaGlobal
             
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -2532,7 +2532,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                     WsVarliklar.Range("D" & i) = "R/" & WsVarliklar.Range("D" & i)
                 End If
             Next i
-            'Sýra ve kayýt nolar ile gönderen, belge no ve tarih, giriþ ve çýkýþ tarihini dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolar ile gÃ¶nderen, belge no ve tarih, giriÅŸ ve Ã§Ä±kÄ±ÅŸ tarihini dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklar.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklar.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Merge
@@ -2546,7 +2546,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
@@ -2558,7 +2558,7 @@ If WsVarliklar.Range("C7") = "" Then
 End If
 
 
-'Öðelere göre toplamlar
+'Ã–ÄŸelere gÃ¶re toplamlar
 WsVarliklar.Range("J" & SayEsasVarlik & ":N" & SayEsasVarlik + 3).Value = "*"
 x = SayEsasVarlik + 3
 For i = 7 To SayEsasVarlik - 1
@@ -2568,16 +2568,16 @@ For i = 7 To SayEsasVarlik - 1
         Say2 = WsVarliklar.Range("J100000").End(xlUp).Row '+ 1
         'MsgBox "SayEsasVarlik: " & SayEsasVarlik & " Say2: " & Say2
         For j = SayEsasVarlik + 2 To Say2
-            'Öðe ayný
-            If WsVarliklar.Range("J" & j) = WsVarliklar.Range("J" & i) Then 'Öðe ayný
-                If WsVarliklar.Range("L" & i) <> "" Or WsVarliklar.Range("M" & i) <> "" Or WsVarliklar.Range("N" & i) <> "" Then 'mevcut, giriþ, çýkýþ
-                    'Öðe ve öðe deðeri ayný
+            'Ã–ÄŸe aynÄ±
+            If WsVarliklar.Range("J" & j) = WsVarliklar.Range("J" & i) Then 'Ã–ÄŸe aynÄ±
+                If WsVarliklar.Range("L" & i) <> "" Or WsVarliklar.Range("M" & i) <> "" Or WsVarliklar.Range("N" & i) <> "" Then 'mevcut, giriÅŸ, Ã§Ä±kÄ±ÅŸ
+                    'Ã–ÄŸe ve Ã¶ÄŸe deÄŸeri aynÄ±
                     If WsVarliklar.Range("K" & j) = WsVarliklar.Range("K" & i) Then
                         WsVarliklar.Range("L" & j) = WsVarliklar.Range("L" & j) + WsVarliklar.Range("L" & i)
                         WsVarliklar.Range("M" & j) = WsVarliklar.Range("M" & j) + WsVarliklar.Range("M" & i)
                         WsVarliklar.Range("N" & j) = WsVarliklar.Range("N" & j) + WsVarliklar.Range("N" & i)
                         GoTo jDonguSon1
-                    Else 'Öðe ayný, öðe deðeri farklý
+                    Else 'Ã–ÄŸe aynÄ±, Ã¶ÄŸe deÄŸeri farklÄ±
                         If WsVarliklar.Range("J" & j + 1) = "" Then
                             WsVarliklar.Range("J" & j + 1) = WsVarliklar.Range("J" & i)
                             WsVarliklar.Range("K" & j + 1) = WsVarliklar.Range("K" & i)
@@ -2588,8 +2588,8 @@ For i = 7 To SayEsasVarlik - 1
                         End If
                     End If
                 End If
-            Else 'Öðe farklý
-                If WsVarliklar.Range("L" & i) <> "" Or WsVarliklar.Range("M" & i) <> "" Or WsVarliklar.Range("N" & i) <> "" Then 'mevcut, giriþ, çýkýþ
+            Else 'Ã–ÄŸe farklÄ±
+                If WsVarliklar.Range("L" & i) <> "" Or WsVarliklar.Range("M" & i) <> "" Or WsVarliklar.Range("N" & i) <> "" Then 'mevcut, giriÅŸ, Ã§Ä±kÄ±ÅŸ
                     If WsVarliklar.Range("J" & j + 1) = "" Then
                         WsVarliklar.Range("J" & j + 1) = WsVarliklar.Range("J" & i)
                         WsVarliklar.Range("K" & j + 1) = WsVarliklar.Range("K" & i)
@@ -2605,7 +2605,7 @@ jDonguSon1:
     End If
 Next i
 
-'Boþ satýrlara 0 yaz.
+'BoÅŸ satÄ±rlara 0 yaz.
 For j = SayEsasVarlik + 2 To x
     If WsVarliklar.Range("L" & j) = "" Then
         WsVarliklar.Range("L" & j).Value = 0
@@ -2625,7 +2625,7 @@ WsVarliklar.Range("C" & SayEsasVarlik) = "Total"
 WsVarliklar.Range("C" & SayEsasVarlik).Font.Bold = True
 WsVarliklar.Range("C" & SayEsasVarlik).HorizontalAlignment = xlRight
 WsVarliklar.Range("L" & SayEsasVarlik & ":O" & SayEsasVarlik).Font.Bold = True
-'Toplamlar (Sol üstteki toplam)
+'Toplamlar (Sol Ã¼stteki toplam)
 For i = 7 To SayEsasVarlik - 1
     WsVarliklar.Range("O" & i).Value = WsVarliklar.Range("L" & i).Value + WsVarliklar.Range("M" & i).Value - WsVarliklar.Range("N" & i).Value
     WsVarliklar.Range("L" & SayEsasVarlik).Value = WsVarliklar.Range("L" & SayEsasVarlik).Value + WsVarliklar.Range("L" & i).Value
@@ -2634,7 +2634,7 @@ For i = 7 To SayEsasVarlik - 1
     WsVarliklar.Range("O" & SayEsasVarlik).Value = WsVarliklar.Range("O" & SayEsasVarlik).Value + WsVarliklar.Range("O" & i).Value
 Next i
 
-'ÖZET TABLO BAÞLIÐI
+'Ã–ZET TABLO BAÅžLIÄžI
 WsVarliklar.Range("J" & SayEsasVarlik + 2).Value = "Item-Based Totals (Qty)"
 WsVarliklar.Range("J" & SayEsasVarlik + 2 & ":O" & SayEsasVarlik + 2).Font.Bold = True
 WsVarliklar.Range("J" & SayEsasVarlik + 2 & ":O" & SayEsasVarlik + 2).Merge
@@ -2649,7 +2649,7 @@ WsVarliklar.Range("O" & SayEsasVarlik + 3).Value = "Remaining Qty"
 WsVarliklar.Range("J" & SayEsasVarlik + 3 & ":O" & SayEsasVarlik + 3).Font.Bold = True
 y = SayEsasVarlik + 3
 
-'Toplamlar (öðelere göre, sað alttaki)
+'Toplamlar (Ã¶ÄŸelere gÃ¶re, saÄŸ alttaki)
 For i = SayEsasVarlik + 4 To x
     WsVarliklar.Range("O" & i).Value = WsVarliklar.Range("L" & i).Value + WsVarliklar.Range("M" & i).Value - WsVarliklar.Range("N" & i).Value
     WsVarliklar.Range("L" & x + 1).Value = WsVarliklar.Range("L" & x + 1).Value + WsVarliklar.Range("L" & i).Value
@@ -2669,7 +2669,7 @@ WsVarliklar.Range("J" & x + 1 & ":K" & x + 1).Font.Bold = True
 WsVarliklar.Range("J" & x + 1 & ":K" & x + 1).Merge
 WsVarliklar.Range("J" & x + 1 & ":K" & x + 1).HorizontalAlignment = xlLeft
 
-'Kenarlýklar.
+'KenarlÄ±klar.
 SayEsasVarlik = x + 1
 Set Kenarlar = WsVarliklar.Range("C" & 7 & ":O" & SayEsasVarlik)
 Kenarlar.Borders(xlDiagonalDown).LineStyle = xlNone
@@ -2706,7 +2706,7 @@ Son:
 
 ThisWorkbook.Activate
 
-'Application.DisplayAlerts = True 'Kodlar tamamlanýnca iptal et
+'Application.DisplayAlerts = True 'Kodlar tamamlanÄ±nca iptal et
 
 End Sub
 Sub Rapor2_2VarlikDevam()
@@ -2732,7 +2732,7 @@ SiraNoEsasVarlik = SiraNoEsasVarlikGlobal
 
 'GoTo DuzenlemeyiAtla
 
-'_____________________________________________________________BAÞLANGIÇ (Direkt kaldýrsan yine de sorunsuz çalýþýr.)
+'_____________________________________________________________BAÅžLANGIÃ‡ (Direkt kaldÄ±rsan yine de sorunsuz Ã§alÄ±ÅŸÄ±r.)
 
 Dim KontB As Integer, KontR As Integer, SayEsasVarlikx As Long
 Dim SayEsasVarlikTakip As Long, a As Integer, b As Integer
@@ -2748,14 +2748,14 @@ SayEsasVarlikx = SayEsasVarlik
 
 'MsgBox SayEsasVarlik
 
-'varlýklar düzeltme faktörü (Technique A ve diðerlerinin sýra numarasýný birleþtir.)
+'varlÄ±klar dÃ¼zeltme faktÃ¶rÃ¼ (Technique A ve diÄŸerlerinin sÄ±ra numarasÄ±nÄ± birleÅŸtir.)
 If SayEsasVarlikx - 1 >= 7 Then
     'RAPOR2_2 NO ESAS ALINIYOR
     For i = 7 To SayEsasVarlik - 1
-        'Tespit etme bölümü (1)
+        'Tespit etme bÃ¶lÃ¼mÃ¼ (1)
         If WsVarliklarGlobal.Range("D" & i) <> "" And Left(WsVarliklarGlobal.Range("D" & i).Value, 1) = "B" Then
             If Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, 1) = "R" Then
-                StrRaporNo = Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, Len(WsVarliklarGlobal.Range("D" & i)) - InStr(WsVarliklarGlobal.Range("D" & i), "(") - 1) 'R/raporno þeklinde
+                StrRaporNo = Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, Len(WsVarliklarGlobal.Range("D" & i)) - InStr(WsVarliklarGlobal.Range("D" & i), "(") - 1) 'R/raporno ÅŸeklinde
                 'MsgBox "1: " & StrRaporNo
                 StrRaporNo = Mid(StrRaporNo, 3, Len(StrRaporNo)) 'Sadece rapor no
                 'MsgBox "2: " & StrRaporNo
@@ -2768,7 +2768,7 @@ If SayEsasVarlikx - 1 >= 7 Then
                     End If
                 Next j
 DonguBitir1:
-                StrRaporNo = StrRaporNox 'Alt rapor no kýrýlýmý kaldýrýldý
+                StrRaporNo = StrRaporNox 'Alt rapor no kÄ±rÄ±lÄ±mÄ± kaldÄ±rÄ±ldÄ±
                 'MsgBox StrRaporNo
 
                 If KontB = 0 Then
@@ -2802,7 +2802,7 @@ xDonguSon1:
                 'WsVarliklarGlobal.Range("P" & IlkAltSatirNo & ":P" & SonAltSatirNo).Value = WsVarliklarGlobal.Range("D" & IlkAltSatirNo).Value '"Sil"
                 WsVarliklarGlobal.Range("C" & IlkAltSatirNo & ":Q" & SonAltSatirNo).UnMerge
                 WsVarliklarGlobal.Range("C" & IlkAltSatirNo & ":Q" & SonAltSatirNo).ClearContents
-                'Aratma bölümü (2)
+                'Aratma bÃ¶lÃ¼mÃ¼ (2)
                 SayEsasVarlikTakip = SayEsasVarlikTakip + (SonAltSatirNo - IlkAltSatirNo + 1)
                 For j = 7 To SayEsasVarlik 'Takip - 1
                     If InStr(WsVarliklarGlobal.Range("D" & j).Value, "R/" & StrRaporNo) <> 0 Then
@@ -2844,11 +2844,11 @@ xDonguSon2:
 
     'RAPOR NO ESAS ALINIYOR
     For i = 7 To SayEsasVarlik - 1
-        'Tespit etme bölümü (1)
+        'Tespit etme bÃ¶lÃ¼mÃ¼ (1)
         If WsVarliklarGlobal.Range("D" & i) <> "" And Left(WsVarliklarGlobal.Range("D" & i).Value, 1) = "R" Then
             If Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, 1) = "B" Then
-                'StrRaporNo = Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, Len(WsVarliklarGlobal.Range("D" & i)) - InStr(WsVarliklarGlobal.Range("D" & i), "(") - 1) 'R/raporno þeklinde
-                StrRaporNo = Left(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") - 2) 'R/raporno þeklinde
+                'StrRaporNo = Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, Len(WsVarliklarGlobal.Range("D" & i)) - InStr(WsVarliklarGlobal.Range("D" & i), "(") - 1) 'R/raporno ÅŸeklinde
+                StrRaporNo = Left(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") - 2) 'R/raporno ÅŸeklinde
                 'MsgBox StrRaporNo
 
                 StrRaporNo = Mid(StrRaporNo, 3, Len(StrRaporNo)) 'Sadece rapor no
@@ -2862,7 +2862,7 @@ xDonguSon2:
                     End If
                 Next j
 DonguBitir2:
-                StrRaporNo = StrRaporNox 'Alt rapor no kýrýlýmý kaldýrýldý
+                StrRaporNo = StrRaporNox 'Alt rapor no kÄ±rÄ±lÄ±mÄ± kaldÄ±rÄ±ldÄ±
                 'MsgBox StrRaporNo
 
                 If KontR = 0 Then
@@ -2896,7 +2896,7 @@ xDonguSon3:
                 'WsVarliklarGlobal.Range("P" & IlkAltSatirNo & ":P" & SonAltSatirNo).Value = WsVarliklarGlobal.Range("D" & IlkAltSatirNo).Value '"Sil"
                 WsVarliklarGlobal.Range("C" & IlkAltSatirNo & ":Q" & SonAltSatirNo).UnMerge
                 WsVarliklarGlobal.Range("C" & IlkAltSatirNo & ":Q" & SonAltSatirNo).ClearContents
-                'Aratma bölümü (2)
+                'Aratma bÃ¶lÃ¼mÃ¼ (2)
                 SayEsasVarlikTakip = SayEsasVarlikTakip + (SonAltSatirNo - IlkAltSatirNo + 1)
                 For j = 7 To SayEsasVarlik 'Takip - 1
                     If InStr(WsVarliklarGlobal.Range("D" & j).Value, "R/" & StrRaporNo) <> 0 Then
@@ -2938,7 +2938,7 @@ xDonguSon4:
 
      SayEsasVarlik = SayEsasVarlikTakip
 
-    'Sýra no.lar
+    'SÄ±ra no.lar
     SiraNoEsasVarlik = 0
     'WsVarliklarGlobal.Range("C" & 7 & ":C" & SayEsasVarlik).ClearContents
     For i = 7 To SayEsasVarlik
@@ -3004,23 +3004,23 @@ Else
 End If
 
 
-'_____________________________________________________________BÝTÝÞ
+'_____________________________________________________________BÄ°TÄ°Åž
 
 
-'____________________Ýkinci düzenleme bölümü, BAÞLANGIÇ (Bu bölüm sadece XXXMud'den gelen raporlarý/öðelerin çýkýþý içindir.)
+'____________________Ä°kinci dÃ¼zenleme bÃ¶lÃ¼mÃ¼, BAÅžLANGIÃ‡ (Bu bÃ¶lÃ¼m sadece XXXMud'den gelen raporlarÄ±/Ã¶ÄŸelerin Ã§Ä±kÄ±ÅŸÄ± iÃ§indir.)
 
 SayEsasVarlikTakip = SayEsasVarlik
 SayEsasVarlikx = SayEsasVarlik
 
-'Raporlarýn rapro no.'larý ile onun alt kýrýlýmýný sayýsal bir deðere dönüþtür. Bu özellik raporlarý kendi içinde sýralamada kullanýlacak.
+'RaporlarÄ±n rapro no.'larÄ± ile onun alt kÄ±rÄ±lÄ±mÄ±nÄ± sayÄ±sal bir deÄŸere dÃ¶nÃ¼ÅŸtÃ¼r. Bu Ã¶zellik raporlarÄ± kendi iÃ§inde sÄ±ralamada kullanÄ±lacak.
 If SayEsasVarlikx - 1 >= 7 Then
     'RAPOR ve RAPOR2_2 NO ESAS ALINIYOR
     For i = 7 To SayEsasVarlik - 1
         'R
         If WsVarliklarGlobal.Range("D" & i) <> "" And Left(WsVarliklarGlobal.Range("D" & i).Value, 1) = "R" Then
             If Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, 1) = "B" Then
-                'StrRaporNo = Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, Len(WsVarliklarGlobal.Range("D" & i)) - InStr(WsVarliklarGlobal.Range("D" & i), "(") - 1) 'R/raporno þeklinde
-                StrRaporNo = Left(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") - 2) 'R/raporno þeklinde
+                'StrRaporNo = Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, Len(WsVarliklarGlobal.Range("D" & i)) - InStr(WsVarliklarGlobal.Range("D" & i), "(") - 1) 'R/raporno ÅŸeklinde
+                StrRaporNo = Left(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") - 2) 'R/raporno ÅŸeklinde
                 'MsgBox StrRaporNo
             ElseIf Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, 1) <> "B" Then
                 StrRaporNo = WsVarliklarGlobal.Range("D" & i)
@@ -3029,7 +3029,7 @@ If SayEsasVarlikx - 1 >= 7 Then
         'B
         If WsVarliklarGlobal.Range("D" & i) <> "" And Left(WsVarliklarGlobal.Range("D" & i).Value, 1) = "B" Then
             If Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, 1) = "R" Then
-                StrRaporNo = Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, Len(WsVarliklarGlobal.Range("D" & i)) - InStr(WsVarliklarGlobal.Range("D" & i), "(") - 1) 'R/raporno þeklinde
+                StrRaporNo = Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, Len(WsVarliklarGlobal.Range("D" & i)) - InStr(WsVarliklarGlobal.Range("D" & i), "(") - 1) 'R/raporno ÅŸeklinde
                 'MsgBox "1: " & StrRaporNo
             End If
         End If
@@ -3038,9 +3038,9 @@ If SayEsasVarlikx - 1 >= 7 Then
         'MsgBox StrRaporNo
         '_________________________
         For a = 1 To 50
-            StrRaporNo = Replace(StrRaporNo, " ", "") 'Rapor no içinde varsa boþluklarý kaldýr
+            StrRaporNo = Replace(StrRaporNo, " ", "") 'Rapor no iÃ§inde varsa boÅŸluklarÄ± kaldÄ±r
         Next a
-        NumRaporNo = Replace(StrRaporNo, "-", "0000") '1-1'in 100001 gerçek rapor no ile çakýþma ihtimali 0'a yakýn.
+        NumRaporNo = Replace(StrRaporNo, "-", "0000") '1-1'in 100001 gerÃ§ek rapor no ile Ã§akÄ±ÅŸma ihtimali 0'a yakÄ±n.
 
         '_________________________
 
@@ -3053,7 +3053,7 @@ If SayEsasVarlikx - 1 >= 7 Then
             End If
         Next j
 DonguBitir21:
-        StrRaporNo = StrRaporNox 'Alt rapor no kýrýlýmý kaldýrýldý
+        StrRaporNo = StrRaporNox 'Alt rapor no kÄ±rÄ±lÄ±mÄ± kaldÄ±rÄ±ldÄ±
         'MsgBox StrRaporNo
 
 
@@ -3095,12 +3095,12 @@ DonguSonuIlkSiraVarlik1:
 End If
 
 
-'XXXMud'den gelen ve varlýkdaki raporlar. SIRALAMA ve BÝRLEÞTÝRME
+'XXXMud'den gelen ve varlÄ±kdaki raporlar. SIRALAMA ve BÄ°RLEÅžTÄ°RME
 For i = 7 To SayEsasVarlik - 1
     If WsVarliklarGlobal.Range("T" & i) = "" Then 'And WsVarliklarGlobal.Range("H" & i) <> "" Then
         If Left(WsVarliklarGlobal.Range("D" & i).Value, 1) = "R" Then
             If Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, 1) = "B" Then
-                StrRaporNo = Left(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") - 2) 'R/raporno þeklinde
+                StrRaporNo = Left(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") - 2) 'R/raporno ÅŸeklinde
                 'MsgBox StrRaporNo
             ElseIf Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, 1) <> "B" Then
                 StrRaporNo = WsVarliklarGlobal.Range("D" & i)
@@ -3108,7 +3108,7 @@ For i = 7 To SayEsasVarlik - 1
         End If
         If Left(WsVarliklarGlobal.Range("D" & i).Value, 1) = "B" Then
             If Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, 1) = "R" Then
-                StrRaporNo = Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, Len(WsVarliklarGlobal.Range("D" & i)) - InStr(WsVarliklarGlobal.Range("D" & i), "(") - 1) 'R/raporno þeklinde
+                StrRaporNo = Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, Len(WsVarliklarGlobal.Range("D" & i)) - InStr(WsVarliklarGlobal.Range("D" & i), "(") - 1) 'R/raporno ÅŸeklinde
             End If
         End If
 
@@ -3124,7 +3124,7 @@ For i = 7 To SayEsasVarlik - 1
             End If
         Next j
 DonguBitir22:
-        StrRaporNo = StrRaporNox 'Alt rapor no kýrýlýmý kaldýrýldý
+        StrRaporNo = StrRaporNox 'Alt rapor no kÄ±rÄ±lÄ±mÄ± kaldÄ±rÄ±ldÄ±
         'MsgBox StrRaporNo
         '_______________
 
@@ -3149,12 +3149,12 @@ DonguBitir22:
 
         WsVarliklarGlobal.Range("U" & IlkSiraVarlik) = IlkSiraVarlik
         WsVarliklarGlobal.Range("V" & SonSiraVarlik) = SonSiraVarlik
-        WsVarliklarGlobal.Range("T" & IlkSiraVarlik & ":T" & SonSiraVarlik).Value = "*" 'Ayný satýrlarda tekrar iþlem yapmasýn diye
+        WsVarliklarGlobal.Range("T" & IlkSiraVarlik & ":T" & SonSiraVarlik).Value = "*" 'AynÄ± satÄ±rlarda tekrar iÅŸlem yapmasÄ±n diye
         'Sorting Z to A by NumRaporNo
         WsVarliklarGlobal.Range("D" & IlkSiraVarlik & ":S" & SonSiraVarlik).UnMerge
         WsVarliklarGlobal.Range("D" & IlkSiraVarlik & ":S" & SonSiraVarlik).Sort key1:=Range("S" & IlkSiraVarlik & ":S" & SonSiraVarlik), order1:=xlAscending, Header:=xlNo
 
-        'Rapor no.'larý ve Package A/Package B/Package C satýrlarýný birleþtir.
+        'Rapor no.'larÄ± ve Package A/Package B/Package C satÄ±rlarÄ±nÄ± birleÅŸtir.
         For j = IlkSiraVarlik To SonSiraVarlik
             If WsVarliklarGlobal.Range("S" & j).Value <> "" Then
                 If WsVarliklarGlobal.Range("S" & j).Value = WsVarliklarGlobal.Range("S" & j + 1).Value Then
@@ -3224,19 +3224,19 @@ Next i
 
 
             
-'Artýklarý temizle
+'ArtÄ±klarÄ± temizle
 If SayEsasVarlik < 7 Then
     SayEsasVarlik = 7
 End If
 WsVarliklarGlobal.Range("P" & 7 & ":V" & SayEsasVarlik).ClearContents
 
-'____________________Ýkinci düzenleme bölümü, BÝTÝÞ
+'____________________Ä°kinci dÃ¼zenleme bÃ¶lÃ¼mÃ¼, BÄ°TÄ°Åž
 
 
 DuzenlemeyiAtla:
 
 
-'Öðelere göre toplamlar
+'Ã–ÄŸelere gÃ¶re toplamlar
 WsVarliklarGlobal.Range("J" & SayEsasVarlik & ":N" & SayEsasVarlik + 3).Value = "*"
 x = SayEsasVarlik + 3
 For i = 7 To SayEsasVarlik - 1
@@ -3246,16 +3246,16 @@ For i = 7 To SayEsasVarlik - 1
         Say2 = WsVarliklarGlobal.Range("J100000").End(xlUp).Row '+ 1
         'MsgBox "SayEsasVarlik: " & SayEsasVarlik & " Say2: " & Say2
         For j = SayEsasVarlik + 2 To Say2
-            'Öðe ayný
-            If WsVarliklarGlobal.Range("J" & j) = WsVarliklarGlobal.Range("J" & i) Then 'Öðe ayný
-                If WsVarliklarGlobal.Range("L" & i) <> "" Or WsVarliklarGlobal.Range("M" & i) <> "" Or WsVarliklarGlobal.Range("N" & i) <> "" Then 'mevcut, giriþ, çýkýþ
-                    'Öðe ve öðe deðeri ayný
+            'Ã–ÄŸe aynÄ±
+            If WsVarliklarGlobal.Range("J" & j) = WsVarliklarGlobal.Range("J" & i) Then 'Ã–ÄŸe aynÄ±
+                If WsVarliklarGlobal.Range("L" & i) <> "" Or WsVarliklarGlobal.Range("M" & i) <> "" Or WsVarliklarGlobal.Range("N" & i) <> "" Then 'mevcut, giriÅŸ, Ã§Ä±kÄ±ÅŸ
+                    'Ã–ÄŸe ve Ã¶ÄŸe deÄŸeri aynÄ±
                     If WsVarliklarGlobal.Range("K" & j) = WsVarliklarGlobal.Range("K" & i) Then
                         WsVarliklarGlobal.Range("L" & j) = WsVarliklarGlobal.Range("L" & j) + WsVarliklarGlobal.Range("L" & i)
                         WsVarliklarGlobal.Range("M" & j) = WsVarliklarGlobal.Range("M" & j) + WsVarliklarGlobal.Range("M" & i)
                         WsVarliklarGlobal.Range("N" & j) = WsVarliklarGlobal.Range("N" & j) + WsVarliklarGlobal.Range("N" & i)
                         GoTo jDonguSon1
-                    Else 'Öðe ayný, öðe deðeri farklý
+                    Else 'Ã–ÄŸe aynÄ±, Ã¶ÄŸe deÄŸeri farklÄ±
                         If WsVarliklarGlobal.Range("J" & j + 1) = "" Then
                             WsVarliklarGlobal.Range("J" & j + 1) = WsVarliklarGlobal.Range("J" & i)
                             WsVarliklarGlobal.Range("K" & j + 1) = WsVarliklarGlobal.Range("K" & i)
@@ -3266,8 +3266,8 @@ For i = 7 To SayEsasVarlik - 1
                         End If
                     End If
                 End If
-            Else 'Öðe farklý
-                If WsVarliklarGlobal.Range("L" & i) <> "" Or WsVarliklarGlobal.Range("M" & i) <> "" Or WsVarliklarGlobal.Range("N" & i) <> "" Then 'mevcut, giriþ, çýkýþ
+            Else 'Ã–ÄŸe farklÄ±
+                If WsVarliklarGlobal.Range("L" & i) <> "" Or WsVarliklarGlobal.Range("M" & i) <> "" Or WsVarliklarGlobal.Range("N" & i) <> "" Then 'mevcut, giriÅŸ, Ã§Ä±kÄ±ÅŸ
                     If WsVarliklarGlobal.Range("J" & j + 1) = "" Then
                         WsVarliklarGlobal.Range("J" & j + 1) = WsVarliklarGlobal.Range("J" & i)
                         WsVarliklarGlobal.Range("K" & j + 1) = WsVarliklarGlobal.Range("K" & i)
@@ -3283,7 +3283,7 @@ jDonguSon1:
     End If
 Next i
 
-'Boþ satýrlara 0 yaz.
+'BoÅŸ satÄ±rlara 0 yaz.
 For j = SayEsasVarlik + 2 To x
     If WsVarliklarGlobal.Range("L" & j) = "" Then
         WsVarliklarGlobal.Range("L" & j).Value = 0
@@ -3303,7 +3303,7 @@ WsVarliklarGlobal.Range("C" & SayEsasVarlik) = "Total"
 WsVarliklarGlobal.Range("C" & SayEsasVarlik).Font.Bold = True
 WsVarliklarGlobal.Range("C" & SayEsasVarlik).HorizontalAlignment = xlRight
 WsVarliklarGlobal.Range("L" & SayEsasVarlik & ":O" & SayEsasVarlik).Font.Bold = True
-'Toplamlar (Sol üstteki toplam)
+'Toplamlar (Sol Ã¼stteki toplam)
 For i = 7 To SayEsasVarlik - 1
     WsVarliklarGlobal.Range("O" & i).Value = WsVarliklarGlobal.Range("L" & i).Value + WsVarliklarGlobal.Range("M" & i).Value - WsVarliklarGlobal.Range("N" & i).Value
     WsVarliklarGlobal.Range("L" & SayEsasVarlik).Value = WsVarliklarGlobal.Range("L" & SayEsasVarlik).Value + WsVarliklarGlobal.Range("L" & i).Value
@@ -3312,7 +3312,7 @@ For i = 7 To SayEsasVarlik - 1
     WsVarliklarGlobal.Range("O" & SayEsasVarlik).Value = WsVarliklarGlobal.Range("O" & SayEsasVarlik).Value + WsVarliklarGlobal.Range("O" & i).Value
 Next i
 
-'ÖZET TABLO BAÞLIÐI
+'Ã–ZET TABLO BAÅžLIÄžI
 WsVarliklarGlobal.Range("J" & SayEsasVarlik + 2).Value = "Item-Based Totals (Qty)"
 WsVarliklarGlobal.Range("J" & SayEsasVarlik + 2 & ":O" & SayEsasVarlik + 2).Font.Bold = True
 WsVarliklarGlobal.Range("J" & SayEsasVarlik + 2 & ":O" & SayEsasVarlik + 2).Merge
@@ -3327,7 +3327,7 @@ WsVarliklarGlobal.Range("O" & SayEsasVarlik + 3).Value = "Remaining Qty"
 WsVarliklarGlobal.Range("J" & SayEsasVarlik + 3 & ":O" & SayEsasVarlik + 3).Font.Bold = True
 y = SayEsasVarlik + 3
 
-'Toplamlar (öðelere göre, sað alttaki)
+'Toplamlar (Ã¶ÄŸelere gÃ¶re, saÄŸ alttaki)
 For i = SayEsasVarlik + 4 To x
     WsVarliklarGlobal.Range("O" & i).Value = WsVarliklarGlobal.Range("L" & i).Value + WsVarliklarGlobal.Range("M" & i).Value - WsVarliklarGlobal.Range("N" & i).Value
     WsVarliklarGlobal.Range("L" & x + 1).Value = WsVarliklarGlobal.Range("L" & x + 1).Value + WsVarliklarGlobal.Range("L" & i).Value
@@ -3338,9 +3338,9 @@ Next i
 'Sort Z to A
 WsVarliklarGlobal.Range("J" & SayEsasVarlik + 4 & ":O" & x).Sort key1:=Range("K" & SayEsasVarlik + 4 & ":K" & x), order1:=xlDescending, Header:=xlNo
 
-''Özet bölümünde yer alan mevcut adet ve giren adedi sil.
+''Ã–zet bÃ¶lÃ¼mÃ¼nde yer alan mevcut adet ve giren adedi sil.
 'WsVarliklarGlobal.Range("L" & SayEsasVarlik + 2 & ":M" & x + 1).ClearContents
-''Özet satýrlarýný birleþtir
+''Ã–zet satÄ±rlarÄ±nÄ± birleÅŸtir
 'For i = SayEsasVarlik + 2 To x + 1
 '    WsVarliklarGlobal.Range("K" & i & ":M" & i).Merge
 '    WsVarliklarGlobal.Range("K" & i & ":M" & i).HorizontalAlignment = xlLeft
@@ -3355,7 +3355,7 @@ WsVarliklarGlobal.Range("J" & x + 1 & ":K" & x + 1).Font.Bold = True
 WsVarliklarGlobal.Range("J" & x + 1 & ":K" & x + 1).Merge
 WsVarliklarGlobal.Range("J" & x + 1 & ":K" & x + 1).HorizontalAlignment = xlLeft
 
-'Kenarlýklar.
+'KenarlÄ±klar.
 SayEsasVarlik = x + 1
 Set Kenarlar = WsVarliklarGlobal.Range("C" & 7 & ":O" & SayEsasVarlik)
 Kenarlar.Borders(xlDiagonalDown).LineStyle = xlNone
@@ -3409,30 +3409,30 @@ Dim GelenTema As String, XXXMudGiden As String, XXXMudGelen As String
 Dim NomDeger As Variant, NomSay As Integer, RaporNoStr As String
 Dim IlkSiraVarlik As Long, SonSiraVarlik As Long
 
-'Application.DisplayAlerts = False 'Kodlar tamamlanýnca iptal et
+'Application.DisplayAlerts = False 'Kodlar tamamlanÄ±nca iptal et
 
 'Pathfinder...
 AutoPath = ThisWorkbook.Path
 DestOperasyon = AutoPath & "\System Files\Operation\"
 VarlikKlasoru = AutoPath & "\System Files\System Templates\Asset Templates\"
-EsasVarlik = VarlikKlasoru & "Report 2.2 – Supporting Asset Report.xlsx"
+EsasVarlik = VarlikKlasoru & "Report 2.2 â€“ Supporting Asset Report.xlsx"
 
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
 
-'System Files klasör adýný kontrol et.
+'System Files klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(AutoPath & "\System Files\", vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & AutoPath & "\System Files\" & ". The folder named 'System Files' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Operation klasörü adýný kontrol et.
+'Operation klasÃ¶rÃ¼ adÄ±nÄ± kontrol et.
 If Not Dir(DestOperasyon, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & DestOperasyon & ". The folder named 'Operation' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Registry Reports klasör adýný kontrol et.
+'Registry Reports klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(VarlikKlasoru, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & VarlikKlasoru & ". The folder named 'Asset Templates' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
@@ -3441,7 +3441,7 @@ If Not Dir(EsasVarlik, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & EsasVarlik & ". The names of folders and/or files in this directory might have been changed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
@@ -3449,15 +3449,15 @@ End If
     
 
 
-On Error Resume Next 'Operation içinde Varlýklar.xlsx dosyasý yoksa oluþacak hata için
-OperasyonEsasVarlik = DestOpUserFolder & "Report 2.2 – Supporting Asset Report.xlsx"
-'Varlýklar açýksa kaydet ve kapat.
+On Error Resume Next 'Operation iÃ§inde VarlÄ±klar.xlsx dosyasÄ± yoksa oluÅŸacak hata iÃ§in
+OperasyonEsasVarlik = DestOpUserFolder & "Report 2.2 â€“ Supporting Asset Report.xlsx"
+'VarlÄ±klar aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(OperasyonEsasVarlik)
 If OpenControl = True Then
-    Workbooks("Report 2.2 – Supporting Asset Report.xlsx").Close SaveChanges:=True
+    Workbooks("Report 2.2 â€“ Supporting Asset Report.xlsx").Close SaveChanges:=True
 End If
 
-'Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 On Error Resume Next
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
@@ -3469,13 +3469,13 @@ If ContSay > 0 Then
     Kill DestOpUserFolder & "*.???"
 End If
 
-'Dosyayý operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
-fso.CopyFile (EsasVarlik), DestOpUserFolder & "Report 2.2 – Supporting Asset Report" & ".xlsx", True
+fso.CopyFile (EsasVarlik), DestOpUserFolder & "Report 2.2 â€“ Supporting Asset Report" & ".xlsx", True
 'open the file
 Workbooks.Open (OperasyonEsasVarlik)
 
-Set WsVarliklarGlobal = Workbooks("Report 2.2 – Supporting Asset Report.xlsx").Worksheets(1)
+Set WsVarliklarGlobal = Workbooks("Report 2.2 â€“ Supporting Asset Report.xlsx").Worksheets(1)
 WsVarliklarGlobal.Unprotect Password:="123"
 
 On Error GoTo 0
@@ -3489,13 +3489,13 @@ SayEsasVarlik = 7
 SiraNoEsasVarlik = 1
 'Devir = 0
 For Each ctl In core_asset_manager_UI.FrameGiris.Controls
-'NOT: Tüm yardýmcý varlýklarda giriþ iþleminde çýkýþ tarihi varsa kaldýr.
-'Çýkýþ iþleminde giriþ tarihi olmasý normal; ama giriþ iþleminde çýkýþ tarihi olamaz.
-'Benzer þekilde mevcutlar da çýkýþ tarihi olamaz. Mevcutlarda da çýkýþ tarihi varsa kaldýr.
-'07.10.2019, 01:30 Ýshak.
+'NOT: TÃ¼m yardÄ±mcÄ± varlÄ±klarda giriÅŸ iÅŸleminde Ã§Ä±kÄ±ÅŸ tarihi varsa kaldÄ±r.
+'Ã‡Ä±kÄ±ÅŸ iÅŸleminde giriÅŸ tarihi olmasÄ± normal; ama giriÅŸ iÅŸleminde Ã§Ä±kÄ±ÅŸ tarihi olamaz.
+'Benzer ÅŸekilde mevcutlar da Ã§Ä±kÄ±ÅŸ tarihi olamaz. Mevcutlarda da Ã§Ä±kÄ±ÅŸ tarihi varsa kaldÄ±r.
+'07.10.2019, 01:30 Ä°shak.
 'YAPILDI!
     If TypeName(ctl) = "ListBox" Then
-        'RAPOR2_2 (GÝRÝÞ, KURUM ve XXXMud)
+        'RAPOR2_2 (GÄ°RÄ°Åž, KURUM ve XXXMud)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " B" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -3520,13 +3520,13 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             Call Rapor2_2GelenTema
             GelenTema = GelenTemaGlobal
             
-            'Aktarýmý baþlat
-            If Mid(ctl.List(0), InStr(ctl.List(0), "<") + 1, 1) = "T" Then 'Tümü
+            'AktarÄ±mÄ± baÅŸlat
+            If Mid(ctl.List(0), InStr(ctl.List(0), "<") + 1, 1) = "T" Then 'TÃ¼mÃ¼
                 If Mid(ctl.List(0), InStr(ctl.List(0), ">") + 1, 8) = " Outgoing" Then
                     SayEsasVarlikDongu = SayEsasVarlik
                     WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-                    'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                    'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                     NomSay = 0
                     NomDeger = 0
                     For i = IlkSira To SonSira
@@ -3578,7 +3578,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     Else
                         WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
                         
-                        'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                        'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                         NomSay = 0
                         NomDeger = 0
                         For i = IlkSira To SonSira
@@ -3605,7 +3605,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     SayEsasVarlikDongu = SayEsasVarlik
                     WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-                    'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                    'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                     NomSay = 0
                     NomDeger = 0
                     For i = IlkSira To SonSira
@@ -3645,7 +3645,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                         WsVarliklarGlobal.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                         WsVarliklarGlobal.Range("J" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
                         
-                        'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                        'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                         NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                         NomDeger = CLng(NomDeger)
                         WsVarliklarGlobal.Range("K" & SayEsasVarlikDongu & ":K" & SayEsasVarlikDongu).Value = NomDeger
@@ -3675,7 +3675,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                             WsVarliklarGlobal.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                             WsVarliklarGlobal.Range("J" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
 
-                            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                             NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                             NomDeger = CLng(NomDeger)
                             WsVarliklarGlobal.Range("K" & SayEsasVarlikDongu & ":K" & SayEsasVarlikDongu).Value = NomDeger
@@ -3733,7 +3733,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                                 WsVarliklarGlobal.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                                 WsVarliklarGlobal.Range("J" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
         
-                                'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                                'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                                 NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                                 NomDeger = CLng(NomDeger)
                                 WsVarliklarGlobal.Range("K" & SayEsasVarlikDongu & ":K" & SayEsasVarlikDongu).Value = NomDeger
@@ -3777,7 +3777,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     Next j
                 End If
             Next i
-            'Sýra ve kayýt nolar ile gönderen, belge no ve tarih, giriþ ve çýkýþ tarihini dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolar ile gÃ¶nderen, belge no ve tarih, giriÅŸ ve Ã§Ä±kÄ±ÅŸ tarihini dikeyde birleÅŸtir.
             'WsVarliklarGlobal.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlikDongu - 1).Merge
             WsVarliklarGlobal.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlikDongu - 1).Merge
             WsVarliklarGlobal.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlikDongu - 1).Merge
@@ -3785,7 +3785,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             WsVarliklarGlobal.Range("H" & SayEsasVarlik & ":H" & SayEsasVarlikDongu - 1).Merge
             WsVarliklarGlobal.Range("I" & SayEsasVarlik & ":I" & SayEsasVarlikDongu - 1).Merge
     
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             If WsVarliklarGlobal.Range("E" & SayEsasVarlik).Value = "Package A" Or _
                 WsVarliklarGlobal.Range("E" & SayEsasVarlik).Value = "Package B" Or _
                 WsVarliklarGlobal.Range("E" & SayEsasVarlik).Value = "Package C" Then
@@ -3808,7 +3808,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                 Next i
             End If
             
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlikDongu  'SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
@@ -3817,7 +3817,7 @@ Next ctl
    
 For Each ctl In core_asset_manager_UI.FrameCikis.Controls
     If TypeName(ctl) = "ListBox" Then
-        'RAPOR2_2 (ÇIKIÞ, KURUM ve XXXMud)
+        'RAPOR2_2 (Ã‡IKIÅž, KURUM ve XXXMud)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " B" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -3842,13 +3842,13 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             Call Rapor2_2GelenTema
             GelenTema = GelenTemaGlobal
             
-            'Aktarýmý baþlat
-            If Mid(ctl.List(0), InStr(ctl.List(0), "<") + 1, 1) = "T" Then 'Tümü
+            'AktarÄ±mÄ± baÅŸlat
+            If Mid(ctl.List(0), InStr(ctl.List(0), "<") + 1, 1) = "T" Then 'TÃ¼mÃ¼
                 If Mid(ctl.List(0), InStr(ctl.List(0), ">") + 1, 8) = " Outgoing" Then
                     SayEsasVarlikDongu = SayEsasVarlik
                     WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-                    'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                    'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                     NomSay = 0
                     NomDeger = 0
                     For i = IlkSira To SonSira
@@ -3866,7 +3866,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     WsVarliklarGlobal.Range("I" & SayEsasVarlik).Value = ThisWorkbook.Worksheets(4).Range("DA" & IlkSira)
                     WsVarliklarGlobal.Range("J" & SayEsasVarlik & ":J" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AT" & IlkSira & ":AT" & SonSira).Value
                     'WsVarliklarGlobal.Range("K" & SayEsasVarlik & ":K" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AW" & IlkSira & ":AW" & SonSira).Value
-                    If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                    If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                         WsVarliklarGlobal.Range("M" & SayEsasVarlik & ":M" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
                     Else
                         WsVarliklarGlobal.Range("L" & SayEsasVarlik & ":L" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
@@ -3893,7 +3893,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                         End If
                         WsVarliklarGlobal.Range("K" & SayEsasVarlik).Value = "-"
                         
-                        If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                        If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                             If ThisWorkbook.Worksheets(4).Cells(IlkSira, 202).Value <> "" Then
                                 WsVarliklarGlobal.Range("M" & SayEsasVarlik).Value = ThisWorkbook.Worksheets(4).Cells(IlkSira, 202).Value 'Package A adedi
                             Else
@@ -3919,7 +3919,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                         SayEsasVarlikDongu = SayEsasVarlik
                         WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
     
-                        'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                        'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                         NomSay = 0
                         NomDeger = 0
                         For i = IlkSira To SonSira
@@ -3937,7 +3937,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                         WsVarliklarGlobal.Range("I" & SayEsasVarlik).Value = ThisWorkbook.Worksheets(4).Range("DB" & IlkSira)
                         WsVarliklarGlobal.Range("J" & SayEsasVarlik & ":J" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AT" & IlkSira & ":AT" & SonSira).Value
                         'WsVarliklarGlobal.Range("K" & SayEsasVarlik & ":K" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AW" & IlkSira & ":AW" & SonSira).Value
-                        If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                        If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                             WsVarliklarGlobal.Range("M" & SayEsasVarlik & ":M" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
                         Else
                             WsVarliklarGlobal.Range("L" & SayEsasVarlik & ":L" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
@@ -3951,7 +3951,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     SayEsasVarlikDongu = SayEsasVarlik
                     WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-                    'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                    'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                     NomSay = 0
                     NomDeger = 0
                     For i = IlkSira To SonSira
@@ -3969,7 +3969,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     WsVarliklarGlobal.Range("I" & SayEsasVarlik).Value = ThisWorkbook.Worksheets(4).Range("DA" & IlkSira)
                     WsVarliklarGlobal.Range("J" & SayEsasVarlik & ":J" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AT" & IlkSira & ":AT" & SonSira).Value
                     'WsVarliklarGlobal.Range("K" & SayEsasVarlik & ":K" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AW" & IlkSira & ":AW" & SonSira).Value
-                    If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                    If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                         WsVarliklarGlobal.Range("M" & SayEsasVarlik & ":M" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
                     Else
                         WsVarliklarGlobal.Range("L" & SayEsasVarlik & ":L" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
@@ -3996,13 +3996,13 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                         WsVarliklarGlobal.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                         WsVarliklarGlobal.Range("J" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
 
-                        'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                        'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                         NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                         NomDeger = CLng(NomDeger)
                         WsVarliklarGlobal.Range("K" & SayEsasVarlikDongu & ":K" & SayEsasVarlikDongu).Value = NomDeger
                         
                         'WsVarliklarGlobal.Range("K" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
-                        If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                        If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                             WsVarliklarGlobal.Range("M" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AZ" & j).Value
                         Else
                             WsVarliklarGlobal.Range("L" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AZ" & j).Value
@@ -4031,13 +4031,13 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                             WsVarliklarGlobal.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                             WsVarliklarGlobal.Range("J" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
 
-                            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                             NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                             NomDeger = CLng(NomDeger)
                             WsVarliklarGlobal.Range("K" & SayEsasVarlikDongu & ":K" & SayEsasVarlikDongu).Value = NomDeger
 
                             'WsVarliklarGlobal.Range("K" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
-                            If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                            If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                                 WsVarliklarGlobal.Range("M" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AZ" & j).Value
                             Else
                                 WsVarliklarGlobal.Range("L" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AZ" & j).Value
@@ -4073,7 +4073,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                         End If
                         WsVarliklarGlobal.Range("K" & SayEsasVarlik).Value = "-"
                         
-                        If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                        If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                             If ThisWorkbook.Worksheets(4).Cells(IlkSira, 202).Value <> "" Then
                                 WsVarliklarGlobal.Range("M" & SayEsasVarlik).Value = ThisWorkbook.Worksheets(4).Cells(IlkSira, 202).Value 'Package A adedi
                             Else
@@ -4107,13 +4107,13 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                                 WsVarliklarGlobal.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                                 WsVarliklarGlobal.Range("J" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
                                 
-                                'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                                'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                                 NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                                 NomDeger = CLng(NomDeger)
                                 WsVarliklarGlobal.Range("K" & SayEsasVarlikDongu & ":K" & SayEsasVarlikDongu).Value = NomDeger
     
                                 'WsVarliklarGlobal.Range("K" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
-                                If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                                If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                                     WsVarliklarGlobal.Range("M" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AZ" & j).Value
                                 Else
                                     WsVarliklarGlobal.Range("L" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AZ" & j).Value
@@ -4155,7 +4155,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     Next j
                 End If
             Next i
-            'Sýra ve kayýt nolar ile gönderen, belge no ve tarih, giriþ ve çýkýþ tarihini dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolar ile gÃ¶nderen, belge no ve tarih, giriÅŸ ve Ã§Ä±kÄ±ÅŸ tarihini dikeyde birleÅŸtir.
             WsVarliklarGlobal.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlikDongu - 1).Merge
             WsVarliklarGlobal.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlikDongu - 1).Merge
             WsVarliklarGlobal.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlikDongu - 1).Merge
@@ -4163,7 +4163,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             WsVarliklarGlobal.Range("H" & SayEsasVarlik & ":H" & SayEsasVarlikDongu - 1).Merge
             WsVarliklarGlobal.Range("I" & SayEsasVarlik & ":I" & SayEsasVarlikDongu - 1).Merge
 
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             If WsVarliklarGlobal.Range("E" & SayEsasVarlik).Value = "Package A" Or _
                 WsVarliklarGlobal.Range("E" & SayEsasVarlik).Value = "Package B" Or _
                 WsVarliklarGlobal.Range("E" & SayEsasVarlik).Value = "Package C" Then
@@ -4186,7 +4186,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                 Next i
             End If
             
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlikDongu  'SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
@@ -4220,13 +4220,13 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
             Call Rapor2_2GelenTema
             GelenTema = GelenTemaGlobal
             
-            'Aktarýmý baþlat
-            If Mid(ctl.List(0), InStr(ctl.List(0), "<") + 1, 1) = "T" Then 'Tümü
+            'AktarÄ±mÄ± baÅŸlat
+            If Mid(ctl.List(0), InStr(ctl.List(0), "<") + 1, 1) = "T" Then 'TÃ¼mÃ¼
                 If Mid(ctl.List(0), InStr(ctl.List(0), ">") + 1, 8) = " Outgoing" Then
                     SayEsasVarlikDongu = SayEsasVarlik
                     WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-                    'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                    'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                     NomSay = 0
                     NomDeger = 0
                     For i = IlkSira To SonSira
@@ -4277,7 +4277,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                     Else
                         WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
     
-                        'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                        'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                         NomSay = 0
                         NomDeger = 0
                         For i = IlkSira To SonSira
@@ -4304,7 +4304,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                     SayEsasVarlikDongu = SayEsasVarlik
                     WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-                    'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                    'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                     NomSay = 0
                     NomDeger = 0
                     For i = IlkSira To SonSira
@@ -4343,7 +4343,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                         WsVarliklarGlobal.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                         WsVarliklarGlobal.Range("J" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
 
-                        'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                        'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                         NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                         NomDeger = CLng(NomDeger)
                         WsVarliklarGlobal.Range("K" & SayEsasVarlikDongu & ":K" & SayEsasVarlikDongu).Value = NomDeger
@@ -4373,7 +4373,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                             WsVarliklarGlobal.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                             WsVarliklarGlobal.Range("J" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
 
-                            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                             NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                             NomDeger = CLng(NomDeger)
                             WsVarliklarGlobal.Range("K" & SayEsasVarlikDongu & ":K" & SayEsasVarlikDongu).Value = NomDeger
@@ -4432,7 +4432,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                                 WsVarliklarGlobal.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                                 WsVarliklarGlobal.Range("J" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
                                 
-                                'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                                'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                                 NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                                 NomDeger = CLng(NomDeger)
                                 WsVarliklarGlobal.Range("K" & SayEsasVarlikDongu & ":K" & SayEsasVarlikDongu).Value = NomDeger
@@ -4475,7 +4475,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                     Next j
                 End If
             Next i
-            'Sýra ve kayýt nolar ile gönderen, belge no ve tarih, giriþ ve çýkýþ tarihini dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolar ile gÃ¶nderen, belge no ve tarih, giriÅŸ ve Ã§Ä±kÄ±ÅŸ tarihini dikeyde birleÅŸtir.
             WsVarliklarGlobal.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlikDongu - 1).Merge
             WsVarliklarGlobal.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlikDongu - 1).Merge
             WsVarliklarGlobal.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlikDongu - 1).Merge
@@ -4489,7 +4489,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlikDongu  'SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
@@ -4502,8 +4502,8 @@ If WsVarliklarGlobal.Range("C7") = "" Then
 End If
 
 
-'Refere prosedür
-SayEsasVarlikGlobal = SayEsasVarlik 'SayEsasVarlik deðiþkenini aktar
+'Refere prosedÃ¼r
+SayEsasVarlikGlobal = SayEsasVarlik 'SayEsasVarlik deÄŸiÅŸkenini aktar
 SiraNoEsasVarlikGlobal = SiraNoEsasVarlik
 Call Rapor2_2VarlikDevam
 
@@ -4512,7 +4512,7 @@ Son:
 
 ThisWorkbook.Activate
 
-'Application.DisplayAlerts = True 'Kodlar tamamlanýnca iptal et
+'Application.DisplayAlerts = True 'Kodlar tamamlanÄ±nca iptal et
 
 End Sub
 
@@ -4532,30 +4532,30 @@ Dim GelenTema As String
 
 Dim NomDeger As Variant, NomSay As Integer
 
-'Application.DisplayAlerts = False 'Kodlar tamamlanýnca iptal et
+'Application.DisplayAlerts = False 'Kodlar tamamlanÄ±nca iptal et
 
 'Pathfinder...
 AutoPath = ThisWorkbook.Path
 DestOperasyon = AutoPath & "\System Files\Operation\"
 VarlikKlasoru = AutoPath & "\System Files\System Templates\Asset Templates\"
-EsasVarlik = VarlikKlasoru & "Report 3 – Supporting Asset Report.xlsx"
+EsasVarlik = VarlikKlasoru & "Report 3 â€“ Supporting Asset Report.xlsx"
 
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
 
-'System Files klasör adýný kontrol et.
+'System Files klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(AutoPath & "\System Files\", vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & AutoPath & "\System Files\" & ". The folder named 'System Files' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Operation klasörü adýný kontrol et.
+'Operation klasÃ¶rÃ¼ adÄ±nÄ± kontrol et.
 If Not Dir(DestOperasyon, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & DestOperasyon & ". The folder named 'Operation' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Registry Reports klasör adýný kontrol et.
+'Registry Reports klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(VarlikKlasoru, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & VarlikKlasoru & ". The folder named 'Asset Templates' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
@@ -4564,21 +4564,21 @@ If Not Dir(EsasVarlik, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & EsasVarlik & ". The names of folders and/or files in this directory might have been changed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
 
 
-On Error Resume Next 'Operation içinde Varlýklar.xlsx dosyasý yoksa oluþacak hata için
-OperasyonEsasVarlik = DestOpUserFolder & "Report 3 – Supporting Asset Report.xlsx"
-'Varlýklar açýksa kaydet ve kapat.
+On Error Resume Next 'Operation iÃ§inde VarlÄ±klar.xlsx dosyasÄ± yoksa oluÅŸacak hata iÃ§in
+OperasyonEsasVarlik = DestOpUserFolder & "Report 3 â€“ Supporting Asset Report.xlsx"
+'VarlÄ±klar aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(OperasyonEsasVarlik)
 If OpenControl = True Then
-    Workbooks("Report 3 – Supporting Asset Report.xlsx").Close SaveChanges:=True
+    Workbooks("Report 3 â€“ Supporting Asset Report.xlsx").Close SaveChanges:=True
 End If
 
-'Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 On Error Resume Next
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
@@ -4590,13 +4590,13 @@ If ContSay > 0 Then
     Kill DestOpUserFolder & "*.???"
 End If
 
-'Dosyayý operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
-fso.CopyFile (EsasVarlik), DestOpUserFolder & "Report 3 – Supporting Asset Report" & ".xlsx", True
+fso.CopyFile (EsasVarlik), DestOpUserFolder & "Report 3 â€“ Supporting Asset Report" & ".xlsx", True
 'open the file
 Workbooks.Open (OperasyonEsasVarlik)
 
-Set WsVarliklar = Workbooks("Report 3 – Supporting Asset Report.xlsx").Worksheets(1)
+Set WsVarliklar = Workbooks("Report 3 â€“ Supporting Asset Report.xlsx").Worksheets(1)
 WsVarliklar.Unprotect Password:="123"
 
 On Error GoTo 0
@@ -4608,7 +4608,7 @@ SiraNoEsasVarlik = 1
 'Devir = 0
 For Each ctl In core_asset_manager_UI.FrameGiris.Controls
     If TypeName(ctl) = "ListBox" Then
-        'Rapor3 (GÝRÝÞ)
+        'Rapor3 (GÄ°RÄ°Åž)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " M" Or Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " G" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -4633,10 +4633,10 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             End If
             
             If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " M" Then
-                'Aktarýmý baþlat
+                'AktarÄ±mÄ± baÅŸlat
                 WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-                'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                 NomSay = 0
                 NomDeger = 0
                 For i = IlkSira To SonSira
@@ -4671,10 +4671,10 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                 End If
             
             ElseIf Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " G" Then
-                'Aktarýmý baþlat
+                'AktarÄ±mÄ± baÅŸlat
                 WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-                'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                 NomSay = 0
                 NomDeger = 0
                 For i = IlkSira To SonSira
@@ -4710,14 +4710,14 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                 
             End If
             
-'            'ÖR yaz
+'            'Ã–R yaz
 '            For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
 '                If WsVarliklar.Range("D" & i) <> "" Then
-'                    WsVarliklar.Range("D" & i) = "ÖR/" & WsVarliklar.Range("D" & i)
+'                    WsVarliklar.Range("D" & i) = "Ã–R/" & WsVarliklar.Range("D" & i)
 '                End If
 '            Next i
 
-            'Sýra ve kayýt nolar ile gönderen, belge no ve tarih, giriþ ve çýkýþ tarihini dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolar ile gÃ¶nderen, belge no ve tarih, giriÅŸ ve Ã§Ä±kÄ±ÅŸ tarihini dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklar.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklar.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Merge
@@ -4732,7 +4732,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                 End If
             Next i
             
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
@@ -4742,7 +4742,7 @@ Next ctl
 
 For Each ctl In core_asset_manager_UI.FrameCikis.Controls
     If TypeName(ctl) = "ListBox" Then
-        'Rapor3 (ÇIKIÞLAR)
+        'Rapor3 (Ã‡IKIÅžLAR)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " M" Or Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " G" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -4767,10 +4767,10 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             End If
             
             If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " M" Then
-                'Aktarýmý baþlat
+                'AktarÄ±mÄ± baÅŸlat
                 WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-                'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                 NomSay = 0
                 NomDeger = 0
                 For i = IlkSira To SonSira
@@ -4793,7 +4793,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                 WsVarliklar.Range("I" & SayEsasVarlik).Value = ThisWorkbook.Worksheets(5).Range("FT" & IlkSira)
                 WsVarliklar.Range("J" & SayEsasVarlik & ":J" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
                 'WsVarliklar.Range("K" & SayEsasVarlik & ":K" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("BC" & IlkSira & ":BC" & SonSira).Value
-                If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                     WsVarliklar.Range("M" & SayEsasVarlik & ":M" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("BF" & IlkSira & ":BF" & SonSira).Value
                 Else
                     WsVarliklar.Range("L" & SayEsasVarlik & ":L" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("BF" & IlkSira & ":BF" & SonSira).Value
@@ -4810,10 +4810,10 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                 End If
             
             ElseIf Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " G" Then
-                'Aktarýmý baþlat
+                'AktarÄ±mÄ± baÅŸlat
                 WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-                'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                 NomSay = 0
                 NomDeger = 0
                 For i = IlkSira To SonSira
@@ -4836,7 +4836,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                 WsVarliklar.Range("I" & SayEsasVarlik).Value = ThisWorkbook.Worksheets(5).Range("FT" & IlkSira)
                 WsVarliklar.Range("J" & SayEsasVarlik & ":J" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("DZ" & IlkSira & ":DZ" & SonSira).Value
                 'WsVarliklar.Range("K" & SayEsasVarlik & ":K" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("EC" & IlkSira & ":EC" & SonSira).Value
-                If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                     WsVarliklar.Range("M" & SayEsasVarlik & ":M" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("EF" & IlkSira & ":EF" & SonSira).Value
                 Else
                     WsVarliklar.Range("L" & SayEsasVarlik & ":L" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("EF" & IlkSira & ":EF" & SonSira).Value
@@ -4854,14 +4854,14 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                 
             End If
             
-'            'ÖR yaz
+'            'Ã–R yaz
 '            For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
 '                If WsVarliklar.Range("D" & i) <> "" Then
-'                    WsVarliklar.Range("D" & i) = "ÖR/" & WsVarliklar.Range("D" & i)
+'                    WsVarliklar.Range("D" & i) = "Ã–R/" & WsVarliklar.Range("D" & i)
 '                End If
 '            Next i
 
-            'Sýra ve kayýt nolar ile gönderen, belge no ve tarih, giriþ ve çýkýþ tarihini dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolar ile gÃ¶nderen, belge no ve tarih, giriÅŸ ve Ã§Ä±kÄ±ÅŸ tarihini dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklar.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklar.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Merge
@@ -4875,7 +4875,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
@@ -4910,10 +4910,10 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
             End If
             
             If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " M" Then
-                'Aktarýmý baþlat
+                'AktarÄ±mÄ± baÅŸlat
                 WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-                'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                 NomSay = 0
                 NomDeger = 0
                 For i = IlkSira To SonSira
@@ -4948,10 +4948,10 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                 End If
                 
             ElseIf Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " G" Then
-                'Aktarýmý baþlat
+                'AktarÄ±mÄ± baÅŸlat
                 WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-                'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                 NomSay = 0
                 NomDeger = 0
                 For i = IlkSira To SonSira
@@ -4986,14 +4986,14 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                 End If
                 
             End If
-'            'ÖR yaz
+'            'Ã–R yaz
 '            For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
 '                If WsVarliklar.Range("D" & i) <> "" Then
-'                    WsVarliklar.Range("D" & i) = "ÖR/" & WsVarliklar.Range("D" & i)
+'                    WsVarliklar.Range("D" & i) = "Ã–R/" & WsVarliklar.Range("D" & i)
 '                End If
 '            Next i
 
-            'Sýra ve kayýt nolar ile gönderen, belge no ve tarih, giriþ ve çýkýþ tarihini dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolar ile gÃ¶nderen, belge no ve tarih, giriÅŸ ve Ã§Ä±kÄ±ÅŸ tarihini dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklar.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklar.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Merge
@@ -5007,7 +5007,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
@@ -5019,7 +5019,7 @@ If WsVarliklar.Range("C7") = "" Then
 End If
 
 
-'Öðelere göre toplamlar
+'Ã–ÄŸelere gÃ¶re toplamlar
 WsVarliklar.Range("J" & SayEsasVarlik & ":N" & SayEsasVarlik + 3).Value = "*"
 x = SayEsasVarlik + 3
 For i = 7 To SayEsasVarlik - 1
@@ -5029,16 +5029,16 @@ For i = 7 To SayEsasVarlik - 1
         Say2 = WsVarliklar.Range("J100000").End(xlUp).Row '+ 1
         'MsgBox "SayEsasVarlik: " & SayEsasVarlik & " Say2: " & Say2
         For j = SayEsasVarlik + 2 To Say2
-            'Öðe ayný
-            If WsVarliklar.Range("J" & j) = WsVarliklar.Range("J" & i) Then 'Öðe ayný
-                If WsVarliklar.Range("L" & i) <> "" Or WsVarliklar.Range("M" & i) <> "" Or WsVarliklar.Range("N" & i) <> "" Then 'mevcut, giriþ, çýkýþ
-                    'Öðe ve öðe deðeri ayný
+            'Ã–ÄŸe aynÄ±
+            If WsVarliklar.Range("J" & j) = WsVarliklar.Range("J" & i) Then 'Ã–ÄŸe aynÄ±
+                If WsVarliklar.Range("L" & i) <> "" Or WsVarliklar.Range("M" & i) <> "" Or WsVarliklar.Range("N" & i) <> "" Then 'mevcut, giriÅŸ, Ã§Ä±kÄ±ÅŸ
+                    'Ã–ÄŸe ve Ã¶ÄŸe deÄŸeri aynÄ±
                     If WsVarliklar.Range("K" & j) = WsVarliklar.Range("K" & i) Then
                         WsVarliklar.Range("L" & j) = WsVarliklar.Range("L" & j) + WsVarliklar.Range("L" & i)
                         WsVarliklar.Range("M" & j) = WsVarliklar.Range("M" & j) + WsVarliklar.Range("M" & i)
                         WsVarliklar.Range("N" & j) = WsVarliklar.Range("N" & j) + WsVarliklar.Range("N" & i)
                         GoTo jDonguSon1
-                    Else 'Öðe ayný, öðe deðeri farklý
+                    Else 'Ã–ÄŸe aynÄ±, Ã¶ÄŸe deÄŸeri farklÄ±
                         If WsVarliklar.Range("J" & j + 1) = "" Then
                             WsVarliklar.Range("J" & j + 1) = WsVarliklar.Range("J" & i)
                             WsVarliklar.Range("K" & j + 1) = WsVarliklar.Range("K" & i)
@@ -5049,8 +5049,8 @@ For i = 7 To SayEsasVarlik - 1
                         End If
                     End If
                 End If
-            Else 'Öðe farklý
-                If WsVarliklar.Range("L" & i) <> "" Or WsVarliklar.Range("M" & i) <> "" Or WsVarliklar.Range("N" & i) <> "" Then 'mevcut, giriþ, çýkýþ
+            Else 'Ã–ÄŸe farklÄ±
+                If WsVarliklar.Range("L" & i) <> "" Or WsVarliklar.Range("M" & i) <> "" Or WsVarliklar.Range("N" & i) <> "" Then 'mevcut, giriÅŸ, Ã§Ä±kÄ±ÅŸ
                     If WsVarliklar.Range("J" & j + 1) = "" Then
                         WsVarliklar.Range("J" & j + 1) = WsVarliklar.Range("J" & i)
                         WsVarliklar.Range("K" & j + 1) = WsVarliklar.Range("K" & i)
@@ -5066,7 +5066,7 @@ jDonguSon1:
     End If
 Next i
 
-'Boþ satýrlara 0 yaz.
+'BoÅŸ satÄ±rlara 0 yaz.
 For j = SayEsasVarlik + 2 To x
     If WsVarliklar.Range("L" & j) = "" Then
         WsVarliklar.Range("L" & j).Value = 0
@@ -5086,7 +5086,7 @@ WsVarliklar.Range("C" & SayEsasVarlik) = "Total"
 WsVarliklar.Range("C" & SayEsasVarlik).Font.Bold = True
 WsVarliklar.Range("C" & SayEsasVarlik).HorizontalAlignment = xlRight
 WsVarliklar.Range("L" & SayEsasVarlik & ":O" & SayEsasVarlik).Font.Bold = True
-'Toplamlar (Sol üstteki toplam)
+'Toplamlar (Sol Ã¼stteki toplam)
 For i = 7 To SayEsasVarlik - 1
     WsVarliklar.Range("O" & i).Value = WsVarliklar.Range("L" & i).Value + WsVarliklar.Range("M" & i).Value - WsVarliklar.Range("N" & i).Value
     WsVarliklar.Range("L" & SayEsasVarlik).Value = WsVarliklar.Range("L" & SayEsasVarlik).Value + WsVarliklar.Range("L" & i).Value
@@ -5095,7 +5095,7 @@ For i = 7 To SayEsasVarlik - 1
     WsVarliklar.Range("O" & SayEsasVarlik).Value = WsVarliklar.Range("O" & SayEsasVarlik).Value + WsVarliklar.Range("O" & i).Value
 Next i
 
-'ÖZET TABLO BAÞLIÐI
+'Ã–ZET TABLO BAÅžLIÄžI
 WsVarliklar.Range("J" & SayEsasVarlik + 2).Value = "Item-Based Totals (Qty)"
 WsVarliklar.Range("J" & SayEsasVarlik + 2 & ":O" & SayEsasVarlik + 2).Font.Bold = True
 WsVarliklar.Range("J" & SayEsasVarlik + 2 & ":O" & SayEsasVarlik + 2).Merge
@@ -5110,7 +5110,7 @@ WsVarliklar.Range("O" & SayEsasVarlik + 3).Value = "Remaining Qty"
 WsVarliklar.Range("J" & SayEsasVarlik + 3 & ":O" & SayEsasVarlik + 3).Font.Bold = True
 y = SayEsasVarlik + 3
 
-'Toplamlar (öðelere göre, sað alttaki)
+'Toplamlar (Ã¶ÄŸelere gÃ¶re, saÄŸ alttaki)
 For i = SayEsasVarlik + 4 To x
     WsVarliklar.Range("O" & i).Value = WsVarliklar.Range("L" & i).Value + WsVarliklar.Range("M" & i).Value - WsVarliklar.Range("N" & i).Value
     WsVarliklar.Range("L" & x + 1).Value = WsVarliklar.Range("L" & x + 1).Value + WsVarliklar.Range("L" & i).Value
@@ -5130,7 +5130,7 @@ WsVarliklar.Range("J" & x + 1 & ":K" & x + 1).Font.Bold = True
 WsVarliklar.Range("J" & x + 1 & ":K" & x + 1).Merge
 WsVarliklar.Range("J" & x + 1 & ":K" & x + 1).HorizontalAlignment = xlLeft
 
-'Kenarlýklar.
+'KenarlÄ±klar.
 SayEsasVarlik = x + 1
 Set Kenarlar = WsVarliklar.Range("C" & 7 & ":O" & SayEsasVarlik)
 Kenarlar.Borders(xlDiagonalDown).LineStyle = xlNone
@@ -5167,7 +5167,7 @@ Son:
 
 ThisWorkbook.Activate
 
-'Application.DisplayAlerts = True 'Kodlar tamamlanýnca iptal et
+'Application.DisplayAlerts = True 'Kodlar tamamlanÄ±nca iptal et
 
 End Sub
 
@@ -5188,7 +5188,7 @@ Dim GelenTema As String, XXXMudGiden As String, XXXMudGelen As String
 Dim NomDeger As Variant, NomSay As Integer, RaporNoStr As String
 Dim IlkSiraVarlik As Long, SonSiraVarlik As Long
 
-'Application.DisplayAlerts = False 'Kodlar tamamlanýnca iptal et
+'Application.DisplayAlerts = False 'Kodlar tamamlanÄ±nca iptal et
 
 'Pathfinder...
 AutoPath = ThisWorkbook.Path
@@ -5196,22 +5196,22 @@ DestOperasyon = AutoPath & "\System Files\Operation\"
 VarlikKlasoru = AutoPath & "\System Files\System Templates\Asset Templates\"
 EsasVarlik = VarlikKlasoru & "General Supporting Asset Report.xlsx"
 
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
 
-'System Files klasör adýný kontrol et.
+'System Files klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(AutoPath & "\System Files\", vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & AutoPath & "\System Files\" & ". The folder named 'System Files' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Operation klasörü adýný kontrol et.
+'Operation klasÃ¶rÃ¼ adÄ±nÄ± kontrol et.
 If Not Dir(DestOperasyon, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & DestOperasyon & ". The folder named 'Operation' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Registry Reports klasör adýný kontrol et.
+'Registry Reports klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(VarlikKlasoru, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & VarlikKlasoru & ". The folder named 'Asset Templates' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
@@ -5220,21 +5220,21 @@ If Not Dir(EsasVarlik, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & EsasVarlik & ". The names of folders and/or files in this directory might have been changed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
 
 
-On Error Resume Next 'Operation içinde Varlýklar.xlsx dosyasý yoksa oluþacak hata için
+On Error Resume Next 'Operation iÃ§inde VarlÄ±klar.xlsx dosyasÄ± yoksa oluÅŸacak hata iÃ§in
 OperasyonEsasVarlik = DestOpUserFolder & "General Supporting Asset Report.xlsx"
-'Varlýklar açýksa kaydet ve kapat.
+'VarlÄ±klar aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(OperasyonEsasVarlik)
 If OpenControl = True Then
     Workbooks("General Supporting Asset Report.xlsx").Close SaveChanges:=True
 End If
 
-'Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 On Error Resume Next
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
@@ -5246,7 +5246,7 @@ If ContSay > 0 Then
     Kill DestOpUserFolder & "*.???"
 End If
 
-'Dosyayý operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
 fso.CopyFile (EsasVarlik), DestOpUserFolder & "General Supporting Asset Report" & ".xlsx", True
 'open the file
@@ -5264,8 +5264,8 @@ SiraNoEsasVarlik = 1
 'Devir = 0
 For Each ctl In core_asset_manager_UI.FrameGiris.Controls
     If TypeName(ctl) = "ListBox" Then
-        'RAPOR1 (GÝRÝÞ)
-        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ö" Then
+        'RAPOR1 (GÄ°RÄ°Åž)
+        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ã–" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
             IlkSira = 0
@@ -5289,10 +5289,10 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             Call Rapor1GelenTema
             GelenTema = GelenTemaGlobal
             
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -5313,13 +5313,13 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             WsVarliklarGlobal.Range("M" & SayEsasVarlik & ":M" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AR" & IlkSira & ":AR" & SonSira).Value
             
             WsVarliklarGlobal.Range("R" & SayEsasVarlik & ":R" & SayEsasVarlik + (SonSira - IlkSira)).Value = "*"
-            'ÖR yaz
+            'Ã–R yaz
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklarGlobal.Range("D" & i) <> "" Then
-                    WsVarliklarGlobal.Range("D" & i) = "ÖR/" & WsVarliklarGlobal.Range("D" & i)
+                    WsVarliklarGlobal.Range("D" & i) = "Ã–R/" & WsVarliklarGlobal.Range("D" & i)
                 End If
             Next i
-            'Sýra ve kayýt nolar ile gönderen, belge no ve tarih, giriþ ve çýkýþ tarihini dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolar ile gÃ¶nderen, belge no ve tarih, giriÅŸ ve Ã§Ä±kÄ±ÅŸ tarihini dikeyde birleÅŸtir.
             WsVarliklarGlobal.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklarGlobal.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklarGlobal.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Merge
@@ -5333,12 +5333,12 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
 
-        'Rapor (GÝRÝÞ)
+        'Rapor (GÄ°RÄ°Åž)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " R" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -5363,10 +5363,10 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             Call RaporGelenTema
             GelenTema = GelenTemaGlobal
             
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
     
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -5393,7 +5393,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     WsVarliklarGlobal.Range("D" & i) = "R/" & WsVarliklarGlobal.Range("D" & i)
                 End If
             Next i
-            'Sýra ve kayýt nolar ile gönderen, belge no ve tarih, giriþ ve çýkýþ tarihini dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolar ile gÃ¶nderen, belge no ve tarih, giriÅŸ ve Ã§Ä±kÄ±ÅŸ tarihini dikeyde birleÅŸtir.
             WsVarliklarGlobal.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklarGlobal.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklarGlobal.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Merge
@@ -5407,12 +5407,12 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
 
-        'RAPOR2_2 (GÝRÝÞ, KURUM ve XXXMud)
+        'RAPOR2_2 (GÄ°RÄ°Åž, KURUM ve XXXMud)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " B" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -5437,13 +5437,13 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             Call Rapor2_2GelenTema
             GelenTema = GelenTemaGlobal
             
-            'Aktarýmý baþlat
-            If Mid(ctl.List(0), InStr(ctl.List(0), "<") + 1, 1) = "T" Then 'Tümü
+            'AktarÄ±mÄ± baÅŸlat
+            If Mid(ctl.List(0), InStr(ctl.List(0), "<") + 1, 1) = "T" Then 'TÃ¼mÃ¼
                 If Mid(ctl.List(0), InStr(ctl.List(0), ">") + 1, 8) = " Outgoing" Then
                     SayEsasVarlikDongu = SayEsasVarlik
                     WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-                    'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                    'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                     NomSay = 0
                     NomDeger = 0
                     For i = IlkSira To SonSira
@@ -5495,7 +5495,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     Else
                         WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
                         
-                        'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                        'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                         NomSay = 0
                         NomDeger = 0
                         For i = IlkSira To SonSira
@@ -5522,7 +5522,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     SayEsasVarlikDongu = SayEsasVarlik
                     WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-                    'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                    'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                     NomSay = 0
                     NomDeger = 0
                     For i = IlkSira To SonSira
@@ -5562,7 +5562,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                         WsVarliklarGlobal.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                         WsVarliklarGlobal.Range("J" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
                         
-                        'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                        'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                         NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                         NomDeger = CLng(NomDeger)
                         WsVarliklarGlobal.Range("K" & SayEsasVarlikDongu & ":K" & SayEsasVarlikDongu).Value = NomDeger
@@ -5592,7 +5592,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                             WsVarliklarGlobal.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                             WsVarliklarGlobal.Range("J" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
 
-                            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                             NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                             NomDeger = CLng(NomDeger)
                             WsVarliklarGlobal.Range("K" & SayEsasVarlikDongu & ":K" & SayEsasVarlikDongu).Value = NomDeger
@@ -5650,7 +5650,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                                 WsVarliklarGlobal.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                                 WsVarliklarGlobal.Range("J" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
         
-                                'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                                'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                                 NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                                 NomDeger = CLng(NomDeger)
                                 WsVarliklarGlobal.Range("K" & SayEsasVarlikDongu & ":K" & SayEsasVarlikDongu).Value = NomDeger
@@ -5694,7 +5694,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     Next j
                 End If
             Next i
-            'Sýra ve kayýt nolar ile gönderen, belge no ve tarih, giriþ ve çýkýþ tarihini dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolar ile gÃ¶nderen, belge no ve tarih, giriÅŸ ve Ã§Ä±kÄ±ÅŸ tarihini dikeyde birleÅŸtir.
             'WsVarliklarGlobal.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlikDongu - 1).Merge
             WsVarliklarGlobal.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlikDongu - 1).Merge
             WsVarliklarGlobal.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlikDongu - 1).Merge
@@ -5702,7 +5702,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             WsVarliklarGlobal.Range("H" & SayEsasVarlik & ":H" & SayEsasVarlikDongu - 1).Merge
             WsVarliklarGlobal.Range("I" & SayEsasVarlik & ":I" & SayEsasVarlikDongu - 1).Merge
     
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             If WsVarliklarGlobal.Range("E" & SayEsasVarlik).Value = "Package A" Or _
                 WsVarliklarGlobal.Range("E" & SayEsasVarlik).Value = "Package B" Or _
                 WsVarliklarGlobal.Range("E" & SayEsasVarlik).Value = "Package C" Then
@@ -5725,12 +5725,12 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                 Next i
             End If
             
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlikDongu  'SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
 
-        'Rapor3 (GÝRÝÞ)
+        'Rapor3 (GÄ°RÄ°Åž)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " M" Or Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " G" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -5755,7 +5755,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             End If
             
             If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " M" Then
-                'Aktarýmý baþlat
+                'AktarÄ±mÄ± baÅŸlat
                 WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
                 If ThisWorkbook.Worksheets(5).Cells(IlkSira, 28).Value = "Type A" Then
@@ -5771,7 +5771,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                 'WsVarliklarGlobal.Range("I" & SayEsasVarlik).Value = ThisWorkbook.Worksheets(5).Range("FT" & IlkSira)
                 WsVarliklarGlobal.Range("J" & SayEsasVarlik & ":J" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
 
-                'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                 NomSay = 0
                 NomDeger = 0
                 For i = IlkSira To SonSira
@@ -5796,7 +5796,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                 End If
                 
             ElseIf Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " G" Then
-                'Aktarýmý baþlat
+                'AktarÄ±mÄ± baÅŸlat
                 WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
                 If ThisWorkbook.Worksheets(5).Cells(IlkSira, 100).Value = "Type A" Then
@@ -5812,7 +5812,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                 'WsVarliklarGlobal.Range("I" & SayEsasVarlik).Value = ThisWorkbook.Worksheets(5).Range("FT" & IlkSira)
                 WsVarliklarGlobal.Range("J" & SayEsasVarlik & ":J" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("DZ" & IlkSira & ":DZ" & SonSira).Value
 
-                'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                 NomSay = 0
                 NomDeger = 0
                 For i = IlkSira To SonSira
@@ -5837,7 +5837,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                 End If
                 
             End If
-            'Sýra ve kayýt nolar ile gönderen, belge no ve tarih, giriþ ve çýkýþ tarihini dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolar ile gÃ¶nderen, belge no ve tarih, giriÅŸ ve Ã§Ä±kÄ±ÅŸ tarihini dikeyde birleÅŸtir.
             WsVarliklarGlobal.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklarGlobal.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklarGlobal.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Merge
@@ -5851,7 +5851,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
@@ -5860,8 +5860,8 @@ Next ctl
 
 For Each ctl In core_asset_manager_UI.FrameCikis.Controls
     If TypeName(ctl) = "ListBox" Then
-        'RAPOR1 (ÇIKIÞLAR)
-        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ö" Then
+        'RAPOR1 (Ã‡IKIÅžLAR)
+        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ã–" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
             IlkSira = 0
@@ -5885,10 +5885,10 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             Call Rapor1GelenTema
             GelenTema = GelenTemaGlobal
             
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -5906,7 +5906,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             WsVarliklarGlobal.Range("I" & SayEsasVarlik).Value = ThisWorkbook.Worksheets(3).Range("CR" & IlkSira)
             WsVarliklarGlobal.Range("J" & SayEsasVarlik & ":J" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AL" & IlkSira & ":AL" & SonSira).Value
             'WsVarliklarGlobal.Range("K" & SayEsasVarlik & ":K" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AO" & IlkSira & ":AO" & SonSira).Value
-            If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+            If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                 WsVarliklarGlobal.Range("M" & SayEsasVarlik & ":M" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AR" & IlkSira & ":AR" & SonSira).Value
             Else
                 WsVarliklarGlobal.Range("L" & SayEsasVarlik & ":L" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AR" & IlkSira & ":AR" & SonSira).Value
@@ -5914,13 +5914,13 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             WsVarliklarGlobal.Range("N" & SayEsasVarlik & ":N" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AR" & IlkSira & ":AR" & SonSira).Value
             
             WsVarliklarGlobal.Range("R" & SayEsasVarlik & ":R" & SayEsasVarlik + (SonSira - IlkSira)).Value = "*"
-            'ÖR yaz
+            'Ã–R yaz
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklarGlobal.Range("D" & i) <> "" Then
-                    WsVarliklarGlobal.Range("D" & i) = "ÖR/" & WsVarliklarGlobal.Range("D" & i)
+                    WsVarliklarGlobal.Range("D" & i) = "Ã–R/" & WsVarliklarGlobal.Range("D" & i)
                 End If
             Next i
-            'Sýra ve kayýt nolar ile gönderen, belge no ve tarih, giriþ ve çýkýþ tarihini dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolar ile gÃ¶nderen, belge no ve tarih, giriÅŸ ve Ã§Ä±kÄ±ÅŸ tarihini dikeyde birleÅŸtir.
             WsVarliklarGlobal.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklarGlobal.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklarGlobal.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Merge
@@ -5934,12 +5934,12 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
 
-        'Rapor (ÇIKIÞLAR)
+        'Rapor (Ã‡IKIÅžLAR)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " R" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -5964,10 +5964,10 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             Call RaporGelenTema
             GelenTema = GelenTemaGlobal
 
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -5985,7 +5985,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             WsVarliklarGlobal.Range("I" & SayEsasVarlik).Value = ThisWorkbook.Worksheets(4).Range("CZ" & IlkSira)
             WsVarliklarGlobal.Range("J" & SayEsasVarlik & ":J" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AT" & IlkSira & ":AT" & SonSira).Value
             'WsVarliklarGlobal.Range("K" & SayEsasVarlik & ":K" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AW" & IlkSira & ":AW" & SonSira).Value
-            If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+            If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                 WsVarliklarGlobal.Range("M" & SayEsasVarlik & ":M" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
             Else
                 WsVarliklarGlobal.Range("L" & SayEsasVarlik & ":L" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
@@ -5999,7 +5999,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     WsVarliklarGlobal.Range("D" & i) = "R/" & WsVarliklarGlobal.Range("D" & i)
                 End If
             Next i
-            'Sýra ve kayýt nolar ile gönderen, belge no ve tarih, giriþ ve çýkýþ tarihini dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolar ile gÃ¶nderen, belge no ve tarih, giriÅŸ ve Ã§Ä±kÄ±ÅŸ tarihini dikeyde birleÅŸtir.
             WsVarliklarGlobal.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklarGlobal.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklarGlobal.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Merge
@@ -6013,12 +6013,12 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
 
-        'RAPOR2_2 (ÇIKIÞ, KURUM ve XXXMud)
+        'RAPOR2_2 (Ã‡IKIÅž, KURUM ve XXXMud)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " B" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -6043,13 +6043,13 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             Call Rapor2_2GelenTema
             GelenTema = GelenTemaGlobal
             
-            'Aktarýmý baþlat
-            If Mid(ctl.List(0), InStr(ctl.List(0), "<") + 1, 1) = "T" Then 'Tümü
+            'AktarÄ±mÄ± baÅŸlat
+            If Mid(ctl.List(0), InStr(ctl.List(0), "<") + 1, 1) = "T" Then 'TÃ¼mÃ¼
                 If Mid(ctl.List(0), InStr(ctl.List(0), ">") + 1, 8) = " Outgoing" Then
                     SayEsasVarlikDongu = SayEsasVarlik
                     WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-                    'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                    'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                     NomSay = 0
                     NomDeger = 0
                     For i = IlkSira To SonSira
@@ -6067,7 +6067,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     WsVarliklarGlobal.Range("I" & SayEsasVarlik).Value = ThisWorkbook.Worksheets(4).Range("DA" & IlkSira)
                     WsVarliklarGlobal.Range("J" & SayEsasVarlik & ":J" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AT" & IlkSira & ":AT" & SonSira).Value
                     'WsVarliklarGlobal.Range("K" & SayEsasVarlik & ":K" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AW" & IlkSira & ":AW" & SonSira).Value
-                    If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                    If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                         WsVarliklarGlobal.Range("M" & SayEsasVarlik & ":M" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
                     Else
                         WsVarliklarGlobal.Range("L" & SayEsasVarlik & ":L" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
@@ -6098,7 +6098,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                         End If
                         WsVarliklarGlobal.Range("K" & SayEsasVarlik).Value = "-"
                         
-                        If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                        If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                             If ThisWorkbook.Worksheets(4).Cells(IlkSira, 202).Value <> "" Then
                                 WsVarliklarGlobal.Range("M" & SayEsasVarlik).Value = ThisWorkbook.Worksheets(4).Cells(IlkSira, 202).Value 'Package A adedi
                             Else
@@ -6124,7 +6124,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                         SayEsasVarlikDongu = SayEsasVarlik
                         WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
     
-                        'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                        'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                         NomSay = 0
                         NomDeger = 0
                         For i = IlkSira To SonSira
@@ -6146,7 +6146,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                         WsVarliklarGlobal.Range("I" & SayEsasVarlik).Value = ThisWorkbook.Worksheets(4).Range("DB" & IlkSira)
                         WsVarliklarGlobal.Range("J" & SayEsasVarlik & ":J" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AT" & IlkSira & ":AT" & SonSira).Value
                         'WsVarliklarGlobal.Range("K" & SayEsasVarlik & ":K" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AW" & IlkSira & ":AW" & SonSira).Value
-                        If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                        If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                             WsVarliklarGlobal.Range("M" & SayEsasVarlik & ":M" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
                         Else
                             WsVarliklarGlobal.Range("L" & SayEsasVarlik & ":L" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
@@ -6160,7 +6160,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     SayEsasVarlikDongu = SayEsasVarlik
                     WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-                    'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                    'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                     NomSay = 0
                     NomDeger = 0
                     For i = IlkSira To SonSira
@@ -6178,7 +6178,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     WsVarliklarGlobal.Range("I" & SayEsasVarlik).Value = ThisWorkbook.Worksheets(4).Range("DA" & IlkSira)
                     WsVarliklarGlobal.Range("J" & SayEsasVarlik & ":J" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AT" & IlkSira & ":AT" & SonSira).Value
                     'WsVarliklarGlobal.Range("K" & SayEsasVarlik & ":K" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AW" & IlkSira & ":AW" & SonSira).Value
-                    If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                    If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                         WsVarliklarGlobal.Range("M" & SayEsasVarlik & ":M" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
                     Else
                         WsVarliklarGlobal.Range("L" & SayEsasVarlik & ":L" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
@@ -6205,13 +6205,13 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                         WsVarliklarGlobal.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                         WsVarliklarGlobal.Range("J" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
 
-                        'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                        'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                         NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                         NomDeger = CLng(NomDeger)
                         WsVarliklarGlobal.Range("K" & SayEsasVarlikDongu & ":K" & SayEsasVarlikDongu).Value = NomDeger
                         
                         'WsVarliklarGlobal.Range("K" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
-                        If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                        If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                             WsVarliklarGlobal.Range("M" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AZ" & j).Value
                         Else
                             WsVarliklarGlobal.Range("L" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AZ" & j).Value
@@ -6240,13 +6240,13 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                             WsVarliklarGlobal.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                             WsVarliklarGlobal.Range("J" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
 
-                            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                             NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                             NomDeger = CLng(NomDeger)
                             WsVarliklarGlobal.Range("K" & SayEsasVarlikDongu & ":K" & SayEsasVarlikDongu).Value = NomDeger
 
                             'WsVarliklarGlobal.Range("K" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
-                            If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                            If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                                 WsVarliklarGlobal.Range("M" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AZ" & j).Value
                             Else
                                 WsVarliklarGlobal.Range("L" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AZ" & j).Value
@@ -6282,7 +6282,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                         End If
                         WsVarliklarGlobal.Range("K" & SayEsasVarlik).Value = "-"
                         
-                        If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                        If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                             If ThisWorkbook.Worksheets(4).Cells(IlkSira, 202).Value <> "" Then
                                 WsVarliklarGlobal.Range("M" & SayEsasVarlik).Value = ThisWorkbook.Worksheets(4).Cells(IlkSira, 202).Value 'Package A adedi
                             Else
@@ -6316,13 +6316,13 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                                 WsVarliklarGlobal.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                                 WsVarliklarGlobal.Range("J" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
                                 
-                                'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                                'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                                 NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                                 NomDeger = CLng(NomDeger)
                                 WsVarliklarGlobal.Range("K" & SayEsasVarlikDongu & ":K" & SayEsasVarlikDongu).Value = NomDeger
     
                                 'WsVarliklarGlobal.Range("K" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
-                                If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                                If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                                     WsVarliklarGlobal.Range("M" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AZ" & j).Value
                                 Else
                                     WsVarliklarGlobal.Range("L" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AZ" & j).Value
@@ -6364,7 +6364,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     Next j
                 End If
             Next i
-            'Sýra ve kayýt nolar ile gönderen, belge no ve tarih, giriþ ve çýkýþ tarihini dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolar ile gÃ¶nderen, belge no ve tarih, giriÅŸ ve Ã§Ä±kÄ±ÅŸ tarihini dikeyde birleÅŸtir.
             WsVarliklarGlobal.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlikDongu - 1).Merge
             WsVarliklarGlobal.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlikDongu - 1).Merge
             WsVarliklarGlobal.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlikDongu - 1).Merge
@@ -6372,7 +6372,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             WsVarliklarGlobal.Range("H" & SayEsasVarlik & ":H" & SayEsasVarlikDongu - 1).Merge
             WsVarliklarGlobal.Range("I" & SayEsasVarlik & ":I" & SayEsasVarlikDongu - 1).Merge
 
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             If WsVarliklarGlobal.Range("E" & SayEsasVarlik).Value = "Package A" Or _
                 WsVarliklarGlobal.Range("E" & SayEsasVarlik).Value = "Package B" Or _
                 WsVarliklarGlobal.Range("E" & SayEsasVarlik).Value = "Package C" Then
@@ -6395,12 +6395,12 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                 Next i
             End If
             
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlikDongu  'SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
 
-        'Rapor3 (ÇIKIÞLAR)
+        'Rapor3 (Ã‡IKIÅžLAR)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " M" Or Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " G" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -6425,10 +6425,10 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             End If
             
             If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " M" Then
-                'Aktarýmý baþlat
+                'AktarÄ±mÄ± baÅŸlat
                 WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-                'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                 NomSay = 0
                 NomDeger = 0
                 For i = IlkSira To SonSira
@@ -6451,7 +6451,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                 WsVarliklarGlobal.Range("I" & SayEsasVarlik).Value = ThisWorkbook.Worksheets(5).Range("FT" & IlkSira)
                 WsVarliklarGlobal.Range("J" & SayEsasVarlik & ":J" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
                 'WsVarliklarGlobal.Range("K" & SayEsasVarlik & ":K" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("BC" & IlkSira & ":BC" & SonSira).Value
-                If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                     WsVarliklarGlobal.Range("M" & SayEsasVarlik & ":M" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("BF" & IlkSira & ":BF" & SonSira).Value
                 Else
                     WsVarliklarGlobal.Range("L" & SayEsasVarlik & ":L" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("BF" & IlkSira & ":BF" & SonSira).Value
@@ -6470,10 +6470,10 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                 End If
                 
             ElseIf Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " G" Then
-                'Aktarýmý baþlat
+                'AktarÄ±mÄ± baÅŸlat
                 WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-                'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                 NomSay = 0
                 NomDeger = 0
                 For i = IlkSira To SonSira
@@ -6496,7 +6496,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                 WsVarliklarGlobal.Range("I" & SayEsasVarlik).Value = ThisWorkbook.Worksheets(5).Range("FT" & IlkSira)
                 WsVarliklarGlobal.Range("J" & SayEsasVarlik & ":J" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("DZ" & IlkSira & ":DZ" & SonSira).Value
                 'WsVarliklarGlobal.Range("K" & SayEsasVarlik & ":K" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("EC" & IlkSira & ":EC" & SonSira).Value
-                If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                     WsVarliklarGlobal.Range("M" & SayEsasVarlik & ":M" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("EF" & IlkSira & ":EF" & SonSira).Value
                 Else
                     WsVarliklarGlobal.Range("L" & SayEsasVarlik & ":L" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("EF" & IlkSira & ":EF" & SonSira).Value
@@ -6515,7 +6515,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                 End If
                 
             End If
-            'Sýra ve kayýt nolar ile gönderen, belge no ve tarih, giriþ ve çýkýþ tarihini dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolar ile gÃ¶nderen, belge no ve tarih, giriÅŸ ve Ã§Ä±kÄ±ÅŸ tarihini dikeyde birleÅŸtir.
             WsVarliklarGlobal.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklarGlobal.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklarGlobal.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Merge
@@ -6529,14 +6529,14 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
     End If
 Next ctl
 
-SayEsasVarlikGlobal = SayEsasVarlik 'SayEsasVarlik deðiþkenini aktar
+SayEsasVarlikGlobal = SayEsasVarlik 'SayEsasVarlik deÄŸiÅŸkenini aktar
 SiraNoEsasVarlikGlobal = SiraNoEsasVarlik
 Call GenelVarlikMevcutDevam
 
@@ -6547,7 +6547,7 @@ End If
 
 SayEsasVarlik = SayEsasVarlikGlobal
 SiraNoEsasVarlik = SiraNoEsasVarlikGlobal
-SayEsasVarlikGlobal = SayEsasVarlik 'SayEsasVarlik deðiþkenini aktar
+SayEsasVarlikGlobal = SayEsasVarlik 'SayEsasVarlik deÄŸiÅŸkenini aktar
 SiraNoEsasVarlikGlobal = SiraNoEsasVarlik
 Call GenelVarlikDevam
 
@@ -6555,7 +6555,7 @@ Son:
 
 ThisWorkbook.Activate
 
-'Application.DisplayAlerts = True 'Kodlar tamamlanýnca iptal et
+'Application.DisplayAlerts = True 'Kodlar tamamlanÄ±nca iptal et
 
 End Sub
 Sub GenelVarlikMevcutDevam()
@@ -6581,7 +6581,7 @@ SiraNoEsasVarlik = SiraNoEsasVarlikGlobal
 For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
     If TypeName(ctl) = "ListBox" Then
         'RAPOR1 (MEVCUT)
-        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ö" Then
+        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ã–" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
             IlkSira = 0
@@ -6605,10 +6605,10 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
             Call Rapor1GelenTema
             GelenTema = GelenTemaGlobal
             
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -6630,13 +6630,13 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
             WsVarliklarGlobal.Range("L" & SayEsasVarlik & ":L" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AR" & IlkSira & ":AR" & SonSira).Value
             
             WsVarliklarGlobal.Range("R" & SayEsasVarlik & ":R" & SayEsasVarlik + (SonSira - IlkSira)).Value = "*"
-            'ÖR yaz
+            'Ã–R yaz
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklarGlobal.Range("D" & i) <> "" Then
-                    WsVarliklarGlobal.Range("D" & i) = "ÖR/" & WsVarliklarGlobal.Range("D" & i)
+                    WsVarliklarGlobal.Range("D" & i) = "Ã–R/" & WsVarliklarGlobal.Range("D" & i)
                 End If
             Next i
-            'Sýra ve kayýt nolar ile gönderen, belge no ve tarih, giriþ ve çýkýþ tarihini dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolar ile gÃ¶nderen, belge no ve tarih, giriÅŸ ve Ã§Ä±kÄ±ÅŸ tarihini dikeyde birleÅŸtir.
             WsVarliklarGlobal.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklarGlobal.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklarGlobal.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Merge
@@ -6650,7 +6650,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
@@ -6680,10 +6680,10 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
             Call RaporGelenTema
             GelenTema = GelenTemaGlobal
             
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -6710,7 +6710,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                     WsVarliklarGlobal.Range("D" & i) = "R/" & WsVarliklarGlobal.Range("D" & i)
                 End If
             Next i
-            'Sýra ve kayýt nolar ile gönderen, belge no ve tarih, giriþ ve çýkýþ tarihini dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolar ile gÃ¶nderen, belge no ve tarih, giriÅŸ ve Ã§Ä±kÄ±ÅŸ tarihini dikeyde birleÅŸtir.
             WsVarliklarGlobal.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklarGlobal.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklarGlobal.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Merge
@@ -6724,7 +6724,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
@@ -6754,13 +6754,13 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
             Call Rapor2_2GelenTema
             GelenTema = GelenTemaGlobal
             
-            'Aktarýmý baþlat
-            If Mid(ctl.List(0), InStr(ctl.List(0), "<") + 1, 1) = "T" Then 'Tümü
+            'AktarÄ±mÄ± baÅŸlat
+            If Mid(ctl.List(0), InStr(ctl.List(0), "<") + 1, 1) = "T" Then 'TÃ¼mÃ¼
                 If Mid(ctl.List(0), InStr(ctl.List(0), ">") + 1, 8) = " Outgoing" Then
                     SayEsasVarlikDongu = SayEsasVarlik
                     WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-                    'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                    'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                     NomSay = 0
                     NomDeger = 0
                     For i = IlkSira To SonSira
@@ -6812,7 +6812,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                     
                         WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
     
-                        'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                        'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                         NomSay = 0
                         NomDeger = 0
                         For i = IlkSira To SonSira
@@ -6839,7 +6839,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                     SayEsasVarlikDongu = SayEsasVarlik
                     WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-                    'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                    'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                     NomSay = 0
                     NomDeger = 0
                     For i = IlkSira To SonSira
@@ -6879,7 +6879,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                         WsVarliklarGlobal.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                         WsVarliklarGlobal.Range("J" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
 
-                        'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                        'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                         NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                         NomDeger = CLng(NomDeger)
                         WsVarliklarGlobal.Range("K" & SayEsasVarlikDongu & ":K" & SayEsasVarlikDongu).Value = NomDeger
@@ -6909,7 +6909,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                             WsVarliklarGlobal.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                             WsVarliklarGlobal.Range("J" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
 
-                            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                             NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                             NomDeger = CLng(NomDeger)
                             WsVarliklarGlobal.Range("K" & SayEsasVarlikDongu & ":K" & SayEsasVarlikDongu).Value = NomDeger
@@ -6967,7 +6967,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                                 WsVarliklarGlobal.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                                 WsVarliklarGlobal.Range("J" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
     
-                                'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                                'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                                 NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                                 NomDeger = CLng(NomDeger)
                                 WsVarliklarGlobal.Range("K" & SayEsasVarlikDongu & ":K" & SayEsasVarlikDongu).Value = NomDeger
@@ -7010,7 +7010,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                     Next j
                 End If
             Next i
-            'Sýra ve kayýt nolar ile gönderen, belge no ve tarih, giriþ ve çýkýþ tarihini dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolar ile gÃ¶nderen, belge no ve tarih, giriÅŸ ve Ã§Ä±kÄ±ÅŸ tarihini dikeyde birleÅŸtir.
             WsVarliklarGlobal.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlikDongu - 1).Merge
             WsVarliklarGlobal.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlikDongu - 1).Merge
             WsVarliklarGlobal.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlikDongu - 1).Merge
@@ -7018,7 +7018,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
             WsVarliklarGlobal.Range("H" & SayEsasVarlik & ":H" & SayEsasVarlikDongu - 1).Merge
             WsVarliklarGlobal.Range("I" & SayEsasVarlik & ":I" & SayEsasVarlikDongu - 1).Merge
 
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             If WsVarliklarGlobal.Range("E" & SayEsasVarlik).Value = "Package A" Or _
                 WsVarliklarGlobal.Range("E" & SayEsasVarlik).Value = "Package B" Or _
                 WsVarliklarGlobal.Range("E" & SayEsasVarlik).Value = "Package C" Then
@@ -7041,7 +7041,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                 Next i
             End If
 
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlikDongu  'SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
@@ -7071,10 +7071,10 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
             End If
             
             If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " M" Then
-                'Aktarýmý baþlat
+                'AktarÄ±mÄ± baÅŸlat
                 WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-                'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                 NomSay = 0
                 NomDeger = 0
                 For i = IlkSira To SonSira
@@ -7111,10 +7111,10 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                 End If
 
             ElseIf Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " G" Then
-                'Aktarýmý baþlat
+                'AktarÄ±mÄ± baÅŸlat
                 WsVarliklarGlobal.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-                'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                 NomSay = 0
                 NomDeger = 0
                 For i = IlkSira To SonSira
@@ -7151,14 +7151,14 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                 End If
                 
             End If
-'            'ÖR yaz
+'            'Ã–R yaz
 '            For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
 '                If WsVarliklarGlobal.Range("D" & i) <> "" Then
-'                    WsVarliklarGlobal.Range("D" & i) = "ÖR/" & WsVarliklarGlobal.Range("D" & i)
+'                    WsVarliklarGlobal.Range("D" & i) = "Ã–R/" & WsVarliklarGlobal.Range("D" & i)
 '                End If
 '            Next i
 
-            'Sýra ve kayýt nolar ile gönderen, belge no ve tarih, giriþ ve çýkýþ tarihini dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolar ile gÃ¶nderen, belge no ve tarih, giriÅŸ ve Ã§Ä±kÄ±ÅŸ tarihini dikeyde birleÅŸtir.
             WsVarliklarGlobal.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklarGlobal.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             WsVarliklarGlobal.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Merge
@@ -7172,7 +7172,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
@@ -7204,7 +7204,7 @@ Dim IlkSiraVarlik As Long, SonSiraVarlik As Long
 
 'GoTo DuzenlemeyiAtla
 
-'_____________________________________________________________BAÞLANGIÇ (Direkt kaldýrsan yine de sorunsuz çalýþýr.)
+'_____________________________________________________________BAÅžLANGIÃ‡ (Direkt kaldÄ±rsan yine de sorunsuz Ã§alÄ±ÅŸÄ±r.)
 
 Dim KontB As Integer, KontR As Integer, SayEsasVarlikx As Long
 Dim SayEsasVarlikTakip As Long, a As Integer, b As Integer
@@ -7223,14 +7223,14 @@ SayEsasVarlikx = SayEsasVarlik
 
 'MsgBox SayEsasVarlik
 
-'varlýklar düzeltme faktörü (Technique A ve diðerlerinin sýra numarasýný birleþtir.)
+'varlÄ±klar dÃ¼zeltme faktÃ¶rÃ¼ (Technique A ve diÄŸerlerinin sÄ±ra numarasÄ±nÄ± birleÅŸtir.)
 If SayEsasVarlikx - 1 >= 7 Then
     'RAPOR2_2 NO ESAS ALINIYOR
     For i = 7 To SayEsasVarlik - 1
-        'Tespit etme bölümü (1)
+        'Tespit etme bÃ¶lÃ¼mÃ¼ (1)
         If WsVarliklarGlobal.Range("D" & i) <> "" And Left(WsVarliklarGlobal.Range("D" & i).Value, 1) = "B" Then
             If Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, 1) = "R" Then
-                StrRaporNo = Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, Len(WsVarliklarGlobal.Range("D" & i)) - InStr(WsVarliklarGlobal.Range("D" & i), "(") - 1) 'R/raporno þeklinde
+                StrRaporNo = Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, Len(WsVarliklarGlobal.Range("D" & i)) - InStr(WsVarliklarGlobal.Range("D" & i), "(") - 1) 'R/raporno ÅŸeklinde
                 'MsgBox "1: " & StrRaporNo
                 StrRaporNo = Mid(StrRaporNo, 3, Len(StrRaporNo)) 'Sadece rapor no
                 'MsgBox "2: " & StrRaporNo
@@ -7243,7 +7243,7 @@ If SayEsasVarlikx - 1 >= 7 Then
                     End If
                 Next j
 DonguBitir1:
-                StrRaporNo = StrRaporNox 'Alt rapor no kýrýlýmý kaldýrýldý
+                StrRaporNo = StrRaporNox 'Alt rapor no kÄ±rÄ±lÄ±mÄ± kaldÄ±rÄ±ldÄ±
                 'MsgBox StrRaporNo
 
                 If KontB = 0 Then
@@ -7277,7 +7277,7 @@ xDonguSon1:
                 'WsVarliklarGlobal.Range("P" & IlkAltSatirNo & ":P" & SonAltSatirNo).Value = WsVarliklarGlobal.Range("D" & IlkAltSatirNo).Value '"Sil"
                 WsVarliklarGlobal.Range("C" & IlkAltSatirNo & ":Q" & SonAltSatirNo).UnMerge
                 WsVarliklarGlobal.Range("C" & IlkAltSatirNo & ":Q" & SonAltSatirNo).ClearContents
-                'Aratma bölümü (2)
+                'Aratma bÃ¶lÃ¼mÃ¼ (2)
                 SayEsasVarlikTakip = SayEsasVarlikTakip + (SonAltSatirNo - IlkAltSatirNo + 1)
                 For j = 7 To SayEsasVarlik 'Takip - 1
                     If InStr(WsVarliklarGlobal.Range("D" & j).Value, "R/" & StrRaporNo) <> 0 Then
@@ -7319,11 +7319,11 @@ xDonguSon2:
 
     'RAPOR NO ESAS ALINIYOR
     For i = 7 To SayEsasVarlik - 1
-        'Tespit etme bölümü (1)
+        'Tespit etme bÃ¶lÃ¼mÃ¼ (1)
         If WsVarliklarGlobal.Range("D" & i) <> "" And Left(WsVarliklarGlobal.Range("D" & i).Value, 1) = "R" Then
             If Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, 1) = "B" Then
-                'StrRaporNo = Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, Len(WsVarliklarGlobal.Range("D" & i)) - InStr(WsVarliklarGlobal.Range("D" & i), "(") - 1) 'R/raporno þeklinde
-                StrRaporNo = Left(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") - 2) 'R/raporno þeklinde
+                'StrRaporNo = Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, Len(WsVarliklarGlobal.Range("D" & i)) - InStr(WsVarliklarGlobal.Range("D" & i), "(") - 1) 'R/raporno ÅŸeklinde
+                StrRaporNo = Left(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") - 2) 'R/raporno ÅŸeklinde
                 'MsgBox StrRaporNo
 
                 StrRaporNo = Mid(StrRaporNo, 3, Len(StrRaporNo)) 'Sadece rapor no
@@ -7337,7 +7337,7 @@ xDonguSon2:
                     End If
                 Next j
 DonguBitir2:
-                StrRaporNo = StrRaporNox 'Alt rapor no kýrýlýmý kaldýrýldý
+                StrRaporNo = StrRaporNox 'Alt rapor no kÄ±rÄ±lÄ±mÄ± kaldÄ±rÄ±ldÄ±
                 'MsgBox StrRaporNo
 
                 If KontR = 0 Then
@@ -7371,7 +7371,7 @@ xDonguSon3:
                 'WsVarliklarGlobal.Range("P" & IlkAltSatirNo & ":P" & SonAltSatirNo).Value = WsVarliklarGlobal.Range("D" & IlkAltSatirNo).Value '"Sil"
                 WsVarliklarGlobal.Range("C" & IlkAltSatirNo & ":Q" & SonAltSatirNo).UnMerge
                 WsVarliklarGlobal.Range("C" & IlkAltSatirNo & ":Q" & SonAltSatirNo).ClearContents
-                'Aratma bölümü (2)
+                'Aratma bÃ¶lÃ¼mÃ¼ (2)
                 SayEsasVarlikTakip = SayEsasVarlikTakip + (SonAltSatirNo - IlkAltSatirNo + 1)
                 For j = 7 To SayEsasVarlik 'Takip - 1
                     If InStr(WsVarliklarGlobal.Range("D" & j).Value, "R/" & StrRaporNo) <> 0 Then
@@ -7413,7 +7413,7 @@ xDonguSon4:
 
      SayEsasVarlik = SayEsasVarlikTakip
 
-    'Sýra no.lar
+    'SÄ±ra no.lar
     SiraNoEsasVarlik = 0
     'WsVarliklarGlobal.Range("C" & 7 & ":C" & SayEsasVarlik).ClearContents
     For i = 7 To SayEsasVarlik
@@ -7479,23 +7479,23 @@ Else
 End If
 
 
-'_____________________________________________________________BÝTÝÞ
+'_____________________________________________________________BÄ°TÄ°Åž
 
 
-'____________________Ýkinci düzenleme bölümü, BAÞLANGIÇ (Bu bölüm sadece XXXMud'den gelen raporlarý/öðelerin çýkýþý içindir.)
+'____________________Ä°kinci dÃ¼zenleme bÃ¶lÃ¼mÃ¼, BAÅžLANGIÃ‡ (Bu bÃ¶lÃ¼m sadece XXXMud'den gelen raporlarÄ±/Ã¶ÄŸelerin Ã§Ä±kÄ±ÅŸÄ± iÃ§indir.)
 
 SayEsasVarlikTakip = SayEsasVarlik
 SayEsasVarlikx = SayEsasVarlik
 
-'Raporlarýn rapro no.'larý ile onun alt kýrýlýmýný sayýsal bir deðere dönüþtür. Bu özellik raporlarý kendi içinde sýralamada kullanýlacak.
+'RaporlarÄ±n rapro no.'larÄ± ile onun alt kÄ±rÄ±lÄ±mÄ±nÄ± sayÄ±sal bir deÄŸere dÃ¶nÃ¼ÅŸtÃ¼r. Bu Ã¶zellik raporlarÄ± kendi iÃ§inde sÄ±ralamada kullanÄ±lacak.
 If SayEsasVarlikx - 1 >= 7 Then
     'RAPOR ve RAPOR2_2 NO ESAS ALINIYOR
     For i = 7 To SayEsasVarlik - 1
         'R
         If WsVarliklarGlobal.Range("D" & i) <> "" And Left(WsVarliklarGlobal.Range("D" & i).Value, 1) = "R" Then
             If Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, 1) = "B" Then
-                'StrRaporNo = Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, Len(WsVarliklarGlobal.Range("D" & i)) - InStr(WsVarliklarGlobal.Range("D" & i), "(") - 1) 'R/raporno þeklinde
-                StrRaporNo = Left(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") - 2) 'R/raporno þeklinde
+                'StrRaporNo = Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, Len(WsVarliklarGlobal.Range("D" & i)) - InStr(WsVarliklarGlobal.Range("D" & i), "(") - 1) 'R/raporno ÅŸeklinde
+                StrRaporNo = Left(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") - 2) 'R/raporno ÅŸeklinde
                 'MsgBox StrRaporNo
             ElseIf Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, 1) <> "B" Then
                 StrRaporNo = WsVarliklarGlobal.Range("D" & i)
@@ -7504,7 +7504,7 @@ If SayEsasVarlikx - 1 >= 7 Then
         'B
         If WsVarliklarGlobal.Range("D" & i) <> "" And Left(WsVarliklarGlobal.Range("D" & i).Value, 1) = "B" Then
             If Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, 1) = "R" Then
-                StrRaporNo = Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, Len(WsVarliklarGlobal.Range("D" & i)) - InStr(WsVarliklarGlobal.Range("D" & i), "(") - 1) 'R/raporno þeklinde
+                StrRaporNo = Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, Len(WsVarliklarGlobal.Range("D" & i)) - InStr(WsVarliklarGlobal.Range("D" & i), "(") - 1) 'R/raporno ÅŸeklinde
                 'MsgBox "1: " & StrRaporNo
             End If
         End If
@@ -7513,9 +7513,9 @@ If SayEsasVarlikx - 1 >= 7 Then
         'MsgBox StrRaporNo
         '_________________________
         For a = 1 To 50
-            StrRaporNo = Replace(StrRaporNo, " ", "") 'Rapor no içinde varsa boþluklarý kaldýr
+            StrRaporNo = Replace(StrRaporNo, " ", "") 'Rapor no iÃ§inde varsa boÅŸluklarÄ± kaldÄ±r
         Next a
-        NumRaporNo = Replace(StrRaporNo, "-", "0000") '1-1'in 100001 gerçek rapor no ile çakýþma ihtimali 0'a yakýn.
+        NumRaporNo = Replace(StrRaporNo, "-", "0000") '1-1'in 100001 gerÃ§ek rapor no ile Ã§akÄ±ÅŸma ihtimali 0'a yakÄ±n.
 
         '_________________________
 
@@ -7528,7 +7528,7 @@ If SayEsasVarlikx - 1 >= 7 Then
             End If
         Next j
 DonguBitir21:
-        StrRaporNo = StrRaporNox 'Alt rapor no kýrýlýmý kaldýrýldý
+        StrRaporNo = StrRaporNox 'Alt rapor no kÄ±rÄ±lÄ±mÄ± kaldÄ±rÄ±ldÄ±
         'MsgBox StrRaporNo
 
 
@@ -7570,12 +7570,12 @@ DonguSonuIlkSiraVarlik1:
 End If
 
 
-'XXXMud'den gelen ve varlýkdaki raporlar. SIRALAMA ve BÝRLEÞTÝRME
+'XXXMud'den gelen ve varlÄ±kdaki raporlar. SIRALAMA ve BÄ°RLEÅžTÄ°RME
 For i = 7 To SayEsasVarlik - 1
     If WsVarliklarGlobal.Range("T" & i) = "" Then 'And WsVarliklarGlobal.Range("H" & i) <> "" Then
         If Left(WsVarliklarGlobal.Range("D" & i).Value, 1) = "R" Then
             If Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, 1) = "B" Then
-                StrRaporNo = Left(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") - 2) 'R/raporno þeklinde
+                StrRaporNo = Left(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") - 2) 'R/raporno ÅŸeklinde
                 'MsgBox StrRaporNo
             ElseIf Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, 1) <> "B" Then
                 StrRaporNo = WsVarliklarGlobal.Range("D" & i)
@@ -7583,7 +7583,7 @@ For i = 7 To SayEsasVarlik - 1
         End If
         If Left(WsVarliklarGlobal.Range("D" & i).Value, 1) = "B" Then
             If Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, 1) = "R" Then
-                StrRaporNo = Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, Len(WsVarliklarGlobal.Range("D" & i)) - InStr(WsVarliklarGlobal.Range("D" & i), "(") - 1) 'R/raporno þeklinde
+                StrRaporNo = Mid(WsVarliklarGlobal.Range("D" & i), InStr(WsVarliklarGlobal.Range("D" & i), "(") + 1, Len(WsVarliklarGlobal.Range("D" & i)) - InStr(WsVarliklarGlobal.Range("D" & i), "(") - 1) 'R/raporno ÅŸeklinde
             End If
         End If
 
@@ -7599,7 +7599,7 @@ For i = 7 To SayEsasVarlik - 1
             End If
         Next j
 DonguBitir22:
-        StrRaporNo = StrRaporNox 'Alt rapor no kýrýlýmý kaldýrýldý
+        StrRaporNo = StrRaporNox 'Alt rapor no kÄ±rÄ±lÄ±mÄ± kaldÄ±rÄ±ldÄ±
         'MsgBox StrRaporNo
         '_______________
 
@@ -7624,12 +7624,12 @@ DonguBitir22:
 
         WsVarliklarGlobal.Range("U" & IlkSiraVarlik) = IlkSiraVarlik
         WsVarliklarGlobal.Range("V" & SonSiraVarlik) = SonSiraVarlik
-        WsVarliklarGlobal.Range("T" & IlkSiraVarlik & ":T" & SonSiraVarlik).Value = "*" 'Ayný satýrlarda tekrar iþlem yapmasýn diye
+        WsVarliklarGlobal.Range("T" & IlkSiraVarlik & ":T" & SonSiraVarlik).Value = "*" 'AynÄ± satÄ±rlarda tekrar iÅŸlem yapmasÄ±n diye
         'Sorting Z to A by NumRaporNo
         WsVarliklarGlobal.Range("D" & IlkSiraVarlik & ":S" & SonSiraVarlik).UnMerge
         WsVarliklarGlobal.Range("D" & IlkSiraVarlik & ":S" & SonSiraVarlik).Sort key1:=Range("S" & IlkSiraVarlik & ":S" & SonSiraVarlik), order1:=xlAscending, Header:=xlNo
 
-        'Rapor no.'larý ve Package A/Package B/Package C satýrlarýný birleþtir.
+        'Rapor no.'larÄ± ve Package A/Package B/Package C satÄ±rlarÄ±nÄ± birleÅŸtir.
         For j = IlkSiraVarlik To SonSiraVarlik
             If WsVarliklarGlobal.Range("S" & j).Value <> "" Then
                 If WsVarliklarGlobal.Range("S" & j).Value = WsVarliklarGlobal.Range("S" & j + 1).Value Then
@@ -7699,19 +7699,19 @@ Next i
 
 
             
-'Artýklarý temizle
+'ArtÄ±klarÄ± temizle
 If SayEsasVarlik < 7 Then
     SayEsasVarlik = 7
 End If
 WsVarliklarGlobal.Range("P" & 7 & ":V" & SayEsasVarlik).ClearContents
 
-'____________________Ýkinci düzenleme bölümü, BÝTÝÞ
+'____________________Ä°kinci dÃ¼zenleme bÃ¶lÃ¼mÃ¼, BÄ°TÄ°Åž
 
 
 DuzenlemeyiAtla:
 
 
-'Öðelere göre toplamlar
+'Ã–ÄŸelere gÃ¶re toplamlar
 WsVarliklarGlobal.Range("J" & SayEsasVarlik & ":N" & SayEsasVarlik + 3).Value = "*"
 x = SayEsasVarlik + 3
 For i = 7 To SayEsasVarlik - 1
@@ -7721,16 +7721,16 @@ For i = 7 To SayEsasVarlik - 1
         Say2 = WsVarliklarGlobal.Range("J100000").End(xlUp).Row '+ 1
         'MsgBox "SayEsasVarlik: " & SayEsasVarlik & " Say2: " & Say2
         For j = SayEsasVarlik + 2 To Say2
-            'Öðe ayný
-            If WsVarliklarGlobal.Range("J" & j) = WsVarliklarGlobal.Range("J" & i) Then 'Öðe ayný
-                If WsVarliklarGlobal.Range("L" & i) <> "" Or WsVarliklarGlobal.Range("M" & i) <> "" Or WsVarliklarGlobal.Range("N" & i) <> "" Then 'mevcut, giriþ, çýkýþ
-                    'Öðe ve öðe deðeri ayný
+            'Ã–ÄŸe aynÄ±
+            If WsVarliklarGlobal.Range("J" & j) = WsVarliklarGlobal.Range("J" & i) Then 'Ã–ÄŸe aynÄ±
+                If WsVarliklarGlobal.Range("L" & i) <> "" Or WsVarliklarGlobal.Range("M" & i) <> "" Or WsVarliklarGlobal.Range("N" & i) <> "" Then 'mevcut, giriÅŸ, Ã§Ä±kÄ±ÅŸ
+                    'Ã–ÄŸe ve Ã¶ÄŸe deÄŸeri aynÄ±
                     If WsVarliklarGlobal.Range("K" & j) = WsVarliklarGlobal.Range("K" & i) Then
                         WsVarliklarGlobal.Range("L" & j) = WsVarliklarGlobal.Range("L" & j) + WsVarliklarGlobal.Range("L" & i)
                         WsVarliklarGlobal.Range("M" & j) = WsVarliklarGlobal.Range("M" & j) + WsVarliklarGlobal.Range("M" & i)
                         WsVarliklarGlobal.Range("N" & j) = WsVarliklarGlobal.Range("N" & j) + WsVarliklarGlobal.Range("N" & i)
                         GoTo jDonguSon1
-                    Else 'Öðe ayný, öðe deðeri farklý
+                    Else 'Ã–ÄŸe aynÄ±, Ã¶ÄŸe deÄŸeri farklÄ±
                         If WsVarliklarGlobal.Range("J" & j + 1) = "" Then
                             WsVarliklarGlobal.Range("J" & j + 1) = WsVarliklarGlobal.Range("J" & i)
                             WsVarliklarGlobal.Range("K" & j + 1) = WsVarliklarGlobal.Range("K" & i)
@@ -7741,8 +7741,8 @@ For i = 7 To SayEsasVarlik - 1
                         End If
                     End If
                 End If
-            Else 'Öðe farklý
-                If WsVarliklarGlobal.Range("L" & i) <> "" Or WsVarliklarGlobal.Range("M" & i) <> "" Or WsVarliklarGlobal.Range("N" & i) <> "" Then 'mevcut, giriþ, çýkýþ
+            Else 'Ã–ÄŸe farklÄ±
+                If WsVarliklarGlobal.Range("L" & i) <> "" Or WsVarliklarGlobal.Range("M" & i) <> "" Or WsVarliklarGlobal.Range("N" & i) <> "" Then 'mevcut, giriÅŸ, Ã§Ä±kÄ±ÅŸ
                     If WsVarliklarGlobal.Range("J" & j + 1) = "" Then
                         WsVarliklarGlobal.Range("J" & j + 1) = WsVarliklarGlobal.Range("J" & i)
                         WsVarliklarGlobal.Range("K" & j + 1) = WsVarliklarGlobal.Range("K" & i)
@@ -7758,7 +7758,7 @@ jDonguSon1:
     End If
 Next i
 
-'Boþ satýrlara 0 yaz.
+'BoÅŸ satÄ±rlara 0 yaz.
 For j = SayEsasVarlik + 2 To x
     If WsVarliklarGlobal.Range("L" & j) = "" Then
         WsVarliklarGlobal.Range("L" & j).Value = 0
@@ -7778,7 +7778,7 @@ WsVarliklarGlobal.Range("C" & SayEsasVarlik) = "Total"
 WsVarliklarGlobal.Range("C" & SayEsasVarlik).Font.Bold = True
 WsVarliklarGlobal.Range("C" & SayEsasVarlik).HorizontalAlignment = xlRight
 WsVarliklarGlobal.Range("L" & SayEsasVarlik & ":O" & SayEsasVarlik).Font.Bold = True
-'Toplamlar (Sol üstteki toplam)
+'Toplamlar (Sol Ã¼stteki toplam)
 For i = 7 To SayEsasVarlik - 1
     WsVarliklarGlobal.Range("O" & i).Value = WsVarliklarGlobal.Range("L" & i).Value + WsVarliklarGlobal.Range("M" & i).Value - WsVarliklarGlobal.Range("N" & i).Value
     WsVarliklarGlobal.Range("L" & SayEsasVarlik).Value = WsVarliklarGlobal.Range("L" & SayEsasVarlik).Value + WsVarliklarGlobal.Range("L" & i).Value
@@ -7787,7 +7787,7 @@ For i = 7 To SayEsasVarlik - 1
     WsVarliklarGlobal.Range("O" & SayEsasVarlik).Value = WsVarliklarGlobal.Range("O" & SayEsasVarlik).Value + WsVarliklarGlobal.Range("O" & i).Value
 Next i
 
-'ÖZET TABLO BAÞLIÐI
+'Ã–ZET TABLO BAÅžLIÄžI
 WsVarliklarGlobal.Range("J" & SayEsasVarlik + 2).Value = "Item-Based Totals (Qty)"
 WsVarliklarGlobal.Range("J" & SayEsasVarlik + 2 & ":O" & SayEsasVarlik + 2).Font.Bold = True
 WsVarliklarGlobal.Range("J" & SayEsasVarlik + 2 & ":O" & SayEsasVarlik + 2).Merge
@@ -7802,7 +7802,7 @@ WsVarliklarGlobal.Range("O" & SayEsasVarlik + 3).Value = "Remaining Qty"
 WsVarliklarGlobal.Range("J" & SayEsasVarlik + 3 & ":O" & SayEsasVarlik + 3).Font.Bold = True
 y = SayEsasVarlik + 3
 
-'Toplamlar (öðelere göre, sað alttaki)
+'Toplamlar (Ã¶ÄŸelere gÃ¶re, saÄŸ alttaki)
 For i = SayEsasVarlik + 4 To x
     WsVarliklarGlobal.Range("O" & i).Value = WsVarliklarGlobal.Range("L" & i).Value + WsVarliklarGlobal.Range("M" & i).Value - WsVarliklarGlobal.Range("N" & i).Value
     WsVarliklarGlobal.Range("L" & x + 1).Value = WsVarliklarGlobal.Range("L" & x + 1).Value + WsVarliklarGlobal.Range("L" & i).Value
@@ -7824,7 +7824,7 @@ WsVarliklarGlobal.Range("J" & x + 1 & ":K" & x + 1).Merge
 WsVarliklarGlobal.Range("J" & x + 1 & ":K" & x + 1).HorizontalAlignment = xlLeft
 
 
-'Kenarlýklar.
+'KenarlÄ±klar.
 SayEsasVarlik = x + 1
 Set Kenarlar = WsVarliklarGlobal.Range("C" & 7 & ":O" & SayEsasVarlik)
 Kenarlar.Borders(xlDiagonalDown).LineStyle = xlNone
@@ -7868,7 +7868,7 @@ Set SiraBul = ThisWorkbook.Worksheets(3).Range("E7:E100000").Find(What:=Left(ctl
 If Not SiraBul Is Nothing Then
     IlkSira = SiraBul.Row
 Else
-    'MsgBox "Belirtilen tarihte herhangi bir üst yazý hazýrlanmadýðýndan iþleminiz gerçekleþtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+    'MsgBox "Belirtilen tarihte herhangi bir Ã¼st yazÄ± hazÄ±rlanmadÄ±ÄŸÄ±ndan iÅŸleminiz gerÃ§ekleÅŸtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Rapor1Devam1
 End If
 
@@ -7956,7 +7956,7 @@ Set SiraBul = ThisWorkbook.Worksheets(4).Range("E7:E100000").Find(What:=Left(ctl
 If Not SiraBul Is Nothing Then
     IlkSira = SiraBul.Row
 Else
-    'MsgBox "Belirtilen tarihte herhangi bir üst yazý hazýrlanmadýðýndan iþleminiz gerçekleþtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+    'MsgBox "Belirtilen tarihte herhangi bir Ã¼st yazÄ± hazÄ±rlanmadÄ±ÄŸÄ±ndan iÅŸleminiz gerÃ§ekleÅŸtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo RaporDevam1
 End If
 
@@ -8044,7 +8044,7 @@ Set SiraBul = ThisWorkbook.Worksheets(4).Range("E7:E100000").Find(What:=Left(ctl
 If Not SiraBul Is Nothing Then
     IlkSira = SiraBul.Row
 Else
-    'MsgBox "Belirtilen tarihte herhangi bir üst yazý hazýrlanmadýðýndan iþleminiz gerçekleþtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+    'MsgBox "Belirtilen tarihte herhangi bir Ã¼st yazÄ± hazÄ±rlanmadÄ±ÄŸÄ±ndan iÅŸleminiz gerÃ§ekleÅŸtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Rapor2_2Devam1
 End If
 
@@ -8139,30 +8139,30 @@ Dim ItemBul As Range
 
 Dim NomDeger As Variant, NomSay As Integer
 
-'Application.DisplayAlerts = False 'Kodlar tamamlanýnca iptal et
+'Application.DisplayAlerts = False 'Kodlar tamamlanÄ±nca iptal et
 
 'Pathfinder...
 AutoPath = ThisWorkbook.Path
 DestOperasyon = AutoPath & "\System Files\Operation\"
 VarlikKlasoru = AutoPath & "\System Files\System Templates\Asset Templates\"
-EsasVarlik = VarlikKlasoru & "Report 1 – Primary Asset Report.xlsx"
+EsasVarlik = VarlikKlasoru & "Report 1 â€“ Primary Asset Report.xlsx"
 
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
 
-'System Files klasör adýný kontrol et.
+'System Files klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(AutoPath & "\System Files\", vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & AutoPath & "\System Files\" & ". The folder named 'System Files' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Operation klasörü adýný kontrol et.
+'Operation klasÃ¶rÃ¼ adÄ±nÄ± kontrol et.
 If Not Dir(DestOperasyon, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & DestOperasyon & ". The folder named 'Operation' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Registry Reports klasör adýný kontrol et.
+'Registry Reports klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(VarlikKlasoru, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & VarlikKlasoru & ". The folder named 'Asset Templates' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
@@ -8171,22 +8171,22 @@ If Not Dir(EsasVarlik, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & EsasVarlik & ". The names of folders and/or files in this directory might have been changed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
 
 
 
-On Error Resume Next 'Operation içinde Report 1 – Primary Asset Report.xlsx dosyasý yoksa oluþacak hata için
-OperasyonEsasVarlik = DestOpUserFolder & "Report 1 – Primary Asset Report.xlsx"
-'Report 1 – Primary Asset Report açýksa kaydet ve kapat.
+On Error Resume Next 'Operation iÃ§inde Report 1 â€“ Primary Asset Report.xlsx dosyasÄ± yoksa oluÅŸacak hata iÃ§in
+OperasyonEsasVarlik = DestOpUserFolder & "Report 1 â€“ Primary Asset Report.xlsx"
+'Report 1 â€“ Primary Asset Report aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(OperasyonEsasVarlik)
 If OpenControl = True Then
-    Workbooks("Report 1 – Primary Asset Report.xlsx").Close SaveChanges:=True
+    Workbooks("Report 1 â€“ Primary Asset Report.xlsx").Close SaveChanges:=True
 End If
 
-'Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 On Error Resume Next
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
@@ -8198,13 +8198,13 @@ If ContSay > 0 Then
     Kill DestOpUserFolder & "*.???"
 End If
 
-'Dosyayý operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
-fso.CopyFile (EsasVarlik), DestOpUserFolder & "Report 1 – Primary Asset Report" & ".xlsx", True
+fso.CopyFile (EsasVarlik), DestOpUserFolder & "Report 1 â€“ Primary Asset Report" & ".xlsx", True
 'open the file
 Workbooks.Open (OperasyonEsasVarlik)
 
-Set WsVarliklar = Workbooks("Report 1 – Primary Asset Report.xlsx").Worksheets(1)
+Set WsVarliklar = Workbooks("Report 1 â€“ Primary Asset Report.xlsx").Worksheets(1)
 WsVarliklar.Unprotect Password:="123"
 
 On Error GoTo 0
@@ -8216,8 +8216,8 @@ SiraNoEsasVarlik = 1
 Devir = 0
 For Each ctl In core_asset_manager_UI.FrameGiris.Controls
     If TypeName(ctl) = "ListBox" Then
-        'RAPOR1 (GÝRÝÞ)
-        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ö" Then
+        'RAPOR1 (GÄ°RÄ°Åž)
+        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ã–" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
             IlkSira = 0
@@ -8232,10 +8232,10 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             If Not SonSiraBul Is Nothing Then
                 SonSira = SonSiraBul.Row
             End If
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -8249,13 +8249,13 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             WsVarliklar.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AL" & IlkSira & ":AL" & SonSira).Value
 '            WsVarliklar.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AO" & IlkSira & ":AO" & SonSira).Value
             WsVarliklar.Range("G" & SayEsasVarlik & ":G" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AR" & IlkSira & ":AR" & SonSira).Value
-            'ÖR yaz
+            'Ã–R yaz
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklar.Range("D" & i) <> "" Then
-                    WsVarliklar.Range("D" & i) = "ÖR/" & WsVarliklar.Range("D" & i)
+                    WsVarliklar.Range("D" & i) = "Ã–R/" & WsVarliklar.Range("D" & i)
                 End If
             Next i
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklar.Range("D" & i) = "" And WsVarliklar.Range("E" & i) <> "" Then
@@ -8264,7 +8264,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
@@ -8274,8 +8274,8 @@ Next ctl
 
 For Each ctl In core_asset_manager_UI.FrameCikis.Controls
     If TypeName(ctl) = "ListBox" Then
-        'RAPOR1 (ÇIKIÞLAR)
-        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ö" Then
+        'RAPOR1 (Ã‡IKIÅžLAR)
+        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ã–" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
             IlkSira = 0
@@ -8290,10 +8290,10 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             If Not SonSiraBul Is Nothing Then
                 SonSira = SonSiraBul.Row
             End If
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -8306,17 +8306,17 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             WsVarliklar.Range("D" & SayEsasVarlik & ":D" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("K" & IlkSira & ":K" & SonSira).Value
             WsVarliklar.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AL" & IlkSira & ":AL" & SonSira).Value
 '            WsVarliklar.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AO" & IlkSira & ":AO" & SonSira).Value
-            If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+            If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                 WsVarliklar.Range("G" & SayEsasVarlik & ":G" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AR" & IlkSira & ":AR" & SonSira).Value
             End If
             WsVarliklar.Range("H" & SayEsasVarlik & ":H" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(3).Range("AR" & IlkSira & ":AR" & SonSira).Value
-            'ÖR yaz
+            'Ã–R yaz
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklar.Range("D" & i) <> "" Then
-                    WsVarliklar.Range("D" & i) = "ÖR/" & WsVarliklar.Range("D" & i)
+                    WsVarliklar.Range("D" & i) = "Ã–R/" & WsVarliklar.Range("D" & i)
                 End If
             Next i
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklar.Range("D" & i) = "" And WsVarliklar.Range("E" & i) <> "" Then
@@ -8325,11 +8325,11 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
             
-            'Devreden bakiyeden çýkýþlarýn da önceki günün devrine ilavesi(DEVÝR)
+            'Devreden bakiyeden Ã§Ä±kÄ±ÅŸlarÄ±n da Ã¶nceki gÃ¼nÃ¼n devrine ilavesi(DEVÄ°R)
             If ctl.BackColor = &H80000003 Then
                 Devir = Devir + Application.Sum(ThisWorkbook.Worksheets(3).Range("AR" & IlkSira & ":AR" & SonSira))
             End If
@@ -8339,8 +8339,8 @@ Next ctl
 
 For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
     If TypeName(ctl) = "ListBox" Then
-        'RAPOR1 (DEVÝRLER)
-        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ö" Then
+        'RAPOR1 (DEVÄ°RLER)
+        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ã–" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
             IlkSira = 0
@@ -8381,18 +8381,18 @@ WsVarliklar.Range("C" & SayEsasVarlik + 2 & ":G" & SayEsasVarlik + 2).Horizontal
 WsVarliklar.Range("C" & SayEsasVarlik + 3 & ":G" & SayEsasVarlik + 3).HorizontalAlignment = xlLeft
 
 If SayEsasVarlik - 1 >= 7 Then
-    WsVarliklar.Range("G" & SayEsasVarlik) = Application.Sum(WsVarliklar.Range(Cells(7, 7), WsVarliklar.Cells(SayEsasVarlik - 1, 7))) 'Giriþ toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik) = Application.Sum(WsVarliklar.Range(Cells(7, 8), WsVarliklar.Cells(SayEsasVarlik - 1, 8))) 'Çýkýþ toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik + 2) = Devir 'Devir toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik + 3) = WsVarliklar.Range("G" & SayEsasVarlik) + Devir - WsVarliklar.Range("H" & SayEsasVarlik) 'Gün sonu toplamý 'Gün sonu toplamý
+    WsVarliklar.Range("G" & SayEsasVarlik) = Application.Sum(WsVarliklar.Range(Cells(7, 7), WsVarliklar.Cells(SayEsasVarlik - 1, 7))) 'GiriÅŸ toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik) = Application.Sum(WsVarliklar.Range(Cells(7, 8), WsVarliklar.Cells(SayEsasVarlik - 1, 8))) 'Ã‡Ä±kÄ±ÅŸ toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik + 2) = Devir 'Devir toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik + 3) = WsVarliklar.Range("G" & SayEsasVarlik) + Devir - WsVarliklar.Range("H" & SayEsasVarlik) 'GÃ¼n sonu toplamÄ± 'GÃ¼n sonu toplamÄ±
 Else
-    WsVarliklar.Range("G" & SayEsasVarlik) = 0 'Giriþ toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik) = 0 'Çýkýþ toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik + 2) = Devir 'Devir toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik + 3) = 0 + Devir - 0 'Gün sonu toplamý
+    WsVarliklar.Range("G" & SayEsasVarlik) = 0 'GiriÅŸ toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik) = 0 'Ã‡Ä±kÄ±ÅŸ toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik + 2) = Devir 'Devir toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik + 3) = 0 + Devir - 0 'GÃ¼n sonu toplamÄ±
 End If
 
-'Kontrol edilmiþtir metni.
+'Kontrol edilmiÅŸtir metni.
 WsVarliklar.Range("C" & SayEsasVarlik + 5) = "The above records have been reviewed by us."
 WsVarliklar.Range("C" & SayEsasVarlik + 5 & ":H" & SayEsasVarlik + 5).Merge
 WsVarliklar.Range("C" & SayEsasVarlik + 5 & ":H" & SayEsasVarlik + 5).HorizontalAlignment = xlCenter 'xlLeft
@@ -8447,7 +8447,7 @@ End If
 VarlikImza3Atla:
 
 
-'Ýmza satýrlarýný ayarla
+'Ä°mza satÄ±rlarÄ±nÄ± ayarla
 WsVarliklar.Range("C" & SayEsasVarlik + 10 & ":D" & SayEsasVarlik + 10).Font.Color = RGB(191, 191, 191)
 WsVarliklar.Range("C" & SayEsasVarlik + 10 & ":D" & SayEsasVarlik + 10).Merge
 WsVarliklar.Range("C" & SayEsasVarlik + 10 & ":D" & SayEsasVarlik + 10).HorizontalAlignment = xlCenter
@@ -8473,7 +8473,7 @@ WsVarliklar.Range("G" & SayEsasVarlik + 12 & ":H" & SayEsasVarlik + 12).Merge
 WsVarliklar.Range("G" & SayEsasVarlik + 12 & ":H" & SayEsasVarlik + 12).HorizontalAlignment = xlCenter
 
 
-'Kenarlýklar.
+'KenarlÄ±klar.
 Set Kenarlar = WsVarliklar.Range("C" & 7 & ":H" & SayEsasVarlik + 3)
 Kenarlar.Borders(xlDiagonalDown).LineStyle = xlNone
 Kenarlar.Borders(xlDiagonalUp).LineStyle = xlNone
@@ -8507,7 +8507,7 @@ Son:
 
 ThisWorkbook.Activate
 
-'Application.DisplayAlerts = True 'Kodlar tamamlanýnca iptal et
+'Application.DisplayAlerts = True 'Kodlar tamamlanÄ±nca iptal et
 
 End Sub
 
@@ -8526,30 +8526,30 @@ Dim ItemBul As Range
 
 Dim NomDeger As Variant, NomSay As Integer
 
-'Application.DisplayAlerts = False 'Kodlar tamamlanýnca iptal et
+'Application.DisplayAlerts = False 'Kodlar tamamlanÄ±nca iptal et
 
 'Pathfinder...
 AutoPath = ThisWorkbook.Path
 DestOperasyon = AutoPath & "\System Files\Operation\"
 VarlikKlasoru = AutoPath & "\System Files\System Templates\Asset Templates\"
-EsasVarlik = VarlikKlasoru & "Report 2.1 – Primary Asset Report.xlsx"
+EsasVarlik = VarlikKlasoru & "Report 2.1 â€“ Primary Asset Report.xlsx"
 
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
 
-'System Files klasör adýný kontrol et.
+'System Files klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(AutoPath & "\System Files\", vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & AutoPath & "\System Files\" & ". The folder named 'System Files' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Operation klasörü adýný kontrol et.
+'Operation klasÃ¶rÃ¼ adÄ±nÄ± kontrol et.
 If Not Dir(DestOperasyon, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & DestOperasyon & ". The folder named 'Operation' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Registry Reports klasör adýný kontrol et.
+'Registry Reports klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(VarlikKlasoru, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & VarlikKlasoru & ". The folder named 'Asset Templates' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
@@ -8558,21 +8558,21 @@ If Not Dir(EsasVarlik, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & EsasVarlik & ". The names of folders and/or files in this directory might have been changed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
 
 
-On Error Resume Next 'Operation içinde Report 2.1 – Primary Asset Report.xlsx dosyasý yoksa oluþacak hata için
-OperasyonEsasVarlik = DestOpUserFolder & "Report 2.1 – Primary Asset Report.xlsx"
-'Report 2.1 – Primary Asset Report açýksa kaydet ve kapat.
+On Error Resume Next 'Operation iÃ§inde Report 2.1 â€“ Primary Asset Report.xlsx dosyasÄ± yoksa oluÅŸacak hata iÃ§in
+OperasyonEsasVarlik = DestOpUserFolder & "Report 2.1 â€“ Primary Asset Report.xlsx"
+'Report 2.1 â€“ Primary Asset Report aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(OperasyonEsasVarlik)
 If OpenControl = True Then
-    Workbooks("Report 2.1 – Primary Asset Report.xlsx").Close SaveChanges:=True
+    Workbooks("Report 2.1 â€“ Primary Asset Report.xlsx").Close SaveChanges:=True
 End If
 
-'Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 On Error Resume Next
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
@@ -8584,13 +8584,13 @@ If ContSay > 0 Then
     Kill DestOpUserFolder & "*.???"
 End If
 
-'Dosyayý operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
-fso.CopyFile (EsasVarlik), DestOpUserFolder & "Report 2.1 – Primary Asset Report" & ".xlsx", True
+fso.CopyFile (EsasVarlik), DestOpUserFolder & "Report 2.1 â€“ Primary Asset Report" & ".xlsx", True
 'open the file
 Workbooks.Open (OperasyonEsasVarlik)
 
-Set WsVarliklar = Workbooks("Report 2.1 – Primary Asset Report.xlsx").Worksheets(1)
+Set WsVarliklar = Workbooks("Report 2.1 â€“ Primary Asset Report.xlsx").Worksheets(1)
 WsVarliklar.Unprotect Password:="123"
 
 On Error GoTo 0
@@ -8602,7 +8602,7 @@ SiraNoEsasVarlik = 1
 Devir = 0
 For Each ctl In core_asset_manager_UI.FrameGiris.Controls
     If TypeName(ctl) = "ListBox" Then
-        'RAPOR (GÝRÝÞ)
+        'RAPOR (GÄ°RÄ°Åž)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " R" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -8618,10 +8618,10 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             If Not SonSiraBul Is Nothing Then
                 SonSira = SonSiraBul.Row
             End If
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -8641,7 +8641,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     WsVarliklar.Range("D" & i) = "R/" & WsVarliklar.Range("D" & i)
                 End If
             Next i
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklar.Range("D" & i) = "" And WsVarliklar.Range("E" & i) <> "" Then
@@ -8650,7 +8650,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
@@ -8660,7 +8660,7 @@ Next ctl
 
 For Each ctl In core_asset_manager_UI.FrameCikis.Controls
     If TypeName(ctl) = "ListBox" Then
-        'RAPOR (ÇIKIÞLAR)
+        'RAPOR (Ã‡IKIÅžLAR)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " R" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -8676,10 +8676,10 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             If Not SonSiraBul Is Nothing Then
                 SonSira = SonSiraBul.Row
             End If
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -8692,7 +8692,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             WsVarliklar.Range("D" & SayEsasVarlik & ":D" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("K" & IlkSira & ":K" & SonSira).Value
             WsVarliklar.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AT" & IlkSira & ":AT" & SonSira).Value
             'WsVarliklar.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AW" & IlkSira & ":AW" & SonSira).Value
-            If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+            If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                 WsVarliklar.Range("G" & SayEsasVarlik & ":G" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
             End If
             WsVarliklar.Range("H" & SayEsasVarlik & ":H" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
@@ -8702,7 +8702,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     WsVarliklar.Range("D" & i) = "R/" & WsVarliklar.Range("D" & i)
                 End If
             Next i
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklar.Range("D" & i) = "" And WsVarliklar.Range("E" & i) <> "" Then
@@ -8711,11 +8711,11 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
             
-            'Devreden bakiyeden çýkýþlarýn da önceki günün devrine ilavesi (DEVÝR)
+            'Devreden bakiyeden Ã§Ä±kÄ±ÅŸlarÄ±n da Ã¶nceki gÃ¼nÃ¼n devrine ilavesi (DEVÄ°R)
             If ctl.BackColor = &H80000003 Then
                 Devir = Devir + Application.Sum(ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira))
             End If
@@ -8726,7 +8726,7 @@ Next ctl
 
 For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
     If TypeName(ctl) = "ListBox" Then
-        'RAPOR (DEVÝRLER)
+        'RAPOR (DEVÄ°RLER)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " R" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -8768,18 +8768,18 @@ WsVarliklar.Range("C" & SayEsasVarlik + 2 & ":G" & SayEsasVarlik + 2).Horizontal
 WsVarliklar.Range("C" & SayEsasVarlik + 3 & ":G" & SayEsasVarlik + 3).HorizontalAlignment = xlLeft
 
 If SayEsasVarlik - 1 >= 7 Then
-    WsVarliklar.Range("G" & SayEsasVarlik) = Application.Sum(WsVarliklar.Range(Cells(7, 7), WsVarliklar.Cells(SayEsasVarlik - 1, 7))) 'Giriþ toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik) = Application.Sum(WsVarliklar.Range(Cells(7, 8), WsVarliklar.Cells(SayEsasVarlik - 1, 8))) 'Çýkýþ toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik + 2) = Devir 'Devir toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik + 3) = WsVarliklar.Range("G" & SayEsasVarlik) + Devir - WsVarliklar.Range("H" & SayEsasVarlik) 'Gün sonu toplamý 'Gün sonu toplamý
+    WsVarliklar.Range("G" & SayEsasVarlik) = Application.Sum(WsVarliklar.Range(Cells(7, 7), WsVarliklar.Cells(SayEsasVarlik - 1, 7))) 'GiriÅŸ toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik) = Application.Sum(WsVarliklar.Range(Cells(7, 8), WsVarliklar.Cells(SayEsasVarlik - 1, 8))) 'Ã‡Ä±kÄ±ÅŸ toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik + 2) = Devir 'Devir toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik + 3) = WsVarliklar.Range("G" & SayEsasVarlik) + Devir - WsVarliklar.Range("H" & SayEsasVarlik) 'GÃ¼n sonu toplamÄ± 'GÃ¼n sonu toplamÄ±
 Else
-    WsVarliklar.Range("G" & SayEsasVarlik) = 0 'Giriþ toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik) = 0 'Çýkýþ toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik + 2) = Devir 'Devir toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik + 3) = 0 + Devir - 0 'Gün sonu toplamý
+    WsVarliklar.Range("G" & SayEsasVarlik) = 0 'GiriÅŸ toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik) = 0 'Ã‡Ä±kÄ±ÅŸ toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik + 2) = Devir 'Devir toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik + 3) = 0 + Devir - 0 'GÃ¼n sonu toplamÄ±
 End If
 
-'Kontrol edilmiþtir metni.
+'Kontrol edilmiÅŸtir metni.
 WsVarliklar.Range("C" & SayEsasVarlik + 5) = "The above records have been reviewed by us."
 WsVarliklar.Range("C" & SayEsasVarlik + 5 & ":H" & SayEsasVarlik + 5).Merge
 WsVarliklar.Range("C" & SayEsasVarlik + 5 & ":H" & SayEsasVarlik + 5).HorizontalAlignment = xlCenter 'xlLeft
@@ -8834,7 +8834,7 @@ End If
 VarlikImza3Atla:
 
 
-'Ýmza satýrlarýný ayarla
+'Ä°mza satÄ±rlarÄ±nÄ± ayarla
 WsVarliklar.Range("C" & SayEsasVarlik + 10 & ":D" & SayEsasVarlik + 10).Font.Color = RGB(191, 191, 191)
 WsVarliklar.Range("C" & SayEsasVarlik + 10 & ":D" & SayEsasVarlik + 10).Merge
 WsVarliklar.Range("C" & SayEsasVarlik + 10 & ":D" & SayEsasVarlik + 10).HorizontalAlignment = xlCenter
@@ -8860,7 +8860,7 @@ WsVarliklar.Range("G" & SayEsasVarlik + 12 & ":H" & SayEsasVarlik + 12).Merge
 WsVarliklar.Range("G" & SayEsasVarlik + 12 & ":H" & SayEsasVarlik + 12).HorizontalAlignment = xlCenter
 
 
-'Kenarlýklar.
+'KenarlÄ±klar.
 Set Kenarlar = WsVarliklar.Range("C" & 7 & ":H" & SayEsasVarlik + 3)
 Kenarlar.Borders(xlDiagonalDown).LineStyle = xlNone
 Kenarlar.Borders(xlDiagonalUp).LineStyle = xlNone
@@ -8894,7 +8894,7 @@ Son:
 
 ThisWorkbook.Activate
 
-'Application.DisplayAlerts = True 'Kodlar tamamlanýnca iptal et
+'Application.DisplayAlerts = True 'Kodlar tamamlanÄ±nca iptal et
 
 End Sub
 
@@ -8914,30 +8914,30 @@ Dim ItemBul As Range
 Dim NomDeger As Variant, NomSay As Integer, RaporNoStr As String
 Dim IlkSiraVarlik As Long, SonSiraVarlik As Long
 
-'Application.DisplayAlerts = False 'Kodlar tamamlanýnca iptal et
+'Application.DisplayAlerts = False 'Kodlar tamamlanÄ±nca iptal et
 
 'Pathfinder...
 AutoPath = ThisWorkbook.Path
 DestOperasyon = AutoPath & "\System Files\Operation\"
 VarlikKlasoru = AutoPath & "\System Files\System Templates\Asset Templates\"
-EsasVarlik = VarlikKlasoru & "Report 2.2 – Primary Asset Report.xlsx"
+EsasVarlik = VarlikKlasoru & "Report 2.2 â€“ Primary Asset Report.xlsx"
 
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
 
-'System Files klasör adýný kontrol et.
+'System Files klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(AutoPath & "\System Files\", vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & AutoPath & "\System Files\" & ". The folder named 'System Files' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Operation klasörü adýný kontrol et.
+'Operation klasÃ¶rÃ¼ adÄ±nÄ± kontrol et.
 If Not Dir(DestOperasyon, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & DestOperasyon & ". The folder named 'Operation' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Registry Reports klasör adýný kontrol et.
+'Registry Reports klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(VarlikKlasoru, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & VarlikKlasoru & ". The folder named 'Asset Templates' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
@@ -8946,21 +8946,21 @@ If Not Dir(EsasVarlik, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & EsasVarlik & ". The names of folders and/or files in this directory might have been changed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
 
 
-On Error Resume Next 'Operation içinde Report 2.2 – Primary Asset Report.xlsx dosyasý yoksa oluþacak hata için
-OperasyonEsasVarlik = DestOpUserFolder & "Report 2.2 – Primary Asset Report.xlsx"
-'Report 2.2 – Primary Asset Report açýksa kaydet ve kapat.
+On Error Resume Next 'Operation iÃ§inde Report 2.2 â€“ Primary Asset Report.xlsx dosyasÄ± yoksa oluÅŸacak hata iÃ§in
+OperasyonEsasVarlik = DestOpUserFolder & "Report 2.2 â€“ Primary Asset Report.xlsx"
+'Report 2.2 â€“ Primary Asset Report aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(OperasyonEsasVarlik)
 If OpenControl = True Then
-    Workbooks("Report 2.2 – Primary Asset Report.xlsx").Close SaveChanges:=True
+    Workbooks("Report 2.2 â€“ Primary Asset Report.xlsx").Close SaveChanges:=True
 End If
 
-'Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 On Error Resume Next
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
@@ -8972,13 +8972,13 @@ If ContSay > 0 Then
     Kill DestOpUserFolder & "*.???"
 End If
 
-'Dosyayý operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
-fso.CopyFile (EsasVarlik), DestOpUserFolder & "Report 2.2 – Primary Asset Report" & ".xlsx", True
+fso.CopyFile (EsasVarlik), DestOpUserFolder & "Report 2.2 â€“ Primary Asset Report" & ".xlsx", True
 'open the file
 Workbooks.Open (OperasyonEsasVarlik)
 
-Set WsVarliklar = Workbooks("Report 2.2 – Primary Asset Report.xlsx").Worksheets(1)
+Set WsVarliklar = Workbooks("Report 2.2 â€“ Primary Asset Report.xlsx").Worksheets(1)
 WsVarliklar.Unprotect Password:="123"
 
 On Error GoTo 0
@@ -8990,7 +8990,7 @@ SiraNoEsasVarlik = 1
 Devir = 0
 For Each ctl In core_asset_manager_UI.FrameGiris.Controls
     If TypeName(ctl) = "ListBox" Then
-        'RAPOR2_2 (GÝRÝÞ, KURUM ve XXXMud)
+        'RAPOR2_2 (GÄ°RÄ°Åž, KURUM ve XXXMud)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " B" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -9006,8 +9006,8 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             If Not SonSiraBul Is Nothing Then
                 SonSira = SonSiraBul.Row
             End If
-            'Aktarýmý baþlat
-            If Mid(ctl.List(0), InStr(ctl.List(0), "<") + 1, 1) = "T" Then 'Tümü
+            'AktarÄ±mÄ± baÅŸlat
+            If Mid(ctl.List(0), InStr(ctl.List(0), "<") + 1, 1) = "T" Then 'TÃ¼mÃ¼
                 SayEsasVarlikDongu = SayEsasVarlik
                 If Mid(ctl.List(0), InStr(ctl.List(0), ">") + 1, 8) = " (Incoming)" And _
                     ThisWorkbook.Worksheets(4).Cells(IlkSira, 188).Value = "No" Then 'Varlik paket
@@ -9029,7 +9029,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
 
                     WsVarliklar.Range("J" & SayEsasVarlik & ":J" & SayEsasVarlik + (SonSira - IlkSira)).Value = "*"
                 Else
-                    'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                    'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                     NomSay = 0
                     NomDeger = 0
                     For i = IlkSira To SonSira
@@ -9060,7 +9060,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                         WsVarliklar.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                         WsVarliklar.Range("E" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
 
-                        'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                        'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                         NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                         NomDeger = CLng(NomDeger)
                         WsVarliklar.Range("F" & SayEsasVarlikDongu).Value = NomDeger
@@ -9108,7 +9108,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                             WsVarliklar.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                             WsVarliklar.Range("E" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
 
-                            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                             NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                             NomDeger = CLng(NomDeger)
                             WsVarliklar.Range("F" & SayEsasVarlikDongu).Value = NomDeger
@@ -9146,7 +9146,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     Next j
                 End If
             Next i
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             If WsVarliklar.Range("E" & SayEsasVarlik).Value = "Package A" Or _
                 WsVarliklar.Range("E" & SayEsasVarlik).Value = "Package B" Or _
                 WsVarliklar.Range("E" & SayEsasVarlik).Value = "Package C" Then
@@ -9168,7 +9168,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     End If
                 Next i
             End If
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlikDongu  'SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
@@ -9178,7 +9178,7 @@ Next ctl
 
 For Each ctl In core_asset_manager_UI.FrameCikis.Controls
     If TypeName(ctl) = "ListBox" Then
-        'RAPOR2_2 (ÇIKIÞLAR, KURUM ve XXXMud)
+        'RAPOR2_2 (Ã‡IKIÅžLAR, KURUM ve XXXMud)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " B" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -9194,8 +9194,8 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             If Not SonSiraBul Is Nothing Then
                 SonSira = SonSiraBul.Row
             End If
-            'Aktarýmý baþlat
-            If Mid(ctl.List(0), InStr(ctl.List(0), "<") + 1, 1) = "T" Then 'Tümü
+            'AktarÄ±mÄ± baÅŸlat
+            If Mid(ctl.List(0), InStr(ctl.List(0), "<") + 1, 1) = "T" Then 'TÃ¼mÃ¼
                 SayEsasVarlikDongu = SayEsasVarlik
                 If Mid(ctl.List(0), InStr(ctl.List(0), ">") + 1, 8) = " (Incoming)" And _
                     ThisWorkbook.Worksheets(4).Cells(IlkSira, 188).Value = "No" Then 'Varlik paket
@@ -9207,7 +9207,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                         WsVarliklar.Range("E" & SayEsasVarlik).Value = "Incomplete Data Entry!"
                     End If
                     WsVarliklar.Range("F" & SayEsasVarlik).Value = "-"
-                    If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                    If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                         If ThisWorkbook.Worksheets(4).Cells(IlkSira, 202).Value <> "" Then
                             WsVarliklar.Range("G" & SayEsasVarlik).Value = ThisWorkbook.Worksheets(4).Cells(IlkSira, 202).Value 'Package A adedi
                         Else
@@ -9220,7 +9220,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     WsVarliklar.Range("G" & SayEsasVarlik & ":G" & SayEsasVarlik + (SonSira - IlkSira)).Merge
                     WsVarliklar.Range("H" & SayEsasVarlik & ":H" & SayEsasVarlik + (SonSira - IlkSira)).Merge
                     SayEsasVarlikDongu = SayEsasVarlikDongu + (SonSira - IlkSira) + 1
-                    'Devreden bakiyeden çýkýþlarýn da önceki günün devrine ilavesi (DEVÝR)
+                    'Devreden bakiyeden Ã§Ä±kÄ±ÅŸlarÄ±n da Ã¶nceki gÃ¼nÃ¼n devrine ilavesi (DEVÄ°R)
                     If ctl.BackColor = &H80000003 Then
                         Devir = Devir + ThisWorkbook.Worksheets(4).Cells(IlkSira, 202).Value 'Package A adedi
                     End If
@@ -9228,7 +9228,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     WsVarliklar.Range("J" & SayEsasVarlik & ":J" & SayEsasVarlik + (SonSira - IlkSira)).Value = "*"
                 Else
                     WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
-                    'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                    'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                     NomSay = 0
                     NomDeger = 0
                     For i = IlkSira To SonSira
@@ -9241,13 +9241,13 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     WsVarliklar.Range("D" & SayEsasVarlik & ":D" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("K" & IlkSira & ":K" & SonSira).Value
                     WsVarliklar.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AT" & IlkSira & ":AT" & SonSira).Value
                     'WsVarliklar.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AW" & IlkSira & ":AW" & SonSira).Value
-                    If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                    If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                         WsVarliklar.Range("G" & SayEsasVarlik & ":G" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
                     End If
                     WsVarliklar.Range("H" & SayEsasVarlik & ":H" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
                     SayEsasVarlikDongu = SayEsasVarlikDongu + (SonSira - IlkSira) + 1
     
-                    'Devreden bakiyeden çýkýþlarýn da önceki günün devrine ilavesi (DEVÝR)
+                    'Devreden bakiyeden Ã§Ä±kÄ±ÅŸlarÄ±n da Ã¶nceki gÃ¼nÃ¼n devrine ilavesi (DEVÄ°R)
                     If ctl.BackColor = &H80000003 Then
                         Devir = Devir + Application.Sum(ThisWorkbook.Worksheets(4).Range("AZ" & IlkSira & ":AZ" & SonSira))
                     End If
@@ -9266,18 +9266,18 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                         WsVarliklar.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                         WsVarliklar.Range("E" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
                         
-                        'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                        'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                         NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                         NomDeger = CLng(NomDeger)
                         WsVarliklar.Range("F" & SayEsasVarlikDongu).Value = NomDeger
                         
                         'WsVarliklar.Range("F" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
-                        If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                        If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                             WsVarliklar.Range("G" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AZ" & j).Value
                         End If
                         WsVarliklar.Range("H" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AZ" & j).Value
                         
-                        'Devreden bakiyeden çýkýþlarýn da önceki günün devrine ilavesi (DEVÝR)
+                        'Devreden bakiyeden Ã§Ä±kÄ±ÅŸlarÄ±n da Ã¶nceki gÃ¼nÃ¼n devrine ilavesi (DEVÄ°R)
                         If ctl.BackColor = &H80000003 Then
                             Devir = Devir + Application.Sum(ThisWorkbook.Worksheets(4).Range("AZ" & j))
                         End If
@@ -9307,7 +9307,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     End If
                     WsVarliklar.Range("F" & SayEsasVarlik).Value = "-"
                     
-                    If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                    If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                         If ThisWorkbook.Worksheets(4).Cells(IlkSira, 202).Value <> "" Then
                             WsVarliklar.Range("G" & SayEsasVarlik).Value = ThisWorkbook.Worksheets(4).Cells(IlkSira, 202).Value 'Package A adedi
                         Else
@@ -9323,7 +9323,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     WsVarliklar.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlikDongu - 1).Merge
                     WsVarliklar.Range("G" & SayEsasVarlik & ":G" & SayEsasVarlikDongu - 1).Merge
                     WsVarliklar.Range("H" & SayEsasVarlik & ":H" & SayEsasVarlikDongu - 1).Merge
-                    'Devreden bakiyeden çýkýþlarýn da önceki günün devrine ilavesi (DEVÝR)
+                    'Devreden bakiyeden Ã§Ä±kÄ±ÅŸlarÄ±n da Ã¶nceki gÃ¼nÃ¼n devrine ilavesi (DEVÄ°R)
                     If ctl.BackColor = &H80000003 Then
                         Devir = Devir + ThisWorkbook.Worksheets(4).Cells(IlkSira, 202).Value 'Package A adedi
                     End If
@@ -9340,18 +9340,18 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                             WsVarliklar.Range("D" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("K" & j).Value
                             WsVarliklar.Range("E" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AT" & j).Value
     
-                            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+                            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
                             NomDeger = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
                             NomDeger = CLng(NomDeger)
                             WsVarliklar.Range("F" & SayEsasVarlikDongu).Value = NomDeger
                             
                             'WsVarliklar.Range("F" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AW" & j).Value
-                            If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+                            If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                                 WsVarliklar.Range("G" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AZ" & j).Value
                             End If
                             WsVarliklar.Range("H" & SayEsasVarlikDongu).Value = ThisWorkbook.Worksheets(4).Range("AZ" & j).Value
     
-                            'Devreden bakiyeden çýkýþlarýn da önceki günün devrine ilavesi (DEVÝR)
+                            'Devreden bakiyeden Ã§Ä±kÄ±ÅŸlarÄ±n da Ã¶nceki gÃ¼nÃ¼n devrine ilavesi (DEVÄ°R)
                             If ctl.BackColor = &H80000003 Then
                                 Devir = Devir + Application.Sum(ThisWorkbook.Worksheets(4).Range("AZ" & j))
                             End If
@@ -9387,7 +9387,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     Next j
                 End If
             Next i
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             If WsVarliklar.Range("E" & SayEsasVarlik).Value = "Package A" Or _
                 WsVarliklar.Range("E" & SayEsasVarlik).Value = "Package B" Or _
                 WsVarliklar.Range("E" & SayEsasVarlik).Value = "Package C" Then
@@ -9409,7 +9409,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     End If
                 Next i
             End If
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlikDongu  'SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
@@ -9419,7 +9419,7 @@ Next ctl
 
 
 'GoTo DuzenlemeyiAtla
-'_____________________________________________________________BAÞLANGIÇ (Direkt kaldýrsan yine de sorunsuz çalýþýr.)
+'_____________________________________________________________BAÅžLANGIÃ‡ (Direkt kaldÄ±rsan yine de sorunsuz Ã§alÄ±ÅŸÄ±r.)
 
 Dim KontB As Integer, KontR As Integer, SayEsasVarlikx As Long
 Dim SayEsasVarlikTakip As Long, a As Integer, b As Integer
@@ -9431,14 +9431,14 @@ KontR = 0
 SayEsasVarlikTakip = SayEsasVarlik
 SayEsasVarlikx = SayEsasVarlik
 
-'General Primary Asset Report düzeltme faktörü (Technique A ve diðerlerinin sýra numarasýný birleþtir.)
+'General Primary Asset Report dÃ¼zeltme faktÃ¶rÃ¼ (Technique A ve diÄŸerlerinin sÄ±ra numarasÄ±nÄ± birleÅŸtir.)
 If SayEsasVarlikx - 1 >= 7 Then
 '    'RAPOR2_2 NO ESAS ALINIYOR
     For i = 7 To SayEsasVarlik - 1
-        'Tespit etme bölümü (1)
+        'Tespit etme bÃ¶lÃ¼mÃ¼ (1)
         If WsVarliklar.Range("D" & i) <> "" And Left(WsVarliklar.Range("D" & i).Value, 1) = "B" Then
             If Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, 1) = "R" Then
-                StrRaporNo = Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, Len(WsVarliklar.Range("D" & i)) - InStr(WsVarliklar.Range("D" & i), "(") - 1) 'R/raporno þeklinde
+                StrRaporNo = Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, Len(WsVarliklar.Range("D" & i)) - InStr(WsVarliklar.Range("D" & i), "(") - 1) 'R/raporno ÅŸeklinde
                 'MsgBox "1: " & StrRaporNo
                 StrRaporNo = Mid(StrRaporNo, 3, Len(StrRaporNo)) 'Sadece rapor no
                 'MsgBox "2: " & StrRaporNo
@@ -9451,7 +9451,7 @@ If SayEsasVarlikx - 1 >= 7 Then
                     End If
                 Next j
 DonguBitir1:
-                StrRaporNo = StrRaporNox 'Alt rapor no kýrýlýmý kaldýrýldý
+                StrRaporNo = StrRaporNox 'Alt rapor no kÄ±rÄ±lÄ±mÄ± kaldÄ±rÄ±ldÄ±
                 'MsgBox StrRaporNo
 
                 If KontB = 0 Then
@@ -9479,7 +9479,7 @@ xDonguSon1:
                 'WsVarliklar.Range("J" & IlkAltSatirNo & ":J" & SonAltSatirNo).Value = WsVarliklar.Range("D" & IlkAltSatirNo).Value '"Sil"
                 WsVarliklar.Range("C" & IlkAltSatirNo & ":J" & SonAltSatirNo).UnMerge
                 WsVarliklar.Range("C" & IlkAltSatirNo & ":J" & SonAltSatirNo).ClearContents
-                'Aratma bölümü (2)
+                'Aratma bÃ¶lÃ¼mÃ¼ (2)
                 SayEsasVarlikTakip = SayEsasVarlikTakip + (SonAltSatirNo - IlkAltSatirNo + 1)
                 For j = 7 To SayEsasVarlik 'Takip - 1
                     If InStr(WsVarliklar.Range("D" & j).Value, "R/" & StrRaporNo) <> 0 Then
@@ -9515,11 +9515,11 @@ xDonguSon2:
     
     'RAPOR NO ESAS ALINIYOR
     For i = 7 To SayEsasVarlik - 1
-        'Tespit etme bölümü (1)
+        'Tespit etme bÃ¶lÃ¼mÃ¼ (1)
         If WsVarliklar.Range("D" & i) <> "" And Left(WsVarliklar.Range("D" & i).Value, 1) = "R" Then
             If Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, 1) = "B" Then
-                'StrRaporNo = Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, Len(WsVarliklar.Range("D" & i)) - InStr(WsVarliklar.Range("D" & i), "(") - 1) 'R/raporno þeklinde
-                StrRaporNo = Left(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") - 2) 'R/raporno þeklinde
+                'StrRaporNo = Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, Len(WsVarliklar.Range("D" & i)) - InStr(WsVarliklar.Range("D" & i), "(") - 1) 'R/raporno ÅŸeklinde
+                StrRaporNo = Left(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") - 2) 'R/raporno ÅŸeklinde
                 'MsgBox StrRaporNo
 
                 StrRaporNo = Mid(StrRaporNo, 3, Len(StrRaporNo)) 'Sadece rapor no
@@ -9534,7 +9534,7 @@ xDonguSon2:
                     End If
                 Next j
 DonguBitir2:
-                StrRaporNo = StrRaporNox 'Alt rapor no kýrýlýmý kaldýrýldý
+                StrRaporNo = StrRaporNox 'Alt rapor no kÄ±rÄ±lÄ±mÄ± kaldÄ±rÄ±ldÄ±
                 'MsgBox StrRaporNo
 
                 If KontR = 0 Then
@@ -9562,7 +9562,7 @@ xDonguSon3:
                 'WsVarliklar.Range("J" & IlkAltSatirNo & ":J" & SonAltSatirNo).Value = WsVarliklar.Range("D" & IlkAltSatirNo).Value '"Sil"
                 WsVarliklar.Range("C" & IlkAltSatirNo & ":J" & SonAltSatirNo).UnMerge
                 WsVarliklar.Range("C" & IlkAltSatirNo & ":J" & SonAltSatirNo).ClearContents
-                'Aratma bölümü (2)
+                'Aratma bÃ¶lÃ¼mÃ¼ (2)
                 SayEsasVarlikTakip = SayEsasVarlikTakip + (SonAltSatirNo - IlkAltSatirNo + 1)
                 For j = 7 To SayEsasVarlik 'Takip - 1
                     If InStr(WsVarliklar.Range("D" & j).Value, "R/" & StrRaporNo) <> 0 Then
@@ -9600,7 +9600,7 @@ xDonguSon4:
 
     SayEsasVarlik = SayEsasVarlikTakip
 
-    'Sýra no.lar
+    'SÄ±ra no.lar
     SiraNoEsasVarlik = 0
     'MsgBox SayEsasVarlik
     'WsVarliklar.Range("C" & 7 & ":C" & SayEsasVarlik).ClearContents
@@ -9659,24 +9659,24 @@ Else
     SayEsasVarlik = SayEsasVarlik + 1
 End If
 
-'_____________________________________________________________BÝTÝÞ
+'_____________________________________________________________BÄ°TÄ°Åž
 
 
 
-'____________________Ýkinci düzenleme bölümü, BAÞLANGIÇ (Bu bölüm sadece XXXMud'den gelen raporlarý/öðelerin çýkýþý içindir.)
+'____________________Ä°kinci dÃ¼zenleme bÃ¶lÃ¼mÃ¼, BAÅžLANGIÃ‡ (Bu bÃ¶lÃ¼m sadece XXXMud'den gelen raporlarÄ±/Ã¶ÄŸelerin Ã§Ä±kÄ±ÅŸÄ± iÃ§indir.)
 
 SayEsasVarlikTakip = SayEsasVarlik
 SayEsasVarlikx = SayEsasVarlik
 
-'Raporlarýn rapro no.'larý ile onun alt kýrýlýmýný sayýsal bir deðere dönüþtür. Bu özellik raporlarý kendi içinde sýralamada kullanýlacak.
+'RaporlarÄ±n rapro no.'larÄ± ile onun alt kÄ±rÄ±lÄ±mÄ±nÄ± sayÄ±sal bir deÄŸere dÃ¶nÃ¼ÅŸtÃ¼r. Bu Ã¶zellik raporlarÄ± kendi iÃ§inde sÄ±ralamada kullanÄ±lacak.
 If SayEsasVarlikx - 1 >= 7 Then
     'RAPOR ve RAPOR2_2 NO ESAS ALINIYOR
     For i = 7 To SayEsasVarlik - 1
         'R
         If WsVarliklar.Range("D" & i) <> "" And Left(WsVarliklar.Range("D" & i).Value, 1) = "R" Then
             If Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, 1) = "B" Then
-                'StrRaporNo = Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, Len(WsVarliklar.Range("D" & i)) - InStr(WsVarliklar.Range("D" & i), "(") - 1) 'R/raporno þeklinde
-                StrRaporNo = Left(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") - 2) 'R/raporno þeklinde
+                'StrRaporNo = Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, Len(WsVarliklar.Range("D" & i)) - InStr(WsVarliklar.Range("D" & i), "(") - 1) 'R/raporno ÅŸeklinde
+                StrRaporNo = Left(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") - 2) 'R/raporno ÅŸeklinde
                 'MsgBox StrRaporNo
             ElseIf Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, 1) <> "B" Then
                 StrRaporNo = WsVarliklar.Range("D" & i)
@@ -9685,7 +9685,7 @@ If SayEsasVarlikx - 1 >= 7 Then
         'B
         If WsVarliklar.Range("D" & i) <> "" And Left(WsVarliklar.Range("D" & i).Value, 1) = "B" Then
             If Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, 1) = "R" Then
-                StrRaporNo = Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, Len(WsVarliklar.Range("D" & i)) - InStr(WsVarliklar.Range("D" & i), "(") - 1) 'R/raporno þeklinde
+                StrRaporNo = Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, Len(WsVarliklar.Range("D" & i)) - InStr(WsVarliklar.Range("D" & i), "(") - 1) 'R/raporno ÅŸeklinde
                 'MsgBox "1: " & StrRaporNo
             End If
         End If
@@ -9694,9 +9694,9 @@ If SayEsasVarlikx - 1 >= 7 Then
         'MsgBox StrRaporNo
         '_________________________
         For a = 1 To 50
-            StrRaporNo = Replace(StrRaporNo, " ", "") 'Rapor no içinde varsa boþluklarý kaldýr
+            StrRaporNo = Replace(StrRaporNo, " ", "") 'Rapor no iÃ§inde varsa boÅŸluklarÄ± kaldÄ±r
         Next a
-        NumRaporNo = Replace(StrRaporNo, "-", "0000") '1-1'in 100001 gerçek rapor no ile çakýþma ihtimali 0'a yakýn.
+        NumRaporNo = Replace(StrRaporNo, "-", "0000") '1-1'in 100001 gerÃ§ek rapor no ile Ã§akÄ±ÅŸma ihtimali 0'a yakÄ±n.
 
         '_________________________
 
@@ -9709,7 +9709,7 @@ If SayEsasVarlikx - 1 >= 7 Then
             End If
         Next j
 DonguBitir21:
-        StrRaporNo = StrRaporNox 'Alt rapor no kýrýlýmý kaldýrýldý
+        StrRaporNo = StrRaporNox 'Alt rapor no kÄ±rÄ±lÄ±mÄ± kaldÄ±rÄ±ldÄ±
         'MsgBox StrRaporNo
 
 
@@ -9751,12 +9751,12 @@ DonguSonuIlkSiraVarlik1:
 End If
 
 
-'XXXMud'den gelen ve varlýkdaki raporlar. SIRALAMA ve BÝRLEÞTÝRME
+'XXXMud'den gelen ve varlÄ±kdaki raporlar. SIRALAMA ve BÄ°RLEÅžTÄ°RME
 For i = 7 To SayEsasVarlik - 1
     If WsVarliklar.Range("M" & i) = "" Then 'And WsVarliklar.Range("H" & i) <> "" Then
         If Left(WsVarliklar.Range("D" & i).Value, 1) = "R" Then
             If Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, 1) = "B" Then
-                StrRaporNo = Left(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") - 2) 'R/raporno þeklinde
+                StrRaporNo = Left(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") - 2) 'R/raporno ÅŸeklinde
                 'MsgBox StrRaporNo
             ElseIf Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, 1) <> "B" Then
                 StrRaporNo = WsVarliklar.Range("D" & i)
@@ -9764,7 +9764,7 @@ For i = 7 To SayEsasVarlik - 1
         End If
         If Left(WsVarliklar.Range("D" & i).Value, 1) = "B" Then
             If Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, 1) = "R" Then
-                StrRaporNo = Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, Len(WsVarliklar.Range("D" & i)) - InStr(WsVarliklar.Range("D" & i), "(") - 1) 'R/raporno þeklinde
+                StrRaporNo = Mid(WsVarliklar.Range("D" & i), InStr(WsVarliklar.Range("D" & i), "(") + 1, Len(WsVarliklar.Range("D" & i)) - InStr(WsVarliklar.Range("D" & i), "(") - 1) 'R/raporno ÅŸeklinde
             End If
         End If
 
@@ -9780,7 +9780,7 @@ For i = 7 To SayEsasVarlik - 1
             End If
         Next j
 DonguBitir22:
-        StrRaporNo = StrRaporNox 'Alt rapor no kýrýlýmý kaldýrýldý
+        StrRaporNo = StrRaporNox 'Alt rapor no kÄ±rÄ±lÄ±mÄ± kaldÄ±rÄ±ldÄ±
         'MsgBox StrRaporNo
         '_______________
 
@@ -9805,12 +9805,12 @@ DonguBitir22:
 
         WsVarliklar.Range("N" & IlkSiraVarlik) = IlkSiraVarlik
         WsVarliklar.Range("O" & SonSiraVarlik) = SonSiraVarlik
-        WsVarliklar.Range("M" & IlkSiraVarlik & ":M" & SonSiraVarlik).Value = "*" 'Ayný satýrlarda tekrar iþlem yapmasýn diye
+        WsVarliklar.Range("M" & IlkSiraVarlik & ":M" & SonSiraVarlik).Value = "*" 'AynÄ± satÄ±rlarda tekrar iÅŸlem yapmasÄ±n diye
         'Sorting Z to A by NumRaporNo
         WsVarliklar.Range("D" & IlkSiraVarlik & ":L" & SonSiraVarlik).UnMerge
         WsVarliklar.Range("D" & IlkSiraVarlik & ":L" & SonSiraVarlik).Sort key1:=Range("L" & IlkSiraVarlik & ":L" & SonSiraVarlik), order1:=xlAscending, Header:=xlNo
 
-        'Rapor no.'larý ve Package A/Package B/Package C satýrlarýný birleþtir.
+        'Rapor no.'larÄ± ve Package A/Package B/Package C satÄ±rlarÄ±nÄ± birleÅŸtir.
         For j = IlkSiraVarlik To SonSiraVarlik
             If WsVarliklar.Range("L" & j).Value <> "" Then
                 If WsVarliklar.Range("L" & j).Value = WsVarliklar.Range("L" & j + 1).Value Then
@@ -9837,14 +9837,14 @@ aDonguSonu:
 DonguSonuIlkSiraVarlik:
 Next i
 
-'Artýklarý temizle
+'ArtÄ±klarÄ± temizle
 If SayEsasVarlik < 7 Then
     SayEsasVarlik = 7
 End If
 WsVarliklar.Range("I" & 7 & ":O" & SayEsasVarlik).ClearContents
 
 
-'____________________Ýkinci düzenleme bölümü, BÝTÝÞ
+'____________________Ä°kinci dÃ¼zenleme bÃ¶lÃ¼mÃ¼, BÄ°TÄ°Åž
 
 
 DuzenlemeyiAtla:
@@ -9853,7 +9853,7 @@ DuzenlemeyiAtla:
 
 For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
     If TypeName(ctl) = "ListBox" Then
-        'RAPOR2_2 (DEVÝRLER, KURUM ve XXXMud)
+        'RAPOR2_2 (DEVÄ°RLER, KURUM ve XXXMud)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " B" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -9870,7 +9870,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
                 SonSira = SonSiraBul.Row
             End If
             'Devirleri hesapla
-            If Mid(ctl.List(0), InStr(ctl.List(0), "<") + 1, 1) = "T" Then 'Tümü
+            If Mid(ctl.List(0), InStr(ctl.List(0), "<") + 1, 1) = "T" Then 'TÃ¼mÃ¼
                 If Mid(ctl.List(0), InStr(ctl.List(0), ">") + 1, 8) = " (Incoming)" And _
                     ThisWorkbook.Worksheets(4).Cells(IlkSira, 188).Value = "No" Then 'Varlik paket
                     Devir = Devir + ThisWorkbook.Worksheets(4).Cells(IlkSira, 202).Value 'Package A adedi
@@ -9919,18 +9919,18 @@ WsVarliklar.Range("C" & SayEsasVarlik + 2 & ":G" & SayEsasVarlik + 2).Horizontal
 WsVarliklar.Range("C" & SayEsasVarlik + 3 & ":G" & SayEsasVarlik + 3).HorizontalAlignment = xlLeft
 
 If SayEsasVarlik - 1 >= 7 Then
-    WsVarliklar.Range("G" & SayEsasVarlik) = Application.Sum(WsVarliklar.Range(Cells(7, 7), WsVarliklar.Cells(SayEsasVarlik - 1, 7))) 'Giriþ toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik) = Application.Sum(WsVarliklar.Range(Cells(7, 8), WsVarliklar.Cells(SayEsasVarlik - 1, 8))) 'Çýkýþ toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik + 2) = Devir 'Devir toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik + 3) = WsVarliklar.Range("G" & SayEsasVarlik) + Devir - WsVarliklar.Range("H" & SayEsasVarlik) 'Gün sonu toplamý 'Gün sonu toplamý
+    WsVarliklar.Range("G" & SayEsasVarlik) = Application.Sum(WsVarliklar.Range(Cells(7, 7), WsVarliklar.Cells(SayEsasVarlik - 1, 7))) 'GiriÅŸ toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik) = Application.Sum(WsVarliklar.Range(Cells(7, 8), WsVarliklar.Cells(SayEsasVarlik - 1, 8))) 'Ã‡Ä±kÄ±ÅŸ toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik + 2) = Devir 'Devir toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik + 3) = WsVarliklar.Range("G" & SayEsasVarlik) + Devir - WsVarliklar.Range("H" & SayEsasVarlik) 'GÃ¼n sonu toplamÄ± 'GÃ¼n sonu toplamÄ±
 Else
-    WsVarliklar.Range("G" & SayEsasVarlik) = 0 'Giriþ toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik) = 0 'Çýkýþ toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik + 2) = Devir 'Devir toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik + 3) = 0 + Devir - 0 'Gün sonu toplamý
+    WsVarliklar.Range("G" & SayEsasVarlik) = 0 'GiriÅŸ toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik) = 0 'Ã‡Ä±kÄ±ÅŸ toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik + 2) = Devir 'Devir toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik + 3) = 0 + Devir - 0 'GÃ¼n sonu toplamÄ±
 End If
 
-'Kontrol edilmiþtir metni.
+'Kontrol edilmiÅŸtir metni.
 WsVarliklar.Range("C" & SayEsasVarlik + 5) = "The above records have been reviewed by us."
 WsVarliklar.Range("C" & SayEsasVarlik + 5 & ":H" & SayEsasVarlik + 5).Merge
 WsVarliklar.Range("C" & SayEsasVarlik + 5 & ":H" & SayEsasVarlik + 5).HorizontalAlignment = xlCenter 'xlLeft
@@ -9985,7 +9985,7 @@ End If
 VarlikImza3Atla:
 
 
-'Ýmza satýrlarýný ayarla
+'Ä°mza satÄ±rlarÄ±nÄ± ayarla
 WsVarliklar.Range("C" & SayEsasVarlik + 10 & ":D" & SayEsasVarlik + 10).Font.Color = RGB(191, 191, 191)
 WsVarliklar.Range("C" & SayEsasVarlik + 10 & ":D" & SayEsasVarlik + 10).Merge
 WsVarliklar.Range("C" & SayEsasVarlik + 10 & ":D" & SayEsasVarlik + 10).HorizontalAlignment = xlCenter
@@ -10011,7 +10011,7 @@ WsVarliklar.Range("G" & SayEsasVarlik + 12 & ":H" & SayEsasVarlik + 12).Merge
 WsVarliklar.Range("G" & SayEsasVarlik + 12 & ":H" & SayEsasVarlik + 12).HorizontalAlignment = xlCenter
 
 
-'Kenarlýklar.
+'KenarlÄ±klar.
 Set Kenarlar = WsVarliklar.Range("C" & 7 & ":H" & SayEsasVarlik + 3)
 Kenarlar.Borders(xlDiagonalDown).LineStyle = xlNone
 Kenarlar.Borders(xlDiagonalUp).LineStyle = xlNone
@@ -10045,7 +10045,7 @@ Son:
 
 ThisWorkbook.Activate
 
-'Application.DisplayAlerts = True 'Kodlar tamamlanýnca iptal et
+'Application.DisplayAlerts = True 'Kodlar tamamlanÄ±nca iptal et
 
 End Sub
 
@@ -10064,30 +10064,30 @@ Dim ItemBul As Range
 
 Dim NomDeger As Variant, NomSay As Integer
 
-'Application.DisplayAlerts = False 'Kodlar tamamlanýnca iptal et
+'Application.DisplayAlerts = False 'Kodlar tamamlanÄ±nca iptal et
 
 'Pathfinder...
 AutoPath = ThisWorkbook.Path
 DestOperasyon = AutoPath & "\System Files\Operation\"
 VarlikKlasoru = AutoPath & "\System Files\System Templates\Asset Templates\"
-EsasVarlik = VarlikKlasoru & "Report 3 – Primary Asset Report.xlsx"
+EsasVarlik = VarlikKlasoru & "Report 3 â€“ Primary Asset Report.xlsx"
 
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
 
-'System Files klasör adýný kontrol et.
+'System Files klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(AutoPath & "\System Files\", vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & AutoPath & "\System Files\" & ". The folder named 'System Files' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Operation klasörü adýný kontrol et.
+'Operation klasÃ¶rÃ¼ adÄ±nÄ± kontrol et.
 If Not Dir(DestOperasyon, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & DestOperasyon & ". The folder named 'Operation' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Registry Reports klasör adýný kontrol et.
+'Registry Reports klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(VarlikKlasoru, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & VarlikKlasoru & ". The folder named 'Asset Templates' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
@@ -10096,7 +10096,7 @@ If Not Dir(EsasVarlik, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the folder " & EsasVarlik & ". The names of folders and/or files in this directory might have been changed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
@@ -10104,15 +10104,15 @@ End If
     
 
 
-On Error Resume Next 'Operation içinde Report 3 – Primary Asset Report.xlsx dosyasý yoksa oluþacak hata için
-OperasyonEsasVarlik = DestOpUserFolder & "Report 3 – Primary Asset Report.xlsx"
-'Report 3 – Primary Asset Report açýksa kaydet ve kapat.
+On Error Resume Next 'Operation iÃ§inde Report 3 â€“ Primary Asset Report.xlsx dosyasÄ± yoksa oluÅŸacak hata iÃ§in
+OperasyonEsasVarlik = DestOpUserFolder & "Report 3 â€“ Primary Asset Report.xlsx"
+'Report 3 â€“ Primary Asset Report aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(OperasyonEsasVarlik)
 If OpenControl = True Then
-    Workbooks("Report 3 – Primary Asset Report.xlsx").Close SaveChanges:=True
+    Workbooks("Report 3 â€“ Primary Asset Report.xlsx").Close SaveChanges:=True
 End If
 
-'Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 On Error Resume Next
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
@@ -10124,13 +10124,13 @@ If ContSay > 0 Then
     Kill DestOpUserFolder & "*.???"
 End If
 
-'Dosyayý operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
-fso.CopyFile (EsasVarlik), DestOpUserFolder & "Report 3 – Primary Asset Report" & ".xlsx", True
+fso.CopyFile (EsasVarlik), DestOpUserFolder & "Report 3 â€“ Primary Asset Report" & ".xlsx", True
 'open the file
 Workbooks.Open (OperasyonEsasVarlik)
 
-Set WsVarliklar = Workbooks("Report 3 – Primary Asset Report.xlsx").Worksheets(1)
+Set WsVarliklar = Workbooks("Report 3 â€“ Primary Asset Report.xlsx").Worksheets(1)
 WsVarliklar.Unprotect Password:="123"
 
 On Error GoTo 0
@@ -10142,7 +10142,7 @@ SiraNoEsasVarlik = 1
 Devir = 0
 For Each ctl In core_asset_manager_UI.FrameGiris.Controls
     If TypeName(ctl) = "ListBox" Then
-        'RAPOR3_2 (GÝRÝÞ)
+        'RAPOR3_2 (GÄ°RÄ°Åž)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " M" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -10159,7 +10159,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                 SonSira = SonSiraBul.Row
             End If
             
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
             If ThisWorkbook.Worksheets(5).Cells(IlkSira, 28).Value = "Type A" Then
                 WsVarliklar.Range("D" & SayEsasVarlik & ":D" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("M" & IlkSira & ":M" & SonSira).Value
@@ -10168,7 +10168,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             End If
             WsVarliklar.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -10187,7 +10187,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             End If
             'WsVarliklar.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("BC" & IlkSira & ":BC" & SonSira).Value
             WsVarliklar.Range("G" & SayEsasVarlik & ":G" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("BF" & IlkSira & ":BF" & SonSira).Value
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklar.Range("D" & i) = "" And WsVarliklar.Range("E" & i) <> "" Then
@@ -10196,11 +10196,11 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
-        'RAPOR3_1 (GÝRÝÞ)
+        'RAPOR3_1 (GÄ°RÄ°Åž)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " G" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -10216,7 +10216,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             If Not SonSiraBul Is Nothing Then
                 SonSira = SonSiraBul.Row
             End If
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
             If ThisWorkbook.Worksheets(5).Cells(IlkSira, 100).Value = "Type A" Then
                 WsVarliklar.Range("D" & SayEsasVarlik & ":D" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("M" & IlkSira & ":M" & SonSira).Value
@@ -10225,7 +10225,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
             End If
             WsVarliklar.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("DZ" & IlkSira & ":DZ" & SonSira).Value
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -10247,7 +10247,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                 Next i
             End If
             
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklar.Range("D" & i) = "" And WsVarliklar.Range("E" & i) <> "" Then
@@ -10256,7 +10256,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
         End If
@@ -10266,7 +10266,7 @@ Next ctl
 
 For Each ctl In core_asset_manager_UI.FrameCikis.Controls
     If TypeName(ctl) = "ListBox" Then
-        'RAPOR3_2 (ÇIKIÞLAR)
+        'RAPOR3_2 (Ã‡IKIÅžLAR)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " M" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -10282,7 +10282,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             If Not SonSiraBul Is Nothing Then
                 SonSira = SonSiraBul.Row
             End If
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
             If ThisWorkbook.Worksheets(5).Cells(IlkSira, 28).Value = "Type A" Then
                 WsVarliklar.Range("D" & SayEsasVarlik & ":D" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("M" & IlkSira & ":M" & SonSira).Value
@@ -10291,7 +10291,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             End If
             WsVarliklar.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("AZ" & IlkSira & ":AZ" & SonSira).Value
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -10302,7 +10302,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             Next i
             
             'WsVarliklar.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("BC" & IlkSira & ":BC" & SonSira).Value
-            If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+            If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                 WsVarliklar.Range("G" & SayEsasVarlik & ":G" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("BF" & IlkSira & ":BF" & SonSira).Value
             End If
             WsVarliklar.Range("H" & SayEsasVarlik & ":H" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("BF" & IlkSira & ":BF" & SonSira).Value
@@ -10316,7 +10316,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                 Next i
             End If
             
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklar.Range("D" & i) = "" And WsVarliklar.Range("E" & i) <> "" Then
@@ -10325,16 +10325,16 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
 
-            'Devreden bakiyeden çýkýþlarýn da önceki günün devrine ilavesi (DEVÝR)
+            'Devreden bakiyeden Ã§Ä±kÄ±ÅŸlarÄ±n da Ã¶nceki gÃ¼nÃ¼n devrine ilavesi (DEVÄ°R)
             If ctl.BackColor = &H80000003 Then
                 Devir = Devir + Application.Sum(ThisWorkbook.Worksheets(5).Range("BF" & IlkSira & ":BF" & SonSira))
             End If
         End If
-        'RAPOR3_1 (ÇIKIÞLAR)
+        'RAPOR3_1 (Ã‡IKIÅžLAR)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " G" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -10350,7 +10350,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             If Not SonSiraBul Is Nothing Then
                 SonSira = SonSiraBul.Row
             End If
-            'Aktarýmý baþlat
+            'AktarÄ±mÄ± baÅŸlat
             WsVarliklar.Range("C" & SayEsasVarlik) = SiraNoEsasVarlik
             If ThisWorkbook.Worksheets(5).Cells(IlkSira, 100).Value = "Type A" Then
                 WsVarliklar.Range("D" & SayEsasVarlik & ":D" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("M" & IlkSira & ":M" & SonSira).Value
@@ -10359,7 +10359,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             End If
             WsVarliklar.Range("E" & SayEsasVarlik & ":E" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("DZ" & IlkSira & ":DZ" & SonSira).Value
 
-            'Öðe Deðeri string'ten long'a dönüþtür ve yaz.
+            'Ã–ÄŸe DeÄŸeri string'ten long'a dÃ¶nÃ¼ÅŸtÃ¼r ve yaz.
             NomSay = 0
             NomDeger = 0
             For i = IlkSira To SonSira
@@ -10370,7 +10370,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             Next i
             
             'WsVarliklar.Range("F" & SayEsasVarlik & ":F" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("EC" & IlkSira & ":EC" & SonSira).Value
-            If ctl.BackColor = &H80000000 Then '(GÝRÝÞÝN AYNI GÜN ÇIKIÞI) 'Ctl.BackColor = &H80000003
+            If ctl.BackColor = &H80000000 Then '(GÄ°RÄ°ÅžÄ°N AYNI GÃœN Ã‡IKIÅžI) 'Ctl.BackColor = &H80000003
                 WsVarliklar.Range("G" & SayEsasVarlik & ":G" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("EF" & IlkSira & ":EF" & SonSira).Value
             End If
             WsVarliklar.Range("H" & SayEsasVarlik & ":H" & SayEsasVarlik + (SonSira - IlkSira)).Value = ThisWorkbook.Worksheets(5).Range("EF" & IlkSira & ":EF" & SonSira).Value
@@ -10384,7 +10384,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                 Next i
             End If
             
-            'Sýra ve kayýt nolarý dikeyde birleþtir.
+            'SÄ±ra ve kayÄ±t nolarÄ± dikeyde birleÅŸtir.
             WsVarliklar.Range("C" & SayEsasVarlik & ":C" & SayEsasVarlik + (SonSira - IlkSira)).Merge
             For i = SayEsasVarlik To SayEsasVarlik + (SonSira - IlkSira)
                 If WsVarliklar.Range("D" & i) = "" And WsVarliklar.Range("E" & i) <> "" Then
@@ -10393,11 +10393,11 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
                     End If
                 End If
             Next i
-            'Satýrlarý takip et.
+            'SatÄ±rlarÄ± takip et.
             SayEsasVarlik = SayEsasVarlik + (SonSira - IlkSira) + 1
             SiraNoEsasVarlik = SiraNoEsasVarlik + 1
 
-            'Devreden bakiyeden çýkýþlarýn da önceki günün devrine ilavesi (DEVÝR)
+            'Devreden bakiyeden Ã§Ä±kÄ±ÅŸlarÄ±n da Ã¶nceki gÃ¼nÃ¼n devrine ilavesi (DEVÄ°R)
             If ctl.BackColor = &H80000003 Then
                 Devir = Devir + Application.Sum(ThisWorkbook.Worksheets(5).Range("EF" & IlkSira & ":EF" & SonSira))
             End If
@@ -10408,7 +10408,7 @@ Next ctl
 
 For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
     If TypeName(ctl) = "ListBox" Then
-        'RAPOR3_2 (DEVÝRLER)
+        'RAPOR3_2 (DEVÄ°RLER)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " M" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -10427,7 +10427,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
             'Devirleri hesapla
             Devir = Devir + Application.Sum(ThisWorkbook.Worksheets(5).Range("BF" & IlkSira & ":BF" & SonSira))
         End If
-        'RAPOR3_1 (DEVÝRLER)
+        'RAPOR3_1 (DEVÄ°RLER)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " G" Then
             Set IlkSiraBul = Nothing
             Set SonSiraBul = Nothing
@@ -10469,18 +10469,18 @@ WsVarliklar.Range("C" & SayEsasVarlik + 2 & ":G" & SayEsasVarlik + 2).Horizontal
 WsVarliklar.Range("C" & SayEsasVarlik + 3 & ":G" & SayEsasVarlik + 3).HorizontalAlignment = xlLeft
 
 If SayEsasVarlik - 1 >= 7 Then
-    WsVarliklar.Range("G" & SayEsasVarlik) = Application.Sum(WsVarliklar.Range(Cells(7, 7), WsVarliklar.Cells(SayEsasVarlik - 1, 7))) 'Giriþ toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik) = Application.Sum(WsVarliklar.Range(Cells(7, 8), WsVarliklar.Cells(SayEsasVarlik - 1, 8))) 'Çýkýþ toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik + 2) = Devir 'Devir toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik + 3) = WsVarliklar.Range("G" & SayEsasVarlik) + Devir - WsVarliklar.Range("H" & SayEsasVarlik) 'Gün sonu toplamý 'Gün sonu toplamý
+    WsVarliklar.Range("G" & SayEsasVarlik) = Application.Sum(WsVarliklar.Range(Cells(7, 7), WsVarliklar.Cells(SayEsasVarlik - 1, 7))) 'GiriÅŸ toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik) = Application.Sum(WsVarliklar.Range(Cells(7, 8), WsVarliklar.Cells(SayEsasVarlik - 1, 8))) 'Ã‡Ä±kÄ±ÅŸ toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik + 2) = Devir 'Devir toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik + 3) = WsVarliklar.Range("G" & SayEsasVarlik) + Devir - WsVarliklar.Range("H" & SayEsasVarlik) 'GÃ¼n sonu toplamÄ± 'GÃ¼n sonu toplamÄ±
 Else
-    WsVarliklar.Range("G" & SayEsasVarlik) = 0 'Giriþ toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik) = 0 'Çýkýþ toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik + 2) = Devir 'Devir toplamý
-    WsVarliklar.Range("H" & SayEsasVarlik + 3) = 0 + Devir - 0 'Gün sonu toplamý
+    WsVarliklar.Range("G" & SayEsasVarlik) = 0 'GiriÅŸ toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik) = 0 'Ã‡Ä±kÄ±ÅŸ toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik + 2) = Devir 'Devir toplamÄ±
+    WsVarliklar.Range("H" & SayEsasVarlik + 3) = 0 + Devir - 0 'GÃ¼n sonu toplamÄ±
 End If
 
-'Kontrol edilmiþtir metni.
+'Kontrol edilmiÅŸtir metni.
 WsVarliklar.Range("C" & SayEsasVarlik + 5) = "The above records have been reviewed by us."
 WsVarliklar.Range("C" & SayEsasVarlik + 5 & ":H" & SayEsasVarlik + 5).Merge
 WsVarliklar.Range("C" & SayEsasVarlik + 5 & ":H" & SayEsasVarlik + 5).HorizontalAlignment = xlCenter 'xlLeft
@@ -10535,7 +10535,7 @@ End If
 VarlikImza3Atla:
 
 
-'Ýmza satýrlarýný ayarla
+'Ä°mza satÄ±rlarÄ±nÄ± ayarla
 WsVarliklar.Range("C" & SayEsasVarlik + 10 & ":D" & SayEsasVarlik + 10).Font.Color = RGB(191, 191, 191)
 WsVarliklar.Range("C" & SayEsasVarlik + 10 & ":D" & SayEsasVarlik + 10).Merge
 WsVarliklar.Range("C" & SayEsasVarlik + 10 & ":D" & SayEsasVarlik + 10).HorizontalAlignment = xlCenter
@@ -10561,7 +10561,7 @@ WsVarliklar.Range("G" & SayEsasVarlik + 12 & ":H" & SayEsasVarlik + 12).Merge
 WsVarliklar.Range("G" & SayEsasVarlik + 12 & ":H" & SayEsasVarlik + 12).HorizontalAlignment = xlCenter
 
 
-'Kenarlýklar.
+'KenarlÄ±klar.
 Set Kenarlar = WsVarliklar.Range("C" & 7 & ":H" & SayEsasVarlik + 3)
 Kenarlar.Borders(xlDiagonalDown).LineStyle = xlNone
 Kenarlar.Borders(xlDiagonalUp).LineStyle = xlNone
@@ -10595,7 +10595,7 @@ Son:
 
 ThisWorkbook.Activate
 
-'Application.DisplayAlerts = True 'Kodlar tamamlanýnca iptal et
+'Application.DisplayAlerts = True 'Kodlar tamamlanÄ±nca iptal et
 
 End Sub
 

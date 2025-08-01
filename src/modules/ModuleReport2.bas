@@ -49,7 +49,7 @@ Sub OpenWordControl()
 Dim ObjWordx As Object
 Dim objDocx As Object
 
-'MsgBox "OpenWordControl prosedürü baþlýyor."
+'MsgBox "OpenWordControl prosedÃ¼rÃ¼ baÅŸlÄ±yor."
 
     On Error GoTo NoOpenDoc
     Set ObjWordx = GetObject(, "Word.Application")
@@ -66,10 +66,10 @@ NoOpenDocAtla:
         'MsgBox objWordx.ActiveDocument.Name
         If ObjWordx.ActiveDocument.name <> "" Then
             ObjWordx.Quit SaveChanges:=True
-            'MsgBox "Dosya OpenWordControl methodu ile kapatýldý."
+            'MsgBox "Dosya OpenWordControl methodu ile kapatÄ±ldÄ±."
         End If
     Else
-        'MsgBox "Açýk word dokümaný yok."
+        'MsgBox "AÃ§Ä±k word dokÃ¼manÄ± yok."
     End If
 
 Son:
@@ -111,7 +111,7 @@ If InStr(Cells(ActiveCell.Row, 26).Value, " Organization A") <> 0 Then
     Cells(ActiveCell.Row, 26).Value = ""
 End If
 
-'TUTANAK1 için prosedürü baþlat
+'TUTANAK1 iÃ§in prosedÃ¼rÃ¼ baÅŸlat
 'If ActiveCell.Column = 6 Then
 '    Application.ScreenUpdating = False
     Application.DisplayAlerts = False
@@ -125,7 +125,7 @@ End If
     SourceTutanak1Farkli = AutoPath & "\System Files\System Templates\Statement 1 Templates\Discrepancy Statement.docm"
     SourceDL = AutoPath & "\System Files\System Templates\Statement 1 Templates\Dispatch List.docm"
     
-    'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+    'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
     DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
     DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
     
@@ -157,7 +157,7 @@ End If
         GoTo Son
     End If
 
-    'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+    'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
     If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
         MkDir DestOpUserFolder
     End If
@@ -171,11 +171,11 @@ End If
     'Close the all Word application
     Call ModuleReport2.OpenWordControl
     
-    'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+    'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
     OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
     Do While OpenKontrolName <> ""
         OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-        If OpenControl = True Then 'Açýksa
+        If OpenControl = True Then 'AÃ§Ä±ksa
             On Error Resume Next
             Set objWord = GetObject(, "Word.Application")
             Set objWord = GetObject(, "Word.Application")
@@ -183,7 +183,7 @@ End If
             Set objWord = GetObject(, "Word.Application")
             Set objWord = GetObject(, "Word.Application")
             objWord.Quit SaveChanges:=True
-            'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+            'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
 
         End If
         OpenKontrolName = Dir()
@@ -197,7 +197,7 @@ End If
 '________________________________________
 
     On Error Resume Next
-'    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
     ContSay = 0
     KontrolFile = Dir(DestOpUserFolder & "*.???")
     Do While KontrolFile <> ""
@@ -208,7 +208,7 @@ End If
         Kill DestOpUserFolder & "*.???"
     End If
     
-    'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+    'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
     Set fso = CreateObject("Scripting.FileSystemObject")
     If Cells(ActiveCell.Row, 40).Value = "d. Discrepancy Detected" Then
         fso.CopyFile (SourceTutanak1Farkli), DestOpUserFolder & ReNameTutanak1 & ".docm", True
@@ -217,7 +217,7 @@ End If
     End If
 '________________________________________
 
-    'Oluþturulacak dosyayý aç
+    'OluÅŸturulacak dosyayÄ± aÃ§
     On Error Resume Next
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
@@ -225,7 +225,7 @@ End If
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
     If objWord Is Nothing Then
-        'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+        'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
         Set objWord = CreateObject("Word.Application")
         objWord.Visible = False
     End If
@@ -237,13 +237,13 @@ End If
     Set objDoc = GetObject(DestOpUserFolder & ReNameTutanak1 & ".docm")
 '________________________________________
     
-    If Cells(ActiveCell.Row, 40).Value = "d. Discrepancy Detected" Then 'Farklý tutanak1 tutanaðý
+    If Cells(ActiveCell.Row, 40).Value = "d. Discrepancy Detected" Then 'FarklÄ± tutanak1 tutanaÄŸÄ±
         'Birim
-        Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I")) & " UNIT"
+        Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I")) & " UNIT"
         objDoc.Tables(1).Cell(Row:=1, Column:=1).Range.Text = Birimx
         'Tutanak1 tarihi
         objDoc.Tables(1).Cell(Row:=4, Column:=3).Range.Text = Cells(ActiveCell.Row, 39).Value
-        'Geliþ tarihi
+        'GeliÅŸ tarihi
         objDoc.Tables(1).Cell(Row:=5, Column:=3).Range.Text = Cells(ActiveCell.Row, 36).Value
         'By Hand/By Mail
         If Cells(ActiveCell.Row, 38).Value = "By Hand" Then
@@ -251,16 +251,16 @@ End If
         ElseIf Cells(ActiveCell.Row, 38).Value = "By Mail" Then
             objDoc.CheckPosta.Value = True
         End If
-        'Türkçe karakterleri düzelt
+        'TÃ¼rkÃ§e karakterleri dÃ¼zelt
         objDoc.CheckElden.Enabled = False
         objDoc.CheckElden.Enabled = True
         objDoc.CheckPosta.Enabled = False
         objDoc.CheckPosta.Enabled = True
         
-        'Gelen Yazýnýn Tarih ve Sayýsý
+        'Gelen YazÄ±nÄ±n Tarih ve SayÄ±sÄ±
         objDoc.Tables(1).Cell(Row:=6, Column:=3).Range.Text = Cells(ActiveCell.Row, 28).Value
         objDoc.Tables(1).Cell(Row:=6, Column:=5).Range.Text = Cells(ActiveCell.Row, 29).Value
-        'Gönderen
+        'GÃ¶nderen
         If Cells(ActiveCell.Row, 33).Value = "Provincial Directorate B" Then
             GelenTema = Cells(ActiveCell.Row, 25).Value & " Provincial Governorship Provincial Directorate B " & Cells(ActiveCell.Row, 34).Value
         ElseIf Cells(ActiveCell.Row, 33).Value = "District Directorate B" Then
@@ -303,16 +303,16 @@ End If
         
         'Gelen paket tipi(Package A/Package B/Package C)
         PaketTipi = Cells(ActiveCell.Row, 37).Value
-        'Tablo baþlýðý
-'        objDoc.Tables(4).Cell(Row:=1, Column:=1).Range.Text = PaketTipi & " Ýçerisinden Çýkan"
+        'Tablo baÅŸlÄ±ÄŸÄ±
+'        objDoc.Tables(4).Cell(Row:=1, Column:=1).Range.Text = PaketTipi & " Ä°Ã§erisinden Ã‡Ä±kan"
         objDoc.Tables(4).Cell(Row:=1, Column:=1).Range.Text = "Items Found Inside the " & PaketTipi
         PaketTipi = LCase(Cells(ActiveCell.Row, 37).Value)
         'Ek olarak Dispatch List
         If Cells(ActiveCell.Row, 43).Value = "Yes" Then
-'            objDoc.Tables(2).Cell(Row:=1, Column:=1).Range.Text = "Yukarýda belirtilen yazý ekindeki " & _
-'            PaketTipi & " açýlmýþ ve yazýda gönderildiði belirtilen öðe(ler) ile " & _
-'            PaketTipi & " içerisinden çýkan öðe(ler) arasýnda fark bulunduðu tespit edilmiþtir. Farký gösterir döküm aþaðýda belirtilmiþ olup, " & _
-'            "gönderildiði belirtilen diðer öðelerin belirtildiði þekilde çýktýðý tespit edilmiþtir. Ayrýca, tespiti yapýlan öðelerin genel dökümü ekte verilmiþtir."
+'            objDoc.Tables(2).Cell(Row:=1, Column:=1).Range.Text = "YukarÄ±da belirtilen yazÄ± ekindeki " & _
+'            PaketTipi & " aÃ§Ä±lmÄ±ÅŸ ve yazÄ±da gÃ¶nderildiÄŸi belirtilen Ã¶ÄŸe(ler) ile " & _
+'            PaketTipi & " iÃ§erisinden Ã§Ä±kan Ã¶ÄŸe(ler) arasÄ±nda fark bulunduÄŸu tespit edilmiÅŸtir. FarkÄ± gÃ¶sterir dÃ¶kÃ¼m aÅŸaÄŸÄ±da belirtilmiÅŸ olup, " & _
+'            "gÃ¶nderildiÄŸi belirtilen diÄŸer Ã¶ÄŸelerin belirtildiÄŸi ÅŸekilde Ã§Ä±ktÄ±ÄŸÄ± tespit edilmiÅŸtir. AyrÄ±ca, tespiti yapÄ±lan Ã¶ÄŸelerin genel dÃ¶kÃ¼mÃ¼ ekte verilmiÅŸtir."
             objDoc.Tables(2).Cell(Row:=1, Column:=1).Range.Text = _
             "The " & PaketTipi & " attached to the document above has been opened, and a discrepancy was detected between the item(s) stated as sent and the item(s) actually found inside the " & PaketTipi & ". " & _
             "The list of differences is provided below, and the remaining item(s) mentioned in the document were confirmed to be present as described. " & _
@@ -324,9 +324,9 @@ End If
                 If Cells(ActiveCell.Row, 44).Value < 2 Then objDoc.Tables(5).Cell(Row:=5, Column:=1).Range.Text = "Attachment: Dispatch List (" & Cells(ActiveCell.Row, 44).Value & " page)"
             End If
         ElseIf Cells(ActiveCell.Row, 43).Value = "No" Then
-'            objDoc.Tables(2).Cell(Row:=1, Column:=1).Range.Text = "Yukarýda belirtilen yazý ekindeki " & _
-'            PaketTipi & " açýlmýþ ve yazýda gönderildiði belirtilen öðe(ler) ile " & _
-'            PaketTipi & " içerisinden çýkan öðe(ler) arasýnda fark bulunduðu tespit edilmiþtir. Farký gösterir döküm aþaðýda belirtilmiþtir."
+'            objDoc.Tables(2).Cell(Row:=1, Column:=1).Range.Text = "YukarÄ±da belirtilen yazÄ± ekindeki " & _
+'            PaketTipi & " aÃ§Ä±lmÄ±ÅŸ ve yazÄ±da gÃ¶nderildiÄŸi belirtilen Ã¶ÄŸe(ler) ile " & _
+'            PaketTipi & " iÃ§erisinden Ã§Ä±kan Ã¶ÄŸe(ler) arasÄ±nda fark bulunduÄŸu tespit edilmiÅŸtir. FarkÄ± gÃ¶sterir dÃ¶kÃ¼m aÅŸaÄŸÄ±da belirtilmiÅŸtir."
             objDoc.Tables(2).Cell(Row:=1, Column:=1).Range.Text = _
             "The " & PaketTipi & " attached to the above-mentioned document has been opened, and a discrepancy has been detected between the item(s) stated as sent and the item(s) found inside the " & PaketTipi & ". " & _
             "A breakdown of the discrepancy is provided below."
@@ -349,7 +349,7 @@ End If
             MsgBox "The serial number could not be found, so the operation cannot be completed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
             GoTo Son
         End If
-        'Tabloya satýr ekle
+        'Tabloya satÄ±r ekle
         x = 0
         If SonSira - IlkSira > 0 Then
             With objDoc.Tables(4)
@@ -361,20 +361,20 @@ End If
         End If
         
         For i = 4 To SonSira - IlkSira + 4
-            objDoc.Tables(4).Cell(Row:=i, Column:=1).Range.Text = i - 3 'Tablo sýra no
-            objDoc.Tables(4).Cell(Row:=i, Column:=2).Range.Text = Cells(IlkSira + i - 4, 46).Value 'Öðe türü
-            objDoc.Tables(4).Cell(Row:=i, Column:=3).Range.Text = Cells(IlkSira + i - 4, 49).Value 'Öðe deðeri
+            objDoc.Tables(4).Cell(Row:=i, Column:=1).Range.Text = i - 3 'Tablo sÄ±ra no
+            objDoc.Tables(4).Cell(Row:=i, Column:=2).Range.Text = Cells(IlkSira + i - 4, 46).Value 'Ã–ÄŸe tÃ¼rÃ¼
+            objDoc.Tables(4).Cell(Row:=i, Column:=3).Range.Text = Cells(IlkSira + i - 4, 49).Value 'Ã–ÄŸe deÄŸeri
             objDoc.Tables(4).Cell(Row:=i, Column:=4).Range.Text = Cells(IlkSira + i - 4, 52).Value 'Adet
             If Cells(IlkSira + i - 4, 55).Value = "Dispatch List" Then
-                objDoc.Tables(4).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Dispatch List" 'Öðe ID No
+                objDoc.Tables(4).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Dispatch List" 'Ã–ÄŸe ID No
             Else
-                objDoc.Tables(4).Cell(Row:=i, Column:=5).Range.Text = Cells(IlkSira + i - 4, 55).Value 'Öðe ID No
+                objDoc.Tables(4).Cell(Row:=i, Column:=5).Range.Text = Cells(IlkSira + i - 4, 55).Value 'Ã–ÄŸe ID No
             End If
-            objDoc.Tables(4).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satýra yaz.)
-            objDoc.Tables(4).Cell(Row:=i, Column:=7).Range.Text = Cells(IlkSira + i - 4, 58).Value 'Açýklama
+            objDoc.Tables(4).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satÄ±ra yaz.)
+            objDoc.Tables(4).Cell(Row:=i, Column:=7).Range.Text = Cells(IlkSira + i - 4, 58).Value 'AÃ§Ä±klama
         Next i
 
-        'Tabloyu doldur (Fark kýsmý)
+        'Tabloyu doldur (Fark kÄ±smÄ±)
         Set WsFarkGirisRapor1 = ThisWorkbook.Worksheets(9)
         Set IlkSiraBulx = WsFarkGirisRapor1.Range("P3:P100000").Find(What:=Cells(ActiveCell.Row, 5).Value, SearchDirection:=xlNext, _
                         SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -392,7 +392,7 @@ End If
             MsgBox "The serial number could not be found, so the operation cannot be completed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
             GoTo Son
         End If
-        'Tabloya satýr ekle
+        'Tabloya satÄ±r ekle
         x = 0
         If SonSirax - IlkSirax > 0 Then
             With objDoc.Tables(3)
@@ -404,17 +404,17 @@ End If
         End If
         
         For i = 4 To SonSirax - IlkSirax + 4
-            objDoc.Tables(3).Cell(Row:=i, Column:=1).Range.Text = i - 3 'Tablo sýra no
-            objDoc.Tables(3).Cell(Row:=i, Column:=2).Range.Text = WsFarkGirisRapor1.Cells(IlkSirax + i - 4, 1).Value 'Öðe türü
-            objDoc.Tables(3).Cell(Row:=i, Column:=3).Range.Text = WsFarkGirisRapor1.Cells(IlkSirax + i - 4, 4).Value 'Öðe deðeri
+            objDoc.Tables(3).Cell(Row:=i, Column:=1).Range.Text = i - 3 'Tablo sÄ±ra no
+            objDoc.Tables(3).Cell(Row:=i, Column:=2).Range.Text = WsFarkGirisRapor1.Cells(IlkSirax + i - 4, 1).Value 'Ã–ÄŸe tÃ¼rÃ¼
+            objDoc.Tables(3).Cell(Row:=i, Column:=3).Range.Text = WsFarkGirisRapor1.Cells(IlkSirax + i - 4, 4).Value 'Ã–ÄŸe deÄŸeri
             objDoc.Tables(3).Cell(Row:=i, Column:=4).Range.Text = WsFarkGirisRapor1.Cells(IlkSirax + i - 4, 7).Value 'Adet
             If WsFarkGirisRapor1.Cells(IlkSirax + i - 4, 10).Value = "Dispatch List" Then
-                objDoc.Tables(3).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Dispatch List" 'Öðe ID No
+                objDoc.Tables(3).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Dispatch List" 'Ã–ÄŸe ID No
             Else
-                objDoc.Tables(3).Cell(Row:=i, Column:=5).Range.Text = WsFarkGirisRapor1.Cells(IlkSirax + i - 4, 10).Value 'Öðe ID No
+                objDoc.Tables(3).Cell(Row:=i, Column:=5).Range.Text = WsFarkGirisRapor1.Cells(IlkSirax + i - 4, 10).Value 'Ã–ÄŸe ID No
             End If
-            objDoc.Tables(3).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satýra yaz.)
-            objDoc.Tables(3).Cell(Row:=i, Column:=7).Range.Text = WsFarkGirisRapor1.Cells(IlkSirax + i - 4, 13).Value 'Açýklama
+            objDoc.Tables(3).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satÄ±ra yaz.)
+            objDoc.Tables(3).Cell(Row:=i, Column:=7).Range.Text = WsFarkGirisRapor1.Cells(IlkSirax + i - 4, 13).Value 'AÃ§Ä±klama
         Next i
 
 
@@ -427,11 +427,11 @@ End If
         'Alt bilgi ekle
         objDoc.Sections(1).Footers(wdHeaderFooterPrimary).Range.Tables(1).Cell(Row:=1, Column:=1).Range.Text = ReNameTutanak1
     
-        'Sayfa sayýsý kaydet komutuna baðlandý.
+        'Sayfa sayÄ±sÄ± kaydet komutuna baÄŸlandÄ±.
     '    objDoc.Close SaveChanges:=True
     '    objWord.Quit
         objDoc.Save
-        'Sayfayý text dosyasýndan çek
+        'SayfayÄ± text dosyasÄ±ndan Ã§ek
         TxtFileTutanak1 = DestOpUserFolder & "Statement 1 Page Count.txt"
         #If UseADO Then
             Const adReadLine = -2&
@@ -467,13 +467,13 @@ End If
             objWord.Visible = False
         End If
 
-    Else 'Normal tutanak1 tutanaðý
+    Else 'Normal tutanak1 tutanaÄŸÄ±
         'Birim
-        Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I")) & " UNIT"
+        Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I")) & " UNIT"
         objDoc.Tables(1).Cell(Row:=1, Column:=1).Range.Text = Birimx
         'Tutanak1 tarihi
         objDoc.Tables(1).Cell(Row:=4, Column:=3).Range.Text = Cells(ActiveCell.Row, 39).Value
-        'Geliþ tarihi
+        'GeliÅŸ tarihi
         objDoc.Tables(1).Cell(Row:=5, Column:=3).Range.Text = Cells(ActiveCell.Row, 36).Value
         'By Hand/By Mail
         If Cells(ActiveCell.Row, 38).Value = "By Hand" Then
@@ -481,7 +481,7 @@ End If
         ElseIf Cells(ActiveCell.Row, 38).Value = "By Mail" Then
             objDoc.CheckPosta.Value = True
         End If
-        'Öðe çýktý/çýkmadý/vb.
+        'Ã–ÄŸe Ã§Ä±ktÄ±/Ã§Ä±kmadÄ±/vb.
         If Cells(ActiveCell.Row, 40).Value = "a. Content as Expected" Then
             objDoc.CheckTam.Value = True
         ElseIf Cells(ActiveCell.Row, 40).Value = "b. Content Empty" Then
@@ -489,7 +489,7 @@ End If
         ElseIf Cells(ActiveCell.Row, 40).Value = "c. Only Specific Content Available" Then
             objDoc.CheckEksik.Value = True
         End If
-        'Türkçe karakterleri düzelt
+        'TÃ¼rkÃ§e karakterleri dÃ¼zelt
         objDoc.CheckElden.Enabled = False
         objDoc.CheckElden.Enabled = True
         objDoc.CheckPosta.Enabled = False
@@ -501,11 +501,11 @@ End If
         objDoc.CheckEksik.Enabled = False
         objDoc.CheckEksik.Enabled = True
         
-        'Gönderen
-        'Gelen Yazýnýn Tarih ve Sayýsý
+        'GÃ¶nderen
+        'Gelen YazÄ±nÄ±n Tarih ve SayÄ±sÄ±
         objDoc.Tables(1).Cell(Row:=6, Column:=3).Range.Text = Cells(ActiveCell.Row, 28).Value
         objDoc.Tables(1).Cell(Row:=6, Column:=5).Range.Text = Cells(ActiveCell.Row, 29).Value
-        'Gönderen
+        'GÃ¶nderen
         If Cells(ActiveCell.Row, 33).Value = "Provincial Directorate B" Then
             GelenTema = Cells(ActiveCell.Row, 25).Value & " Provincial Governorship Provincial Directorate B " & Cells(ActiveCell.Row, 34).Value
         ElseIf Cells(ActiveCell.Row, 33).Value = "District Directorate B" Then
@@ -546,7 +546,7 @@ End If
         
         objDoc.Tables(1).Cell(Row:=9, Column:=3).Range.Text = GelenTema
         
-        'Gönderenin adresi
+        'GÃ¶nderenin adresi
 '        If Cells(ActiveCell.Row, 18).Value = Cells(ActiveCell.Row, 17).Value & " Organization A" Then
         If Cells(ActiveCell.Row, 26).Value <> "" Then
             objDoc.Tables(1).Cell(Row:=10, Column:=3).Range.Text = Cells(ActiveCell.Row, 26).Value & "/" & Cells(ActiveCell.Row, 25).Value
@@ -554,10 +554,10 @@ End If
             objDoc.Tables(1).Cell(Row:=10, Column:=3).Range.Text = Cells(ActiveCell.Row, 25).Value
         End If
 
-        'Gelen Yazýnýn Tarih ve Sayýsý
+        'Gelen YazÄ±nÄ±n Tarih ve SayÄ±sÄ±
         objDoc.Tables(1).Cell(Row:=11, Column:=3).Range.Text = Cells(ActiveCell.Row, 28).Value
         objDoc.Tables(1).Cell(Row:=11, Column:=5).Range.Text = Cells(ActiveCell.Row, 29).Value
-        'Gönderinin Eki
+        'GÃ¶nderinin Eki
         If Cells(ActiveCell.Row, 37).Value = "Package A" Then
             objDoc.CheckZarf.Value = True
         ElseIf Cells(ActiveCell.Row, 37).Value = "Package B" Then
@@ -582,7 +582,7 @@ End If
             MsgBox "The serial number could not be found, so the operation cannot be completed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
             GoTo Son
         End If
-        'Tabloya satýr ekle
+        'Tabloya satÄ±r ekle
         x = 0
         If SonSira - IlkSira > 0 Then
             With objDoc.Tables(2)
@@ -594,17 +594,17 @@ End If
         End If
         
         For i = 2 To SonSira - IlkSira + 2
-            objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sýra no
-            objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(IlkSira + i - 2, 46).Value 'Öðe türü
-            objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(IlkSira + i - 2, 49).Value 'Öðe deðeri
+            objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sÄ±ra no
+            objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(IlkSira + i - 2, 46).Value 'Ã–ÄŸe tÃ¼rÃ¼
+            objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(IlkSira + i - 2, 49).Value 'Ã–ÄŸe deÄŸeri
             objDoc.Tables(2).Cell(Row:=i, Column:=4).Range.Text = Cells(IlkSira + i - 2, 52).Value 'Adet
             If Cells(IlkSira + i - 2, 55).Value = "Dispatch List" Then
-                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Dispatch List" 'Öðe ID No
+                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Dispatch List" 'Ã–ÄŸe ID No
             Else
-                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(IlkSira + i - 2, 55).Value 'Öðe ID No
+                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(IlkSira + i - 2, 55).Value 'Ã–ÄŸe ID No
             End If
-            objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satýra yaz.)
-            objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(IlkSira + i - 2, 58).Value 'Açýklama
+            objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satÄ±ra yaz.)
+            objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(IlkSira + i - 2, 58).Value 'AÃ§Ä±klama
         Next i
         'Ek olarak Dispatch List
         If Cells(ActiveCell.Row, 43).Value = "Yes" Then
@@ -625,7 +625,7 @@ End If
         'Alt bilgi ekle
         objDoc.Sections(1).Footers(wdHeaderFooterPrimary).Range.Tables(1).Cell(Row:=1, Column:=1).Range.Text = ReNameTutanak1
     
-        'Ýmza boþluðunu sayfaya sýðdýrmak için düzenle
+        'Ä°mza boÅŸluÄŸunu sayfaya sÄ±ÄŸdÄ±rmak iÃ§in dÃ¼zenle
         If x > 9 And x < 14 Then
             For i = 1 To x - 9
                 If i = 1 Then
@@ -649,11 +649,11 @@ End If
             'Nothing
         End If
         
-        'Sayfa sayýsý kaydet komutuna baðlandý.
+        'Sayfa sayÄ±sÄ± kaydet komutuna baÄŸlandÄ±.
     '    objDoc.Close SaveChanges:=True
     '    objWord.Quit
         objDoc.Save
-        'Sayfayý text dosyasýndan çek
+        'SayfayÄ± text dosyasÄ±ndan Ã§ek
         TxtFileTutanak1 = DestOpUserFolder & "Statement 1 Page Count.txt"
         #If UseADO Then
             Const adReadLine = -2&
@@ -690,21 +690,21 @@ End If
         End If
     End If
     
-    'Dispatch List oluþturulacak.
+    'Dispatch List oluÅŸturulacak.
     If Cells(ActiveCell.Row, 43).Value = "Yes" Then
-        'Döküm için sayfayý belirt.(Dispatch List word daosyasý bu veriyi iþleyecek.)
+        'DÃ¶kÃ¼m iÃ§in sayfayÄ± belirt.(Dispatch List word daosyasÄ± bu veriyi iÅŸleyecek.)
         Set fso = CreateObject("Scripting.FileSystemObject")
         DokumSayfaGonder = Cells(ActiveCell.Row, 44).Value
         Set DokumFileTxt = fso.CreateTextFile(DestOpUserFolder & "Send Dispatch Page Count.txt", True, True)
         DokumFileTxt.Write DokumSayfaGonder
         DokumFileTxt.Close
 
-        'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+        'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
         Set fso = CreateObject("Scripting.FileSystemObject")
         fso.CopyFile (SourceDL), DestOpUserFolder & ReNameDL & ".docm", True
     '________________________________________
     
-        'Oluþturulacak dosyayý aç
+        'OluÅŸturulacak dosyayÄ± aÃ§
         On Error Resume Next
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
@@ -712,7 +712,7 @@ End If
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
         If objWord Is Nothing Then
-            'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+            'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
             Set objWord = CreateObject("Word.Application")
             objWord.Visible = False
         End If
@@ -725,21 +725,21 @@ End If
     '________________________________________
         
         'Birim
-        Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I")) & " UNIT"
+        Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I")) & " UNIT"
         objDoc.Tables(1).Cell(Row:=1, Column:=1).Range.Text = Birimx
-        'Gönderen
+        'GÃ¶nderen
         objDoc.Tables(2).Cell(Row:=3, Column:=3).Range.Text = GelenTema
         'Belge tarihi
         objDoc.Tables(2).Cell(Row:=4, Column:=3).Range.Text = Cells(ActiveCell.Row, 28).Value
-        'Belge sayýsý
+        'Belge sayÄ±sÄ±
         objDoc.Tables(2).Cell(Row:=4, Column:=5).Range.Text = Cells(ActiveCell.Row, 29).Value
 
         'Alt bilgi ekle
         objDoc.Sections(1).Footers(wdHeaderFooterPrimary).Range.Tables(1).Cell(Row:=1, Column:=1).Range.Text = ReNameDL
     
-        'Sayfa sayýsý kaydet komutuna baðlandý.
+        'Sayfa sayÄ±sÄ± kaydet komutuna baÄŸlandÄ±.
         objDoc.Save
-        'Sayfayý text dosyasýndan çek
+        'SayfayÄ± text dosyasÄ±ndan Ã§ek
         TxtFileDokum = DestOpUserFolder & "Dispatch Page Count.txt"
         #If UseADO Then
             Const adReadLine = -2&
@@ -763,7 +763,7 @@ End If
             End With
         #End If
         'MsgBox "Tutanak1: " & TotalSayfaTutanak1
-        'MsgBox "Döküm: " & TotalSayfaDokum
+        'MsgBox "DÃ¶kÃ¼m: " & TotalSayfaDokum
         If TumDoc = True Then
             objWord.Activate
 '            For i = 1 To 1 'SayPrt
@@ -776,7 +776,7 @@ End If
         End If
     End If
     
-    'Tutanak1 ve Döküm sayfa sayýsý
+    'Tutanak1 ve DÃ¶kÃ¼m sayfa sayÄ±sÄ±
     Cells(ActiveCell.Row, 97).Value = TotalSayfaTutanak1
     Cells(ActiveCell.Row, 98).Value = TotalSayfaDokum
     
@@ -837,7 +837,7 @@ If InStr(Cells(ActiveCell.Row, 26).Value, " Organization A") <> 0 Then
     Cells(ActiveCell.Row, 26).Value = ""
 End If
 
-'TUTANAK1 için prosedürü baþlat
+'TUTANAK1 iÃ§in prosedÃ¼rÃ¼ baÅŸlat
 'If ActiveCell.Column = 6 Then
 '    Application.ScreenUpdating = False
     Application.DisplayAlerts = False
@@ -851,7 +851,7 @@ End If
     SourceTutanak1Farkli = AutoPath & "\System Files\System Templates\Statement 1 Templates\Discrepancy Statement.docm"
     SourceDL = AutoPath & "\System Files\System Templates\Statement 1 Templates\Dispatch List.docm"
     
-    'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+    'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
     DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
     DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
     
@@ -883,7 +883,7 @@ End If
         GoTo Son
     End If
 
-    'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+    'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
     If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
         MkDir DestOpUserFolder
     End If
@@ -897,11 +897,11 @@ End If
     'Close the all Word application
     Call ModuleReport2.OpenWordControl
     
-    'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+    'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
     OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
     Do While OpenKontrolName <> ""
         OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-        If OpenControl = True Then 'Açýksa
+        If OpenControl = True Then 'AÃ§Ä±ksa
             On Error Resume Next
             Set objWord = GetObject(, "Word.Application")
             Set objWord = GetObject(, "Word.Application")
@@ -909,7 +909,7 @@ End If
             Set objWord = GetObject(, "Word.Application")
             Set objWord = GetObject(, "Word.Application")
             objWord.Quit SaveChanges:=True
-            'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+            'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
 
         End If
         OpenKontrolName = Dir()
@@ -923,7 +923,7 @@ End If
 '________________________________________
 
     On Error Resume Next
-'    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
     ContSay = 0
     KontrolFile = Dir(DestOpUserFolder & "*.???")
     Do While KontrolFile <> ""
@@ -934,7 +934,7 @@ End If
         Kill DestOpUserFolder & "*.???"
     End If
     
-    'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+    'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
     Set fso = CreateObject("Scripting.FileSystemObject")
     If Cells(ActiveCell.Row, 40).Value = "d. Discrepancy Detected" Then
         fso.CopyFile (SourceTutanak1Farkli), DestOpUserFolder & ReNameTutanak1 & ".docm", True
@@ -943,7 +943,7 @@ End If
     End If
 '________________________________________
 
-    'Oluþturulacak dosyayý aç
+    'OluÅŸturulacak dosyayÄ± aÃ§
     On Error Resume Next
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
@@ -951,7 +951,7 @@ End If
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
     If objWord Is Nothing Then
-        'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+        'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
         Set objWord = CreateObject("Word.Application")
         objWord.Visible = False
     End If
@@ -963,13 +963,13 @@ End If
     Set objDoc = GetObject(DestOpUserFolder & ReNameTutanak1 & ".docm")
 '________________________________________
     
-    If Cells(ActiveCell.Row, 40).Value = "d. Discrepancy Detected" Then 'Farklý tutanak1 tutanaðý
+    If Cells(ActiveCell.Row, 40).Value = "d. Discrepancy Detected" Then 'FarklÄ± tutanak1 tutanaÄŸÄ±
         'Birim
-        Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I")) & " UNIT"
+        Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I")) & " UNIT"
         objDoc.Tables(1).Cell(Row:=1, Column:=1).Range.Text = Birimx
         'Tutanak1 tarihi
         objDoc.Tables(1).Cell(Row:=4, Column:=3).Range.Text = Cells(ActiveCell.Row, 39).Value
-        'Geliþ tarihi
+        'GeliÅŸ tarihi
         objDoc.Tables(1).Cell(Row:=5, Column:=3).Range.Text = Cells(ActiveCell.Row, 36).Value
         'By Hand/By Mail
         If Cells(ActiveCell.Row, 38).Value = "By Hand" Then
@@ -977,16 +977,16 @@ End If
         ElseIf Cells(ActiveCell.Row, 38).Value = "By Mail" Then
             objDoc.CheckPosta.Value = True
         End If
-        'Türkçe karakterleri düzelt
+        'TÃ¼rkÃ§e karakterleri dÃ¼zelt
         objDoc.CheckElden.Enabled = False
         objDoc.CheckElden.Enabled = True
         objDoc.CheckPosta.Enabled = False
         objDoc.CheckPosta.Enabled = True
         
-        'Gelen Yazýnýn Tarih ve Sayýsý
+        'Gelen YazÄ±nÄ±n Tarih ve SayÄ±sÄ±
         objDoc.Tables(1).Cell(Row:=6, Column:=3).Range.Text = Cells(ActiveCell.Row, 28).Value
         objDoc.Tables(1).Cell(Row:=6, Column:=5).Range.Text = Cells(ActiveCell.Row, 29).Value
-        'Gönderen
+        'GÃ¶nderen
         If Cells(ActiveCell.Row, 33).Value = "Provincial Directorate B" Then
             GelenTema = Cells(ActiveCell.Row, 25).Value & " Provincial Governorship Provincial Directorate B " & Cells(ActiveCell.Row, 34).Value
         ElseIf Cells(ActiveCell.Row, 33).Value = "District Directorate B" Then
@@ -1029,16 +1029,16 @@ End If
         
         'Gelen paket tipi(Package A/Package B/Package C)
         PaketTipi = Cells(ActiveCell.Row, 37).Value
-        'Tablo baþlýðý
-'        objDoc.Tables(4).Cell(Row:=1, Column:=1).Range.Text = PaketTipi & " Ýçerisinden Çýkan"
+        'Tablo baÅŸlÄ±ÄŸÄ±
+'        objDoc.Tables(4).Cell(Row:=1, Column:=1).Range.Text = PaketTipi & " Ä°Ã§erisinden Ã‡Ä±kan"
         objDoc.Tables(4).Cell(Row:=1, Column:=1).Range.Text = "Items Found Inside the " & PaketTipi
         PaketTipi = LCase(Cells(ActiveCell.Row, 37).Value)
         'Ek olarak Dispatch List
         If Cells(ActiveCell.Row, 43).Value = "Yes" Then
-'            objDoc.Tables(2).Cell(Row:=1, Column:=1).Range.Text = "Yukarýda belirtilen yazý ekindeki " & _
-'            PaketTipi & " açýlmýþ ve yazýda gönderildiði belirtilen öðe(ler) ile " & _
-'            PaketTipi & " içerisinden çýkan öðe(ler) arasýnda fark bulunduðu tespit edilmiþtir. Farký gösterir döküm aþaðýda belirtilmiþ olup, " & _
-'            "gönderildiði belirtilen diðer öðelerin belirtildiði þekilde çýktýðý tespit edilmiþtir. Ayrýca, tespiti yapýlan öðelerin genel dökümü ekte verilmiþtir."
+'            objDoc.Tables(2).Cell(Row:=1, Column:=1).Range.Text = "YukarÄ±da belirtilen yazÄ± ekindeki " & _
+'            PaketTipi & " aÃ§Ä±lmÄ±ÅŸ ve yazÄ±da gÃ¶nderildiÄŸi belirtilen Ã¶ÄŸe(ler) ile " & _
+'            PaketTipi & " iÃ§erisinden Ã§Ä±kan Ã¶ÄŸe(ler) arasÄ±nda fark bulunduÄŸu tespit edilmiÅŸtir. FarkÄ± gÃ¶sterir dÃ¶kÃ¼m aÅŸaÄŸÄ±da belirtilmiÅŸ olup, " & _
+'            "gÃ¶nderildiÄŸi belirtilen diÄŸer Ã¶ÄŸelerin belirtildiÄŸi ÅŸekilde Ã§Ä±ktÄ±ÄŸÄ± tespit edilmiÅŸtir. AyrÄ±ca, tespiti yapÄ±lan Ã¶ÄŸelerin genel dÃ¶kÃ¼mÃ¼ ekte verilmiÅŸtir."
             objDoc.Tables(2).Cell(Row:=1, Column:=1).Range.Text = _
             "The " & PaketTipi & " attached to the document above has been opened, and a discrepancy was detected between the item(s) stated as sent and the item(s) actually found inside the " & PaketTipi & ". " & _
             "The list of differences is provided below, and the remaining item(s) mentioned in the document were confirmed to be present as described. " & _
@@ -1046,9 +1046,9 @@ End If
             If Cells(ActiveCell.Row, 44).Value > 1 Then objDoc.Tables(5).Cell(Row:=5, Column:=1).Range.Text = "Attachment: Dispatch List (" & Cells(ActiveCell.Row, 44).Value & " pages)"
             If Cells(ActiveCell.Row, 44).Value < 2 Then objDoc.Tables(5).Cell(Row:=5, Column:=1).Range.Text = "Attachment: Dispatch List (" & Cells(ActiveCell.Row, 44).Value & " page)"
         ElseIf Cells(ActiveCell.Row, 43).Value = "No" Then
-'            objDoc.Tables(2).Cell(Row:=1, Column:=1).Range.Text = "Yukarýda belirtilen yazý ekindeki " & _
-'            PaketTipi & " açýlmýþ ve yazýda gönderildiði belirtilen öðe(ler) ile " & _
-'            PaketTipi & " içerisinden çýkan öðe(ler) arasýnda fark bulunduðu tespit edilmiþtir. Farký gösterir döküm aþaðýda belirtilmiþtir."
+'            objDoc.Tables(2).Cell(Row:=1, Column:=1).Range.Text = "YukarÄ±da belirtilen yazÄ± ekindeki " & _
+'            PaketTipi & " aÃ§Ä±lmÄ±ÅŸ ve yazÄ±da gÃ¶nderildiÄŸi belirtilen Ã¶ÄŸe(ler) ile " & _
+'            PaketTipi & " iÃ§erisinden Ã§Ä±kan Ã¶ÄŸe(ler) arasÄ±nda fark bulunduÄŸu tespit edilmiÅŸtir. FarkÄ± gÃ¶sterir dÃ¶kÃ¼m aÅŸaÄŸÄ±da belirtilmiÅŸtir."
             objDoc.Tables(2).Cell(Row:=1, Column:=1).Range.Text = _
             "The " & PaketTipi & " attached to the above-mentioned document has been opened, and a discrepancy has been detected between the item(s) stated as sent and the item(s) found inside the " & PaketTipi & ". " & _
             "A breakdown of the discrepancy is provided below."
@@ -1072,7 +1072,7 @@ End If
             MsgBox "The serial number could not be found, so the operation cannot be completed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
             GoTo Son
         End If
-        'Tabloya satýr ekle
+        'Tabloya satÄ±r ekle
         x = 0
         If SonSira - IlkSira > 0 Then
             With objDoc.Tables(4)
@@ -1084,20 +1084,20 @@ End If
         End If
         
         For i = 4 To SonSira - IlkSira + 4
-            objDoc.Tables(4).Cell(Row:=i, Column:=1).Range.Text = i - 3 'Tablo sýra no
-            objDoc.Tables(4).Cell(Row:=i, Column:=2).Range.Text = Cells(IlkSira + i - 4, 46).Value 'Öðe türü
-            objDoc.Tables(4).Cell(Row:=i, Column:=3).Range.Text = Cells(IlkSira + i - 4, 49).Value 'Öðe deðeri
+            objDoc.Tables(4).Cell(Row:=i, Column:=1).Range.Text = i - 3 'Tablo sÄ±ra no
+            objDoc.Tables(4).Cell(Row:=i, Column:=2).Range.Text = Cells(IlkSira + i - 4, 46).Value 'Ã–ÄŸe tÃ¼rÃ¼
+            objDoc.Tables(4).Cell(Row:=i, Column:=3).Range.Text = Cells(IlkSira + i - 4, 49).Value 'Ã–ÄŸe deÄŸeri
             objDoc.Tables(4).Cell(Row:=i, Column:=4).Range.Text = Cells(IlkSira + i - 4, 52).Value 'Adet
             If Cells(IlkSira + i - 4, 55).Value = "Dispatch List" Then
-                objDoc.Tables(4).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Dispatch List" 'Öðe ID No
+                objDoc.Tables(4).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Dispatch List" 'Ã–ÄŸe ID No
             Else
-                objDoc.Tables(4).Cell(Row:=i, Column:=5).Range.Text = Cells(IlkSira + i - 4, 55).Value 'Öðe ID No
+                objDoc.Tables(4).Cell(Row:=i, Column:=5).Range.Text = Cells(IlkSira + i - 4, 55).Value 'Ã–ÄŸe ID No
             End If
-            objDoc.Tables(4).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satýra yaz.)
-            objDoc.Tables(4).Cell(Row:=i, Column:=7).Range.Text = Cells(IlkSira + i - 4, 58).Value 'Açýklama
+            objDoc.Tables(4).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satÄ±ra yaz.)
+            objDoc.Tables(4).Cell(Row:=i, Column:=7).Range.Text = Cells(IlkSira + i - 4, 58).Value 'AÃ§Ä±klama
         Next i
         
-        'Tabloyu doldur (Fark kýsmý)
+        'Tabloyu doldur (Fark kÄ±smÄ±)
         Set WsFarkGirisRapor1 = ThisWorkbook.Worksheets(9)
         Set IlkSiraBulx = WsFarkGirisRapor1.Range("P3:P100000").Find(What:=Cells(ActiveCell.Row, 5).Value, SearchDirection:=xlNext, _
                         SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -1115,7 +1115,7 @@ End If
             MsgBox "The serial number could not be found, so the operation cannot be completed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
             GoTo Son
         End If
-        'Tabloya satýr ekle
+        'Tabloya satÄ±r ekle
         x = 0
         If SonSirax - IlkSirax > 0 Then
             With objDoc.Tables(3)
@@ -1127,17 +1127,17 @@ End If
         End If
         
         For i = 4 To SonSirax - IlkSirax + 4
-            objDoc.Tables(3).Cell(Row:=i, Column:=1).Range.Text = i - 3 'Tablo sýra no
-            objDoc.Tables(3).Cell(Row:=i, Column:=2).Range.Text = WsFarkGirisRapor1.Cells(IlkSirax + i - 4, 1).Value 'Öðe türü
-            objDoc.Tables(3).Cell(Row:=i, Column:=3).Range.Text = WsFarkGirisRapor1.Cells(IlkSirax + i - 4, 4).Value 'Öðe deðeri
+            objDoc.Tables(3).Cell(Row:=i, Column:=1).Range.Text = i - 3 'Tablo sÄ±ra no
+            objDoc.Tables(3).Cell(Row:=i, Column:=2).Range.Text = WsFarkGirisRapor1.Cells(IlkSirax + i - 4, 1).Value 'Ã–ÄŸe tÃ¼rÃ¼
+            objDoc.Tables(3).Cell(Row:=i, Column:=3).Range.Text = WsFarkGirisRapor1.Cells(IlkSirax + i - 4, 4).Value 'Ã–ÄŸe deÄŸeri
             objDoc.Tables(3).Cell(Row:=i, Column:=4).Range.Text = WsFarkGirisRapor1.Cells(IlkSirax + i - 4, 7).Value 'Adet
             If WsFarkGirisRapor1.Cells(IlkSirax + i - 4, 10).Value = "Dispatch List" Then
-                objDoc.Tables(3).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Dispatch List" 'Öðe ID No
+                objDoc.Tables(3).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Dispatch List" 'Ã–ÄŸe ID No
             Else
-                objDoc.Tables(3).Cell(Row:=i, Column:=5).Range.Text = WsFarkGirisRapor1.Cells(IlkSirax + i - 4, 10).Value 'Öðe ID No
+                objDoc.Tables(3).Cell(Row:=i, Column:=5).Range.Text = WsFarkGirisRapor1.Cells(IlkSirax + i - 4, 10).Value 'Ã–ÄŸe ID No
             End If
-            objDoc.Tables(3).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satýra yaz.)
-            objDoc.Tables(3).Cell(Row:=i, Column:=7).Range.Text = WsFarkGirisRapor1.Cells(IlkSirax + i - 4, 13).Value 'Açýklama
+            objDoc.Tables(3).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satÄ±ra yaz.)
+            objDoc.Tables(3).Cell(Row:=i, Column:=7).Range.Text = WsFarkGirisRapor1.Cells(IlkSirax + i - 4, 13).Value 'AÃ§Ä±klama
         Next i
         
         
@@ -1150,11 +1150,11 @@ End If
         'Alt bilgi ekle
         objDoc.Sections(1).Footers(wdHeaderFooterPrimary).Range.Tables(1).Cell(Row:=1, Column:=1).Range.Text = ReNameTutanak1
     
-        'Sayfa sayýsý kaydet komutuna baðlandý.
+        'Sayfa sayÄ±sÄ± kaydet komutuna baÄŸlandÄ±.
     '    objDoc.Close SaveChanges:=True
     '    objWord.Quit
         objDoc.Save
-        'Sayfayý text dosyasýndan çek
+        'SayfayÄ± text dosyasÄ±ndan Ã§ek
         TxtFileTutanak1 = DestOpUserFolder & "Statement 1 Page Count.txt"
         #If UseADO Then
             Const adReadLine = -2&
@@ -1191,13 +1191,13 @@ End If
         End If
 
     
-    Else 'Normal tutanak1 tutanaðý
+    Else 'Normal tutanak1 tutanaÄŸÄ±
         'Birim
-        Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I")) & " UNIT"
+        Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I")) & " UNIT"
         objDoc.Tables(1).Cell(Row:=1, Column:=1).Range.Text = Birimx
         'Tutanak1 tarihi
         objDoc.Tables(1).Cell(Row:=4, Column:=3).Range.Text = Cells(ActiveCell.Row, 39).Value
-        'Geliþ tarihi
+        'GeliÅŸ tarihi
         objDoc.Tables(1).Cell(Row:=5, Column:=3).Range.Text = Cells(ActiveCell.Row, 36).Value
         'By Hand/By Mail
         If Cells(ActiveCell.Row, 38).Value = "By Hand" Then
@@ -1205,7 +1205,7 @@ End If
         ElseIf Cells(ActiveCell.Row, 38).Value = "By Mail" Then
             objDoc.CheckPosta.Value = True
         End If
-        'Öðe çýktý/çýkmadý/vb.
+        'Ã–ÄŸe Ã§Ä±ktÄ±/Ã§Ä±kmadÄ±/vb.
         If Cells(ActiveCell.Row, 40).Value = "a. Content as Expected" Then
             objDoc.CheckTam.Value = True
         ElseIf Cells(ActiveCell.Row, 40).Value = "b. Content Empty" Then
@@ -1213,7 +1213,7 @@ End If
         ElseIf Cells(ActiveCell.Row, 40).Value = "c. Only Specific Content Available" Then
             objDoc.CheckEksik.Value = True
         End If
-        'Türkçe karakterleri düzelt
+        'TÃ¼rkÃ§e karakterleri dÃ¼zelt
         objDoc.CheckElden.Enabled = False
         objDoc.CheckElden.Enabled = True
         objDoc.CheckPosta.Enabled = False
@@ -1225,7 +1225,7 @@ End If
         objDoc.CheckEksik.Enabled = False
         objDoc.CheckEksik.Enabled = True
         
-        'Gönderen
+        'GÃ¶nderen
         If Cells(ActiveCell.Row, 33).Value = "Provincial Directorate B" Then
             GelenTema = Cells(ActiveCell.Row, 25).Value & " Provincial Governorship Provincial Directorate B " & Cells(ActiveCell.Row, 34).Value
         ElseIf Cells(ActiveCell.Row, 33).Value = "District Directorate B" Then
@@ -1266,7 +1266,7 @@ End If
         
         objDoc.Tables(1).Cell(Row:=9, Column:=3).Range.Text = GelenTema
         
-        'Gönderenin adresi
+        'GÃ¶nderenin adresi
 '        If Cells(ActiveCell.Row, 18).Value = Cells(ActiveCell.Row, 17).Value & " Organization A" Then
         If Cells(ActiveCell.Row, 26).Value <> "" Then
             objDoc.Tables(1).Cell(Row:=10, Column:=3).Range.Text = Cells(ActiveCell.Row, 26).Value & "/" & Cells(ActiveCell.Row, 25).Value
@@ -1274,10 +1274,10 @@ End If
             objDoc.Tables(1).Cell(Row:=10, Column:=3).Range.Text = Cells(ActiveCell.Row, 25).Value
         End If
 
-        'Gelen Yazýnýn Tarih ve Sayýsý
+        'Gelen YazÄ±nÄ±n Tarih ve SayÄ±sÄ±
         objDoc.Tables(1).Cell(Row:=11, Column:=3).Range.Text = Cells(ActiveCell.Row, 28).Value
         objDoc.Tables(1).Cell(Row:=11, Column:=5).Range.Text = Cells(ActiveCell.Row, 29).Value
-        'Gönderinin Eki
+        'GÃ¶nderinin Eki
         If Cells(ActiveCell.Row, 37).Value = "Package A" Then
             objDoc.CheckZarf.Value = True
         ElseIf Cells(ActiveCell.Row, 37).Value = "Package B" Then
@@ -1302,7 +1302,7 @@ End If
             MsgBox "The serial number could not be found, so the operation cannot be completed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
             GoTo Son
         End If
-        'Tabloya satýr ekle
+        'Tabloya satÄ±r ekle
         x = 0
         If SonSira - IlkSira > 0 Then
             With objDoc.Tables(2)
@@ -1314,17 +1314,17 @@ End If
         End If
         
         For i = 2 To SonSira - IlkSira + 2
-            objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sýra no
-            objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(IlkSira + i - 2, 46).Value 'Öðe türü
-            objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(IlkSira + i - 2, 49).Value 'Öðe deðeri
+            objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sÄ±ra no
+            objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(IlkSira + i - 2, 46).Value 'Ã–ÄŸe tÃ¼rÃ¼
+            objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(IlkSira + i - 2, 49).Value 'Ã–ÄŸe deÄŸeri
             objDoc.Tables(2).Cell(Row:=i, Column:=4).Range.Text = Cells(IlkSira + i - 2, 52).Value 'Adet
             If Cells(IlkSira + i - 2, 55).Value = "Dispatch List" Then
-                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Dispatch List" 'Öðe ID No
+                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Dispatch List" 'Ã–ÄŸe ID No
             Else
-                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(IlkSira + i - 2, 55).Value 'Öðe ID No
+                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(IlkSira + i - 2, 55).Value 'Ã–ÄŸe ID No
             End If
-            objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satýra yaz.)
-            objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(IlkSira + i - 2, 58).Value 'Açýklama
+            objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satÄ±ra yaz.)
+            objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(IlkSira + i - 2, 58).Value 'AÃ§Ä±klama
         Next i
         'Ek olarak Dispatch List
         If Cells(ActiveCell.Row, 43).Value = "Yes" Then
@@ -1341,7 +1341,7 @@ End If
         'Alt bilgi ekle
         objDoc.Sections(1).Footers(wdHeaderFooterPrimary).Range.Tables(1).Cell(Row:=1, Column:=1).Range.Text = ReNameTutanak1
     
-        'Ýmza boþluðunu sayfaya sýðdýrmak için düzenle
+        'Ä°mza boÅŸluÄŸunu sayfaya sÄ±ÄŸdÄ±rmak iÃ§in dÃ¼zenle
         If x > 9 And x < 14 Then
             For i = 1 To x - 9
                 If i = 1 Then
@@ -1365,11 +1365,11 @@ End If
             'Nothing
         End If
         
-        'Sayfa sayýsý kaydet komutuna baðlandý.
+        'Sayfa sayÄ±sÄ± kaydet komutuna baÄŸlandÄ±.
     '    objDoc.Close SaveChanges:=True
     '    objWord.Quit
         objDoc.Save
-        'Sayfayý text dosyasýndan çek
+        'SayfayÄ± text dosyasÄ±ndan Ã§ek
         TxtFileTutanak1 = DestOpUserFolder & "Statement 1 Page Count.txt"
         #If UseADO Then
             Const adReadLine = -2&
@@ -1407,21 +1407,21 @@ End If
         
     End If
     
-    'Dispatch List oluþturulacak.
+    'Dispatch List oluÅŸturulacak.
     If Cells(ActiveCell.Row, 43).Value = "Yes" Then
-        'Döküm için sayfayý belirt.(Dispatch List word daosyasý bu veriyi iþleyecek.)
+        'DÃ¶kÃ¼m iÃ§in sayfayÄ± belirt.(Dispatch List word daosyasÄ± bu veriyi iÅŸleyecek.)
         Set fso = CreateObject("Scripting.FileSystemObject")
         DokumSayfaGonder = Cells(ActiveCell.Row, 44).Value
         Set DokumFileTxt = fso.CreateTextFile(DestOpUserFolder & "Send Dispatch Page Count.txt", True, True)
         DokumFileTxt.Write DokumSayfaGonder
         DokumFileTxt.Close
 
-        'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+        'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
         Set fso = CreateObject("Scripting.FileSystemObject")
         fso.CopyFile (SourceDL), DestOpUserFolder & ReNameDL & ".docm", True
     '________________________________________
     
-        'Oluþturulacak dosyayý aç
+        'OluÅŸturulacak dosyayÄ± aÃ§
         On Error Resume Next
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
@@ -1429,7 +1429,7 @@ End If
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
         If objWord Is Nothing Then
-            'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+            'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
             Set objWord = CreateObject("Word.Application")
             objWord.Visible = False
         End If
@@ -1442,21 +1442,21 @@ End If
     '________________________________________
         
         'Birim
-        Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I")) & " UNIT"
+        Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I")) & " UNIT"
         objDoc.Tables(1).Cell(Row:=1, Column:=1).Range.Text = Birimx
-        'Gönderen
+        'GÃ¶nderen
         objDoc.Tables(2).Cell(Row:=3, Column:=3).Range.Text = GelenTema
         'Belge tarihi
         objDoc.Tables(2).Cell(Row:=4, Column:=3).Range.Text = Cells(ActiveCell.Row, 28).Value
-        'Belge sayýsý
+        'Belge sayÄ±sÄ±
         objDoc.Tables(2).Cell(Row:=4, Column:=5).Range.Text = Cells(ActiveCell.Row, 29).Value
 
         'Alt bilgi ekle
         objDoc.Sections(1).Footers(wdHeaderFooterPrimary).Range.Tables(1).Cell(Row:=1, Column:=1).Range.Text = ReNameDL
     
-        'Sayfa sayýsý kaydet komutuna baðlandý.
+        'Sayfa sayÄ±sÄ± kaydet komutuna baÄŸlandÄ±.
         objDoc.Save
-        'Sayfayý text dosyasýndan çek
+        'SayfayÄ± text dosyasÄ±ndan Ã§ek
         TxtFileDokum = DestOpUserFolder & "Dispatch Page Count.txt"
         #If UseADO Then
             Const adReadLine = -2&
@@ -1480,7 +1480,7 @@ End If
             End With
         #End If
         'MsgBox "Tutanak1: " & TotalSayfaTutanak1
-        'MsgBox "Döküm: " & TotalSayfaDokum
+        'MsgBox "DÃ¶kÃ¼m: " & TotalSayfaDokum
         If TumDoc = True Then
             objWord.Activate
 '            For i = 1 To 1 'SayPrt
@@ -1493,7 +1493,7 @@ End If
         End If
     End If
     
-    'Tutanak1 ve Döküm sayfa sayýsý
+    'Tutanak1 ve DÃ¶kÃ¼m sayfa sayÄ±sÄ±
     Cells(ActiveCell.Row, 217).Value = TotalSayfaTutanak1
     Cells(ActiveCell.Row, 218).Value = TotalSayfaDokum
     
@@ -1548,13 +1548,13 @@ Dim Birimx As String, UserName As String, NotEkle As String
 Dim Explorer As Integer, b As Long, RaporTipi As String, DestNotlar As String, TxtFileNot As String
 Dim TextLine As String
 
-'RAPOR için prosedürü baþlat
+'RAPOR iÃ§in prosedÃ¼rÃ¼ baÅŸlat
 'If ActiveCell.Column = 7 Then
 '    Application.ScreenUpdating = False
     Application.DisplayAlerts = False
     'Application.EnableEvents = False
 
-    'Dokümanlarýn oluþturulmasýna soldan saða doðru bir kontrol mekanizmasý kur.
+    'DokÃ¼manlarÄ±n oluÅŸturulmasÄ±na soldan saÄŸa doÄŸru bir kontrol mekanizmasÄ± kur.
     j = ActiveCell.Row
     For i = ActiveCell.Row To 7 Step -1
         If Cells(i, 5).Value <> "" Then
@@ -1594,7 +1594,7 @@ SiraNoBulundu:
     DestOperasyon = AutoPath & "\System Files\Operation\"
     DestNotlar = AutoPath & "\System Files\System Templates\Item Notes\"
     
-    'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+    'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
     DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
     DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
     
@@ -1612,7 +1612,7 @@ SiraNoBulundu:
     
     '_______________
 
-    'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+    'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
     If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
         MkDir DestOpUserFolder
     End If
@@ -1622,7 +1622,7 @@ If TumDoc = True Then
     'Worksheets(4).Activate
     b = ActiveCell.Row
 
-    'Ýlk ve son sýralarý bul (For Explorer)
+    'Ä°lk ve son sÄ±ralarÄ± bul (For Explorer)
     'On Error Resume Next
     SiraNoIlkSatir = ActiveCell.Row
     If Cells(ActiveCell.Row, 5).Value = "" Then
@@ -1638,7 +1638,7 @@ If TumDoc = True Then
     End If
 RaporNoDonguSonExplorer:
    
-    'Rapor/Alt Rapor aralýklarýnýn tespiti.
+    'Rapor/Alt Rapor aralÄ±klarÄ±nÄ±n tespiti.
     Set IlkSiraBul = Range("CM7:CM100000").Find(What:=Cells(SiraNoIlkSatir, 5).Value, SearchDirection:=xlNext, _
                     SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
     Set SonSiraBul = Range("CN7:CN100000").Find(What:=Cells(SiraNoIlkSatir, 5).Value, SearchDirection:=xlNext, _
@@ -1671,7 +1671,7 @@ For Explorer = IlkSira To SonSira
             GoTo ExplorerBos
         End If
     End If
-    'Dosyayý isimlendir
+    'DosyayÄ± isimlendir
     'On Error Resume Next
     SiraNoIlkSatir = ActiveCell.Row
     If Cells(ActiveCell.Row, 5).Value = "" Then
@@ -1686,7 +1686,7 @@ For Explorer = IlkSira To SonSira
         ReNameRaporNormal = Cells(ActiveCell.Row, 5).Value & "-" & Cells(6, 7).Value & " " & Cells(ActiveCell.Row, 11).Value
     End If
 RaporNoDonguSon:
-    'Rapor/Alt Rapor aralýklarýnýn tespiti.
+    'Rapor/Alt Rapor aralÄ±klarÄ±nÄ±n tespiti.
     Set IlkSiraBul = Range("CM7:CM100000").Find(What:=Cells(SiraNoIlkSatir, 5).Value, SearchDirection:=xlNext, _
                     SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
     Set SonSiraBul = Range("CN7:CN100000").Find(What:=Cells(SiraNoIlkSatir, 5).Value, SearchDirection:=xlNext, _
@@ -1725,11 +1725,11 @@ RaporNoDonguSon1:
         'Close the all Word application
         Call ModuleReport2.OpenWordControl
     
-        'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+        'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
         OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
         Do While OpenKontrolName <> ""
             OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-            If OpenControl = True Then 'Açýksa
+            If OpenControl = True Then 'AÃ§Ä±ksa
                 On Error Resume Next
                 Set objWord = GetObject(, "Word.Application")
                 Set objWord = GetObject(, "Word.Application")
@@ -1737,7 +1737,7 @@ RaporNoDonguSon1:
                 Set objWord = GetObject(, "Word.Application")
                 Set objWord = GetObject(, "Word.Application")
                 objWord.Quit SaveChanges:=True
-                'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+                'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
     
             End If
             OpenKontrolName = Dir()
@@ -1751,7 +1751,7 @@ RaporNoDonguSon1:
     '________________________________________
     
         On Error Resume Next
-    '    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+    '    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
         ContSay = 0
         KontrolFile = Dir(DestOpUserFolder & "*.???")
         Do While KontrolFile <> ""
@@ -1768,18 +1768,18 @@ RaporNoDonguSon1:
     ThisWorkbook.Activate
     RaporTipi = Cells(ActiveCell.Row, 64).Value
     SourceRaporNormal = AutoPath & "\System Files\System Templates\Report 2 Templates\" & RaporTipi & ".docm"
-    'Klasör isimlerini kontrol et.
+    'KlasÃ¶r isimlerini kontrol et.
     If Not Dir(SourceRaporNormal, vbDirectory) <> vbNullString Then
         MsgBox "Cannot access the directory " & SourceRaporNormal & ". The names of folders and/or files in this directory may have been changed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
         GoTo Son
     End If
     
-    'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+    'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
     Set fso = CreateObject("Scripting.FileSystemObject")
     fso.CopyFile (SourceRaporNormal), DestOpUserFolder & ReNameRaporNormal & ".docm", True
 '________________________________________
 
-    'Oluþturulacak dosyayý aç
+    'OluÅŸturulacak dosyayÄ± aÃ§
     On Error Resume Next
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
@@ -1787,7 +1787,7 @@ RaporNoDonguSon1:
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
     If objWord Is Nothing Then
-        'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+        'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
         Set objWord = CreateObject("Word.Application")
         objWord.Visible = False
     End If
@@ -1802,7 +1802,7 @@ RaporNoDonguSon1:
     'On Error GoTo 0
     
     'Birim
-    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I")) & " UNIT"
+    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I")) & " UNIT"
     objDoc.Tables(1).Cell(Row:=1, Column:=1).Range.Text = Birimx
     'Rapor tarihi
     objDoc.Tables(1).Cell(Row:=4, Column:=3).Range.Text = Cells(IlkSira, 68).Value
@@ -1814,7 +1814,7 @@ RaporNoDonguSon1:
         objDoc.CheckBox2.Value = False 'Rapor3
     End If
     
-    'Gönderen tema
+    'GÃ¶nderen tema
     If Cells(IlkSira, 33).Value = "Provincial Directorate B" Then
         If Cells(IlkSira, 34).Value <> "" Then
             GelenTema = Cells(IlkSira, 25).Value & " Provincial Governorship Provincial Directorate B " & Cells(IlkSira, 34).Value
@@ -1885,15 +1885,15 @@ RaporNoDonguSon1:
         End If
     End If
     
-    'Ýlgi
-    'RaporIlgi = GelenTema & "n" & Right(GelenTema, 1) & "n " & Cells(IlkSira, 28).Value & " tarihli ve " & Cells(IlkSira, 29).Value & " sayýlý yazýsý."
+    'Ä°lgi
+    'RaporIlgi = GelenTema & "n" & Right(GelenTema, 1) & "n " & Cells(IlkSira, 28).Value & " tarihli ve " & Cells(IlkSira, 29).Value & " sayÄ±lÄ± yazÄ±sÄ±."
     RaporIlgi = "The letter from the " & GelenTema & ", dated " & Cells(IlkSira, 28).Value & ", reference number " & Cells(IlkSira, 29).Value & "."
     If Cells(ActiveCell.Row, 62).Value <> "valid" Then
         objDoc.Tables(1).Cell(Row:=8, Column:=3).Range.Text = RaporIlgi
     Else
         objDoc.Tables(1).Cell(Row:=6, Column:=3).Range.Text = RaporIlgi
     End If
-    'Ýlgili birim
+    'Ä°lgili birim
     If Cells(ActiveCell.Row, 62).Value <> "valid" Then
         If Cells(IlkSira, 69).Value <> "" Then
             If InStr(Cells(IlkSira, 69).Value, "X.X. ") > 0 Then
@@ -1918,14 +1918,14 @@ RaporNoDonguSon1:
         End If
     End If
     
-    'Tekil-çoðul tipA
+    'Tekil-Ã§oÄŸul tipA
     AdetTopla = Application.Sum(Range(Cells(AltRaporNoIlk, 52), Cells(AltRaporNoSon, 52)))
     If AdetTopla = 1 Then
         TekCogulTipA = "Type A"
     ElseIf AdetTopla > 1 Then
         TekCogulTipA = "Type A items"
     End If
-    'objDoc.Tables(2).Cell(Row:=1, Column:=1).Range.Text = "Ýnceleme Konusu " & WorksheetFunction.Proper(TekCogulTipA)
+    'objDoc.Tables(2).Cell(Row:=1, Column:=1).Range.Text = "Ä°nceleme Konusu " & WorksheetFunction.Proper(TekCogulTipA)
     objDoc.Tables(2).Cell(Row:=1, Column:=1).Range.Text = "The examined " & TekCogulTipA
     
     'Tabloyu doldur
@@ -1933,7 +1933,7 @@ RaporNoDonguSon1:
     For i = AltRaporNoIlk To AltRaporNoSon
         x = i - AltRaporNoIlk + 1
         If x Mod 2 <> 0 Then
-            'Baþlýklar
+            'BaÅŸlÄ±klar
             objDoc.Tables(2).Cell(Row:=j + 0, Column:=1).Range.Text = "Item Type"
             objDoc.Tables(2).Cell(Row:=j + 1, Column:=1).Range.Text = "Item Value"
             objDoc.Tables(2).Cell(Row:=j + 2, Column:=1).Range.Text = "Qty"
@@ -1943,26 +1943,26 @@ RaporNoDonguSon1:
             objDoc.Tables(2).Cell(Row:=j + 2, Column:=2).Range.Text = ":"
             objDoc.Tables(2).Cell(Row:=j + 3, Column:=2).Range.Text = ":"
             'Verileri aktar
-            objDoc.Tables(2).Cell(Row:=j + 0, Column:=3).Range.Text = Cells(i, 46).Value 'Öðe türü
-            objDoc.Tables(2).Cell(Row:=j + 1, Column:=3).Range.Text = Cells(i, 49).Value 'Öðe deðeri
+            objDoc.Tables(2).Cell(Row:=j + 0, Column:=3).Range.Text = Cells(i, 46).Value 'Ã–ÄŸe tÃ¼rÃ¼
+            objDoc.Tables(2).Cell(Row:=j + 1, Column:=3).Range.Text = Cells(i, 49).Value 'Ã–ÄŸe deÄŸeri
             objDoc.Tables(2).Cell(Row:=j + 2, Column:=3).Range.Text = Cells(i, 52).Value 'Adet
             If Cells(i, 55).Value = "Dispatch List" Then
-                objDoc.Tables(2).Cell(Row:=j + 3, Column:=3).Range.Text = "Listed in the Attachment to Statement 1" 'Öðe ID
+                objDoc.Tables(2).Cell(Row:=j + 3, Column:=3).Range.Text = "Listed in the Attachment to Statement 1" 'Ã–ÄŸe ID
             Else
-                objDoc.Tables(2).Cell(Row:=j + 3, Column:=3).Range.Text = Cells(i, 55).Value 'Öðe ID
+                objDoc.Tables(2).Cell(Row:=j + 3, Column:=3).Range.Text = Cells(i, 55).Value 'Ã–ÄŸe ID
             End If
             j = j + 0
         ElseIf x Mod 2 = 0 Then
             'Verileri aktar
-            objDoc.Tables(2).Cell(Row:=j + 0, Column:=4).Range.Text = Cells(i, 46).Value 'Öðe türü
-            objDoc.Tables(2).Cell(Row:=j + 1, Column:=4).Range.Text = Cells(i, 49).Value 'Öðe deðeri
+            objDoc.Tables(2).Cell(Row:=j + 0, Column:=4).Range.Text = Cells(i, 46).Value 'Ã–ÄŸe tÃ¼rÃ¼
+            objDoc.Tables(2).Cell(Row:=j + 1, Column:=4).Range.Text = Cells(i, 49).Value 'Ã–ÄŸe deÄŸeri
             objDoc.Tables(2).Cell(Row:=j + 2, Column:=4).Range.Text = Cells(i, 52).Value 'Adet
             If Cells(i, 55).Value = "Dispatch List" Then
-                objDoc.Tables(2).Cell(Row:=j + 3, Column:=4).Range.Text = "Listed in the Attachment to Statement 1" 'Öðe ID
+                objDoc.Tables(2).Cell(Row:=j + 3, Column:=4).Range.Text = "Listed in the Attachment to Statement 1" 'Ã–ÄŸe ID
             Else
-                objDoc.Tables(2).Cell(Row:=j + 3, Column:=4).Range.Text = Cells(i, 55).Value 'Öðe ID
+                objDoc.Tables(2).Cell(Row:=j + 3, Column:=4).Range.Text = Cells(i, 55).Value 'Ã–ÄŸe ID
             End If
-            'Satýr ekle veya ekleme
+            'SatÄ±r ekle veya ekleme
             If i <> AltRaporNoSon Then
                 For k = 1 To 5
                     objDoc.Tables(2).Rows.Add BeforeRow:=objDoc.Tables(2).Rows(j + 4)
@@ -1974,15 +1974,15 @@ RaporNoDonguSon1:
     'Tema kodu
     objDoc.Tables(3).Cell(Row:=1, Column:=3).Range.Text = Cells(IlkSira, 31).Value  'Tema no
 
-    'Rapor metin kýsmý
-    'Tanýmlamalar
+    'Rapor metin kÄ±smÄ±
+    'TanÄ±mlamalar
     AdetTopla = Application.Sum(Range(Cells(AltRaporNoIlk, 52), Cells(AltRaporNoSon, 52)))
     If AdetTopla = 1 Then
         Ek1 = "item"
     ElseIf AdetTopla > 1 Then
         Ek1 = "items"
     End If
-    'Dosyada öðe/öðeler düzenlemesini gerçekleþtir.
+    'Dosyada Ã¶ÄŸe/Ã¶ÄŸeler dÃ¼zenlemesini gerÃ§ekleÅŸtir.
     Set MyRange = objDoc.Tables(3).Cell(Row:=2, Column:=1).Range
     With MyRange.Find
         .Text = "<item>"
@@ -1991,7 +1991,7 @@ RaporNoDonguSon1:
     End With
     MyRange.HighlightColorIndex = wdNoHighlight
     
-    'Artýk satýrý sil
+    'ArtÄ±k satÄ±rÄ± sil
     objDoc.Tables(2).Rows(j + 4).Delete
     
     'imzalar
@@ -2022,7 +2022,7 @@ RaporNoDonguSon1:
     End If
 NotEkleAtla:
 
-    'Rapor sayfa sayýsýný oluþturmadan önce eskisini sil
+    'Rapor sayfa sayÄ±sÄ±nÄ± oluÅŸturmadan Ã¶nce eskisini sil
     If Cells(i, 174).Value = "No" Then
         For i = IlkSira To SonSira
             If Cells(i, 11).Value = "" Then
@@ -2031,9 +2031,9 @@ NotEkleAtla:
         Next i
     End If
     
-    'Sayfa sayýsý kaydet komutuna baðlandý.
+    'Sayfa sayÄ±sÄ± kaydet komutuna baÄŸlandÄ±.
     objDoc.Save
-    'Sayfayý text dosyasýndan çek
+    'SayfayÄ± text dosyasÄ±ndan Ã§ek
     TxtFileRapor = DestOpUserFolder & "Report 2 Page Count.txt"
     #If UseADO Then
         Const adReadLine = -2&
@@ -2083,7 +2083,7 @@ ExplorerBos:
 Next Explorer
 
 If TumDoc = True Then
-    'Tümünün bulunduðu butonu tekrar seç.
+    'TÃ¼mÃ¼nÃ¼n bulunduÄŸu butonu tekrar seÃ§.
     Cells(b, 10).Select
 End If
 
@@ -2124,13 +2124,13 @@ Dim Birimx As String, UserName As String, NotEkle As String
 Dim Explorer As Integer, b As Long, RaporTipi As String, DestNotlar As String, TxtFileNot As String
 Dim TextLine As String
 
-'RAPOR için prosedürü baþlat
+'RAPOR iÃ§in prosedÃ¼rÃ¼ baÅŸlat
 'If ActiveCell.Column = 7 Then
 '    Application.ScreenUpdating = False
     Application.DisplayAlerts = False
     'Application.EnableEvents = False
 
-    'Dokümanlarýn oluþturulmasýna soldan saða doðru bir kontrol mekanizmasý kur.
+    'DokÃ¼manlarÄ±n oluÅŸturulmasÄ±na soldan saÄŸa doÄŸru bir kontrol mekanizmasÄ± kur.
     j = ActiveCell.Row
     For i = ActiveCell.Row To 7 Step -1
         If Cells(i, 5).Value <> "" Then
@@ -2170,7 +2170,7 @@ SiraNoBulundu:
     DestOperasyon = AutoPath & "\System Files\Operation\"
     DestNotlar = AutoPath & "\System Files\System Templates\Item Notes\"
     
-    'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+    'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
     DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
     DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
     
@@ -2186,7 +2186,7 @@ SiraNoBulundu:
         GoTo Son
     End If
 
-    'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+    'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
     If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
         MkDir DestOpUserFolder
     End If
@@ -2196,7 +2196,7 @@ If TumDoc = True Then
     'Worksheets(4).Activate
     b = ActiveCell.Row
 
-    'Ýlk ve son sýralarý bul (For Explorer)
+    'Ä°lk ve son sÄ±ralarÄ± bul (For Explorer)
     'On Error Resume Next
     SiraNoIlkSatir = ActiveCell.Row
     If Cells(ActiveCell.Row, 5).Value = "" Then
@@ -2212,7 +2212,7 @@ If TumDoc = True Then
     End If
 RaporNoDonguSonExplorer:
    
-    'Rapor/Alt Rapor aralýklarýnýn tespiti.
+    'Rapor/Alt Rapor aralÄ±klarÄ±nÄ±n tespiti.
     Set IlkSiraBul = Range("CM7:CM100000").Find(What:=Cells(SiraNoIlkSatir, 5).Value, SearchDirection:=xlNext, _
                     SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
     Set SonSiraBul = Range("CN7:CN100000").Find(What:=Cells(SiraNoIlkSatir, 5).Value, SearchDirection:=xlNext, _
@@ -2245,7 +2245,7 @@ For Explorer = IlkSira To SonSira
             GoTo ExplorerBos
         End If
     End If
-    'Dosyayý isimlendir
+    'DosyayÄ± isimlendir
     'On Error Resume Next
     SiraNoIlkSatir = ActiveCell.Row
     If Cells(ActiveCell.Row, 5).Value = "" Then
@@ -2260,7 +2260,7 @@ For Explorer = IlkSira To SonSira
         ReNameRaporNormal = Cells(ActiveCell.Row, 5).Value & "-" & Cells(6, 14).Value & " " & Cells(ActiveCell.Row, 11).Value
     End If
 RaporNoDonguSon:
-    'Rapor/Alt Rapor aralýklarýnýn tespiti.
+    'Rapor/Alt Rapor aralÄ±klarÄ±nÄ±n tespiti.
     Set IlkSiraBul = Range("CM7:CM100000").Find(What:=Cells(SiraNoIlkSatir, 5).Value, SearchDirection:=xlNext, _
                     SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
     Set SonSiraBul = Range("CN7:CN100000").Find(What:=Cells(SiraNoIlkSatir, 5).Value, SearchDirection:=xlNext, _
@@ -2299,11 +2299,11 @@ RaporNoDonguSon1:
         'Close the all Word application
         Call ModuleReport2.OpenWordControl
     
-        'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+        'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
         OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
         Do While OpenKontrolName <> ""
             OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-            If OpenControl = True Then 'Açýksa
+            If OpenControl = True Then 'AÃ§Ä±ksa
                 On Error Resume Next
                 Set objWord = GetObject(, "Word.Application")
                 Set objWord = GetObject(, "Word.Application")
@@ -2311,7 +2311,7 @@ RaporNoDonguSon1:
                 Set objWord = GetObject(, "Word.Application")
                 Set objWord = GetObject(, "Word.Application")
                 objWord.Quit SaveChanges:=True
-                'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+                'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
     
             End If
             OpenKontrolName = Dir()
@@ -2325,7 +2325,7 @@ RaporNoDonguSon1:
     '________________________________________
     
         On Error Resume Next
-    '    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+    '    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
         ContSay = 0
         KontrolFile = Dir(DestOpUserFolder & "*.???")
         Do While KontrolFile <> ""
@@ -2342,18 +2342,18 @@ RaporNoDonguSon1:
     ThisWorkbook.Activate
     RaporTipi = Cells(ActiveCell.Row, 64).Value
     SourceRaporNormal = AutoPath & "\System Files\System Templates\Report 2 Templates\" & RaporTipi & ".docm"
-    'Klasör isimlerini kontrol et.
+    'KlasÃ¶r isimlerini kontrol et.
     If Not Dir(SourceRaporNormal, vbDirectory) <> vbNullString Then
         MsgBox "Cannot access the directory " & SourceRaporNormal & ". The names of folders and/or files in this directory may have been changed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
         GoTo Son
     End If
     
-    'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+    'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
     Set fso = CreateObject("Scripting.FileSystemObject")
     fso.CopyFile (SourceRaporNormal), DestOpUserFolder & ReNameRaporNormal & ".docm", True
 '________________________________________
 
-    'Oluþturulacak dosyayý aç
+    'OluÅŸturulacak dosyayÄ± aÃ§
     On Error Resume Next
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
@@ -2361,7 +2361,7 @@ RaporNoDonguSon1:
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
     If objWord Is Nothing Then
-        'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+        'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
         Set objWord = CreateObject("Word.Application")
         objWord.Visible = False
     End If
@@ -2375,7 +2375,7 @@ RaporNoDonguSon1:
 '________________________________________
 
     'Birim
-    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I")) & " UNIT"
+    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I")) & " UNIT"
     objDoc.Tables(1).Cell(Row:=1, Column:=1).Range.Text = Birimx
     'Rapor tarihi
     objDoc.Tables(1).Cell(Row:=4, Column:=3).Range.Text = Cells(IlkSira, 68).Value
@@ -2385,7 +2385,7 @@ RaporNoDonguSon1:
     objDoc.CheckBox1.Value = True 'Rapor Talebi
     objDoc.CheckBox2.Value = False 'Rapor3
     
-    'Gönderen tema
+    'GÃ¶nderen tema
     If Cells(IlkSira, 33).Value = "Provincial Directorate B" Then
         If Cells(IlkSira, 34).Value <> "" Then
             GelenTema = Cells(IlkSira, 25).Value & " Provincial Governorship Provincial Directorate B " & Cells(IlkSira, 34).Value
@@ -2456,15 +2456,15 @@ RaporNoDonguSon1:
         End If
     End If
     
-    'Ýlgi
-    'RaporIlgi = GelenTema & "n" & Right(GelenTema, 1) & "n " & Cells(IlkSira, 28).Value & " tarihli ve " & Cells(IlkSira, 29).Value & " sayýlý yazýsý."
+    'Ä°lgi
+    'RaporIlgi = GelenTema & "n" & Right(GelenTema, 1) & "n " & Cells(IlkSira, 28).Value & " tarihli ve " & Cells(IlkSira, 29).Value & " sayÄ±lÄ± yazÄ±sÄ±."
     RaporIlgi = "The letter from the " & GelenTema & ", dated " & Cells(IlkSira, 28).Value & ", reference number " & Cells(IlkSira, 29).Value & "."
     If Cells(ActiveCell.Row, 62).Value <> "valid" Then
         objDoc.Tables(1).Cell(Row:=8, Column:=3).Range.Text = RaporIlgi
     Else
         objDoc.Tables(1).Cell(Row:=6, Column:=3).Range.Text = RaporIlgi
     End If
-    'Ýlgili birim
+    'Ä°lgili birim
     If Cells(ActiveCell.Row, 62).Value <> "valid" Then
         If Cells(IlkSira, 69).Value <> "" Then
             If InStr(Cells(IlkSira, 69).Value, "X.X. ") > 0 Then
@@ -2490,14 +2490,14 @@ RaporNoDonguSon1:
 
     End If
 
-    'Tekil-çoðul tipA
+    'Tekil-Ã§oÄŸul tipA
     AdetTopla = Application.Sum(Range(Cells(AltRaporNoIlk, 52), Cells(AltRaporNoSon, 52)))
     If AdetTopla = 1 Then
         TekCogulTipA = "Type A"
     ElseIf AdetTopla > 1 Then
         TekCogulTipA = "Type A items"
     End If
-    'objDoc.Tables(2).Cell(Row:=1, Column:=1).Range.Text = "Ýnceleme Konusu " & WorksheetFunction.Proper(TekCogulTipA)
+    'objDoc.Tables(2).Cell(Row:=1, Column:=1).Range.Text = "Ä°nceleme Konusu " & WorksheetFunction.Proper(TekCogulTipA)
     objDoc.Tables(2).Cell(Row:=1, Column:=1).Range.Text = "The examined " & TekCogulTipA
     
     'Tabloyu doldur
@@ -2505,7 +2505,7 @@ RaporNoDonguSon1:
     For i = AltRaporNoIlk To AltRaporNoSon
         x = i - AltRaporNoIlk + 1
         If x Mod 2 <> 0 Then
-            'Baþlýklar
+            'BaÅŸlÄ±klar
             objDoc.Tables(2).Cell(Row:=j + 0, Column:=1).Range.Text = "Item Type"
             objDoc.Tables(2).Cell(Row:=j + 1, Column:=1).Range.Text = "Item Value"
             objDoc.Tables(2).Cell(Row:=j + 2, Column:=1).Range.Text = "Qty"
@@ -2515,26 +2515,26 @@ RaporNoDonguSon1:
             objDoc.Tables(2).Cell(Row:=j + 2, Column:=2).Range.Text = ":"
             objDoc.Tables(2).Cell(Row:=j + 3, Column:=2).Range.Text = ":"
             'Verileri aktar
-            objDoc.Tables(2).Cell(Row:=j + 0, Column:=3).Range.Text = Cells(i, 46).Value 'Öðe türü
-            objDoc.Tables(2).Cell(Row:=j + 1, Column:=3).Range.Text = Cells(i, 49).Value 'Öðe deðeri
+            objDoc.Tables(2).Cell(Row:=j + 0, Column:=3).Range.Text = Cells(i, 46).Value 'Ã–ÄŸe tÃ¼rÃ¼
+            objDoc.Tables(2).Cell(Row:=j + 1, Column:=3).Range.Text = Cells(i, 49).Value 'Ã–ÄŸe deÄŸeri
             objDoc.Tables(2).Cell(Row:=j + 2, Column:=3).Range.Text = Cells(i, 52).Value 'Adet
             If Cells(i, 55).Value = "Dispatch List" Then
-                objDoc.Tables(2).Cell(Row:=j + 3, Column:=3).Range.Text = "Listed in the Attachment to Statement 1" 'Öðe ID
+                objDoc.Tables(2).Cell(Row:=j + 3, Column:=3).Range.Text = "Listed in the Attachment to Statement 1" 'Ã–ÄŸe ID
             Else
-                objDoc.Tables(2).Cell(Row:=j + 3, Column:=3).Range.Text = Cells(i, 55).Value 'Öðe ID
+                objDoc.Tables(2).Cell(Row:=j + 3, Column:=3).Range.Text = Cells(i, 55).Value 'Ã–ÄŸe ID
             End If
             j = j + 0
         ElseIf x Mod 2 = 0 Then
             'Verileri aktar
-            objDoc.Tables(2).Cell(Row:=j + 0, Column:=4).Range.Text = Cells(i, 46).Value 'Öðe türü
-            objDoc.Tables(2).Cell(Row:=j + 1, Column:=4).Range.Text = Cells(i, 49).Value 'Öðe deðeri
+            objDoc.Tables(2).Cell(Row:=j + 0, Column:=4).Range.Text = Cells(i, 46).Value 'Ã–ÄŸe tÃ¼rÃ¼
+            objDoc.Tables(2).Cell(Row:=j + 1, Column:=4).Range.Text = Cells(i, 49).Value 'Ã–ÄŸe deÄŸeri
             objDoc.Tables(2).Cell(Row:=j + 2, Column:=4).Range.Text = Cells(i, 52).Value 'Adet
             If Cells(i, 55).Value = "Dispatch List" Then
-                objDoc.Tables(2).Cell(Row:=j + 3, Column:=4).Range.Text = "Listed in the Attachment to Statement 1" 'Öðe ID
+                objDoc.Tables(2).Cell(Row:=j + 3, Column:=4).Range.Text = "Listed in the Attachment to Statement 1" 'Ã–ÄŸe ID
             Else
-                objDoc.Tables(2).Cell(Row:=j + 3, Column:=4).Range.Text = Cells(i, 55).Value 'Öðe ID
+                objDoc.Tables(2).Cell(Row:=j + 3, Column:=4).Range.Text = Cells(i, 55).Value 'Ã–ÄŸe ID
             End If
-            'Satýr ekle veya ekleme
+            'SatÄ±r ekle veya ekleme
             If i <> AltRaporNoSon Then
                 For k = 1 To 5
                     objDoc.Tables(2).Rows.Add BeforeRow:=objDoc.Tables(2).Rows(j + 4)
@@ -2547,15 +2547,15 @@ RaporNoDonguSon1:
     objDoc.Tables(3).Cell(Row:=1, Column:=3).Range.Text = Cells(IlkSira, 31).Value  'Tema no
 
 
-    'Rapor metin kýsmý
-    'Tanýmlamalar
+    'Rapor metin kÄ±smÄ±
+    'TanÄ±mlamalar
     AdetTopla = Application.Sum(Range(Cells(AltRaporNoIlk, 52), Cells(AltRaporNoSon, 52)))
     If AdetTopla = 1 Then
         Ek1 = "item"
     ElseIf AdetTopla > 1 Then
         Ek1 = "items"
     End If
-    'Dosyada öðe/öðeler düzenlemesini gerçekleþtir.
+    'Dosyada Ã¶ÄŸe/Ã¶ÄŸeler dÃ¼zenlemesini gerÃ§ekleÅŸtir.
     Set MyRange = objDoc.Tables(3).Cell(Row:=2, Column:=1).Range
     With MyRange.Find
         .Text = "<item>"
@@ -2564,7 +2564,7 @@ RaporNoDonguSon1:
     End With
     MyRange.HighlightColorIndex = wdNoHighlight
     
-    'Artýk satýrý sil
+    'ArtÄ±k satÄ±rÄ± sil
     objDoc.Tables(2).Rows(j + 4).Delete
     
     'imzalar
@@ -2595,7 +2595,7 @@ RaporNoDonguSon1:
     End If
 NotEkleAtla:
 
-    'Rapor sayfa sayýsýný oluþturmadan önce eskisini sil
+    'Rapor sayfa sayÄ±sÄ±nÄ± oluÅŸturmadan Ã¶nce eskisini sil
     If Cells(i, 174).Value = "Yes" Then
         For i = IlkSira To SonSira
             If Cells(i, 11).Value = "" Then
@@ -2604,9 +2604,9 @@ NotEkleAtla:
         Next i
     End If
     
-    'Sayfa sayýsý kaydet komutuna baðlandý.
+    'Sayfa sayÄ±sÄ± kaydet komutuna baÄŸlandÄ±.
     objDoc.Save
-    'Sayfayý text dosyasýndan çek
+    'SayfayÄ± text dosyasÄ±ndan Ã§ek
     TxtFileRapor = DestOpUserFolder & "Report 2 Page Count.txt"
     #If UseADO Then
         Const adReadLine = -2&
@@ -2656,7 +2656,7 @@ ExplorerBos:
 Next Explorer
 
 If TumDoc = True Then
-    'Tümünün bulunduðu butonu tekrar seç.
+    'TÃ¼mÃ¼nÃ¼n bulunduÄŸu butonu tekrar seÃ§.
     Cells(b, 18).Select
 End If
 
@@ -2695,13 +2695,13 @@ Dim ReNameUstYaziNormal As String
 Dim TxtFileUstYazi As String, TotalSayfaUstYazi As String
 Dim Birimx As String, UserName As String
 
-'TUTANAK2 için prosedürü baþlat
+'TUTANAK2 iÃ§in prosedÃ¼rÃ¼ baÅŸlat
 'If ActiveCell.Column = 8 Then
 '    Application.ScreenUpdating = False
     Application.DisplayAlerts = False
     'Application.EnableEvents = False
 
-    'Dokümanlarýn oluþturulmasýna soldan saða doðru bir kontrol mekanizmasý kur.
+    'DokÃ¼manlarÄ±n oluÅŸturulmasÄ±na soldan saÄŸa doÄŸru bir kontrol mekanizmasÄ± kur.
     j = ActiveCell.Row
     For i = ActiveCell.Row To 7 Step -1
         If Cells(i, 5).Value <> "" Then
@@ -2750,9 +2750,9 @@ SiraNoBulundu:
 
     'TUTANAK2 TANIMLARI
     SourceTutanak2Normal = AutoPath & "\System Files\System Templates\Statement 2 Template\Statement 2.docm"
-    'ÜST YAZI TANIMLARI
+    'ÃœST YAZI TANIMLARI
     'SourceUstYaziNormal = AutoPath & "\System Files\System Templates\Report 2 Cover Letter Templates\Report 2 Cover Letter.docm"
-    'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+    'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
     DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
     DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
     
@@ -2774,7 +2774,7 @@ SiraNoBulundu:
         GoTo Son
     End If
 
-    'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+    'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
     If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
         MkDir DestOpUserFolder
     End If
@@ -2788,11 +2788,11 @@ SiraNoBulundu:
         'Close the all Word application
         Call ModuleReport2.OpenWordControl
         
-        'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+        'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
         OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
         Do While OpenKontrolName <> ""
             OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-            If OpenControl = True Then 'Açýksa
+            If OpenControl = True Then 'AÃ§Ä±ksa
                 On Error Resume Next
                 Set objWord = GetObject(, "Word.Application")
                 Set objWord = GetObject(, "Word.Application")
@@ -2800,7 +2800,7 @@ SiraNoBulundu:
                 Set objWord = GetObject(, "Word.Application")
                 Set objWord = GetObject(, "Word.Application")
                 objWord.Quit SaveChanges:=True
-                'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+                'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
                 
             End If
             OpenKontrolName = Dir()
@@ -2813,7 +2813,7 @@ SiraNoBulundu:
     '________________________________________
     
         On Error Resume Next
-    '    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+    '    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
         ContSay = 0
         KontrolFile = Dir(DestOpUserFolder & "*.???")
         Do While KontrolFile <> ""
@@ -2825,12 +2825,12 @@ SiraNoBulundu:
         End If
     End If
     
-    'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+    'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
     Set fso = CreateObject("Scripting.FileSystemObject")
     fso.CopyFile (SourceTutanak2Normal), DestOpUserFolder & ReNameTutanak2Normal & ".docm", True
 '________________________________________
 
-    'Oluþturulacak dosyayý aç
+    'OluÅŸturulacak dosyayÄ± aÃ§
     On Error Resume Next
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
@@ -2838,7 +2838,7 @@ SiraNoBulundu:
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
     If objWord Is Nothing Then
-        'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+        'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
         Set objWord = CreateObject("Word.Application")
         objWord.Visible = False
     End If
@@ -2851,15 +2851,15 @@ SiraNoBulundu:
 '________________________________________
 
     'Birim
-    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I")) & " UNIT"
+    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I")) & " UNIT"
     objDoc.Tables(1).Cell(Row:=1, Column:=1).Range.Text = Birimx
     'Tutanak2 tarihi
     objDoc.Tables(1).Cell(Row:=4, Column:=3).Range.Text = Cells(ActiveCell.Row, 71).Value
-    'Belge tarihi ve numarasý
+    'Belge tarihi ve numarasÄ±
     objDoc.Tables(1).Cell(Row:=6, Column:=3).Range.Text = Cells(ActiveCell.Row, 28).Value
     objDoc.Tables(1).Cell(Row:=6, Column:=5).Range.Text = Cells(ActiveCell.Row, 29).Value
     
-    'Gönderilen
+    'GÃ¶nderilen
     If Cells(ActiveCell.Row, 72).Value = "Provincial Directorate B" Then
         GidenTema = Cells(ActiveCell.Row, 77).Value & " Provincial Governorship Provincial Directorate B " & Cells(ActiveCell.Row, 73).Value
     ElseIf Cells(ActiveCell.Row, 72).Value = "District Directorate B" Then
@@ -2918,7 +2918,7 @@ SiraNoBulundu:
         MsgBox "The serial number could not be found, so the operation cannot be completed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
         GoTo Son
     End If
-    'Tabloya satýr ekle
+    'Tabloya satÄ±r ekle
     x = 0
     If SonSira - IlkSira > 0 Then
         With objDoc.Tables(2)
@@ -2930,22 +2930,22 @@ SiraNoBulundu:
     End If
     
     For i = 2 To SonSira - IlkSira + 2
-        objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sýra no
-        objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(IlkSira + i - 2, 46).Value 'Öðe türü
-        objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(IlkSira + i - 2, 49).Value 'Öðe deðeri
+        objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sÄ±ra no
+        objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(IlkSira + i - 2, 46).Value 'Ã–ÄŸe tÃ¼rÃ¼
+        objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(IlkSira + i - 2, 49).Value 'Ã–ÄŸe deÄŸeri
         objDoc.Tables(2).Cell(Row:=i, Column:=4).Range.Text = Cells(IlkSira + i - 2, 52).Value 'Adet
         If Cells(IlkSira + i - 2, 55).Value = "Dispatch List" Then
-            objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Attachment to Statement 1" '"Listed in the Dispatch List" 'Öðe ID No
+            objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Attachment to Statement 1" '"Listed in the Dispatch List" 'Ã–ÄŸe ID No
         Else
-            objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(IlkSira + i - 2, 55).Value 'Öðe ID No
+            objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(IlkSira + i - 2, 55).Value 'Ã–ÄŸe ID No
         End If
-        objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satýra yaz.)
-        objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(IlkSira + i - 2, 58).Value 'Açýklama
+        objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satÄ±ra yaz.)
+        objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(IlkSira + i - 2, 58).Value 'AÃ§Ä±klama
     Next i
 
 
-    'Tutanak2 tutanaðýnýn metin kýsmý
-    'Tanýmlamalar
+    'Tutanak2 tutanaÄŸÄ±nÄ±n metin kÄ±smÄ±
+    'TanÄ±mlamalar
     If Application.Sum(Range(Cells(IlkSira, 52), Cells(SonSira, 52))) > 1 Then
         Ek4 = "items"
     Else
@@ -2975,7 +2975,7 @@ SiraNoBulundu:
         .Execute Forward:=True
     End With
     MyRange.Font.Bold = True
-    'Aralýkta bulunan karakterleri bold yap
+    'AralÄ±kta bulunan karakterleri bold yap
 '    objDoc.Range(objDoc.Tables(3).Cell(Row:=1, Column:=1).Range.Characters(5).Start, _
 '    objDoc.Tables(3).Cell(Row:=1, Column:=1).Range.Characters(10).End).Font.Bold = True
     Set MyRange = objDoc.Tables(3).Cell(Row:=1, Column:=1).Range
@@ -2992,7 +2992,7 @@ SiraNoBulundu:
     objDoc.Sections(1).Footers(wdHeaderFooterPrimary).Range.Tables(1).Cell(Row:=1, Column:=1).Range.Text = ReNameTutanak2Normal
     
     
-'    'Ýmza boþluðunu sayfaya sýðdýrmak için düzenle
+'    'Ä°mza boÅŸluÄŸunu sayfaya sÄ±ÄŸdÄ±rmak iÃ§in dÃ¼zenle
     If SonSira - IlkSira + 1 = 17 Then
         For i = 1 To 2
             objDoc.Tables(4).Rows(1).Delete
@@ -3012,11 +3012,11 @@ SiraNoBulundu:
         objDoc.Tables(4).Rows(1).Height = 5
     End If
     
-    'Sayfa sayýsý kaydet komutuna baðlandý.
+    'Sayfa sayÄ±sÄ± kaydet komutuna baÄŸlandÄ±.
 '    objDoc.Close SaveChanges:=True
 '    objWord.Quit
     objDoc.Save
-    'Sayfayý text dosyasýndan çek
+    'SayfayÄ± text dosyasÄ±ndan Ã§ek
     TxtFileTutanak2 = DestOpUserFolder & "Statement 2 Page Count.txt"
     #If UseADO Then
         Const adReadLine = -2&
@@ -3041,7 +3041,7 @@ SiraNoBulundu:
     #End If
     'MsgBox "Tutanak2: " & TotalSayfaTutanak2
  
-    'Tutanak2 sayfa sayýsý
+    'Tutanak2 sayfa sayÄ±sÄ±
     Cells(ActiveCell.Row, 100).Value = TotalSayfaTutanak2
 
     objWord.Visible = True
@@ -3098,13 +3098,13 @@ Dim ReNameUstYaziNormal As String
 Dim TxtFileUstYazi As String, TotalSayfaUstYazi As String
 Dim Birimx As String, UserName As String
 
-'TUTANAK2 için prosedürü baþlat
+'TUTANAK2 iÃ§in prosedÃ¼rÃ¼ baÅŸlat
 'If ActiveCell.Column = 8 Then
 '    Application.ScreenUpdating = False
     Application.DisplayAlerts = False
     'Application.EnableEvents = False
 
-    'Dokümanlarýn oluþturulmasýna soldan saða doðru bir kontrol mekanizmasý kur.
+    'DokÃ¼manlarÄ±n oluÅŸturulmasÄ±na soldan saÄŸa doÄŸru bir kontrol mekanizmasÄ± kur.
     j = ActiveCell.Row
     For i = ActiveCell.Row To 7 Step -1
         If Cells(i, 5).Value <> "" Then
@@ -3175,7 +3175,7 @@ SiraNoBulundu:
         GoTo Son
     End If
 
-    'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+    'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
     If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
         MkDir DestOpUserFolder
     End If
@@ -3189,11 +3189,11 @@ SiraNoBulundu:
         'Close the all Word application
         Call ModuleReport2.OpenWordControl
         
-        'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+        'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
         OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
         Do While OpenKontrolName <> ""
             OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-            If OpenControl = True Then 'Açýksa
+            If OpenControl = True Then 'AÃ§Ä±ksa
                 On Error Resume Next
                 Set objWord = GetObject(, "Word.Application")
                 Set objWord = GetObject(, "Word.Application")
@@ -3201,7 +3201,7 @@ SiraNoBulundu:
                 Set objWord = GetObject(, "Word.Application")
                 Set objWord = GetObject(, "Word.Application")
                 objWord.Quit SaveChanges:=True
-                'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+                'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
                 
             End If
             OpenKontrolName = Dir()
@@ -3214,7 +3214,7 @@ SiraNoBulundu:
     '________________________________________
     
         On Error Resume Next
-    '    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+    '    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
         ContSay = 0
         KontrolFile = Dir(DestOpUserFolder & "*.???")
         Do While KontrolFile <> ""
@@ -3226,12 +3226,12 @@ SiraNoBulundu:
         End If
     End If
     
-    'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+    'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
     Set fso = CreateObject("Scripting.FileSystemObject")
     fso.CopyFile (SourceTutanak2Normal), DestOpUserFolder & ReNameTutanak2Normal & ".docm", True
 '________________________________________
 
-    'Oluþturulacak dosyayý aç
+    'OluÅŸturulacak dosyayÄ± aÃ§
     On Error Resume Next
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
@@ -3239,7 +3239,7 @@ SiraNoBulundu:
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
     If objWord Is Nothing Then
-        'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+        'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
         Set objWord = CreateObject("Word.Application")
         objWord.Visible = False
     End If
@@ -3252,15 +3252,15 @@ SiraNoBulundu:
 '________________________________________
 
     'Birim
-    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I")) & " UNIT"
+    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I")) & " UNIT"
     objDoc.Tables(1).Cell(Row:=1, Column:=1).Range.Text = Birimx
     'Tutanak2 tarihi
     objDoc.Tables(1).Cell(Row:=4, Column:=3).Range.Text = Cells(ActiveCell.Row, 183).Value
-    'Belge tarihi ve numarasý
+    'Belge tarihi ve numarasÄ±
     objDoc.Tables(1).Cell(Row:=6, Column:=3).Range.Text = Cells(ActiveCell.Row, 28).Value
     objDoc.Tables(1).Cell(Row:=6, Column:=5).Range.Text = Cells(ActiveCell.Row, 29).Value
     
-    'Gönderilen
+    'GÃ¶nderilen
     GidenTema = "ORGANIZATION A XXX Directorate"
     objDoc.Tables(1).Cell(Row:=5, Column:=3).Range.Text = GidenTema
     
@@ -3282,8 +3282,8 @@ SiraNoBulundu:
         GoTo Son
     End If
     
-    If Cells(IlkSira, 187).Value = "All" Then 'TÜMÜ gönderiliyor
-        'Tabloya satýr ekle
+    If Cells(IlkSira, 187).Value = "All" Then 'TÃœMÃœ gÃ¶nderiliyor
+        'Tabloya satÄ±r ekle
         If SonSira - IlkSira > 0 Then
             With objDoc.Tables(2)
                 For i = IlkSira To SonSira - 1
@@ -3296,21 +3296,21 @@ SiraNoBulundu:
         Ek1 = 0
         For j = IlkSira To SonSira
             i = i + 1
-            objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sýra no
-            objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(j, 46).Value 'Öðe türü
-            objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(j, 49).Value 'Öðe deðeri
+            objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sÄ±ra no
+            objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(j, 46).Value 'Ã–ÄŸe tÃ¼rÃ¼
+            objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(j, 49).Value 'Ã–ÄŸe deÄŸeri
             objDoc.Tables(2).Cell(Row:=i, Column:=4).Range.Text = Cells(j, 52).Value 'Adet
             Ek1 = Ek1 + Cells(j, 52).Value
             If Cells(j, 55).Value = "Dispatch List" Then
-                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Attachment to Statement 1" '"Listed in the Dispatch List" 'Öðe ID No
+                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Attachment to Statement 1" '"Listed in the Dispatch List" 'Ã–ÄŸe ID No
             Else
-                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(j, 55).Value 'Öðe ID No
+                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(j, 55).Value 'Ã–ÄŸe ID No
             End If
-            objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satýra yaz.)
-            objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(j, 58).Value 'Açýklama
+            objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satÄ±ra yaz.)
+            objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(j, 58).Value 'AÃ§Ä±klama
         Next j
-    ElseIf Cells(IlkSira, 187).Value = "Technique A" Then 'SADECE Technique A gönderiliyor
-        'Tabloya satýr ekle
+    ElseIf Cells(IlkSira, 187).Value = "Technique A" Then 'SADECE Technique A gÃ¶nderiliyor
+        'Tabloya satÄ±r ekle
         y = 0
         If SonSira - IlkSira > 0 Then
             For i = IlkSira To SonSira
@@ -3332,24 +3332,24 @@ SiraNoBulundu:
         For j = IlkSira To SonSira
             If Cells(j, 62).Value = "invalid" And Left(Cells(j, 63).Value, 11) = "Technique A" Then
                 i = i + 1
-                objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sýra no
-                objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(j, 46).Value 'Öðe türü
-                objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(j, 49).Value 'Öðe deðeri
+                objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sÄ±ra no
+                objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(j, 46).Value 'Ã–ÄŸe tÃ¼rÃ¼
+                objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(j, 49).Value 'Ã–ÄŸe deÄŸeri
                 objDoc.Tables(2).Cell(Row:=i, Column:=4).Range.Text = Cells(j, 52).Value 'Adet
                 Ek1 = Ek1 + Cells(j, 52).Value
                 If Cells(j, 55).Value = "Dispatch List" Then
-                    objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Attachment to Statement 1" '"Listed in the Dispatch List" 'Öðe ID No
+                    objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Attachment to Statement 1" '"Listed in the Dispatch List" 'Ã–ÄŸe ID No
                 Else
-                    objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(j, 55).Value 'Öðe ID No
+                    objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(j, 55).Value 'Ã–ÄŸe ID No
                 End If
-                objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satýra yaz.)
-                objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(j, 58).Value 'Açýklama
+                objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satÄ±ra yaz.)
+                objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(j, 58).Value 'AÃ§Ä±klama
             End If
         Next j
     End If
 
-    'Tutanak2 tutanaðýnýn metin kýsmý
-    'Tanýmlamalar
+    'Tutanak2 tutanaÄŸÄ±nÄ±n metin kÄ±smÄ±
+    'TanÄ±mlamalar
     If CInt(Ek1) > 1 Then
         Ek4 = "items"
     Else
@@ -3393,7 +3393,7 @@ SiraNoBulundu:
     objDoc.Sections(1).Footers(wdHeaderFooterPrimary).Range.Tables(1).Cell(Row:=1, Column:=1).Range.Text = ReNameTutanak2Normal
     
     
-'    'Ýmza boþluðunu sayfaya sýðdýrmak için düzenle
+'    'Ä°mza boÅŸluÄŸunu sayfaya sÄ±ÄŸdÄ±rmak iÃ§in dÃ¼zenle
     If SonSira - IlkSira + 1 = 17 Then
         For i = 1 To 2
             objDoc.Tables(4).Rows(1).Delete
@@ -3413,11 +3413,11 @@ SiraNoBulundu:
         objDoc.Tables(4).Rows(1).Height = 5
     End If
     
-    'Sayfa sayýsý kaydet komutuna baðlandý.
+    'Sayfa sayÄ±sÄ± kaydet komutuna baÄŸlandÄ±.
 '    objDoc.Close SaveChanges:=True
 '    objWord.Quit
     objDoc.Save
-    'Sayfayý text dosyasýndan çek
+    'SayfayÄ± text dosyasÄ±ndan Ã§ek
     TxtFileTutanak2 = DestOpUserFolder & "Statement 2 Page Count.txt"
     #If UseADO Then
         Const adReadLine = -2&
@@ -3442,7 +3442,7 @@ SiraNoBulundu:
     #End If
     'MsgBox "Tutanak2: " & TotalSayfaTutanak2
  
-    'Tutanak2 sayfa sayýsý
+    'Tutanak2 sayfa sayÄ±sÄ±
     Cells(ActiveCell.Row, 220).Value = TotalSayfaTutanak2
 
     objWord.Visible = True
@@ -3513,13 +3513,13 @@ Dim IlgiFarkSay As Integer, Govde1FarkSay As Integer
 Dim ustbilgimuhatap As String, ustbilgitarih As String, ustbilgisayi As String
 Dim CokluSayfa As Integer
 
-'ÜST YAZI için prosedürü baþlat
+'ÃœST YAZI iÃ§in prosedÃ¼rÃ¼ baÅŸlat
 'If ActiveCell.Column = 9 Then
 '    Application.ScreenUpdating = False
     Application.DisplayAlerts = False
     'Application.EnableEvents = False
 
-    'Dokümanlarýn oluþturulmasýna soldan saða doðru bir kontrol mekanizmasý kur.
+    'DokÃ¼manlarÄ±n oluÅŸturulmasÄ±na soldan saÄŸa doÄŸru bir kontrol mekanizmasÄ± kur.
     j = ActiveCell.Row
     For i = ActiveCell.Row To 7 Step -1
         If Cells(i, 5).Value <> "" Then
@@ -3572,9 +3572,9 @@ SiraNoBulundu:
     AutoPath = ThisWorkbook.Path
     DestOperasyon = AutoPath & "\System Files\Operation\"
 
-    'ÜST YAZI TANIMLARI
+    'ÃœST YAZI TANIMLARI
     SourceUstYaziNormal = AutoPath & "\System Files\System Templates\Report 2 Cover Letter Templates\XXX Directorate Cover Letter.docm"
-    'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+    'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
     DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
     DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
     
@@ -3596,7 +3596,7 @@ SiraNoBulundu:
         GoTo Son
     End If
 
-    'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+    'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
     If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
         MkDir DestOpUserFolder
     End If
@@ -3634,11 +3634,11 @@ SiraNoBulundu:
         'Close the all Word application
         Call ModuleReport2.OpenWordControl
         
-        'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+        'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
         OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
         Do While OpenKontrolName <> ""
             OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-            If OpenControl = True Then 'Açýksa
+            If OpenControl = True Then 'AÃ§Ä±ksa
     '            On Error Resume Next
     '            Set objWord = GetObject(, "Word.Application")
     '            If objWord Is Nothing Then
@@ -3654,7 +3654,7 @@ SiraNoBulundu:
                 Set objWord = GetObject(, "Word.Application")
                 Set objWord = GetObject(, "Word.Application")
                 objWord.Quit SaveChanges:=True
-                'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+                'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
                 
             End If
             OpenKontrolName = Dir()
@@ -3668,7 +3668,7 @@ SiraNoBulundu:
     '________________________________________
     
         On Error Resume Next
-    '    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+    '    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
         ContSay = 0
         KontrolFile = Dir(DestOpUserFolder & "*.???")
         Do While KontrolFile <> ""
@@ -3680,12 +3680,12 @@ SiraNoBulundu:
         End If
     End If
     
-    'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+    'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
     Set fso = CreateObject("Scripting.FileSystemObject")
     fso.CopyFile (SourceUstYaziNormal), DestOpUserFolder & ReNameUstYaziNormal & ".docm", True
 '________________________________________
 
-    'Oluþturulacak dosyayý aç
+    'OluÅŸturulacak dosyayÄ± aÃ§
     On Error Resume Next
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
@@ -3693,7 +3693,7 @@ SiraNoBulundu:
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
     If objWord Is Nothing Then
-        'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+        'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
         Set objWord = CreateObject("Word.Application")
         objWord.Visible = False
     End If
@@ -3706,29 +3706,29 @@ SiraNoBulundu:
 '________________________________________
 
     'Birim
-    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I")) & " UNIT"
+    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I")) & " UNIT"
     objDoc.Tables(1).Cell(Row:=1, Column:=1).Range.Text = Birimx
-    'Kurum içi
+    'Kurum iÃ§i
     objDoc.Tables(1).Cell(Row:=4, Column:=1).Range.Text = Worksheets(2).Cells(6, 99).Value & " Unit"
 
-    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I"))
-    'Üst yazý tarihi
+    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I"))
+    'Ãœst yazÄ± tarihi
     objDoc.Tables(1).Cell(Row:=1, Column:=2).Range.Text = Birimx & ", " & FormatEnglishDate(Cells(ActiveCell.Row, 175).Value) '(Format(Cells(ActiveCell.Row, 175).Value, "d mmmm yyyy"))
-    'Yazý no
+    'YazÄ± no
     objDoc.Tables(1).Cell(Row:=6, Column:=2).Range.Text = Cells(ActiveCell.Row, 176).Value
-    'Sigorta türü
+    'Sigorta tÃ¼rÃ¼
     Ek2 = Cells(ActiveCell.Row, 184).Value
     Ek2 = Right(Ek2, Len(Ek2) - InStr(Ek2, "/"))
     objDoc.Tables(1).Cell(Row:=9, Column:=2).Range.Text = Ek2
 
     'Muhatap
-    'Muhatap þablonun içinde.
+    'Muhatap ÅŸablonun iÃ§inde.
     ustbilgitarih = (Format(Cells(ActiveCell.Row, 175).Value, "dd.mm.yyyy"))
     ustbilgisayi = Cells(ActiveCell.Row, 176).Value
     ustbilgimuhatap = "XXX Directorate"
 
             
-    'Ýlgi tema
+    'Ä°lgi tema
     If Cells(IlkSira, 33).Value = "Provincial Directorate B" Then
         If Cells(IlkSira, 34).Value <> "" Then
             GelenTema = Cells(IlkSira, 25).Value & " Provincial Governorship Provincial Directorate B " & Cells(IlkSira, 34).Value
@@ -3800,12 +3800,12 @@ SiraNoBulundu:
     End If
 
     
-    'Ýlgi
-    'RaporIlgi = GelenTema & "n" & Right(GelenTema, 1) & "n " & Cells(IlkSira, 28).Value & " tarihli ve " & Cells(IlkSira, 29).Value & " sayýlý yazýsý."
+    'Ä°lgi
+    'RaporIlgi = GelenTema & "n" & Right(GelenTema, 1) & "n " & Cells(IlkSira, 28).Value & " tarihli ve " & Cells(IlkSira, 29).Value & " sayÄ±lÄ± yazÄ±sÄ±."
     RaporIlgi = "The letter from the " & GelenTema & ", dated " & Cells(IlkSira, 28).Value & ", reference number " & Cells(IlkSira, 29).Value & "."
     objDoc.Tables(1).Cell(Row:=19, Column:=3).Range.Text = RaporIlgi
 
-    'Gövde metni
+    'GÃ¶vde metni
     AdetTakip = 0
     NomTakip = 0
     TipATakip = ""
@@ -3817,7 +3817,7 @@ SiraNoBulundu:
             If y = 1 Then
                 AdetTakip = Cells(i, 52).Value
                 TipATakip = Cells(i, 46).Value
-                TipATakip = Right(TipATakip, Len(TipATakip) - InStr(TipATakip, "-")) 'Bu karakterin solunda bir boþluk oluþuyor.
+                TipATakip = Right(TipATakip, Len(TipATakip) - InStr(TipATakip, "-")) 'Bu karakterin solunda bir boÅŸluk oluÅŸuyor.
                 NomTakip = Cells(i, 49).Value
                 If AdetTakip > 1 Then
                     Ek1 = AdetTakip & " pieces of " & NomTakip & TipATakip
@@ -3844,14 +3844,14 @@ SiraNoBulundu:
     'Birlestir = Chr(9) & Ek1
     'objDoc.Tables(2).Cell(Row:=1, Column:=1).Range.Text = Birlestir
     
-    'TipA adedi (Tekil-Çoðul)
+    'TipA adedi (Tekil-Ã‡oÄŸul)
     If AdetTopla = 1 Then
         Ek2 = "item"
     Else
         Ek2 = "items"
     End If
 
-    'Metni oluþtur
+    'Metni oluÅŸtur
     Bolum1 = "The Type A " & Ek2 & " (" & Ek1 & "), sent to our unit as an enclosure to the referenced letter and " & _
     "determined to be invalid following the examination, is being forwarded to you to enable the determination of xxxxxxx xxxxxxx xxxxxxx/xxxxxxx xxxxxxx xxx xxxxxxx xxxxxxx xxxxxxx xxxxxxx xxxxxxx xxxxxxx xxxxxxx xxxxxxx/xxxxxxx xxxxxxx and " & _
     "to facilitate the preparation of the related Report 2.2 concerning the said " & Ek2 & "."
@@ -3864,11 +3864,11 @@ SiraNoBulundu:
         .Paragraphs.Last.Range.ParagraphFormat.SpaceBefore = 6 ' 6 pt before spacing
     End With
 
-    'Kurum içi imza
+    'Kurum iÃ§i imza
     'Birim
-    'Unvan ve ad soyad birleþik mi ayrý mý
-    If Cells(IlkSira, 170).Value = "Birleþik" Then
-        Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I")) & " UNIT"
+    'Unvan ve ad soyad birleÅŸik mi ayrÄ± mÄ±
+    If Cells(IlkSira, 170).Value = "BirleÅŸik" Then
+        Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I")) & " UNIT"
         If Cells(IlkSira, 169).Value = "Authorized Signature" Then
             objDoc.Tables(3).Cell(Row:=2, Column:=2).Range.Text = Birimx & " MANAGER"
         ElseIf Cells(IlkSira, 169).Value = "Proxy Signature" Then
@@ -3881,9 +3881,9 @@ SiraNoBulundu:
             objDoc.Tables(3).Cell(Row:=2, Column:=2).Range.Text = Birimx & " MANAGER"
         End If
         objDoc.Tables(2).Cell(Row:=4, Column:=2).Range.Text = ""
-        objDoc.Tables(3).Cell(Row:=3, Column:=2).Range.Text = UCase(Replace(Replace(Cells(ActiveCell.Row, 139).Value, "i", "I"), "ý", "I")) 'Ad Soyad büyük harf
-    Else 'If Cells(IlkSira, 170).Value = "Ayrý" Then
-        Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I")) & " UNIT"
+        objDoc.Tables(3).Cell(Row:=3, Column:=2).Range.Text = UCase(Replace(Replace(Cells(ActiveCell.Row, 139).Value, "i", "I"), "Ä±", "I")) 'Ad Soyad bÃ¼yÃ¼k harf
+    Else 'If Cells(IlkSira, 170).Value = "AyrÄ±" Then
+        Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I")) & " UNIT"
         If Cells(IlkSira, 169).Value = "Authorized Signature" Then
             objDoc.Tables(2).Cell(Row:=4, Column:=2).Range.Text = Birimx & " MANAGER"
         ElseIf Cells(IlkSira, 169).Value = "Proxy Signature" Then
@@ -3895,51 +3895,51 @@ SiraNoBulundu:
         Else
             objDoc.Tables(2).Cell(Row:=4, Column:=2).Range.Text = Birimx & " MANAGER"
         End If
-        objDoc.Tables(3).Cell(Row:=4, Column:=2).Range.Text = UCase(Replace(Replace(Cells(ActiveCell.Row, 139).Value, "i", "I"), "ý", "I")) 'Ad Soyad büyük harf
+        objDoc.Tables(3).Cell(Row:=4, Column:=2).Range.Text = UCase(Replace(Replace(Cells(ActiveCell.Row, 139).Value, "i", "I"), "Ä±", "I")) 'Ad Soyad bÃ¼yÃ¼k harf
     End If
         
     
     'Ekler
     objDoc.Tables(3).Cell(Row:=8, Column:=1).Range.Text = "Attachment:"
         
-    Ek2 = Cells(ActiveCell.Row, 184).Value 'Kapalý Package A
+    Ek2 = Cells(ActiveCell.Row, 184).Value 'KapalÄ± Package A
     Ek2 = Left(Ek2, InStr(Ek2, "/") - 1)
     If Cells(ActiveCell.Row, 185).Value > 1 Then objDoc.Tables(3).Cell(Row:=8, Column:=2).Range.Text = " 1) Enclosed " & Ek2 & " (" & Cells(ActiveCell.Row, 185).Value & " pieces)"
     If Cells(ActiveCell.Row, 185).Value < 2 Then objDoc.Tables(3).Cell(Row:=8, Column:=2).Range.Text = " 1) Enclosed " & Ek2 & " (" & Cells(ActiveCell.Row, 185).Value & " piece)"
 
-    x = Application.Sum(Range(Cells(IlkSira, 220), Cells(SonSira, 220))) 'XXXMud Giden Statement 2 toplam sayfa sayýsý
+    x = Application.Sum(Range(Cells(IlkSira, 220), Cells(SonSira, 220))) 'XXXMud Giden Statement 2 toplam sayfa sayÄ±sÄ±
     If x > 1 Then objDoc.Tables(3).Cell(Row:=9, Column:=2).Range.Text = " 2) Statement 2 (" & x & " pages)"
     If x < 2 Then objDoc.Tables(3).Cell(Row:=9, Column:=2).Range.Text = " 2) Statement 2 (" & x & " page)"
 
-    'Ýlgi yazý fotokopisi
-    'objDoc.Tables(3).Cell(Row:=8, Column:=2).Range.Text = " 1) Ýlgi Yazý Fotokopisi " & " (" & Cells(ActiveCell.Row, 206).Value & " page(s))"
+    'Ä°lgi yazÄ± fotokopisi
+    'objDoc.Tables(3).Cell(Row:=8, Column:=2).Range.Text = " 1) Ä°lgi YazÄ± Fotokopisi " & " (" & Cells(ActiveCell.Row, 206).Value & " page(s))"
     If Cells(ActiveCell.Row, 206).Value > 1 Then objDoc.Tables(3).Cell(Row:=10, Column:=2).Range.Text = " 3) Photocopy of the Referenced Letter (" & Cells(IlkSira, 206).Value & " pages)"
     If Cells(ActiveCell.Row, 206).Value < 2 Then objDoc.Tables(3).Cell(Row:=10, Column:=2).Range.Text = " 3) Photocopy of the Referenced Letter (" & Cells(IlkSira, 206).Value & " page)"
  
     
-     '__________________________DÝNAMÝK SAYFA YAPISI
+     '__________________________DÄ°NAMÄ°K SAYFA YAPISI
     
-    'Ýlgi ve gövde metninin kaç satýrdan oluþtuðu bilgisinin elde edilmesinde kullanýlýyor.
+    'Ä°lgi ve gÃ¶vde metninin kaÃ§ satÄ±rdan oluÅŸtuÄŸu bilgisinin elde edilmesinde kullanÄ±lÄ±yor.
     Set IlgiRng = objDoc.Tables(1).Cell(Row:=19, Column:=3).Range
     Set Govde1Rng = objDoc.Tables(2).Cell(Row:=1, Column:=1).Range
     Set Govde2Rng = objDoc.Tables(2).Cell(Row:=3, Column:=1).Range
     
     IlgiStrSay = Govde1Rng.Information(wdFirstCharacterLineNumber) - IlgiRng.Information(wdFirstCharacterLineNumber) - 1
     Govde1StrSay = Govde2Rng.Information(wdFirstCharacterLineNumber) - Govde1Rng.Information(wdFirstCharacterLineNumber)
-    'MsgBox "Ýlgi Satýr Sayýsý: " & IlgiStrSay & vbNewLine & vbNewLine & "Gövde 1 Satýr Sayýsý: " & Govde1StrSay
-    IlgiFarkSay = IlgiStrSay - 1 'Sýfýrlandý, 1 satýr varsayýlan
-    Govde1FarkSay = Govde1StrSay - 4 'Sýfýrlandý, 4 satýr varsayýlan
+    'MsgBox "Ä°lgi SatÄ±r SayÄ±sÄ±: " & IlgiStrSay & vbNewLine & vbNewLine & "GÃ¶vde 1 SatÄ±r SayÄ±sÄ±: " & Govde1StrSay
+    IlgiFarkSay = IlgiStrSay - 1 'SÄ±fÄ±rlandÄ±, 1 satÄ±r varsayÄ±lan
+    Govde1FarkSay = Govde1StrSay - 4 'SÄ±fÄ±rlandÄ±, 4 satÄ±r varsayÄ±lan
     CokluSayfa = 0
-    'MsgBox Govde1FarkSay + IlgiFarkSay 'Varsayýlan ilgi ve 1 paragrafta (2 rowda) toplam 5 satýra göre sýfýrlandý.
+    'MsgBox Govde1FarkSay + IlgiFarkSay 'VarsayÄ±lan ilgi ve 1 paragrafta (2 rowda) toplam 5 satÄ±ra gÃ¶re sÄ±fÄ±rlandÄ±.
     
     
-    'Dinamik sayfa düzeni
-    objDoc.Tables(2).Rows(2).Delete 'gövde ara satýr
+    'Dinamik sayfa dÃ¼zeni
+    objDoc.Tables(2).Rows(2).Delete 'gÃ¶vde ara satÄ±r
     For i = 1 To 2
-        objDoc.Tables(3).Rows(11).Delete 'Ek sonrasý
+        objDoc.Tables(3).Rows(11).Delete 'Ek sonrasÄ±
     Next i
 
-    If Cells(IlkSira, 170).Value = "Birleþik" Then 'Merged signature area
+    If Cells(IlkSira, 170).Value = "BirleÅŸik" Then 'Merged signature area
         Govde1FarkSay = Govde1FarkSay + 5
     Else 'Split signature area
         Govde1FarkSay = Govde1FarkSay + 5
@@ -3951,23 +3951,23 @@ SiraNoBulundu:
         If IlgiFarkSay + Govde1FarkSay > 8 Then
             For i = 9 To IlgiFarkSay + Govde1FarkSay
                 If i = 9 Then
-                    objDoc.Tables(3).Rows(6).Delete 'Ek öncesi
+                    objDoc.Tables(3).Rows(6).Delete 'Ek Ã¶ncesi
                 ElseIf i = 10 Then
-                    objDoc.Tables(3).Rows(6).Delete 'Ek öncesi
+                    objDoc.Tables(3).Rows(6).Delete 'Ek Ã¶ncesi
                 ElseIf i = 11 Then
-                    objDoc.Tables(3).Rows(1).Delete 'Ýmza öncesi
+                    objDoc.Tables(3).Rows(1).Delete 'Ä°mza Ã¶ncesi
                 ElseIf i = 12 Then
-                    objDoc.Tables(3).Rows(1).Delete 'Ýmza öncesi
+                    objDoc.Tables(3).Rows(1).Delete 'Ä°mza Ã¶ncesi
                 ElseIf i = 13 Then
-                    objDoc.Tables(1).Rows(8).Delete 'Muhatap öncesi
+                    objDoc.Tables(1).Rows(8).Delete 'Muhatap Ã¶ncesi
                 ElseIf i = 14 Then
-                    objDoc.Tables(1).Rows(8).Delete 'Muhatap öncesi
+                    objDoc.Tables(1).Rows(8).Delete 'Muhatap Ã¶ncesi
                 End If
             Next i
         Else
             If (IlgiFarkSay + Govde1FarkSay) < 8 Then
                 For i = 1 To 8 - (IlgiFarkSay + Govde1FarkSay)
-                    'Boþ satýr ekle
+                    'BoÅŸ satÄ±r ekle
                     With objDoc.Tables(3)
                         .Rows.Add BeforeRow:=objDoc.Tables(3).Rows(8)
                     End With
@@ -4003,12 +4003,12 @@ SiraNoBulundu:
 
 
  
-'MsgBox "Total Sayfa Öncesi: " & TotalSayfaUstYazi
+'MsgBox "Total Sayfa Ã–ncesi: " & TotalSayfaUstYazi
 
 Tekrarla:
-    'Sayfa sayýsý kaydet komutuna baðlandý.
+    'Sayfa sayÄ±sÄ± kaydet komutuna baÄŸlandÄ±.
     objDoc.Save
-    'Sayfayý text dosyasýndan çek
+    'SayfayÄ± text dosyasÄ±ndan Ã§ek
     TxtFileUstYazi = DestOpUserFolder & "Cover Letter Page Count.txt"
     #If UseADO Then
         Const adReadLine = -2&
@@ -4031,12 +4031,12 @@ Tekrarla:
             End With
         End With
     #End If
-    'MsgBox "Üst Yazý: " & TotalSayfaUstYazi
+    'MsgBox "Ãœst YazÄ±: " & TotalSayfaUstYazi
 
-    'Üst Yazý sayfa sayýsý
+    'Ãœst YazÄ± sayfa sayÄ±sÄ±
     Cells(ActiveCell.Row, 221).Value = TotalSayfaUstYazi
     
-    'MsgBox "Total Sayfa Sonrasý: " & TotalSayfaUstYazi
+    'MsgBox "Total Sayfa SonrasÄ±: " & TotalSayfaUstYazi
     
     objWord.Visible = True
     objWord.Activate
@@ -4114,13 +4114,13 @@ If InStr(Cells(ActiveCell.Row, 204).Value, " Organization A") <> 0 Then
     Cells(ActiveCell.Row, 204).Value = ""
 End If
 
-'ÜST YAZI için prosedürü baþlat
+'ÃœST YAZI iÃ§in prosedÃ¼rÃ¼ baÅŸlat
 'If ActiveCell.Column = 9 Then
 '    Application.ScreenUpdating = False
     Application.DisplayAlerts = False
     'Application.EnableEvents = False
 
-    'Dokümanlarýn oluþturulmasýna soldan saða doðru bir kontrol mekanizmasý kur.
+    'DokÃ¼manlarÄ±n oluÅŸturulmasÄ±na soldan saÄŸa doÄŸru bir kontrol mekanizmasÄ± kur.
     j = ActiveCell.Row
     For i = ActiveCell.Row To 7 Step -1
         If Cells(i, 5).Value <> "" Then
@@ -4177,9 +4177,9 @@ SiraNoBulundu:
     AutoPath = ThisWorkbook.Path
     DestOperasyon = AutoPath & "\System Files\Operation\"
 
-    'ÜST YAZI TANIMLARI
+    'ÃœST YAZI TANIMLARI
     SourceUstYaziNormal = AutoPath & "\System Files\System Templates\Report 2 Cover Letter Templates\Informative Cover Letter.docm"
-    'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+    'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
     DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
     DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
     
@@ -4201,7 +4201,7 @@ SiraNoBulundu:
         GoTo Son
     End If
 
-    'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+    'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
     If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
         MkDir DestOpUserFolder
     End If
@@ -4242,7 +4242,7 @@ SiraNoBulundu:
     End If
 
 
-    'PARAF HAZIRLIK ÝÞLEMÝ
+    'PARAF HAZIRLIK Ä°ÅžLEMÄ°
     UserName = Environ("UserProfile")
     UserName = UCase(Right(UserName, 7))
     Set ItemBul = Worksheets(2).Range("DR6:DR1000").Find(What:=UserName, SearchDirection:=xlNext, _
@@ -4264,11 +4264,11 @@ SiraNoBulundu:
         'Close the all Word application
         Call ModuleReport2.OpenWordControl
         
-        'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+        'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
         OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
         Do While OpenKontrolName <> ""
             OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-            If OpenControl = True Then 'Açýksa
+            If OpenControl = True Then 'AÃ§Ä±ksa
     '            On Error Resume Next
     '            Set objWord = GetObject(, "Word.Application")
     '            If objWord Is Nothing Then
@@ -4284,7 +4284,7 @@ SiraNoBulundu:
                 Set objWord = GetObject(, "Word.Application")
                 Set objWord = GetObject(, "Word.Application")
                 objWord.Quit SaveChanges:=True
-                'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+                'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
                 
             End If
             OpenKontrolName = Dir()
@@ -4298,7 +4298,7 @@ SiraNoBulundu:
     '________________________________________
     
         On Error Resume Next
-    '    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+    '    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
         ContSay = 0
         KontrolFile = Dir(DestOpUserFolder & "*.???")
         Do While KontrolFile <> ""
@@ -4310,12 +4310,12 @@ SiraNoBulundu:
         End If
     End If
     
-    'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+    'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
     Set fso = CreateObject("Scripting.FileSystemObject")
     fso.CopyFile (SourceUstYaziNormal), DestOpUserFolder & ReNameUstYaziNormal & ".docm", True
 '________________________________________
 
-    'Oluþturulacak dosyayý aç
+    'OluÅŸturulacak dosyayÄ± aÃ§
     On Error Resume Next
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
@@ -4323,7 +4323,7 @@ SiraNoBulundu:
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
     If objWord Is Nothing Then
-        'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+        'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
         Set objWord = CreateObject("Word.Application")
         objWord.Visible = False
     End If
@@ -4336,24 +4336,24 @@ SiraNoBulundu:
 '________________________________________
 
     'Birim
-    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I")) & " UNIT"
+    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I")) & " UNIT"
     objDoc.Tables(1).Cell(Row:=1, Column:=1).Range.Text = Birimx
     
-    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I"))
-    'Üst yazý tarihi
+    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I"))
+    'Ãœst yazÄ± tarihi
     objDoc.Tables(1).Cell(Row:=1, Column:=2).Range.Text = Birimx & ", " & FormatEnglishDate(Cells(ActiveCell.Row, 83).Value) '(Format(Cells(ActiveCell.Row, 83).Value, "d mmmm yyyy"))
-    'Yazý no
+    'YazÄ± no
     objDoc.Tables(1).Cell(Row:=4, Column:=2).Range.Text = Cells(ActiveCell.Row, 84).Value
-    'Sigorta türü
+    'Sigorta tÃ¼rÃ¼
     Ek2 = Cells(ActiveCell.Row, 81).Value
     Ek2 = Right(Ek2, Len(Ek2) - InStr(Ek2, "/"))
     objDoc.Tables(1).Cell(Row:=7, Column:=2).Range.Text = Ek2
 
     'Muhatap
-    IlBuyukHarf = UCase(Replace(Replace(Cells(ActiveCell.Row, 203).Value, "i", "I"), "ý", "I"))
+    IlBuyukHarf = UCase(Replace(Replace(Cells(ActiveCell.Row, 203).Value, "i", "I"), "Ä±", "I"))
     IlKucukHarf = Cells(ActiveCell.Row, 203).Value
     If Cells(ActiveCell.Row, 204).Value <> "" Then
-        IlceBuyukHarf = UCase(Replace(Replace(Cells(ActiveCell.Row, 204).Value, "i", "I"), "ý", "I"))
+        IlceBuyukHarf = UCase(Replace(Replace(Cells(ActiveCell.Row, 204).Value, "i", "I"), "Ä±", "I"))
         IlceKucukHarf = Cells(ActiveCell.Row, 204).Value
     Else
         IlceBuyukHarf = ""
@@ -4366,23 +4366,23 @@ SiraNoBulundu:
     End If
     
     
-    'YENÝ MUHATAP TEMASI
+    'YENÄ° MUHATAP TEMASI
     
     M2 = False
     M3 = False
     M4 = False
     'TipB = False
     BStr = 10
-    '1. sayfadan sonraki üst bilgi tanýmlarý
+    '1. sayfadan sonraki Ã¼st bilgi tanÄ±mlarÄ±
     ustbilgitarih = (Format(Cells(ActiveCell.Row, 83).Value, "dd.mm.yyyy"))
     ustbilgisayi = Cells(ActiveCell.Row, 84).Value
     
-    '4'lük
+    '4'lÃ¼k
     If Cells(ActiveCell.Row, 200).Value <> "" Then
         If Cells(ActiveCell.Row, 199).Value = "Provincial Directorate B" Or Cells(ActiveCell.Row, 199).Value = "Provincial Directorate C" Or _
-        Cells(ActiveCell.Row, 199).Value = "Provincial Directorate D" Or Cells(ActiveCell.Row, 199).Value = "Provincial Directorate E" Then 'VALÝLÝK
+        Cells(ActiveCell.Row, 199).Value = "Provincial Directorate D" Or Cells(ActiveCell.Row, 199).Value = "Provincial Directorate E" Then 'VALÄ°LÄ°K
             objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = IlBuyukHarf & " PROVINCIAL GOVERNORSHIP"
-            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = Cells(ActiveCell.Row, 199).Value  'UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "ý", "I"))
+            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = Cells(ActiveCell.Row, 199).Value  'UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "Ä±", "I"))
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 200).Value & ")"
             objDoc.Tables(1).Cell(Row:=BStr + 3, Column:=1).Range.Text = Bolum3
             objDoc.Tables(1).Cell(Row:=BStr + 3, Column:=1).Range.Font.Underline = wdUnderlineSingle
@@ -4392,7 +4392,7 @@ SiraNoBulundu:
         ElseIf Cells(ActiveCell.Row, 199).Value = "District Directorate B" Or Cells(ActiveCell.Row, 199).Value = "District Directorate C" Or _
         Cells(ActiveCell.Row, 199).Value = "District Directorate D" Or Cells(ActiveCell.Row, 199).Value = "District Directorate E" Then 'KAYMAKAMLIK
             objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = IlceBuyukHarf & " DISTRICT GOVERNORSHIP"
-            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = Cells(ActiveCell.Row, 199).Value 'UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "ý", "I"))
+            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = Cells(ActiveCell.Row, 199).Value 'UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "Ä±", "I"))
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 200).Value & ")"
             objDoc.Tables(1).Cell(Row:=BStr + 3, Column:=1).Range.Text = Bolum3
             objDoc.Tables(1).Cell(Row:=BStr + 3, Column:=1).Range.Font.Underline = wdUnderlineSingle
@@ -4400,16 +4400,16 @@ SiraNoBulundu:
             
             ustbilgimuhatap = IlceKucukHarf & " District Governorship " & Cells(ActiveCell.Row, 199).Value
         ElseIf InStr(Cells(ActiveCell.Row, 199).Value, "General Directorate") <> 0 Or InStr(Cells(ActiveCell.Row, 199).Value, "Regional Directorate") <> 0 Then
-            objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "ý", "I"))
-            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = Cells(ActiveCell.Row, 199).Value 'UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "ý", "I"))
+            objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "Ä±", "I"))
+            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = Cells(ActiveCell.Row, 199).Value 'UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "Ä±", "I"))
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 200).Value & ")"
             objDoc.Tables(1).Cell(Row:=BStr + 3, Column:=1).Range.Text = Bolum3
             objDoc.Tables(1).Cell(Row:=BStr + 3, Column:=1).Range.Font.Underline = wdUnderlineSingle
             M4 = True
             
             ustbilgimuhatap = WorksheetFunction.Proper(ThisWorkbook.Worksheets(2).Cells(6, 111).Value) & " " & Cells(ActiveCell.Row, 199).Value
-        Else 'YARGI 3'lük
-            Bolum1 = UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "ý", "I"))
+        Else 'YARGI 3'lÃ¼k
+            Bolum1 = UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "Ä±", "I"))
             If InStr(Bolum1, "X.X. ") > 0 Then
                 objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = Mid(Bolum1, 6, Len(Bolum1))
                 objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 200).Value & ")"
@@ -4429,12 +4429,12 @@ SiraNoBulundu:
             End If
         End If
     End If
-    '3'lük
+    '3'lÃ¼k
     If Cells(ActiveCell.Row, 200).Value = "" Then
         If Cells(ActiveCell.Row, 199).Value = "Provincial Directorate B" Or Cells(ActiveCell.Row, 199).Value = "Provincial Directorate C" Or _
-        Cells(ActiveCell.Row, 199).Value = "Provincial Directorate D" Or Cells(ActiveCell.Row, 199).Value = "Provincial Directorate E" Then 'VALÝLÝK
+        Cells(ActiveCell.Row, 199).Value = "Provincial Directorate D" Or Cells(ActiveCell.Row, 199).Value = "Provincial Directorate E" Then 'VALÄ°LÄ°K
             objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = IlBuyukHarf & " PROVINCIAL GOVERNORSHIP"
-            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 199).Value & ")" 'UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "ý", "I"))
+            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 199).Value & ")" 'UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "Ä±", "I"))
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Text = Bolum3
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Font.Underline = wdUnderlineSingle
             M3 = True
@@ -4443,22 +4443,22 @@ SiraNoBulundu:
         ElseIf Cells(ActiveCell.Row, 199).Value = "District Directorate B" Or Cells(ActiveCell.Row, 199).Value = "District Directorate C" Or _
         Cells(ActiveCell.Row, 199).Value = "District Directorate D" Or Cells(ActiveCell.Row, 199).Value = "District Directorate E" Then
             objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = IlceBuyukHarf & " DISTRICT GOVERNORSHIP"
-            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 199).Value & ")" 'UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "ý", "I"))
+            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 199).Value & ")" 'UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "Ä±", "I"))
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Text = Bolum3
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Font.Underline = wdUnderlineSingle
             M3 = True
             
             ustbilgimuhatap = IlceKucukHarf & " District Governorship " & Cells(ActiveCell.Row, 199).Value
         ElseIf InStr(Cells(ActiveCell.Row, 199).Value, "General Directorate") <> 0 Or InStr(Cells(ActiveCell.Row, 199).Value, "Regional Directorate") <> 0 Then
-            objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "ý", "I"))
-            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 199).Value & ")" 'UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "ý", "I"))
+            objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "Ä±", "I"))
+            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 199).Value & ")" 'UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "Ä±", "I"))
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Text = Bolum3
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Font.Underline = wdUnderlineSingle
             M3 = True
             
             ustbilgimuhatap = WorksheetFunction.Proper(ThisWorkbook.Worksheets(2).Cells(6, 111).Value) & " " & Cells(ActiveCell.Row, 199).Value
         Else 'YARGI 2'lik
-            Bolum1 = UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "ý", "I"))
+            Bolum1 = UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "Ä±", "I"))
             If InStr(Bolum1, "X.X. ") > 0 Then
                 objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = Mid(Bolum1, 6, Len(Bolum1))
                 objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = Bolum3
@@ -4477,7 +4477,7 @@ SiraNoBulundu:
         End If
     End If
     
-    'Ýlgi tema
+    'Ä°lgi tema
     If Cells(IlkSira, 33).Value = "Provincial Directorate B" Then
         If Cells(IlkSira, 34).Value <> "" Then
             GelenTema = Cells(IlkSira, 25).Value & " Provincial Governorship Provincial Directorate B " & Cells(IlkSira, 34).Value
@@ -4549,7 +4549,7 @@ SiraNoBulundu:
     End If
 
 
-    'Ýlgi
+    'Ä°lgi
     Bolum1 = "Delivered to us on "
     Bolum2 = ", with a letter dated "
     Bolum3 = " and reference number "
@@ -4558,12 +4558,12 @@ SiraNoBulundu:
     If Cells(ActiveCell.Row, 33).Value = Cells(ActiveCell.Row, 199).Value And _
     Cells(ActiveCell.Row, 34).Value = Cells(ActiveCell.Row, 200).Value And _
     Cells(ActiveCell.Row, 25).Value = Cells(ActiveCell.Row, 203).Value Then
-        ' Gelen ve giden birim aynýysa
+        ' Gelen ve giden birim aynÄ±ysa
         Bolum5 = "a) " & Bolum1 & Cells(ActiveCell.Row, 36).Value & Bolum2 & _
             Cells(ActiveCell.Row, 28).Value & Bolum3 & _
             Cells(ActiveCell.Row, 29).Value & Bolum4
     Else
-        ' Gelen ve giden birim farklýysa
+        ' Gelen ve giden birim farklÄ±ysa
         Bolum5 = "a) " & Bolum1 & Cells(ActiveCell.Row, 36).Value & _
                     " from " & GelenTema & Bolum2 & _
                     Cells(IlkSira, 28).Value & Bolum3 & _
@@ -4574,7 +4574,7 @@ SiraNoBulundu:
     'ilgileri ekle
     objDoc.Tables(1).Cell(Row:=15, Column:=3).Range.Text = Bolum5 & vbNewLine & Bolum6
 
-    'Gövde metni
+    'GÃ¶vde metni
     AdetTakip = 0
     NomTakip = 0
     TipATakip = ""
@@ -4586,7 +4586,7 @@ SiraNoBulundu:
             If y = 1 Then
                 AdetTakip = Cells(i, 52).Value
                 TipATakip = Cells(i, 46).Value
-                TipATakip = Right(TipATakip, Len(TipATakip) - InStr(TipATakip, "-")) 'Bu karakterin solunda bir boþluk oluþuyor.
+                TipATakip = Right(TipATakip, Len(TipATakip) - InStr(TipATakip, "-")) 'Bu karakterin solunda bir boÅŸluk oluÅŸuyor.
                 NomTakip = Cells(i, 49).Value
                 If AdetTakip > 1 Then
                     Ek1 = AdetTakip & " pieces of " & NomTakip & TipATakip
@@ -4618,7 +4618,7 @@ SiraNoBulundu:
     
     ' Report(s) control
     Dim ReportList() As String
-    ' Rapor numaralarýný diziye al
+    ' Rapor numaralarÄ±nÄ± diziye al
     y = 0
     For i = IlkSira To SonSira
         If Cells(i, 14).Value <> "" Then
@@ -4628,7 +4628,7 @@ SiraNoBulundu:
         End If
     Next i
     
-    ' Listeyi biçimlendir
+    ' Listeyi biÃ§imlendir
     Select Case y
         Case 1
             Ek3 = ReportList(1)
@@ -4669,7 +4669,7 @@ SiraNoBulundu:
     ' Construct the text
     Bolum1 = Bolum1 & Ek5 & ", "
     Bolum2 = Bolum1 & "dated " & Cells(IlkSira, 68).Value & " and numbered " & Ek3 & ". " & "The corresponding " & Ek4 & " " & Bolum5 & " been sent to your office."
-    Bolum3 = "Furthermore, the Type A " & Ek2 & ", found to be invalid following the examination, " & Ek7 & " been sent to Organization A – XXX Directorate as an enclosure to our letter referenced in (b), in order to determine xxxxxx xxxxxx xxxxxx / xxxxxxxxx xxxxxxx xxx xxxxxxxxx xxxxx xxxxx xxxxxx xxxxxx xxxxxx xxxxxx / xxxxxx xxxxxx and to enable the preparation of the related " & Ek6 & "." & " " & _
+    Bolum3 = "Furthermore, the Type A " & Ek2 & ", found to be invalid following the examination, " & Ek7 & " been sent to Organization A â€“ XXX Directorate as an enclosure to our letter referenced in (b), in order to determine xxxxxx xxxxxx xxxxxx / xxxxxxxxx xxxxxxx xxx xxxxxxxxx xxxxx xxxxx xxxxxx xxxxxx xxxxxx xxxxxx / xxxxxx xxxxxx and to enable the preparation of the related " & Ek6 & "." & " " & _
     "Upon receiving their response, " & Ek6 & " will be completed, and both the " & Ek2 & " and the corresponding " & Ek4 & " will be forwarded to your office accordingly."
     Bolum4 = "Respectfully submitted for your information."
     objDoc.Tables(2).Cell(Row:=1, Column:=1).Range.Text = Chr(9) & Bolum2
@@ -4685,15 +4685,15 @@ SiraNoBulundu:
     'Ekler
     objDoc.Tables(3).Cell(Row:=8, Column:=1).Range.Text = "Attachment:"
     
-    'Ýlgi (a) yazýnýz fotokopisi
+    'Ä°lgi (a) yazÄ±nÄ±z fotokopisi
     If Cells(IlkSira, 206).Value > 1 Then objDoc.Tables(3).Cell(Row:=8, Column:=2).Range.Text = " 1) Photocopy of Your Letter Referenced in (a) (" & Cells(IlkSira, 206).Value & " pages)"
     If Cells(IlkSira, 206).Value < 2 Then objDoc.Tables(3).Cell(Row:=8, Column:=2).Range.Text = " 1) Photocopy of Your Letter Referenced in (a) (" & Cells(IlkSira, 206).Value & " page)"
     
-    'Ýlgi (b) yazýmýz fotokopisi
+    'Ä°lgi (b) yazÄ±mÄ±z fotokopisi
     If Cells(IlkSira, 221).Value > 1 Then objDoc.Tables(3).Cell(Row:=9, Column:=2).Range.Text = " 2) Photocopy of Our Letter Referenced in (b) (" & Cells(IlkSira, 221).Value & " pages)"
     If Cells(IlkSira, 221).Value < 2 Then objDoc.Tables(3).Cell(Row:=9, Column:=2).Range.Text = " 2) Photocopy of Our Letter Referenced in (b) (" & Cells(IlkSira, 221).Value & " page)"
 
-    x = Application.Sum(Range(Cells(IlkSira, 219), Cells(SonSira, 219)))  'Rapor 2.1 toplam sayfa sayýsý
+    x = Application.Sum(Range(Cells(IlkSira, 219), Cells(SonSira, 219)))  'Rapor 2.1 toplam sayfa sayÄ±sÄ±
     If y = 1 Then
         If x > 1 Then objDoc.Tables(3).Cell(Row:=10, Column:=2).Range.Text = " 3) Report 2.1 (" & x & " pages)"
         If x < 2 Then objDoc.Tables(3).Cell(Row:=10, Column:=2).Range.Text = " 3) Report 2.1 (" & x & " page)"
@@ -4702,17 +4702,17 @@ SiraNoBulundu:
     End If
   
         
-    '__________________________DÝNAMÝK SAYFA YAPISI
+    '__________________________DÄ°NAMÄ°K SAYFA YAPISI
 
 
-    'Ýlgi ve gövde metninin kaç satýrdan oluþtuðu bilgisinin elde edilmesinde kullanýlýyor.
+    'Ä°lgi ve gÃ¶vde metninin kaÃ§ satÄ±rdan oluÅŸtuÄŸu bilgisinin elde edilmesinde kullanÄ±lÄ±yor.
     Set IlgiRng = objDoc.Tables(1).Cell(Row:=15, Column:=3).Range
     Set Govde1Rng = objDoc.Tables(2).Cell(Row:=1, Column:=1).Range
     Set Govde2Rng = objDoc.Tables(2).Cell(Row:=2, Column:=1).Range
     
     IlgiStrSay = Govde1Rng.Information(wdFirstCharacterLineNumber) - IlgiRng.Information(wdFirstCharacterLineNumber) - 1
     Govde1StrSay = Govde2Rng.Information(wdFirstCharacterLineNumber) - Govde1Rng.Information(wdFirstCharacterLineNumber)
-    'MsgBox "Ýlgi Satýr Sayýsý: " & IlgiStrSay & vbNewLine & vbNewLine & "Gövde 1 Satýr Sayýsý: " & Govde1StrSay
+    'MsgBox "Ä°lgi SatÄ±r SayÄ±sÄ±: " & IlgiStrSay & vbNewLine & vbNewLine & "GÃ¶vde 1 SatÄ±r SayÄ±sÄ±: " & Govde1StrSay
     IlgiFarkSay = IlgiStrSay - 1
     'Govde1FarkSay = Govde1StrSay - 2
     CokluSayfa = 0
@@ -4720,10 +4720,10 @@ SiraNoBulundu:
     Govde1FarkSay = Govde1StrSay - 5
     'MsgBox IlgiFarkSay + Govde1FarkSay
     
-    'Dinamik sayfa düzeni
+    'Dinamik sayfa dÃ¼zeni
     'Delete rows after attach.
     For i = 1 To 2
-        objDoc.Tables(3).Rows(11).Delete 'Ek sonrasý
+        objDoc.Tables(3).Rows(11).Delete 'Ek sonrasÄ±
     Next i
     
     If M4 = True Then
@@ -4749,23 +4749,23 @@ SiraNoBulundu:
             If IlgiFarkSay + Govde1FarkSay > 8 Then
                 For i = 9 To IlgiFarkSay + Govde1FarkSay
                     If i = 9 Then
-                        objDoc.Tables(3).Rows(6).Delete 'Ek öncesi
+                        objDoc.Tables(3).Rows(6).Delete 'Ek Ã¶ncesi
                     ElseIf i = 10 Then
-                        objDoc.Tables(3).Rows(6).Delete 'Ek öncesi
+                        objDoc.Tables(3).Rows(6).Delete 'Ek Ã¶ncesi
                     ElseIf i = 11 Then
-                        objDoc.Tables(3).Rows(1).Delete 'Ýmza öncesi
+                        objDoc.Tables(3).Rows(1).Delete 'Ä°mza Ã¶ncesi
                     ElseIf i = 12 Then
-                        objDoc.Tables(3).Rows(1).Delete 'Ýmza öncesi
+                        objDoc.Tables(3).Rows(1).Delete 'Ä°mza Ã¶ncesi
                     ElseIf i = 13 Then
-                        objDoc.Tables(1).Rows(8).Delete 'Muhatap öncesi
+                        objDoc.Tables(1).Rows(8).Delete 'Muhatap Ã¶ncesi
                     ElseIf i = 14 Then
-                        objDoc.Tables(1).Rows(8).Delete 'Muhatap öncesi
+                        objDoc.Tables(1).Rows(8).Delete 'Muhatap Ã¶ncesi
                     End If
                 Next i
             Else
                 If (IlgiFarkSay + Govde1FarkSay) < 8 Then
                     For i = 1 To 8 - (IlgiFarkSay + Govde1FarkSay)
-                        'Boþ satýr ekle
+                        'BoÅŸ satÄ±r ekle
                         With objDoc.Tables(3)
                             .Rows.Add BeforeRow:=objDoc.Tables(3).Rows(8)
                         End With
@@ -4777,7 +4777,7 @@ SiraNoBulundu:
         End If
     ElseIf M3 = True Then
         For i = 1 To 1
-            objDoc.Tables(1).Rows(13).Delete 'ilgi öncesi
+            objDoc.Tables(1).Rows(13).Delete 'ilgi Ã¶ncesi
         Next i
 
         If IlgiFarkSay + Govde1FarkSay < 16 Then
@@ -4786,23 +4786,23 @@ SiraNoBulundu:
             If IlgiFarkSay + Govde1FarkSay > 8 Then
                 For i = 9 To IlgiFarkSay + Govde1FarkSay
                     If i = 9 Then
-                        objDoc.Tables(3).Rows(6).Delete 'Ek öncesi
+                        objDoc.Tables(3).Rows(6).Delete 'Ek Ã¶ncesi
                     ElseIf i = 10 Then
-                        objDoc.Tables(3).Rows(6).Delete 'Ek öncesi
+                        objDoc.Tables(3).Rows(6).Delete 'Ek Ã¶ncesi
                     ElseIf i = 11 Then
-                        objDoc.Tables(3).Rows(1).Delete 'Ýmza öncesi
+                        objDoc.Tables(3).Rows(1).Delete 'Ä°mza Ã¶ncesi
                     ElseIf i = 12 Then
-                        objDoc.Tables(3).Rows(1).Delete 'Ýmza öncesi
+                        objDoc.Tables(3).Rows(1).Delete 'Ä°mza Ã¶ncesi
                     ElseIf i = 13 Then
-                        objDoc.Tables(1).Rows(8).Delete 'Muhatap öncesi
+                        objDoc.Tables(1).Rows(8).Delete 'Muhatap Ã¶ncesi
                     ElseIf i = 14 Then
-                        objDoc.Tables(1).Rows(8).Delete 'Muhatap öncesi
+                        objDoc.Tables(1).Rows(8).Delete 'Muhatap Ã¶ncesi
                     End If
                 Next i
             Else
                 If (IlgiFarkSay + Govde1FarkSay) < 8 Then
                     For i = 1 To 8 - (IlgiFarkSay + Govde1FarkSay)
-                        'Boþ satýr ekle
+                        'BoÅŸ satÄ±r ekle
                         With objDoc.Tables(3)
                             .Rows.Add BeforeRow:=objDoc.Tables(3).Rows(8)
                         End With
@@ -4814,7 +4814,7 @@ SiraNoBulundu:
         End If
     ElseIf M2 = True Then
         For i = 1 To 2
-            objDoc.Tables(1).Rows(13).Delete 'ilgi öncesi
+            objDoc.Tables(1).Rows(13).Delete 'ilgi Ã¶ncesi
         Next i
         
         Govde1FarkSay = Govde1FarkSay + 10
@@ -4823,23 +4823,23 @@ SiraNoBulundu:
             If IlgiFarkSay + Govde1FarkSay > 8 Then
                 For i = 9 To IlgiFarkSay + Govde1FarkSay
                     If i = 9 Then
-                        objDoc.Tables(3).Rows(6).Delete 'Ek öncesi
+                        objDoc.Tables(3).Rows(6).Delete 'Ek Ã¶ncesi
                     ElseIf i = 10 Then
-                        objDoc.Tables(3).Rows(6).Delete 'Ek öncesi
+                        objDoc.Tables(3).Rows(6).Delete 'Ek Ã¶ncesi
                     ElseIf i = 11 Then
-                        objDoc.Tables(3).Rows(1).Delete 'Ýmza öncesi
+                        objDoc.Tables(3).Rows(1).Delete 'Ä°mza Ã¶ncesi
                     ElseIf i = 12 Then
-                        objDoc.Tables(3).Rows(1).Delete 'Ýmza öncesi
+                        objDoc.Tables(3).Rows(1).Delete 'Ä°mza Ã¶ncesi
                     ElseIf i = 13 Then
-                        objDoc.Tables(1).Rows(8).Delete 'Muhatap öncesi
+                        objDoc.Tables(1).Rows(8).Delete 'Muhatap Ã¶ncesi
                     ElseIf i = 14 Then
-                        objDoc.Tables(1).Rows(8).Delete 'Muhatap öncesi
+                        objDoc.Tables(1).Rows(8).Delete 'Muhatap Ã¶ncesi
                     End If
                 Next i
             Else
                 If (IlgiFarkSay + Govde1FarkSay) < 8 Then
                     For i = 1 To 8 - (IlgiFarkSay + Govde1FarkSay)
-                        'Boþ satýr ekle
+                        'BoÅŸ satÄ±r ekle
                         With objDoc.Tables(3)
                             .Rows.Add BeforeRow:=objDoc.Tables(3).Rows(8)
                         End With
@@ -4875,7 +4875,7 @@ SiraNoBulundu:
         objDoc.ActiveWindow.ActivePane.View.SeekView = wdSeekMainDocument
     'End If
 
-    'PARAF EKLEME ÝÞLEMÝ
+    'PARAF EKLEME Ä°ÅžLEMÄ°
     objDoc.Sections(1).Footers(wdHeaderFooterFirstPage).Range.Tables(1).Cell(Row:=1, Column:=2).Range.Text = AdSoyadParaf & vbNewLine & _
                                                                                        UnvanParaf & vbNewLine & _
                                                                                        TelParaf
@@ -4884,9 +4884,9 @@ SiraNoBulundu:
                                                                                        TelParaf
   
 Tekrarla:
-    'Sayfa sayýsý kaydet komutuna baðlandý.
+    'Sayfa sayÄ±sÄ± kaydet komutuna baÄŸlandÄ±.
     objDoc.Save
-    'Sayfayý text dosyasýndan çek
+    'SayfayÄ± text dosyasÄ±ndan Ã§ek
     TxtFileUstYazi = DestOpUserFolder & "Cover Letter Page Count.txt"
     #If UseADO Then
         Const adReadLine = -2&
@@ -4909,9 +4909,9 @@ Tekrarla:
             End With
         End With
     #End If
-    'MsgBox "Üst Yazý: " & TotalSayfaUstYazi
+    'MsgBox "Ãœst YazÄ±: " & TotalSayfaUstYazi
 
-    'Üst Yazý sayfa sayýsý
+    'Ãœst YazÄ± sayfa sayÄ±sÄ±
     Cells(ActiveCell.Row, 222).Value = TotalSayfaUstYazi
 
     objWord.Visible = True
@@ -4973,7 +4973,7 @@ Dim TxtFileUstYazi As String, TotalSayfaUstYazi As String
 Dim Birimx As String, UserName As String, SourceTutanak1Farkli As String
 
 
-'TUTANAK1 için prosedürü baþlat
+'TUTANAK1 iÃ§in prosedÃ¼rÃ¼ baÅŸlat
 'If ActiveCell.Column = 6 Then
 '    Application.ScreenUpdating = False
     Application.DisplayAlerts = False
@@ -4985,7 +4985,7 @@ Dim Birimx As String, UserName As String, SourceTutanak1Farkli As String
     'TUTANAK1 TANIMLARI
     SourceTutanak1Normal = AutoPath & "\System Files\System Templates\Statement 1 Templates\Statement 1.docm"
     
-    'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+    'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
     DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
     DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
     
@@ -5007,7 +5007,7 @@ Dim Birimx As String, UserName As String, SourceTutanak1Farkli As String
         GoTo Son
     End If
 
-    'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+    'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
     If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
         MkDir DestOpUserFolder
     End If
@@ -5075,11 +5075,11 @@ Dim Birimx As String, UserName As String, SourceTutanak1Farkli As String
     'Close the all Word application
     Call ModuleReport2.OpenWordControl
     
-    'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+    'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
     OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
     Do While OpenKontrolName <> ""
         OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-        If OpenControl = True Then 'Açýksa
+        If OpenControl = True Then 'AÃ§Ä±ksa
             On Error Resume Next
             Set objWord = GetObject(, "Word.Application")
             Set objWord = GetObject(, "Word.Application")
@@ -5087,7 +5087,7 @@ Dim Birimx As String, UserName As String, SourceTutanak1Farkli As String
             Set objWord = GetObject(, "Word.Application")
             Set objWord = GetObject(, "Word.Application")
             objWord.Quit SaveChanges:=True
-            'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+            'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
 
         End If
         OpenKontrolName = Dir()
@@ -5101,7 +5101,7 @@ Dim Birimx As String, UserName As String, SourceTutanak1Farkli As String
 '________________________________________
 
     On Error Resume Next
-'    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
     ContSay = 0
     KontrolFile = Dir(DestOpUserFolder & "*.???")
     Do While KontrolFile <> ""
@@ -5112,12 +5112,12 @@ Dim Birimx As String, UserName As String, SourceTutanak1Farkli As String
         Kill DestOpUserFolder & "*.???"
     End If
     
-    'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+    'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
     Set fso = CreateObject("Scripting.FileSystemObject")
     fso.CopyFile (SourceTutanak1Normal), DestOpUserFolder & ReNameTutanak1 & ".docm", True
 '_____________________________________
 
-    'Oluþturulacak dosyayý aç
+    'OluÅŸturulacak dosyayÄ± aÃ§
     On Error Resume Next
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
@@ -5125,7 +5125,7 @@ Dim Birimx As String, UserName As String, SourceTutanak1Farkli As String
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
     If objWord Is Nothing Then
-        'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+        'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
         Set objWord = CreateObject("Word.Application")
         objWord.Visible = False
     End If
@@ -5137,13 +5137,13 @@ Dim Birimx As String, UserName As String, SourceTutanak1Farkli As String
     Set objDoc = GetObject(DestOpUserFolder & ReNameTutanak1 & ".docm")
 '________________________________________
     
-    'Normal tutanak1 tutanaðý
+    'Normal tutanak1 tutanaÄŸÄ±
     'Birim
-    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I")) & " UNIT"
+    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I")) & " UNIT"
     objDoc.Tables(1).Cell(Row:=1, Column:=1).Range.Text = Birimx
     'Tutanak1 tarihi
     objDoc.Tables(1).Cell(Row:=4, Column:=3).Range.Text = Cells(ActiveCell.Row, 190).Value
-    'Geliþ tarihi
+    'GeliÅŸ tarihi
     objDoc.Tables(1).Cell(Row:=5, Column:=3).Range.Text = Cells(ActiveCell.Row, 191).Value
     'By Hand/By Mail
     If Cells(ActiveCell.Row, 196).Value = "By Hand" Then
@@ -5151,7 +5151,7 @@ Dim Birimx As String, UserName As String, SourceTutanak1Farkli As String
     ElseIf Cells(ActiveCell.Row, 196).Value = "By Mail" Then
         objDoc.CheckPosta.Value = True
     End If
-    'Öðe çýktý/çýkmadý/vb.
+    'Ã–ÄŸe Ã§Ä±ktÄ±/Ã§Ä±kmadÄ±/vb.
     If Cells(ActiveCell.Row, 192).Value = "a. Content as Expected" Then
         objDoc.CheckTam.Value = True
     ElseIf Cells(ActiveCell.Row, 192).Value = "b. Content Empty" Then
@@ -5159,7 +5159,7 @@ Dim Birimx As String, UserName As String, SourceTutanak1Farkli As String
     ElseIf Cells(ActiveCell.Row, 192).Value = "c. Only Specific Content Available" Then
         objDoc.CheckEksik.Value = True
     End If
-    'Türkçe karakterleri düzelt
+    'TÃ¼rkÃ§e karakterleri dÃ¼zelt
     objDoc.CheckElden.Enabled = False
     objDoc.CheckElden.Enabled = True
     objDoc.CheckPosta.Enabled = False
@@ -5171,16 +5171,16 @@ Dim Birimx As String, UserName As String, SourceTutanak1Farkli As String
     objDoc.CheckEksik.Enabled = False
     objDoc.CheckEksik.Enabled = True
 
-    'Gönderen
+    'GÃ¶nderen
     GelenTema = "ORGANIZATION A XXX Directorate"
     objDoc.Tables(1).Cell(Row:=9, Column:=3).Range.Text = GelenTema
     
-    'Gönderenin adresi
+    'GÃ¶nderenin adresi
     objDoc.Tables(1).Cell(Row:=10, Column:=3).Range.Text = "Xxxxxxx/Xxxxxxx"
-    'Gelen Yazýnýn Tarih ve Sayýsý (XXXMud'den gelen üst yazý)
+    'Gelen YazÄ±nÄ±n Tarih ve SayÄ±sÄ± (XXXMud'den gelen Ã¼st yazÄ±)
     objDoc.Tables(1).Cell(Row:=11, Column:=3).Range.Text = Cells(ActiveCell.Row, 193).Value
     objDoc.Tables(1).Cell(Row:=11, Column:=5).Range.Text = Cells(ActiveCell.Row, 194).Value
-    'Gönderinin Eki
+    'GÃ¶nderinin Eki
     If Cells(ActiveCell.Row, 195).Value = "Package A" Then
         objDoc.CheckZarf.Value = True
     ElseIf Cells(ActiveCell.Row, 195).Value = "Package B" Then
@@ -5207,8 +5207,8 @@ Dim Birimx As String, UserName As String, SourceTutanak1Farkli As String
     End If
     
     
-    If Cells(IlkSira, 187).Value = "All" Then 'TÜMÜ gönderilmiþse
-        'Tabloya satýr ekle
+    If Cells(IlkSira, 187).Value = "All" Then 'TÃœMÃœ gÃ¶nderilmiÅŸse
+        'Tabloya satÄ±r ekle
         If SonSira - IlkSira > 0 Then
             With objDoc.Tables(2)
                 For i = IlkSira To SonSira - 1
@@ -5219,21 +5219,21 @@ Dim Birimx As String, UserName As String, SourceTutanak1Farkli As String
         'Tabloyu doldur.
         x = 0
         For i = 2 To SonSira - IlkSira + 2
-            objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sýra no
-            objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(IlkSira + i - 2, 46).Value 'Öðe türü
-            objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(IlkSira + i - 2, 49).Value 'Öðe deðeri
+            objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sÄ±ra no
+            objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(IlkSira + i - 2, 46).Value 'Ã–ÄŸe tÃ¼rÃ¼
+            objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(IlkSira + i - 2, 49).Value 'Ã–ÄŸe deÄŸeri
             objDoc.Tables(2).Cell(Row:=i, Column:=4).Range.Text = Cells(IlkSira + i - 2, 52).Value 'Adet
             If Cells(IlkSira + i - 2, 55).Value = "Dispatch List" Then
                 x = x + 1
-                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Attachment to Statement 1" '"Listed in the Dispatch List" 'Öðe ID No
+                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Attachment to Statement 1" '"Listed in the Dispatch List" 'Ã–ÄŸe ID No
             Else
-                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(IlkSira + i - 2, 55).Value 'Öðe ID No
+                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(IlkSira + i - 2, 55).Value 'Ã–ÄŸe ID No
             End If
-            objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satýra yaz.)
-            objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(IlkSira + i - 2, 58).Value 'Açýklama
+            objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satÄ±ra yaz.)
+            objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(IlkSira + i - 2, 58).Value 'AÃ§Ä±klama
         Next i
-    ElseIf Cells(IlkSira, 187).Value = "Technique A" Then 'SADECE Technique A gönderilmiþse
-        'Tabloya satýr ekle
+    ElseIf Cells(IlkSira, 187).Value = "Technique A" Then 'SADECE Technique A gÃ¶nderilmiÅŸse
+        'Tabloya satÄ±r ekle
         y = 0
         If SonSira - IlkSira > 0 Then
             For i = IlkSira To SonSira
@@ -5255,18 +5255,18 @@ Dim Birimx As String, UserName As String, SourceTutanak1Farkli As String
         For j = IlkSira To SonSira
             If Cells(j, 62).Value = "invalid" And Left(Cells(j, 63).Value, 11) = "Technique A" Then
                 i = i + 1
-                objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sýra no
-                objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(j, 46).Value 'Öðe türü
-                objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(j, 49).Value 'Öðe deðeri
+                objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sÄ±ra no
+                objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(j, 46).Value 'Ã–ÄŸe tÃ¼rÃ¼
+                objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(j, 49).Value 'Ã–ÄŸe deÄŸeri
                 objDoc.Tables(2).Cell(Row:=i, Column:=4).Range.Text = Cells(j, 52).Value 'Adet
                 If Cells(j, 55).Value = "Dispatch List" Then
                     x = x + 1
-                    objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Attachment to Statement 1" '"Listed in the Dispatch List" 'Öðe ID No
+                    objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Attachment to Statement 1" '"Listed in the Dispatch List" 'Ã–ÄŸe ID No
                 Else
-                    objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(j, 55).Value 'Öðe ID No
+                    objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(j, 55).Value 'Ã–ÄŸe ID No
                 End If
-                objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satýra yaz.)
-                objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(j, 58).Value 'Açýklama
+                objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satÄ±ra yaz.)
+                objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(j, 58).Value 'AÃ§Ä±klama
             End If
         Next j
     End If
@@ -5286,7 +5286,7 @@ Dim Birimx As String, UserName As String, SourceTutanak1Farkli As String
     'Alt bilgi ekle
     objDoc.Sections(1).Footers(wdHeaderFooterPrimary).Range.Tables(1).Cell(Row:=1, Column:=1).Range.Text = ReNameTutanak1
 
-    'Ýmza boþluðunu sayfaya sýðdýrmak için düzenle
+    'Ä°mza boÅŸluÄŸunu sayfaya sÄ±ÄŸdÄ±rmak iÃ§in dÃ¼zenle
     If x > 9 And x < 14 Then
         For i = 1 To x - 9
             If i = 1 Then
@@ -5310,11 +5310,11 @@ Dim Birimx As String, UserName As String, SourceTutanak1Farkli As String
         'Nothing
     End If
     
-    'Sayfa sayýsý kaydet komutuna baðlandý.
+    'Sayfa sayÄ±sÄ± kaydet komutuna baÄŸlandÄ±.
 '    objDoc.Close SaveChanges:=True
 '    objWord.Quit
     objDoc.Save
-    'Sayfayý text dosyasýndan çek
+    'SayfayÄ± text dosyasÄ±ndan Ã§ek
     TxtFileTutanak1 = DestOpUserFolder & "Statement 1 Page Count.txt"
     #If UseADO Then
         Const adReadLine = -2&
@@ -5339,7 +5339,7 @@ Dim Birimx As String, UserName As String, SourceTutanak1Farkli As String
     #End If
     'MsgBox "Tutanak1: " & TotalSayfaTutanak1
     
-    'Tutanak1 ve Döküm sayfa sayýsý
+    'Tutanak1 ve DÃ¶kÃ¼m sayfa sayÄ±sÄ±
     Cells(ActiveCell.Row, 223).Value = TotalSayfaTutanak1
 
     'Nesneleri temizle
@@ -5387,13 +5387,13 @@ Dim ReNameUstYaziNormal As String
 Dim TxtFileUstYazi As String, TotalSayfaUstYazi As String
 Dim Birimx As String, UserName As String
 
-'TUTANAK2 için prosedürü baþlat
+'TUTANAK2 iÃ§in prosedÃ¼rÃ¼ baÅŸlat
 'If ActiveCell.Column = 8 Then
 '    Application.ScreenUpdating = False
     Application.DisplayAlerts = False
     'Application.EnableEvents = False
 
-    'Dokümanlarýn oluþturulmasýna soldan saða doðru bir kontrol mekanizmasý kur.
+    'DokÃ¼manlarÄ±n oluÅŸturulmasÄ±na soldan saÄŸa doÄŸru bir kontrol mekanizmasÄ± kur.
     j = ActiveCell.Row
     For i = ActiveCell.Row To 7 Step -1
         If Cells(i, 5).Value <> "" Then
@@ -5465,7 +5465,7 @@ SiraNoBulundu:
     'TUTANAK2 TANIMLARI
     SourceTutanak2Normal = AutoPath & "\System Files\System Templates\Statement 2 Template\Statement 2.docm"
 
-    'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+    'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
     DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
     DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
     
@@ -5487,7 +5487,7 @@ SiraNoBulundu:
         GoTo Son
     End If
     
-    'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+    'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
     If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
         MkDir DestOpUserFolder
     End If
@@ -5501,11 +5501,11 @@ SiraNoBulundu:
         'Close the all Word application
         Call ModuleReport2.OpenWordControl
         
-        'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+        'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
         OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
         Do While OpenKontrolName <> ""
             OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-            If OpenControl = True Then 'Açýksa
+            If OpenControl = True Then 'AÃ§Ä±ksa
                 On Error Resume Next
                 Set objWord = GetObject(, "Word.Application")
                 Set objWord = GetObject(, "Word.Application")
@@ -5513,7 +5513,7 @@ SiraNoBulundu:
                 Set objWord = GetObject(, "Word.Application")
                 Set objWord = GetObject(, "Word.Application")
                 objWord.Quit SaveChanges:=True
-                'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+                'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
                 
             End If
             OpenKontrolName = Dir()
@@ -5526,7 +5526,7 @@ SiraNoBulundu:
     '________________________________________
     
         On Error Resume Next
-    '    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+    '    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
         ContSay = 0
         KontrolFile = Dir(DestOpUserFolder & "*.???")
         Do While KontrolFile <> ""
@@ -5538,12 +5538,12 @@ SiraNoBulundu:
         End If
     'End If
     
-    'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+    'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
     Set fso = CreateObject("Scripting.FileSystemObject")
     fso.CopyFile (SourceTutanak2Normal), DestOpUserFolder & ReNameTutanak2Normal & ".docm", True
 '________________________________________
 
-    'Oluþturulacak dosyayý aç
+    'OluÅŸturulacak dosyayÄ± aÃ§
     On Error Resume Next
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
@@ -5551,7 +5551,7 @@ SiraNoBulundu:
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
     If objWord Is Nothing Then
-        'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+        'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
         Set objWord = CreateObject("Word.Application")
         objWord.Visible = False
     End If
@@ -5564,15 +5564,15 @@ SiraNoBulundu:
 '________________________________________
 
     'Birim
-    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I")) & " UNIT"
+    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I")) & " UNIT"
     objDoc.Tables(1).Cell(Row:=1, Column:=1).Range.Text = Birimx
     'Tutanak2 tarihi
     objDoc.Tables(1).Cell(Row:=4, Column:=3).Range.Text = Cells(ActiveCell.Row, 198).Value
-    'Belge tarihi ve numarasý (XXXMud'den gelen yazýnýn tarihi ve sayýsý)
+    'Belge tarihi ve numarasÄ± (XXXMud'den gelen yazÄ±nÄ±n tarihi ve sayÄ±sÄ±)
     objDoc.Tables(1).Cell(Row:=6, Column:=3).Range.Text = Cells(ActiveCell.Row, 193).Value
     objDoc.Tables(1).Cell(Row:=6, Column:=5).Range.Text = Cells(ActiveCell.Row, 194).Value
 
-    'Gönderilen
+    'GÃ¶nderilen
     If Cells(ActiveCell.Row, 199).Value = "Provincial Directorate B" Then
         GidenTema = Cells(ActiveCell.Row, 203).Value & " Provincial Governorship Provincial Directorate B " & Cells(ActiveCell.Row, 200).Value
     ElseIf Cells(ActiveCell.Row, 199).Value = "District Directorate B" Then
@@ -5631,8 +5631,8 @@ SiraNoBulundu:
         GoTo Son
     End If
     
-    If Cells(IlkSira, 187).Value = "All" Then 'TÜMÜ gönderiliyor
-        'Tabloya satýr ekle
+    If Cells(IlkSira, 187).Value = "All" Then 'TÃœMÃœ gÃ¶nderiliyor
+        'Tabloya satÄ±r ekle
         If SonSira - IlkSira > 0 Then
             With objDoc.Tables(2)
                 For i = IlkSira To SonSira - 1
@@ -5645,21 +5645,21 @@ SiraNoBulundu:
         Ek1 = 0
         For j = IlkSira To SonSira
             i = i + 1
-            objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sýra no
-            objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(j, 46).Value 'Öðe türü
-            objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(j, 49).Value 'Öðe deðeri
+            objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sÄ±ra no
+            objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(j, 46).Value 'Ã–ÄŸe tÃ¼rÃ¼
+            objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(j, 49).Value 'Ã–ÄŸe deÄŸeri
             objDoc.Tables(2).Cell(Row:=i, Column:=4).Range.Text = Cells(j, 52).Value 'Adet
             Ek1 = Ek1 + Cells(j, 52).Value
             If Cells(j, 55).Value = "Dispatch List" Then
-                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Attachment to Statement 1" '"Listed in the Dispatch List" 'Öðe ID No
+                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Attachment to Statement 1" '"Listed in the Dispatch List" 'Ã–ÄŸe ID No
             Else
-                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(j, 55).Value 'Öðe ID No
+                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(j, 55).Value 'Ã–ÄŸe ID No
             End If
-            objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satýra yaz.)
-            objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(j, 58).Value 'Açýklama
+            objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satÄ±ra yaz.)
+            objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(j, 58).Value 'AÃ§Ä±klama
         Next j
-    ElseIf Cells(IlkSira, 187).Value = "Technique A" Then 'SADECE Technique A gönderiliyor
-        'Tabloya satýr ekle
+    ElseIf Cells(IlkSira, 187).Value = "Technique A" Then 'SADECE Technique A gÃ¶nderiliyor
+        'Tabloya satÄ±r ekle
         y = 0
         If SonSira - IlkSira > 0 Then
             For i = IlkSira To SonSira
@@ -5681,24 +5681,24 @@ SiraNoBulundu:
         For j = IlkSira To SonSira
             If Cells(j, 62).Value = "invalid" And Left(Cells(j, 63).Value, 11) = "Technique A" Then
                 i = i + 1
-                objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sýra no
-                objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(j, 46).Value 'Öðe türü
-                objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(j, 49).Value 'Öðe deðeri
+                objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sÄ±ra no
+                objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(j, 46).Value 'Ã–ÄŸe tÃ¼rÃ¼
+                objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(j, 49).Value 'Ã–ÄŸe deÄŸeri
                 objDoc.Tables(2).Cell(Row:=i, Column:=4).Range.Text = Cells(j, 52).Value 'Adet
                 Ek1 = Ek1 + Cells(j, 52).Value
                 If Cells(j, 55).Value = "Dispatch List" Then
-                    objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Attachment to Statement 1" '"Listed in the Dispatch List" 'Öðe ID No
+                    objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Attachment to Statement 1" '"Listed in the Dispatch List" 'Ã–ÄŸe ID No
                 Else
-                    objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(j, 55).Value 'Öðe ID No
+                    objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(j, 55).Value 'Ã–ÄŸe ID No
                 End If
-                objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satýra yaz.)
-                objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(j, 58).Value 'Açýklama
+                objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satÄ±ra yaz.)
+                objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(j, 58).Value 'AÃ§Ä±klama
             End If
         Next j
     End If
 
-    'Tutanak2 tutanaðýnýn metin kýsmý
-    'Tanýmlamalar
+    'Tutanak2 tutanaÄŸÄ±nÄ±n metin kÄ±smÄ±
+    'TanÄ±mlamalar
     If CInt(Ek1) > 1 Then
         Ek4 = "items"
     Else
@@ -5727,7 +5727,7 @@ SiraNoBulundu:
         .Execute Forward:=True
     End With
     MyRange.Font.Bold = True
-    'Aralýkta bulunan karakterleri bold yap
+    'AralÄ±kta bulunan karakterleri bold yap
     Set MyRange = objDoc.Tables(3).Cell(Row:=1, Column:=1).Range
     MyRange.Find.Execute FindText:=Ek3
     MyRange.Font.Bold = True
@@ -5742,7 +5742,7 @@ SiraNoBulundu:
     objDoc.Sections(1).Footers(wdHeaderFooterPrimary).Range.Tables(1).Cell(Row:=1, Column:=1).Range.Text = ReNameTutanak2Normal
     
     
-'    'Ýmza boþluðunu sayfaya sýðdýrmak için düzenle
+'    'Ä°mza boÅŸluÄŸunu sayfaya sÄ±ÄŸdÄ±rmak iÃ§in dÃ¼zenle
     If SonSira - IlkSira + 1 = 17 Then
         For i = 1 To 2
             objDoc.Tables(4).Rows(1).Delete
@@ -5762,11 +5762,11 @@ SiraNoBulundu:
         objDoc.Tables(4).Rows(1).Height = 5
     End If
     
-    'Sayfa sayýsý kaydet komutuna baðlandý.
+    'Sayfa sayÄ±sÄ± kaydet komutuna baÄŸlandÄ±.
 '    objDoc.Close SaveChanges:=True
 '    objWord.Quit
     objDoc.Save
-    'Sayfayý text dosyasýndan çek
+    'SayfayÄ± text dosyasÄ±ndan Ã§ek
     TxtFileTutanak2 = DestOpUserFolder & "Statement 2 Page Count.txt"
     #If UseADO Then
         Const adReadLine = -2&
@@ -5791,7 +5791,7 @@ SiraNoBulundu:
     #End If
     'MsgBox "Tutanak2: " & TotalSayfaTutanak2
  
-    'Tutanak2 sayfa sayýsý
+    'Tutanak2 sayfa sayÄ±sÄ±
     Cells(ActiveCell.Row, 224).Value = TotalSayfaTutanak2
 
     objWord.Visible = True
@@ -5837,13 +5837,13 @@ Dim ReNameUstYaziNormal As String
 Dim TxtFileUstYazi As String, TotalSayfaUstYazi As String
 Dim Birimx As String, UserName As String
 
-'TUTANAK2 için prosedürü baþlat
+'TUTANAK2 iÃ§in prosedÃ¼rÃ¼ baÅŸlat
 'If ActiveCell.Column = 8 Then
 '    Application.ScreenUpdating = False
     Application.DisplayAlerts = False
     'Application.EnableEvents = False
 
-    'Dokümanlarýn oluþturulmasýna soldan saða doðru bir kontrol mekanizmasý kur.
+    'DokÃ¼manlarÄ±n oluÅŸturulmasÄ±na soldan saÄŸa doÄŸru bir kontrol mekanizmasÄ± kur.
     j = ActiveCell.Row
     For i = ActiveCell.Row To 7 Step -1
         If Cells(i, 5).Value <> "" Then
@@ -5910,9 +5910,9 @@ SiraNoBulundu:
 
     'TUTANAK2 TANIMLARI
     SourceTutanak2Normal = AutoPath & "\System Files\System Templates\Statement 2 Template\Statement 2.docm"
-    'ÜST YAZI TANIMLARI
+    'ÃœST YAZI TANIMLARI
     'SourceUstYaziNormal = AutoPath & "\System Files\System Templates\Report 2 Cover Letter Templates\Report 2 Cover Letter.docm"
-    'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+    'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
     DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
     DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
     
@@ -5934,7 +5934,7 @@ SiraNoBulundu:
         GoTo Son
     End If
 
-    'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+    'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
     If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
         MkDir DestOpUserFolder
     End If
@@ -5948,11 +5948,11 @@ SiraNoBulundu:
         'Close the all Word application
         Call ModuleReport2.OpenWordControl
         
-        'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+        'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
         OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
         Do While OpenKontrolName <> ""
             OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-            If OpenControl = True Then 'Açýksa
+            If OpenControl = True Then 'AÃ§Ä±ksa
                 On Error Resume Next
                 Set objWord = GetObject(, "Word.Application")
                 Set objWord = GetObject(, "Word.Application")
@@ -5960,7 +5960,7 @@ SiraNoBulundu:
                 Set objWord = GetObject(, "Word.Application")
                 Set objWord = GetObject(, "Word.Application")
                 objWord.Quit SaveChanges:=True
-                'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+                'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
                 
             End If
             OpenKontrolName = Dir()
@@ -5973,7 +5973,7 @@ SiraNoBulundu:
     '________________________________________
     
         On Error Resume Next
-    '    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+    '    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
         ContSay = 0
         KontrolFile = Dir(DestOpUserFolder & "*.???")
         Do While KontrolFile <> ""
@@ -5985,12 +5985,12 @@ SiraNoBulundu:
         End If
     'End If
     
-    'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+    'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
     Set fso = CreateObject("Scripting.FileSystemObject")
     fso.CopyFile (SourceTutanak2Normal), DestOpUserFolder & ReNameTutanak2Normal & ".docm", True
 '________________________________________
 
-    'Oluþturulacak dosyayý aç
+    'OluÅŸturulacak dosyayÄ± aÃ§
     On Error Resume Next
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
@@ -5998,7 +5998,7 @@ SiraNoBulundu:
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
     If objWord Is Nothing Then
-        'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+        'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
         Set objWord = CreateObject("Word.Application")
         objWord.Visible = False
     End If
@@ -6011,16 +6011,16 @@ SiraNoBulundu:
 '________________________________________
 
     'Birim
-    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I")) & " UNIT"
+    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I")) & " UNIT"
     objDoc.Tables(1).Cell(Row:=1, Column:=1).Range.Text = Birimx
 
     'Tutanak2 tarihi
     objDoc.Tables(1).Cell(Row:=4, Column:=3).Range.Text = Cells(ActiveCell.Row, 71).Value
-    'Belge tarihi ve numarasý (Kurumdan gelen yazýnýn tarihi ve sayýsý)
+    'Belge tarihi ve numarasÄ± (Kurumdan gelen yazÄ±nÄ±n tarihi ve sayÄ±sÄ±)
     objDoc.Tables(1).Cell(Row:=6, Column:=3).Range.Text = Cells(ActiveCell.Row, 28).Value
     objDoc.Tables(1).Cell(Row:=6, Column:=5).Range.Text = Cells(ActiveCell.Row, 29).Value
 
-    'Gönderilen
+    'GÃ¶nderilen
     If Cells(ActiveCell.Row, 199).Value = "Provincial Directorate B" Then
         GidenTema = Cells(ActiveCell.Row, 203).Value & " Provincial Governorship Provincial Directorate B " & Cells(ActiveCell.Row, 200).Value
     ElseIf Cells(ActiveCell.Row, 199).Value = "District Directorate B" Then
@@ -6079,9 +6079,9 @@ SiraNoBulundu:
         GoTo Son
     End If
 
-    'Tabloyu senaryoya göre doldur
-    If Cells(IlkSira, 187).Value = "All" Then 'TÜMÜ gönderilmiþ
-        'Tabloya satýr ekle
+    'Tabloyu senaryoya gÃ¶re doldur
+    If Cells(IlkSira, 187).Value = "All" Then 'TÃœMÃœ gÃ¶nderilmiÅŸ
+        'Tabloya satÄ±r ekle
         If SonSira - IlkSira > 0 Then
             With objDoc.Tables(2)
                 For i = IlkSira To SonSira - 1
@@ -6094,26 +6094,26 @@ SiraNoBulundu:
         Ek1 = 0
         For j = IlkSira To SonSira
             i = i + 1
-            objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sýra no
-            objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(j, 46).Value 'Öðe türü
-            objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(j, 49).Value 'Öðe deðeri
+            objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sÄ±ra no
+            objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(j, 46).Value 'Ã–ÄŸe tÃ¼rÃ¼
+            objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(j, 49).Value 'Ã–ÄŸe deÄŸeri
             objDoc.Tables(2).Cell(Row:=i, Column:=4).Range.Text = Cells(j, 52).Value 'Adet
             Ek1 = Ek1 + Cells(j, 52).Value
             If Cells(j, 55).Value = "Dispatch List" Then
-                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Attachment to Statement 1" '"Listed in the Dispatch List" 'Öðe ID No
+                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Attachment to Statement 1" '"Listed in the Dispatch List" 'Ã–ÄŸe ID No
             Else
-                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(j, 55).Value 'Öðe ID No
+                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(j, 55).Value 'Ã–ÄŸe ID No
             End If
-            objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satýra yaz.)
-            objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(j, 58).Value 'Açýklama
+            objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satÄ±ra yaz.)
+            objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(j, 58).Value 'AÃ§Ä±klama
         Next j
     ElseIf Cells(IlkSira, 187).Value = "Technique A" And _
-           Cells(IlkSira, 188).Value = "No" Then 'SADECE Technique A gönderilmiþ ve tutanak1 olmadýðý için sadece varlýkdakiler kapatýlacak.
-        'Tabloya satýr ekle
+           Cells(IlkSira, 188).Value = "No" Then 'SADECE Technique A gÃ¶nderilmiÅŸ ve tutanak1 olmadÄ±ÄŸÄ± iÃ§in sadece varlÄ±kdakiler kapatÄ±lacak.
+        'Tabloya satÄ±r ekle
         y = 0
         If SonSira - IlkSira > 0 Then
             For i = IlkSira To SonSira
-                If Left(Cells(i, 63).Value, 8) <> "Technique A" Then 'Hem Technique A olmayan invalidler hem de validleri kapsýyor.
+                If Left(Cells(i, 63).Value, 8) <> "Technique A" Then 'Hem Technique A olmayan invalidler hem de validleri kapsÄ±yor.
                     y = y + 1
                 End If
             Next i
@@ -6131,24 +6131,24 @@ SiraNoBulundu:
         For j = IlkSira To SonSira
             If Left(Cells(j, 63).Value, 8) <> "Technique A" Then
                 i = i + 1
-                objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sýra no
-                objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(j, 46).Value 'Öðe türü
-                objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(j, 49).Value 'Öðe deðeri
+                objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sÄ±ra no
+                objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(j, 46).Value 'Ã–ÄŸe tÃ¼rÃ¼
+                objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(j, 49).Value 'Ã–ÄŸe deÄŸeri
                 objDoc.Tables(2).Cell(Row:=i, Column:=4).Range.Text = Cells(j, 52).Value 'Adet
                 Ek1 = Ek1 + Cells(j, 52).Value
                 If Cells(j, 55).Value = "Dispatch List" Then
-                    objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Attachment to Statement 1" '"Listed in the Dispatch List" 'Öðe ID No
+                    objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Attachment to Statement 1" '"Listed in the Dispatch List" 'Ã–ÄŸe ID No
                 Else
-                    objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(j, 55).Value 'Öðe ID No
+                    objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(j, 55).Value 'Ã–ÄŸe ID No
                 End If
-                objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satýra yaz.)
-                objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(j, 58).Value 'Açýklama
+                objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satÄ±ra yaz.)
+                objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(j, 58).Value 'AÃ§Ä±klama
             End If
         Next j
     ElseIf Cells(IlkSira, 187).Value = "Technique A" And _
            Cells(IlkSira, 188).Value = "Yes" And _
-           Cells(IlkSira, 189).Value = "Yes" Then 'SADECE Technique A gönderilmiþ, ama tutanak1 sonrasýnda öðelerin tümü birleþtirileceði için tümü kapatýlacak.
-        'Tabloya satýr ekle
+           Cells(IlkSira, 189).Value = "Yes" Then 'SADECE Technique A gÃ¶nderilmiÅŸ, ama tutanak1 sonrasÄ±nda Ã¶ÄŸelerin tÃ¼mÃ¼ birleÅŸtirileceÄŸi iÃ§in tÃ¼mÃ¼ kapatÄ±lacak.
+        'Tabloya satÄ±r ekle
         If SonSira - IlkSira > 0 Then
             With objDoc.Tables(2)
                 For i = IlkSira To SonSira - 1
@@ -6161,27 +6161,27 @@ SiraNoBulundu:
         Ek1 = 0
         For j = IlkSira To SonSira
             i = i + 1
-            objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sýra no
-            objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(j, 46).Value 'Öðe türü
-            objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(j, 49).Value 'Öðe deðeri
+            objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sÄ±ra no
+            objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(j, 46).Value 'Ã–ÄŸe tÃ¼rÃ¼
+            objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(j, 49).Value 'Ã–ÄŸe deÄŸeri
             objDoc.Tables(2).Cell(Row:=i, Column:=4).Range.Text = Cells(j, 52).Value 'Adet
             Ek1 = Ek1 + Cells(j, 52).Value
             If Cells(j, 55).Value = "Dispatch List" Then
-                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Attachment to Statement 1" '"Listed in the Dispatch List" 'Öðe ID No
+                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Attachment to Statement 1" '"Listed in the Dispatch List" 'Ã–ÄŸe ID No
             Else
-                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(j, 55).Value 'Öðe ID No
+                objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(j, 55).Value 'Ã–ÄŸe ID No
             End If
-            objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satýra yaz.)
-            objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(j, 58).Value 'Açýklama
+            objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satÄ±ra yaz.)
+            objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(j, 58).Value 'AÃ§Ä±klama
         Next j
     ElseIf Cells(IlkSira, 187).Value = "Technique A" And _
            Cells(IlkSira, 188).Value = "Yes" And _
-           Cells(IlkSira, 189).Value = "No" Then 'SADECE Technique A gönderilmiþ, ama tutanak1 sonrasýnda öðelerin tümü birleþtirilmeyeceði için sadece varlýkdakiler kapatýlacak.
-        'Tabloya satýr ekle
+           Cells(IlkSira, 189).Value = "No" Then 'SADECE Technique A gÃ¶nderilmiÅŸ, ama tutanak1 sonrasÄ±nda Ã¶ÄŸelerin tÃ¼mÃ¼ birleÅŸtirilmeyeceÄŸi iÃ§in sadece varlÄ±kdakiler kapatÄ±lacak.
+        'Tabloya satÄ±r ekle
         y = 0
         If SonSira - IlkSira > 0 Then
             For i = IlkSira To SonSira
-                If Left(Cells(i, 63).Value, 8) <> "Technique A" Then 'Hem Technique A olmayan invalidler hem de validleri kapsýyor.
+                If Left(Cells(i, 63).Value, 8) <> "Technique A" Then 'Hem Technique A olmayan invalidler hem de validleri kapsÄ±yor.
                     y = y + 1
                 End If
             Next i
@@ -6199,25 +6199,25 @@ SiraNoBulundu:
         For j = IlkSira To SonSira
             If Left(Cells(j, 63).Value, 8) <> "Technique A" Then
                 i = i + 1
-                objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sýra no
-                objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(j, 46).Value 'Öðe türü
-                objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(j, 49).Value 'Öðe deðeri
+                objDoc.Tables(2).Cell(Row:=i, Column:=1).Range.Text = i - 1 'Tablo sÄ±ra no
+                objDoc.Tables(2).Cell(Row:=i, Column:=2).Range.Text = Cells(j, 46).Value 'Ã–ÄŸe tÃ¼rÃ¼
+                objDoc.Tables(2).Cell(Row:=i, Column:=3).Range.Text = Cells(j, 49).Value 'Ã–ÄŸe deÄŸeri
                 objDoc.Tables(2).Cell(Row:=i, Column:=4).Range.Text = Cells(j, 52).Value 'Adet
                 Ek1 = Ek1 + Cells(j, 52).Value
                 If Cells(j, 55).Value = "Dispatch List" Then
-                    objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Attachment to Statement 1" '"Listed in the Dispatch List" 'Öðe ID No
+                    objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = "Listed in the Attachment to Statement 1" '"Listed in the Dispatch List" 'Ã–ÄŸe ID No
                 Else
-                    objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(j, 55).Value 'Öðe ID No
+                    objDoc.Tables(2).Cell(Row:=i, Column:=5).Range.Text = Cells(j, 55).Value 'Ã–ÄŸe ID No
                 End If
-                objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satýra yaz.)
-                objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(j, 58).Value 'Açýklama
+                objDoc.Tables(2).Cell(Row:=i, Column:=6).Range.Text = Cells(IlkSira, 31).Value  'Tema No (Temai her satÄ±ra yaz.)
+                objDoc.Tables(2).Cell(Row:=i, Column:=7).Range.Text = Cells(j, 58).Value 'AÃ§Ä±klama
             End If
         Next j
     End If
 
 
-    'Tutanak2 tutanaðýnýn metin kýsmý
-    'Tanýmlamalar
+    'Tutanak2 tutanaÄŸÄ±nÄ±n metin kÄ±smÄ±
+    'TanÄ±mlamalar
     If CInt(Ek1) > 1 Then
         Ek4 = "items"
     Else
@@ -6246,7 +6246,7 @@ SiraNoBulundu:
         .Execute Forward:=True
     End With
     MyRange.Font.Bold = True
-    'Aralýkta bulunan karakterleri bold yap
+    'AralÄ±kta bulunan karakterleri bold yap
     Set MyRange = objDoc.Tables(3).Cell(Row:=1, Column:=1).Range
     MyRange.Find.Execute FindText:=Ek3
     MyRange.Font.Bold = True
@@ -6261,7 +6261,7 @@ SiraNoBulundu:
     objDoc.Sections(1).Footers(wdHeaderFooterPrimary).Range.Tables(1).Cell(Row:=1, Column:=1).Range.Text = ReNameTutanak2Normal
     
     
-'    'Ýmza boþluðunu sayfaya sýðdýrmak için düzenle
+'    'Ä°mza boÅŸluÄŸunu sayfaya sÄ±ÄŸdÄ±rmak iÃ§in dÃ¼zenle
     If SonSira - IlkSira + 1 = 17 Then
         For i = 1 To 2
             objDoc.Tables(4).Rows(1).Delete
@@ -6281,11 +6281,11 @@ SiraNoBulundu:
         objDoc.Tables(4).Rows(1).Height = 5
     End If
     
-    'Sayfa sayýsý kaydet komutuna baðlandý.
+    'Sayfa sayÄ±sÄ± kaydet komutuna baÄŸlandÄ±.
 '    objDoc.Close SaveChanges:=True
 '    objWord.Quit
     objDoc.Save
-    'Sayfayý text dosyasýndan çek
+    'SayfayÄ± text dosyasÄ±ndan Ã§ek
     TxtFileTutanak2 = DestOpUserFolder & "Statement 2 Page Count.txt"
     #If UseADO Then
         Const adReadLine = -2&
@@ -6310,7 +6310,7 @@ SiraNoBulundu:
     #End If
     'MsgBox "Tutanak2: " & TotalSayfaTutanak2
  
-    'Tutanak2 sayfa sayýsý
+    'Tutanak2 sayfa sayÄ±sÄ±
     Cells(ActiveCell.Row, 225).Value = TotalSayfaTutanak2
 
     objWord.Visible = True
@@ -6380,13 +6380,13 @@ If InStr(Cells(ActiveCell.Row, 204).Value, " Organization A") <> 0 Then
 End If
 
 
-'ÜST YAZI için prosedürü baþlat
+'ÃœST YAZI iÃ§in prosedÃ¼rÃ¼ baÅŸlat
 'If ActiveCell.Column = 9 Then
 '    Application.ScreenUpdating = False
     Application.DisplayAlerts = False
     'Application.EnableEvents = False
 
-    'Dokümanlarýn oluþturulmasýna soldan saða doðru bir kontrol mekanizmasý kur.
+    'DokÃ¼manlarÄ±n oluÅŸturulmasÄ±na soldan saÄŸa doÄŸru bir kontrol mekanizmasÄ± kur.
     j = ActiveCell.Row
     For i = ActiveCell.Row To 7 Step -1
         If Cells(i, 5).Value <> "" Then
@@ -6464,9 +6464,9 @@ SiraNoBulundu:
     AutoPath = ThisWorkbook.Path
     DestOperasyon = AutoPath & "\System Files\Operation\"
 
-    'ÜST YAZI TANIMLARI
+    'ÃœST YAZI TANIMLARI
     SourceUstYaziNormal = AutoPath & "\System Files\System Templates\Report 2 Cover Letter Templates\Final Cover Letter.docm"
-    'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+    'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
     DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
     DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
     
@@ -6488,7 +6488,7 @@ SiraNoBulundu:
         GoTo Son
     End If
 
-    'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+    'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
     If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
         MkDir DestOpUserFolder
     End If
@@ -6565,7 +6565,7 @@ SiraNoBulundu:
         GoTo Son
     End If
     
-    'PARAF HAZIRLIK ÝÞLEMÝ
+    'PARAF HAZIRLIK Ä°ÅžLEMÄ°
     UserName = Environ("UserProfile")
     UserName = UCase(Right(UserName, 7))
     Set ItemBul = Worksheets(2).Range("DR6:DR1000").Find(What:=UserName, SearchDirection:=xlNext, _
@@ -6587,11 +6587,11 @@ SiraNoBulundu:
         'Close the all Word application
         Call ModuleReport2.OpenWordControl
         
-        'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+        'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
         OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
         Do While OpenKontrolName <> ""
             OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-            If OpenControl = True Then 'Açýksa
+            If OpenControl = True Then 'AÃ§Ä±ksa
     '            On Error Resume Next
     '            Set objWord = GetObject(, "Word.Application")
     '            If objWord Is Nothing Then
@@ -6607,7 +6607,7 @@ SiraNoBulundu:
                 Set objWord = GetObject(, "Word.Application")
                 Set objWord = GetObject(, "Word.Application")
                 objWord.Quit SaveChanges:=True
-                'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+                'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
                 
             End If
             OpenKontrolName = Dir()
@@ -6621,7 +6621,7 @@ SiraNoBulundu:
     '________________________________________
     
         On Error Resume Next
-    '    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+    '    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
         ContSay = 0
         KontrolFile = Dir(DestOpUserFolder & "*.???")
         Do While KontrolFile <> ""
@@ -6633,12 +6633,12 @@ SiraNoBulundu:
         End If
     End If
     
-    'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+    'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
     Set fso = CreateObject("Scripting.FileSystemObject")
     fso.CopyFile (SourceUstYaziNormal), DestOpUserFolder & ReNameUstYaziNormal & ".docm", True
 '________________________________________
 
-    'Oluþturulacak dosyayý aç
+    'OluÅŸturulacak dosyayÄ± aÃ§
     On Error Resume Next
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
@@ -6646,7 +6646,7 @@ SiraNoBulundu:
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
     If objWord Is Nothing Then
-        'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+        'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
         Set objWord = CreateObject("Word.Application")
         objWord.Visible = False
     End If
@@ -6660,18 +6660,18 @@ SiraNoBulundu:
 
 
     'Birim
-    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I")) & " UNIT"
+    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I")) & " UNIT"
     objDoc.Tables(1).Cell(Row:=1, Column:=1).Range.Text = Birimx
     
-    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I"))
-    'Üst yazý tarihi (sabit)
+    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I"))
+    'Ãœst yazÄ± tarihi (sabit)
     objDoc.Tables(1).Cell(Row:=1, Column:=2).Range.Text = Birimx & ", " & FormatEnglishDate(Cells(ActiveCell.Row, 177).Value) '(Format(Cells(ActiveCell.Row, 177).Value, "d mmmm yyyy"))
-    'Yazý no (sabit)
+    'YazÄ± no (sabit)
     objDoc.Tables(1).Cell(Row:=4, Column:=2).Range.Text = Cells(ActiveCell.Row, 178).Value
     
     
 
-    'Sigorta türü
+    'Sigorta tÃ¼rÃ¼
     If Cells(ActiveCell.Row, 75).Value = "" Then
         Ek2 = Cells(ActiveCell.Row, 201).Value
         Ek2 = Right(Ek2, Len(Ek2) - InStr(Ek2, "/"))
@@ -6683,7 +6683,7 @@ SiraNoBulundu:
     End If
 
 
-    'Gönderim usulünde hangi tutanak2 esas alýnacak?
+    'GÃ¶nderim usulÃ¼nde hangi tutanak2 esas alÄ±nacak?
     If Cells(ActiveCell.Row, 75).Value <> "" And Cells(ActiveCell.Row, 201).Value = "" Then 'Sadece 75 esas al
         GonderimUsulu = Cells(ActiveCell.Row, 75).Value 'Giden Paket Tipi
     ElseIf Cells(ActiveCell.Row, 75).Value = "" And Cells(ActiveCell.Row, 201).Value <> "" Then 'Sadece 201 esas al
@@ -6691,19 +6691,19 @@ SiraNoBulundu:
     ElseIf Cells(ActiveCell.Row, 75).Value <> "" And Cells(ActiveCell.Row, 201).Value <> "" Then '75 ve 201, ancak 75 esas al
         GonderimUsulu = Cells(ActiveCell.Row, 75).Value 'Giden Paket Tipi
     End If
-    'Ortak bölüm
+    'Ortak bÃ¶lÃ¼m
     GonderimUsulu = Mid(GonderimUsulu, InStr(GonderimUsulu, "/") + 1, Len(GonderimUsulu) - InStr(GonderimUsulu, "/"))
     If GonderimUsulu = "HAND DELIVERY" Then
         GonderimUsulu = "teslim edilmektedir."
     Else
-        GonderimUsulu = "gönderilmektedir."
+        GonderimUsulu = "gÃ¶nderilmektedir."
     End If
 
     'Muhatap
-    IlBuyukHarf = UCase(Replace(Replace(Cells(ActiveCell.Row, 203).Value, "i", "I"), "ý", "I"))
+    IlBuyukHarf = UCase(Replace(Replace(Cells(ActiveCell.Row, 203).Value, "i", "I"), "Ä±", "I"))
     IlKucukHarf = Cells(ActiveCell.Row, 203).Value
     If Cells(ActiveCell.Row, 204).Value <> "" Then
-        IlceBuyukHarf = UCase(Replace(Replace(Cells(ActiveCell.Row, 204).Value, "i", "I"), "ý", "I"))
+        IlceBuyukHarf = UCase(Replace(Replace(Cells(ActiveCell.Row, 204).Value, "i", "I"), "Ä±", "I"))
         IlceKucukHarf = Cells(ActiveCell.Row, 204).Value
     Else
         IlceBuyukHarf = ""
@@ -6716,7 +6716,7 @@ SiraNoBulundu:
     End If
     
     
-    'YENÝ MUHATAP TEMASI
+    'YENÄ° MUHATAP TEMASI
     
     M2 = False
     M3 = False
@@ -6725,16 +6725,16 @@ SiraNoBulundu:
 '    Ify = False
 '    XXXMudNotu = False
     BStr = 10
-    '1. sayfadan sonraki üst bilgi tanýmlarý
+    '1. sayfadan sonraki Ã¼st bilgi tanÄ±mlarÄ±
     ustbilgitarih = (Format(Cells(ActiveCell.Row, 177).Value, "dd.mm.yyyy"))
     ustbilgisayi = Cells(ActiveCell.Row, 178).Value
     
-    '4'lük
+    '4'lÃ¼k
     If Cells(ActiveCell.Row, 200).Value <> "" Then
         If Cells(ActiveCell.Row, 199).Value = "Provincial Directorate B" Or Cells(ActiveCell.Row, 199).Value = "Provincial Directorate C" Or _
-        Cells(ActiveCell.Row, 199).Value = "Provincial Directorate D" Or Cells(ActiveCell.Row, 199).Value = "Provincial Directorate E" Then 'VALÝLÝK
+        Cells(ActiveCell.Row, 199).Value = "Provincial Directorate D" Or Cells(ActiveCell.Row, 199).Value = "Provincial Directorate E" Then 'VALÄ°LÄ°K
             objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = IlBuyukHarf & " PROVINCIAL GOVERNORSHIP"
-            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = Cells(ActiveCell.Row, 199).Value  'UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "ý", "I"))
+            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = Cells(ActiveCell.Row, 199).Value  'UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "Ä±", "I"))
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 200).Value & ")"
             objDoc.Tables(1).Cell(Row:=BStr + 3, Column:=1).Range.Text = Bolum3
             objDoc.Tables(1).Cell(Row:=BStr + 3, Column:=1).Range.Font.Underline = wdUnderlineSingle
@@ -6744,7 +6744,7 @@ SiraNoBulundu:
         ElseIf Cells(ActiveCell.Row, 199).Value = "District Directorate B" Or Cells(ActiveCell.Row, 199).Value = "District Directorate C" Or _
         Cells(ActiveCell.Row, 199).Value = "District Directorate D" Or Cells(ActiveCell.Row, 199).Value = "District Directorate E" Then 'KAYMAKAMLIK
             objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = IlceBuyukHarf & " DISTRICT GOVERNORSHIP"
-            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = Cells(ActiveCell.Row, 199).Value 'UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "ý", "I"))
+            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = Cells(ActiveCell.Row, 199).Value 'UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "Ä±", "I"))
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 200).Value & ")"
             objDoc.Tables(1).Cell(Row:=BStr + 3, Column:=1).Range.Text = Bolum3
             objDoc.Tables(1).Cell(Row:=BStr + 3, Column:=1).Range.Font.Underline = wdUnderlineSingle
@@ -6752,16 +6752,16 @@ SiraNoBulundu:
             
             ustbilgimuhatap = IlceKucukHarf & " District Governorship " & Cells(ActiveCell.Row, 199).Value
         ElseIf InStr(Cells(ActiveCell.Row, 199).Value, "General Directorate") <> 0 Or InStr(Cells(ActiveCell.Row, 199).Value, "Regional Directorate") <> 0 Then
-            objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "ý", "I"))
-            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = Cells(ActiveCell.Row, 199).Value 'UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "ý", "I"))
+            objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "Ä±", "I"))
+            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = Cells(ActiveCell.Row, 199).Value 'UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "Ä±", "I"))
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 200).Value & ")"
             objDoc.Tables(1).Cell(Row:=BStr + 3, Column:=1).Range.Text = Bolum3
             objDoc.Tables(1).Cell(Row:=BStr + 3, Column:=1).Range.Font.Underline = wdUnderlineSingle
             M4 = True
             
             ustbilgimuhatap = WorksheetFunction.Proper(ThisWorkbook.Worksheets(2).Cells(6, 111).Value) & " " & Cells(ActiveCell.Row, 199).Value
-        Else 'YARGI 3'lük
-            Bolum1 = UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "ý", "I"))
+        Else 'YARGI 3'lÃ¼k
+            Bolum1 = UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "Ä±", "I"))
             If InStr(Bolum1, "X.X. ") > 0 Then
                 objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = Mid(Bolum1, 6, Len(Bolum1))
                 objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 200).Value & ")"
@@ -6781,12 +6781,12 @@ SiraNoBulundu:
             End If
         End If
     End If
-    '3'lük
+    '3'lÃ¼k
     If Cells(ActiveCell.Row, 200).Value = "" Then
         If Cells(ActiveCell.Row, 199).Value = "Provincial Directorate B" Or Cells(ActiveCell.Row, 199).Value = "Provincial Directorate C" Or _
-        Cells(ActiveCell.Row, 199).Value = "Provincial Directorate D" Or Cells(ActiveCell.Row, 199).Value = "Provincial Directorate E" Then 'VALÝLÝK
+        Cells(ActiveCell.Row, 199).Value = "Provincial Directorate D" Or Cells(ActiveCell.Row, 199).Value = "Provincial Directorate E" Then 'VALÄ°LÄ°K
             objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = IlBuyukHarf & " PROVINCIAL GOVERNORSHIP"
-            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 199).Value & ")" 'UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "ý", "I"))
+            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 199).Value & ")" 'UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "Ä±", "I"))
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Text = Bolum3
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Font.Underline = wdUnderlineSingle
             M3 = True
@@ -6795,22 +6795,22 @@ SiraNoBulundu:
         ElseIf Cells(ActiveCell.Row, 199).Value = "District Directorate B" Or Cells(ActiveCell.Row, 199).Value = "District Directorate C" Or _
         Cells(ActiveCell.Row, 199).Value = "District Directorate D" Or Cells(ActiveCell.Row, 199).Value = "District Directorate E" Then
             objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = IlceBuyukHarf & " DISTRICT GOVERNORSHIP"
-            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 199).Value & ")" 'UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "ý", "I"))
+            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 199).Value & ")" 'UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "Ä±", "I"))
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Text = Bolum3
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Font.Underline = wdUnderlineSingle
             M3 = True
             
             ustbilgimuhatap = IlceKucukHarf & " District Governorship " & Cells(ActiveCell.Row, 199).Value
         ElseIf InStr(Cells(ActiveCell.Row, 199).Value, "General Directorate") <> 0 Or InStr(Cells(ActiveCell.Row, 199).Value, "Regional Directorate") <> 0 Then
-            objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "ý", "I"))
-            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 199).Value & ")" 'UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "ý", "I"))
+            objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "Ä±", "I"))
+            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 199).Value & ")" 'UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "Ä±", "I"))
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Text = Bolum3
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Font.Underline = wdUnderlineSingle
             M3 = True
             
             ustbilgimuhatap = WorksheetFunction.Proper(ThisWorkbook.Worksheets(2).Cells(6, 111).Value) & " " & Cells(ActiveCell.Row, 199).Value
         Else 'YARGI 2'lik
-            Bolum1 = UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "ý", "I"))
+            Bolum1 = UCase(Replace(Replace(Cells(ActiveCell.Row, 199).Value, "i", "I"), "Ä±", "I"))
             If InStr(Bolum1, "X.X. ") > 0 Then
                 objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = Mid(Bolum1, 6, Len(Bolum1))
                 objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = Bolum3
@@ -6829,7 +6829,7 @@ SiraNoBulundu:
         End If
     End If
 
-    'Ýlgi tema
+    'Ä°lgi tema
     If Cells(IlkSira, 33).Value = "Provincial Directorate B" Then
         If Cells(IlkSira, 34).Value <> "" Then
             GelenTema = Cells(IlkSira, 25).Value & " Provincial Governorship Provincial Directorate B " & Cells(IlkSira, 34).Value
@@ -6901,7 +6901,7 @@ SiraNoBulundu:
     End If
 
 
-    'Ýlgi
+    'Ä°lgi
     Bolum1 = "Delivered to us on "
     Bolum2 = ", with a letter dated "
     Bolum3 = " and reference number "
@@ -6910,12 +6910,12 @@ SiraNoBulundu:
     If Cells(ActiveCell.Row, 33).Value = Cells(ActiveCell.Row, 199).Value And _
     Cells(ActiveCell.Row, 34).Value = Cells(ActiveCell.Row, 200).Value And _
     Cells(ActiveCell.Row, 25).Value = Cells(ActiveCell.Row, 203).Value Then
-        ' Gelen ve giden birim aynýysa
+        ' Gelen ve giden birim aynÄ±ysa
         Bolum5 = "a) " & Bolum1 & Cells(ActiveCell.Row, 36).Value & Bolum2 & _
             Cells(ActiveCell.Row, 28).Value & Bolum3 & _
             Cells(ActiveCell.Row, 29).Value & Bolum4
     Else
-        ' Gelen ve giden birim farklýysa
+        ' Gelen ve giden birim farklÄ±ysa
         Bolum5 = "a) " & Bolum1 & Cells(ActiveCell.Row, 36).Value & _
                     " from " & GelenTema & Bolum2 & _
                     Cells(IlkSira, 28).Value & Bolum3 & _
@@ -6926,7 +6926,7 @@ SiraNoBulundu:
     'ilgileri ekle
     objDoc.Tables(1).Cell(Row:=15, Column:=3).Range.Text = Bolum5 & vbNewLine & Bolum6
     
-    'Gövde metni (Rapor2_2 deðiþkeni)
+    'GÃ¶vde metni (Rapor2_2 deÄŸiÅŸkeni)
     AdetTakip = 0
     NomTakip = 0
     TipATakip = ""
@@ -6938,7 +6938,7 @@ SiraNoBulundu:
             If y = 1 Then
                 AdetTakip = Cells(i, 52).Value
                 TipATakip = Cells(i, 46).Value
-                TipATakip = Right(TipATakip, Len(TipATakip) - InStr(TipATakip, "-")) 'Bu karakterin solunda bir boþluk oluþuyor.
+                TipATakip = Right(TipATakip, Len(TipATakip) - InStr(TipATakip, "-")) 'Bu karakterin solunda bir boÅŸluk oluÅŸuyor.
                 NomTakip = Cells(i, 49).Value
                 If AdetTakip > 1 Then
                     Ek1 = AdetTakip & " pieces of " & NomTakip & TipATakip
@@ -6963,7 +6963,7 @@ SiraNoBulundu:
         End If
     Next i
 
-    'Rapor2_2 rapor adedi için virgüller sayýlacak (Rapor2_2x ile temsil edildi.) (Rapor2_2 deðiþkeni)
+    'Rapor2_2 rapor adedi iÃ§in virgÃ¼ller sayÄ±lacak (Rapor2_2x ile temsil edildi.) (Rapor2_2 deÄŸiÅŸkeni)
     Set rng = Cells(ActiveCell.Row, 180)
     Rapor2_2x = 1
     For i = 1 To Len(rng)
@@ -6997,13 +6997,13 @@ SiraNoBulundu:
         'Ek7 = "have"
     End If
 
-    'Rapor2_2 rapor senaryolarý
+    'Rapor2_2 rapor senaryolarÄ±
     If Cells(IlkSira, 186).Value = "Yes" Then
 
         ' Construct the text
         Bolum1 = Bolum1 & Ek6 & ", "
         Bolum2 = Bolum1 & "dated " & Cells(ActiveCell.Row, 179).Value & " and numbered " & Ek3 & ". " & "Both the " & Ek2 & " and the corresponding " & Ek4 & " have been forwarded to your office accordingly."
-        Bolum3 = "In the event that the " & Ek6 & " " & Bolum5 & " communicated by your office to the General Directorate of Organization B – Xxxxx Xxxxxxx, " & _
+        Bolum3 = "In the event that the " & Ek6 & " " & Bolum5 & " communicated by your office to the General Directorate of Organization B â€“ Xxxxx Xxxxxxx, " & _
         "it may be possible to obtain the xxxxxxxxxx xxxxxx xxxxxx xxxxxxx / xxxxxxx xxxxxxxxxx xxxxxxxx / xxxxxxxx xxxxxxxx information of the invalid Type A " & _
         Ek2 & " by contacting Xxxxxxx through the mentioned unit."
         Bolum4 = "Respectfully submitted for your information."
@@ -7058,65 +7058,65 @@ SiraNoBulundu:
     objDoc.Tables(3).Cell(Row:=4, Column:=3).Range.Text = Cells(ActiveCell.Row, 145).Value 'Ad Soyad2
     objDoc.Tables(3).Cell(Row:=5, Column:=3).Range.Text = Cells(ActiveCell.Row, 146).Value 'Unvan2
 
-    'Ekler (Rapor2_2 deðiþken)
+    'Ekler (Rapor2_2 deÄŸiÅŸken)
     objDoc.Tables(3).Cell(Row:=8, Column:=1).Range.Text = "Attachment:"
     If Cells(IlkSira, 187).Value = "All" And Cells(IlkSira, 188).Value = "No" Then 'XXXMud tutanak2 bilgileri var.
         
-        Ek2 = Cells(ActiveCell.Row, 201).Value 'Kapalý Package A
+        Ek2 = Cells(ActiveCell.Row, 201).Value 'KapalÄ± Package A
         Ek2 = Left(Ek2, InStr(Ek2, "/") - 1)
         If Cells(ActiveCell.Row, 202).Value > 1 Then objDoc.Tables(3).Cell(Row:=8, Column:=2).Range.Text = " 1) Enclosed " & Ek2 & " (" & Cells(ActiveCell.Row, 202).Value & " pieces)"
         If Cells(ActiveCell.Row, 202).Value < 2 Then objDoc.Tables(3).Cell(Row:=8, Column:=2).Range.Text = " 1) Enclosed " & Ek2 & " (" & Cells(ActiveCell.Row, 202).Value & " piece)"
 
-        x = Application.Sum(Range(Cells(IlkSira, 205), Cells(SonSira, 205))) 'Statement 2 toplam sayfa sayýsý
+        x = Application.Sum(Range(Cells(IlkSira, 205), Cells(SonSira, 205))) 'Statement 2 toplam sayfa sayÄ±sÄ±
         If x > 1 Then objDoc.Tables(3).Cell(Row:=9, Column:=2).Range.Text = " 2) Statement 2 (" & x & " pages)"
         If x < 2 Then objDoc.Tables(3).Cell(Row:=9, Column:=2).Range.Text = " 2) Statement 2 (" & x & " page)"
         
-    ElseIf Cells(IlkSira, 187).Value = "All" And Cells(IlkSira, 188).Value = "Yes" Then 'Ýlgili birim tutanak2sý var.
+    ElseIf Cells(IlkSira, 187).Value = "All" And Cells(IlkSira, 188).Value = "Yes" Then 'Ä°lgili birim tutanak2sÄ± var.
         
-        Ek2 = Cells(ActiveCell.Row, 75).Value 'Kapalý Package A
+        Ek2 = Cells(ActiveCell.Row, 75).Value 'KapalÄ± Package A
         Ek2 = Left(Ek2, InStr(Ek2, "/") - 1)
         If Cells(ActiveCell.Row, 76).Value > 1 Then objDoc.Tables(3).Cell(Row:=8, Column:=2).Range.Text = " 1) Enclosed " & Ek2 & " (" & Cells(ActiveCell.Row, 76).Value & " pieces)"
         If Cells(ActiveCell.Row, 76).Value < 2 Then objDoc.Tables(3).Cell(Row:=8, Column:=2).Range.Text = " 1) Enclosed " & Ek2 & " (" & Cells(ActiveCell.Row, 76).Value & " piece)"
 
-        x = Application.Sum(Range(Cells(IlkSira, 225), Cells(SonSira, 225))) 'Statement 2 toplam sayfa sayýsý
+        x = Application.Sum(Range(Cells(IlkSira, 225), Cells(SonSira, 225))) 'Statement 2 toplam sayfa sayÄ±sÄ±
         If x > 1 Then objDoc.Tables(3).Cell(Row:=9, Column:=2).Range.Text = " 2) Statement 2 (" & x & " pages)"
         If x < 2 Then objDoc.Tables(3).Cell(Row:=9, Column:=2).Range.Text = " 2) Statement 2 (" & x & " page)"
 
-    ElseIf Cells(IlkSira, 187).Value = "Technique A" And Cells(IlkSira, 188).Value = "No" Then 'Ýlgili birim tutanak2sý var.
+    ElseIf Cells(IlkSira, 187).Value = "Technique A" And Cells(IlkSira, 188).Value = "No" Then 'Ä°lgili birim tutanak2sÄ± var.
 
-        Ek2 = Cells(ActiveCell.Row, 75).Value 'Kapalý Package A
+        Ek2 = Cells(ActiveCell.Row, 75).Value 'KapalÄ± Package A
         Ek2 = Left(Ek2, InStr(Ek2, "/") - 1)
         objDoc.Tables(3).Cell(Row:=8, Column:=2).Range.Text = " 1) Enclosed " & Ek2 & " (" & Cells(ActiveCell.Row, 76).Value + Cells(ActiveCell.Row, 202).Value & " pieces)"
 
-        x = Application.Sum(Range(Cells(IlkSira, 225), Cells(SonSira, 225))) + Application.Sum(Range(Cells(IlkSira, 205), Cells(SonSira, 205))) 'Statement 2 toplam sayfa sayýsý
+        x = Application.Sum(Range(Cells(IlkSira, 225), Cells(SonSira, 225))) + Application.Sum(Range(Cells(IlkSira, 205), Cells(SonSira, 205))) 'Statement 2 toplam sayfa sayÄ±sÄ±
         objDoc.Tables(3).Cell(Row:=9, Column:=2).Range.Text = " 2) Statement 2 (2 statements, " & "total of " & x & " pages)"
         
-    ElseIf Cells(IlkSira, 187).Value = "Technique A" And Cells(IlkSira, 188).Value = "Yes" And Cells(IlkSira, 189).Value = "Yes" Then 'Ýlgili birim tutanak2sý var.
+    ElseIf Cells(IlkSira, 187).Value = "Technique A" And Cells(IlkSira, 188).Value = "Yes" And Cells(IlkSira, 189).Value = "Yes" Then 'Ä°lgili birim tutanak2sÄ± var.
         
-        Ek2 = Cells(ActiveCell.Row, 75).Value 'Kapalý Package A
+        Ek2 = Cells(ActiveCell.Row, 75).Value 'KapalÄ± Package A
         Ek2 = Left(Ek2, InStr(Ek2, "/") - 1)
         If Cells(ActiveCell.Row, 76).Value > 1 Then objDoc.Tables(3).Cell(Row:=8, Column:=2).Range.Text = " 1) Enclosed " & Ek2 & " (" & Cells(ActiveCell.Row, 76).Value & " pieces)"
         If Cells(ActiveCell.Row, 76).Value < 2 Then objDoc.Tables(3).Cell(Row:=8, Column:=2).Range.Text = " 1) Enclosed " & Ek2 & " (" & Cells(ActiveCell.Row, 76).Value & " piece)"
 
-        x = Application.Sum(Range(Cells(IlkSira, 225), Cells(SonSira, 225))) 'Statement 2 toplam sayfa sayýsý
+        x = Application.Sum(Range(Cells(IlkSira, 225), Cells(SonSira, 225))) 'Statement 2 toplam sayfa sayÄ±sÄ±
         If x > 1 Then objDoc.Tables(3).Cell(Row:=9, Column:=2).Range.Text = " 2) Statement 2 (" & x & " pages)"
         If x < 2 Then objDoc.Tables(3).Cell(Row:=9, Column:=2).Range.Text = " 2) Statement 2 (" & x & " page)"
         
-    ElseIf Cells(IlkSira, 187).Value = "Technique A" And Cells(IlkSira, 188).Value = "Yes" And Cells(IlkSira, 189).Value = "No" Then 'XXXMud ve ilgili birim tutanak2larý var.
+    ElseIf Cells(IlkSira, 187).Value = "Technique A" And Cells(IlkSira, 188).Value = "Yes" And Cells(IlkSira, 189).Value = "No" Then 'XXXMud ve ilgili birim tutanak2larÄ± var.
 
-        Ek2 = Cells(ActiveCell.Row, 75).Value 'Kapalý Package A
+        Ek2 = Cells(ActiveCell.Row, 75).Value 'KapalÄ± Package A
         Ek2 = Left(Ek2, InStr(Ek2, "/") - 1)
         objDoc.Tables(3).Cell(Row:=8, Column:=2).Range.Text = " 1) Enclosed " & Ek2 & " (" & Cells(ActiveCell.Row, 76).Value + Cells(ActiveCell.Row, 202).Value & " pieces)"
 
-        x = Application.Sum(Range(Cells(IlkSira, 225), Cells(SonSira, 225))) + Application.Sum(Range(Cells(IlkSira, 224), Cells(SonSira, 224))) 'Statement 2 toplam sayfa sayýsý
+        x = Application.Sum(Range(Cells(IlkSira, 225), Cells(SonSira, 225))) + Application.Sum(Range(Cells(IlkSira, 224), Cells(SonSira, 224))) 'Statement 2 toplam sayfa sayÄ±sÄ±
         objDoc.Tables(3).Cell(Row:=9, Column:=2).Range.Text = " 2) Statement 2 (2 statements, " & "total of " & x & " pages)"
         
     End If
 
-    'Rapor2_2 rapor senaryolarý
+    'Rapor2_2 rapor senaryolarÄ±
     If Cells(IlkSira, 186).Value = "Yes" Then
     
-        x = Application.Sum(Range(Cells(IlkSira, 173), Cells(SonSira, 173)))  'Rapor 2.2 toplam sayfa sayýsý
+        x = Application.Sum(Range(Cells(IlkSira, 173), Cells(SonSira, 173)))  'Rapor 2.2 toplam sayfa sayÄ±sÄ±
         If Rapor2_2x = 1 Then
             If x > 1 Then objDoc.Tables(3).Cell(Row:=10, Column:=2).Range.Text = " 3) Report 2.2 (" & x & " pages)"
             If x < 2 Then objDoc.Tables(3).Cell(Row:=10, Column:=2).Range.Text = " 3) Report 2.2 (" & x & " page)"
@@ -7124,15 +7124,15 @@ SiraNoBulundu:
             objDoc.Tables(3).Cell(Row:=10, Column:=2).Range.Text = " 3) Report 2.2 (" & y & " reports, " & "total of " & x & " pages)"
         End If
         
-        'Analiz Dijital Ýçerik'si
+        'Analiz Dijital Ä°Ã§erik'si
         If Cells(ActiveCell.Row, 181).Value > 1 Then objDoc.Tables(3).Cell(Row:=11, Column:=2).Range.Text = " 4) Digital Content (" & Cells(ActiveCell.Row, 181).Value & " pieces)"
         If Cells(ActiveCell.Row, 181).Value < 2 Then objDoc.Tables(3).Cell(Row:=11, Column:=2).Range.Text = " 4) Digital Content (" & Cells(ActiveCell.Row, 181).Value & " piece)"
         
-        'Rapor2_2 Analiz Çýktýsý
+        'Rapor2_2 Analiz Ã‡Ä±ktÄ±sÄ±
         If Cells(ActiveCell.Row, 181).Value > 1 Then objDoc.Tables(3).Cell(Row:=12, Column:=2).Range.Text = " 5) Report 2.2 Analysis Output (" & Cells(ActiveCell.Row, 182).Value & " pages)"
         If Cells(ActiveCell.Row, 181).Value < 2 Then objDoc.Tables(3).Cell(Row:=12, Column:=2).Range.Text = " 5) Report 2.2 Analysis Output (" & Cells(ActiveCell.Row, 182).Value & " page)"
         
-        'Statement 1 (döküm dahil) toplam sayfa sayýsý
+        'Statement 1 (dÃ¶kÃ¼m dahil) toplam sayfa sayÄ±sÄ±
         If Cells(ActiveCell.Row, 218).Value = "" Then
             x = Application.Sum(Range(Cells(IlkSira, 217), Cells(SonSira, 217)))
             If x > 1 Then objDoc.Tables(3).Cell(Row:=13, Column:=2).Range.Text = " 6) Statement 1 (" & x & " pages)"
@@ -7144,7 +7144,7 @@ SiraNoBulundu:
 
     ElseIf Cells(IlkSira, 186).Value = "No" Or Cells(IlkSira, 186).Value = "Unresolved" Then
 
-        x = Application.Sum(Range(Cells(IlkSira, 173), Cells(SonSira, 173)))  'Rapor 2.2 toplam sayfa sayýsý
+        x = Application.Sum(Range(Cells(IlkSira, 173), Cells(SonSira, 173)))  'Rapor 2.2 toplam sayfa sayÄ±sÄ±
         If Rapor2_2x = 1 Then
             If x > 1 Then objDoc.Tables(3).Cell(Row:=10, Column:=2).Range.Text = " 3) Report 2.2 (" & x & " pages)"
             If x < 2 Then objDoc.Tables(3).Cell(Row:=10, Column:=2).Range.Text = " 3) Report 2.2 (" & x & " page)"
@@ -7152,7 +7152,7 @@ SiraNoBulundu:
             objDoc.Tables(3).Cell(Row:=10, Column:=2).Range.Text = " 3) Report 2.2 (" & y & " reports, " & "total of " & x & " pages)"
         End If
                 
-        'Statement 1 (döküm dahil) toplam sayfa sayýsý
+        'Statement 1 (dÃ¶kÃ¼m dahil) toplam sayfa sayÄ±sÄ±
         If Cells(ActiveCell.Row, 218).Value = "" Then
             x = Application.Sum(Range(Cells(IlkSira, 217), Cells(SonSira, 217)))
             If x > 1 Then objDoc.Tables(3).Cell(Row:=11, Column:=2).Range.Text = " 4) Statement 1 (" & x & " pages)"
@@ -7164,31 +7164,31 @@ SiraNoBulundu:
         
     End If
    
- '__________________________DÝNAMÝK SAYFA YAPISI
+ '__________________________DÄ°NAMÄ°K SAYFA YAPISI
     
-    'Ýlgi ve gövde metninin kaç satýrdan oluþtuðu bilgisinin elde edilmesinde kullanýlýyor.
+    'Ä°lgi ve gÃ¶vde metninin kaÃ§ satÄ±rdan oluÅŸtuÄŸu bilgisinin elde edilmesinde kullanÄ±lÄ±yor.
     Set IlgiRng = objDoc.Tables(1).Cell(Row:=15, Column:=3).Range
     Set Govde1Rng = objDoc.Tables(2).Cell(Row:=1, Column:=1).Range
     Set Govde2Rng = objDoc.Tables(2).Cell(Row:=2, Column:=1).Range
 
     IlgiStrSay = Govde1Rng.Information(wdFirstCharacterLineNumber) - IlgiRng.Information(wdFirstCharacterLineNumber) - 1
     Govde1StrSay = Govde2Rng.Information(wdFirstCharacterLineNumber) - Govde1Rng.Information(wdFirstCharacterLineNumber)
-    'MsgBox "Ýlgi Satýr Sayýsý: " & IlgiStrSay & vbNewLine & vbNewLine & "Gövde 1 Satýr Sayýsý: " & Govde1StrSay
+    'MsgBox "Ä°lgi SatÄ±r SayÄ±sÄ±: " & IlgiStrSay & vbNewLine & vbNewLine & "GÃ¶vde 1 SatÄ±r SayÄ±sÄ±: " & Govde1StrSay
     IlgiFarkSay = IlgiStrSay - 2
     Govde1FarkSay = Govde1StrSay - 3
     CokluSayfa = 0
-    'MsgBox IlgiFarkSay + Govde1FarkSay 'Varsayýlan ilgi ve 1 paragrafta (2 rowda) toplam 5 satýra göre sýfýrlandý.
+    'MsgBox IlgiFarkSay + Govde1FarkSay 'VarsayÄ±lan ilgi ve 1 paragrafta (2 rowda) toplam 5 satÄ±ra gÃ¶re sÄ±fÄ±rlandÄ±.
     
     
-    'Dinamik sayfa düzeni
-    For i = 14 To 15 'Ek sonrasý satýrlarý sil
+    'Dinamik sayfa dÃ¼zeni
+    For i = 14 To 15 'Ek sonrasÄ± satÄ±rlarÄ± sil
         objDoc.Tables(3).Rows(14).Delete
     Next i
     
     If Cells(IlkSira, 186).Value = "Yes" Then '6 ek var
         Govde1FarkSay = Govde1FarkSay + 9
     Else '4 ek var
-        For i = 1 To 2 'Ek sonrasý satýrlarý sil
+        For i = 1 To 2 'Ek sonrasÄ± satÄ±rlarÄ± sil
             objDoc.Tables(3).Rows(12).Delete
         Next i
         Govde1FarkSay = Govde1FarkSay + 6
@@ -7201,23 +7201,23 @@ SiraNoBulundu:
             If IlgiFarkSay + Govde1FarkSay > 8 Then
                 For i = 9 To IlgiFarkSay + Govde1FarkSay
                     If i = 9 Then
-                        objDoc.Tables(3).Rows(6).Delete 'Ek öncesi
+                        objDoc.Tables(3).Rows(6).Delete 'Ek Ã¶ncesi
                     ElseIf i = 10 Then
-                        objDoc.Tables(3).Rows(6).Delete 'Ek öncesi
+                        objDoc.Tables(3).Rows(6).Delete 'Ek Ã¶ncesi
                     ElseIf i = 11 Then
-                        objDoc.Tables(3).Rows(1).Delete 'Ýmza öncesi
+                        objDoc.Tables(3).Rows(1).Delete 'Ä°mza Ã¶ncesi
                     ElseIf i = 12 Then
-                        objDoc.Tables(3).Rows(1).Delete 'Ýmza öncesi
+                        objDoc.Tables(3).Rows(1).Delete 'Ä°mza Ã¶ncesi
                     ElseIf i = 13 Then
-                        objDoc.Tables(1).Rows(8).Delete 'Muhatap öncesi
+                        objDoc.Tables(1).Rows(8).Delete 'Muhatap Ã¶ncesi
                     ElseIf i = 14 Then
-                        objDoc.Tables(1).Rows(8).Delete 'Muhatap öncesi
+                        objDoc.Tables(1).Rows(8).Delete 'Muhatap Ã¶ncesi
                     End If
                 Next i
             Else
                 If (IlgiFarkSay + Govde1FarkSay) < 8 Then
                     For i = 1 To 8 - (IlgiFarkSay + Govde1FarkSay)
-                        'Boþ satýr ekle
+                        'BoÅŸ satÄ±r ekle
                         With objDoc.Tables(3)
                             .Rows.Add BeforeRow:=objDoc.Tables(3).Rows(8)
                         End With
@@ -7229,7 +7229,7 @@ SiraNoBulundu:
         End If
     ElseIf M3 = True Then
         For i = 1 To 1
-            objDoc.Tables(1).Rows(13).Delete 'ilgi öncesi
+            objDoc.Tables(1).Rows(13).Delete 'ilgi Ã¶ncesi
         Next i
 
         If IlgiFarkSay + Govde1FarkSay < 16 Then
@@ -7238,23 +7238,23 @@ SiraNoBulundu:
             If IlgiFarkSay + Govde1FarkSay > 8 Then
                 For i = 9 To IlgiFarkSay + Govde1FarkSay
                     If i = 9 Then
-                        objDoc.Tables(3).Rows(6).Delete 'Ek öncesi
+                        objDoc.Tables(3).Rows(6).Delete 'Ek Ã¶ncesi
                     ElseIf i = 10 Then
-                        objDoc.Tables(3).Rows(6).Delete 'Ek öncesi
+                        objDoc.Tables(3).Rows(6).Delete 'Ek Ã¶ncesi
                     ElseIf i = 11 Then
-                        objDoc.Tables(3).Rows(1).Delete 'Ýmza öncesi
+                        objDoc.Tables(3).Rows(1).Delete 'Ä°mza Ã¶ncesi
                     ElseIf i = 12 Then
-                        objDoc.Tables(3).Rows(1).Delete 'Ýmza öncesi
+                        objDoc.Tables(3).Rows(1).Delete 'Ä°mza Ã¶ncesi
                     ElseIf i = 13 Then
-                        objDoc.Tables(1).Rows(8).Delete 'Muhatap öncesi
+                        objDoc.Tables(1).Rows(8).Delete 'Muhatap Ã¶ncesi
                     ElseIf i = 14 Then
-                        objDoc.Tables(1).Rows(8).Delete 'Muhatap öncesi
+                        objDoc.Tables(1).Rows(8).Delete 'Muhatap Ã¶ncesi
                     End If
                 Next i
             Else
                 If (IlgiFarkSay + Govde1FarkSay) < 8 Then
                     For i = 1 To 8 - (IlgiFarkSay + Govde1FarkSay)
-                        'Boþ satýr ekle
+                        'BoÅŸ satÄ±r ekle
                         With objDoc.Tables(3)
                             .Rows.Add BeforeRow:=objDoc.Tables(3).Rows(8)
                         End With
@@ -7266,7 +7266,7 @@ SiraNoBulundu:
         End If
     ElseIf M2 = True Then
         For i = 1 To 2
-            objDoc.Tables(1).Rows(13).Delete 'ilgi öncesi
+            objDoc.Tables(1).Rows(13).Delete 'ilgi Ã¶ncesi
         Next i
         
         'Govde1FarkSay = Govde1FarkSay + 0
@@ -7275,23 +7275,23 @@ SiraNoBulundu:
             If IlgiFarkSay + Govde1FarkSay > 8 Then
                 For i = 9 To IlgiFarkSay + Govde1FarkSay
                     If i = 9 Then
-                        objDoc.Tables(3).Rows(6).Delete 'Ek öncesi
+                        objDoc.Tables(3).Rows(6).Delete 'Ek Ã¶ncesi
                     ElseIf i = 10 Then
-                        objDoc.Tables(3).Rows(6).Delete 'Ek öncesi
+                        objDoc.Tables(3).Rows(6).Delete 'Ek Ã¶ncesi
                     ElseIf i = 11 Then
-                        objDoc.Tables(3).Rows(1).Delete 'Ýmza öncesi
+                        objDoc.Tables(3).Rows(1).Delete 'Ä°mza Ã¶ncesi
                     ElseIf i = 12 Then
-                        objDoc.Tables(3).Rows(1).Delete 'Ýmza öncesi
+                        objDoc.Tables(3).Rows(1).Delete 'Ä°mza Ã¶ncesi
                     ElseIf i = 13 Then
-                        objDoc.Tables(1).Rows(8).Delete 'Muhatap öncesi
+                        objDoc.Tables(1).Rows(8).Delete 'Muhatap Ã¶ncesi
                     ElseIf i = 14 Then
-                        objDoc.Tables(1).Rows(8).Delete 'Muhatap öncesi
+                        objDoc.Tables(1).Rows(8).Delete 'Muhatap Ã¶ncesi
                     End If
                 Next i
             Else
                 If (IlgiFarkSay + Govde1FarkSay) < 8 Then
                     For i = 1 To 8 - (IlgiFarkSay + Govde1FarkSay)
-                        'Boþ satýr ekle
+                        'BoÅŸ satÄ±r ekle
                         With objDoc.Tables(3)
                             .Rows.Add BeforeRow:=objDoc.Tables(3).Rows(8)
                         End With
@@ -7327,7 +7327,7 @@ SiraNoBulundu:
     objDoc.ActiveWindow.ActivePane.View.SeekView = wdSeekMainDocument
 
     
-    'PARAF EKLEME ÝÞLEMÝ
+    'PARAF EKLEME Ä°ÅžLEMÄ°
     objDoc.Sections(1).Footers(wdHeaderFooterFirstPage).Range.Tables(1).Cell(Row:=1, Column:=2).Range.Text = AdSoyadParaf & vbNewLine & _
                                                                                        UnvanParaf & vbNewLine & _
                                                                                        TelParaf
@@ -7336,9 +7336,9 @@ SiraNoBulundu:
                                                                                        TelParaf
    
 Tekrarla:
-    'Sayfa sayýsý kaydet komutuna baðlandý.
+    'Sayfa sayÄ±sÄ± kaydet komutuna baÄŸlandÄ±.
     objDoc.Save
-    'Sayfayý text dosyasýndan çek
+    'SayfayÄ± text dosyasÄ±ndan Ã§ek
     TxtFileUstYazi = DestOpUserFolder & "Cover Letter Page Count.txt"
     #If UseADO Then
         Const adReadLine = -2&
@@ -7361,9 +7361,9 @@ Tekrarla:
             End With
         End With
     #End If
-    'MsgBox "Üst Yazý: " & TotalSayfaUstYazi
+    'MsgBox "Ãœst YazÄ±: " & TotalSayfaUstYazi
 
-    'Üst Yazý sayfa sayýsý
+    'Ãœst YazÄ± sayfa sayÄ±sÄ±
     Cells(ActiveCell.Row, 226).Value = TotalSayfaUstYazi
 
     objWord.Visible = True
@@ -7435,13 +7435,13 @@ If InStr(Cells(ActiveCell.Row, 78).Value, " Organization A") <> 0 Then
 End If
 
 
-'ÜST YAZI için prosedürü baþlat
+'ÃœST YAZI iÃ§in prosedÃ¼rÃ¼ baÅŸlat
 'If ActiveCell.Column = 9 Then
 '    Application.ScreenUpdating = False
     Application.DisplayAlerts = False
     'Application.EnableEvents = False
 
-    'Dokümanlarýn oluþturulmasýna soldan saða doðru bir kontrol mekanizmasý kur.
+    'DokÃ¼manlarÄ±n oluÅŸturulmasÄ±na soldan saÄŸa doÄŸru bir kontrol mekanizmasÄ± kur.
     j = ActiveCell.Row
     For i = ActiveCell.Row To 7 Step -1
         If Cells(i, 5).Value <> "" Then
@@ -7494,9 +7494,9 @@ SiraNoBulundu:
     AutoPath = ThisWorkbook.Path
     DestOperasyon = AutoPath & "\System Files\Operation\"
 
-    'ÜST YAZI TANIMLARI
+    'ÃœST YAZI TANIMLARI
     SourceUstYaziNormal = AutoPath & "\System Files\System Templates\Report 2 Cover Letter Templates\Report 2 Cover Letter.docm"
-    'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+    'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
     DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
     DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
     
@@ -7518,7 +7518,7 @@ SiraNoBulundu:
         GoTo Son
     End If
 
-    'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+    'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
     If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
         MkDir DestOpUserFolder
     End If
@@ -7565,7 +7565,7 @@ SiraNoBulundu:
         GoTo Son
     End If
  
-    'PARAF HAZIRLIK ÝÞLEMÝ
+    'PARAF HAZIRLIK Ä°ÅžLEMÄ°
     UserName = Environ("UserProfile")
     UserName = UCase(Right(UserName, 7))
     Set ItemBul = Worksheets(2).Range("DR6:DR1000").Find(What:=UserName, SearchDirection:=xlNext, _
@@ -7587,11 +7587,11 @@ SiraNoBulundu:
         'Close the all Word application
         Call ModuleReport2.OpenWordControl
         
-        'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+        'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
         OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
         Do While OpenKontrolName <> ""
             OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-            If OpenControl = True Then 'Açýksa
+            If OpenControl = True Then 'AÃ§Ä±ksa
     '            On Error Resume Next
     '            Set objWord = GetObject(, "Word.Application")
     '            If objWord Is Nothing Then
@@ -7607,7 +7607,7 @@ SiraNoBulundu:
                 Set objWord = GetObject(, "Word.Application")
                 Set objWord = GetObject(, "Word.Application")
                 objWord.Quit SaveChanges:=True
-                'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+                'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
                 
             End If
             OpenKontrolName = Dir()
@@ -7621,7 +7621,7 @@ SiraNoBulundu:
     '________________________________________
     
         On Error Resume Next
-    '    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+    '    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
         ContSay = 0
         KontrolFile = Dir(DestOpUserFolder & "*.???")
         Do While KontrolFile <> ""
@@ -7633,12 +7633,12 @@ SiraNoBulundu:
         End If
     End If
     
-    'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+    'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
     Set fso = CreateObject("Scripting.FileSystemObject")
     fso.CopyFile (SourceUstYaziNormal), DestOpUserFolder & ReNameUstYaziNormal & ".docm", True
 '________________________________________
 
-    'Oluþturulacak dosyayý aç
+    'OluÅŸturulacak dosyayÄ± aÃ§
     On Error Resume Next
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
@@ -7646,7 +7646,7 @@ SiraNoBulundu:
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
     If objWord Is Nothing Then
-        'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+        'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
         Set objWord = CreateObject("Word.Application")
         objWord.Visible = False
     End If
@@ -7659,25 +7659,25 @@ SiraNoBulundu:
 '________________________________________
 
     'Birim
-    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I")) & " UNIT"
+    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I")) & " UNIT"
     objDoc.Tables(1).Cell(Row:=1, Column:=1).Range.Text = Birimx
     
-    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I"))
-    'Üst yazý tarihi
+    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I"))
+    'Ãœst yazÄ± tarihi
     objDoc.Tables(1).Cell(Row:=1, Column:=2).Range.Text = Birimx & ", " & FormatEnglishDate(Cells(ActiveCell.Row, 83).Value) '(Format(Cells(ActiveCell.Row, 83).Value, "d mmmm yyyy"))
-    'Yazý no
+    'YazÄ± no
     objDoc.Tables(1).Cell(Row:=4, Column:=2).Range.Text = Cells(ActiveCell.Row, 84).Value
-    'Sigorta türü
+    'Sigorta tÃ¼rÃ¼
     Ek2 = Cells(ActiveCell.Row, 75).Value
     Ek2 = Right(Ek2, Len(Ek2) - InStr(Ek2, "/"))
     objDoc.Tables(1).Cell(Row:=7, Column:=2).Range.Text = Ek2
 
 
     'Muhatap
-    IlBuyukHarf = UCase(Replace(Replace(Cells(ActiveCell.Row, 77).Value, "i", "I"), "ý", "I"))
+    IlBuyukHarf = UCase(Replace(Replace(Cells(ActiveCell.Row, 77).Value, "i", "I"), "Ä±", "I"))
     IlKucukHarf = Cells(ActiveCell.Row, 77).Value
     If Cells(ActiveCell.Row, 78).Value <> "" Then
-        IlceBuyukHarf = UCase(Replace(Replace(Cells(ActiveCell.Row, 78).Value, "i", "I"), "ý", "I"))
+        IlceBuyukHarf = UCase(Replace(Replace(Cells(ActiveCell.Row, 78).Value, "i", "I"), "Ä±", "I"))
         IlceKucukHarf = Cells(ActiveCell.Row, 78).Value
     Else
         IlceBuyukHarf = ""
@@ -7691,7 +7691,7 @@ SiraNoBulundu:
     
 
     
-    'YENÝ MUHATAP TEMASI
+    'YENÄ° MUHATAP TEMASI
     
     M2 = False
     M3 = False
@@ -7700,16 +7700,16 @@ SiraNoBulundu:
     Ify = False
     XXXMudNotu = False
     BStr = 10
-    '1. sayfadan sonraki üst bilgi tanýmlarý
+    '1. sayfadan sonraki Ã¼st bilgi tanÄ±mlarÄ±
     ustbilgitarih = (Format(Cells(ActiveCell.Row, 83).Value, "dd.mm.yyyy"))
     ustbilgisayi = Cells(ActiveCell.Row, 84).Value
     
-    '4'lük
+    '4'lÃ¼k
     If Cells(ActiveCell.Row, 73).Value <> "" Then
         If Cells(ActiveCell.Row, 72).Value = "Provincial Directorate B" Or Cells(ActiveCell.Row, 72).Value = "Provincial Directorate C" Or _
-        Cells(ActiveCell.Row, 72).Value = "Provincial Directorate D" Or Cells(ActiveCell.Row, 72).Value = "Provincial Directorate E" Then 'VALÝLÝK
+        Cells(ActiveCell.Row, 72).Value = "Provincial Directorate D" Or Cells(ActiveCell.Row, 72).Value = "Provincial Directorate E" Then 'VALÄ°LÄ°K
             objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = IlBuyukHarf & " PROVINCIAL GOVERNORSHIP"
-            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = Cells(ActiveCell.Row, 72).Value  'UCase(Replace(Replace(Cells(ActiveCell.Row, 72).Value, "i", "I"), "ý", "I"))
+            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = Cells(ActiveCell.Row, 72).Value  'UCase(Replace(Replace(Cells(ActiveCell.Row, 72).Value, "i", "I"), "Ä±", "I"))
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 73).Value & ")"
             objDoc.Tables(1).Cell(Row:=BStr + 3, Column:=1).Range.Text = Bolum3
             objDoc.Tables(1).Cell(Row:=BStr + 3, Column:=1).Range.Font.Underline = wdUnderlineSingle
@@ -7719,7 +7719,7 @@ SiraNoBulundu:
         ElseIf Cells(ActiveCell.Row, 72).Value = "District Directorate B" Or Cells(ActiveCell.Row, 72).Value = "District Directorate C" Or _
         Cells(ActiveCell.Row, 72).Value = "District Directorate D" Or Cells(ActiveCell.Row, 72).Value = "District Directorate E" Then 'KAYMAKAMLIK
             objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = IlceBuyukHarf & " DISTRICT GOVERNORSHIP"
-            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = Cells(ActiveCell.Row, 72).Value 'UCase(Replace(Replace(Cells(ActiveCell.Row, 72).Value, "i", "I"), "ý", "I"))
+            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = Cells(ActiveCell.Row, 72).Value 'UCase(Replace(Replace(Cells(ActiveCell.Row, 72).Value, "i", "I"), "Ä±", "I"))
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 73).Value & ")"
             objDoc.Tables(1).Cell(Row:=BStr + 3, Column:=1).Range.Text = Bolum3
             objDoc.Tables(1).Cell(Row:=BStr + 3, Column:=1).Range.Font.Underline = wdUnderlineSingle
@@ -7727,16 +7727,16 @@ SiraNoBulundu:
             
             ustbilgimuhatap = IlceKucukHarf & " District Governorship " & Cells(ActiveCell.Row, 72).Value
         ElseIf InStr(Cells(ActiveCell.Row, 72).Value, "General Directorate") <> 0 Or InStr(Cells(ActiveCell.Row, 72).Value, "Regional Directorate") <> 0 Then
-            objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "ý", "I"))
-            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = Cells(ActiveCell.Row, 72).Value 'UCase(Replace(Replace(Cells(ActiveCell.Row, 72).Value, "i", "I"), "ý", "I"))
+            objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "Ä±", "I"))
+            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = Cells(ActiveCell.Row, 72).Value 'UCase(Replace(Replace(Cells(ActiveCell.Row, 72).Value, "i", "I"), "Ä±", "I"))
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 73).Value & ")"
             objDoc.Tables(1).Cell(Row:=BStr + 3, Column:=1).Range.Text = Bolum3
             objDoc.Tables(1).Cell(Row:=BStr + 3, Column:=1).Range.Font.Underline = wdUnderlineSingle
             M4 = True
             
             ustbilgimuhatap = WorksheetFunction.Proper(ThisWorkbook.Worksheets(2).Cells(6, 111).Value) & " " & Cells(ActiveCell.Row, 72).Value
-        Else 'YARGI 3'lük
-            Bolum1 = UCase(Replace(Replace(Cells(ActiveCell.Row, 72).Value, "i", "I"), "ý", "I"))
+        Else 'YARGI 3'lÃ¼k
+            Bolum1 = UCase(Replace(Replace(Cells(ActiveCell.Row, 72).Value, "i", "I"), "Ä±", "I"))
             If InStr(Bolum1, "X.X. ") > 0 Then
                 objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = Mid(Bolum1, 6, Len(Bolum1))
                 objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 73).Value & ")"
@@ -7756,12 +7756,12 @@ SiraNoBulundu:
             End If
         End If
     End If
-    '3'lük
+    '3'lÃ¼k
     If Cells(ActiveCell.Row, 73).Value = "" Then
         If Cells(ActiveCell.Row, 72).Value = "Provincial Directorate B" Or Cells(ActiveCell.Row, 72).Value = "Provincial Directorate C" Or _
-        Cells(ActiveCell.Row, 72).Value = "Provincial Directorate D" Or Cells(ActiveCell.Row, 72).Value = "Provincial Directorate E" Then 'VALÝLÝK
+        Cells(ActiveCell.Row, 72).Value = "Provincial Directorate D" Or Cells(ActiveCell.Row, 72).Value = "Provincial Directorate E" Then 'VALÄ°LÄ°K
             objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = IlBuyukHarf & " PROVINCIAL GOVERNORSHIP"
-            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 72).Value & ")"  'UCase(Replace(Replace(Cells(ActiveCell.Row, 72).Value, "i", "I"), "ý", "I"))
+            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 72).Value & ")"  'UCase(Replace(Replace(Cells(ActiveCell.Row, 72).Value, "i", "I"), "Ä±", "I"))
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Text = Bolum3
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Font.Underline = wdUnderlineSingle
             M3 = True
@@ -7770,22 +7770,22 @@ SiraNoBulundu:
         ElseIf Cells(ActiveCell.Row, 72).Value = "District Directorate B" Or Cells(ActiveCell.Row, 72).Value = "District Directorate C" Or _
         Cells(ActiveCell.Row, 72).Value = "District Directorate D" Or Cells(ActiveCell.Row, 72).Value = "District Directorate E" Then
             objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = IlceBuyukHarf & " DISTRICT GOVERNORSHIP"
-            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 72).Value & ")"  'UCase(Replace(Replace(Cells(ActiveCell.Row, 72).Value, "i", "I"), "ý", "I"))
+            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 72).Value & ")"  'UCase(Replace(Replace(Cells(ActiveCell.Row, 72).Value, "i", "I"), "Ä±", "I"))
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Text = Bolum3
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Font.Underline = wdUnderlineSingle
             M3 = True
             
             ustbilgimuhatap = IlceKucukHarf & " District Governorship " & Cells(ActiveCell.Row, 72).Value
         ElseIf InStr(Cells(ActiveCell.Row, 72).Value, "General Directorate") <> 0 Or InStr(Cells(ActiveCell.Row, 72).Value, "Regional Directorate") <> 0 Then
-            objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "ý", "I"))
-            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 72).Value & ")" 'UCase(Replace(Replace(Cells(ActiveCell.Row, 72).Value, "i", "I"), "ý", "I"))
+            objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "Ä±", "I"))
+            objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = "(" & Cells(ActiveCell.Row, 72).Value & ")" 'UCase(Replace(Replace(Cells(ActiveCell.Row, 72).Value, "i", "I"), "Ä±", "I"))
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Text = Bolum3
             objDoc.Tables(1).Cell(Row:=BStr + 2, Column:=1).Range.Font.Underline = wdUnderlineSingle
             M3 = True
             
             ustbilgimuhatap = WorksheetFunction.Proper(ThisWorkbook.Worksheets(2).Cells(6, 111).Value) & " " & Cells(ActiveCell.Row, 72).Value
         Else 'YARGI 2'lik
-            Bolum1 = UCase(Replace(Replace(Cells(ActiveCell.Row, 72).Value, "i", "I"), "ý", "I"))
+            Bolum1 = UCase(Replace(Replace(Cells(ActiveCell.Row, 72).Value, "i", "I"), "Ä±", "I"))
             If InStr(Bolum1, "X.X. ") > 0 Then
                 objDoc.Tables(1).Cell(Row:=BStr, Column:=1).Range.Text = Mid(Bolum1, 6, Len(Bolum1))
                 objDoc.Tables(1).Cell(Row:=BStr + 1, Column:=1).Range.Text = Bolum3
@@ -7805,7 +7805,7 @@ SiraNoBulundu:
     End If
    
 
-    'Ýlgi tema
+    'Ä°lgi tema
     If Cells(IlkSira, 33).Value = "Provincial Directorate B" Then
         If Cells(IlkSira, 34).Value <> "" Then
             GelenTema = Cells(IlkSira, 25).Value & " Provincial Governorship Provincial Directorate B " & Cells(IlkSira, 34).Value
@@ -7876,7 +7876,7 @@ SiraNoBulundu:
         End If
     End If
 
-    'Ýlgi
+    'Ä°lgi
     Bolum1 = "Delivered to us on "
     Bolum2 = ", with a letter dated "
     Bolum3 = " and reference number "
@@ -7886,13 +7886,13 @@ SiraNoBulundu:
     Cells(ActiveCell.Row, 34).Value = Cells(ActiveCell.Row, 73).Value And _
     Cells(ActiveCell.Row, 25).Value = Cells(ActiveCell.Row, 77).Value Then
            
-        ' Gelen ve giden birim aynýysa
+        ' Gelen ve giden birim aynÄ±ysa
         objDoc.Tables(1).Cell(Row:=15, Column:=3).Range.Text = _
             Bolum1 & Cells(ActiveCell.Row, 36).Value & Bolum2 & _
             Cells(ActiveCell.Row, 28).Value & Bolum3 & _
             Cells(ActiveCell.Row, 29).Value & Bolum4
     
-        ' Ýlgi yazý eki kontrolü
+        ' Ä°lgi yazÄ± eki kontrolÃ¼
         If Trim(Cells(ActiveCell.Row, 82).Value) <> "" Then
             Ifv = True
         Else
@@ -7900,7 +7900,7 @@ SiraNoBulundu:
         End If
     
     Else
-        ' Gelen ve giden birim farklýysa
+        ' Gelen ve giden birim farklÄ±ysa
         RaporIlgi = Bolum1 & Cells(ActiveCell.Row, 36).Value & _
                     " from " & GelenTema & Bolum2 & _
                     Cells(IlkSira, 28).Value & Bolum3 & _
@@ -7913,7 +7913,7 @@ SiraNoBulundu:
     ' Report body (English version)
     ' Report(s) control
     Dim ReportList() As String
-    ' Rapor numaralarýný diziye al
+    ' Rapor numaralarÄ±nÄ± diziye al
     y = 0
     For i = IlkSira To SonSira
         If Cells(i, 7).Value <> "" Then
@@ -7923,7 +7923,7 @@ SiraNoBulundu:
         End If
     Next i
     
-    ' Listeyi biçimlendir
+    ' Listeyi biÃ§imlendir
     Select Case y
         Case 1
             Ek3 = ReportList(1)
@@ -7969,17 +7969,17 @@ SiraNoBulundu:
     Bolum6 = Chr(9) & "Respectfully submitted for your information."
     Birlestir = Chr(9) & Bolum1 & Bolum2 & Bolum3
  
-    'Word'ten metni çek ve word'teki satýrý temizle
+    'Word'ten metni Ã§ek ve word'teki satÄ±rÄ± temizle
     StrTemaNotu = objDoc.Tables(2).Cell(Row:=1, Column:=1).Range.Text
     objDoc.Tables(2).Cell(Row:=1, Column:=1).Range.Text = ""
-    'Çekilen metnin sonunda breakline varsa kaldýr
+    'Ã‡ekilen metnin sonunda breakline varsa kaldÄ±r
     If Len(StrTemaNotu) > 0 Then
         If InStr(StrTemaNotu, Chr(13)) <> 0 Then
             StrTemaNotu = Replace(StrTemaNotu, Chr(13), "")
             'StrTemaNotu = Left(StrTemaNotu, Len(StrTemaNotu) - 2)
         End If
     End If
-    'Tema notu varsa Birlestir deðeri þöyle olsun
+    'Tema notu varsa Birlestir deÄŸeri ÅŸÃ¶yle olsun
     If Cells(ActiveCell.Row, 86).Value = "Yes" Then
         Birlestir = Birlestir & vbNewLine & StrTemaNotu
     End If
@@ -7995,7 +7995,7 @@ SiraNoBulundu:
             gecersizSay = gecersizSay + Cells(i, 52).Value
         End If
     Next i
-    'Üst yazý notu (XXXMud notu)
+    'Ãœst yazÄ± notu (XXXMud notu)
     If Cells(ActiveCell.Row, 85).Value = "Yes" Then
         XXXMudNotu = True
     Else
@@ -8061,16 +8061,16 @@ SiraNoBulundu:
     'Ekler
     objDoc.Tables(3).Cell(Row:=8, Column:=1).Range.Text = "Attachment:"
 
-    Ek2 = Cells(ActiveCell.Row, 75).Value 'Kapalý Package A
+    Ek2 = Cells(ActiveCell.Row, 75).Value 'KapalÄ± Package A
     Ek2 = Left(Ek2, InStr(Ek2, "/") - 1)
     If Cells(ActiveCell.Row, 76).Value > 1 Then objDoc.Tables(3).Cell(Row:=8, Column:=2).Range.Text = " 1) Enclosed " & Ek2 & " (" & Cells(ActiveCell.Row, 76).Value & " pieces)"
     If Cells(ActiveCell.Row, 76).Value < 2 Then objDoc.Tables(3).Cell(Row:=8, Column:=2).Range.Text = " 1) Enclosed " & Ek2 & " (" & Cells(ActiveCell.Row, 76).Value & " piece)"
     
-    x = Application.Sum(Range(Cells(IlkSira, 100), Cells(SonSira, 100))) 'Statement 2 toplam sayfa sayýsý
+    x = Application.Sum(Range(Cells(IlkSira, 100), Cells(SonSira, 100))) 'Statement 2 toplam sayfa sayÄ±sÄ±
     If x > 1 Then objDoc.Tables(3).Cell(Row:=9, Column:=2).Range.Text = " 2) Statement 2 (" & x & " pages)"
     If x < 2 Then objDoc.Tables(3).Cell(Row:=9, Column:=2).Range.Text = " 2) Statement 2 (" & x & " page)"
     
-    x = Application.Sum(Range(Cells(IlkSira, 99), Cells(SonSira, 99)))  'Rapor1 toplam sayfa sayýsý
+    x = Application.Sum(Range(Cells(IlkSira, 99), Cells(SonSira, 99)))  'Rapor1 toplam sayfa sayÄ±sÄ±
     If y = 1 Then
         If x > 1 Then objDoc.Tables(3).Cell(Row:=10, Column:=2).Range.Text = " 3) Report 2.1 (" & x & " pages)"
         If x < 2 Then objDoc.Tables(3).Cell(Row:=10, Column:=2).Range.Text = " 3) Report 2.1 (" & x & " page)"
@@ -8078,7 +8078,7 @@ SiraNoBulundu:
         objDoc.Tables(3).Cell(Row:=10, Column:=2).Range.Text = " 3) Report 2.1 (" & y & " reports, " & "total of " & x & " pages)"
     End If
     
-    'Statement 1 (döküm dahil) toplam sayfa sayýsý
+    'Statement 1 (dÃ¶kÃ¼m dahil) toplam sayfa sayÄ±sÄ±
     If Cells(ActiveCell.Row, 98).Value = "" Then
         x = Application.Sum(Range(Cells(IlkSira, 97), Cells(SonSira, 97)))
         If x > 1 Then objDoc.Tables(3).Cell(Row:=11, Column:=2).Range.Text = " 4) Statement 1 (" & x & " pages)"
@@ -8088,11 +8088,11 @@ SiraNoBulundu:
         objDoc.Tables(3).Cell(Row:=11, Column:=2).Range.Text = " 4) Attached Statement 1 (total of " & x & " pages)"
     End If
         
-    If Cells(IlkSira, 82).Value <> "" Then 'ilgi yazý fotokopisi var
-        'Ýlgi yazý fotokopisi
+    If Cells(IlkSira, 82).Value <> "" Then 'ilgi yazÄ± fotokopisi var
+        'Ä°lgi yazÄ± fotokopisi
         If Cells(IlkSira, 74).Value > 1 Then objDoc.Tables(3).Cell(Row:=12, Column:=2).Range.Text = " 5) Photocopy of the Referenced Letter (" & Cells(IlkSira, 82).Value & " pages)"
         If Cells(IlkSira, 74).Value < 2 Then objDoc.Tables(3).Cell(Row:=12, Column:=2).Range.Text = " 5) Photocopy of the Referenced Letter (" & Cells(IlkSira, 82).Value & " page)"
-    Else 'ilgi yazý fotokopisi yok
+    Else 'ilgi yazÄ± fotokopisi yok
         '
     End If
 
@@ -8100,28 +8100,28 @@ SiraNoBulundu:
     'On Error GoTo 0
 
 
-    '__________________________DÝNAMÝK SAYFA YAPISI
+    '__________________________DÄ°NAMÄ°K SAYFA YAPISI
     
-    'Ýlgi ve gövde metninin kaç satýrdan oluþtuðu bilgisinin elde edilmesinde kullanýlýyor.
+    'Ä°lgi ve gÃ¶vde metninin kaÃ§ satÄ±rdan oluÅŸtuÄŸu bilgisinin elde edilmesinde kullanÄ±lÄ±yor.
     Set IlgiRng = objDoc.Tables(1).Cell(Row:=15, Column:=3).Range
     Set Govde1Rng = objDoc.Tables(2).Cell(Row:=1, Column:=1).Range
     Set Govde2Rng = objDoc.Tables(2).Cell(Row:=2, Column:=1).Range
     
     IlgiStrSay = Govde1Rng.Information(wdFirstCharacterLineNumber) - IlgiRng.Information(wdFirstCharacterLineNumber) - 1
     Govde1StrSay = Govde2Rng.Information(wdFirstCharacterLineNumber) - Govde1Rng.Information(wdFirstCharacterLineNumber)
-    'MsgBox "Ýlgi Satýr Sayýsý: " & IlgiStrSay & vbNewLine & vbNewLine & "Gövde 1 Satýr Sayýsý: " & Govde1StrSay
+    'MsgBox "Ä°lgi SatÄ±r SayÄ±sÄ±: " & IlgiStrSay & vbNewLine & vbNewLine & "GÃ¶vde 1 SatÄ±r SayÄ±sÄ±: " & Govde1StrSay
     IlgiFarkSay = IlgiStrSay - 1
     Govde1FarkSay = Govde1StrSay - 2
     CokluSayfa = 0
 
     'MsgBox IlgiFarkSay
     'MsgBox Govde1FarkSay
-    'MsgBox IlgiFarkSay + Govde1FarkSay 'Varsayýlan ilgi ve 1 paragrafta (2 rowda) toplam 3 satýra göre sýfýrlandý.
+    'MsgBox IlgiFarkSay + Govde1FarkSay 'VarsayÄ±lan ilgi ve 1 paragrafta (2 rowda) toplam 3 satÄ±ra gÃ¶re sÄ±fÄ±rlandÄ±.
     
-    'Dinamik sayfa düzeni
+    'Dinamik sayfa dÃ¼zeni
     If Cells(ActiveCell.Row, 86).Value = "Yes" Then 'Tema notu var.
 
-        'yazý tipini küçült
+        'yazÄ± tipini kÃ¼Ã§Ã¼lt
         Set Govde1Rng = objDoc.Tables(2).Cell(Row:=1, Column:=1).Range
         Set Govde2Rng = objDoc.Tables(2).Cell(Row:=2, Column:=1).Range
 
@@ -8175,23 +8175,23 @@ SiraNoBulundu:
             If IlgiFarkSay + Govde1FarkSay > 8 Then
                 For i = 9 To IlgiFarkSay + Govde1FarkSay
                     If i = 9 Then
-                        objDoc.Tables(3).Rows(6).Delete 'Ek öncesi
+                        objDoc.Tables(3).Rows(6).Delete 'Ek Ã¶ncesi
                     ElseIf i = 10 Then
-                        objDoc.Tables(3).Rows(6).Delete 'Ek öncesi
+                        objDoc.Tables(3).Rows(6).Delete 'Ek Ã¶ncesi
                     ElseIf i = 11 Then
-                        objDoc.Tables(3).Rows(1).Delete 'Ýmza öncesi
+                        objDoc.Tables(3).Rows(1).Delete 'Ä°mza Ã¶ncesi
                     ElseIf i = 12 Then
-                        objDoc.Tables(3).Rows(1).Delete 'Ýmza öncesi
+                        objDoc.Tables(3).Rows(1).Delete 'Ä°mza Ã¶ncesi
                     ElseIf i = 13 Then
-                        objDoc.Tables(1).Rows(8).Delete 'Muhatap öncesi
+                        objDoc.Tables(1).Rows(8).Delete 'Muhatap Ã¶ncesi
                     ElseIf i = 14 Then
-                        objDoc.Tables(1).Rows(8).Delete 'Muhatap öncesi
+                        objDoc.Tables(1).Rows(8).Delete 'Muhatap Ã¶ncesi
                     End If
                 Next i
             Else
                 If (IlgiFarkSay + Govde1FarkSay) < 8 Then
                     For i = 1 To 8 - (IlgiFarkSay + Govde1FarkSay)
-                        'Boþ satýr ekle
+                        'BoÅŸ satÄ±r ekle
                         With objDoc.Tables(3)
                             .Rows.Add BeforeRow:=objDoc.Tables(3).Rows(8)
                         End With
@@ -8203,7 +8203,7 @@ SiraNoBulundu:
         End If
     ElseIf M3 = True Then
         For i = 1 To 1
-            objDoc.Tables(1).Rows(13).Delete 'ilgi öncesi
+            objDoc.Tables(1).Rows(13).Delete 'ilgi Ã¶ncesi
         Next i
 
         If IlgiFarkSay + Govde1FarkSay < 16 Then
@@ -8212,23 +8212,23 @@ SiraNoBulundu:
             If IlgiFarkSay + Govde1FarkSay > 8 Then
                 For i = 9 To IlgiFarkSay + Govde1FarkSay
                     If i = 9 Then
-                        objDoc.Tables(3).Rows(6).Delete 'Ek öncesi
+                        objDoc.Tables(3).Rows(6).Delete 'Ek Ã¶ncesi
                     ElseIf i = 10 Then
-                        objDoc.Tables(3).Rows(6).Delete 'Ek öncesi
+                        objDoc.Tables(3).Rows(6).Delete 'Ek Ã¶ncesi
                     ElseIf i = 11 Then
-                        objDoc.Tables(3).Rows(1).Delete 'Ýmza öncesi
+                        objDoc.Tables(3).Rows(1).Delete 'Ä°mza Ã¶ncesi
                     ElseIf i = 12 Then
-                        objDoc.Tables(3).Rows(1).Delete 'Ýmza öncesi
+                        objDoc.Tables(3).Rows(1).Delete 'Ä°mza Ã¶ncesi
                     ElseIf i = 13 Then
-                        objDoc.Tables(1).Rows(8).Delete 'Muhatap öncesi
+                        objDoc.Tables(1).Rows(8).Delete 'Muhatap Ã¶ncesi
                     ElseIf i = 14 Then
-                        objDoc.Tables(1).Rows(8).Delete 'Muhatap öncesi
+                        objDoc.Tables(1).Rows(8).Delete 'Muhatap Ã¶ncesi
                     End If
                 Next i
             Else
                 If (IlgiFarkSay + Govde1FarkSay) < 8 Then
                     For i = 1 To 8 - (IlgiFarkSay + Govde1FarkSay)
-                        'Boþ satýr ekle
+                        'BoÅŸ satÄ±r ekle
                         With objDoc.Tables(3)
                             .Rows.Add BeforeRow:=objDoc.Tables(3).Rows(8)
                         End With
@@ -8240,7 +8240,7 @@ SiraNoBulundu:
         End If
     ElseIf M2 = True Then
         For i = 1 To 2
-            objDoc.Tables(1).Rows(13).Delete 'ilgi öncesi
+            objDoc.Tables(1).Rows(13).Delete 'ilgi Ã¶ncesi
         Next i
         
         'Govde1FarkSay = Govde1FarkSay + 0
@@ -8249,23 +8249,23 @@ SiraNoBulundu:
             If IlgiFarkSay + Govde1FarkSay > 8 Then
                 For i = 9 To IlgiFarkSay + Govde1FarkSay
                     If i = 9 Then
-                        objDoc.Tables(3).Rows(6).Delete 'Ek öncesi
+                        objDoc.Tables(3).Rows(6).Delete 'Ek Ã¶ncesi
                     ElseIf i = 10 Then
-                        objDoc.Tables(3).Rows(6).Delete 'Ek öncesi
+                        objDoc.Tables(3).Rows(6).Delete 'Ek Ã¶ncesi
                     ElseIf i = 11 Then
-                        objDoc.Tables(3).Rows(1).Delete 'Ýmza öncesi
+                        objDoc.Tables(3).Rows(1).Delete 'Ä°mza Ã¶ncesi
                     ElseIf i = 12 Then
-                        objDoc.Tables(3).Rows(1).Delete 'Ýmza öncesi
+                        objDoc.Tables(3).Rows(1).Delete 'Ä°mza Ã¶ncesi
                     ElseIf i = 13 Then
-                        objDoc.Tables(1).Rows(8).Delete 'Muhatap öncesi
+                        objDoc.Tables(1).Rows(8).Delete 'Muhatap Ã¶ncesi
                     ElseIf i = 14 Then
-                        objDoc.Tables(1).Rows(8).Delete 'Muhatap öncesi
+                        objDoc.Tables(1).Rows(8).Delete 'Muhatap Ã¶ncesi
                     End If
                 Next i
             Else
                 If (IlgiFarkSay + Govde1FarkSay) < 8 Then
                     For i = 1 To 8 - (IlgiFarkSay + Govde1FarkSay)
-                        'Boþ satýr ekle
+                        'BoÅŸ satÄ±r ekle
                         With objDoc.Tables(3)
                             .Rows.Add BeforeRow:=objDoc.Tables(3).Rows(8)
                         End With
@@ -8299,7 +8299,7 @@ SiraNoBulundu:
     
     objDoc.ActiveWindow.ActivePane.View.SeekView = wdSeekMainDocument
 
-    'PARAF EKLEME ÝÞLEMÝ
+    'PARAF EKLEME Ä°ÅžLEMÄ°
     objDoc.Sections(1).Footers(wdHeaderFooterFirstPage).Range.Tables(1).Cell(Row:=1, Column:=2).Range.Text = AdSoyadParaf & vbNewLine & _
                                                                                        UnvanParaf & vbNewLine & _
                                                                                        TelParaf
@@ -8309,9 +8309,9 @@ SiraNoBulundu:
                                                                                        
                                                                                        
 Tekrarla:
-    'Sayfa sayýsý kaydet komutuna baðlandý.
+    'Sayfa sayÄ±sÄ± kaydet komutuna baÄŸlandÄ±.
     objDoc.Save
-    'Sayfayý text dosyasýndan çek
+    'SayfayÄ± text dosyasÄ±ndan Ã§ek
     TxtFileUstYazi = DestOpUserFolder & "Cover Letter Page Count.txt"
     #If UseADO Then
         Const adReadLine = -2&
@@ -8334,9 +8334,9 @@ Tekrarla:
             End With
         End With
     #End If
-    'MsgBox "Üst Yazý: " & TotalSayfaUstYazi
+    'MsgBox "Ãœst YazÄ±: " & TotalSayfaUstYazi
 
-    'Üst Yazý sayfa sayýsý
+    'Ãœst YazÄ± sayfa sayÄ±sÄ±
     Cells(ActiveCell.Row, 101).Value = TotalSayfaUstYazi
 
     objWord.Visible = True
@@ -8415,7 +8415,7 @@ YeniIslem = YeniIslemAktar
 DelControl = False
 
 
-'Modülün Rapor sayfasýnda bulunan baþlangýç ve bitiþ satýr numaralarý
+'ModÃ¼lÃ¼n Rapor sayfasÄ±nda bulunan baÅŸlangÄ±Ã§ ve bitiÅŸ satÄ±r numaralarÄ±
 IlkSira = YeniIslem
 SonSira = YeniIslem + Maxi
 Set WsRapor = ThisWorkbook.Worksheets(4)
@@ -8428,25 +8428,25 @@ If InStr(WsRapor.Cells(IlkSira, 26).Value, " Organization A") <> 0 Then
 End If
 
 
-'Aylýk ayraçlar
+'AylÄ±k ayraÃ§lar
 If WsRapor.Cells(IlkSira, 39).Value <> "" Then
     ModulTarih = WsRapor.Cells(IlkSira, 39).Value
     ModulAyrac = "01" & Right(ModulTarih, 8)
-Else 'iþlemin yapýldýðý günü esas al
+Else 'iÅŸlemin yapÄ±ldÄ±ÄŸÄ± gÃ¼nÃ¼ esas al
     ModulTarih = Format(Date, "dd.mm.yyyy")
     ModulAyrac = "01" & Right(ModulTarih, 8)
 End If
 
 'KayitDefSiraNo = 0
 
-'Ýþlem günlüðü açýksa kaydet ve kapat.
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(IslemGunlugu)
 If OpenControl = True Then
     Workbooks("System Registry Report 2.1.xlsx").Save
     Workbooks("System Registry Report 2.1.xlsx").Close SaveChanges:=False
 End If
 
-'Ýþlem günlüðü aç
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§
 Workbooks.Open (IslemGunlugu)
 Set WsIslemGunlugu = Workbooks("System Registry Report 2.1.xlsx").Worksheets(1)
 
@@ -8457,11 +8457,11 @@ WsIslemGunlugu.Columns("B:C").EntireColumn.Hidden = False
 
 '____________HAZIRLIK
 
-'Ýþlem günlüðünde baþlangýç ve bitiþ satýrlarýný tespit et.
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼nde baÅŸlangÄ±Ã§ ve bitiÅŸ satÄ±rlarÄ±nÄ± tespit et.
 Say1IslemGunlugu = WsIslemGunlugu.Range("B100000").End(xlUp).Row
 Say2IslemGunlugu = WsIslemGunlugu.Range("C100000").End(xlUp).Row
 SayAyracIslemGunlugu = WsIslemGunlugu.Range("E100000").End(xlUp).Row
-'Ýþlem günlüðünde ayraçlarý oluþtur
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼nde ayraÃ§larÄ± oluÅŸtur
 If Say1IslemGunlugu < 7 And SayAyracIslemGunlugu < 7 Then
 
     Say1IslemGunlugu = 6
@@ -8613,13 +8613,13 @@ End If
 
 '____________OPERASYONLAR
 
-'Ýþlem günlüðünde baþlangýç ve bitiþ satýrlarýný tespit et.
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼nde baÅŸlangÄ±Ã§ ve bitiÅŸ satÄ±rlarÄ±nÄ± tespit et.
 Say1IslemGunlugu = WsIslemGunlugu.Range("B100000").End(xlUp).Row
 Say2IslemGunlugu = WsIslemGunlugu.Range("C100000").End(xlUp).Row
 SayAyracIslemGunlugu = WsIslemGunlugu.Range("E100000").End(xlUp).Row
 
 Set IslemGunluguIlkSiraBul = WsIslemGunlugu.Range("B7:B100000").Find(What:=WsRapor.Cells(IlkSira, 93).Value, SearchDirection:=xlNext, _
-                SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasýný ara
+                SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasÄ±nÄ± ara
 Set IslemGunluguSonSiraBul = WsIslemGunlugu.Range("C7:C100000").Find(What:=WsRapor.Cells(IlkSira, 93).Value, SearchDirection:=xlNext, _
                 SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
 If Not IslemGunluguIlkSiraBul Is Nothing Then
@@ -8630,38 +8630,38 @@ If Not IslemGunluguIlkSiraBul Is Nothing Then
 End If
 
     
-If Not IslemGunluguIlkSiraBul Is Nothing Then 'DÜZENLEME ÝÞLEMÝ
+If Not IslemGunluguIlkSiraBul Is Nothing Then 'DÃœZENLEME Ä°ÅžLEMÄ°
 
-    'DÖNEM AYNI mý FARKLI mý?
+    'DÃ–NEM AYNI mÄ± FARKLI mÄ±?
     i = IslemGunluguIlkSiraBul.Row
     Do Until WsIslemGunlugu.Cells(i, 5).Value <> "" 'CDate(ModulAyrac)
         i = i - 1
     Loop
     
     If WsIslemGunlugu.Cells(i, 5).Formula = CDate(ModulAyrac) Then
-        'MsgBox "Ayný dönem"
+        'MsgBox "AynÄ± dÃ¶nem"
         GoTo DonemAyni
     Else
-        'MsgBox "Farklý dönem"
+        'MsgBox "FarklÄ± dÃ¶nem"
         GoTo DonemFarkli
     End If
 
 DonemFarkli:
-    '_______________FARKLI DÖNEM (DÜZENLEME ÝÞLEMÝ)
+    '_______________FARKLI DÃ–NEM (DÃœZENLEME Ä°ÅžLEMÄ°)
     
-    'Önceki dönemde bulunan veriyi sil.
+    'Ã–nceki dÃ¶nemde bulunan veriyi sil.
     WsIslemGunlugu.Range(WsIslemGunlugu.Cells(IslemGunluguIlkSira, 2), WsIslemGunlugu.Cells(IslemGunluguSonSira, 20)).ClearContents
-    WsIslemGunlugu.Cells(IslemGunluguIlkSira, 2).Value = "Sil" 'ilk satýrý silmek üzere iþaretle
-    WsIslemGunlugu.Cells(IslemGunluguSonSira, 3).Value = "Sil" 'son satýrý silmek üzere iþaretle
+    WsIslemGunlugu.Cells(IslemGunluguIlkSira, 2).Value = "Sil" 'ilk satÄ±rÄ± silmek Ã¼zere iÅŸaretle
+    WsIslemGunlugu.Cells(IslemGunluguSonSira, 3).Value = "Sil" 'son satÄ±rÄ± silmek Ã¼zere iÅŸaretle
         
-    'Kaynak dönemde bulunan dönem sýra no.larý güncelle
+    'Kaynak dÃ¶nemde bulunan dÃ¶nem sÄ±ra no.larÄ± gÃ¼ncelle
     i = IslemGunluguSonSira
-    Do Until WsIslemGunlugu.Cells(i, 5).Value <> "" 'kaynak dönem en alt satýrda deðilse stop koþulu
+    Do Until WsIslemGunlugu.Cells(i, 5).Value <> "" 'kaynak dÃ¶nem en alt satÄ±rda deÄŸilse stop koÅŸulu
         i = i + 1
-        If i > Say2IslemGunlugu Then 'kaynak dönem en alt satýrda ise stop koþulu
+        If i > Say2IslemGunlugu Then 'kaynak dÃ¶nem en alt satÄ±rda ise stop koÅŸulu
             GoTo KaynakDonemSiraNo
         End If
-        If WsIslemGunlugu.Cells(i, 6).Value <> "" And IsNumeric(WsIslemGunlugu.Cells(i, 6).Value) Then 'silinen veriden sonraki verileri dönem sýra no.larý 1 azalýr
+        If WsIslemGunlugu.Cells(i, 6).Value <> "" And IsNumeric(WsIslemGunlugu.Cells(i, 6).Value) Then 'silinen veriden sonraki verileri dÃ¶nem sÄ±ra no.larÄ± 1 azalÄ±r
             WsIslemGunlugu.Cells(i, 6).Value = WsIslemGunlugu.Cells(i, 6).Value - 1
         End If
     Loop
@@ -8670,14 +8670,14 @@ KaynakDonemSiraNo:
     
     Set BulIslemGunlugu = WsIslemGunlugu.Range("E:E").Find(What:=CDate(ModulAyrac), SearchDirection:=xlNext, _
             SearchOrder:=xlByRows, LookIn:=xlFormulas, LookAt:=xlWhole)
-    If Not BulIslemGunlugu Is Nothing Then 'HEDEF DÖNEMÝ bul
+    If Not BulIslemGunlugu Is Nothing Then 'HEDEF DÃ–NEMÄ° bul
         
-        'Hedef dönemin en alt satýrý
+        'Hedef dÃ¶nemin en alt satÄ±rÄ±
         i = BulIslemGunlugu.Row + 1
         j = 0
-        Do Until WsIslemGunlugu.Cells(i, 5).Value <> "" 'Hedef dönem en alt satýrda deðilse stop koþulu
+        Do Until WsIslemGunlugu.Cells(i, 5).Value <> "" 'Hedef dÃ¶nem en alt satÄ±rda deÄŸilse stop koÅŸulu
             i = i + 1
-            If i > Say2IslemGunlugu Then 'Hedef dönem en alt satýrda ise stop koþulu
+            If i > Say2IslemGunlugu Then 'Hedef dÃ¶nem en alt satÄ±rda ise stop koÅŸulu
                 i = i - 1
                 j = 1
                 GoTo HedefDonemAltSatir
@@ -8690,7 +8690,7 @@ YeniDonemAltRow = i
             ilkrow = YeniDonemAltRow
             sonrow = YeniDonemAltRow + (SonSira - IlkSira)
         Else
-            For i = 1 To (SonSira - IlkSira) + 1 'Taþýnacak satýr aralýðý kadar yeni dönemin en altýna satýr ekle
+            For i = 1 To (SonSira - IlkSira) + 1 'TaÅŸÄ±nacak satÄ±r aralÄ±ÄŸÄ± kadar yeni dÃ¶nemin en altÄ±na satÄ±r ekle
                 WsIslemGunlugu.Rows(YeniDonemAltRow).EntireRow.Insert Shift:=xlUp
             Next i
 
@@ -8699,8 +8699,8 @@ YeniDonemAltRow = i
             
         End If
 
-        'Genel sýra no.larý güncelle
-        WsIslemGunlugu.Cells(ilkrow, 4).Value = 1 'Genel sýra no.sunu 1 olarak iþaretle (aþaðýda, doðru no. ile deðiþtirilecek)
+        'Genel sÄ±ra no.larÄ± gÃ¼ncelle
+        WsIslemGunlugu.Cells(ilkrow, 4).Value = 1 'Genel sÄ±ra no.sunu 1 olarak iÅŸaretle (aÅŸaÄŸÄ±da, doÄŸru no. ile deÄŸiÅŸtirilecek)
         SayGenel = WsIslemGunlugu.Range("D100000").End(xlUp).Row
         i = 6
         j = 0
@@ -8712,7 +8712,7 @@ YeniDonemAltRow = i
             End If
         Loop
   
-        'Hedef dönem sýra no.larý güncelle
+        'Hedef dÃ¶nem sÄ±ra no.larÄ± gÃ¼ncelle
         i = ilkrow
         Do Until WsIslemGunlugu.Cells(i, 5).Value <> ""
             i = i - 1
@@ -8728,7 +8728,7 @@ YeniDonemAltRow = i
 HedefDonemSiraNo:
         
         
-        'Kaynak dönemde yer alan boþ satýr aralýðýný kaldýr
+        'Kaynak dÃ¶nemde yer alan boÅŸ satÄ±r aralÄ±ÄŸÄ±nÄ± kaldÄ±r
         DelControl = True
 
     End If
@@ -8737,46 +8737,46 @@ HedefDonemSiraNo:
     GoTo DonemAyniyiAtla
 
 DonemAyni:
-    '_______________AYNI DÖNEM (DÜZENLEME ÝÞLEMÝ)
+    '_______________AYNI DÃ–NEM (DÃœZENLEME Ä°ÅžLEMÄ°)
     
     If Not IslemGunluguSonSiraBul Is Nothing Then
-        'MsgBox "Buradayým"
-        'Aktarýmlarý yapan kodlar buraya gelecek
+        'MsgBox "BuradayÄ±m"
+        'AktarÄ±mlarÄ± yapan kodlar buraya gelecek
         WsIslemGunlugu.Range(WsIslemGunlugu.Cells(IslemGunluguIlkSira, 7), WsIslemGunlugu.Cells(IslemGunluguSonSira, 20)).ClearContents
         WsIslemGunlugu.Range(WsIslemGunlugu.Cells(IslemGunluguIlkSira, 2), WsIslemGunlugu.Cells(IslemGunluguSonSira, 3)).ClearContents
         Fark = (IslemGunluguSonSira - IslemGunluguIlkSira) - (SonSira - IlkSira)
         'MsgBox "Fark: " & Fark
-        If Fark > 0 Then 'Ýþlem günlüðünden satýr silinecek
-            'MsgBox "Fark: " & Fark & " satýr kaldýr"
+        If Fark > 0 Then 'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼nden satÄ±r silinecek
+            'MsgBox "Fark: " & Fark & " satÄ±r kaldÄ±r"
             WsIslemGunlugu.Rows(IslemGunluguSonSira - (Fark - 1) & ":" & IslemGunluguSonSira).EntireRow.Delete
             ilkrow = IslemGunluguIlkSira
             sonrow = IslemGunluguSonSira - Fark
-        ElseIf Fark < 0 Then 'Ýþlem günlüðüne satýr eklenecek
-            'MsgBox "Fark: " & Fark & " satýr ekle"
+        ElseIf Fark < 0 Then 'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ne satÄ±r eklenecek
+            'MsgBox "Fark: " & Fark & " satÄ±r ekle"
             Fark = -1 * Fark
             For i = 1 To Fark
                 WsIslemGunlugu.Rows(IslemGunluguSonSira + 1).EntireRow.Insert Shift:=xlUp
             Next i
             ilkrow = IslemGunluguIlkSira
             sonrow = IslemGunluguSonSira + Fark
-        ElseIf Fark = 0 Then 'Ýþlem günlüðünde satýrlarda deðiþiklik olmayacak
-            'MsgBox "Fark: " & Fark & " deðiþiklik yok"
+        ElseIf Fark = 0 Then 'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼nde satÄ±rlarda deÄŸiÅŸiklik olmayacak
+            'MsgBox "Fark: " & Fark & " deÄŸiÅŸiklik yok"
             ilkrow = IslemGunluguIlkSira
             sonrow = IslemGunluguSonSira
         End If
 
     End If
 
-Else 'YENÝ ÝÞLEM
+Else 'YENÄ° Ä°ÅžLEM
     
     'MsgBox CDate(ModulAyrac)
     Set BulIslemGunlugu = WsIslemGunlugu.Range("E:E").Find(What:=CDate(ModulAyrac), SearchDirection:=xlNext, _
                     SearchOrder:=xlByRows, LookIn:=xlFormulas, LookAt:=xlWhole)
     If Not BulIslemGunlugu Is Nothing Then
         donemrow = BulIslemGunlugu.Row
-        If SayAyracIslemGunlugu = BulIslemGunlugu.Row Then 'Cari dönemin verisi
+        If SayAyracIslemGunlugu = BulIslemGunlugu.Row Then 'Cari dÃ¶nemin verisi
             If Say2IslemGunlugu > SayAyracIslemGunlugu Then 'Yeni veriyi Say2IslemGunlugu+1'e yaz
-                'Genel sýra no
+                'Genel sÄ±ra no
                 SayGenel = WsIslemGunlugu.Range("D100000").End(xlUp).Row
                 If SayGenel < 7 Then
                     WsIslemGunlugu.Cells(Say2IslemGunlugu + 1, 4).Value = 1
@@ -8787,7 +8787,7 @@ Else 'YENÝ ÝÞLEM
                     Loop
                     WsIslemGunlugu.Cells(Say2IslemGunlugu + 1, 4).Value = WsIslemGunlugu.Cells(i, 4).Value + 1
                 End If
-                'Dönem sýra no
+                'DÃ¶nem sÄ±ra no
                 SayDonem = WsIslemGunlugu.Range("F100000").End(xlUp).Row
                 If SayDonem < 7 Then
                     WsIslemGunlugu.Cells(Say2IslemGunlugu + 1, 6).Value = 1
@@ -8803,7 +8803,7 @@ Else 'YENÝ ÝÞLEM
                 sonrow = Say2IslemGunlugu + 1 + (SonSira - IlkSira)
                 
             Else 'Yeni veriyi SayAyracIslemGunlugu+1'e yaz
-                'Genel sýra no
+                'Genel sÄ±ra no
                 SayGenel = WsIslemGunlugu.Range("D100000").End(xlUp).Row
                 If SayGenel < 7 Then
                     WsIslemGunlugu.Cells(SayAyracIslemGunlugu + 1, 4).Value = 1
@@ -8814,7 +8814,7 @@ Else 'YENÝ ÝÞLEM
                     Loop
                     WsIslemGunlugu.Cells(SayAyracIslemGunlugu + 1, 4).Value = WsIslemGunlugu.Cells(i, 4).Value + 1
                 End If
-                'Dönem sýra no
+                'DÃ¶nem sÄ±ra no
                 SayDonem = WsIslemGunlugu.Range("E100000").End(xlUp).Row
                 WsIslemGunlugu.Cells(SayAyracIslemGunlugu + 1, 6).Value = 1
 
@@ -8822,26 +8822,26 @@ Else 'YENÝ ÝÞLEM
                 sonrow = SayAyracIslemGunlugu + 1 + (SonSira - IlkSira)
                 
             End If
-        Else 'Cari dönemden önceki dönemin verisi
-            'MsgBox "Buradayým"
-            ModulAyrac = DateAdd("m", 1, CDate(ModulAyrac)) 'Sonraki dönemi bul ve onun üstüne satýr ekle
+        Else 'Cari dÃ¶nemden Ã¶nceki dÃ¶nemin verisi
+            'MsgBox "BuradayÄ±m"
+            ModulAyrac = DateAdd("m", 1, CDate(ModulAyrac)) 'Sonraki dÃ¶nemi bul ve onun Ã¼stÃ¼ne satÄ±r ekle
             Set BulIslemGunlugu = WsIslemGunlugu.Range("E:E").Find(What:=CDate(ModulAyrac), SearchDirection:=xlNext, _
                     SearchOrder:=xlByRows, LookIn:=xlFormulas, LookAt:=xlWhole)
             If Not BulIslemGunlugu Is Nothing Then
                 For i = 1 To (SonSira - IlkSira) + 1
                     WsIslemGunlugu.Rows(BulIslemGunlugu.Row).EntireRow.Insert Shift:=xlUp
                 Next i
-'                WsIslemGunlugu.Range("E" & BulIslemGunlugu.Row - 1).Value = "Ýkincisi"
-'                WsIslemGunlugu.Range("E" & BulIslemGunlugu.Row - 2).Value = "Ýlki"
+'                WsIslemGunlugu.Range("E" & BulIslemGunlugu.Row - 1).Value = "Ä°kincisi"
+'                WsIslemGunlugu.Range("E" & BulIslemGunlugu.Row - 2).Value = "Ä°lki"
 
                 ilkrow = BulIslemGunlugu.Row - (SonSira - IlkSira + 1)
                 sonrow = BulIslemGunlugu.Row - 1
                 
-                'Genel sýra no
+                'Genel sÄ±ra no
                 SayGenel = WsIslemGunlugu.Range("D100000").End(xlUp).Row
                 If SayGenel < 7 Then
                     WsIslemGunlugu.Cells(ilkrow, 4).Value = 1
-                    If SayGenel > ilkrow Then 'ilkrow dan sonra gelen sýra no.larý düzelt
+                    If SayGenel > ilkrow Then 'ilkrow dan sonra gelen sÄ±ra no.larÄ± dÃ¼zelt
                         For i = ilkrow + 1 To SayGenel
                             If WsIslemGunlugu.Cells(i, 4).Value <> "" Then
                                 WsIslemGunlugu.Cells(i, 4).Value = WsIslemGunlugu.Cells(i, 4).Value + 1
@@ -8859,7 +8859,7 @@ Else 'YENÝ ÝÞLEM
                     Loop
                     WsIslemGunlugu.Cells(ilkrow, 4).Value = WsIslemGunlugu.Cells(i, 4).Value + 1
 LoopSon1:
-                    If SayGenel > ilkrow Then 'ilkrow dan sonra gelen sýra no.larý düzelt
+                    If SayGenel > ilkrow Then 'ilkrow dan sonra gelen sÄ±ra no.larÄ± dÃ¼zelt
                         For i = ilkrow + 1 To SayGenel
                             If WsIslemGunlugu.Cells(i, 4).Value <> "" Then
                                 WsIslemGunlugu.Cells(i, 4).Value = WsIslemGunlugu.Cells(i, 4).Value + 1
@@ -8868,7 +8868,7 @@ LoopSon1:
                     End If
                 End If
                 
-                'Dönem sýra no
+                'DÃ¶nem sÄ±ra no
                 'SayDonem = WsIslemGunlugu.Range("E100000").End(xlUp).Row
                 i = ilkrow
                 Do Until i < donemrow
@@ -8885,10 +8885,10 @@ LoopSon1:
 LoopSon2:
 
             End If
-            ModulAyrac = DateAdd("m", -1, CDate(ModulAyrac)) 'Yukarýda atadýðýn +1 ayý geri al
+            ModulAyrac = DateAdd("m", -1, CDate(ModulAyrac)) 'YukarÄ±da atadÄ±ÄŸÄ±n +1 ayÄ± geri al
         End If
     Else
-        'Ýþlem günlüðünde kayýtlý en eski DÖNEMDEN daha eski bir döneme iliþkin veri giriþi gerçekleþmesi durumu.
+        'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼nde kayÄ±tlÄ± en eski DÃ–NEMDEN daha eski bir dÃ¶neme iliÅŸkin veri giriÅŸi gerÃ§ekleÅŸmesi durumu.
     '    MsgBox "Outbound Qty"
         GoTo Son
     End If
@@ -8897,7 +8897,7 @@ End If
 DonemAyniyiAtla:
 
     
-'Dolgularý kaldýr/Biçimlendirmeleri düzelt
+'DolgularÄ± kaldÄ±r/BiÃ§imlendirmeleri dÃ¼zelt
 WsIslemGunlugu.Range("E" & ilkrow & ":T" & sonrow).Interior.Color = xlNone
 WsIslemGunlugu.Range("E" & ilkrow & ":T" & sonrow).Font.Color = RGB(0, 0, 0)
 WsIslemGunlugu.Range("E" & ilkrow & ":T" & sonrow).Font.Bold = False
@@ -8912,25 +8912,25 @@ WsIslemGunlugu.Range("F" & ilkrow & ":G" & sonrow).HorizontalAlignment = xlCente
 WsIslemGunlugu.Range("P" & ilkrow & ":Q" & sonrow).HorizontalAlignment = xlCenter
 
 
-'Zaman damgalarý
+'Zaman damgalarÄ±
 WsIslemGunlugu.Cells(ilkrow, 2).Value = WsRapor.Cells(IlkSira, 93).Value
 WsIslemGunlugu.Cells(sonrow, 3).Value = WsRapor.Cells(IlkSira, 93).Value
 'Verileri yaz
 WsIslemGunlugu.Range(WsIslemGunlugu.Cells(ilkrow, 7), WsIslemGunlugu.Cells(sonrow, 7)).Value = WsRapor.Range(WsRapor.Cells(IlkSira, 11), WsRapor.Cells(SonSira, 11)).Value 'Rapor no
-WsIslemGunlugu.Cells(ilkrow, 8).Value = WsRapor.Cells(IlkSira, 25).Value 'Ýl
-WsIslemGunlugu.Cells(ilkrow, 9).Value = WsRapor.Cells(IlkSira, 26).Value 'Ýlçe
+WsIslemGunlugu.Cells(ilkrow, 8).Value = WsRapor.Cells(IlkSira, 25).Value 'Ä°l
+WsIslemGunlugu.Cells(ilkrow, 9).Value = WsRapor.Cells(IlkSira, 26).Value 'Ä°lÃ§e
 WsIslemGunlugu.Cells(ilkrow, 10).Value = GelenTema
 WsIslemGunlugu.Cells(ilkrow, 11).Value = WsRapor.Cells(IlkSira, 28).Value 'Belge tarihi
 WsIslemGunlugu.Cells(ilkrow, 12).Value = WsRapor.Cells(IlkSira, 29).Value 'Belge no
-WsIslemGunlugu.Cells(ilkrow, 13).Value = WsRapor.Cells(IlkSira, 36).Value 'finansal birime ulaþma tarihi
+WsIslemGunlugu.Cells(ilkrow, 13).Value = WsRapor.Cells(IlkSira, 36).Value 'finansal birime ulaÅŸma tarihi
 WsIslemGunlugu.Cells(ilkrow, 14).Value = WsRapor.Cells(IlkSira, 39).Value 'Tespit tarihi
-WsIslemGunlugu.Range(WsIslemGunlugu.Cells(ilkrow, 15), WsIslemGunlugu.Cells(sonrow, 15)).Value = WsRapor.Range(WsRapor.Cells(IlkSira, 46), WsRapor.Cells(SonSira, 46)).Value 'Öðe türü
-WsIslemGunlugu.Range(WsIslemGunlugu.Cells(ilkrow, 16), WsIslemGunlugu.Cells(sonrow, 16)).Value = WsRapor.Range(WsRapor.Cells(IlkSira, 49), WsRapor.Cells(SonSira, 49)).Value 'Öðe deðeri
+WsIslemGunlugu.Range(WsIslemGunlugu.Cells(ilkrow, 15), WsIslemGunlugu.Cells(sonrow, 15)).Value = WsRapor.Range(WsRapor.Cells(IlkSira, 46), WsRapor.Cells(SonSira, 46)).Value 'Ã–ÄŸe tÃ¼rÃ¼
+WsIslemGunlugu.Range(WsIslemGunlugu.Cells(ilkrow, 16), WsIslemGunlugu.Cells(sonrow, 16)).Value = WsRapor.Range(WsRapor.Cells(IlkSira, 49), WsRapor.Cells(SonSira, 49)).Value 'Ã–ÄŸe deÄŸeri
 WsIslemGunlugu.Range(WsIslemGunlugu.Cells(ilkrow, 17), WsIslemGunlugu.Cells(sonrow, 17)).Value = WsRapor.Range(WsRapor.Cells(IlkSira, 52), WsRapor.Cells(SonSira, 52)).Value 'Adet
 WsIslemGunlugu.Cells(ilkrow, 18).Value = WsRapor.Cells(IlkSira, 31).Value 'Tema
-WsIslemGunlugu.Range(WsIslemGunlugu.Cells(ilkrow, 19), WsIslemGunlugu.Cells(sonrow, 19)).Value = WsRapor.Range(WsRapor.Cells(IlkSira, 58), WsRapor.Cells(SonSira, 58)).Value 'Açýklama
-WsIslemGunlugu.Range(WsIslemGunlugu.Cells(ilkrow, 20), WsIslemGunlugu.Cells(sonrow, 20)).Value = WsRapor.Range(WsRapor.Cells(IlkSira, 63), WsRapor.Cells(SonSira, 63)).Value 'Baský tekniði
-'Rapor2_2 iþareti (Technique A içeren rapor numaralarýný rapor2_2 numarasý ile iþaretle)
+WsIslemGunlugu.Range(WsIslemGunlugu.Cells(ilkrow, 19), WsIslemGunlugu.Cells(sonrow, 19)).Value = WsRapor.Range(WsRapor.Cells(IlkSira, 58), WsRapor.Cells(SonSira, 58)).Value 'AÃ§Ä±klama
+WsIslemGunlugu.Range(WsIslemGunlugu.Cells(ilkrow, 20), WsIslemGunlugu.Cells(sonrow, 20)).Value = WsRapor.Range(WsRapor.Cells(IlkSira, 63), WsRapor.Cells(SonSira, 63)).Value 'BaskÄ± tekniÄŸi
+'Rapor2_2 iÅŸareti (Technique A iÃ§eren rapor numaralarÄ±nÄ± rapor2_2 numarasÄ± ile iÅŸaretle)
 If WsRapor.Cells(IlkSira, 65).Value <> "" Then
     For i = ilkrow To sonrow
         If Left(WsIslemGunlugu.Cells(i, 20).Value, 11) = "Technique A" Then
@@ -8941,7 +8941,7 @@ If WsRapor.Cells(IlkSira, 65).Value <> "" Then
     Next i
 End If
 
-'Kenarlýklar.
+'KenarlÄ±klar.
 Set Kenarlar = WsIslemGunlugu.Range("D" & ilkrow & ":T" & sonrow)
 With Kenarlar.Borders(xlEdgeTop)
     .LineStyle = xlContinuous
@@ -8965,7 +8965,7 @@ With Kenarlar.Borders(xlInsideHorizontal)
 End With
 
 If DelControl = True Then
-    'Kaynak dönemde yer alan boþ satýr aralýðýný kaldýr
+    'Kaynak dÃ¶nemde yer alan boÅŸ satÄ±r aralÄ±ÄŸÄ±nÄ± kaldÄ±r
     Set BulIslemGunlugu = WsIslemGunlugu.Range("B:B").Find(What:="Sil", SearchDirection:=xlNext, _
     SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
     If Not BulIslemGunlugu Is Nothing Then
@@ -8981,7 +8981,7 @@ End If
 
 Son:
 
-'Ýþlem günlüðünde aþaðý git
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼nde aÅŸaÄŸÄ± git
 Say2IslemGunlugu = WsIslemGunlugu.Range("C100000").End(xlUp).Row
 On Error Resume Next
 ActiveWindow.ScrollRow = Say2IslemGunlugu - 10
@@ -8991,7 +8991,7 @@ WsIslemGunlugu.Columns("B:C").EntireColumn.Hidden = True
 
 WsIslemGunlugu.Protect Password:="123"
 
-'Ýþlem günlüðü açýksa kaydet ve kapat.
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(IslemGunlugu)
 If OpenControl = True Then
     Workbooks("System Registry Report 2.1.xlsx").Save
@@ -9058,7 +9058,7 @@ YeniIslem = YeniIslemAktar
 'StrTime = Format(Now, "ddmmyyyyhhmmss")
 DelControl = False
 
-'Modülün Rapor sayfasýnda bulunan baþlangýç ve bitiþ satýr numaralarý
+'ModÃ¼lÃ¼n Rapor sayfasÄ±nda bulunan baÅŸlangÄ±Ã§ ve bitiÅŸ satÄ±r numaralarÄ±
 IlkSira = YeniIslem
 SonSira = YeniIslem + Maxi
 Set WsRapor = ThisWorkbook.Worksheets(4)
@@ -9071,24 +9071,24 @@ If InStr(WsRapor.Cells(IlkSira, 26).Value, " Organization A") <> 0 Then
     WsRapor.Cells(IlkSira, 26).Value = ""
 End If
 
-'Aylýk ayraçlar
+'AylÄ±k ayraÃ§lar
 If WsRapor.Cells(IlkSira, 39).Value <> "" Then
     ModulTarih = WsRapor.Cells(IlkSira, 39).Value
     ModulAyrac = "01" & Right(ModulTarih, 8)
-Else 'iþlemin yapýldýðý günü esas al
+Else 'iÅŸlemin yapÄ±ldÄ±ÄŸÄ± gÃ¼nÃ¼ esas al
     ModulTarih = Format(Date, "dd.mm.yyyy")
     ModulAyrac = "01" & Right(ModulTarih, 8)
 End If
 
 
-'Ýþlem günlüðü açýksa kaydet ve kapat.
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(IslemGunlugu)
 If OpenControl = True Then
     Workbooks("System Registry Report 2.2.xlsx").Save
     Workbooks("System Registry Report 2.2.xlsx").Close SaveChanges:=False
 End If
 
-'Ýþlem günlüðü aç
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§
 Workbooks.Open (IslemGunlugu)
 Set WsIslemGunlugu = Workbooks("System Registry Report 2.2.xlsx").Worksheets(1)
 
@@ -9101,11 +9101,11 @@ WsIslemGunlugu.Columns("B:C").EntireColumn.Hidden = False
 '____________HAZIRLIK
 
 
-'Ýþlem günlüðünde baþlangýç ve bitiþ satýrlarýný tespit et.
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼nde baÅŸlangÄ±Ã§ ve bitiÅŸ satÄ±rlarÄ±nÄ± tespit et.
 Say1IslemGunlugu = WsIslemGunlugu.Range("B100000").End(xlUp).Row
 Say2IslemGunlugu = WsIslemGunlugu.Range("C100000").End(xlUp).Row
 SayAyracIslemGunlugu = WsIslemGunlugu.Range("E100000").End(xlUp).Row
-'Ýþlem günlüðünde ayraçlarý oluþtur
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼nde ayraÃ§larÄ± oluÅŸtur
 If Say1IslemGunlugu < 7 And SayAyracIslemGunlugu < 7 Then
 
     Say1IslemGunlugu = 6
@@ -9253,13 +9253,13 @@ End If
 
 '____________OPERASYONLAR
 
-'Ýþlem günlüðünde baþlangýç ve bitiþ satýrlarýný tespit et.
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼nde baÅŸlangÄ±Ã§ ve bitiÅŸ satÄ±rlarÄ±nÄ± tespit et.
 Say1IslemGunlugu = WsIslemGunlugu.Range("B100000").End(xlUp).Row
 Say2IslemGunlugu = WsIslemGunlugu.Range("C100000").End(xlUp).Row
 SayAyracIslemGunlugu = WsIslemGunlugu.Range("E100000").End(xlUp).Row
 
 Set IslemGunluguIlkSiraBul = WsIslemGunlugu.Range("B7:B100000").Find(What:=WsRapor.Cells(IlkSira, 93).Value, SearchDirection:=xlNext, _
-                SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasýný ara
+                SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasÄ±nÄ± ara
 Set IslemGunluguSonSiraBul = WsIslemGunlugu.Range("C7:C100000").Find(What:=WsRapor.Cells(IlkSira, 93).Value, SearchDirection:=xlNext, _
                 SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
 If Not IslemGunluguIlkSiraBul Is Nothing Then
@@ -9270,38 +9270,38 @@ If Not IslemGunluguIlkSiraBul Is Nothing Then
 End If
 
     
-If Not IslemGunluguIlkSiraBul Is Nothing Then 'DÜZENLEME ÝÞLEMÝ
+If Not IslemGunluguIlkSiraBul Is Nothing Then 'DÃœZENLEME Ä°ÅžLEMÄ°
 
-    'DÖNEM AYNI mý FARKLI mý?
+    'DÃ–NEM AYNI mÄ± FARKLI mÄ±?
     i = IslemGunluguIlkSiraBul.Row
     Do Until WsIslemGunlugu.Cells(i, 5).Value <> "" 'CDate(ModulAyrac)
         i = i - 1
     Loop
     
     If WsIslemGunlugu.Cells(i, 5).Formula = CDate(ModulAyrac) Then
-        'MsgBox "Ayný dönem"
+        'MsgBox "AynÄ± dÃ¶nem"
         GoTo DonemAyni
     Else
-        'MsgBox "Farklý dönem"
+        'MsgBox "FarklÄ± dÃ¶nem"
         GoTo DonemFarkli
     End If
 
 DonemFarkli:
-    '_______________FARKLI DÖNEM (DÜZENLEME ÝÞLEMÝ)
+    '_______________FARKLI DÃ–NEM (DÃœZENLEME Ä°ÅžLEMÄ°)
 
-    'Önceki dönemde bulunan veriyi sil.
+    'Ã–nceki dÃ¶nemde bulunan veriyi sil.
     WsIslemGunlugu.Range(WsIslemGunlugu.Cells(IslemGunluguIlkSira, 2), WsIslemGunlugu.Cells(IslemGunluguSonSira, 19)).ClearContents
-    WsIslemGunlugu.Cells(IslemGunluguIlkSira, 2).Value = "Sil" 'ilk satýrý silmek üzere iþaretle
-    WsIslemGunlugu.Cells(IslemGunluguSonSira, 3).Value = "Sil" 'son satýrý silmek üzere iþaretle
+    WsIslemGunlugu.Cells(IslemGunluguIlkSira, 2).Value = "Sil" 'ilk satÄ±rÄ± silmek Ã¼zere iÅŸaretle
+    WsIslemGunlugu.Cells(IslemGunluguSonSira, 3).Value = "Sil" 'son satÄ±rÄ± silmek Ã¼zere iÅŸaretle
         
-    'Kaynak dönemde bulunan dönem sýra no.larý güncelle
+    'Kaynak dÃ¶nemde bulunan dÃ¶nem sÄ±ra no.larÄ± gÃ¼ncelle
     i = IslemGunluguSonSira
-    Do Until WsIslemGunlugu.Cells(i, 5).Value <> "" 'kaynak dönem en alt satýrda deðilse stop koþulu
+    Do Until WsIslemGunlugu.Cells(i, 5).Value <> "" 'kaynak dÃ¶nem en alt satÄ±rda deÄŸilse stop koÅŸulu
         i = i + 1
-        If i > Say2IslemGunlugu Then 'kaynak dönem en alt satýrda ise stop koþulu
+        If i > Say2IslemGunlugu Then 'kaynak dÃ¶nem en alt satÄ±rda ise stop koÅŸulu
             GoTo KaynakDonemSiraNo
         End If
-        If WsIslemGunlugu.Cells(i, 6).Value <> "" And IsNumeric(WsIslemGunlugu.Cells(i, 6).Value) Then 'silinen veriden sonraki verileri dönem sýra no.larý 1 azalýr
+        If WsIslemGunlugu.Cells(i, 6).Value <> "" And IsNumeric(WsIslemGunlugu.Cells(i, 6).Value) Then 'silinen veriden sonraki verileri dÃ¶nem sÄ±ra no.larÄ± 1 azalÄ±r
             WsIslemGunlugu.Cells(i, 6).Value = WsIslemGunlugu.Cells(i, 6).Value - 1
         End If
     Loop
@@ -9310,14 +9310,14 @@ KaynakDonemSiraNo:
     
     Set BulIslemGunlugu = WsIslemGunlugu.Range("E:E").Find(What:=CDate(ModulAyrac), SearchDirection:=xlNext, _
             SearchOrder:=xlByRows, LookIn:=xlFormulas, LookAt:=xlWhole)
-    If Not BulIslemGunlugu Is Nothing Then 'HEDEF DÖNEMÝ bul
+    If Not BulIslemGunlugu Is Nothing Then 'HEDEF DÃ–NEMÄ° bul
         
-        'Hedef dönemin en alt satýrý
+        'Hedef dÃ¶nemin en alt satÄ±rÄ±
         i = BulIslemGunlugu.Row + 1
         j = 0
-        Do Until WsIslemGunlugu.Cells(i, 5).Value <> "" 'Hedef dönem en alt satýrda deðilse stop koþulu
+        Do Until WsIslemGunlugu.Cells(i, 5).Value <> "" 'Hedef dÃ¶nem en alt satÄ±rda deÄŸilse stop koÅŸulu
             i = i + 1
-            If i > Say2IslemGunlugu Then 'Hedef dönem en alt satýrda ise stop koþulu
+            If i > Say2IslemGunlugu Then 'Hedef dÃ¶nem en alt satÄ±rda ise stop koÅŸulu
                 i = i - 1
                 j = 1
                 GoTo HedefDonemAltSatir
@@ -9330,7 +9330,7 @@ YeniDonemAltRow = i
             ilkrow = YeniDonemAltRow
             sonrow = YeniDonemAltRow + (SonSira - IlkSira)
         Else
-            For i = 1 To (SonSira - IlkSira) + 1 'Taþýnacak satýr aralýðý kadar yeni dönemin en altýna satýr ekle
+            For i = 1 To (SonSira - IlkSira) + 1 'TaÅŸÄ±nacak satÄ±r aralÄ±ÄŸÄ± kadar yeni dÃ¶nemin en altÄ±na satÄ±r ekle
                 WsIslemGunlugu.Rows(YeniDonemAltRow).EntireRow.Insert Shift:=xlUp
             Next i
 
@@ -9339,8 +9339,8 @@ YeniDonemAltRow = i
             
         End If
 
-        'Genel sýra no.larý güncelle
-        WsIslemGunlugu.Cells(ilkrow, 4).Value = 1 'Genel sýra no.sunu 1 olarak iþaretle (aþaðýda, doðru no. ile deðiþtirilecek)
+        'Genel sÄ±ra no.larÄ± gÃ¼ncelle
+        WsIslemGunlugu.Cells(ilkrow, 4).Value = 1 'Genel sÄ±ra no.sunu 1 olarak iÅŸaretle (aÅŸaÄŸÄ±da, doÄŸru no. ile deÄŸiÅŸtirilecek)
         SayGenel = WsIslemGunlugu.Range("D100000").End(xlUp).Row
         i = 6
         j = 0
@@ -9352,7 +9352,7 @@ YeniDonemAltRow = i
             End If
         Loop
   
-        'Hedef dönem sýra no.larý güncelle
+        'Hedef dÃ¶nem sÄ±ra no.larÄ± gÃ¼ncelle
         i = ilkrow
         Do Until WsIslemGunlugu.Cells(i, 5).Value <> ""
             i = i - 1
@@ -9368,7 +9368,7 @@ YeniDonemAltRow = i
 HedefDonemSiraNo:
         
         
-        'Kaynak dönemde yer alan boþ satýr aralýðýný kaldýr
+        'Kaynak dÃ¶nemde yer alan boÅŸ satÄ±r aralÄ±ÄŸÄ±nÄ± kaldÄ±r
         DelControl = True
 
     End If
@@ -9377,47 +9377,47 @@ HedefDonemSiraNo:
     GoTo DonemAyniyiAtla
 
 DonemAyni:
-    '_______________AYNI DÖNEM (DÜZENLEME ÝÞLEMÝ)
+    '_______________AYNI DÃ–NEM (DÃœZENLEME Ä°ÅžLEMÄ°)
 
 
     If Not IslemGunluguSonSiraBul Is Nothing Then
-        'MsgBox "Buradayým"
-        'Aktarýmlarý yapan kodlar buraya gelecek
+        'MsgBox "BuradayÄ±m"
+        'AktarÄ±mlarÄ± yapan kodlar buraya gelecek
         WsIslemGunlugu.Range(WsIslemGunlugu.Cells(IslemGunluguIlkSira, 7), WsIslemGunlugu.Cells(IslemGunluguSonSira, 19)).ClearContents
         WsIslemGunlugu.Range(WsIslemGunlugu.Cells(IslemGunluguIlkSira, 2), WsIslemGunlugu.Cells(IslemGunluguSonSira, 3)).ClearContents
         Fark = (IslemGunluguSonSira - IslemGunluguIlkSira) - (SonSira - IlkSira)
         'MsgBox "Fark: " & Fark
-        If Fark > 0 Then 'Ýþlem günlüðünden satýr silinecek
-            'MsgBox "Fark: " & Fark & " satýr kaldýr"
+        If Fark > 0 Then 'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼nden satÄ±r silinecek
+            'MsgBox "Fark: " & Fark & " satÄ±r kaldÄ±r"
             WsIslemGunlugu.Rows(IslemGunluguSonSira - (Fark - 1) & ":" & IslemGunluguSonSira).EntireRow.Delete
             ilkrow = IslemGunluguIlkSira
             sonrow = IslemGunluguSonSira - Fark
-        ElseIf Fark < 0 Then 'Ýþlem günlüðüne satýr eklenecek
-            'MsgBox "Fark: " & Fark & " satýr ekle"
+        ElseIf Fark < 0 Then 'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ne satÄ±r eklenecek
+            'MsgBox "Fark: " & Fark & " satÄ±r ekle"
             Fark = -1 * Fark
             For i = 1 To Fark
                 WsIslemGunlugu.Rows(IslemGunluguSonSira + 1).EntireRow.Insert Shift:=xlUp
             Next i
             ilkrow = IslemGunluguIlkSira
             sonrow = IslemGunluguSonSira + Fark
-        ElseIf Fark = 0 Then 'Ýþlem günlüðünde satýrlarda deðiþiklik olmayacak
-            'MsgBox "Fark: " & Fark & " deðiþiklik yok"
+        ElseIf Fark = 0 Then 'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼nde satÄ±rlarda deÄŸiÅŸiklik olmayacak
+            'MsgBox "Fark: " & Fark & " deÄŸiÅŸiklik yok"
             ilkrow = IslemGunluguIlkSira
             sonrow = IslemGunluguSonSira
         End If
 
     End If
 
-Else 'YENÝ ÝÞLEM
+Else 'YENÄ° Ä°ÅžLEM
 
     'MsgBox CDate(ModulAyrac)
     Set BulIslemGunlugu = WsIslemGunlugu.Range("E:E").Find(What:=CDate(ModulAyrac), SearchDirection:=xlNext, _
                     SearchOrder:=xlByRows, LookIn:=xlFormulas, LookAt:=xlWhole)
     If Not BulIslemGunlugu Is Nothing Then
         donemrow = BulIslemGunlugu.Row
-        If SayAyracIslemGunlugu = BulIslemGunlugu.Row Then 'Cari dönemin verisi
+        If SayAyracIslemGunlugu = BulIslemGunlugu.Row Then 'Cari dÃ¶nemin verisi
             If Say2IslemGunlugu > SayAyracIslemGunlugu Then 'Yeni veriyi Say2IslemGunlugu+1'e yaz
-                'Genel sýra no
+                'Genel sÄ±ra no
                 SayGenel = WsIslemGunlugu.Range("D100000").End(xlUp).Row
                 If SayGenel < 7 Then
                     WsIslemGunlugu.Cells(Say2IslemGunlugu + 1, 4).Value = 1
@@ -9428,7 +9428,7 @@ Else 'YENÝ ÝÞLEM
                     Loop
                     WsIslemGunlugu.Cells(Say2IslemGunlugu + 1, 4).Value = WsIslemGunlugu.Cells(i, 4).Value + 1
                 End If
-                'Dönem sýra no
+                'DÃ¶nem sÄ±ra no
                 SayDonem = WsIslemGunlugu.Range("F100000").End(xlUp).Row
                 If SayDonem < 7 Then
                     WsIslemGunlugu.Cells(Say2IslemGunlugu + 1, 6).Value = 1
@@ -9444,7 +9444,7 @@ Else 'YENÝ ÝÞLEM
                 sonrow = Say2IslemGunlugu + 1 + (SonSira - IlkSira)
                 
             Else 'Yeni veriyi SayAyracIslemGunlugu+1'e yaz
-                'Genel sýra no
+                'Genel sÄ±ra no
                 SayGenel = WsIslemGunlugu.Range("D100000").End(xlUp).Row
                 If SayGenel < 7 Then
                     WsIslemGunlugu.Cells(SayAyracIslemGunlugu + 1, 4).Value = 1
@@ -9455,7 +9455,7 @@ Else 'YENÝ ÝÞLEM
                     Loop
                     WsIslemGunlugu.Cells(SayAyracIslemGunlugu + 1, 4).Value = WsIslemGunlugu.Cells(i, 4).Value + 1
                 End If
-                'Dönem sýra no
+                'DÃ¶nem sÄ±ra no
                 SayDonem = WsIslemGunlugu.Range("E100000").End(xlUp).Row
                 WsIslemGunlugu.Cells(SayAyracIslemGunlugu + 1, 6).Value = 1
 
@@ -9463,26 +9463,26 @@ Else 'YENÝ ÝÞLEM
                 sonrow = SayAyracIslemGunlugu + 1 + (SonSira - IlkSira)
                 
             End If
-        Else 'Cari dönemden önceki dönemin verisi
-            'MsgBox "Buradayým"
-            ModulAyrac = DateAdd("m", 1, CDate(ModulAyrac)) 'Sonraki dönemi bul ve onun üstüne satýr ekle
+        Else 'Cari dÃ¶nemden Ã¶nceki dÃ¶nemin verisi
+            'MsgBox "BuradayÄ±m"
+            ModulAyrac = DateAdd("m", 1, CDate(ModulAyrac)) 'Sonraki dÃ¶nemi bul ve onun Ã¼stÃ¼ne satÄ±r ekle
             Set BulIslemGunlugu = WsIslemGunlugu.Range("E:E").Find(What:=CDate(ModulAyrac), SearchDirection:=xlNext, _
                     SearchOrder:=xlByRows, LookIn:=xlFormulas, LookAt:=xlWhole)
             If Not BulIslemGunlugu Is Nothing Then
                 For i = 1 To (SonSira - IlkSira) + 1
                     WsIslemGunlugu.Rows(BulIslemGunlugu.Row).EntireRow.Insert Shift:=xlUp
                 Next i
-'                WsIslemGunlugu.Range("E" & BulIslemGunlugu.Row - 1).Value = "Ýkincisi"
-'                WsIslemGunlugu.Range("E" & BulIslemGunlugu.Row - 2).Value = "Ýlki"
+'                WsIslemGunlugu.Range("E" & BulIslemGunlugu.Row - 1).Value = "Ä°kincisi"
+'                WsIslemGunlugu.Range("E" & BulIslemGunlugu.Row - 2).Value = "Ä°lki"
 
                 ilkrow = BulIslemGunlugu.Row - (SonSira - IlkSira + 1)
                 sonrow = BulIslemGunlugu.Row - 1
                 
-                'Genel sýra no
+                'Genel sÄ±ra no
                 SayGenel = WsIslemGunlugu.Range("D100000").End(xlUp).Row
                 If SayGenel < 7 Then
                     WsIslemGunlugu.Cells(ilkrow, 4).Value = 1
-                    If SayGenel > ilkrow Then 'ilkrow dan sonra gelen sýra no.larý düzelt
+                    If SayGenel > ilkrow Then 'ilkrow dan sonra gelen sÄ±ra no.larÄ± dÃ¼zelt
                         For i = ilkrow + 1 To SayGenel
                             If WsIslemGunlugu.Cells(i, 4).Value <> "" Then
                                 WsIslemGunlugu.Cells(i, 4).Value = WsIslemGunlugu.Cells(i, 4).Value + 1
@@ -9500,7 +9500,7 @@ Else 'YENÝ ÝÞLEM
                     Loop
                     WsIslemGunlugu.Cells(ilkrow, 4).Value = WsIslemGunlugu.Cells(i, 4).Value + 1
 LoopSon1:
-                    If SayGenel > ilkrow Then 'ilkrow dan sonra gelen sýra no.larý düzelt
+                    If SayGenel > ilkrow Then 'ilkrow dan sonra gelen sÄ±ra no.larÄ± dÃ¼zelt
                         For i = ilkrow + 1 To SayGenel
                             If WsIslemGunlugu.Cells(i, 4).Value <> "" Then
                                 WsIslemGunlugu.Cells(i, 4).Value = WsIslemGunlugu.Cells(i, 4).Value + 1
@@ -9509,7 +9509,7 @@ LoopSon1:
                     End If
                 End If
                 
-                'Dönem sýra no
+                'DÃ¶nem sÄ±ra no
                 'SayDonem = WsIslemGunlugu.Range("E100000").End(xlUp).Row
                 i = ilkrow
                 Do Until i < donemrow
@@ -9526,10 +9526,10 @@ LoopSon1:
 LoopSon2:
 
             End If
-            ModulAyrac = DateAdd("m", -1, CDate(ModulAyrac)) 'Yukarýda atadýðýn +1 ayý geri al
+            ModulAyrac = DateAdd("m", -1, CDate(ModulAyrac)) 'YukarÄ±da atadÄ±ÄŸÄ±n +1 ayÄ± geri al
         End If
     Else
-        'Ýþlem günlüðünde kayýtlý en eski DÖNEMDEN daha eski bir döneme iliþkin veri giriþi gerçekleþmesi durumu.
+        'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼nde kayÄ±tlÄ± en eski DÃ–NEMDEN daha eski bir dÃ¶neme iliÅŸkin veri giriÅŸi gerÃ§ekleÅŸmesi durumu.
     '    MsgBox "Outbound Qty"
         GoTo Son
     End If
@@ -9537,7 +9537,7 @@ End If
 
 DonemAyniyiAtla:
 
-'Dolgularý kaldýr/Biçimlendirmeleri düzelt
+'DolgularÄ± kaldÄ±r/BiÃ§imlendirmeleri dÃ¼zelt
 WsIslemGunlugu.Range("E" & ilkrow & ":S" & sonrow).Interior.Color = xlNone
 WsIslemGunlugu.Range("E" & ilkrow & ":S" & sonrow).Font.Color = RGB(0, 0, 0)
 WsIslemGunlugu.Range("E" & ilkrow & ":S" & sonrow).Font.Bold = False
@@ -9552,7 +9552,7 @@ WsIslemGunlugu.Range("F" & ilkrow & ":G" & sonrow).HorizontalAlignment = xlCente
 WsIslemGunlugu.Range("P" & ilkrow & ":Q" & sonrow).HorizontalAlignment = xlCenter
 
 
-'Zaman damgalarý
+'Zaman damgalarÄ±
 WsIslemGunlugu.Cells(ilkrow, 2).Value = WsRapor.Cells(IlkSira, 93).Value
 WsIslemGunlugu.Cells(sonrow, 3).Value = WsRapor.Cells(IlkSira, 93).Value
 
@@ -9573,38 +9573,38 @@ Next i
 WsIslemGunlugu.Cells(ilkrow, 7).Value = WsRapor.Cells(IlkSira, 65).Value & " (" & StrContent & ")"
 
 'Belge bilgilerini aktar
-WsIslemGunlugu.Cells(ilkrow, 8).Value = WsRapor.Cells(IlkSira, 25).Value 'Ýl
-WsIslemGunlugu.Cells(ilkrow, 9).Value = WsRapor.Cells(IlkSira, 26).Value 'Ýlçe
+WsIslemGunlugu.Cells(ilkrow, 8).Value = WsRapor.Cells(IlkSira, 25).Value 'Ä°l
+WsIslemGunlugu.Cells(ilkrow, 9).Value = WsRapor.Cells(IlkSira, 26).Value 'Ä°lÃ§e
 WsIslemGunlugu.Cells(ilkrow, 10).Value = GelenTema
 WsIslemGunlugu.Cells(ilkrow, 11).Value = WsRapor.Cells(IlkSira, 28).Value 'Belge tarihi
 WsIslemGunlugu.Cells(ilkrow, 12).Value = WsRapor.Cells(IlkSira, 29).Value 'Belge no
-WsIslemGunlugu.Cells(ilkrow, 13).Value = WsRapor.Cells(IlkSira, 36).Value 'finansal birime ulaþma tarihi
+WsIslemGunlugu.Cells(ilkrow, 13).Value = WsRapor.Cells(IlkSira, 36).Value 'finansal birime ulaÅŸma tarihi
 WsIslemGunlugu.Cells(ilkrow, 14).Value = WsRapor.Cells(IlkSira, 39).Value 'Tespit tarihi
 
-'Öðe bilgilerini aktar
+'Ã–ÄŸe bilgilerini aktar
 j = ilkrow - 1
 For i = IlkSira To SonSira
     If Left(WsRapor.Cells(i, 63).Value, 11) = "Technique A" Then
         j = j + 1
-        'Öðe türü
+        'Ã–ÄŸe tÃ¼rÃ¼
         WsIslemGunlugu.Cells(j, 15).Value = WsRapor.Cells(i, 46).Value
-        'Öðe deðeri
+        'Ã–ÄŸe deÄŸeri
         WsIslemGunlugu.Cells(j, 16).Value = WsRapor.Cells(i, 49).Value
         'Adet
         WsIslemGunlugu.Cells(j, 17).Value = WsRapor.Cells(i, 52).Value
-        'Açýklama
+        'AÃ§Ä±klama
         WsIslemGunlugu.Cells(j, 19).Value = WsRapor.Cells(i, 58).Value
     End If
 Next i
 
 WsIslemGunlugu.Cells(ilkrow, 18).Value = WsRapor.Cells(IlkSira, 31).Value 'Tema
 
-'Sadece Technique A içeriklik satýrlar aktarýlacaðý için Technique A olmayan satýrlar silinecek; dolayýsýyla bitiþ damgasý yeniden yazýldý.
+'Sadece Technique A iÃ§eriklik satÄ±rlar aktarÄ±lacaÄŸÄ± iÃ§in Technique A olmayan satÄ±rlar silinecek; dolayÄ±sÄ±yla bitiÅŸ damgasÄ± yeniden yazÄ±ldÄ±.
 sonrowx = sonrow
 sonrow = j
 WsIslemGunlugu.Cells(sonrow, 3).Value = WsRapor.Cells(IlkSira, 93).Value
 
-'Kenarlýklar.
+'KenarlÄ±klar.
 Set Kenarlar = WsIslemGunlugu.Range("D" & ilkrow & ":S" & sonrow)
 With Kenarlar.Borders(xlEdgeTop)
     .LineStyle = xlContinuous
@@ -9627,14 +9627,14 @@ With Kenarlar.Borders(xlInsideHorizontal)
     .Weight = xlThin
 End With
 
-'hedef dönemdeki artýk satýrý sil
+'hedef dÃ¶nemdeki artÄ±k satÄ±rÄ± sil
 If sonrowx > sonrow Then
     WsIslemGunlugu.Rows(sonrowx & ":" & sonrow + 1).EntireRow.Delete
 End If
 
 
 If DelControl = True Then
-    'Kaynak dönemde yer alan boþ satýr aralýðýný kaldýr
+    'Kaynak dÃ¶nemde yer alan boÅŸ satÄ±r aralÄ±ÄŸÄ±nÄ± kaldÄ±r
     Set BulIslemGunlugu = WsIslemGunlugu.Range("B:B").Find(What:="Sil", SearchDirection:=xlNext, _
     SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
     If Not BulIslemGunlugu Is Nothing Then
@@ -9652,7 +9652,7 @@ End If
 
 Son:
 
-'Ýþlem günlüðünde aþaðý git
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼nde aÅŸaÄŸÄ± git
 Say2IslemGunlugu = WsIslemGunlugu.Range("C100000").End(xlUp).Row
 On Error Resume Next
 ActiveWindow.ScrollRow = Say2IslemGunlugu - 10
@@ -9662,7 +9662,7 @@ WsIslemGunlugu.Columns("B:C").EntireColumn.Hidden = True
 
 WsIslemGunlugu.Protect Password:="123"
 
-'Ýþlem günlüðü açýksa kaydet ve kapat.
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(IslemGunlugu)
 If OpenControl = True Then
     Workbooks("System Registry Report 2.2.xlsx").Save
@@ -9712,16 +9712,16 @@ Else
     CalTarih = CDate(CalTarih)
     CalTarih = DateAdd("d", 1, CalTarih)
     CalTarih = CStr(CalTarih)
-    If Mid(CalTarih, 2, 1) = "." Then 'Günün soluna 0 ekle
+    If Mid(CalTarih, 2, 1) = "." Then 'GÃ¼nÃ¼n soluna 0 ekle
         CalTarih = "0" & CalTarih
     End If
-    If Mid(CalTarih, 5, 1) = "." Then 'Ayýn soluna 0 ekle
+    If Mid(CalTarih, 5, 1) = "." Then 'AyÄ±n soluna 0 ekle
         CalTarih = Left(CalTarih, 3) & "0" & Mid(CalTarih, 4, 6)
     End If
     'MsgBox CalTarih
     Contx = Contx + 1
     If Contx = 100 Then
-        'MsgBox "Belirtilen tarihten sonra herhangi bir tutanak1 iþlemi yapýlmadýðýndan iþleminiz gerçekleþtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+        'MsgBox "Belirtilen tarihten sonra herhangi bir tutanak1 iÅŸlemi yapÄ±lmadÄ±ÄŸÄ±ndan iÅŸleminiz gerÃ§ekleÅŸtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
         GoTo Son
     End If
     GoTo TarihiTekrarla1
@@ -9734,9 +9734,9 @@ For j = Say To TarihBul.Row Step -1
         If ThisWorkbook.Worksheets(4).Cells(j, 5).Value <> "" And ThisWorkbook.Worksheets(4).Cells(j, 39).Value <> "" Then
             Cont = Cont + 1
             If ThisWorkbook.Worksheets(4).Cells(j, 34).Value = "" Then
-                If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & ThisWorkbook.Worksheets(4).Cells(j, 29).Value & " | " & ThisWorkbook.Worksheets(4).Cells(j, 25).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
-                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & ThisWorkbook.Worksheets(4).Cells(j, 29).Value & " | " & ThisWorkbook.Worksheets(4).Cells(j, 26).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
                 Else
                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & ThisWorkbook.Worksheets(4).Cells(j, 29).Value & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
@@ -9806,16 +9806,16 @@ Else
     CalTarih = CDate(CalTarih)
     CalTarih = DateAdd("d", 1, CalTarih)
     CalTarih = CStr(CalTarih)
-    If Mid(CalTarih, 2, 1) = "." Then 'Günün soluna 0 ekle
+    If Mid(CalTarih, 2, 1) = "." Then 'GÃ¼nÃ¼n soluna 0 ekle
         CalTarih = "0" & CalTarih
     End If
-    If Mid(CalTarih, 5, 1) = "." Then 'Ayýn soluna 0 ekle
+    If Mid(CalTarih, 5, 1) = "." Then 'AyÄ±n soluna 0 ekle
         CalTarih = Left(CalTarih, 3) & "0" & Mid(CalTarih, 4, 6)
     End If
     'MsgBox CalTarih
     Contx = Contx + 1
     If Contx = 100 Then
-        'MsgBox "Belirtilen tarihten sonra herhangi bir tutanak1 iþlemi yapýlmadýðýndan iþleminiz gerçekleþtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+        'MsgBox "Belirtilen tarihten sonra herhangi bir tutanak1 iÅŸlemi yapÄ±lmadÄ±ÄŸÄ±ndan iÅŸleminiz gerÃ§ekleÅŸtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
         GoTo Son
     End If
     GoTo TarihiTekrarla1
@@ -9831,17 +9831,17 @@ For j = Say To TarihBul.Row Step -1
         If ThisWorkbook.Worksheets(4).Cells(j, 5).Value <> "" And ThisWorkbook.Worksheets(4).Cells(j, 83).Value <> "" And ThisWorkbook.Worksheets(4).Cells(j, 174).Value = "No" Then
             Cont = Cont + 1
             If ThisWorkbook.Worksheets(4).Cells(j, 73).Value <> "" Then
-                If Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ýl " Then
+                If Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ä°l " Then
                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & ThisWorkbook.Worksheets(4).Cells(j, 84).Value & " | " & ThisWorkbook.Worksheets(4).Cells(j, 73).Value
-                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ýlç" Then
+                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ä°lÃ§" Then
                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & ThisWorkbook.Worksheets(4).Cells(j, 84).Value & " | " & ThisWorkbook.Worksheets(4).Cells(j, 73).Value
                 Else
                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & ThisWorkbook.Worksheets(4).Cells(j, 84).Value & " | " & ThisWorkbook.Worksheets(4).Cells(j, 72).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 73).Value
                 End If
             ElseIf ThisWorkbook.Worksheets(4).Cells(j, 73).Value = "" Then
-                If Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ýl " Then
+                If Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ä°l " Then
                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & ThisWorkbook.Worksheets(4).Cells(j, 84).Value & " | " & ThisWorkbook.Worksheets(4).Cells(j, 77).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 72).Value
-                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ýlç" Then
+                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ä°lÃ§" Then
                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & ThisWorkbook.Worksheets(4).Cells(j, 84).Value & " | " & ThisWorkbook.Worksheets(4).Cells(j, 78).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 72).Value
                 Else
                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & ThisWorkbook.Worksheets(4).Cells(j, 84).Value & " | " & ThisWorkbook.Worksheets(4).Cells(j, 72).Value
@@ -9907,7 +9907,7 @@ End If
 'Cont = 0
 Contx = 0
 Set TarihBul = ThisWorkbook.Worksheets(4).Range("AM6:AM100000").Find(What:=CalTarih, SearchDirection:=xlNext, _
-                SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'Tutanak1 tarihi içinde ara
+                SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'Tutanak1 tarihi iÃ§inde ara
 If Not TarihBul Is Nothing Then
     '
 Else
@@ -9952,17 +9952,17 @@ For j = TarihBul.Row To Say
                 Next k
                     
                 If ThisWorkbook.Worksheets(4).Cells(j, 73).Value <> "" Then
-                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ýl " Then
+                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ä°l " Then
                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 73).Value
-                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ýlç" Then
+                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ä°lÃ§" Then
                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 73).Value
                     Else
                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 72).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 73).Value
                     End If
                 ElseIf ThisWorkbook.Worksheets(4).Cells(j, 73).Value = "" Then
-                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ýl " Then
+                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ä°l " Then
                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 77).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 72).Value
-                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ýlç" Then
+                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ä°lÃ§" Then
                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 78).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 72).Value
                     Else
                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 72).Value
@@ -10026,7 +10026,7 @@ If Say < 7 Then
     GoTo Son
 End If
 
-'Mevcutta satýrý bul
+'Mevcutta satÄ±rÄ± bul
 'CalTarih = CDate(CalTarih)
 MevcutSatir = 0
 For j = Say To 7 Step -1
@@ -10042,7 +10042,7 @@ For j = Say To 7 Step -1
     End If
 Next j
 DonguSonu:
-'Mevcutta satýr bulunamaz ise sona git
+'Mevcutta satÄ±r bulunamaz ise sona git
 If MevcutSatir = 0 Then
     GoTo Son
 End If
@@ -10088,17 +10088,17 @@ For j = MevcutSatir To 7 Step -1
                         Next k
                 
                         If ThisWorkbook.Worksheets(4).Cells(j, 73).Value <> "" Then
-                            If Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ýl " Then
+                            If Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ä°l " Then
                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 73).Value
-                            ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ýlç" Then
+                            ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ä°lÃ§" Then
                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 73).Value
                             Else
                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 72).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 73).Value
                             End If
                         ElseIf ThisWorkbook.Worksheets(4).Cells(j, 73).Value = "" Then
-                            If Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ýl " Then
+                            If Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ä°l " Then
                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 77).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 72).Value
-                            ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ýlç" Then
+                            ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ä°lÃ§" Then
                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 78).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 72).Value
                             Else
                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 72).Value
@@ -10210,17 +10210,17 @@ For j = TarihBul.Row To Say
                 Next k
 
                 If ThisWorkbook.Worksheets(4).Cells(j, 73).Value <> "" Then
-                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ýl " Then
+                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ä°l " Then
                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 73).Value
-                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ýlç" Then
+                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ä°lÃ§" Then
                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 73).Value
                     Else
                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 72).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 73).Value
                     End If
                 ElseIf ThisWorkbook.Worksheets(4).Cells(j, 73).Value = "" Then
-                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ýl " Then
+                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ä°l " Then
                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 77).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 72).Value
-                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ýlç" Then
+                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 72).Value, 3) = "Ä°lÃ§" Then
                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 78).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 72).Value
                     Else
                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 72).Value
@@ -10234,7 +10234,7 @@ For j = TarihBul.Row To Say
                     .Height = 12
                     .Width = 300
                     If ThisWorkbook.Worksheets(4).Cells(j, 39).Value = ThisWorkbook.Worksheets(4).Cells(j, 104).Value Then
-                        .BackColor = &H80000000 'Giriþ
+                        .BackColor = &H80000000 'GiriÅŸ
                     Else
                         .BackColor = &H80000003 'Mevcut
                     End If
@@ -10289,7 +10289,7 @@ End If
 'Cont = 0
 Contx = 0
 Set TarihBul = ThisWorkbook.Worksheets(4).Range("AM6:AM100000").Find(What:=CalTarih, SearchDirection:=xlNext, _
-                SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'Tutanak1 tarihi içinde ara
+                SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'Tutanak1 tarihi iÃ§inde ara
 If Not TarihBul Is Nothing Then
     '
 Else
@@ -10335,17 +10335,17 @@ For j = TarihBul.Row To Say
                     Next k
                     
                     If ThisWorkbook.Worksheets(4).Cells(j, 34).Value <> "" Then
-                        If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                        If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
-                        ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                        ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                         Else
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                         End If
                     ElseIf ThisWorkbook.Worksheets(4).Cells(j, 34).Value = "" Then
-                        If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                        If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 25).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
-                        ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                        ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 26).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
                         Else
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
@@ -10411,17 +10411,17 @@ For j = TarihBul.Row To Say
                     Next k
                     
                     If ThisWorkbook.Worksheets(4).Cells(j, 34).Value <> "" Then
-                        If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                        If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
-                        ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                        ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                         Else
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                         End If
                     ElseIf ThisWorkbook.Worksheets(4).Cells(j, 34).Value = "" Then
-                        If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                        If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 25).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
-                        ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                        ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 26).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
                         Else
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
@@ -10493,17 +10493,17 @@ For j = TarihBul.Row To Say
                                 Next k
 
                                 If ThisWorkbook.Worksheets(4).Cells(j, 34).Value <> "" Then
-                                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<R> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
-                                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<R> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                                     Else
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<R> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                                     End If
                                 ElseIf ThisWorkbook.Worksheets(4).Cells(j, 34).Value = "" Then
-                                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<R> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 25).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
-                                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<R> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 26).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
                                     Else
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<R> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
@@ -10569,17 +10569,17 @@ For j = TarihBul.Row To Say
                                 Next k
                             
                                 If ThisWorkbook.Worksheets(4).Cells(j, 34).Value <> "" Then
-                                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
-                                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                                     Else
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                                     End If
                                 ElseIf ThisWorkbook.Worksheets(4).Cells(j, 34).Value = "" Then
-                                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 25).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
-                                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 26).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
                                     Else
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
@@ -10645,7 +10645,7 @@ If Say < 7 Then
     GoTo Son
 End If
 
-'Mevcutta satýrý bul
+'Mevcutta satÄ±rÄ± bul
 'CalTarih = CDate(CalTarih)
 MevcutSatir = 0
 For j = Say To 7 Step -1
@@ -10661,7 +10661,7 @@ For j = Say To 7 Step -1
     End If
 Next j
 DonguSonu:
-'Mevcutta satýr bulunamaz ise sona git
+'Mevcutta satÄ±r bulunamaz ise sona git
 If MevcutSatir = 0 Then
     GoTo Son
 End If
@@ -10708,17 +10708,17 @@ For j = MevcutSatir To 7 Step -1
                             Next k
                     
                             If ThisWorkbook.Worksheets(4).Cells(j, 34).Value <> "" Then
-                                If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                                If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
-                                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                                 Else
                                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                                 End If
                             ElseIf ThisWorkbook.Worksheets(4).Cells(j, 34).Value = "" Then
-                                If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                                If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 25).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
-                                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 26).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
                                 Else
                                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
@@ -10791,17 +10791,17 @@ For j = MevcutSatir To 7 Step -1
                             Next k
                     
                             If ThisWorkbook.Worksheets(4).Cells(j, 34).Value <> "" Then
-                                If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                                If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
-                                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                                 Else
                                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                                 End If
                             ElseIf ThisWorkbook.Worksheets(4).Cells(j, 34).Value = "" Then
-                                If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                                If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 25).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
-                                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 26).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
                                 Else
                                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
@@ -10882,17 +10882,17 @@ For j = MevcutSatir To 7 Step -1
                                         Next k
                                 
                                         If ThisWorkbook.Worksheets(4).Cells(j, 34).Value <> "" Then
-                                            If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                                            If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<R> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
-                                            ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                                            ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<R> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                                             Else
                                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<R> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                                             End If
                                         ElseIf ThisWorkbook.Worksheets(4).Cells(j, 34).Value = "" Then
-                                            If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                                            If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<R> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 25).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
-                                            ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                                            ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<R> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 26).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
                                             Else
                                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<R> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
@@ -10960,17 +10960,17 @@ For j = MevcutSatir To 7 Step -1
                                         Next k
                                 
                                         If ThisWorkbook.Worksheets(4).Cells(j, 34).Value <> "" Then
-                                            If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                                            If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
-                                            ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                                            ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                                             Else
                                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                                             End If
                                         ElseIf ThisWorkbook.Worksheets(4).Cells(j, 34).Value = "" Then
-                                            If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                                            If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 25).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
-                                            ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                                            ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 26).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
                                             Else
                                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
@@ -11121,17 +11121,17 @@ For j = TarihBulSay To Say
                     Next k
                     
                     If ThisWorkbook.Worksheets(4).Cells(j, 34).Value <> "" Then
-                        If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                        If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
-                        ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                        ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                         Else
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                         End If
                     ElseIf ThisWorkbook.Worksheets(4).Cells(j, 34).Value = "" Then
-                        If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                        If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 25).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
-                        ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                        ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 26).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
                         Else
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
@@ -11145,7 +11145,7 @@ For j = TarihBulSay To Say
                       .Height = 12
                       .Width = 300
                       If ThisWorkbook.Worksheets(4).Cells(j, 39).Value = ThisWorkbook.Worksheets(4).Cells(j, 105).Value Then
-                          .BackColor = &H80000000 'Giriþ
+                          .BackColor = &H80000000 'GiriÅŸ
                       Else
                           .BackColor = &H80000003 'Mevcut
                       End If
@@ -11201,17 +11201,17 @@ For j = TarihBulSay To Say
                     Next k
                     
                     If ThisWorkbook.Worksheets(4).Cells(j, 34).Value <> "" Then
-                        If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                        If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
-                        ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                        ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                         Else
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                         End If
                     ElseIf ThisWorkbook.Worksheets(4).Cells(j, 34).Value = "" Then
-                        If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                        If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 25).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
-                        ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                        ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 26).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
                         Else
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
@@ -11225,7 +11225,7 @@ For j = TarihBulSay To Say
                       .Height = 12
                       .Width = 300
                       If ThisWorkbook.Worksheets(4).Cells(j, 39).Value = ThisWorkbook.Worksheets(4).Cells(j, 105).Value Then
-                          .BackColor = &H80000000 'Giriþ
+                          .BackColor = &H80000000 'GiriÅŸ
                       Else
                           .BackColor = &H80000003 'Mevcut
                       End If
@@ -11288,17 +11288,17 @@ For j = TarihBulSay To Say
                                 Next k
                                 
                                 If ThisWorkbook.Worksheets(4).Cells(j, 34).Value <> "" Then
-                                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<R> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
-                                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<R> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                                     Else
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<R> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                                     End If
                                 ElseIf ThisWorkbook.Worksheets(4).Cells(j, 34).Value = "" Then
-                                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<R> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 25).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
-                                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<R> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 26).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
                                     Else
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<R> " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
@@ -11312,7 +11312,7 @@ For j = TarihBulSay To Say
                                     .Height = 12
                                     .Width = 300
                                     If ThisWorkbook.Worksheets(4).Cells(j, 39).Value = ThisWorkbook.Worksheets(4).Cells(j, 104).Value Then
-                                        .BackColor = &H80000000 'Giriþ
+                                        .BackColor = &H80000000 'GiriÅŸ
                                     Else
                                         .BackColor = &H80000003 'Mevcut
                                     End If
@@ -11369,17 +11369,17 @@ For j = TarihBulSay To Say
                                 Next k
                                 
                                 If ThisWorkbook.Worksheets(4).Cells(j, 34).Value <> "" Then
-                                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
-                                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                                     Else
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                                     End If
                                 ElseIf ThisWorkbook.Worksheets(4).Cells(j, 34).Value = "" Then
-                                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 25).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
-                                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 26).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
                                     Else
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Giden) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
@@ -11393,7 +11393,7 @@ For j = TarihBulSay To Say
                                     .Height = 12
                                     .Width = 300
                                     If ThisWorkbook.Worksheets(4).Cells(j, 39).Value = ThisWorkbook.Worksheets(4).Cells(j, 105).Value Then
-                                        .BackColor = &H80000000 'Giriþ
+                                        .BackColor = &H80000000 'GiriÅŸ
                                     Else
                                         .BackColor = &H80000003 'Mevcut
                                     End If
@@ -11451,7 +11451,7 @@ End If
 'Cont = 0
 Contx = 0
 Set TarihBul = ThisWorkbook.Worksheets(4).Range("GI6:GI100000").Find(What:=CalTarih, SearchDirection:=xlNext, _
-                SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'Tutanak1 tarihi içinde ara
+                SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'Tutanak1 tarihi iÃ§inde ara
 If Not TarihBul Is Nothing Then
     '
 Else
@@ -11497,17 +11497,17 @@ For j = TarihBul.Row To Say
                     Next k
                     
                     If ThisWorkbook.Worksheets(4).Cells(j, 34).Value <> "" Then
-                        If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                        If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
-                        ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                        ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                         Else
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                         End If
                     ElseIf ThisWorkbook.Worksheets(4).Cells(j, 34).Value = "" Then
-                        If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                        If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 25).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
-                        ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                        ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 26).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
                         Else
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
@@ -11576,17 +11576,17 @@ For j = TarihBul.Row To Say
                         Next k
                                 
                         If ThisWorkbook.Worksheets(4).Cells(j, 34).Value <> "" Then
-                            If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                            If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
-                            ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                            ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                             Else
                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                             End If
                         ElseIf ThisWorkbook.Worksheets(4).Cells(j, 34).Value = "" Then
-                            If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                            If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 25).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
-                            ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                            ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 26).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
                             Else
                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
@@ -11650,7 +11650,7 @@ If Say < 7 Then
     GoTo Son
 End If
 
-'Mevcutta satýrý bul
+'Mevcutta satÄ±rÄ± bul
 'CalTarih = CDate(CalTarih)
 MevcutSatir = 0
 For j = Say To 7 Step -1
@@ -11666,7 +11666,7 @@ For j = Say To 7 Step -1
     End If
 Next j
 DonguSonu:
-'Mevcutta satýr bulunamaz ise sona git
+'Mevcutta satÄ±r bulunamaz ise sona git
 If MevcutSatir = 0 Then
     GoTo Son
 End If
@@ -11713,17 +11713,17 @@ For j = MevcutSatir To 7 Step -1
                             Next k
                     
                             If ThisWorkbook.Worksheets(4).Cells(j, 34).Value <> "" Then
-                                If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                                If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
-                                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                                 Else
                                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                                 End If
                             ElseIf ThisWorkbook.Worksheets(4).Cells(j, 34).Value = "" Then
-                                If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                                If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 25).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
-                                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 26).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
                                 Else
                                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
@@ -11799,17 +11799,17 @@ For j = MevcutSatir To 7 Step -1
                                 Next k
 
                                 If ThisWorkbook.Worksheets(4).Cells(j, 34).Value <> "" Then
-                                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
-                                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                                     Else
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                                     End If
                                 ElseIf ThisWorkbook.Worksheets(4).Cells(j, 34).Value = "" Then
-                                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                                    If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 25).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
-                                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                                    ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 26).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
                                     Else
                                         Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
@@ -11923,17 +11923,17 @@ For j = TarihBulSay To Say
                     Next k
                     
                     If ThisWorkbook.Worksheets(4).Cells(j, 34).Value <> "" Then
-                        If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                        If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
-                        ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                        ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                         Else
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                         End If
                     ElseIf ThisWorkbook.Worksheets(4).Cells(j, 34).Value = "" Then
-                        If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                        If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 25).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
-                        ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                        ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 26).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
                         Else
                             Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<T> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
@@ -11947,7 +11947,7 @@ For j = TarihBulSay To Say
                       .Height = 12
                       .Width = 300
                       If ThisWorkbook.Worksheets(4).Cells(j, 191).Value = ThisWorkbook.Worksheets(4).Cells(j, 106).Value Then
-                          .BackColor = &H80000000 'Giriþ
+                          .BackColor = &H80000000 'GiriÅŸ
                       Else
                           .BackColor = &H80000003 'Mevcut
                       End If
@@ -12004,17 +12004,17 @@ For j = TarihBulSay To Say
                         Next k
 
                         If ThisWorkbook.Worksheets(4).Cells(j, 34).Value <> "" Then
-                            If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                            If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
-                            ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                            ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                             Else
                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value
                             End If
                         ElseIf ThisWorkbook.Worksheets(4).Cells(j, 34).Value = "" Then
-                            If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                            If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 25).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
-                            ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                            ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 26).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
                             Else
                                 Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & "<L> (Gelen) " & RaporNoTakip & " | " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value
@@ -12028,7 +12028,7 @@ For j = TarihBulSay To Say
                             .Height = 12
                             .Width = 300
                             If ThisWorkbook.Worksheets(4).Cells(j, 191).Value = ThisWorkbook.Worksheets(4).Cells(j, 106).Value Then
-                                .BackColor = &H80000000 'Giriþ
+                                .BackColor = &H80000000 'GiriÅŸ
                             Else
                                 .BackColor = &H80000003 'Mevcut
                             End If
@@ -12087,16 +12087,16 @@ Else
     CalTarih = CDate(CalTarih)
     CalTarih = DateAdd("d", 1, CalTarih)
     CalTarih = CStr(CalTarih)
-    If Mid(CalTarih, 2, 1) = "." Then 'Günün soluna 0 ekle
+    If Mid(CalTarih, 2, 1) = "." Then 'GÃ¼nÃ¼n soluna 0 ekle
         CalTarih = "0" & CalTarih
     End If
-    If Mid(CalTarih, 5, 1) = "." Then 'Ayýn soluna 0 ekle
+    If Mid(CalTarih, 5, 1) = "." Then 'AyÄ±n soluna 0 ekle
         CalTarih = Left(CalTarih, 3) & "0" & Mid(CalTarih, 4, 6)
     End If
     'MsgBox CalTarih
     Contx = Contx + 1
     If Contx = 100 Then
-        'MsgBox "Belirtilen tarihten sonra herhangi bir tutanak1 iþlemi yapýlmadýðýndan iþleminiz gerçekleþtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+        'MsgBox "Belirtilen tarihten sonra herhangi bir tutanak1 iÅŸlemi yapÄ±lmadÄ±ÄŸÄ±ndan iÅŸleminiz gerÃ§ekleÅŸtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
         GoTo Son
     End If
     GoTo TarihiTekrarla1
@@ -12112,17 +12112,17 @@ For j = Say To TarihBul.Row Step -1
         If ThisWorkbook.Worksheets(4).Cells(j, 5).Value <> "" And ThisWorkbook.Worksheets(4).Cells(j, 83).Value <> "" And ThisWorkbook.Worksheets(4).Cells(j, 174).Value = "Yes" Then
             Cont = Cont + 1
             If ThisWorkbook.Worksheets(4).Cells(j, 200).Value <> "" Then
-                If Left(ThisWorkbook.Worksheets(4).Cells(j, 199).Value, 3) = "Ýl " Then
+                If Left(ThisWorkbook.Worksheets(4).Cells(j, 199).Value, 3) = "Ä°l " Then
                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & ThisWorkbook.Worksheets(4).Cells(j, 84).Value & " | " & "Bilgilendirme (" & ThisWorkbook.Worksheets(4).Cells(j, 200).Value & ")"
-                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 199).Value, 3) = "Ýlç" Then
+                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 199).Value, 3) = "Ä°lÃ§" Then
                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & ThisWorkbook.Worksheets(4).Cells(j, 84).Value & " | " & "Bilgilendirme (" & ThisWorkbook.Worksheets(4).Cells(j, 200).Value & ")"
                 Else
                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & ThisWorkbook.Worksheets(4).Cells(j, 84).Value & " | " & "Bilgilendirme (" & ThisWorkbook.Worksheets(4).Cells(j, 199).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 200).Value & ")"
                 End If
             ElseIf ThisWorkbook.Worksheets(4).Cells(j, 200).Value = "" Then
-                If Left(ThisWorkbook.Worksheets(4).Cells(j, 199).Value, 3) = "Ýl " Then
+                If Left(ThisWorkbook.Worksheets(4).Cells(j, 199).Value, 3) = "Ä°l " Then
                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & ThisWorkbook.Worksheets(4).Cells(j, 84).Value & " | " & "Bilgilendirme (" & ThisWorkbook.Worksheets(4).Cells(j, 203).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 199).Value & ")"
-                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 199).Value, 3) = "Ýlç" Then
+                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 199).Value, 3) = "Ä°lÃ§" Then
                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & ThisWorkbook.Worksheets(4).Cells(j, 84).Value & " | " & "Bilgilendirme (" & ThisWorkbook.Worksheets(4).Cells(j, 204).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 199).Value & ")"
                 Else
                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | R | " & ThisWorkbook.Worksheets(4).Cells(j, 84).Value & " | " & "Bilgilendirme (" & ThisWorkbook.Worksheets(4).Cells(j, 199).Value & ")"
@@ -12189,16 +12189,16 @@ Else
     CalTarih = CDate(CalTarih)
     CalTarih = DateAdd("d", 1, CalTarih)
     CalTarih = CStr(CalTarih)
-    If Mid(CalTarih, 2, 1) = "." Then 'Günün soluna 0 ekle
+    If Mid(CalTarih, 2, 1) = "." Then 'GÃ¼nÃ¼n soluna 0 ekle
         CalTarih = "0" & CalTarih
     End If
-    If Mid(CalTarih, 5, 1) = "." Then 'Ayýn soluna 0 ekle
+    If Mid(CalTarih, 5, 1) = "." Then 'AyÄ±n soluna 0 ekle
         CalTarih = Left(CalTarih, 3) & "0" & Mid(CalTarih, 4, 6)
     End If
     'MsgBox CalTarih
     Contx = Contx + 1
     If Contx = 100 Then
-        'MsgBox "Belirtilen tarihten sonra herhangi bir tutanak1 iþlemi yapýlmadýðýndan iþleminiz gerçekleþtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+        'MsgBox "Belirtilen tarihten sonra herhangi bir tutanak1 iÅŸlemi yapÄ±lmadÄ±ÄŸÄ±ndan iÅŸleminiz gerÃ§ekleÅŸtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
         GoTo Son
     End If
     GoTo TarihiTekrarla2
@@ -12212,17 +12212,17 @@ For j = Say To TarihBul.Row Step -1
         If ThisWorkbook.Worksheets(4).Cells(j, 5).Value <> "" And ThisWorkbook.Worksheets(4).Cells(j, 175).Value <> "" Then
             Cont = Cont + 1
             If ThisWorkbook.Worksheets(4).Cells(j, 34).Value <> "" Then
-                If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & ThisWorkbook.Worksheets(4).Cells(j, 176).Value & " | " & "XXXMud (" & ThisWorkbook.Worksheets(4).Cells(j, 34).Value & ")"
-                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & ThisWorkbook.Worksheets(4).Cells(j, 176).Value & " | " & "XXXMud (" & ThisWorkbook.Worksheets(4).Cells(j, 34).Value & ")"
                 Else
                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & ThisWorkbook.Worksheets(4).Cells(j, 176).Value & " | " & "XXXMud (" & ThisWorkbook.Worksheets(4).Cells(j, 33).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 34).Value & ")"
                 End If
             ElseIf ThisWorkbook.Worksheets(4).Cells(j, 34).Value = "" Then
-                If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýl " Then
+                If Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°l " Then
                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & ThisWorkbook.Worksheets(4).Cells(j, 176).Value & " | " & "XXXMud (" & ThisWorkbook.Worksheets(4).Cells(j, 25).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value & ")"
-                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ýlç" Then
+                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 33).Value, 3) = "Ä°lÃ§" Then
                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & ThisWorkbook.Worksheets(4).Cells(j, 176).Value & " | " & "XXXMud (" & ThisWorkbook.Worksheets(4).Cells(j, 26).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 33).Value & ")"
                 Else
                     Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & ThisWorkbook.Worksheets(4).Cells(j, 176).Value & " | " & "XXXMud (" & ThisWorkbook.Worksheets(4).Cells(j, 33).Value & ")"
@@ -12278,7 +12278,7 @@ If Say < 7 Then
     GoTo Son
 End If
 
-'Rapor2_2 sonuç
+'Rapor2_2 sonuÃ§
 Contx = 0
 TarihiTekrarla3:
 Set TarihBul = ThisWorkbook.Worksheets(4).Range("FU6:FU100000").Find(What:=CalTarih, SearchDirection:=xlNext, _
@@ -12289,16 +12289,16 @@ Else
     CalTarih = CDate(CalTarih)
     CalTarih = DateAdd("d", 1, CalTarih)
     CalTarih = CStr(CalTarih)
-    If Mid(CalTarih, 2, 1) = "." Then 'Günün soluna 0 ekle
+    If Mid(CalTarih, 2, 1) = "." Then 'GÃ¼nÃ¼n soluna 0 ekle
         CalTarih = "0" & CalTarih
     End If
-    If Mid(CalTarih, 5, 1) = "." Then 'Ayýn soluna 0 ekle
+    If Mid(CalTarih, 5, 1) = "." Then 'AyÄ±n soluna 0 ekle
         CalTarih = Left(CalTarih, 3) & "0" & Mid(CalTarih, 4, 6)
     End If
     'MsgBox CalTarih
     Contx = Contx + 1
     If Contx = 100 Then
-        'MsgBox "Belirtilen tarihten sonra herhangi bir tutanak1 iþlemi yapýlmadýðýndan iþleminiz gerçekleþtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+        'MsgBox "Belirtilen tarihten sonra herhangi bir tutanak1 iÅŸlemi yapÄ±lmadÄ±ÄŸÄ±ndan iÅŸleminiz gerÃ§ekleÅŸtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
         GoTo Son
     End If
     GoTo TarihiTekrarla3
@@ -12313,20 +12313,20 @@ For j = Say To TarihBul.Row Step -1
             Cont = Cont + 1
             'Bilgilendirme
             If ThisWorkbook.Worksheets(4).Cells(j, 200).Value <> "" Then
-                If Left(ThisWorkbook.Worksheets(4).Cells(j, 199).Value, 3) = "Ýl " Then
-                    Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & ThisWorkbook.Worksheets(4).Cells(j, 178).Value & " | " & "Sonuç (" & ThisWorkbook.Worksheets(4).Cells(j, 200).Value & ")"
-                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 199).Value, 3) = "Ýlç" Then
-                    Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & ThisWorkbook.Worksheets(4).Cells(j, 178).Value & " | " & "Sonuç (" & ThisWorkbook.Worksheets(4).Cells(j, 200).Value & ")"
+                If Left(ThisWorkbook.Worksheets(4).Cells(j, 199).Value, 3) = "Ä°l " Then
+                    Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & ThisWorkbook.Worksheets(4).Cells(j, 178).Value & " | " & "SonuÃ§ (" & ThisWorkbook.Worksheets(4).Cells(j, 200).Value & ")"
+                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 199).Value, 3) = "Ä°lÃ§" Then
+                    Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & ThisWorkbook.Worksheets(4).Cells(j, 178).Value & " | " & "SonuÃ§ (" & ThisWorkbook.Worksheets(4).Cells(j, 200).Value & ")"
                 Else
-                    Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & ThisWorkbook.Worksheets(4).Cells(j, 178).Value & " | " & "Sonuç (" & ThisWorkbook.Worksheets(4).Cells(j, 199).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 200).Value & ")"
+                    Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & ThisWorkbook.Worksheets(4).Cells(j, 178).Value & " | " & "SonuÃ§ (" & ThisWorkbook.Worksheets(4).Cells(j, 199).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 200).Value & ")"
                 End If
             ElseIf ThisWorkbook.Worksheets(4).Cells(j, 200).Value = "" Then
-                If Left(ThisWorkbook.Worksheets(4).Cells(j, 199).Value, 3) = "Ýl " Then
-                    Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & ThisWorkbook.Worksheets(4).Cells(j, 178).Value & " | " & "Sonuç (" & ThisWorkbook.Worksheets(4).Cells(j, 203).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 199).Value & ")"
-                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 199).Value, 3) = "Ýlç" Then
-                    Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & ThisWorkbook.Worksheets(4).Cells(j, 178).Value & " | " & "Sonuç (" & ThisWorkbook.Worksheets(4).Cells(j, 204).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 199).Value & ")"
+                If Left(ThisWorkbook.Worksheets(4).Cells(j, 199).Value, 3) = "Ä°l " Then
+                    Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & ThisWorkbook.Worksheets(4).Cells(j, 178).Value & " | " & "SonuÃ§ (" & ThisWorkbook.Worksheets(4).Cells(j, 203).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 199).Value & ")"
+                ElseIf Left(ThisWorkbook.Worksheets(4).Cells(j, 199).Value, 3) = "Ä°lÃ§" Then
+                    Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & ThisWorkbook.Worksheets(4).Cells(j, 178).Value & " | " & "SonuÃ§ (" & ThisWorkbook.Worksheets(4).Cells(j, 204).Value & " " & ThisWorkbook.Worksheets(4).Cells(j, 199).Value & ")"
                 Else
-                    Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & ThisWorkbook.Worksheets(4).Cells(j, 178).Value & " | " & "Sonuç (" & ThisWorkbook.Worksheets(4).Cells(j, 199).Value
+                    Sno = ThisWorkbook.Worksheets(4).Cells(j, 5).Value & " | B | " & ThisWorkbook.Worksheets(4).Cells(j, 178).Value & " | " & "SonuÃ§ (" & ThisWorkbook.Worksheets(4).Cells(j, 199).Value
                 End If
             End If
             
@@ -12371,19 +12371,19 @@ core_report2_entry_UI.Rapor2_2KararFrame.Visible = True
 
 '___________________________
 
-'Tümü seçili iken birleþtirme pasif
+'TÃ¼mÃ¼ seÃ§ili iken birleÅŸtirme pasif
 If core_report2_entry_UI.TumuOption.Value = True Then
     core_report2_entry_UI.Tutanak2BirlestirmeOptionEvet.Enabled = False
     core_report2_entry_UI.Tutanak2BirlestirmeOptionHayir.Enabled = False
     core_report2_entry_UI.Tutanak2BirlestirmeOptionEvet.Value = False
     core_report2_entry_UI.Tutanak2BirlestirmeOptionHayir.Value = False
 End If
-'Technique A seçili ve tutanak1 yapýlacaksa birleþtirme aktif
+'Technique A seÃ§ili ve tutanak1 yapÄ±lacaksa birleÅŸtirme aktif
 If core_report2_entry_UI.SadeceTeknik_AGecersizlerOption.Value = True And core_report2_entry_UI.XXXMudPaketiOptionEvet.Value = True Then
     core_report2_entry_UI.Tutanak2BirlestirmeOptionEvet.Enabled = True
     core_report2_entry_UI.Tutanak2BirlestirmeOptionHayir.Enabled = True
 End If
-'Technique A seçili ve tutanak1 yapýlmayacaksa birleþtirme pasif
+'Technique A seÃ§ili ve tutanak1 yapÄ±lmayacaksa birleÅŸtirme pasif
 If core_report2_entry_UI.SadeceTeknik_AGecersizlerOption.Value = True And core_report2_entry_UI.XXXMudPaketiOptionHayir.Value = True Then
     core_report2_entry_UI.Tutanak2BirlestirmeOptionEvet.Enabled = False
     core_report2_entry_UI.Tutanak2BirlestirmeOptionHayir.Enabled = False
@@ -12393,14 +12393,14 @@ End If
 
 '___________________________
 
-'Tümü seçili ve tutanak1 yapýlacaksa
+'TÃ¼mÃ¼ seÃ§ili ve tutanak1 yapÄ±lacaksa
 If core_report2_entry_UI.TumuOption.Value = True And core_report2_entry_UI.XXXMudPaketiOptionEvet.Value = True Then
     'core_report2_entry_UI.Rapor2_2KararFrame.Visible = True
     core_report2_entry_UI.Rapor1Frame.Visible = True
     core_report2_entry_UI.XXXMudTutanak2Frame.Visible = True
     core_report2_entry_UI.XXXMudUstYaziFrame.Visible = True
     core_report2_entry_UI.GelenXXXMudTutanak1Frame.Visible = True
-    core_report2_entry_UI.GelenXXXMudTutanak2Frame.Visible = False 'Kapatýldý
+    core_report2_entry_UI.GelenXXXMudTutanak2Frame.Visible = False 'KapatÄ±ldÄ±
     core_report2_entry_UI.Tutanak2Frame.Visible = True
     core_report2_entry_UI.UstYaziFrame.Visible = True
     core_report2_entry_UI.Rapor2_2UstYaziFrame.Visible = True
@@ -12416,7 +12416,7 @@ If core_report2_entry_UI.TumuOption.Value = True And core_report2_entry_UI.XXXMu
     core_report2_entry_UI.AltMenuFrame.Top = 1032 '679 '739 '679 '749 '689
     core_report2_entry_UI.TasiyiciFrame.Height = 1052
     
-    'Genel front (TasiyiciFrame'den sonra olmazsa çalýþmaz.)
+    'Genel front (TasiyiciFrame'den sonra olmazsa Ã§alÄ±ÅŸmaz.)
     core_report2_entry_UI.Rapor2_2KararFrame.ZOrder msoBringToFront
     core_report2_entry_UI.Rapor1Frame.ZOrder msoBringToFront
     core_report2_entry_UI.XXXMudTutanak2Frame.ZOrder msoBringToFront
@@ -12427,7 +12427,7 @@ If core_report2_entry_UI.TumuOption.Value = True And core_report2_entry_UI.XXXMu
     core_report2_entry_UI.UstYaziFrame.ZOrder msoBringToFront
     core_report2_entry_UI.Rapor2_2UstYaziFrame.ZOrder msoBringToFront
     
-    'Ekrana göre formun ayarlanmasý
+    'Ekrana gÃ¶re formun ayarlanmasÄ±
     If EkranKontrol = True Then '760 Then '710 Then '572 Then
         RepYukseklik = 1092
         core_report2_entry_UI.AltMenuFrame.Top = RepYukseklik - 40 - 26
@@ -12455,19 +12455,19 @@ End If
 
 
 
-'Tümü seçili ve tutanak1 yapýlmayacaksa
+'TÃ¼mÃ¼ seÃ§ili ve tutanak1 yapÄ±lmayacaksa
 If core_report2_entry_UI.TumuOption.Value = True And core_report2_entry_UI.XXXMudPaketiOptionHayir.Value = True Then
 '    core_report2_entry_UI.Rapor2_2KararFrame.Visible = True
     core_report2_entry_UI.Rapor1Frame.Visible = True
     core_report2_entry_UI.XXXMudTutanak2Frame.Visible = True
     core_report2_entry_UI.XXXMudUstYaziFrame.Visible = True
-    core_report2_entry_UI.GelenXXXMudTutanak1Frame.Visible = False 'Kapatýldý
-    core_report2_entry_UI.GelenXXXMudTutanak2Frame.Visible = True 'Sadece Paket Tipi, Paket Adedi gösterilecek ve Tutanak2 Sayfasý ilave edilecek.
-    core_report2_entry_UI.Tutanak2Frame.Visible = False 'Kapatýldý.
+    core_report2_entry_UI.GelenXXXMudTutanak1Frame.Visible = False 'KapatÄ±ldÄ±
+    core_report2_entry_UI.GelenXXXMudTutanak2Frame.Visible = True 'Sadece Paket Tipi, Paket Adedi gÃ¶sterilecek ve Tutanak2 SayfasÄ± ilave edilecek.
+    core_report2_entry_UI.Tutanak2Frame.Visible = False 'KapatÄ±ldÄ±.
     core_report2_entry_UI.UstYaziFrame.Visible = True
     core_report2_entry_UI.Rapor2_2UstYaziFrame.Visible = True
     
-    'XXXMud tutanak2 bölümünü düzenle
+    'XXXMud tutanak2 bÃ¶lÃ¼mÃ¼nÃ¼ dÃ¼zenle
     core_report2_entry_UI.GelenXXXMudTutanak2TutSayfaFrame.Visible = True
     core_report2_entry_UI.GelenXXXMudTutanak2TarihiFrame.Visible = False
     core_report2_entry_UI.GelenXXXMudTutanak2Imza1Frame.Visible = False
@@ -12484,7 +12484,7 @@ If core_report2_entry_UI.TumuOption.Value = True And core_report2_entry_UI.XXXMu
     core_report2_entry_UI.AltMenuFrame.Top = 942 '619 '679 '739 '679 '749 '689
     core_report2_entry_UI.TasiyiciFrame.Height = 962
 
-    'Genel front (TasiyiciFrame'den sonra olmazsa çalýþmaz.)
+    'Genel front (TasiyiciFrame'den sonra olmazsa Ã§alÄ±ÅŸmaz.)
     core_report2_entry_UI.Rapor2_2KararFrame.ZOrder msoBringToFront
     core_report2_entry_UI.Rapor1Frame.ZOrder msoBringToFront
     core_report2_entry_UI.XXXMudTutanak2Frame.ZOrder msoBringToFront
@@ -12495,7 +12495,7 @@ If core_report2_entry_UI.TumuOption.Value = True And core_report2_entry_UI.XXXMu
     core_report2_entry_UI.UstYaziFrame.ZOrder msoBringToFront
     core_report2_entry_UI.Rapor2_2UstYaziFrame.ZOrder msoBringToFront
 
-    'Ekrana göre formun ayarlanmasý
+    'Ekrana gÃ¶re formun ayarlanmasÄ±
     If EkranKontrol = True Then '760 Then '710 Then '572 Then
         RepYukseklik = 1002
         core_report2_entry_UI.AltMenuFrame.Top = RepYukseklik - 40 - 26
@@ -12521,7 +12521,7 @@ End If
 
 '___________________________
 
-'Sadece Technique A seçili ve tutanak1 yapýlacaksa
+'Sadece Technique A seÃ§ili ve tutanak1 yapÄ±lacaksa
 If core_report2_entry_UI.SadeceTeknik_AGecersizlerOption.Value = True And core_report2_entry_UI.XXXMudPaketiOptionEvet.Value = True Then
     If core_report2_entry_UI.Tutanak2BirlestirmeOptionEvet.Value = False And core_report2_entry_UI.Tutanak2BirlestirmeOptionHayir.Value = False Then
         core_report2_entry_UI.Rapor1Frame.Visible = True
@@ -12529,7 +12529,7 @@ If core_report2_entry_UI.SadeceTeknik_AGecersizlerOption.Value = True And core_r
         core_report2_entry_UI.XXXMudTutanak2Frame.Visible = False
         core_report2_entry_UI.XXXMudUstYaziFrame.Visible = False
         core_report2_entry_UI.GelenXXXMudTutanak1Frame.Visible = False
-        core_report2_entry_UI.GelenXXXMudTutanak2Frame.Visible = False 'Kapatýldý
+        core_report2_entry_UI.GelenXXXMudTutanak2Frame.Visible = False 'KapatÄ±ldÄ±
         core_report2_entry_UI.Rapor2_2UstYaziFrame.Visible = False
     
         core_report2_entry_UI.UstYaziFrame.Visible = False
@@ -12546,14 +12546,14 @@ If core_report2_entry_UI.SadeceTeknik_AGecersizlerOption.Value = True And core_r
         core_report2_entry_UI.ScrollBars = fmScrollBarsNone
     End If
     
-    'Tutanak2 tutanaklarý birleþtirilecek
+    'Tutanak2 tutanaklarÄ± birleÅŸtirilecek
     If core_report2_entry_UI.Tutanak2BirlestirmeOptionEvet.Value = True Then
         'Rapor2_2KararFrame.Visible = True
         core_report2_entry_UI.Rapor1Frame.Visible = True
         core_report2_entry_UI.XXXMudTutanak2Frame.Visible = True
         core_report2_entry_UI.XXXMudUstYaziFrame.Visible = True
         core_report2_entry_UI.GelenXXXMudTutanak1Frame.Visible = True
-        core_report2_entry_UI.GelenXXXMudTutanak2Frame.Visible = False 'Kapatýldý
+        core_report2_entry_UI.GelenXXXMudTutanak2Frame.Visible = False 'KapatÄ±ldÄ±
         core_report2_entry_UI.Tutanak2Frame.Visible = True
         core_report2_entry_UI.UstYaziFrame.Visible = True
         core_report2_entry_UI.Rapor2_2UstYaziFrame.Visible = True
@@ -12568,7 +12568,7 @@ If core_report2_entry_UI.SadeceTeknik_AGecersizlerOption.Value = True And core_r
         core_report2_entry_UI.AltMenuFrame.Top = 1032 '679 '739 '679 '749 '689
         core_report2_entry_UI.TasiyiciFrame.Height = 1052
 
-        'Genel front (TasiyiciFrame'den sonra olmazsa çalýþmaz.)
+        'Genel front (TasiyiciFrame'den sonra olmazsa Ã§alÄ±ÅŸmaz.)
         core_report2_entry_UI.Rapor2_2KararFrame.ZOrder msoBringToFront
         core_report2_entry_UI.Rapor1Frame.ZOrder msoBringToFront
         core_report2_entry_UI.XXXMudTutanak2Frame.ZOrder msoBringToFront
@@ -12579,7 +12579,7 @@ If core_report2_entry_UI.SadeceTeknik_AGecersizlerOption.Value = True And core_r
         core_report2_entry_UI.UstYaziFrame.ZOrder msoBringToFront
         core_report2_entry_UI.Rapor2_2UstYaziFrame.ZOrder msoBringToFront
     
-        'Ekrana göre formun ayarlanmasý
+        'Ekrana gÃ¶re formun ayarlanmasÄ±
         If EkranKontrol = True Then '760 Then '710 Then '572 Then
             RepYukseklik = 1092
             core_report2_entry_UI.AltMenuFrame.Top = RepYukseklik - 40 - 26
@@ -12595,7 +12595,7 @@ If core_report2_entry_UI.SadeceTeknik_AGecersizlerOption.Value = True And core_r
         End If
     End If
     
-    'Tutanak2 tutanaklarý birleþtirilmeyecek
+    'Tutanak2 tutanaklarÄ± birleÅŸtirilmeyecek
     If core_report2_entry_UI.Tutanak2BirlestirmeOptionHayir.Value = True Then
         'core_report2_entry_UI.Rapor2_2KararFrame.Visible = True
         core_report2_entry_UI.Rapor1Frame.Visible = True
@@ -12607,7 +12607,7 @@ If core_report2_entry_UI.SadeceTeknik_AGecersizlerOption.Value = True And core_r
         core_report2_entry_UI.UstYaziFrame.Visible = True
         core_report2_entry_UI.Rapor2_2UstYaziFrame.Visible = True
 
-        'XXXMud tutanak2 bölümünü düzenle
+        'XXXMud tutanak2 bÃ¶lÃ¼mÃ¼nÃ¼ dÃ¼zenle
         core_report2_entry_UI.GelenXXXMudTutanak2TutSayfaFrame.Visible = False
         core_report2_entry_UI.GelenXXXMudTutanak2TarihiFrame.Visible = True
         core_report2_entry_UI.GelenXXXMudTutanak2Imza1Frame.Visible = True
@@ -12624,7 +12624,7 @@ If core_report2_entry_UI.SadeceTeknik_AGecersizlerOption.Value = True And core_r
         core_report2_entry_UI.AltMenuFrame.Top = 1092 '679 '739 '679 '749 '689
         core_report2_entry_UI.TasiyiciFrame.Height = 1112
 
-        'Genel front (TasiyiciFrame'den sonra olmazsa çalýþmaz.)
+        'Genel front (TasiyiciFrame'den sonra olmazsa Ã§alÄ±ÅŸmaz.)
         core_report2_entry_UI.Rapor2_2KararFrame.ZOrder msoBringToFront
         core_report2_entry_UI.Rapor1Frame.ZOrder msoBringToFront
         core_report2_entry_UI.XXXMudTutanak2Frame.ZOrder msoBringToFront
@@ -12635,7 +12635,7 @@ If core_report2_entry_UI.SadeceTeknik_AGecersizlerOption.Value = True And core_r
         core_report2_entry_UI.UstYaziFrame.ZOrder msoBringToFront
         core_report2_entry_UI.Rapor2_2UstYaziFrame.ZOrder msoBringToFront
     
-        'Ekrana göre formun ayarlanmasý
+        'Ekrana gÃ¶re formun ayarlanmasÄ±
         If EkranKontrol = True Then '760 Then '710 Then '572 Then
             RepYukseklik = 1152
             core_report2_entry_UI.AltMenuFrame.Top = RepYukseklik - 40 - 26
@@ -12654,18 +12654,18 @@ End If
 
 '___________________________
 
-'Sadece Technique A seçili ve tutanak1 yapýlmayacaksa
+'Sadece Technique A seÃ§ili ve tutanak1 yapÄ±lmayacaksa
 If core_report2_entry_UI.SadeceTeknik_AGecersizlerOption.Value = True And core_report2_entry_UI.XXXMudPaketiOptionHayir.Value = True Then
     core_report2_entry_UI.Rapor1Frame.Visible = True
     core_report2_entry_UI.XXXMudTutanak2Frame.Visible = True
     core_report2_entry_UI.XXXMudUstYaziFrame.Visible = True
-    core_report2_entry_UI.GelenXXXMudTutanak1Frame.Visible = False 'Kapatýldý
-    core_report2_entry_UI.GelenXXXMudTutanak2Frame.Visible = True 'Sadece Paket Tipi, Paket Adedi gösterilecek ve Tutanak2 Sayfasý ilave edilecek.
+    core_report2_entry_UI.GelenXXXMudTutanak1Frame.Visible = False 'KapatÄ±ldÄ±
+    core_report2_entry_UI.GelenXXXMudTutanak2Frame.Visible = True 'Sadece Paket Tipi, Paket Adedi gÃ¶sterilecek ve Tutanak2 SayfasÄ± ilave edilecek.
     core_report2_entry_UI.Tutanak2Frame.Visible = True
     core_report2_entry_UI.UstYaziFrame.Visible = True
     core_report2_entry_UI.Rapor2_2UstYaziFrame.Visible = True
 
-    'XXXMud tutanak2 bölümünü düzenle
+    'XXXMud tutanak2 bÃ¶lÃ¼mÃ¼nÃ¼ dÃ¼zenle
     core_report2_entry_UI.GelenXXXMudTutanak2TutSayfaFrame.Visible = True
     core_report2_entry_UI.GelenXXXMudTutanak2TarihiFrame.Visible = False
     core_report2_entry_UI.GelenXXXMudTutanak2Imza1Frame.Visible = False
@@ -12681,7 +12681,7 @@ If core_report2_entry_UI.SadeceTeknik_AGecersizlerOption.Value = True And core_r
     core_report2_entry_UI.AltMenuFrame.Top = 1002 '679 '739 '679 '749 '689
     core_report2_entry_UI.TasiyiciFrame.Height = 1022
 
-    'Genel front (TasiyiciFrame'den sonra olmazsa çalýþmaz.)
+    'Genel front (TasiyiciFrame'den sonra olmazsa Ã§alÄ±ÅŸmaz.)
     core_report2_entry_UI.Rapor2_2KararFrame.ZOrder msoBringToFront
     core_report2_entry_UI.Rapor1Frame.ZOrder msoBringToFront
     core_report2_entry_UI.XXXMudTutanak2Frame.ZOrder msoBringToFront
@@ -12692,7 +12692,7 @@ If core_report2_entry_UI.SadeceTeknik_AGecersizlerOption.Value = True And core_r
     core_report2_entry_UI.UstYaziFrame.ZOrder msoBringToFront
     core_report2_entry_UI.Rapor2_2UstYaziFrame.ZOrder msoBringToFront
 
-    'Ekrana göre formun ayarlanmasý
+    'Ekrana gÃ¶re formun ayarlanmasÄ±
     If EkranKontrol = True Then '760 Then '710 Then '572 Then
         RepYukseklik = 1062
         core_report2_entry_UI.AltMenuFrame.Top = RepYukseklik - 40 - 26
@@ -12710,7 +12710,7 @@ End If
 
 '___________________________
 
-'XXXMud'den yazýnýn geliþ tarihinin sonuca ilavesi
+'XXXMud'den yazÄ±nÄ±n geliÅŸ tarihinin sonuca ilavesi
 If core_report2_entry_UI.GelenXXXMudTutanak1Frame.Visible = False Then
     core_report2_entry_UI.SonucGelenXXXMudGelisTarihiFrame.Visible = True
 Else
@@ -12759,7 +12759,7 @@ If (core_report2_entry_UI.TumuOption.Value = False And core_report2_entry_UI.Sad
     core_report2_entry_UI.UstYaziGirisi.BackColor = RGB(180, 210, 240)
     core_report2_entry_UI.UstYaziGirisi.ForeColor = RGB(30, 30, 30)
 
-    'Ekrana göre formun ayarlanmasý
+    'Ekrana gÃ¶re formun ayarlanmasÄ±
     If EkranKontrol = True Then '760 Then '710 Then '572 Then
         RepYukseklik = 648 '431
         core_report2_entry_UI.AltMenuFrame.Top = RepYukseklik - 40 - 26

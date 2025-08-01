@@ -42,7 +42,7 @@ Dim Kurum_ANoStr As String, Birimx As String, Kurum_A As String, YeniVersiyon As
 Dim FarkSayfaKontrol As Integer, SayFarkGirisRapor1 As Long, SayFarkGirisRapor As Long
     
 
-'System Reset prosedürü buraya (aþaðýya) da gömüldüðü için alttaki yeþil kodlar resetlemeden sonra baþlayacak
+'System Reset prosedÃ¼rÃ¼ buraya (aÅŸaÄŸÄ±ya) da gÃ¶mÃ¼ldÃ¼ÄŸÃ¼ iÃ§in alttaki yeÅŸil kodlar resetlemeden sonra baÅŸlayacak
 
 Call ModuleRibbon.AnaSayfa
 
@@ -61,13 +61,13 @@ TanimlarUpdate = AutoPath & "\System Files\Update\System Files\System Definition
 
 IslemGunlugu = AutoPath & "\System Files\System Templates\Registry Reports\"
 Rapor2_2IslemGunlugu = AutoPath & "\System Files\System Templates\Registry Reports\System Registry Report 2.2.xlsx"
-'Rapor3IslemGunlugu = AutoPath & "\System Files\System Templates\Registry Reports\Rapor3 Sistem Ýþlem Günlüðü.xlsx"
+'Rapor3IslemGunlugu = AutoPath & "\System Files\System Templates\Registry Reports\Rapor3 Sistem Ä°ÅŸlem GÃ¼nlÃ¼ÄŸÃ¼.xlsx"
 Rapor1IslemGunlugu = AutoPath & "\System Files\System Templates\Registry Reports\System Registry Report 1.xlsx"
 RaporIslemGunlugu = AutoPath & "\System Files\System Templates\Registry Reports\System Registry Report 2.1.xlsx"
 
 IslemGunluguUpdate = AutoPath & "\System Files\Update\System Files\System Templates\Registry Reports\"
 Rapor2_2IslemGunluguUpdate = AutoPath & "\System Files\Update\System Files\System Templates\Registry Reports\System Registry Report 2.2.xlsx"
-'Rapor3IslemGunluguUpdate = AutoPath & "\System Files\Update\System Files\System Templates\Registry Reports\Rapor3 Sistem Ýþlem Günlüðü.xlsx"
+'Rapor3IslemGunluguUpdate = AutoPath & "\System Files\Update\System Files\System Templates\Registry Reports\Rapor3 Sistem Ä°ÅŸlem GÃ¼nlÃ¼ÄŸÃ¼.xlsx"
 Rapor1IslemGunluguUpdate = AutoPath & "\System Files\Update\System Files\System Templates\Registry Reports\System Registry Report 1.xlsx"
 RaporIslemGunluguUpdate = AutoPath & "\System Files\Update\System Files\System Templates\Registry Reports\System Registry Report 2.1.xlsx"
 
@@ -84,7 +84,7 @@ AltBilgi = AutoPath & "\System Files\System Templates\Footer Field\"
 RaporUstYaziSablonuUpdate = AutoPath & "\System Files\Update\System Files\System Templates\Report 2 Cover Letter Templates\"
 
 
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
@@ -101,7 +101,7 @@ If Not Dir(DestOperasyon, vbDirectory) <> vbNullString Then
 End If
 
 
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
@@ -134,7 +134,7 @@ End If
 
 ''Check the Report3 System Transaction Log file name.
 'If Not Dir(Rapor3IslemGunlugu, vbDirectory) <> vbNullString Then
-'    MsgBox "Cannot access the folder " & Rapor3IslemGunlugu & ". The file named 'Rapor3 Sistem Ýþlem Günlüðü' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+'    MsgBox "Cannot access the folder " & Rapor3IslemGunlugu & ". The file named 'Rapor3 Sistem Ä°ÅŸlem GÃ¼nlÃ¼ÄŸÃ¼' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
 '    GoTo Son
 'End If
 
@@ -152,7 +152,7 @@ End If
 
 'Check the Report Template folder name.
 If Not Dir(Rapor2Sablonu, vbDirectory) <> vbNullString Then
-    MsgBox "Cannot access the folder " & Rapor2Sablonu & ". The folder named 'Rapor Þablonu' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+    MsgBox "Cannot access the folder " & Rapor2Sablonu & ". The folder named 'Rapor Åžablonu' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
 
@@ -190,14 +190,14 @@ UpdateDevam:
 
 'Check Update folder name.
 If Not Dir(SourceUpdate, vbDirectory) <> vbNullString Then
-    MsgBox "The requested operation concerns updating the system. Please contact Ýshak Kutlu, who designed and developed the system, for technical support.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+    MsgBox "The requested operation concerns updating the system. Please contact Ä°shak Kutlu, who designed and developed the system, for technical support.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
 
 If Not Dir(SourceUpdate, vbDirectory) = vbNullString Then 'If Update folder exists, check further
     'Check Update file name.
     If Not Dir(SourceUpdateFile, vbDirectory) <> vbNullString Then
-        MsgBox "The requested operation concerns updating the system. Please contact Ýshak Kutlu, who designed and developed the system, for technical support.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+        MsgBox "The requested operation concerns updating the system. Please contact Ä°shak Kutlu, who designed and developed the system, for technical support.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
         GoTo Son
     End If
 End If
@@ -244,9 +244,9 @@ If Not Dir(SourceUpdate, vbDirectory) = vbNullString Then 'If Update folder exis
 End If
 
 'If Not Dir(SourceUpdate, vbDirectory) = vbNullString Then 'If Update folder exists, check
-'    'Check the Rapor3 Sistem Ýþlem Günlüðü file name.
+'    'Check the Rapor3 Sistem Ä°ÅŸlem GÃ¼nlÃ¼ÄŸÃ¼ file name.
 '    If Not Dir(Rapor3IslemGunluguUpdate, vbDirectory) <> vbNullString Then
-'        MsgBox "Cannot access the folder " & Rapor3IslemGunluguUpdate & ". The file named 'Rapor3 Sistem Ýþlem Günlüðü' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+'        MsgBox "Cannot access the folder " & Rapor3IslemGunluguUpdate & ". The file named 'Rapor3 Sistem Ä°ÅŸlem GÃ¼nlÃ¼ÄŸÃ¼' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
 '        GoTo Son
 '    End If
 'End If
@@ -268,9 +268,9 @@ If Not Dir(SourceUpdate, vbDirectory) = vbNullString Then 'If Update folder exis
 End If
 
 If Not Dir(SourceUpdate, vbDirectory) = vbNullString Then 'If Update folder exists, check
-    'Check the Rapor Þablonu Update folder name.
+    'Check the Rapor Åžablonu Update folder name.
     If Not Dir(RaporSablonuUpdate, vbDirectory) <> vbNullString Then
-        MsgBox "Cannot access the folder " & RaporSablonuUpdate & ". The folder named 'Rapor Þablonu' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+        MsgBox "Cannot access the folder " & RaporSablonuUpdate & ". The folder named 'Rapor Åžablonu' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
         GoTo Son
     End If
 End If
@@ -294,7 +294,7 @@ End If
 
 'GoTo Atla
 ResetControl = True
-GlobalResetKapsami = 1 'Varlik çýkýþý yapýlmayanlar dahil, yani tümü
+GlobalResetKapsami = 1 'Varlik Ã§Ä±kÄ±ÅŸÄ± yapÄ±lmayanlar dahil, yani tÃ¼mÃ¼
 Call ModuleRibbon.ResetProsedur
 
 Application.ScreenUpdating = False
@@ -306,21 +306,21 @@ ThisWorkbook.Unprotect "123"
 ThisWorkbook.Worksheets(2).Unprotect Password:="123"
 
 
-'__________________Eski Tanýmlardan Yeni Tanýmlara ve Skp sayfasýna data transferi (Baþlangýç)
+'__________________Eski TanÄ±mlardan Yeni TanÄ±mlara ve Skp sayfasÄ±na data transferi (BaÅŸlangÄ±Ã§)
 
-'Update içindeki dosya
+'Update iÃ§indeki dosya
 FileName = "Definitions.xlsx"
 OpenControl = IsFileOpen(DestTanimlarUpdate & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
 End If
 
-'Normal sistem klasörleri içindeki dosya
+'Normal sistem klasÃ¶rleri iÃ§indeki dosya
 FileName = "Definitions.xlsx"
 OpenControl = IsFileOpen(DestTanimlar & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -328,7 +328,7 @@ End If
 Workbooks.Open (DestTanimlar & FileName)
 'Workbooks(FileName).Worksheets(1).Activate
 
-'Update System Definitions isimli dosya adýný deðiþtir.
+'Update System Definitions isimli dosya adÄ±nÄ± deÄŸiÅŸtir.
 oldName = TanimlarUpdate
 newName = AutoPath & "\System Files\Update\System Files\System Definitions\Definitions Update.xlsx"
 Name oldName As newName
@@ -336,7 +336,7 @@ Name oldName As newName
 
 FileNameUpdate = "Definitions Update.xlsx"
 OpenControl = IsFileOpen(newName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileNameUpdate).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -352,7 +352,7 @@ WsTanimlar.Unprotect Password:="123"
 WsTanimlarUpdate.Unprotect Password:="123"
 
 
-'System Definitions dosyasý güncellemesi
+'System Definitions dosyasÄ± gÃ¼ncellemesi
 WsTanimlarUpdate.Range("C4:EG305").Copy
 WsTanimlar.Range("C4:EG305").PasteSpecial xlPasteValues
 WsTanimlar.Cells(5, 122).Value = "Session Name (Initials)"
@@ -380,7 +380,7 @@ Else
 End If
 
 
-'Skp'de yer alan name managerlarýn tümünü temizle.
+'Skp'de yer alan name managerlarÄ±n tÃ¼mÃ¼nÃ¼ temizle.
 On Error Resume Next
 For i = 6 To 95
     If WsSKP.Range("F" & i).Value <> "" Then
@@ -390,7 +390,7 @@ For i = 6 To 95
 Next i
 On Error GoTo 0
 
-'Skp sayfasý güncellemesi
+'Skp sayfasÄ± gÃ¼ncellemesi
 WsTanimlarUpdate.Range("C4:EG305").Copy
 WsSKP.Range("C4:EG305").PasteSpecial xlPasteValues
 WsSKP.Cells(5, 122).Value = "Session Name (Initials)"
@@ -419,7 +419,7 @@ Else
 End If
 
 
-'Skp'de yer alan name managerlarýn tümünü tekrar oluþtur.
+'Skp'de yer alan name managerlarÄ±n tÃ¼mÃ¼nÃ¼ tekrar oluÅŸtur.
 On Error Resume Next
 For i = 6 To 95
     If WsSKP.Range("F" & i).Value <> "" Then
@@ -433,38 +433,38 @@ WsTanimlar.Protect Password:="123"
 WsTanimlarUpdate.Protect Password:="123"
 
 
-'System Definitions Update dosyasýný kapat
+'System Definitions Update dosyasÄ±nÄ± kapat
 FileNameUpdate = "Definitions Update.xlsx"
 OpenControl = IsFileOpen(newName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileNameUpdate).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
 End If
 
-'System Definitions Update isimli dosya adýný eski haline getir.
+'System Definitions Update isimli dosya adÄ±nÄ± eski haline getir.
 oldName = AutoPath & "\System Files\Update\System Files\System Definitions\Definitions Update.xlsx"
 newName = TanimlarUpdate
 Name oldName As newName
 
-'System Definitions dosyasýný kapat
+'System Definitions dosyasÄ±nÄ± kapat
 FileName = "Definitions.xlsx"
 OpenControl = IsFileOpen(DestTanimlar & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
 End If
 
-'__________________Eski Tanýmlardan Yeni Tanýmlara ve Skp sayfasýna data transferi (Bitiþ)
+'__________________Eski TanÄ±mlardan Yeni TanÄ±mlara ve Skp sayfasÄ±na data transferi (BitiÅŸ)
 
 
-'__________________Eski Uygulama dosyasýndan yeni uygulama dosyasýna data transferi (Baþlangýç)
+'__________________Eski Uygulama dosyasÄ±ndan yeni uygulama dosyasÄ±na data transferi (BaÅŸlangÄ±Ã§)
 
 
 FileNameUpdate = "Update.xlsm"
 OpenControl = IsFileOpen(SourceUpdateFile)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileNameUpdate).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -494,12 +494,12 @@ WsRaporUpdate.Unprotect Password:="123"
 WsRapor3Update.Unprotect Password:="123"
 WsTutanakUpdate.Unprotect Password:="123"
 
-'SKP içindeki Birim Adýný güncelle
-WsSKP.Cells(6, 99).Value = WsSkpUpdate.Cells(6, 99).Value 'Aslýnda bu bilgi, tanýmlar dosyasýndan yeni skp'ye zaten aktarýlmýþ olmasý gerekir ! Ancak aþaðýda Footer Field bölümünde bu bilgi kullanýlacak. Dolayýsýyla kalacak.
+'SKP iÃ§indeki Birim AdÄ±nÄ± gÃ¼ncelle
+WsSKP.Cells(6, 99).Value = WsSkpUpdate.Cells(6, 99).Value 'AslÄ±nda bu bilgi, tanÄ±mlar dosyasÄ±ndan yeni skp'ye zaten aktarÄ±lmÄ±ÅŸ olmasÄ± gerekir ! Ancak aÅŸaÄŸÄ±da Footer Field bÃ¶lÃ¼mÃ¼nde bu bilgi kullanÄ±lacak. DolayÄ±sÄ±yla kalacak.
 
 SayUpdate = WsRapor1Update.Range("CF100000").End(xlUp).Row
 If SayUpdate > 6 Then
-    'Rapor1 sayfasý güncellemesi
+    'Rapor1 sayfasÄ± gÃ¼ncellemesi
     WsRapor1Update.Range("E7:DW" & SayUpdate).Copy WsRapor1.Range("E7:DW" & SayUpdate)
     With WsRapor1.Range("E7:E" & SayUpdate)
         .Font.name = "Open Sans"
@@ -528,7 +528,7 @@ End If
 
 SayUpdate = WsRaporUpdate.Range("CN100000").End(xlUp).Row
 If SayUpdate > 6 Then
-    'Rapor sayfasý güncellemesi
+    'Rapor sayfasÄ± gÃ¼ncellemesi
     WsRaporUpdate.Range("E7:HR" & SayUpdate).Copy WsRapor.Range("E7:HR" & SayUpdate)
     With WsRapor.Range("E7:E" & SayUpdate)
         .Font.name = "Open Sans"
@@ -568,14 +568,14 @@ End If
 
 SayUpdate = WsRapor3Update.Range("FH100000").End(xlUp).Row
 If SayUpdate > 6 Then
-    'Rapor3 sayfasý güncellemesi
+    'Rapor3 sayfasÄ± gÃ¼ncellemesi
     
     If WsRapor3Update.Range("G6").Value = "Rapor" Then
         WsRapor3Update.Range("E7:HT" & SayUpdate).Copy WsRapor3.Range("E7:HT" & SayUpdate)
     Else
-        WsRapor3Update.Range("E7:F" & SayUpdate).Copy WsRapor3.Range("E7:F" & SayUpdate) 'Sýra ve tutanak
-                                                                                       'Rapor kýsmý eski dosyada olmadýðý için aktarým yapýlmayacak
-        WsRapor3Update.Range("G7:J" & SayUpdate).Copy WsRapor3.Range("H7:K" & SayUpdate) 'Tutanak2 ve sonrasý
+        WsRapor3Update.Range("E7:F" & SayUpdate).Copy WsRapor3.Range("E7:F" & SayUpdate) 'SÄ±ra ve tutanak
+                                                                                       'Rapor kÄ±smÄ± eski dosyada olmadÄ±ÄŸÄ± iÃ§in aktarÄ±m yapÄ±lmayacak
+        WsRapor3Update.Range("G7:J" & SayUpdate).Copy WsRapor3.Range("H7:K" & SayUpdate) 'Tutanak2 ve sonrasÄ±
         WsRapor3Update.Range("K7:K" & SayUpdate).Copy WsRapor3.Range("L7:L" & SayUpdate)
         WsRapor3Update.Range("L7:L" & SayUpdate).Copy WsRapor3.Range("N7:N" & SayUpdate)
         WsRapor3Update.Range("O7:HB" & SayUpdate).Copy WsRapor3.Range("O7:HB" & SayUpdate)
@@ -595,7 +595,7 @@ If SayUpdate > 6 Then
             .Font.Color = RGB(0, 0, 0)
         End With
     End If
-    WsRapor3.Range("AY7:AY" & Rows.Count).NumberFormat = "@" 'Barkod formatý text olmalý
+    WsRapor3.Range("AY7:AY" & Rows.Count).NumberFormat = "@" 'Barkod formatÄ± text olmalÄ±
     WsRapor3.Range("HD7:HJ" & Rows.Count).NumberFormat = "@"
     WsRapor3.Range("G7:G" & Rows.Count).NumberFormat = "@"
     WsRapor3.Range("M7:M" & Rows.Count).NumberFormat = "@"
@@ -609,14 +609,14 @@ If SayUpdate > 6 Then
     End With
 End If
 
-'Maksimum deðerler.
+'Maksimum deÄŸerler.
 SayA = WsTutanakUpdate.Range("A100000").End(xlUp).Row
 SayB = WsTutanakUpdate.Range("B100000").End(xlUp).Row
 SayC = WsTutanakUpdate.Range("C100000").End(xlUp).Row
 SayD = WsTutanakUpdate.Range("D100000").End(xlUp).Row
 SayUpdate = WorksheetFunction.Max(SayA, SayB, SayC, SayD)
 If SayUpdate > 2 Then
-    'Tutanak sayfasý güncellemesi
+    'Tutanak sayfasÄ± gÃ¼ncellemesi
     WsTutanakUpdate.Range("A3:D" & SayUpdate).Copy
     WsTutanak.Range("A3:D" & SayUpdate).PasteSpecial xlPasteValues
 End If
@@ -624,16 +624,16 @@ End If
 
 '___________________________________________
 
-'Fark giriþleri sayfasý varsa onlarý da aktar
+'Fark giriÅŸleri sayfasÄ± varsa onlarÄ± da aktar
 FarkSayfaKontrol = 0
 For i = 1 To Workbooks(FileNameUpdate).Worksheets.Count
     If Workbooks(FileNameUpdate).Worksheets(i).name = "Temp Discrepancies" Then
         FarkSayfaKontrol = FarkSayfaKontrol + 1
         'MsgBox Workbooks(FileNameUpdate).Worksheets(i).Name
-    ElseIf Workbooks(FileNameUpdate).Worksheets(i).name = "Discrepancies – Report 1" Then
+    ElseIf Workbooks(FileNameUpdate).Worksheets(i).name = "Discrepancies â€“ Report 1" Then
         FarkSayfaKontrol = FarkSayfaKontrol + 1
         'MsgBox Workbooks(FileNameUpdate).Worksheets(i).Name
-    ElseIf Workbooks(FileNameUpdate).Worksheets(i).name = "Discrepancies – Report 2" Then
+    ElseIf Workbooks(FileNameUpdate).Worksheets(i).name = "Discrepancies â€“ Report 2" Then
         FarkSayfaKontrol = FarkSayfaKontrol + 1
         'MsgBox Workbooks(FileNameUpdate).Worksheets(i).Name
     End If
@@ -680,7 +680,7 @@ End If
 
 '___________________________________________
 
-'Rapor no sayfasý varsa onlarý da aktar
+'Rapor no sayfasÄ± varsa onlarÄ± da aktar
 FarkSayfaKontrol = 0
 For i = 1 To Workbooks(FileNameUpdate).Worksheets.Count
     If Workbooks(FileNameUpdate).Worksheets(i).name = "Report 2 Numbers" Then
@@ -736,42 +736,42 @@ WsRaporUpdate.Protect Password:="123"
 WsRapor3Update.Protect Password:="123"
 WsTutanakUpdate.Protect Password:="123"
 
-'Uygulama update dosyasýný kapat
+'Uygulama update dosyasÄ±nÄ± kapat
 FileNameUpdate = "Update.xlsm"
 OpenControl = IsFileOpen(SourceUpdateFile)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileNameUpdate).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
 End If
 
-'Güvenlik için update dosyasýnýn adýný deðiþtir
+'GÃ¼venlik iÃ§in update dosyasÄ±nÄ±n adÄ±nÄ± deÄŸiÅŸtir
 oldName = AutoPath & "\System Files\Update\Update.xlsm"
 newName = AutoPath & "\System Files\Update\Updatex.xlsm"
 Name oldName As newName
 
-'__________________Eski Uygulama dosyasýndan yeni uygulama dosyasýna data transferi (Bitiþ)
+'__________________Eski Uygulama dosyasÄ±ndan yeni uygulama dosyasÄ±na data transferi (BitiÅŸ)
 
 
 
 
-GoTo IslemGunlukleriniAtla 'Eski sistemin kayýt defetterlerini aktarma (Gelecekte yeni sistemde güncelleme olursa bu bölümü aç. 29.11.2021, 15:25, Ýshak.
+GoTo IslemGunlukleriniAtla 'Eski sistemin kayÄ±t defetterlerini aktarma (Gelecekte yeni sistemde gÃ¼ncelleme olursa bu bÃ¶lÃ¼mÃ¼ aÃ§. 29.11.2021, 15:25, Ä°shak.
 
-'__________________________________Rapor2_2 iþlem günlüðü (Baþlangýç)
+'__________________________________Rapor2_2 iÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ (BaÅŸlangÄ±Ã§)
 
-'Update içindeki dosya
+'Update iÃ§indeki dosya
 FileName = "System Registry Report 2.2.xlsx"
 OpenControl = IsFileOpen(IslemGunluguUpdate & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
 End If
 
-'Normal sistem klasörü içindeki dosya
+'Normal sistem klasÃ¶rÃ¼ iÃ§indeki dosya
 FileName = "System Registry Report 2.2.xlsx"
 OpenControl = IsFileOpen(IslemGunlugu & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -779,7 +779,7 @@ End If
 Workbooks.Open (IslemGunlugu & FileName)
 
 
-'Update iþlem günlüðü içindeki dosya adýný deðiþtir.
+'Update iÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ iÃ§indeki dosya adÄ±nÄ± deÄŸiÅŸtir.
 oldName = Rapor2_2IslemGunluguUpdate
 newName = AutoPath & "\System Files\Update\System Files\System Templates\Registry Reports\System Registry Report 2.2 Update.xlsx"
 Name oldName As newName
@@ -787,7 +787,7 @@ Name oldName As newName
 
 FileNameUpdate = "System Registry Report 2.2 Update.xlsx"
 OpenControl = IsFileOpen(newName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileNameUpdate).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -803,7 +803,7 @@ WsRapor2_2IslemGunluguUpdate.Unprotect Password:="123"
 
 SayUpdate = WsRapor2_2IslemGunluguUpdate.Range("O100000").End(xlUp).Row
 If SayUpdate > 6 Then
-    'Rapor2_2 iþlem günlüðü dosyasý güncellemesi
+    'Rapor2_2 iÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ dosyasÄ± gÃ¼ncellemesi
     WsRapor2_2IslemGunluguUpdate.Range("B7:S" & SayUpdate).Copy WsRapor2_2IslemGunlugu.Range("B7:S" & SayUpdate)
     With WsRapor2_2IslemGunlugu.Range("B7:S" & SayUpdate)
         .Font.name = "Open Sans"
@@ -814,47 +814,47 @@ End If
 WsRapor2_2IslemGunlugu.Protect Password:="123"
 WsRapor2_2IslemGunluguUpdate.Protect Password:="123"
 
-'Rapor2_2 Ýþlem Günlüðü Update dosyasýný kapat
+'Rapor2_2 Ä°ÅŸlem GÃ¼nlÃ¼ÄŸÃ¼ Update dosyasÄ±nÄ± kapat
 FileName = "System Registry Report 2.2 Update.xlsx"
 OpenControl = IsFileOpen(newName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileNameUpdate).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
 End If
 
-'Rapor2_2 Ýþlem Günlüðü Update isimli dosya adýný eski haline getir.
+'Rapor2_2 Ä°ÅŸlem GÃ¼nlÃ¼ÄŸÃ¼ Update isimli dosya adÄ±nÄ± eski haline getir.
 oldName = AutoPath & "\System Files\Update\System Files\System Templates\Registry Reports\System Registry Report 2.2 Update.xlsx"
 newName = Rapor2_2IslemGunluguUpdate
 Name oldName As newName
 
-'Rapor2_2 Ýþlem Günlüðü dosyasýný kapat
+'Rapor2_2 Ä°ÅŸlem GÃ¼nlÃ¼ÄŸÃ¼ dosyasÄ±nÄ± kapat
 FileName = "System Registry Report 2.2.xlsx"
 OpenControl = IsFileOpen(IslemGunlugu & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
 End If
 
-'__________________________________Rapor2_2 iþlem günlüðü (Bitiþ)
+'__________________________________Rapor2_2 iÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ (BitiÅŸ)
 
 
-'__________________________________Rapor1 iþlem günlüðü (Baþlangýç)
+'__________________________________Rapor1 iÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ (BaÅŸlangÄ±Ã§)
 
-'Update içindeki dosya
+'Update iÃ§indeki dosya
 FileName = "System Registry Report 1.xlsx"
 OpenControl = IsFileOpen(IslemGunluguUpdate & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
 End If
 
-'Normal sistem klasörü içindeki dosya
+'Normal sistem klasÃ¶rÃ¼ iÃ§indeki dosya
 FileName = "System Registry Report 1.xlsx"
 OpenControl = IsFileOpen(IslemGunlugu & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -862,7 +862,7 @@ End If
 Workbooks.Open (IslemGunlugu & FileName)
 
 
-'Update iþlem günlüðü içindeki dosya adýný deðiþtir.
+'Update iÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ iÃ§indeki dosya adÄ±nÄ± deÄŸiÅŸtir.
 oldName = Rapor1IslemGunluguUpdate
 newName = AutoPath & "\System Files\Update\System Files\System Templates\Registry Reports\System Registry Report 1 Update.xlsx"
 Name oldName As newName
@@ -870,7 +870,7 @@ Name oldName As newName
 
 FileNameUpdate = "System Registry Report 1 Update.xlsx"
 OpenControl = IsFileOpen(newName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileNameUpdate).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -886,7 +886,7 @@ WsRapor1IslemGunluguUpdate.Unprotect Password:="123"
 
 SayUpdate = WsRapor1IslemGunluguUpdate.Range("O100000").End(xlUp).Row
 If SayUpdate > 6 Then
-    'Rapor1 iþlem günlüðü dosyasý güncellemesi
+    'Rapor1 iÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ dosyasÄ± gÃ¼ncellemesi
     WsRapor1IslemGunluguUpdate.Range("B7:S" & SayUpdate).Copy WsRapor1IslemGunlugu.Range("B7:S" & SayUpdate)
     With WsRapor1IslemGunlugu.Range("B7:S" & SayUpdate)
         .Font.name = "Open Sans"
@@ -897,48 +897,48 @@ End If
 WsRapor1IslemGunlugu.Protect Password:="123"
 WsRapor1IslemGunluguUpdate.Protect Password:="123"
 
-'Rapor1 Ýþlem Günlüðü Update dosyasýný kapat
+'Rapor1 Ä°ÅŸlem GÃ¼nlÃ¼ÄŸÃ¼ Update dosyasÄ±nÄ± kapat
 FileName = "System Registry Report 1 Update.xlsx"
 OpenControl = IsFileOpen(newName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileNameUpdate).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
 End If
 
-'Rapor1 Ýþlem Günlüðü Update isimli dosya adýný eski haline getir.
+'Rapor1 Ä°ÅŸlem GÃ¼nlÃ¼ÄŸÃ¼ Update isimli dosya adÄ±nÄ± eski haline getir.
 oldName = AutoPath & "\System Files\Update\System Files\System Templates\Registry Reports\System Registry Report 1 Update.xlsx"
 newName = Rapor1IslemGunluguUpdate
 Name oldName As newName
 
-'Rapor1 Ýþlem Günlüðü dosyasýný kapat
+'Rapor1 Ä°ÅŸlem GÃ¼nlÃ¼ÄŸÃ¼ dosyasÄ±nÄ± kapat
 FileName = "System Registry Report 1.xlsx"
 OpenControl = IsFileOpen(IslemGunlugu & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
 End If
 
-'__________________________________Rapor1 iþlem günlüðü (Bitiþ)
+'__________________________________Rapor1 iÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ (BitiÅŸ)
 
 
 
-'__________________________________Rapor iþlem günlüðü (Baþlangýç)
+'__________________________________Rapor iÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ (BaÅŸlangÄ±Ã§)
 
-'Update içindeki dosya
+'Update iÃ§indeki dosya
 FileName = "System Registry Report 2.1.xlsx"
 OpenControl = IsFileOpen(IslemGunluguUpdate & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
 End If
 
-'Normal sistem klasörü içindeki dosya
+'Normal sistem klasÃ¶rÃ¼ iÃ§indeki dosya
 FileName = "System Registry Report 2.1.xlsx"
 OpenControl = IsFileOpen(IslemGunlugu & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -946,7 +946,7 @@ End If
 Workbooks.Open (IslemGunlugu & FileName)
 
 
-'Update iþlem günlüðü içindeki dosya adýný deðiþtir.
+'Update iÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ iÃ§indeki dosya adÄ±nÄ± deÄŸiÅŸtir.
 oldName = RaporIslemGunluguUpdate
 newName = AutoPath & "\System Files\Update\System Files\System Templates\Registry Reports\System Registry Report 2.1 Update.xlsx"
 Name oldName As newName
@@ -954,7 +954,7 @@ Name oldName As newName
 
 FileNameUpdate = "System Registry Report 2.1 Update.xlsx"
 OpenControl = IsFileOpen(newName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileNameUpdate).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -970,7 +970,7 @@ WsRaporIslemGunluguUpdate.Unprotect Password:="123"
 
 SayUpdate = WsRaporIslemGunluguUpdate.Range("O100000").End(xlUp).Row
 If SayUpdate > 6 Then
-    'Rapor iþlem günlüðü dosyasý güncellemesi
+    'Rapor iÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ dosyasÄ± gÃ¼ncellemesi
     WsRaporIslemGunluguUpdate.Range("B7:T" & SayUpdate).Copy WsRaporIslemGunlugu.Range("B7:T" & SayUpdate)
     With WsRaporIslemGunlugu.Range("B7:T" & SayUpdate)
         .Font.name = "Open Sans"
@@ -981,30 +981,30 @@ End If
 WsRaporIslemGunlugu.Protect Password:="123"
 WsRaporIslemGunluguUpdate.Protect Password:="123"
 
-'Rapor Ýþlem Günlüðü Update dosyasýný kapat
+'Rapor Ä°ÅŸlem GÃ¼nlÃ¼ÄŸÃ¼ Update dosyasÄ±nÄ± kapat
 FileName = "System Registry Report 2.1 Update.xlsx"
 OpenControl = IsFileOpen(newName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileNameUpdate).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
 End If
 
-'Rapor Ýþlem Günlüðü Update isimli dosya adýný eski haline getir.
+'Rapor Ä°ÅŸlem GÃ¼nlÃ¼ÄŸÃ¼ Update isimli dosya adÄ±nÄ± eski haline getir.
 oldName = AutoPath & "\System Files\Update\System Files\System Templates\Registry Reports\System Registry Report 2.1 Update.xlsx"
 newName = RaporIslemGunluguUpdate
 Name oldName As newName
 
-'Rapor Ýþlem Günlüðü dosyasýný kapat
+'Rapor Ä°ÅŸlem GÃ¼nlÃ¼ÄŸÃ¼ dosyasÄ±nÄ± kapat
 FileName = "System Registry Report 2.1.xlsx"
 OpenControl = IsFileOpen(IslemGunlugu & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
 End If
 
-'__________________________________Rapor iþlem günlüðü (Bitiþ)
+'__________________________________Rapor iÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ (BitiÅŸ)
 
 
 IslemGunlukleriniAtla:
@@ -1012,7 +1012,7 @@ IslemGunlukleriniAtla:
 
 
 
-'____________________________________________________________________Rapor System Templatesý (Baþlangýç)
+'____________________________________________________________________Rapor System TemplatesÄ± (BaÅŸlangÄ±Ã§)
 
 
 'Atla:
@@ -1022,14 +1022,14 @@ IslemGunlukleriniAtla:
 Call OpenWordControl
 
 
-'__________________________________Alt Bilgi (Baþlangýç)
+'__________________________________Alt Bilgi (BaÅŸlangÄ±Ã§)
 
-'Update içindeki dosya
+'Update iÃ§indeki dosya
 
-FileNameUpdate = "Report 2 Cover Letter.docm" 'Eski uygulamadan Footer Field alýnýrken bu üst yazý kullanýlacak.
+FileNameUpdate = "Report 2 Cover Letter.docm" 'Eski uygulamadan Footer Field alÄ±nÄ±rken bu Ã¼st yazÄ± kullanÄ±lacak.
 newName = RaporUstYaziSablonuUpdate & FileNameUpdate
 
-'Update dosyasýný aç
+'Update dosyasÄ±nÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -1045,7 +1045,7 @@ objWord.Documents.Open FileName:=newName
 'objWord.Activate 'Ekrana getirir.
 Set objDoc = GetObject(newName)
 
-''Taþýyýcýyý resetle"
+''TaÅŸÄ±yÄ±cÄ±yÄ± resetle"
 'TasiyiciIlk = ""
 'For i = 1 To 5
 '    TasiyiciArray(i) = ""
@@ -1055,7 +1055,7 @@ Set objDoc = GetObject(newName)
 
 Set WsSKP = ThisWorkbook.Worksheets(2)
 
-'Açýk userformlar varsa kapatýlsýn.
+'AÃ§Ä±k userformlar varsa kapatÄ±lsÄ±n.
 Call ModuleInit.UserFormlariKapat
 Load support_update_UI
 With support_update_UI
@@ -1063,13 +1063,13 @@ With support_update_UI
 End With
 
 
-'Birim adý
+'Birim adÄ±
 support_update_UI.ComboSube.Value = WsSKP.Cells(6, 99).Value & " Unit"
 
 'Kurum_ANo getir
 'YeniVersiyon = False
 Kurum_ANoStr = objDoc.Tables(1).Cell(Row:=3, Column:=1).Range.Text
-If InStr(Kurum_ANoStr, "KURUM_A") > 0 Then 'Kasým 2019 sürümü
+If InStr(Kurum_ANoStr, "KURUM_A") > 0 Then 'KasÄ±m 2019 sÃ¼rÃ¼mÃ¼
     support_update_UI.Kurum_ANo.Value = Mid(Kurum_ANoStr, 6, InStr(Kurum_ANoStr, "-") - 6)
     support_update_UI.Aktar.Value = objDoc.Sections(1).Footers(wdHeaderFooterPrimary).Range.Tables(1).Cell(Row:=1, Column:=2).Range.Text
 Else
@@ -1104,12 +1104,12 @@ Next i
 
 WsSKP.Cells(6, 99).Value = Left(support_update_UI.ComboSube.Value, Len(support_update_UI.ComboSube.Value) - 7)
 
-'Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I")) & " UNIT"
+'Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I")) & " UNIT"
 Birimx = WsSKP.Cells(6, 99).Value & " Unit"
 Kurum_A = "ORGANIZATION A" & vbNewLine & Birimx
 
-'Birden fazla boþluk varsa kaldýr
-'Saðdaki ve soldaki tek boþluðu kaldýr
+'Birden fazla boÅŸluk varsa kaldÄ±r
+'SaÄŸdaki ve soldaki tek boÅŸluÄŸu kaldÄ±r
 For i = 1 To 50
     support_update_UI.Adres.Value = Replace(support_update_UI.Adres.Value, "  ", " ")
 Next i
@@ -1147,7 +1147,7 @@ Do While Right(support_update_UI.ElektronikAg.Value, 1) = " "
     support_update_UI.ElektronikAg.Value = Left(support_update_UI.ElektronikAg.Value, Len(support_update_UI.ElektronikAg.Value) - 1)
 Loop
 
-'Paragraf iþaretlerini kaldýr.
+'Paragraf iÅŸaretlerini kaldÄ±r.
 If InStr(support_update_UI.Adres.Value, Chr(13)) > 0 Then
     support_update_UI.Adres.Value = Right(support_update_UI.Adres.Value, Len(support_update_UI.Adres.Value) - 2)
 End If
@@ -1162,7 +1162,7 @@ If InStr(support_update_UI.ElektronikAg.Value, Chr(13)) > 0 Then
 End If
 
 
-'HEDEF DOSYA OLAN Footer Field'e taþýyýcýlardaki bilgileri aktar
+'HEDEF DOSYA OLAN Footer Field'e taÅŸÄ±yÄ±cÄ±lardaki bilgileri aktar
 
 FileName = "External Footer.docm"
 
@@ -1194,11 +1194,11 @@ objWord.Visible = False
 
 
 
-'__________________________________Alt Bilgi (Bitiþ)
+'__________________________________Alt Bilgi (BitiÅŸ)
 
 
-'UPDATE KLASÖRÜ
-'Yeni versiyonda Standard Valid ve Standard Invalid dýþýnda var olan System Templatesý sil
+'UPDATE KLASÃ–RÃœ
+'Yeni versiyonda Standard Valid ve Standard Invalid dÄ±ÅŸÄ±nda var olan System TemplatesÄ± sil
 On Error Resume Next
 'ContSay = 0
 KontrolFile = Dir(Rapor2Sablonu & "*.???")
@@ -1226,19 +1226,19 @@ Do While KontrolFile <> ""
     FileName = Replace(FileName, "Ve", "ve")
     FileNameUpdate = FileName & " Update"
 
-    'Standard Valid ve Standard Invalid dosyalarýnda aktarým yapma!
+    'Standard Valid ve Standard Invalid dosyalarÄ±nda aktarÄ±m yapma!
     If FileName = "Standard Valid" Or FileName = "Standard Invalid" Then
         'MsgBox FileName
         GoTo NormaliAtla
     End If
     
-    'Update Rapor Þablonu içindeki dosya adýný deðiþtir.
+    'Update Rapor Åžablonu iÃ§indeki dosya adÄ±nÄ± deÄŸiÅŸtir.
     oldName = RaporSablonuUpdate & FileName & ".docm"
     newName = RaporSablonuUpdate & FileNameUpdate & ".docm"
     Name oldName As newName
     
     
-    'Update dosyasýný aç
+    'Update dosyasÄ±nÄ± aÃ§
     On Error Resume Next
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
@@ -1254,17 +1254,17 @@ Do While KontrolFile <> ""
     'objWord.Activate 'Ekrana getirir.
     Set objDoc = GetObject(newName)
     
-    'Taþýyýcýyý resetle
+    'TaÅŸÄ±yÄ±cÄ±yÄ± resetle
     TasiyiciIlk = ""
     For i = 1 To 6
         TasiyiciArray(i) = ""
     Next i
     TasiyiciSon = ""
 
-    'Taþýyýcý Ýlk
+    'TaÅŸÄ±yÄ±cÄ± Ä°lk
     If objDoc.Tables(3).Rows.Count > 0 Then
         TasiyiciIlk = objDoc.Tables(3).Cell(Row:=2, Column:=1).Range.Text
-        'Boþluklarý ve boþ satýrlarý kaldýr
+        'BoÅŸluklarÄ± ve boÅŸ satÄ±rlarÄ± kaldÄ±r
         TasiyiciIlk = Replace(Replace(TasiyiciIlk, Chr(10), ""), Chr(13), "")
         TextLine = TasiyiciIlk
         Do While Left(TextLine, 1) = " " ' Delete any excess spaces
@@ -1276,11 +1276,11 @@ Do While KontrolFile <> ""
         TasiyiciIlk = TextLine
     End If
 
-    'Taþýyýcý 1-2-3-4-5-6
+    'TaÅŸÄ±yÄ±cÄ± 1-2-3-4-5-6
     If objDoc.Tables(4).Rows.Count > 0 Then
         For j = 1 To objDoc.Tables(4).Rows.Count
             TasiyiciArray(j) = objDoc.Tables(4).Cell(Row:=j, Column:=2).Range.Text
-            'Boþluklarý ve boþ satýrlarý kaldýr
+            'BoÅŸluklarÄ± ve boÅŸ satÄ±rlarÄ± kaldÄ±r
             TasiyiciArray(j) = Replace(Replace(TasiyiciArray(j), Chr(10), ""), Chr(13), "")
             TextLine = TasiyiciArray(j)
             Do While Left(TextLine, 1) = " " ' Delete any excess spaces
@@ -1293,10 +1293,10 @@ Do While KontrolFile <> ""
         Next j
     End If
 
-    'Taþýyýcý Son
+    'TaÅŸÄ±yÄ±cÄ± Son
     If objDoc.Tables(5).Rows.Count > 0 Then
         TasiyiciSon = objDoc.Tables(5).Cell(Row:=1, Column:=1).Range.Text
-        'Boþluklarý ve boþ satýrlarý kaldýr
+        'BoÅŸluklarÄ± ve boÅŸ satÄ±rlarÄ± kaldÄ±r
         TasiyiciSon = Replace(Replace(TasiyiciSon, Chr(10), ""), Chr(13), "")
         TextLine = TasiyiciSon
         Do While Left(TextLine, 1) = " " ' Delete any excess spaces
@@ -1315,41 +1315,41 @@ Do While KontrolFile <> ""
     MyRange.Find.Execute FindText:="invalid"
     If InStr(MyRange.Text, "invalid") <> 0 Or InStr(MyRange.Text, "invalid") <> 0 Then
         gecersizKontrol = True
-        GoTo geçersizgecerliKontrolOk
+        GoTo geÃ§ersizgecerliKontrolOk
     End If
     Set MyRange = objDoc.Tables(4).Range
     MyRange.Find.Execute FindText:="invalid"
     If InStr(MyRange.Text, "invalid") <> 0 Or InStr(MyRange.Text, "invalid") <> 0 Then
         gecersizKontrol = True
-        GoTo geçersizgecerliKontrolOk
+        GoTo geÃ§ersizgecerliKontrolOk
     End If
      
     Set MyRange = objDoc.Tables(3).Range
     MyRange.Find.Execute FindText:="valid"
     If InStr(MyRange.Text, "valid") <> 0 Or InStr(MyRange.Text, "valid") <> 0 Then
         gecerliKontrol = True
-        GoTo geçersizgecerliKontrolOk
+        GoTo geÃ§ersizgecerliKontrolOk
     End If
     Set MyRange = objDoc.Tables(4).Range
     MyRange.Find.Execute FindText:="valid"
     If InStr(MyRange.Text, "valid") <> 0 Or InStr(MyRange.Text, "valid") <> 0 Then
         gecerliKontrol = True
-        GoTo geçersizgecerliKontrolOk
+        GoTo geÃ§ersizgecerliKontrolOk
     End If
-geçersizgecerliKontrolOk:
+geÃ§ersizgecerliKontrolOk:
 
-    'Update dosyasýný kapat
+    'Update dosyasÄ±nÄ± kapat
     objDoc.Close SaveChanges:=False
     'objWord.Visible = False
 
-    'Update Rapor Þablonu içindeki dosya adýný eski haline getir.
+    'Update Rapor Åžablonu iÃ§indeki dosya adÄ±nÄ± eski haline getir.
     oldName = RaporSablonuUpdate & FileNameUpdate & ".docm"
     newName = RaporSablonuUpdate & FileName & ".docm"
     Name oldName As newName
     
     
-    'Yeni dosyaya data transferini baþlat
-    'Þablon dosyayý Rapor Þablonu klasörüne kopyala ve adýný deðiþtir.
+    'Yeni dosyaya data transferini baÅŸlat
+    'Åžablon dosyayÄ± Rapor Åžablonu klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
     Set fso = CreateObject("Scripting.FileSystemObject")
     
     If gecersizKontrol = True Then
@@ -1362,7 +1362,7 @@ geçersizgecerliKontrolOk:
 
     HedefFile = Rapor2Sablonu & FileName & ".docm"
 
-    'Hedef dosyayý aç
+    'Hedef dosyayÄ± aÃ§
     On Error Resume Next
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
@@ -1378,23 +1378,23 @@ geçersizgecerliKontrolOk:
     'objWord.Activate 'Ekrana getirir.
     Set objDoc = GetObject(HedefFile)
 
-    'Ýlk bölümü doldur
+    'Ä°lk bÃ¶lÃ¼mÃ¼ doldur
     If TasiyiciIlk <> "" Then
         objDoc.Tables(3).Cell(Row:=2, Column:=1).Range.Text = TasiyiciIlk
     End If
 
-    'Önce satýrlarý sil ve teke düþür
+    'Ã–nce satÄ±rlarÄ± sil ve teke dÃ¼ÅŸÃ¼r
     If objDoc.Tables(4).Rows.Count > 1 Then
         For j = 1 To objDoc.Tables(4).Rows.Count - 1
             objDoc.Tables(4).Rows(2).Delete
         Next j
     End If
-    'Satýr bold olmasýn
+    'SatÄ±r bold olmasÄ±n
     objDoc.Tables(4).Cell(Row:=1, Column:=2).Range.Font.Bold = False
-    'Sonra tabloya satýr ekle
+    'Sonra tabloya satÄ±r ekle
 
     
-    'HEDEF KLASÖR
+    'HEDEF KLASÃ–R
     Cont = 0
     For j = 1 To 6
         If TasiyiciArray(j) <> "" Then
@@ -1407,44 +1407,44 @@ geçersizgecerliKontrolOk:
             End If
         End If
     Next j
-    'Arayý doldur
+    'ArayÄ± doldur
     If Cont > 0 Then
         For j = 1 To Cont
             objDoc.Tables(4).Cell(Row:=j, Column:=2).Range.Text = TasiyiciArray(j)
         Next j
     End If
-    'Son bölümü doldur
+    'Son bÃ¶lÃ¼mÃ¼ doldur
     If TasiyiciSon <> "" Then
         objDoc.Tables(5).Cell(Row:=1, Column:=1).Range.Text = TasiyiciSon
     End If
 
-    'ANAHTAR KELÝMELERÝ BOLD YAP
-    'invalid (ilk satýr)
+    'ANAHTAR KELÄ°MELERÄ° BOLD YAP
+    'invalid (ilk satÄ±r)
     Set MyRange = objDoc.Tables(3).Cell(Row:=2, Column:=1).Range
     MyRange.Find.Execute FindText:="invalid"
     If InStr(MyRange.Text, "invalid") <> 0 Or InStr(MyRange.Text, "invalid") <> 0 Then
         MyRange.Font.Bold = True
     End If
-    'valid (ilk satýr)
+    'valid (ilk satÄ±r)
     Set MyRange = objDoc.Tables(3).Cell(Row:=2, Column:=1).Range
     MyRange.Find.Execute FindText:="valid"
     If InStr(MyRange.Text, "valid") <> 0 Or InStr(MyRange.Text, "valid") <> 0 Then
         MyRange.Font.Bold = True
     End If
-    'invalid (1. satýr)
+    'invalid (1. satÄ±r)
     Set MyRange = objDoc.Tables(4).Cell(Row:=1, Column:=2).Range
     MyRange.Find.Execute FindText:="invalid"
     If InStr(MyRange.Text, "invalid") <> 0 Or InStr(MyRange.Text, "invalid") <> 0 Then
         MyRange.Font.Bold = True
     End If
-    'valid (1. satýr)
+    'valid (1. satÄ±r)
     Set MyRange = objDoc.Tables(4).Cell(Row:=1, Column:=2).Range
     MyRange.Find.Execute FindText:="valid"
     If InStr(MyRange.Text, "valid") <> 0 Or InStr(MyRange.Text, "valid") <> 0 Then
         MyRange.Font.Bold = True
     End If
 
-    'Kullanýlmayan satýrlarýn içeriðini boþalt.
+    'KullanÄ±lmayan satÄ±rlarÄ±n iÃ§eriÄŸini boÅŸalt.
     If TasiyiciArray(1) = "" Then
         objDoc.Tables(4).Cell(Row:=1, Column:=1).Range.Text = ""
         objDoc.Tables(4).Cell(Row:=1, Column:=1).Range.ListFormat.RemoveNumbers
@@ -1454,7 +1454,7 @@ geçersizgecerliKontrolOk:
         objDoc.Tables(5).Cell(Row:=1, Column:=1).Range.Text = ""
     End If
 
-    'Öðeyi kaydet
+    'Ã–ÄŸeyi kaydet
     objDoc.Close SaveChanges:=True
 
 NormaliAtla:
@@ -1469,11 +1469,11 @@ Loop
 
 
 
-'____________________________________________________________________Rapor System Templatesý (Bitiþ)
+'____________________________________________________________________Rapor System TemplatesÄ± (BitiÅŸ)
 
 
 
-'__________________________________Item Notes (Baþlangýç)
+'__________________________________Item Notes (BaÅŸlangÄ±Ã§)
 
 KontrolFile = Dir(NotlarUpdate & "*.txt")
 Do While KontrolFile <> ""
@@ -1487,7 +1487,7 @@ Do While KontrolFile <> ""
     KontrolFile = Dir()
 Loop
 
-'__________________________________Item Notes (Bitiþ)
+'__________________________________Item Notes (BitiÅŸ)
 
 
 
@@ -1528,7 +1528,7 @@ Sub OpenWordControl()
 Dim ObjWordx As Object
 Dim objDocx As Object
 
-'MsgBox "OpenWordControl prosedürü baþlýyor."
+'MsgBox "OpenWordControl prosedÃ¼rÃ¼ baÅŸlÄ±yor."
 
     On Error GoTo NoOpenDoc
     Set ObjWordx = GetObject(, "Word.Application")
@@ -1545,10 +1545,10 @@ NoOpenDocAtla:
         'MsgBox objWordx.ActiveDocument.Name
         If ObjWordx.ActiveDocument.name <> "" Then
             ObjWordx.Quit SaveChanges:=True
-            'MsgBox "Dosya OpenWordControl methodu ile kapatýldý."
+            'MsgBox "Dosya OpenWordControl methodu ile kapatÄ±ldÄ±."
         End If
     Else
-        'MsgBox "Açýk word dokümaný yok."
+        'MsgBox "AÃ§Ä±k word dokÃ¼manÄ± yok."
     End If
 
 Son:

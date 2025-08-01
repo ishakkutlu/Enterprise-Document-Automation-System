@@ -22,7 +22,7 @@ Application.DisplayAlerts = False
 Application.EnableEvents = False
 Application.ScreenUpdating = False
 
-'Açýk userformlar varsa kapatýlsýn.
+'AÃ§Ä±k userformlar varsa kapatÄ±lsÄ±n.
 Call ModuleInit.UserFormlariKapat
 
 Call Rapor1
@@ -35,7 +35,7 @@ End Sub
 
 Sub rapor1girisribbon(Control As IRibbonControl)
 
-'Açýk userformlar varsa kapatýlsýn.
+'AÃ§Ä±k userformlar varsa kapatÄ±lsÄ±n.
 Call ModuleInit.UserFormlariKapat
 
 If ActiveSheet.Index <> 3 Then
@@ -119,7 +119,7 @@ EkranKontrol = False
 
 Call ModuleSystemSettings.NumLockAc
 
-'Ekrana göre formun ayarlanmasý
+'Ekrana gÃ¶re formun ayarlanmasÄ±
 If Application.Height < 766 Then 'core_report1_entry_UI.Height Then
 
     EkranKontrol = True
@@ -133,7 +133,7 @@ If Application.Height < 766 Then 'core_report1_entry_UI.Height Then
         .UstYaziFrame.Left = 24 '48
         .AltMenuFrame.Left = 24 '48
         .Width = 1024 + 12 '1072 '970 '950
-        .Height = 475 '766 'Aslýnda 485, ancak scrollbarda 10 px sapmasý var.
+        .Height = 475 '766 'AslÄ±nda 485, ancak scrollbarda 10 px sapmasÄ± var.
         .StartUpPosition = 0
         .Left = Application.Left + (0.5 * Application.Width) - (0.5 * (1024 + 12))
         .Top = Application.Top '+ (0.5 * Application.Height) - (0.5 * 485)
@@ -166,7 +166,7 @@ AutoPath = ThisWorkbook.Path
 IslemGunlukleriKlasor = AutoPath & "\System Files\System Templates\Registry Reports\"
 IslemGunlugu = IslemGunlukleriKlasor & "System Registry Report 1.xlsx"
 
-'Registry Reports klasör adýný kontrol et.
+'Registry Reports klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(IslemGunlukleriKlasor, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the directory " & IslemGunlukleriKlasor & ". The folder named 'Registry Reports' may have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Out
@@ -178,7 +178,7 @@ If Not Dir(IslemGunlugu, vbDirectory) <> vbNullString Then
 End If
 
 
-'Ýþlem günlüðü açýksa kaydet ve kapat.
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(IslemGunlugu)
 If OpenControl = True Then
     Workbooks("System Registry Report 1.xlsx").Save
@@ -187,7 +187,7 @@ End If
 
 Workbooks.Open (IslemGunlugu)
 
-'Scrollbar göster
+'Scrollbar gÃ¶ster
 With ActiveWindow
     .DisplayHorizontalScrollBar = True
     .DisplayVerticalScrollBar = True
@@ -215,8 +215,8 @@ Dim ReNameTaslak As String, SourceTaslak As String
 AutoPath = ThisWorkbook.Path
 DestOperasyon = AutoPath & "\System Files\Operation\"
 'Draft File
-SourceTaslak = AutoPath & "\System Files\Help Documents\Report 1 Workflow – Help.docm"
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+SourceTaslak = AutoPath & "\System Files\Help Documents\Report 1 Workflow â€“ Help.docm"
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
@@ -238,7 +238,7 @@ If Not Dir(SourceTaslak, vbDirectory) <> vbNullString Then
     GoTo Son
 End If
 
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
@@ -250,11 +250,11 @@ ReNameTaslak = "Help Documents"
 'Close the all Word application
 Call OpenWordControl
 
-'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
 OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
 Do While OpenKontrolName <> ""
     OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-    If OpenControl = True Then 'Açýksa
+    If OpenControl = True Then 'AÃ§Ä±ksa
         On Error Resume Next
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
@@ -262,7 +262,7 @@ Do While OpenKontrolName <> ""
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
         objWord.Quit SaveChanges:=True
-        'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+        'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
 
     End If
     OpenKontrolName = Dir()
@@ -273,7 +273,7 @@ Set objDoc = Nothing
 '________________________________________
 
 On Error Resume Next
-'    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
 Do While KontrolFile <> ""
@@ -285,13 +285,13 @@ If ContSay > 0 Then
 End If
 
 
-'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
 fso.CopyFile (SourceTaslak), DestOpUserFolder & ReNameTaslak & ".docm", True
 
 '________________________________________
 
-'Oluþturulacak dosyayý aç
+'OluÅŸturulacak dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -299,7 +299,7 @@ Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 If objWord Is Nothing Then
-    'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+    'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
     Set objWord = CreateObject("Word.Application")
     objWord.Visible = False
 End If
@@ -324,7 +324,7 @@ Application.DisplayAlerts = False
 Application.EnableEvents = False
 Application.ScreenUpdating = False
 
-'Açýk userformlar varsa kapatýlsýn.
+'AÃ§Ä±k userformlar varsa kapatÄ±lsÄ±n.
 Call ModuleInit.UserFormlariKapat
 
 Call Rapor
@@ -337,7 +337,7 @@ End Sub
 
 Sub rapor2girisribbon(Control As IRibbonControl)
 
-'Açýk userformlar varsa kapatýlsýn.
+'AÃ§Ä±k userformlar varsa kapatÄ±lsÄ±n.
 Call ModuleInit.UserFormlariKapat
 
 If ActiveSheet.Index <> 4 Then
@@ -435,7 +435,7 @@ EkranKontrol = False
 
 Call ModuleSystemSettings.NumLockAc
 
-'Ekrana göre formun ayarlanmasý
+'Ekrana gÃ¶re formun ayarlanmasÄ±
 If Application.Height < 766 Then 'core_report2_entry_UI.Height Then
 
     EkranKontrol = True
@@ -457,7 +457,7 @@ If Application.Height < 766 Then 'core_report2_entry_UI.Height Then
 
         .AltMenuFrame.Left = 24 '48
         .Width = 1024 + 12 '1072 '970 '950
-        .Height = 475 '766 'Aslýnda 485, ancak scrollbarda 10 px sapmasý var.
+        .Height = 475 '766 'AslÄ±nda 485, ancak scrollbarda 10 px sapmasÄ± var.
         .StartUpPosition = 0
         .Left = Application.Left + (0.5 * Application.Width) - (0.5 * (1024 + 12))
         .Top = Application.Top '+ (0.5 * Application.Height) - (0.5 * 485)
@@ -500,7 +500,7 @@ If Not Dir(IslemGunlugu, vbDirectory) <> vbNullString Then
 End If
 
 
-'Ýþlem günlüðü açýksa kaydet ve kapat.
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(IslemGunlugu)
 If OpenControl = True Then
     Workbooks("System Registry Report 2.1.xlsx").Save
@@ -509,7 +509,7 @@ End If
 
 Workbooks.Open (IslemGunlugu)
 
-'Scrollbar göster
+'Scrollbar gÃ¶ster
 With ActiveWindow
     .DisplayHorizontalScrollBar = True
     .DisplayVerticalScrollBar = True
@@ -539,7 +539,7 @@ If Not Dir(IslemGunlugu, vbDirectory) <> vbNullString Then
 End If
 
 
-'Ýþlem günlüðü açýksa kaydet ve kapat.
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(IslemGunlugu)
 If OpenControl = True Then
     Workbooks("System Registry Report 2.2.xlsx").Save
@@ -548,7 +548,7 @@ End If
 
 Workbooks.Open (IslemGunlugu)
 
-'Scrollbar göster
+'Scrollbar gÃ¶ster
 With ActiveWindow
     .DisplayHorizontalScrollBar = True
     .DisplayVerticalScrollBar = True
@@ -575,8 +575,8 @@ Dim ReNameTaslak As String, SourceTaslak As String
 AutoPath = ThisWorkbook.Path
 DestOperasyon = AutoPath & "\System Files\Operation\"
 'Draft File
-SourceTaslak = AutoPath & "\System Files\Help Documents\Report 2 Workflow – Help.docm"
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+SourceTaslak = AutoPath & "\System Files\Help Documents\Report 2 Workflow â€“ Help.docm"
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
@@ -598,7 +598,7 @@ If Not Dir(SourceTaslak, vbDirectory) <> vbNullString Then
     GoTo Son
 End If
 
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
@@ -610,11 +610,11 @@ ReNameTaslak = "Help Documents"
 'Close the all Word application
 Call OpenWordControl
 
-'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
 OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
 Do While OpenKontrolName <> ""
     OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-    If OpenControl = True Then 'Açýksa
+    If OpenControl = True Then 'AÃ§Ä±ksa
         On Error Resume Next
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
@@ -622,7 +622,7 @@ Do While OpenKontrolName <> ""
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
         objWord.Quit SaveChanges:=True
-        'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+        'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
 
     End If
     OpenKontrolName = Dir()
@@ -633,7 +633,7 @@ Set objDoc = Nothing
 '________________________________________
 
 On Error Resume Next
-'    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
 Do While KontrolFile <> ""
@@ -645,13 +645,13 @@ If ContSay > 0 Then
 End If
 
 
-'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
 fso.CopyFile (SourceTaslak), DestOpUserFolder & ReNameTaslak & ".docm", True
 
 '________________________________________
 
-'Oluþturulacak dosyayý aç
+'OluÅŸturulacak dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -659,7 +659,7 @@ Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 If objWord Is Nothing Then
-    'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+    'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
     Set objWord = CreateObject("Word.Application")
     objWord.Visible = False
 End If
@@ -684,7 +684,7 @@ Application.DisplayAlerts = False
 Application.EnableEvents = False
 Application.ScreenUpdating = False
 
-'Açýk userformlar varsa kapatýlsýn.
+'AÃ§Ä±k userformlar varsa kapatÄ±lsÄ±n.
 Call ModuleInit.UserFormlariKapat
 
 Call Rapor3
@@ -697,7 +697,7 @@ End Sub
 
 Sub rapor3_1girisribbon(Control As IRibbonControl)
 
-'Açýk userformlar varsa kapatýlsýn.
+'AÃ§Ä±k userformlar varsa kapatÄ±lsÄ±n.
 Call ModuleInit.UserFormlariKapat
 
 If ActiveSheet.Index <> 5 Then
@@ -720,7 +720,7 @@ End Sub
 
 Sub rapor3_2girisribbon(Control As IRibbonControl)
 
-'Açýk userformlar varsa kapatýlsýn.
+'AÃ§Ä±k userformlar varsa kapatÄ±lsÄ±n.
 Call ModuleInit.UserFormlariKapat
 
 If ActiveSheet.Index <> 5 Then
@@ -803,7 +803,7 @@ EkranKontrol = False
 
 Call ModuleSystemSettings.NumLockAc
 
-'Ekrana göre formun ayarlanmasý
+'Ekrana gÃ¶re formun ayarlanmasÄ±
 If Application.Height < 766 Then 'core_report3_1_entry_UI.Height Then
 
     EkranKontrol = True
@@ -816,7 +816,7 @@ If Application.Height < 766 Then 'core_report3_1_entry_UI.Height Then
         .UstYaziFrame.Left = 24 '48
         .AltMenuFrame.Left = 24 '48
         .Width = 1024 + 12 '1072 '970 '950
-        .Height = 462 '475 'Aslýnda 485, ancak scrollbarda 10 px sapmasý var.
+        .Height = 462 '475 'AslÄ±nda 485, ancak scrollbarda 10 px sapmasÄ± var.
         .StartUpPosition = 0
         .Left = Application.Left + (0.5 * Application.Width) - (0.5 * (1024 + 12))
         .Top = Application.Top '+ (0.5 * Application.Height) - (0.5 * 485)
@@ -849,7 +849,7 @@ EkranKontrol = False
 
 Call ModuleSystemSettings.NumLockAc
 
-'Ekrana göre formun ayarlanmasý
+'Ekrana gÃ¶re formun ayarlanmasÄ±
 If Application.Height < 766 Then 'core_report3_2_entry_UI.Height Then
 
     EkranKontrol = True
@@ -863,7 +863,7 @@ If Application.Height < 766 Then 'core_report3_2_entry_UI.Height Then
         .UstYaziFrame.Left = 24 '48
         .AltMenuFrame.Left = 24 '48
         .Width = 1024 + 12 '1072 '970 '950
-        .Height = 518 '442 '766 'Aslýnda 485, ancak scrollbarda 10 px sapmasý var.
+        .Height = 518 '442 '766 'AslÄ±nda 485, ancak scrollbarda 10 px sapmasÄ± var.
         .StartUpPosition = 0
         .Left = Application.Left + (0.5 * Application.Width) - (0.5 * (1024 + 12))
         .Top = Application.Top '+ (0.5 * Application.Height) - (0.5 * 485)
@@ -893,7 +893,7 @@ Dim AutoPath As String, IslemGunlukleriKlasor As String, IslemGunlugu As String,
 'Pathfinder...
 AutoPath = ThisWorkbook.Path
 IslemGunlukleriKlasor = AutoPath & "\System Files\System Templates\Registry Reports\"
-IslemGunlugu = IslemGunlukleriKlasor & "Rapor3 Sistem Ýþlem Günlüðü.xlsx"
+IslemGunlugu = IslemGunlukleriKlasor & "Rapor3 Sistem Ä°ÅŸlem GÃ¼nlÃ¼ÄŸÃ¼.xlsx"
 
 'Check the "Registry Reports" folder name.
 If Not Dir(IslemGunlukleriKlasor, vbDirectory) <> vbNullString Then
@@ -906,16 +906,16 @@ If Not Dir(IslemGunlugu, vbDirectory) <> vbNullString Then
     GoTo Out
 End If
 
-'Ýþlem günlüðü açýksa kaydet ve kapat.
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(IslemGunlugu)
 If OpenControl = True Then
-    Workbooks("Rapor3 Sistem Ýþlem Günlüðü.xlsx").Save
-    Workbooks("Rapor3 Sistem Ýþlem Günlüðü.xlsx").Close SaveChanges:=False
+    Workbooks("Rapor3 Sistem Ä°ÅŸlem GÃ¼nlÃ¼ÄŸÃ¼.xlsx").Save
+    Workbooks("Rapor3 Sistem Ä°ÅŸlem GÃ¼nlÃ¼ÄŸÃ¼.xlsx").Close SaveChanges:=False
 End If
 
 Workbooks.Open (IslemGunlugu)
 
-'Scrollbar göster
+'Scrollbar gÃ¶ster
 With ActiveWindow
     .DisplayHorizontalScrollBar = True
     .DisplayVerticalScrollBar = True
@@ -942,8 +942,8 @@ Dim ReNameTaslak As String, SourceTaslak As String
 AutoPath = ThisWorkbook.Path
 DestOperasyon = AutoPath & "\System Files\Operation\"
 'Draft File
-SourceTaslak = AutoPath & "\System Files\Help Documents\Report 3 Workflow – Help.docm"
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+SourceTaslak = AutoPath & "\System Files\Help Documents\Report 3 Workflow â€“ Help.docm"
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
@@ -965,7 +965,7 @@ If Not Dir(SourceTaslak, vbDirectory) <> vbNullString Then
     GoTo Son
 End If
 
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
@@ -977,11 +977,11 @@ ReNameTaslak = "Help Documents"
 'Close the all Word application
 Call OpenWordControl
 
-'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
 OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
 Do While OpenKontrolName <> ""
     OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-    If OpenControl = True Then 'Açýksa
+    If OpenControl = True Then 'AÃ§Ä±ksa
         On Error Resume Next
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
@@ -989,7 +989,7 @@ Do While OpenKontrolName <> ""
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
         objWord.Quit SaveChanges:=True
-        'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+        'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
 
     End If
     OpenKontrolName = Dir()
@@ -1000,7 +1000,7 @@ Set objDoc = Nothing
 '________________________________________
 
 On Error Resume Next
-'    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
 Do While KontrolFile <> ""
@@ -1012,13 +1012,13 @@ If ContSay > 0 Then
 End If
 
 
-'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
 fso.CopyFile (SourceTaslak), DestOpUserFolder & ReNameTaslak & ".docm", True
 
 '________________________________________
 
-'Oluþturulacak dosyayý aç
+'OluÅŸturulacak dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -1026,7 +1026,7 @@ Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 If objWord Is Nothing Then
-    'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+    'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
     Set objWord = CreateObject("Word.Application")
     objWord.Visible = False
 End If
@@ -1049,7 +1049,7 @@ Application.DisplayAlerts = False
 Application.EnableEvents = False
 Application.ScreenUpdating = False
 
-'Açýk userformlar varsa kapatýlsýn.
+'AÃ§Ä±k userformlar varsa kapatÄ±lsÄ±n.
 Call ModuleInit.UserFormlariKapat
 
 Call AnaSayfa
@@ -1067,7 +1067,7 @@ Application.DisplayAlerts = False
 Application.EnableEvents = False
 Application.ScreenUpdating = False
 
-'Açýk userformlar varsa kapatýlsýn.
+'AÃ§Ä±k userformlar varsa kapatÄ±lsÄ±n.
 Call ModuleInit.UserFormlariKapat
 
 Call AnaSayfa
@@ -1085,7 +1085,7 @@ Application.DisplayAlerts = False
 Application.EnableEvents = False
 Application.ScreenUpdating = False
 
-'Açýk userformlar varsa kapatýlsýn.
+'AÃ§Ä±k userformlar varsa kapatÄ±lsÄ±n.
 Call ModuleInit.UserFormlariKapat
 
 Call AnaSayfa
@@ -1103,7 +1103,7 @@ Application.DisplayAlerts = False
 Application.EnableEvents = False
 Application.ScreenUpdating = False
 
-'Açýk userformlar varsa kapatýlsýn.
+'AÃ§Ä±k userformlar varsa kapatÄ±lsÄ±n.
 Call ModuleInit.UserFormlariKapat
 
 Call AnaSayfa
@@ -1121,7 +1121,7 @@ Application.DisplayAlerts = False
 Application.EnableEvents = False
 Application.ScreenUpdating = False
 
-'Açýk userformlar varsa kapatýlsýn.
+'AÃ§Ä±k userformlar varsa kapatÄ±lsÄ±n.
 Call ModuleInit.UserFormlariKapat
 
 Call AnaSayfa
@@ -1138,7 +1138,7 @@ Application.DisplayAlerts = False
 Application.EnableEvents = False
 Application.ScreenUpdating = False
 
-'Açýk userformlar varsa kapatýlsýn.
+'AÃ§Ä±k userformlar varsa kapatÄ±lsÄ±n.
 Call ModuleInit.UserFormlariKapat
 
 Call AnaSayfa
@@ -1156,7 +1156,7 @@ Application.DisplayAlerts = False
 Application.EnableEvents = False
 Application.ScreenUpdating = False
 
-'Açýk userformlar varsa kapatýlsýn.
+'AÃ§Ä±k userformlar varsa kapatÄ±lsÄ±n.
 Call ModuleInit.UserFormlariKapat
 
 Call AnaSayfa
@@ -1201,7 +1201,7 @@ End Sub
 
 Sub updateribbon(Control As IRibbonControl)
 
-'Açýk userformlar varsa kapatýlsýn.
+'AÃ§Ä±k userformlar varsa kapatÄ±lsÄ±n.
 Call ModuleInit.UserFormlariKapat
 
 Call ModuleUpdate.Update
@@ -1230,7 +1230,7 @@ Application.DisplayAlerts = False
 Application.EnableEvents = False
 Application.ScreenUpdating = False
 
-'Açýk userformlar varsa kapatýlsýn.
+'AÃ§Ä±k userformlar varsa kapatÄ±lsÄ±n.
 Call ModuleInit.UserFormlariKapat
 
 Call AnaSayfa
@@ -1358,7 +1358,7 @@ IslemGunlukleriKlasor = AutoPath & "\System Files\System Templates\Registry Repo
 IslemGunluguOR = IslemGunlukleriKlasor & "System Registry Report 1.xlsx"
 IslemGunluguR = IslemGunlukleriKlasor & "System Registry Report 2.1.xlsx"
 IslemGunluguB = IslemGunlukleriKlasor & "System Registry Report 2.2.xlsx"
-'IslemGunluguRapor3 = IslemGunlukleriKlasor & "Rapor3 Sistem Ýþlem Günlüðü.xlsx"
+'IslemGunluguRapor3 = IslemGunlukleriKlasor & "Rapor3 Sistem Ä°ÅŸlem GÃ¼nlÃ¼ÄŸÃ¼.xlsx"
 
 ResetlemeFolder = AutoPath & "\System Files\System Reset\"
 Rapor1Resetleme = ResetlemeFolder & "Reset Report 1.xlsx"
@@ -1440,7 +1440,7 @@ IslemGunlukleriKlasor = AutoPath & "\System Files\System Templates\Registry Repo
 IslemGunluguOR = IslemGunlukleriKlasor & "System Registry Report 1.xlsx"
 IslemGunluguR = IslemGunlukleriKlasor & "System Registry Report 2.1.xlsx"
 IslemGunluguB = IslemGunlukleriKlasor & "System Registry Report 2.2.xlsx"
-'IslemGunluguRapor3 = IslemGunlukleriKlasor & "Rapor3 Sistem Ýþlem Günlüðü.xlsx"
+'IslemGunluguRapor3 = IslemGunlukleriKlasor & "Rapor3 Sistem Ä°ÅŸlem GÃ¼nlÃ¼ÄŸÃ¼.xlsx"
 
 ResetlemeFolder = AutoPath & "\System Files\System Reset\"
 Rapor1Resetleme = ResetlemeFolder & "Reset Report 1.xlsx"
@@ -1448,7 +1448,7 @@ RaporResetleme = ResetlemeFolder & "Reset Report 2.xlsx"
 Rapor3Resetleme = ResetlemeFolder & "Reset Report 3.xlsx"
 
 
-'Kayýt defterleri açýksa kaydet ve kapat.
+'KayÄ±t defterleri aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(IslemGunluguOR)
 If OpenControl = True Then
     Workbooks("System Registry Report 1.xlsx").Close SaveChanges:=True
@@ -1462,7 +1462,7 @@ If OpenControl = True Then
     Workbooks("System Registry Report 2.2.xlsx").Close SaveChanges:=True
 End If
 
-'System Reset dosyalarý açýksa kapat
+'System Reset dosyalarÄ± aÃ§Ä±ksa kapat
 OpenControl = IsWorkBookOpen(Rapor1Resetleme)
 If OpenControl = True Then
     Workbooks("Reset Report 1.xlsx").Save
@@ -1481,7 +1481,7 @@ If OpenControl = True Then
 End If
 
 
-'System Reset iþlemlerine baþla_____________________________________________
+'System Reset iÅŸlemlerine baÅŸla_____________________________________________
 
 ThisWorkbook.Unprotect "123"
 ThisWorkbook.Worksheets(3).Unprotect Password:="123"
@@ -1503,41 +1503,41 @@ ThisWorkbook.Worksheets(9).Visible = True
 ThisWorkbook.Worksheets(10).Visible = True
 ThisWorkbook.Worksheets(11).Visible = True
 
-'FARK GÝRÝÞLERÝ HAZIRLIK
+'FARK GÄ°RÄ°ÅžLERÄ° HAZIRLIK
 Set WsFarkGiris = ThisWorkbook.Worksheets(7)
 WsFarkGiris.Rows("3:100000").EntireRow.Delete
 
 
 'RAPOR1 RESETLEME
-Set WsFarkGirisRapor1 = ThisWorkbook.Worksheets(8) 'fark giriþleri
+Set WsFarkGirisRapor1 = ThisWorkbook.Worksheets(8) 'fark giriÅŸleri
 Workbooks.Open (Rapor1Resetleme)
 Set Rapor1File = Workbooks("Reset Report 1.xlsx").Worksheets(1)
 Rapor1File.Unprotect Password:="123"
-'System Reset dosyasýný temizle.
+'System Reset dosyasÄ±nÄ± temizle.
 Rapor1File.Rows("7:100000").EntireRow.Delete
-'Modülde son satýrý bul.
+'ModÃ¼lde son satÄ±rÄ± bul.
 SayRapor1 = ThisWorkbook.Worksheets(3).Range("CF100000").End(xlUp).Row
 If SayRapor1 < 7 Then
     SayRapor1 = 7
     GoTo Rapor1ResetlemeyiAtla
 End If
-'Modülden varlýk çýkýþý olmayanlarý ayýkla ve resetleme dosyasýna aktar.
+'ModÃ¼lden varlÄ±k Ã§Ä±kÄ±ÅŸÄ± olmayanlarÄ± ayÄ±kla ve resetleme dosyasÄ±na aktar.
 HedefRapor1 = 7
 Rapor1No = 1
 For i = 7 To SayRapor1
-    If ThisWorkbook.Worksheets(3).Range("CE" & i).Value <> "" Then 'Baþlangýç no (i)
+    If ThisWorkbook.Worksheets(3).Range("CE" & i).Value <> "" Then 'BaÅŸlangÄ±Ã§ no (i)
         For j = i To SayRapor1
-            If ThisWorkbook.Worksheets(3).Range("CF" & j).Value <> "" Then 'Bitiþ No (j)
+            If ThisWorkbook.Worksheets(3).Range("CF" & j).Value <> "" Then 'BitiÅŸ No (j)
                 GoTo Rapor1BitisNoBulundu
             End If
         Next j
 Rapor1BitisNoBulundu:
-        If ThisWorkbook.Worksheets(3).Range("CR" & i).Value = "" Then 'Çýkýþ tarihi yoksa
+        If ThisWorkbook.Worksheets(3).Range("CR" & i).Value = "" Then 'Ã‡Ä±kÄ±ÅŸ tarihi yoksa
             ThisWorkbook.Worksheets(3).Range("E" & i & ":DW" & j).Copy Rapor1File.Range("E" & HedefRapor1 & ":DW" & HedefRapor1 + (j - i))
 
             '_______________________________
             
-            'Fark giriþlerini kontrol et.
+            'Fark giriÅŸlerini kontrol et.
             Set IlkSiraBul = WsFarkGirisRapor1.Range("P3:P100000").Find(What:=ThisWorkbook.Worksheets(3).Range("E" & i).Value, SearchDirection:=xlNext, _
                             SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
             Set SonSiraBul = WsFarkGirisRapor1.Range("Q3:Q100000").Find(What:=ThisWorkbook.Worksheets(3).Range("E" & i).Value, SearchDirection:=xlNext, _
@@ -1552,38 +1552,38 @@ Rapor1BitisNoBulundu:
             Else
                 GoTo FarkGirisAtla1
             End If
-            'R kolununu yeni no ile iþaretle
+            'R kolununu yeni no ile iÅŸaretle
             For k = IlkSira To SonSira
                 WsFarkGirisRapor1.Range("R" & k).Value = Rapor1No
             Next k
-            'baþlangýç ve bitiþleri S ve T kolonunda takip et; eski no.lar halen kalacak.
+            'baÅŸlangÄ±Ã§ ve bitiÅŸleri S ve T kolonunda takip et; eski no.lar halen kalacak.
             WsFarkGirisRapor1.Range("S" & IlkSira).Value = Rapor1No
             WsFarkGirisRapor1.Range("T" & SonSira).Value = Rapor1No
 FarkGirisAtla1:
 
             '_______________________________
             
-            Rapor1File.Range("E" & HedefRapor1).Value = Rapor1No 'Tekrar sýra numarasý ver.
-            Rapor1File.Range("CE" & HedefRapor1).Value = Rapor1No 'Tekrar Baþlangýç no (i) ver.
-            Rapor1File.Range("CF" & HedefRapor1 + (j - i)).Value = Rapor1No 'Tekrar Bitiþ No (j) ver.
+            Rapor1File.Range("E" & HedefRapor1).Value = Rapor1No 'Tekrar sÄ±ra numarasÄ± ver.
+            Rapor1File.Range("CE" & HedefRapor1).Value = Rapor1No 'Tekrar BaÅŸlangÄ±Ã§ no (i) ver.
+            Rapor1File.Range("CF" & HedefRapor1 + (j - i)).Value = Rapor1No 'Tekrar BitiÅŸ No (j) ver.
 
             Rapor1No = Rapor1No + 1
             HedefRapor1 = HedefRapor1 + (j - i) + 1
         End If
     End If
 Next i
-'Son satir kararlarý
+'Son satir kararlarÄ±
 If HedefRapor1 = 7 Then
     GoTo Rapor1SonSatir7
 End If
-HedefRapor1 = HedefRapor1 - (j - i) - 1 'System Reset dosyasýnýn son satýr numarasý
+HedefRapor1 = HedefRapor1 - (j - i) - 1 'System Reset dosyasÄ±nÄ±n son satÄ±r numarasÄ±
 If HedefRapor1 < 7 Then
     HedefRapor1 = 7
 End If
 Rapor1SonSatir7:
 'MsgBox HedefRapor1
 
-'Fark giriþleri esas kayýttaki kalacaklarý, geçici kayýtlar sayfasýna aktar
+'Fark giriÅŸleri esas kayÄ±ttaki kalacaklarÄ±, geÃ§ici kayÄ±tlar sayfasÄ±na aktar
 SayFarkGirisRapor1 = WsFarkGirisRapor1.Range("R100000").End(xlUp).Row
 Cont = 2
 If SayFarkGirisRapor1 > 2 Then
@@ -1596,23 +1596,23 @@ If SayFarkGirisRapor1 > 2 Then
     Next k
 End If
 
-'MODÜLÜ TEMÝZLE
+'MODÃœLÃœ TEMÄ°ZLE
 ThisWorkbook.Worksheets(3).Rows("7:100000").EntireRow.Delete
-WsFarkGirisRapor1.Rows("3:100000").EntireRow.Delete 'fark giriþleri
-If GlobalResetKapsami = 2 Then 'Varlikdan çýkýþý yapýlmayanlar hariç
-    'Reset dosyasýndan verileri aktar.
+WsFarkGirisRapor1.Rows("3:100000").EntireRow.Delete 'fark giriÅŸleri
+If GlobalResetKapsami = 2 Then 'Varlikdan Ã§Ä±kÄ±ÅŸÄ± yapÄ±lmayanlar hariÃ§
+    'Reset dosyasÄ±ndan verileri aktar.
     Rapor1File.Range("E" & 7 & ":DW" & HedefRapor1).Copy ThisWorkbook.Worksheets(3).Range("E" & 7 & ":DW" & HedefRapor1)
-    'Geçici kayýtlarý kalýcý kayýtlara aktar.
+    'GeÃ§ici kayÄ±tlarÄ± kalÄ±cÄ± kayÄ±tlara aktar.
     If Cont > 2 Then
         WsFarkGirisRapor1.Range("A" & 3 & ":Q" & Cont).Value = WsFarkGiris.Range("A" & 3 & ":Q" & Cont).Value
     End If
-ElseIf GlobalResetKapsami = 1 Then 'Varlikdan çýkýþý yapýlmayanlar dahil
+ElseIf GlobalResetKapsami = 1 Then 'Varlikdan Ã§Ä±kÄ±ÅŸÄ± yapÄ±lmayanlar dahil
     '
 End If
 
-'Modüldeki verileri rapor1 sayfasýna da aktar
+'ModÃ¼ldeki verileri rapor1 sayfasÄ±na da aktar
 Set WsRaporNo = ThisWorkbook.Worksheets(11)
-WsRaporNo.Rows("7:100000").EntireRow.Delete 'rapor1 numaralarý sayfasý
+WsRaporNo.Rows("7:100000").EntireRow.Delete 'rapor1 numaralarÄ± sayfasÄ±
 SayGlobal = ThisWorkbook.Worksheets(3).Range("CF100000").End(xlUp).Row
 AktarNoGlobal = 7
 If SayGlobal < 7 Then
@@ -1640,7 +1640,7 @@ jDonguOut2:
     Next i
 End If
 
-'System Reset dosyasýný temizle.
+'System Reset dosyasÄ±nÄ± temizle.
 Rapor1File.Rows("7:100000").EntireRow.Delete
 WsFarkGiris.Rows("3:100000").EntireRow.Delete
 
@@ -1656,36 +1656,36 @@ End If
 
 
 'RAPOR RESETLEME
-Set WsFarkGirisRapor1 = ThisWorkbook.Worksheets(9) 'fark giriþleri
+Set WsFarkGirisRapor1 = ThisWorkbook.Worksheets(9) 'fark giriÅŸleri
 Workbooks.Open (RaporResetleme)
 Set RaporFile = Workbooks("Reset Report 2.xlsx").Worksheets(1)
 RaporFile.Unprotect Password:="123"
-'System Reset dosyasýný temizle.
+'System Reset dosyasÄ±nÄ± temizle.
 RaporFile.Rows("7:100000").EntireRow.Delete
-'Modülde son satýrý bul.
+'ModÃ¼lde son satÄ±rÄ± bul.
 SayRapor = ThisWorkbook.Worksheets(4).Range("CN100000").End(xlUp).Row
 If SayRapor < 7 Then
     SayRapor = 7
     GoTo RaporResetlemeyiAtla
 End If
-'Modülden varlýk çýkýþý olmayanlarý ayýkla ve resetleme dosyasýna aktar.
+'ModÃ¼lden varlÄ±k Ã§Ä±kÄ±ÅŸÄ± olmayanlarÄ± ayÄ±kla ve resetleme dosyasÄ±na aktar.
 HedefRapor = 7
 RaporNo = 1
 For i = 7 To SayRapor
-    If ThisWorkbook.Worksheets(4).Range("CM" & i).Value <> "" Then 'Baþlangýç no (i)
+    If ThisWorkbook.Worksheets(4).Range("CM" & i).Value <> "" Then 'BaÅŸlangÄ±Ã§ no (i)
         For j = i To SayRapor
-            If ThisWorkbook.Worksheets(4).Range("CN" & j).Value <> "" Then 'Bitiþ No (j)
+            If ThisWorkbook.Worksheets(4).Range("CN" & j).Value <> "" Then 'BitiÅŸ No (j)
                 GoTo RaporBitisNoBulundu
             End If
         Next j
 RaporBitisNoBulundu:
         If ThisWorkbook.Worksheets(4).Range("FR" & i).Value = "Yes" Then 'Rapor2_2
-            If ThisWorkbook.Worksheets(4).Range("DB" & i).Value = "" Then 'Çýkýþ tarihi yoksa
+            If ThisWorkbook.Worksheets(4).Range("DB" & i).Value = "" Then 'Ã‡Ä±kÄ±ÅŸ tarihi yoksa
                 ThisWorkbook.Worksheets(4).Range("E" & i & ":HR" & j).Copy RaporFile.Range("E" & HedefRapor & ":HR" & HedefRapor + (j - i))
 
                 '_______________________________
                 
-                'Fark giriþlerini kontrol et.
+                'Fark giriÅŸlerini kontrol et.
                 Set IlkSiraBul = WsFarkGirisRapor1.Range("P3:P100000").Find(What:=ThisWorkbook.Worksheets(4).Range("E" & i).Value, SearchDirection:=xlNext, _
                                 SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
                 Set SonSiraBul = WsFarkGirisRapor1.Range("Q3:Q100000").Find(What:=ThisWorkbook.Worksheets(4).Range("E" & i).Value, SearchDirection:=xlNext, _
@@ -1700,30 +1700,30 @@ RaporBitisNoBulundu:
                 Else
                     GoTo FarkGirisAtla2
                 End If
-                'R kolununu yeni no ile iþaretle
+                'R kolununu yeni no ile iÅŸaretle
                 For k = IlkSira To SonSira
                     WsFarkGirisRapor1.Range("R" & k).Value = RaporNo
                 Next k
-                'baþlangýç ve bitiþleri S ve T kolonunda takip et; eski no.lar halen kalacak.
+                'baÅŸlangÄ±Ã§ ve bitiÅŸleri S ve T kolonunda takip et; eski no.lar halen kalacak.
                 WsFarkGirisRapor1.Range("S" & IlkSira).Value = RaporNo
                 WsFarkGirisRapor1.Range("T" & SonSira).Value = RaporNo
 FarkGirisAtla2:
     
                 '_______________________________
             
-                RaporFile.Range("E" & HedefRapor).Value = RaporNo 'Tekrar sýra numarasý ver.
-                RaporFile.Range("CM" & HedefRapor).Value = RaporNo 'Tekrar Baþlangýç no (i) ver.
-                RaporFile.Range("CN" & HedefRapor + (j - i)).Value = RaporNo 'Tekrar Bitiþ No (j) ver.
+                RaporFile.Range("E" & HedefRapor).Value = RaporNo 'Tekrar sÄ±ra numarasÄ± ver.
+                RaporFile.Range("CM" & HedefRapor).Value = RaporNo 'Tekrar BaÅŸlangÄ±Ã§ no (i) ver.
+                RaporFile.Range("CN" & HedefRapor + (j - i)).Value = RaporNo 'Tekrar BitiÅŸ No (j) ver.
                 RaporNo = RaporNo + 1
                 HedefRapor = HedefRapor + (j - i) + 1
             End If
         ElseIf ThisWorkbook.Worksheets(4).Range("FR" & i).Value = "No" Then 'Rapor
-            If ThisWorkbook.Worksheets(4).Range("CZ" & i).Value = "" Then 'Çýkýþ tarihi yoksa
+            If ThisWorkbook.Worksheets(4).Range("CZ" & i).Value = "" Then 'Ã‡Ä±kÄ±ÅŸ tarihi yoksa
                 ThisWorkbook.Worksheets(4).Range("E" & i & ":HR" & j).Copy RaporFile.Range("E" & HedefRapor & ":HR" & HedefRapor + (j - i))
 
                 '_______________________________
                 
-                'Fark giriþlerini kontrol et.
+                'Fark giriÅŸlerini kontrol et.
                 Set IlkSiraBul = WsFarkGirisRapor1.Range("P3:P100000").Find(What:=ThisWorkbook.Worksheets(4).Range("E" & i).Value, SearchDirection:=xlNext, _
                                 SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
                 Set SonSiraBul = WsFarkGirisRapor1.Range("Q3:Q100000").Find(What:=ThisWorkbook.Worksheets(4).Range("E" & i).Value, SearchDirection:=xlNext, _
@@ -1738,38 +1738,38 @@ FarkGirisAtla2:
                 Else
                     GoTo FarkGirisAtla3
                 End If
-                'R kolununu yeni no ile iþaretle
+                'R kolununu yeni no ile iÅŸaretle
                 For k = IlkSira To SonSira
                     WsFarkGirisRapor1.Range("R" & k).Value = RaporNo
                 Next k
-                'baþlangýç ve bitiþleri S ve T kolonunda takip et; eski no.lar halen kalacak.
+                'baÅŸlangÄ±Ã§ ve bitiÅŸleri S ve T kolonunda takip et; eski no.lar halen kalacak.
                 WsFarkGirisRapor1.Range("S" & IlkSira).Value = RaporNo
                 WsFarkGirisRapor1.Range("T" & SonSira).Value = RaporNo
 FarkGirisAtla3:
     
                 '_______________________________
                 
-                RaporFile.Range("E" & HedefRapor).Value = RaporNo 'Tekrar sýra numarasý ver.
-                RaporFile.Range("CM" & HedefRapor).Value = RaporNo 'Tekrar Baþlangýç no (i) ver.
-                RaporFile.Range("CN" & HedefRapor + (j - i)).Value = RaporNo 'Tekrar Bitiþ No (j) ver.
+                RaporFile.Range("E" & HedefRapor).Value = RaporNo 'Tekrar sÄ±ra numarasÄ± ver.
+                RaporFile.Range("CM" & HedefRapor).Value = RaporNo 'Tekrar BaÅŸlangÄ±Ã§ no (i) ver.
+                RaporFile.Range("CN" & HedefRapor + (j - i)).Value = RaporNo 'Tekrar BitiÅŸ No (j) ver.
                 RaporNo = RaporNo + 1
                 HedefRapor = HedefRapor + (j - i) + 1
             End If
         End If
     End If
 Next i
-'Son satir kararlarý
+'Son satir kararlarÄ±
 If HedefRapor = 7 Then
     GoTo RaporSonSatir7
 End If
-HedefRapor = HedefRapor - (j - i) - 1 'System Reset dosyasýnýn son satýr numarasý
+HedefRapor = HedefRapor - (j - i) - 1 'System Reset dosyasÄ±nÄ±n son satÄ±r numarasÄ±
 If HedefRapor < 7 Then
     HedefRapor = 7
 End If
 RaporSonSatir7:
 'MsgBox HedefRapor
 
-'Fark giriþleri esas kayýttaki kalacaklarý, geçici kayýtlar sayfasýna aktar
+'Fark giriÅŸleri esas kayÄ±ttaki kalacaklarÄ±, geÃ§ici kayÄ±tlar sayfasÄ±na aktar
 SayFarkGirisRapor1 = WsFarkGirisRapor1.Range("R100000").End(xlUp).Row
 Cont = 2
 If SayFarkGirisRapor1 > 2 Then
@@ -1782,23 +1782,23 @@ If SayFarkGirisRapor1 > 2 Then
     Next k
 End If
 
-'MODÜLÜ TEMÝZLE
+'MODÃœLÃœ TEMÄ°ZLE
 ThisWorkbook.Worksheets(4).Rows("7:100000").EntireRow.Delete
-WsFarkGirisRapor1.Rows("3:100000").EntireRow.Delete 'fark giriþleri
-If GlobalResetKapsami = 2 Then 'Varlikdan çýkýþý yapýlmayanlar hariç
-    'Reset dosyasýndan verileri aktar.
+WsFarkGirisRapor1.Rows("3:100000").EntireRow.Delete 'fark giriÅŸleri
+If GlobalResetKapsami = 2 Then 'Varlikdan Ã§Ä±kÄ±ÅŸÄ± yapÄ±lmayanlar hariÃ§
+    'Reset dosyasÄ±ndan verileri aktar.
     RaporFile.Range("E" & 7 & ":HR" & HedefRapor).Copy ThisWorkbook.Worksheets(4).Range("E" & 7 & ":HR" & HedefRapor)
-    'Geçici kayýtlarý kalýcý kayýtlara aktar.
+    'GeÃ§ici kayÄ±tlarÄ± kalÄ±cÄ± kayÄ±tlara aktar.
     If Cont > 2 Then
         WsFarkGirisRapor1.Range("A" & 3 & ":Q" & Cont).Value = WsFarkGiris.Range("A" & 3 & ":Q" & Cont).Value
     End If
-ElseIf GlobalResetKapsami = 1 Then 'Varlikdan çýkýþý yapýlmayanlar dahil
+ElseIf GlobalResetKapsami = 1 Then 'Varlikdan Ã§Ä±kÄ±ÅŸÄ± yapÄ±lmayanlar dahil
     '
 End If
 
-'Modüldeki verileri rapor1 sayfasýna da aktar
+'ModÃ¼ldeki verileri rapor1 sayfasÄ±na da aktar
 Set WsRaporNo = ThisWorkbook.Worksheets(10)
-WsRaporNo.Rows("7:100000").EntireRow.Delete 'rapor1 numaralarý sayfasý
+WsRaporNo.Rows("7:100000").EntireRow.Delete 'rapor1 numaralarÄ± sayfasÄ±
 SayGlobal = ThisWorkbook.Worksheets(4).Range("CN100000").End(xlUp).Row
 AktarNoGlobal = 7
 If SayGlobal < 7 Then
@@ -1826,7 +1826,7 @@ jDonguOut1:
 End If
 
 
-'System Reset dosyasýný temizle.
+'System Reset dosyasÄ±nÄ± temizle.
 RaporFile.Rows("7:100000").EntireRow.Delete
 WsFarkGiris.Rows("3:100000").EntireRow.Delete
 
@@ -1845,62 +1845,62 @@ End If
 Workbooks.Open (Rapor3Resetleme)
 Set Rapor3File = Workbooks("Reset Report 3.xlsx").Worksheets(1)
 Rapor3File.Unprotect Password:="123"
-'System Reset dosyasýný temizle.
+'System Reset dosyasÄ±nÄ± temizle.
 Rapor3File.Rows("7:100000").EntireRow.Delete
-'Modülde son satýrý bul.
+'ModÃ¼lde son satÄ±rÄ± bul.
 SayRapor3 = ThisWorkbook.Worksheets(5).Range("FH100000").End(xlUp).Row
 If SayRapor3 < 7 Then
     SayRapor3 = 7
     GoTo Rapor3ResetlemeyiAtla
 End If
-'Modülden varlýk çýkýþý olmayanlarý ayýkla ve resetleme dosyasýna aktar.
+'ModÃ¼lden varlÄ±k Ã§Ä±kÄ±ÅŸÄ± olmayanlarÄ± ayÄ±kla ve resetleme dosyasÄ±na aktar.
 HedefRapor3 = 7
 Rapor3No = 1
 For i = 7 To SayRapor3
-    If ThisWorkbook.Worksheets(5).Range("FG" & i).Value <> "" Then 'Baþlangýç no (i)
+    If ThisWorkbook.Worksheets(5).Range("FG" & i).Value <> "" Then 'BaÅŸlangÄ±Ã§ no (i)
         For j = i To SayRapor3
-            If ThisWorkbook.Worksheets(5).Range("FH" & j).Value <> "" Then 'Bitiþ No (j)
+            If ThisWorkbook.Worksheets(5).Range("FH" & j).Value <> "" Then 'BitiÅŸ No (j)
                 GoTo Rapor3BitisNoBulundu
             End If
         Next j
 Rapor3BitisNoBulundu:
-        If ThisWorkbook.Worksheets(5).Range("FT" & i).Value = "" Then 'Çýkýþ tarihi yoksa
+        If ThisWorkbook.Worksheets(5).Range("FT" & i).Value = "" Then 'Ã‡Ä±kÄ±ÅŸ tarihi yoksa
             ThisWorkbook.Worksheets(5).Range("E" & i & ":HT" & j).Copy Rapor3File.Range("E" & HedefRapor3 & ":HT" & HedefRapor3 + (j - i))
-            Rapor3File.Range("E" & HedefRapor3).Value = Rapor3No 'Tekrar sýra numarasý ver.
-            Rapor3File.Range("FG" & HedefRapor3).Value = Rapor3No 'Tekrar Baþlangýç no (i) ver.
-            Rapor3File.Range("FH" & HedefRapor3 + (j - i)).Value = Rapor3No 'Tekrar Bitiþ No (j) ver.
-            'Rapor3File.Range("FI" & HedefRapor3).Value = ""  'Kayýt def. No ver.
+            Rapor3File.Range("E" & HedefRapor3).Value = Rapor3No 'Tekrar sÄ±ra numarasÄ± ver.
+            Rapor3File.Range("FG" & HedefRapor3).Value = Rapor3No 'Tekrar BaÅŸlangÄ±Ã§ no (i) ver.
+            Rapor3File.Range("FH" & HedefRapor3 + (j - i)).Value = Rapor3No 'Tekrar BitiÅŸ No (j) ver.
+            'Rapor3File.Range("FI" & HedefRapor3).Value = ""  'KayÄ±t def. No ver.
             Rapor3No = Rapor3No + 1
             HedefRapor3 = HedefRapor3 + (j - i) + 1
         End If
     End If
 Next i
-'Son satir kararlarý
+'Son satir kararlarÄ±
 If HedefRapor3 = 7 Then
     GoTo Rapor3SonSatir7
 End If
-HedefRapor3 = HedefRapor3 - (j - i) - 1 'System Reset dosyasýnýn son satýr numarasý
+HedefRapor3 = HedefRapor3 - (j - i) - 1 'System Reset dosyasÄ±nÄ±n son satÄ±r numarasÄ±
 If HedefRapor3 < 7 Then
     HedefRapor3 = 7
 End If
 Rapor3SonSatir7:
 'MsgBox HedefRapor3
 
-'MODÜLÜ TEMÝZLE
+'MODÃœLÃœ TEMÄ°ZLE
 ThisWorkbook.Worksheets(5).Rows("7:100000").EntireRow.Delete
-If GlobalResetKapsami = 2 Then 'Varlikdan çýkýþý yapýlmayanlar hariç
-    'Reset dosyasýndan verileri aktar.
+If GlobalResetKapsami = 2 Then 'Varlikdan Ã§Ä±kÄ±ÅŸÄ± yapÄ±lmayanlar hariÃ§
+    'Reset dosyasÄ±ndan verileri aktar.
     Rapor3File.Range("E" & 7 & ":HT" & HedefRapor3).Copy ThisWorkbook.Worksheets(5).Range("E" & 7 & ":HT" & HedefRapor3)
-ElseIf GlobalResetKapsami = 1 Then 'Varlikdan çýkýþý yapýlmayanlar dahil
+ElseIf GlobalResetKapsami = 1 Then 'Varlikdan Ã§Ä±kÄ±ÅŸÄ± yapÄ±lmayanlar dahil
     '
 End If
 
 
 
 ''SADECE TipALAR AKTARILACAK
-''Modüldeki verileri rapor1 sayfasýna da aktar
+''ModÃ¼ldeki verileri rapor1 sayfasÄ±na da aktar
 Set WsRaporNo = ThisWorkbook.Worksheets(10)
-'WsRaporNo.Rows("7:100000").EntireRow.Delete 'rapor1 numaralarý sayfasý
+'WsRaporNo.Rows("7:100000").EntireRow.Delete 'rapor1 numaralarÄ± sayfasÄ±
 SayGlobal = ThisWorkbook.Worksheets(5).Range("FH100000").End(xlUp).Row
 If SayGlobal < 7 Then
     '
@@ -1938,7 +1938,7 @@ AktarmaYok:
     Next i
 End If
 
-'System Reset dosyasýný temizle.
+'System Reset dosyasÄ±nÄ± temizle.
 Rapor3File.Rows("7:100000").EntireRow.Delete
 
 Rapor3ResetlemeyiAtla:
@@ -1973,7 +1973,7 @@ ThisWorkbook.Worksheets(10).Protect Password:="123"
 ThisWorkbook.Worksheets(11).Protect Password:="123"
 ThisWorkbook.Protect "123"
 
-'Kayýt defterlerinin temizlenmesi.
+'KayÄ±t defterlerinin temizlenmesi.
 Workbooks.Open (IslemGunluguOR)
 Workbooks.Open (IslemGunluguR)
 Workbooks.Open (IslemGunluguB)
@@ -1981,7 +1981,7 @@ Workbooks.Open (IslemGunluguB)
 Set WsIslemGunluguOR = Workbooks("System Registry Report 1.xlsx").Worksheets(1)
 Set WsIslemGunluguR = Workbooks("System Registry Report 2.1.xlsx").Worksheets(1)
 Set WsIslemGunluguB = Workbooks("System Registry Report 2.2.xlsx").Worksheets(1)
-'Set WsIslemGunluguRapor3 = Workbooks("Rapor3 Sistem Ýþlem Günlüðü.xlsx").Worksheets(1)
+'Set WsIslemGunluguRapor3 = Workbooks("Rapor3 Sistem Ä°ÅŸlem GÃ¼nlÃ¼ÄŸÃ¼.xlsx").Worksheets(1)
 WsIslemGunluguOR.Unprotect Password:="123"
 WsIslemGunluguR.Unprotect Password:="123"
 WsIslemGunluguB.Unprotect Password:="123"
@@ -1996,7 +1996,7 @@ WsIslemGunluguOR.Protect Password:="123" ', DrawingObjects:=False
 WsIslemGunluguR.Protect Password:="123" ', DrawingObjects:=False
 WsIslemGunluguB.Protect Password:="123" ', DrawingObjects:=False
 'WsIslemGunluguRapor3.Protect Password:="123" ', DrawingObjects:=False
-'Kayýt defterleri açýksa kaydet ve kapat.
+'KayÄ±t defterleri aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(IslemGunluguOR)
 If OpenControl = True Then
     Workbooks("System Registry Report 1.xlsx").Close SaveChanges:=True
@@ -2010,7 +2010,7 @@ If OpenControl = True Then
     Workbooks("System Registry Report 2.2.xlsx").Close SaveChanges:=True
 End If
 
-'System Reset iþlemlerini bitir_____________________________________________
+'System Reset iÅŸlemlerini bitir_____________________________________________
 
 
 If ResetControl = False Then
@@ -2053,7 +2053,7 @@ End If
 
 
 On Error GoTo Hata
-'Dokümaný aç
+'DokÃ¼manÄ± aÃ§
 
 strPDFPath = SourceEk
 ThisWorkbook.FollowHyperlink strPDFPath, NewWindow:=True
@@ -2115,8 +2115,8 @@ Dim ReNameTaslak As String, SourceTaslak As String
 AutoPath = ThisWorkbook.Path
 DestOperasyon = AutoPath & "\System Files\Operation\"
 'Draft File
-SourceTaslak = AutoPath & "\System Files\Help Documents\Home – Help.docm"
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+SourceTaslak = AutoPath & "\System Files\Help Documents\Home â€“ Help.docm"
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
@@ -2138,7 +2138,7 @@ If Not Dir(SourceTaslak, vbDirectory) <> vbNullString Then
     GoTo Son
 End If
 
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
@@ -2150,11 +2150,11 @@ ReNameTaslak = "Help Documents"
 'Close the all Word application
 Call OpenWordControl
 
-'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
 OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
 Do While OpenKontrolName <> ""
     OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-    If OpenControl = True Then 'Açýksa
+    If OpenControl = True Then 'AÃ§Ä±ksa
         On Error Resume Next
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
@@ -2162,7 +2162,7 @@ Do While OpenKontrolName <> ""
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
         objWord.Quit SaveChanges:=True
-        'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+        'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
 
     End If
     OpenKontrolName = Dir()
@@ -2173,7 +2173,7 @@ Set objDoc = Nothing
 '________________________________________
 
 On Error Resume Next
-'    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
 Do While KontrolFile <> ""
@@ -2185,13 +2185,13 @@ If ContSay > 0 Then
 End If
 
 
-'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
 fso.CopyFile (SourceTaslak), DestOpUserFolder & ReNameTaslak & ".docm", True
 
 '________________________________________
 
-'Oluþturulacak dosyayý aç
+'OluÅŸturulacak dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -2199,7 +2199,7 @@ Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 If objWord Is Nothing Then
-    'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+    'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
     Set objWord = CreateObject("Word.Application")
     objWord.Visible = False
 End If
@@ -2236,7 +2236,7 @@ Application.DisplayAlerts = False
 Application.EnableEvents = False
 Application.ScreenUpdating = False
 
-'Açýk userformlar varsa kapatýlsýn.
+'AÃ§Ä±k userformlar varsa kapatÄ±lsÄ±n.
 Call ModuleInit.UserFormlariKapat
 
 Call AnaSayfa
@@ -2276,7 +2276,7 @@ Sub OpenWordControl()
 Dim ObjWordx As Object
 Dim objDocx As Object
 
-'MsgBox "OpenWordControl prosedürü baþlýyor."
+'MsgBox "OpenWordControl prosedÃ¼rÃ¼ baÅŸlÄ±yor."
     On Error GoTo NoOpenDoc
     Set ObjWordx = GetObject(, "Word.Application")
     Set ObjWordx = GetObject(, "Word.Application")
@@ -2292,10 +2292,10 @@ NoOpenDocAtla:
         'MsgBox objWordx.ActiveDocument.Name
         If ObjWordx.ActiveDocument.name <> "" Then
             ObjWordx.Quit SaveChanges:=True
-            'MsgBox "Dosya OpenWordControl methodu ile kapatýldý."
+            'MsgBox "Dosya OpenWordControl methodu ile kapatÄ±ldÄ±."
         End If
     Else
-        'MsgBox "Açýk word dokümaný yok."
+        'MsgBox "AÃ§Ä±k word dokÃ¼manÄ± yok."
     End If
 
 Son:

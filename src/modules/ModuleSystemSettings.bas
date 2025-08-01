@@ -262,7 +262,7 @@ shtInt = 0
 For Each WsKont In ThisWorkbook.Worksheets
     shtInt = shtInt + 1
     If WsKont.name = "Document Automation System" Or WsKont.name = "Definitions" Or WsKont.name = "Report 1 Workflow" Or WsKont.name = "Report 2 Workflow" Or WsKont.name = "Report 3 Workflow" _
-        Or WsKont.name = "Statement Index" Or WsKont.name = "Temp Discrepancies" Or WsKont.name = "Discrepancies – Report 1" Or WsKont.name = "Discrepancies – Report 2" _
+        Or WsKont.name = "Statement Index" Or WsKont.name = "Temp Discrepancies" Or WsKont.name = "Discrepancies â€“ Report 1" Or WsKont.name = "Discrepancies â€“ Report 2" _
         Or WsKont.name = "Report 2 Numbers" Or WsKont.name = "Report 1 Numbers" Or WsKont.name = "Thermal Label" Or WsKont.name = "Processing Envelope" _
         Or WsKont.name = "Small Envelope" Or WsKont.name = "Large Envelope" Then
         'MsgBox shtInt & " : Ok"
@@ -336,7 +336,7 @@ Application.DisplayAlerts = False
     ReturnValue = MsgBoxTimeout(0, "Enterprise Document Automation System will automatically save and close in 1 minute. To postpone automatic closure again for the waiting time you previously set, click No or Cancel. To close now, click Yes.", "Enterprise Document Automation System", vbQuestion + vbYesNoCancel + vbDefaultButton3, 0, 60000)
     Select Case ReturnValue
         Case vbYes
-            'Açık userformlar varsa kapatılsın.
+            'AÃ§Ä±k userformlar varsa kapatÄ±lsÄ±n.
             Call ModuleInit.UserFormlariKapat
             For Each Wbk In Workbooks
               Wbk.Save
@@ -355,7 +355,7 @@ Application.DisplayAlerts = False
             GoTo Son
     End Select
  
-'Açık userformlar varsa kapatılsın.
+'AÃ§Ä±k userformlar varsa kapatÄ±lsÄ±n.
 Call ModuleInit.UserFormlariKapat
 For Each Wbk In Workbooks
   Wbk.Save
@@ -400,9 +400,9 @@ If NumLockState = False Then
     Application.SendKeys "{NUMLOCK}", True
 End If
 
-'Açık dropdown kapat
+'AÃ§Ä±k dropdown kapat
 Application.SendKeys "{F10}", True
-'Tek sendkeys F10 komutu mousemove prosedürülerini kapattığı için, ikincisinde f10 görevi iptal ediliyor.
+'Tek sendkeys F10 komutu mousemove prosedÃ¼rÃ¼lerini kapattÄ±ÄŸÄ± iÃ§in, ikincisinde f10 gÃ¶revi iptal ediliyor.
 Application.SendKeys "{F10}", True
 
 
@@ -412,12 +412,12 @@ If NumLockState = False Then
     Application.SendKeys "{NUMLOCK}", True
 End If
 
-'ÖNEMLİ: userform numlock true/false değerini vbModeless iken alıyor; vbModal iken numlock boolean değeri alınamıyor.
-'Bu yüzden userform vbmodeless modunda açılırken, userform vbModal olmadan önce NumLockAc prosedürü çağrılıp numlock'un boolean değeri elde edilmiş olunuyor.
+'Ã–NEMLÄ°: userform numlock true/false deÄŸerini vbModeless iken alÄ±yor; vbModal iken numlock boolean deÄŸeri alÄ±namÄ±yor.
+'Bu yÃ¼zden userform vbmodeless modunda aÃ§Ä±lÄ±rken, userform vbModal olmadan Ã¶nce NumLockAc prosedÃ¼rÃ¼ Ã§aÄŸrÄ±lÄ±p numlock'un boolean deÄŸeri elde edilmiÅŸ olunuyor.
 
-'Numlock open olması için numlocku etkileyen kodlardan önce ve sonra yukarıdaki komutlar kullanılır.
-'Numlock açıksa açık, kapalı ise kapalı kalıyor. Ancak userform aktifken numlock açılır veya kapatılır ise açılıp kapanma oluyor.
-'Userformu sağ üst köşeden küçültüp numlock açılır. Tekrar aynı buton ile userform genişletilir ve sorun çözülmüş olur.
+'Numlock open olmasÄ± iÃ§in numlocku etkileyen kodlardan Ã¶nce ve sonra yukarÄ±daki komutlar kullanÄ±lÄ±r.
+'Numlock aÃ§Ä±ksa aÃ§Ä±k, kapalÄ± ise kapalÄ± kalÄ±yor. Ancak userform aktifken numlock aÃ§Ä±lÄ±r veya kapatÄ±lÄ±r ise aÃ§Ä±lÄ±p kapanma oluyor.
+'Userformu saÄŸ Ã¼st kÃ¶ÅŸeden kÃ¼Ã§Ã¼ltÃ¼p numlock aÃ§Ä±lÄ±r. Tekrar aynÄ± buton ile userform geniÅŸletilir ve sorun Ã§Ã¶zÃ¼lmÃ¼ÅŸ olur.
 
 End Sub
 
