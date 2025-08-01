@@ -125,7 +125,7 @@ This version is a fully anonymized system prepared solely for portfolio presenta
 ## 💻 Implementation Details
 
 - **Technology:** Entirely built on VBA (Visual Basic for Applications), leveraging Excel and Word APIs to drive high-level automation, validation, and document generation.
-- **Modular Automation Layer:** A structured logic layer coordinates Excel and Word APIs to manage rule-based data flows, interlinked validation, and dynamic document assembly.
+- **Modular Automation Layer:** Coordinates Excel and Word APIs to manage rule-based data flows, interlinked validation, and dynamic document assembly.
 - **Codebase:** Over 150,000 lines of modular, production-grade code — architected as a reusable automation framework rather than a conventional script.
 - **Access:** The fully anonymized working version (ready-to-run with full UI) can be shared upon request — for professional evaluation purposes only.
 
