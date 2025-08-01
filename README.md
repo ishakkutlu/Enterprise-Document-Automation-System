@@ -1,7 +1,8 @@
 # Enterprise Document Automation System
 
 ## 🔍 Overview
-This system automates the entire document lifecycle — from data entry and report generation to printing, validation, and compliance — using a modular automation layer built on top of Excel and Word APIs. It is designed for public-sector scale operations, supporting multiple report types, dynamic templates, structured workflows, and rule-based decisions.
+
+This system automates the entire document lifecycle — from data entry and report generation to printing, validation, and compliance — through a modular architecture designed for large-scale document operations. It is designed for complex document workflows across institutional environments, delivering multiple report types, dynamic templates, structured decision logic, and end-to-end process control.
 
 Each user interaction is guided by context-aware forms, grammar-smart logic, and real-time validation — ensuring that even non-technical users can operate the system safely and efficiently. Document structures adapt to content flow, inputs are reused across workflows, and generated outputs are fully traceable and compliant.
 
@@ -124,6 +125,7 @@ This version is a fully anonymized system prepared solely for portfolio presenta
 ## 💻 Implementation Details
 
 - **Technology:** Entirely built on VBA (Visual Basic for Applications), leveraging Excel and Word APIs to drive high-level automation, validation, and document generation.
+- **Modular Automation Layer:** A structured logic layer coordinates Excel and Word APIs to manage rule-based data flows, interlinked validation, and dynamic document assembly.
 - **Codebase:** Over 150,000 lines of modular, production-grade code — architected as a reusable automation framework rather than a conventional script.
 - **Access:** The fully anonymized working version (ready-to-run with full UI) can be shared upon request — for professional evaluation purposes only.
 
