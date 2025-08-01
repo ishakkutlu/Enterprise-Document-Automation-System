@@ -71,7 +71,7 @@ Each part showcases real-world automation, UX-guided workflows, and a compliance
 
 ## 🧩 Real-World Impact & Ethical Disclaimer
 
-The original version of the system has been deployed in national-scale daily operations at a public institution — tailored for non-technical users. 
+The original version of the system has been deployed in national-scale daily operations at a public institution — tailored for non-technical users. The current version is a fully anonymized mock-up system created solely for portfolio demonstration. It contains no real data or institution-related content.
 
 The system automated 50+ document formats — including statements, cover letters, and dispatch lists — with full workflow integration across internal units and external institutions. Thanks to its dynamic template engine, users can create and reuse unlimited custom templates — enabling scalable expansion without developer support.  
 
@@ -84,14 +84,13 @@ It eliminates over 2,500 manual work hours each month by automating approximatel
 
 - **Manual document preparation time:**  
 In public institutions, manually preparing formal documents — especially statements, annexed reports, or cover letters — typically takes **6 to 10 minutes per document**.  
-This includes locating the correct template, replacing outdated data, inserting updated content, adjusting formatting, and performing a final review.  
-I conservatively estimated **8 minutes per document** to reflect this end-to-end effort in a structured but non-automated environment.
+This includes locating the correct template, replacing outdated data, inserting updated content, adjusting formatting, and performing a final review. I conservatively estimated **8 minutes per document** to reflect this end-to-end effort in a structured but non-automated environment.
 
-- **Average process volume per unit:**  
-Process volume varies by department size and workload. For this estimate, we assumed **100 processes per unit per month**, based on historical activity across 20+ units.
+- **Average process volume per department:**  
+Process volume varies by department size and workload. For this estimate, I assumed **100 processes per unit per month**, based on historical activity across 20+ units.
 
 - **Number of documents required per process:**  
-Each process typically involves multiple document types — such as statements, reports, annexes, and cover letters. Moreover, several documents of the same type may be generated within a single process (e.g., multiple reports or cover letters), depending on the workflow. Some require 15+ documents, others only 6–7. An average of **10 documents per process** was used.
+Each process typically involves multiple document types — such as statements, reports, annexes, and cover letters. Moreover, several documents of the same type may be generated within a single process (e.g., multiple reports or cover letters), depending on the workflow. Some processes require 15+ documents, others only 6–7. An average of **10 documents per process** was used in calculations.
 
 - **Automated process duration:**  
 Based on practical testing and user feedback, preparing all documents via the system takes approximately **5 minutes per process** — which corresponds to **0.5 minutes per document**, assuming 10 documents per process.
@@ -101,15 +100,11 @@ Based on practical testing and user feedback, preparing all documents via the sy
 - 20 units × 100 processes/month = 2,000 processes  
 - Each process produces 10 documents → 2,000 processes x 10 docs = 20,000 docs/month  
 - Manual avg: 8 min per document → (20,000 docs x 8 min)/60 min = 2,667 hours/month  
-- Automated avg: 0,5 min per document → (20,000 docs x 0,5 min)/60 min = 167 hours/month  
+- Automated avg: 0.5 min per document → (20,000 docs x 0,5 min)/60 min = 167 hours/month  
 - **Monthly gain: 2,667 -167 = 2,500 hours**
-- **Efficiency gain: (2,500 / 2,667) × 100 ≈ 93.75%**
-
-All calculations are based on anonymized scenarios derived from industry-standard workflows.
+- **Efficiency gain: (2,500 / 2,667) ≈ 93.75%**
 
 </details>
-
-The current version is a fully anonymized mock-up system created solely for portfolio demonstration. It contains no real data or institution-related content.
 
 ---
 
