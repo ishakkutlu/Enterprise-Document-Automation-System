@@ -11,47 +11,47 @@ Each user interaction is guided by context-aware forms, grammar-smart logic, and
 
 ### 🧱 System Architecture & Workflow Control
 - **Modular architecture with role-specific panels**  
-  Enables guided data entry, reporting, and document generation — each panel serves a dedicated function in the process chain.
+  Enables guided data entry, reporting, and document generation — each panel serves a dedicated function in the process chain. Increases operational clarity and minimizes learning time across roles.
 
 - **Dynamic form behavior and context-aware layouts**  
   Forms adapt to selected report types, item categories, or user context — minimizing user error and streamlining workflows.
 
 - **Rule-based decision logic across all workflows**  
-  Prevents invalid actions, enforces correct paths, and ensures process integrity through built-in logic.
+  Prevents invalid actions, enforces correct paths, and ensures process integrity through built-in logic. Enables traceable automation and regulatory compliance at scale.
 
 ### 🤖 Smart Logic & Content Automation
 - **Reusable identity & template layers**  
   User-defined unit identity, notes, and dynamic templates are reused system-wide — ensuring consistency and eliminating redundancy.
 
 - **Smart grammar and layout engine**  
-  Automatically adjusts sentence structure, verb tense, and layout spacing based on content type and quantity — no manual formatting needed.
+  Automatically adjusts sentence structure, verb tense, and layout spacing based on content type and quantity — no manual formatting needed. Delivers professional, error-proof documents — regardless of user behavior.
 
 - **Real-time validation and error handling**  
-  Layered input validation detects conflicts instantly and prevents invalid report generation — errors are guided, not blocked.
+  Layered input validation detects conflicts instantly and prevents invalid report generation — errors are guided, not blocked. Ensures error-free flow and reduces correction workload across large-scale operations.
 
 ### 🗂️ Document & Output Management
 - **One-click batch document generation & print automation**  
-  Multiple Word documents (with internal logic) are created and queued in a single click — complete with print control and verification.
+  Multiple Word documents (with internal logic) are generated and printed in a single click — complete with print control and verification. Saves time and ensures consistency across high-volume output tasks.
 
 - **Integrated asset management with traceable flows**  
-  Handles asset entry, exit, and carry-over via source-based logic — generates 10 report types automatically.
+  Handles asset entry, exit, and carry-over via source-based logic — generates 10 report types automatically. Improves auditability and operational transparency in asset workflows.
 
 ### 🔒 Data Continuity & Operational Safety
 - **Version-controlled data reset and system update**  
-  Supports safe resets and lossless upgrades with dual confirmation, isolated user data, and a structured continuity architecture.
+  Supports safe resets and lossless upgrades with dual confirmation, isolated user data, and a structured continuity architecture. Preserves user context while maintaining full data integrity during transitions.
 
 - **Auto-close and session-specific continuity**  
-  Automatically saves and closes active documents across Windows sessions — ensuring integrity even during user switches.
+  Automatically saves and closes active documents across Windows sessions — ensuring integrity even during user switches. Protects documents from data loss and supports unattended operation.
 
 ---
 
 ## 🎬 Video Showcase
 
 📺 **5-Minute System Overview**  
-🔗 [Watch the video](https://youtu.be/6HDiDGYvlHc)
+[Watch the video](https://youtu.be/6HDiDGYvlHc)
 
 📂 ** Complete System Demonstration (18-part video series)**  
-🔗 [Watch the full showcase](https://www.youtube.com/playlist?list=PLn6Gqb2_dbpqjJ1oz8hyxCz7o1xEXOJR1)
+[Watch the full showcase](https://www.youtube.com/playlist?list=PLn6Gqb2_dbpqjJ1oz8hyxCz7o1xEXOJR1)
 
 These short videos present:
 - Modular architecture and guided form logic
@@ -69,9 +69,9 @@ Each part showcases real-world automation, UX-guided workflows, and a compliance
 
 ---
 
-## 🧩 Real-World Impact & Ethical Disclaimer
+## 🧩 Real-World Impact
 
-The original version of the system has been deployed in national-scale daily operations at a public institution — tailored for non-technical users. The current version is a fully anonymized mock-up system created solely for portfolio demonstration. It contains no real data or institution-related content.
+The original version of the system has been deployed in national-scale daily operations at a public institution — tailored for non-technical users. 
 
 The system automated 50+ document formats — including statements, cover letters, and dispatch lists — with full workflow integration across internal units and external institutions. Thanks to its dynamic template engine, users can create and reuse unlimited custom templates — enabling scalable expansion without developer support.  
 
@@ -107,4 +107,11 @@ Based on practical testing and user feedback, preparing all documents via the sy
 </details>
 
 ---
+
+## 🛡️ Ethical & Technical Disclaimer
+
+Originally built for national-scale daily operations at a public institution — tailored for non-technical users. This version is a fully anonymized system prepared solely for portfolio presentation, preserving the full functionality, interface design, and automation logic. It contains no real data or institution-related content.
+
+---
+
 
