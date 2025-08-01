@@ -19,8 +19,6 @@ Each user interaction is guided by context-aware forms, grammar-smart logic, and
 - **Rule-based decision logic across all workflows**  
   Prevents invalid actions, enforces correct paths, and ensures process integrity through built-in logic.
 
----
-
 ### 🤖 Smart Logic & Content Automation
 - **Reusable identity & template layers**  
   User-defined unit identity, notes, and dynamic templates are reused system-wide — ensuring consistency and eliminating redundancy.
@@ -31,16 +29,12 @@ Each user interaction is guided by context-aware forms, grammar-smart logic, and
 - **Real-time validation and error handling**  
   Layered input validation detects conflicts instantly and prevents invalid report generation — errors are guided, not blocked.
 
----
-
 ### 🗂️ Document & Output Management
 - **One-click batch document generation & print automation**  
   Multiple Word documents (with internal logic) are created and queued in a single click — complete with print control and verification.
 
 - **Integrated asset management with traceable flows**  
   Handles asset entry, exit, and carry-over via source-based logic — generates 10 report types automatically.
-
----
 
 ### 🔒 Data Continuity & Operational Safety
 - **Version-controlled data reset and system update**  
@@ -77,14 +71,14 @@ Each part showcases real-world automation, UX-guided workflows, and a compliance
 
 ## 🧩 Real-World Impact & Ethical Disclaimer
 
-Originally built for national-scale daily operations at a public institution — tailored for non-technical users. 
+The original version of the system has been deployed in national-scale daily operations at a public institution — tailored for non-technical users. 
 
-This system automated 50+ document formats — including statements, cover letters, and dispatch lists — with full workflow integration across internal units and external institutions.  
-Thanks to its dynamic template engine, users can create and reuse unlimited custom templates — enabling scalable expansion without developer support.  
+The system automated 50+ document formats — including statements, cover letters, and dispatch lists — with full workflow integration across internal units and external institutions. Thanks to its dynamic template engine, users can create and reuse unlimited custom templates — enabling scalable expansion without developer support.  
+
 It eliminates over 2,500 manual work hours each month by automating approximately 20,000 document generations. With a 95% efficiency gain, the system standardized complex workflows across 20+ units and established an ERP-level foundation for secure, traceable, and high-volume document processing.
 
 <details>
-<summary>📊How the 2,500+ hour monthly and 95% efficiency gain was calculated</summary>
+<summary>📊 How the Monthly 2,500+ Hour Gain and 95% Efficiency Were Calculated </summary>
 
 **Assumptions:**
 
@@ -101,8 +95,6 @@ Each process typically involves multiple document types — such as statements, 
 
 - **Automated process duration:**  
 Based on practical testing and user feedback, preparing all documents via the system takes approximately **5 minutes per process** — which corresponds to **0.5 minutes per document**, assuming 10 documents per process.
-
----
 
 **Calculation:**
 
