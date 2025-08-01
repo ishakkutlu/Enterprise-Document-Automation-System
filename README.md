@@ -80,8 +80,9 @@ Key outcomes include:
 - **Standardization across 20+ units** — ensuring consistent workflows and output quality.
 - **ERP-level process control** — delivering secure, traceable, and high-volume document processing.
 
+📊 **Efficiency Calculation Methodology**
 <details>
-<summary>📊 How the Monthly 2,500+ Hour Gain and 95% Efficiency Were Calculated </summary>
+<summary> How the Monthly 2,500+ Hour Gain and 95% Efficiency Were Calculated </summary>
 
 **Assumptions:**
 
