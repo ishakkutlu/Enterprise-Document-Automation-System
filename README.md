@@ -114,7 +114,29 @@ Based on practical testing and user feedback, preparing all documents via the sy
 ---
 
 ## 📁 Repository Structure
-...
+
+The "src/" directory organizes the core codebase into three main components:
+
+```
+src/
+├── forms/
+│   ├── core/       → Primary forms for data entry, reporting, system setup, and process control (.frm + .frx files)
+│   └── support/    → Supporting panels for metadata management, templates, and user-defined lists (.frm + .frx files)
+├── modules/        → Core workflows, report generation logic, system configuration, and automation routines (.bas files)
+└── classes/        → Manages session events, calendar logic, and dynamic document labels (.cls files)
+```
+
+**forms/core/ – Primary Workflow Interfaces**  
+This folder contains the system’s core UI forms that enable document entry, asset tracking, unit configuration, and automated report generation. These forms control the primary workflow, providing structured data input, integrated validation, and seamless navigation across processes. Key panels include report input forms (Report 1–2–3), system reset wizard, asset manager, and registry dashboards.
+
+**forms/support/ – Supporting Panels & Master Data Interfaces**  
+This folder includes secondary UI forms that support the system’s dynamic logic and document customization. These panels manage static datasets, metadata inputs, and user-defined configurations — such as item types, report templates, contact themes, geographic lists, and calendar rules. They enhance flexibility and ensure consistency across document types and workflows.
+
+**modules/ – Automation Workflow Logic**  
+This folder includes all core modules responsible for workflow automation, document generation, interface behavior, and system control. Each .bas file is tailored to manage a specific process or operational domain — enabling traceable document flows, guided user interaction, and reliable automation.
+
+**classes/ — Session Management & Document Labeling Logic**  
+This folder contains reusable class modules that manage application-level session behavior, form-specific events, calendar logic, and context-aware document labeling. These components work together to maintain control across workflows, panels, and document templates.
 
 ---
 
