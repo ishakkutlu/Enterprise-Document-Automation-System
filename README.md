@@ -142,7 +142,7 @@ This folder contains reusable class modules that manage application-level sessio
 This repository includes **30** user interface forms ('.frm'), **10** workflow modules ('.bas'), and **5** class modules ('.cls').  
 Each component is functionally modular but collectively integrated into a unified document automation framework.
 
-🔹 **Note on Language Usage**    
+📌 **Note on Language Usage**    
 This system was originally developed for a public institution in Turkey. While the interface, logic, and documentation have been fully translated into English for portfolio purposes, some variable names or comments in the source code may still appear in Turkish.
 
 ---
