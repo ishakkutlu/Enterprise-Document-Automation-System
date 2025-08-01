@@ -50,7 +50,7 @@ Each user interaction is guided by context-aware forms, grammar-smart logic, and
 📺 **5-Minute System Overview**  
 [Watch the video](https://youtu.be/6HDiDGYvlHc)
 
-📂 ** Complete System Demonstration (18-part video series)**  
+📂 **Complete System Demonstration (18-part video series)**  
 [Watch the full showcase](https://www.youtube.com/playlist?list=PLn6Gqb2_dbpqjJ1oz8hyxCz7o1xEXOJR1)
 
 These short videos present:
