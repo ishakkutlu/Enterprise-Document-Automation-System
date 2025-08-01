@@ -64,18 +64,18 @@ Each part showcases real-world automation, UX-guided workflows, and a compliance
 
 ---
 
-## 📁 Repository Structure
-...
-
----
-
 ## 🧩 Real-World Impact
 
-The original version of the system has been deployed in national-scale daily operations at a public institution — tailored for non-technical users. 
+The original version of the system has been deployed in national-scale daily operations at a public institution — tailored for non-technical users.
 
-The system automated 50+ document formats — including statements, cover letters, and dispatch lists — with full workflow integration across internal units and external institutions. Thanks to its dynamic template engine, users can create and reuse unlimited custom templates — enabling scalable expansion without developer support.  
+Key outcomes include:
 
-It eliminates over 2,500 manual work hours each month by automating approximately 20,000 document generations. With a 95% efficiency gain, the system standardized complex workflows across 20+ units and established an ERP-level foundation for secure, traceable, and high-volume document processing.
+- **50+ automated document formats** — including statements, cover letters, and dispatch lists — all fully integrated into end-to-end workflows.
+- **Dynamic template engine** — supports unlimited user-defined templates with full reusability and no developer dependency.
+- **20,000 documents automated per month** — saving over 2,500 manual hours through scalable automation.
+- **95% operational efficiency gain** — driven by structured automation, validation layers, and intelligent user guidance.
+- **Standardization across 20+ units** — ensuring consistent workflows and output quality.
+- **ERP-level process control** — delivering secure, traceable, and high-volume document processing.
 
 <details>
 <summary>📊 How the Monthly 2,500+ Hour Gain and 95% Efficiency Were Calculated </summary>
@@ -105,6 +105,11 @@ Based on practical testing and user feedback, preparing all documents via the sy
 - **Efficiency gain: (2,500 / 2,667) ≈ 93.75%**
 
 </details>
+
+---
+
+## 📁 Repository Structure
+...
 
 ---
 
