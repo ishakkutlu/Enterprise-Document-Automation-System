@@ -117,12 +117,14 @@ Based on practical testing and user feedback, preparing all documents via the sy
 
 The "src/" directory organizes the core codebase into three main components:
 
+```
 src/
 ├── forms/
 │   ├── core/       → Primary forms for data entry, reporting, system setup, and process control (.frm + .frx files)
 │   └── support/    → Supporting panels for metadata management, templates, and user-defined lists (.frm + .frx files)
 ├── modules/        → Core workflows, report generation logic, system configuration, and automation routines (.bas files)
 └── classes/        → Manages session events, calendar logic, and dynamic document labels (.cls files)
+```
 
 **forms/core/ – Primary Workflow Interfaces**
 This folder contains the system’s core UI forms that enable document entry, asset tracking, unit configuration, and automated report generation. These forms control the primary workflow, providing structured data input, integrated validation, and seamless navigation across processes. Key panels include report input forms (Report 1–2–3), system reset wizard, asset manager, and registry dashboards.
