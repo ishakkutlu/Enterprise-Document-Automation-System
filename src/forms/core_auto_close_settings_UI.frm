@@ -33,7 +33,7 @@ End Sub
 
 Private Sub AktifPasif_Click()
 
-'AKTÝF/PASÝF
+'AKTÄ°F/PASÄ°F
 If AktifPasif.Value = True Then
     AktifPasif.Caption = "Disable Auto-Close"
 Else
@@ -145,7 +145,7 @@ Private Sub Saat_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As 
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If Saat.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -154,7 +154,7 @@ Private Sub Saat_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As 
             End If
             Me.Saat.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If Saat.ListIndex = Saat.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -190,7 +190,7 @@ Private Sub Dakika_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If Dakika.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -199,7 +199,7 @@ Private Sub Dakika_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
             End If
             Me.Dakika.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If Dakika.ListIndex = Dakika.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -235,7 +235,7 @@ Private Sub Saniye_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If Saniye.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -244,7 +244,7 @@ Private Sub Saniye_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
             End If
             Me.Saniye.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If Saniye.ListIndex = Saniye.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -308,7 +308,7 @@ End If
 
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -332,7 +332,7 @@ Else
     xSaniye = ""
 End If
 
-'Bekleme süresi yoksa pasif kabul et
+'Bekleme sÃ¼resi yoksa pasif kabul et
 If xSaat = "" And xDakika = "" And xSaniye = "" Then
     xDurum = "Disable"
     'MsgBox "test"
@@ -374,7 +374,7 @@ End If
 
 Workbooks(FileName).Save
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -404,7 +404,7 @@ Son:
 ThisWorkbook.Protect "123"
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -454,7 +454,7 @@ For Each ClrLab In core_auto_close_settings_UI.Controls
         ClrLab.ForeColor = RGB(30, 30, 30)
     End If
     
-    'YENÝ
+    'YENÄ°
     If TypeName(ClrLab) = "Frame" Then
         ClrLab.BackColor = RGB(254, 254, 254)
         ClrLab.ForeColor = RGB(30, 30, 30)
@@ -462,31 +462,31 @@ For Each ClrLab In core_auto_close_settings_UI.Controls
     End If
 Next ClrLab
 
-UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
-AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
+UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
+AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
 LblBilgilendirme.BackColor = RGB(254, 254, 254)
 
 Kaydet.BackColor = RGB(225, 235, 245)
 Kaydet.ForeColor = RGB(30, 30, 30)
 Kapat.BackColor = RGB(225, 235, 245)
 Kapat.ForeColor = RGB(30, 30, 30)
-core_auto_close_settings_UI.BackColor = RGB(230, 230, 230) 'YENÝ
+core_auto_close_settings_UI.BackColor = RGB(230, 230, 230) 'YENÄ°
 
-'Saat liste deðerleri
+'Saat liste deÄŸerleri
 For i = 1 To 23 Step 1
     With Saat
         .AddItem (i)
     End With
 Next i
 
-'Dakika liste deðerleri
+'Dakika liste deÄŸerleri
 For i = 1 To 59 Step 1
     With Dakika
         .AddItem (i)
     End With
 Next i
 
-'Saniye liste deðerleri
+'Saniye liste deÄŸerleri
 For i = 1 To 59 Step 1
     With Saniye
         .AddItem (i)
@@ -522,7 +522,7 @@ Saniye.Value = ""
 
 
 PasifiAtla:
-'AKTÝF/PASÝF
+'AKTÄ°F/PASÄ°F
 If AktifPasif.Value = True Then
     AktifPasif.Caption = "Disable Auto-Close"
 Else
@@ -532,7 +532,7 @@ Else
     Saniye.Value = ""
 End If
 
-'Açýk dropdown kapat
+'AÃ§Ä±k dropdown kapat
 Call ModuleSystemSettings.DropDownKapat
 
 

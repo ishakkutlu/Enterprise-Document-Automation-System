@@ -48,7 +48,7 @@ Private Sub ComboIl_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift 
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If ComboIl.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -57,7 +57,7 @@ Private Sub ComboIl_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift 
             End If
             Me.ComboIl.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If ComboIl.ListIndex = ComboIl.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -75,11 +75,11 @@ Dim ItemBul As Range
 
 If ComboChangeControl = False Then
 
-    ComboIlce.Value = "" 'Bunu diðer il combolarýna da uyarla !!!! Ýl degiþince ilçe deðerini kaldýr.
+    ComboIlce.Value = "" 'Bunu diÄŸer il combolarÄ±na da uyarla !!!! Ä°l degiÅŸince ilÃ§e deÄŸerini kaldÄ±r.
     ComboIlKodu.Value = ""
     ComboIlceKodu.Value = ""
     
-    'Ýl kodunu bul
+    'Ä°l kodunu bul
     On Error Resume Next
     Set ItemBul = Worksheets(2).Range("F6:F95").Find(What:=ComboIl.Value, SearchDirection:=xlNext, _
                     SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -91,9 +91,9 @@ If ComboChangeControl = False Then
     ComboIlKodu.Value = Worksheets(2).Cells(ItemBul.Row, 5).Value
     
     
-    'Ýlçeleri bul
+    'Ä°lÃ§eleri bul
     On Error GoTo 0
-    'ComboIlçe seçimlerini Ýl seçimine göre göster.
+    'ComboIlÃ§e seÃ§imlerini Ä°l seÃ§imine gÃ¶re gÃ¶ster.
     On Error GoTo Bos
     ComboIlce.RowSource = Replace(ComboIl.Value, " ", "_")
     'ComboIl.DropDown
@@ -124,7 +124,7 @@ Private Sub ComboIlce_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If ComboIlce.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -133,7 +133,7 @@ Private Sub ComboIlce_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
             End If
             Me.ComboIlce.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If ComboIlce.ListIndex = ComboIlce.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -281,7 +281,7 @@ If IlSayHedef > 95 Then
 End If
 
 
-'Ýl kontrol
+'Ä°l kontrol
 If IlStr = "" Then
     MsgBox "Province field cannot be left empty.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Out
@@ -297,7 +297,7 @@ ThisWorkbook.Unprotect "123"
 ThisWorkbook.Worksheets(2).Unprotect Password:="123"
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -323,25 +323,25 @@ End If
 Set IlBul = ThisWorkbook.Worksheets(2).Range("F6:F95").Find(What:=IlStr, SearchDirection:=xlNext, _
             SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
 If Not IlBul Is Nothing Then
-'    MsgBox "Ýl eþleþmesi saðlandý.", vbOKOnly + vbInformation, "Enterprise Document Automation System"
+'    MsgBox "Ä°l eÅŸleÅŸmesi saÄŸlandÄ±.", vbOKOnly + vbInformation, "Enterprise Document Automation System"
     IlEsleyicisi = ThisWorkbook.Worksheets(2).Cells(IlBul.Row, 3).Value
     
-    'Ýl kodu kontrol
-    If IlKodu = ThisWorkbook.Worksheets(2).Cells(IlBul.Row, 5).Value Then 'Ýl kodu eþleþti
-'        MsgBox "Ýl kodu eþleþmesi saðlandý.", vbOKOnly + vbInformation, "Enterprise Document Automation System"
-    Else 'Ýl kodu eþleþmedi
-'        MsgBox "Ýl kodu eþleþmesi saðlanamadý.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+    'Ä°l kodu kontrol
+    If IlKodu = ThisWorkbook.Worksheets(2).Cells(IlBul.Row, 5).Value Then 'Ä°l kodu eÅŸleÅŸti
+'        MsgBox "Ä°l kodu eÅŸleÅŸmesi saÄŸlandÄ±.", vbOKOnly + vbInformation, "Enterprise Document Automation System"
+    Else 'Ä°l kodu eÅŸleÅŸmedi
+'        MsgBox "Ä°l kodu eÅŸleÅŸmesi saÄŸlanamadÄ±.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
         If Len(IlKodu) = 1 Then
             IlKodu = "0" & IlKodu
             'MsgBox IlKodu
         End If
         Set IlKoduBul = ThisWorkbook.Worksheets(2).Range("E6:E95").Find(What:=IlKodu, SearchDirection:=xlNext, _
                         SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
-        If Not IlKoduBul Is Nothing Then 'Ýl kodu kullanýmda
+        If Not IlKoduBul Is Nothing Then 'Ä°l kodu kullanÄ±mda
             WsIlStr = ThisWorkbook.Worksheets(2).Cells(IlKoduBul.Row, 6).Value
             MsgBox "Province code " & IlKodu & " is already used by " & WsIlStr & " and is therefore not available.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
             GoTo Son
-        Else 'Ýl kodu boþta
+        Else 'Ä°l kodu boÅŸta
             WsIlKodu = ThisWorkbook.Worksheets(2).Cells(IlBul.Row, 5).Value
             If Len(WsIlKodu) = 1 Then
                 WsIlKodu = "0" & WsIlKodu
@@ -351,7 +351,7 @@ If Not IlBul Is Nothing Then
                     "Click """ & "Yes" & """ to confirm the change, or """ & "No" & """ to cancel.", vbYesNo + vbInformation, "Enterprise Document Automation System")
             If Bilgi = vbYes Then
             
-                'Ýl kodunu deðiþtir.
+                'Ä°l kodunu deÄŸiÅŸtir.
                 ThisWorkbook.Worksheets(2).Cells(IlBul.Row, 5).Value = IlKodu
                 WsTanimlar.Worksheets(1).Cells(IlBul.Row, 5).Value = IlKodu
                 
@@ -364,8 +364,8 @@ If Not IlBul Is Nothing Then
     End If
     
     
-    'Ýlçe kontrol
-    If IlceStr <> "" Then 'Ýlçe alaný dolu
+    'Ä°lÃ§e kontrol
+    If IlceStr <> "" Then 'Ä°lÃ§e alanÄ± dolu
         IlceStr = WorksheetFunction.Proper(IlceStr)
         For i = 1 To 50
             IlceKodu = Replace(IlceKodu, " ", "")
@@ -377,14 +377,14 @@ If Not IlBul Is Nothing Then
         End If
         Set IlceBul = ThisWorkbook.Worksheets(2).Columns(IlEsleyicisi + 6).Find(What:=IlceStr, SearchDirection:=xlNext, _
                     SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
-        If Not IlceBul Is Nothing Then 'Ýlçe bulundu
-'            MsgBox "Ýlçe eþleþmesi saðlandý.", vbOKOnly + vbInformation, "Enterprise Document Automation System"
-            'Ýlçe kodu kontrol
-            If IlceKodu <> "" Then 'Ýlçe eþleþmesi saðlandý ve ilçe kodu alaný dolu
-                If IlceKodu = ThisWorkbook.Worksheets(2).Cells(IlceBul.Row, 4).Value Then 'Ýlçe ve ilçe kodu eþleþmesi saðlandý
-'                    MsgBox "Ýlçe kodu eþleþmesi saðlandý.", vbOKOnly + vbInformation, "Enterprise Document Automation System"
-                Else 'Ýlçe eþleþmesi saðlandý, ama ilçe kodu eþleþmedi (Ýlçe kodu deðiþtirilmek isteniyor.)
-'                    MsgBox "Ýlçe kodu eþleþmesi saðlanamadý.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+        If Not IlceBul Is Nothing Then 'Ä°lÃ§e bulundu
+'            MsgBox "Ä°lÃ§e eÅŸleÅŸmesi saÄŸlandÄ±.", vbOKOnly + vbInformation, "Enterprise Document Automation System"
+            'Ä°lÃ§e kodu kontrol
+            If IlceKodu <> "" Then 'Ä°lÃ§e eÅŸleÅŸmesi saÄŸlandÄ± ve ilÃ§e kodu alanÄ± dolu
+                If IlceKodu = ThisWorkbook.Worksheets(2).Cells(IlceBul.Row, 4).Value Then 'Ä°lÃ§e ve ilÃ§e kodu eÅŸleÅŸmesi saÄŸlandÄ±
+'                    MsgBox "Ä°lÃ§e kodu eÅŸleÅŸmesi saÄŸlandÄ±.", vbOKOnly + vbInformation, "Enterprise Document Automation System"
+                Else 'Ä°lÃ§e eÅŸleÅŸmesi saÄŸlandÄ±, ama ilÃ§e kodu eÅŸleÅŸmedi (Ä°lÃ§e kodu deÄŸiÅŸtirilmek isteniyor.)
+'                    MsgBox "Ä°lÃ§e kodu eÅŸleÅŸmesi saÄŸlanamadÄ±.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
                     IlEsleyicisi = ThisWorkbook.Worksheets(2).Cells(IlBul.Row, 3).Value
 
                     If Len(IlceKodu) = 1 Then
@@ -393,12 +393,12 @@ If Not IlBul Is Nothing Then
                     End If
                     Set IlceKoduBul = ThisWorkbook.Worksheets(2).Range("D6:D55").Find(What:=IlceKodu, SearchDirection:=xlNext, _
                                     SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
-                    If Not IlceKoduBul Is Nothing Then 'Ýlçe kodu tanýmlama alaný içinde
+                    If Not IlceKoduBul Is Nothing Then 'Ä°lÃ§e kodu tanÄ±mlama alanÄ± iÃ§inde
                         WsIlceStr = ThisWorkbook.Worksheets(2).Cells(IlceKoduBul.Row, IlEsleyicisi + 6).Value
-                        If WsIlceStr <> "" Then 'Ýlçe kodu kulanýmda
+                        If WsIlceStr <> "" Then 'Ä°lÃ§e kodu kulanÄ±mda
                             MsgBox "The district code " & IlceKodu & " is already in use by " & WsIlceStr & " and is therefore not available.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
                             GoTo Son
-                        Else 'Ýlçe kodu boþta
+                        Else 'Ä°lÃ§e kodu boÅŸta
                             WsIlceKodu = ThisWorkbook.Worksheets(2).Cells(IlceBul.Row, 4).Value
                             If Len(WsIlceKodu) = 1 Then
                                 WsIlceKodu = "0" & WsIlceKodu
@@ -407,7 +407,7 @@ If Not IlBul Is Nothing Then
                             Bilgi = MsgBox("The district code " & IlceKodu & " is available. The district code for " & IlceStr & " will be changed from " & WsIlceKodu & " to " & IlceKodu & ". Click " & """" & "Yes" & """" & " to confirm the change, or " & """" & "No" & """" & " to cancel.", vbYesNo + vbInformation, "Enterprise Document Automation System")
                             If Bilgi = vbYes Then
                             
-                                'Ýlçe kodunu deðiþtir.
+                                'Ä°lÃ§e kodunu deÄŸiÅŸtir.
                                 ThisWorkbook.Worksheets(2).Cells(IlceKoduBul.Row, IlEsleyicisi + 6).Value = IlceStr
                                 WsTanimlar.Worksheets(1).Cells(IlceKoduBul.Row, IlEsleyicisi + 6).Value = IlceStr
                                 ThisWorkbook.Worksheets(2).Cells(IlceBul.Row, IlEsleyicisi + 6).Value = ""
@@ -419,19 +419,19 @@ If Not IlBul Is Nothing Then
                                 GoTo Son
                             End If
                         End If
-                    Else 'Ýlçe kodu tanýmlama alaný dýþýnda
+                    Else 'Ä°lÃ§e kodu tanÄ±mlama alanÄ± dÄ±ÅŸÄ±nda
                         MsgBox "The district code " & IlceKodu & " is outside the allowed range and therefore not available. Please enter a district code between 1 and 50.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
                         GoTo Son
                     End If
 
                 End If
-            Else 'Ýlçe eþleþmesi saðlandý, ama ilçe kodu boþ
+            Else 'Ä°lÃ§e eÅŸleÅŸmesi saÄŸlandÄ±, ama ilÃ§e kodu boÅŸ
                 MsgBox "The district code field cannot be left empty while the district name field is filled.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
                 GoTo Son
             End If
-        Else 'Ýlçe bulunamadý (Yeni ilçe eklenmek isteniyor.)
+        Else 'Ä°lÃ§e bulunamadÄ± (Yeni ilÃ§e eklenmek isteniyor.)
             If IlceKodu <> "" Then
-'                MsgBox "Ýlçe eþleþmesi saðlanamadý.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+'                MsgBox "Ä°lÃ§e eÅŸleÅŸmesi saÄŸlanamadÄ±.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
                 IlEsleyicisi = ThisWorkbook.Worksheets(2).Cells(IlBul.Row, 3).Value
                 
                 If Len(IlceKodu) = 1 Then
@@ -440,12 +440,12 @@ If Not IlBul Is Nothing Then
                 End If
                 Set IlceKoduBul = ThisWorkbook.Worksheets(2).Range("D6:D55").Find(What:=IlceKodu, SearchDirection:=xlNext, _
                                 SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
-                If Not IlceKoduBul Is Nothing Then 'Ýlçe kodu tanýmlama alaný içinde
+                If Not IlceKoduBul Is Nothing Then 'Ä°lÃ§e kodu tanÄ±mlama alanÄ± iÃ§inde
                     WsIlceStr = ThisWorkbook.Worksheets(2).Cells(IlceKoduBul.Row, IlEsleyicisi + 6).Value
-                    If WsIlceStr <> "" Then 'Ýlçe kodu kulanýmda
+                    If WsIlceStr <> "" Then 'Ä°lÃ§e kodu kulanÄ±mda
                         MsgBox "The district code " & IlceKodu & " is already in use by " & WsIlceStr & " and therefore cannot be used.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
                         GoTo Son
-                    Else 'Ýlçe kodu boþta
+                    Else 'Ä°lÃ§e kodu boÅŸta
                         WsIlceKodu = ThisWorkbook.Worksheets(2).Cells(IlceKoduBul.Row, 4).Value
                         If Len(WsIlceKodu) = 1 Then
                             WsIlceKodu = "0" & WsIlceKodu
@@ -454,7 +454,7 @@ If Not IlBul Is Nothing Then
                         Bilgi = MsgBox("A new district named " & IlceStr & " with the district code " & IlceKodu & " will be added to the province " & IlStr & ". To confirm the operation, click " & """" & "Yes" & """" & "; to cancel, click " & """" & "No" & """" & ".", vbYesNo + vbInformation, "Enterprise Document Automation System")
                         If Bilgi = vbYes Then
                         
-                            'Yeni ilçe ekle
+                            'Yeni ilÃ§e ekle
                             ThisWorkbook.Worksheets(2).Cells(IlceKoduBul.Row, IlEsleyicisi + 6).Value = IlceStr
                             WsTanimlar.Worksheets(1).Cells(IlceKoduBul.Row, IlEsleyicisi + 6).Value = IlceStr
 
@@ -464,7 +464,7 @@ If Not IlBul Is Nothing Then
                             GoTo Son
                         End If
                     End If
-                Else 'Ýlçe kodu tanýmlama alaný dýþýnda
+                Else 'Ä°lÃ§e kodu tanÄ±mlama alanÄ± dÄ±ÅŸÄ±nda
                     MsgBox "The district code " & IlceKodu & " is outside the allowed definition range and therefore unavailable. Please enter a district code between 1 and 50.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
                     GoTo Son
                 End If
@@ -473,15 +473,15 @@ If Not IlBul Is Nothing Then
                 GoTo Son
             End If
         End If
-    Else 'Ýlçe alaný boþ
+    Else 'Ä°lÃ§e alanÄ± boÅŸ
         '
     End If
     
 Else
-'    MsgBox "Ýl eþleþmesi saðlanamadý.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+'    MsgBox "Ä°l eÅŸleÅŸmesi saÄŸlanamadÄ±.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
 
-    'Ýlçe kontrol
-    If IlceStr <> "" Then 'Ýlçe alaný dolu
+    'Ä°lÃ§e kontrol
+    If IlceStr <> "" Then 'Ä°lÃ§e alanÄ± dolu
 
         If Len(IlceKodu) = 1 Then
             IlceKodu = "0" & IlceKodu
@@ -489,7 +489,7 @@ Else
         End If
         Set IlceKoduBul = ThisWorkbook.Worksheets(2).Range("D6:D55").Find(What:=IlceKodu, SearchDirection:=xlNext, _
                         SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
-        If Not IlceKoduBul Is Nothing Then 'Ýlçe kodu tanýmlama alaný içinde
+        If Not IlceKoduBul Is Nothing Then 'Ä°lÃ§e kodu tanÄ±mlama alanÄ± iÃ§inde
 
             If Len(IlKodu) = 1 Then
                 IlKodu = "0" & IlKodu
@@ -497,20 +497,20 @@ Else
             End If
             Set IlKoduBul = ThisWorkbook.Worksheets(2).Range("E6:E95").Find(What:=IlKodu, SearchDirection:=xlNext, _
                             SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
-            If Not IlKoduBul Is Nothing Then 'Ýl kodu kullanýmda
+            If Not IlKoduBul Is Nothing Then 'Ä°l kodu kullanÄ±mda
                 WsIlStr = ThisWorkbook.Worksheets(2).Cells(IlKoduBul.Row, 6).Value
                 MsgBox "The province code " & IlKodu & " is already in use by " & WsIlStr & " and therefore is not available.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
                 GoTo Son
-            Else 'Ýl kodu boþta
+            Else 'Ä°l kodu boÅŸta
                 Bilgi = MsgBox("A new province named " & IlStr & " with province code " & IlKodu & " and a new district named " & IlceStr & " with district code " & IlceKodu & " will be added. To confirm the operation, click " & """" & "Yes" & """" & ", or click " & """" & "No" & """" & " to cancel.", vbYesNo + vbInformation, "Enterprise Document Automation System")
                 If Bilgi = vbYes Then
-                    'Ýl kodu ekle
+                    'Ä°l kodu ekle
                     ThisWorkbook.Worksheets(2).Cells(IlSayHedef, 5).Value = IlKodu
                     WsTanimlar.Worksheets(1).Cells(IlSayHedef, 5).Value = IlKodu
-                    'Ýli dikeyde ekle
+                    'Ä°li dikeyde ekle
                     ThisWorkbook.Worksheets(2).Cells(IlSayHedef, 6).Value = IlStr
                     WsTanimlar.Worksheets(1).Cells(IlSayHedef, 6).Value = IlStr
-                    'Ýli yatayda ekle
+                    'Ä°li yatayda ekle
                     IlEsleyicisi = ThisWorkbook.Worksheets(2).Cells(IlSayHedef, 3).Value
                     ThisWorkbook.Worksheets(2).Cells(5, IlEsleyicisi + 6).Value = IlStr
                     WsTanimlar.Worksheets(1).Cells(5, IlEsleyicisi + 6).Value = IlStr
@@ -519,7 +519,7 @@ Else
                     ThisWorkbook.Names.Add name:=NameDuzenleyici, _
                     RefersTo:=ThisWorkbook.Worksheets(2).Range(ThisWorkbook.Worksheets(2).Cells(6, IlEsleyicisi + 6), _
                     ThisWorkbook.Worksheets(2).Cells(55, IlEsleyicisi + 6))
-                    'Yeni ilçe ekle
+                    'Yeni ilÃ§e ekle
                     ThisWorkbook.Worksheets(2).Cells(IlceKoduBul.Row, IlEsleyicisi + 6).Value = IlceStr
                     WsTanimlar.Worksheets(1).Cells(IlceKoduBul.Row, IlEsleyicisi + 6).Value = IlceStr
 
@@ -530,12 +530,12 @@ Else
                 End If
             End If
             
-        Else 'Ýlçe kodu tanýmlama alaný dýþýnda
+        Else 'Ä°lÃ§e kodu tanÄ±mlama alanÄ± dÄ±ÅŸÄ±nda
             MsgBox "The district code " & IlceKodu & " is outside the allowed definition range and is therefore not available. Please enter a district code between 1 and 50.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
             GoTo Son
         End If
 
-    Else 'Ýlçe alaný boþ
+    Else 'Ä°lÃ§e alanÄ± boÅŸ
 
         If Len(IlKodu) = 1 Then
             IlKodu = "0" & IlKodu
@@ -543,20 +543,20 @@ Else
         End If
         Set IlKoduBul = ThisWorkbook.Worksheets(2).Range("E6:E95").Find(What:=IlKodu, SearchDirection:=xlNext, _
                         SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
-        If Not IlKoduBul Is Nothing Then 'Ýl kodu kullanýmda
+        If Not IlKoduBul Is Nothing Then 'Ä°l kodu kullanÄ±mda
             WsIlStr = ThisWorkbook.Worksheets(2).Cells(IlKoduBul.Row, 6).Value
             MsgBox "The province code " & IlKodu & " is already used by " & WsIlStr & " and is therefore not available.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
             GoTo Son
-        Else 'Ýl kodu boþta
+        Else 'Ä°l kodu boÅŸta
             Bilgi = MsgBox("A new province named " & IlStr & " with the code " & IlKodu & " will be added. To confirm the operation, click " & """" & "Yes" & """" & "; to cancel, click " & """" & "No" & """" & ".", vbYesNo + vbInformation, "Enterprise Document Automation System")
             If Bilgi = vbYes Then
-                'Ýl kodu ekle
+                'Ä°l kodu ekle
                 ThisWorkbook.Worksheets(2).Cells(IlSayHedef, 5).Value = IlKodu
                 WsTanimlar.Worksheets(1).Cells(IlSayHedef, 5).Value = IlKodu
-                'Ýli dikeyde ekle
+                'Ä°li dikeyde ekle
                 ThisWorkbook.Worksheets(2).Cells(IlSayHedef, 6).Value = IlStr
                 WsTanimlar.Worksheets(1).Cells(IlSayHedef, 6).Value = IlStr
-                'Ýli yatayda ekle
+                'Ä°li yatayda ekle
                 IlEsleyicisi = ThisWorkbook.Worksheets(2).Cells(IlSayHedef, 3).Value
                 ThisWorkbook.Worksheets(2).Cells(5, IlEsleyicisi + 6).Value = IlStr
                 WsTanimlar.Worksheets(1).Cells(5, IlEsleyicisi + 6).Value = IlStr
@@ -586,7 +586,7 @@ ThisWorkbook.Protect "123"
 'ThisWorkbook.Save
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     WsTanimlar.Worksheets(1).Protect Password:="123"
     WsTanimlar.Save
     Workbooks(FileName).Close SaveChanges:=True
@@ -648,7 +648,7 @@ ThisWorkbook.Unprotect "123"
 ThisWorkbook.Worksheets(2).Unprotect Password:="123"
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -674,15 +674,15 @@ End If
 Set IlBul = ThisWorkbook.Worksheets(2).Range("F6:F95").Find(What:=IlStr, SearchDirection:=xlNext, _
             SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
 If Not IlBul Is Nothing Then
-'    MsgBox "Ýl eþleþmesi saðlandý.", vbOKOnly + vbInformation, "Enterprise Document Automation System"
+'    MsgBox "Ä°l eÅŸleÅŸmesi saÄŸlandÄ±.", vbOKOnly + vbInformation, "Enterprise Document Automation System"
     IlEsleyicisi = ThisWorkbook.Worksheets(2).Cells(IlBul.Row, 3).Value
     
-    'Ýl kodu kontrol
-    If IlKodu = ThisWorkbook.Worksheets(2).Cells(IlBul.Row, 5).Value Then 'Ýl kodu eþleþti
-'        MsgBox "Ýl kodu eþleþmesi saðlandý.", vbOKOnly + vbInformation, "Enterprise Document Automation System"
+    'Ä°l kodu kontrol
+    If IlKodu = ThisWorkbook.Worksheets(2).Cells(IlBul.Row, 5).Value Then 'Ä°l kodu eÅŸleÅŸti
+'        MsgBox "Ä°l kodu eÅŸleÅŸmesi saÄŸlandÄ±.", vbOKOnly + vbInformation, "Enterprise Document Automation System"
     
-         'Ýlçe kontrol
-        If IlceStr <> "" Then 'Ýlçe alaný dolu
+         'Ä°lÃ§e kontrol
+        If IlceStr <> "" Then 'Ä°lÃ§e alanÄ± dolu
             IlceStr = WorksheetFunction.Proper(IlceStr)
             For i = 1 To 50
                 IlceKodu = Replace(IlceKodu, " ", "")
@@ -694,15 +694,15 @@ If Not IlBul Is Nothing Then
             End If
             Set IlceBul = ThisWorkbook.Worksheets(2).Columns(IlEsleyicisi + 6).Find(What:=IlceStr, SearchDirection:=xlNext, _
                         SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
-            If Not IlceBul Is Nothing Then 'Ýlçe bulundu
-'                MsgBox "Ýlçe eþleþmesi saðlandý.", vbOKOnly + vbInformation, "Enterprise Document Automation System"
+            If Not IlceBul Is Nothing Then 'Ä°lÃ§e bulundu
+'                MsgBox "Ä°lÃ§e eÅŸleÅŸmesi saÄŸlandÄ±.", vbOKOnly + vbInformation, "Enterprise Document Automation System"
                 
-                'Ýlçe kodu kontrol
-                If IlceKodu <> "" Then 'Ýlçe eþleþmesi saðlandý ve ilçe kodu alaný dolu
-                    If IlceKodu = ThisWorkbook.Worksheets(2).Cells(IlceBul.Row, 4).Value Then 'Ýlçe ve ilçe kodu eþleþmesi saðlandý
-'                        MsgBox "Ýlçe kodu eþleþmesi saðlandý.", vbOKOnly + vbInformation, "Enterprise Document Automation System"
+                'Ä°lÃ§e kodu kontrol
+                If IlceKodu <> "" Then 'Ä°lÃ§e eÅŸleÅŸmesi saÄŸlandÄ± ve ilÃ§e kodu alanÄ± dolu
+                    If IlceKodu = ThisWorkbook.Worksheets(2).Cells(IlceBul.Row, 4).Value Then 'Ä°lÃ§e ve ilÃ§e kodu eÅŸleÅŸmesi saÄŸlandÄ±
+'                        MsgBox "Ä°lÃ§e kodu eÅŸleÅŸmesi saÄŸlandÄ±.", vbOKOnly + vbInformation, "Enterprise Document Automation System"
                         
-                        'MsgBox "Ýlçe silme prosedürü buraya gelecek"
+                        'MsgBox "Ä°lÃ§e silme prosedÃ¼rÃ¼ buraya gelecek"
                         
                         Sifre = InputBox(Prompt:="The district named " & IlceStr & " with district code " & IlceKodu & " under the province named " & IlStr & " with province code " & IlKodu & " will be deleted." & vbNewLine & vbNewLine & "To initiate the deletion process, please enter the password: 123", Title:="Enterprise Document Automation System")
                         If Sifre = "123" Then
@@ -720,15 +720,15 @@ If Not IlBul Is Nothing Then
                             GoTo Son
                         End If
                         
-                    Else 'Ýlçe eþleþmesi saðlandý, ama ilçe kodu eþleþmedi
+                    Else 'Ä°lÃ§e eÅŸleÅŸmesi saÄŸlandÄ±, ama ilÃ§e kodu eÅŸleÅŸmedi
                         MsgBox "District code mismatch. The deletion process could not be completed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
                         GoTo Son
                     End If
-                Else 'Ýlçe eþleþmesi saðlandý, ama ilçe kodu boþ
+                Else 'Ä°lÃ§e eÅŸleÅŸmesi saÄŸlandÄ±, ama ilÃ§e kodu boÅŸ
                     MsgBox "District code cannot be left blank when the district name is filled.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
                     GoTo Son
                 End If
-            Else 'Ýlçe bulunamadý
+            Else 'Ä°lÃ§e bulunamadÄ±
                 If IlceKodu <> "" Then
                     MsgBox "District match could not be found. Deletion cannot proceed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
                     GoTo Son
@@ -737,9 +737,9 @@ If Not IlBul Is Nothing Then
                     GoTo Son
                 End If
             End If
-        Else 'Ýlçe alaný boþ (Ýl ve tüm ilçeler silinecek)
+        Else 'Ä°lÃ§e alanÄ± boÅŸ (Ä°l ve tÃ¼m ilÃ§eler silinecek)
             
-            'MsgBox "Ýl ve tüm ilçeler silinecek"
+            'MsgBox "Ä°l ve tÃ¼m ilÃ§eler silinecek"
 
             Sifre = InputBox(Prompt:="The province '" & IlStr & "' (Code: " & IlKodu & ") and all its associated districts will be permanently deleted." & vbNewLine & vbNewLine & "To proceed, please enter the password '123'.", Title:="Enterprise Document Automation System")
             If Sifre = "123" Then
@@ -781,12 +781,12 @@ If Not IlBul Is Nothing Then
  
         End If
     
-    Else 'Ýl kodu eþleþmedi
+    Else 'Ä°l kodu eÅŸleÅŸmedi
         MsgBox "Deletion failed: Province code mismatch.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
         GoTo Son
     End If
     
-Else 'Ýl eþleþmedi
+Else 'Ä°l eÅŸleÅŸmedi
     MsgBox "Deletion failed: Province match not found.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
@@ -800,7 +800,7 @@ ThisWorkbook.Protect "123"
 'ThisWorkbook.Save
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     WsTanimlar.Worksheets(1).Protect Password:="123"
     WsTanimlar.Save
     Workbooks(FileName).Close SaveChanges:=True
@@ -853,7 +853,7 @@ For Each ClrLab In support_provinces_districts_UI.Controls
         ClrLab.ForeColor = RGB(30, 30, 30)
     End If
     
-    'YENÝ
+    'YENÄ°
     If TypeName(ClrLab) = "Frame" Then
         ClrLab.BackColor = RGB(254, 254, 254)
         ClrLab.ForeColor = RGB(30, 30, 30)
@@ -861,8 +861,8 @@ For Each ClrLab In support_provinces_districts_UI.Controls
     End If
 Next ClrLab
 
-UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
-AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
+UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
+AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
 LblBilgilendirme.BackColor = RGB(254, 254, 254)
 
 LabelEkle.BackColor = RGB(225, 235, 245)
@@ -872,7 +872,7 @@ LabelKapat.ForeColor = RGB(30, 30, 30)
 LabelKaldir.BackColor = RGB(225, 235, 245)
 LabelKaldir.ForeColor = RGB(30, 30, 30)
 
-support_provinces_districts_UI.BackColor = RGB(230, 230, 230) 'YENÝ
+support_provinces_districts_UI.BackColor = RGB(230, 230, 230) 'YENÄ°
 
 End Sub
 

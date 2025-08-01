@@ -56,7 +56,7 @@ Dim TaslakFile As String, SayHedef As Long, ItemName As String, j As Integer
 Dim fso As Object, objWord As Object, objDoc As Object, Kurum_ANoStr As String
 
 On Error GoTo Atla
-'Birimi çaðýr
+'Birimi Ã§aÄŸÄ±r
 If Left(ComboBirim.Value, Len(ComboBirim.Value) - 5) = Worksheets(2).Cells(6, 99).Value And ComboBirim.Value <> "" Then
     
     Application.ScreenUpdating = False
@@ -65,7 +65,7 @@ If Left(ComboBirim.Value, Len(ComboBirim.Value) - 5) = Worksheets(2).Cells(6, 99
     DestTaslak = AutoPath & "\System Files\System Templates\Footer Field\"
     TaslakFile = "External Footer.docm"
 
-    'System Files klasör adýný kontrol et.
+    'System Files klasÃ¶r adÄ±nÄ± kontrol et.
     If Not Dir(AutoPath & "\System Files\", vbDirectory) <> vbNullString Then
         MsgBox AutoPath & "\System Files\" & " directory cannot be accessed. The folder named 'System Files' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
         GoTo SonCombo
@@ -78,7 +78,7 @@ If Left(ComboBirim.Value, Len(ComboBirim.Value) - 5) = Worksheets(2).Cells(6, 99
     'Close the all Word application
     Call OpenWordControl
     
-    'Oluþturulacak dosyayý aç
+    'OluÅŸturulacak dosyayÄ± aÃ§
     On Error Resume Next
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
@@ -86,7 +86,7 @@ If Left(ComboBirim.Value, Len(ComboBirim.Value) - 5) = Worksheets(2).Cells(6, 99
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
     If objWord Is Nothing Then
-        'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+        'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
         Set objWord = CreateObject("Word.Application")
         objWord.Visible = False
     End If
@@ -124,8 +124,8 @@ If Left(ComboBirim.Value, Len(ComboBirim.Value) - 5) = Worksheets(2).Cells(6, 99
     
     Aktar.Visible = False
     
-    'Birden fazla boþluk varsa kaldýr
-    'Saðdaki ve soldaki tek boþluðu kaldýr
+    'Birden fazla boÅŸluk varsa kaldÄ±r
+    'SaÄŸdaki ve soldaki tek boÅŸluÄŸu kaldÄ±r
     For i = 1 To 50
         Adres.Value = Replace(Adres.Value, "  ", " ")
     Next i
@@ -163,7 +163,7 @@ If Left(ComboBirim.Value, Len(ComboBirim.Value) - 5) = Worksheets(2).Cells(6, 99
         ElektronikAg.Value = Left(ElektronikAg.Value, Len(ElektronikAg.Value) - 1)
     Loop
     
-    'Paragraf iþaretlerini kaldýr.
+    'Paragraf iÅŸaretlerini kaldÄ±r.
     If InStr(Adres.Value, Chr(13)) > 0 Then
         Adres.Value = Right(Adres.Value, Len(Adres.Value) - 2)
     End If
@@ -290,7 +290,7 @@ Sub OpenWordControl()
 Dim ObjWordx As Object
 Dim objDocx As Object
 
-'MsgBox "OpenWordControl prosedürü baþlýyor."
+'MsgBox "OpenWordControl prosedÃ¼rÃ¼ baÅŸlÄ±yor."
 
     On Error GoTo NoOpenDoc
     Set ObjWordx = GetObject(, "Word.Application")
@@ -307,10 +307,10 @@ NoOpenDocAtla:
         'MsgBox objWordx.ActiveDocument.Name
         If ObjWordx.ActiveDocument.name <> "" Then
             ObjWordx.Quit SaveChanges:=True
-            'MsgBox "Dosya OpenWordControl methodu ile kapatýldý."
+            'MsgBox "Dosya OpenWordControl methodu ile kapatÄ±ldÄ±."
         End If
     Else
-        'MsgBox "Açýk word dokümaný yok."
+        'MsgBox "AÃ§Ä±k word dokÃ¼manÄ± yok."
     End If
 
 Son:
@@ -345,7 +345,7 @@ AutoPath = ThisWorkbook.Path
 DestTaslak = AutoPath & "\System Files\System Templates\Footer Field\"
 TaslakFile = "Draft File.docm"
 
-'System Files klasör adýný kontrol et.
+'System Files klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(AutoPath & "\System Files\", vbDirectory) <> vbNullString Then
     MsgBox AutoPath & "\System Files\" & " directory cannot be accessed. The folder named 'System Files' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
@@ -359,7 +359,7 @@ End If
 'Close the all Word application
 Call OpenWordControl
 
-'Oluþturulacak dosyayý aç
+'OluÅŸturulacak dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -367,7 +367,7 @@ Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 If objWord Is Nothing Then
-    'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+    'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
     Set objWord = CreateObject("Word.Application")
     objWord.Visible = False
 End If
@@ -406,8 +406,8 @@ Next i
 
 Aktar.Visible = False
 
-'Birden fazla boþluk varsa kaldýr
-'Saðdaki ve soldaki tek boþluðu kaldýr
+'Birden fazla boÅŸluk varsa kaldÄ±r
+'SaÄŸdaki ve soldaki tek boÅŸluÄŸu kaldÄ±r
 For i = 1 To 50
     Adres.Value = Replace(Adres.Value, "  ", " ")
 Next i
@@ -445,7 +445,7 @@ Do While Right(ElektronikAg.Value, 1) = " "
     ElektronikAg.Value = Left(ElektronikAg.Value, Len(ElektronikAg.Value) - 1)
 Loop
 
-'Paragraf iþaretlerini kaldýr.
+'Paragraf iÅŸaretlerini kaldÄ±r.
 If InStr(Adres.Value, Chr(13)) > 0 Then
     Adres.Value = Right(Adres.Value, Len(Adres.Value) - 2)
 End If
@@ -500,13 +500,13 @@ DestAltBilgi = AutoPath & "\System Files\System Templates\Footer Field\"
 Tanimlar = "Definitions.xlsx"
 Performans = "Performance Report.xlsx"
 
-Rapor3_2File = "Report 3.2 – Type A Cover Letter.docm"
-Rapor3_2FileTipB = "Report 3.2 – Type B Cover Letter.docm"
-Rapor3_1File = "Report 3.1 – Type A Cover Letter.docm"
-Rapor3_1TipBFile = "Report 3.1 – Type B Cover Letter.docm"
+Rapor3_2File = "Report 3.2 â€“ Type A Cover Letter.docm"
+Rapor3_2FileTipB = "Report 3.2 â€“ Type B Cover Letter.docm"
+Rapor3_1File = "Report 3.1 â€“ Type A Cover Letter.docm"
+Rapor3_1TipBFile = "Report 3.1 â€“ Type B Cover Letter.docm"
 
-FinansalBirimFile = "Report 3.2 – Type A Cover Letter – Financial Unit.docm"
-FinansalBirimFileTipB = "Report 3.2 – Type B Cover Letter – Financial Unit.docm"
+FinansalBirimFile = "Report 3.2 â€“ Type A Cover Letter â€“ Financial Unit.docm"
+FinansalBirimFileTipB = "Report 3.2 â€“ Type B Cover Letter â€“ Financial Unit.docm"
 Rapor1File = "Report 1 Cover Letter.docm"
 RaporFile = "Report 2 Cover Letter.docm"
 
@@ -611,8 +611,8 @@ End If
 
 
 
-'Birden fazla boþluk varsa kaldýr
-'Saðdaki ve soldaki tek boþluðu kaldýr
+'Birden fazla boÅŸluk varsa kaldÄ±r
+'SaÄŸdaki ve soldaki tek boÅŸluÄŸu kaldÄ±r
 For i = 1 To 50
     Kurum_ANo.Value = Replace(Kurum_ANo.Value, "  ", " ")
 Next i
@@ -635,9 +635,9 @@ If ComboBirim.Value <> "" Then
     ThisWorkbook.Protect "123"
     'MsgBox Left(ComboBirim.Value, Len(ComboBirim.Value) - 5)
 
-    '____________Güncelleme 14112019
+    '____________GÃ¼ncelleme 14112019
     OpenControl = IsFileOpen(DestTanimlar & Tanimlar)
-    If OpenControl = True Then 'Açýksa
+    If OpenControl = True Then 'AÃ§Ä±ksa
         Workbooks(Tanimlar).Close SaveChanges:=True
     End If
     Workbooks.Open (DestTanimlar & Tanimlar)
@@ -649,23 +649,23 @@ If ComboBirim.Value <> "" Then
     
     Workbooks(Tanimlar).Save
     OpenControl = IsFileOpen(DestTanimlar & Tanimlar)
-    If OpenControl = True Then 'Açýksa
+    If OpenControl = True Then 'AÃ§Ä±ksa
         Workbooks(Tanimlar).Close SaveChanges:=True
     End If
     
-    '____________Güncelleme 14112019
+    '____________GÃ¼ncelleme 14112019
     
 Else
     MsgBox "Please select your unit.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
 
-'Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I")) & " UNIT"
+'Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I")) & " UNIT"
 Birimx = Worksheets(2).Cells(6, 99).Value & " Unit"
 Kurum_A = "ORGANIZATION A" & vbNewLine & Birimx
 
-'Birden fazla boþluk varsa kaldýr
-'Saðdaki ve soldaki tek boþluðu kaldýr
+'Birden fazla boÅŸluk varsa kaldÄ±r
+'SaÄŸdaki ve soldaki tek boÅŸluÄŸu kaldÄ±r
 For i = 1 To 50
     Adres.Value = Replace(Adres.Value, "  ", " ")
 Next i
@@ -703,7 +703,7 @@ Do While Right(ElektronikAg.Value, 1) = " "
     ElektronikAg.Value = Left(ElektronikAg.Value, Len(ElektronikAg.Value) - 1)
 Loop
 
-'Paragraf iþaretlerini kaldýr.
+'Paragraf iÅŸaretlerini kaldÄ±r.
 If InStr(Adres.Value, Chr(13)) > 0 Then
     Adres.Value = Right(Adres.Value, Len(Adres.Value) - 2)
 End If
@@ -717,9 +717,9 @@ If InStr(ElektronikAg.Value, Chr(13)) > 0 Then
     ElektronikAg.Value = Right(ElektronikAg.Value, Len(ElektronikAg.Value) - 2)
 End If
 
-'Tanýmlarý güncelle
+'TanÄ±mlarÄ± gÃ¼ncelle
 OpenControl = IsFileOpen(DestTanimlar & Tanimlar)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(Tanimlar).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -730,16 +730,16 @@ Workbooks(Tanimlar).Worksheets(1).Unprotect Password:="123"
 Workbooks(Tanimlar).Worksheets(1).Cells(6, 99).Value = Left(ComboBirim.Value, Len(ComboBirim.Value) - 5)
 Workbooks(Tanimlar).Worksheets(1).Protect Password:="123" ', DrawingObjects:=False
 OpenControl = IsFileOpen(DestTanimlar & Tanimlar)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(Tanimlar).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
 End If
 ThisWorkbook.Activate
 
-'Performans güncelle
+'Performans gÃ¼ncelle
 OpenControl = IsFileOpen(DestPerformans & Performans)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(Performans).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -752,7 +752,7 @@ Workbooks(Performans).Worksheets(1).Protect Password:="123", DrawingObjects:=Fal
 
 Workbooks(Performans).Save
 OpenControl = IsFileOpen(DestPerformans & Performans)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(Performans).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     
@@ -764,7 +764,7 @@ ThisWorkbook.Activate
 'Close the all Word application
 Call OpenWordControl
 
-'Oluþturulacak dosyayý aç
+'OluÅŸturulacak dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -772,13 +772,13 @@ Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 If objWord Is Nothing Then
-    'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+    'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
     Set objWord = CreateObject("Word.Application")
     objWord.Visible = False 'True 'False
 End If
 objWord.Visible = False
 
-'Report 3.2 – Type A Cover Letter
+'Report 3.2 â€“ Type A Cover Letter
 objWord.Documents.Open FileName:=DestRapor3lar & Rapor3_2File
 Set objDoc = GetObject(DestRapor3lar & Rapor3_2File)
 'objDoc.ActiveWindow.Visible = False
@@ -800,7 +800,7 @@ objDoc.Tables(2).Cell(Row:=4, Column:=1).Range.Text = Kurum_A
 objDoc.Close SaveChanges:=True
 objWord.Visible = False
 
-'Report 3.2 – Type B Cover Letter
+'Report 3.2 â€“ Type B Cover Letter
 objWord.Documents.Open FileName:=DestRapor3lar & Rapor3_2FileTipB
 Set objDoc = GetObject(DestRapor3lar & Rapor3_2FileTipB)
 'objDoc.ActiveWindow.Visible = False
@@ -822,7 +822,7 @@ objDoc.Tables(2).Cell(Row:=4, Column:=1).Range.Text = Kurum_A
 objDoc.Close SaveChanges:=True
 objWord.Visible = False
 
-'Report 3.1 – Type A Cover Letter
+'Report 3.1 â€“ Type A Cover Letter
 objWord.Documents.Open FileName:=DestRapor3lar & Rapor3_1File
 Set objDoc = GetObject(DestRapor3lar & Rapor3_1File)
 objDoc.Sections(1).Footers(wdHeaderFooterFirstPage).Range.Tables(1).Cell(Row:=1, Column:=1).Range.Text = Adres.Value & vbNewLine & _
@@ -843,7 +843,7 @@ objDoc.Tables(2).Cell(Row:=4, Column:=1).Range.Text = Kurum_A
 objDoc.Close SaveChanges:=True
 objWord.Visible = False
 
-'Report 3.1 – Type B Üst Yazý
+'Report 3.1 â€“ Type B Ãœst YazÄ±
 objWord.Documents.Open FileName:=DestRapor3lar & Rapor3_1TipBFile
 Set objDoc = GetObject(DestRapor3lar & Rapor3_1TipBFile)
 objDoc.Sections(1).Footers(wdHeaderFooterFirstPage).Range.Tables(1).Cell(Row:=1, Column:=1).Range.Text = Adres.Value & vbNewLine & _
@@ -864,7 +864,7 @@ objDoc.Tables(2).Cell(Row:=4, Column:=1).Range.Text = Kurum_A
 objDoc.Close SaveChanges:=True
 objWord.Visible = False
 
-'FinansalBirim Üst Yazý
+'FinansalBirim Ãœst YazÄ±
 objWord.Documents.Open FileName:=DestRapor3lar & FinansalBirimFile
 Set objDoc = GetObject(DestRapor3lar & FinansalBirimFile)
 objDoc.Sections(1).Footers(wdHeaderFooterFirstPage).Range.Tables(1).Cell(Row:=1, Column:=1).Range.Text = Adres.Value & vbNewLine & _
@@ -885,7 +885,7 @@ objDoc.Tables(2).Cell(Row:=4, Column:=1).Range.Text = Kurum_A
 objDoc.Close SaveChanges:=True
 objWord.Visible = False
 
-'Report 3.2 – Type B Cover Letter – Financial Unit
+'Report 3.2 â€“ Type B Cover Letter â€“ Financial Unit
 objWord.Documents.Open FileName:=DestRapor3lar & FinansalBirimFileTipB
 Set objDoc = GetObject(DestRapor3lar & FinansalBirimFileTipB)
 objDoc.Sections(1).Footers(wdHeaderFooterFirstPage).Range.Tables(1).Cell(Row:=1, Column:=1).Range.Text = Adres.Value & vbNewLine & _
@@ -970,7 +970,7 @@ objDoc.Tables(2).Cell(Row:=4, Column:=1).Range.Text = Kurum_A
 objDoc.Close SaveChanges:=True
 objWord.Visible = False
 
-'XXXMud Giden Üst Yazý
+'XXXMud Giden Ãœst YazÄ±
 objWord.Documents.Open FileName:=DestRapor2 & XXXMudGidenUstYaziFile
 Set objDoc = GetObject(DestRapor2 & XXXMudGidenUstYaziFile)
 objDoc.Sections(1).Footers(wdHeaderFooterFirstPage).Range.Tables(1).Cell(Row:=1, Column:=2).Range.Text = Adres.Value & vbNewLine & _
@@ -986,7 +986,7 @@ Kurum_ANoStr = objDoc.Tables(1).Cell(Row:=6, Column:=1).Range.Text
 Kurum_ANoStr = Left(Kurum_ANoStr, 7) & Kurum_ANo.Value & Mid(Kurum_ANoStr, 16, Len(Kurum_ANoStr) - 17)
 'MsgBox Kurum_ANoStr
 objDoc.Tables(1).Cell(Row:=6, Column:=1).Range.Text = Kurum_ANoStr
-''KURUM_A 'KURUM_A Birim adý olmayacak; bu kýsmý kurum içi imza prosedürü düzenleyecek.
+''KURUM_A 'KURUM_A Birim adÄ± olmayacak; bu kÄ±smÄ± kurum iÃ§i imza prosedÃ¼rÃ¼ dÃ¼zenleyecek.
 'objDoc.Tables(2).Cell(Row:=4, Column:=1).Range.Text = Kurum_A
 objDoc.Close SaveChanges:=True
 objWord.Visible = False
@@ -1049,7 +1049,7 @@ Kurum_ANoStr = objDoc.Tables(1).Cell(Row:=6, Column:=1).Range.Text
 Kurum_ANoStr = Left(Kurum_ANoStr, 7) & Kurum_ANo.Value & Mid(Kurum_ANoStr, 16, Len(Kurum_ANoStr) - 17)
 'MsgBox Kurum_ANoStr
 objDoc.Tables(1).Cell(Row:=6, Column:=1).Range.Text = Kurum_ANoStr
-''KURUM_A 'KURUM_A Birim adý olmayacak; bu kýsmý kurum içi imza prosedürü düzenleyecek.
+''KURUM_A 'KURUM_A Birim adÄ± olmayacak; bu kÄ±smÄ± kurum iÃ§i imza prosedÃ¼rÃ¼ dÃ¼zenleyecek.
 'objDoc.Tables(2).Cell(Row:=4, Column:=1).Range.Text = Kurum_A
 objDoc.Close SaveChanges:=True
 objWord.Visible = False
@@ -1058,38 +1058,38 @@ objWord.Visible = False
 
 ThisWorkbook.Activate
 For i = 1 To Len(Birimx)
-    If i < Len(Birimx) Then 'Karakterlerden sonra boþluk ekle
+    If i < Len(Birimx) Then 'Karakterlerden sonra boÅŸluk ekle
         SubeBosluk = SubeBosluk & Mid(Birimx, i, 1) & " "
         'MsgBox SubeBosluk
-    Else 'Son karakterden sonra boþluk ekleme
+    Else 'Son karakterden sonra boÅŸluk ekleme
         SubeBosluk = SubeBosluk & Mid(Birimx, i, 1)
         'MsgBox SubeBosluk
     End If
 Next i
-SubeBosluk = UCase(Replace(Replace(SubeBosluk, "i", "I"), "ý", "I"))
+SubeBosluk = UCase(Replace(Replace(SubeBosluk, "i", "I"), "Ä±", "I"))
 
 'Ana Sayfa
 ThisWorkbook.Unprotect "123"
 Worksheets(1).Unprotect Password:="123"
-Worksheets(1).Cells(7, 3).Value = UCase(Replace(Replace(Birimx, "i", "I"), "ý", "I"))
+Worksheets(1).Cells(7, 3).Value = UCase(Replace(Replace(Birimx, "i", "I"), "Ä±", "I"))
 Worksheets(1).Protect Password:="123" ', DrawingObjects:=False
 'Rapor1
 Worksheets(3).Unprotect Password:="123"
-Worksheets(3).Cells(2, 11).Value = UCase(Replace(Replace(Birimx, "i", "I"), "ý", "I"))
+Worksheets(3).Cells(2, 11).Value = UCase(Replace(Replace(Birimx, "i", "I"), "Ä±", "I"))
 Worksheets(3).Protect Password:="123" ', DrawingObjects:=False
 'Rapor
 Worksheets(4).Unprotect Password:="123"
-Worksheets(4).Cells(2, 21).Value = UCase(Replace(Replace(Birimx, "i", "I"), "ý", "I"))
+Worksheets(4).Cells(2, 21).Value = UCase(Replace(Replace(Birimx, "i", "I"), "Ä±", "I"))
 Worksheets(4).Protect Password:="123" ', DrawingObjects:=False
-'Rapor3 Ýþlemleri
+'Rapor3 Ä°ÅŸlemleri
 Worksheets(5).Unprotect Password:="123"
-Worksheets(5).Cells(2, 13).Value = UCase(Replace(Replace(Birimx, "i", "I"), "ý", "I"))
+Worksheets(5).Cells(2, 13).Value = UCase(Replace(Replace(Birimx, "i", "I"), "Ä±", "I"))
 Worksheets(5).Protect Password:="123" ', DrawingObjects:=False
-'MsgBox UCase(Replace(Replace(SubeBosluk, "i", "I"), "ý", "I"))
+'MsgBox UCase(Replace(Replace(SubeBosluk, "i", "I"), "Ä±", "I"))
 ThisWorkbook.Protect "123"
 
 'VARLIKLAR
-'Açýk dosyalarý kapat
+'AÃ§Ä±k dosyalarÄ± kapat
 On Error Resume Next
 MyFile = Dir(VarlikSablonlar & "*.xl??")
 Do While MyFile <> ""
@@ -1099,7 +1099,7 @@ Do While MyFile <> ""
 Loop
 On Error GoTo 0
 
-'Dosyalarýn birim adýný deðiþtir.
+'DosyalarÄ±n birim adÄ±nÄ± deÄŸiÅŸtir.
 'On Error Resume Next
 MyFile = Dir(VarlikSablonlar & "*.xl??")
 Do While MyFile <> ""
@@ -1109,7 +1109,7 @@ Do While MyFile <> ""
     WsSablon.Unprotect Password:="123"
 
     WsSablon.Range("C2:E2").UnMerge
-    WsSablon.Range("C2") = UCase(Replace(Replace(Birimx, "i", "I"), "ý", "I"))
+    WsSablon.Range("C2") = UCase(Replace(Replace(Birimx, "i", "I"), "Ä±", "I"))
     WsSablon.Range("C2:E2").Merge
     WsSablon.Range("C2:E2").HorizontalAlignment = xlLeft
     
@@ -1123,7 +1123,7 @@ On Error GoTo 0
 
 ThisWorkbook.Activate
 
-'Açýk dropdown kapat
+'AÃ§Ä±k dropdown kapat
 Call ModuleSystemSettings.DropDownKapat
 
 MsgBox "The system has been successfully customized according to the information you provided.", vbOKOnly + vbInformation, "Enterprise Document Automation System"
@@ -1172,8 +1172,8 @@ Application.DisplayAlerts = False
 AutoPath = ThisWorkbook.Path
 DestOperasyon = AutoPath & "\System Files\Operation\"
 'Draft File
-SourceTaslak = AutoPath & "\System Files\Help Documents\Unit Settings Panel – Help.docm"
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+SourceTaslak = AutoPath & "\System Files\Help Documents\Unit Settings Panel â€“ Help.docm"
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
@@ -1198,7 +1198,7 @@ If Not Dir(SourceTaslak, vbDirectory) <> vbNullString Then
     GoTo Son
 End If
 
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
@@ -1210,11 +1210,11 @@ ReNameTaslak = "Help Documents"
 'Close the all Word application
 Call OpenWordControl
 
-'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
 OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
 Do While OpenKontrolName <> ""
     OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-    If OpenControl = True Then 'Açýksa
+    If OpenControl = True Then 'AÃ§Ä±ksa
         On Error Resume Next
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
@@ -1222,7 +1222,7 @@ Do While OpenKontrolName <> ""
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
         objWord.Quit SaveChanges:=True
-        'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+        'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
 
     End If
     OpenKontrolName = Dir()
@@ -1233,7 +1233,7 @@ Set objDoc = Nothing
 '________________________________________
 
 On Error Resume Next
-'    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
 Do While KontrolFile <> ""
@@ -1245,13 +1245,13 @@ If ContSay > 0 Then
 End If
 
 
-'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
 fso.CopyFile (SourceTaslak), DestOpUserFolder & ReNameTaslak & ".docm", True
 
 '________________________________________
 
-'Oluþturulacak dosyayý aç
+'OluÅŸturulacak dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -1259,7 +1259,7 @@ Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 If objWord Is Nothing Then
-    'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+    'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
     Set objWord = CreateObject("Word.Application")
     objWord.Visible = False
 End If
@@ -1313,7 +1313,7 @@ For Each ClrLab In core_unit_settings_UI.Controls
         ClrLab.ForeColor = RGB(30, 30, 30)
     End If
     
-    'YENÝ
+    'YENÄ°
     If TypeName(ClrLab) = "Frame" Then
         ClrLab.BackColor = RGB(254, 254, 254)
         ClrLab.ForeColor = RGB(30, 30, 30)
@@ -1321,8 +1321,8 @@ For Each ClrLab In core_unit_settings_UI.Controls
     End If
 Next ClrLab
 
-UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
-AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
+UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
+AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
 LblBilgilendirme.BackColor = RGB(254, 254, 254)
 
 Ekle.BackColor = RGB(225, 235, 245)
@@ -1333,7 +1333,7 @@ Getir.BackColor = RGB(225, 235, 245)
 Getir.ForeColor = RGB(30, 30, 30)
 Yardim.BackColor = RGB(225, 235, 245)
 Yardim.ForeColor = RGB(30, 30, 30)
-core_unit_settings_UI.BackColor = RGB(230, 230, 230) 'YENÝ
+core_unit_settings_UI.BackColor = RGB(230, 230, 230) 'YENÄ°
 
 End Sub
 

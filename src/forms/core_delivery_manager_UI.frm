@@ -37,7 +37,7 @@ Private Sub Tip1Imza1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If Tip1Imza1.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -46,7 +46,7 @@ Private Sub Tip1Imza1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
             End If
             Me.Tip1Imza1.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If Tip1Imza1.ListIndex = Tip1Imza1.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -83,7 +83,7 @@ Private Sub Tip1Imza2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If Tip1Imza2.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -92,7 +92,7 @@ Private Sub Tip1Imza2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
             End If
             Me.Tip1Imza2.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If Tip1Imza2.ListIndex = Tip1Imza2.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -129,7 +129,7 @@ Private Sub Tip1Imza3_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If Tip1Imza3.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -138,7 +138,7 @@ Private Sub Tip1Imza3_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
             End If
             Me.Tip1Imza3.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If Tip1Imza3.ListIndex = Tip1Imza3.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -300,7 +300,7 @@ Private Sub TutanakNoText_Change()
 Dim a() As Variant, i As Variant
 Dim j As Integer
 
-''Comboda tanýmlý deðer girilemez.
+''Comboda tanÄ±mlÄ± deÄŸer girilemez.
 'a() = TutanakNoText.List
 'For i = LBound(a) To UBound(a)
 '    If a(i, 0) = TutanakNoText.Value Then
@@ -547,14 +547,14 @@ Dim ctl As MSForms.Control
 Dim Say1 As Integer, Say2 As Integer, Cont1 As Integer, Cont2 As Integer
 Dim LstBx As MSForms.ListBox
 
-'Tümünü seç
+'TÃ¼mÃ¼nÃ¼ seÃ§
 If CheckBox1.Value = True Then
     For Each ctl In core_delivery_manager_UI.Frame1.Controls
         If TypeName(ctl) = "ListBox" Then
             ctl.Selected(0) = True
         End If
     Next ctl
-Else 'Tümünü iptal et
+Else 'TÃ¼mÃ¼nÃ¼ iptal et
     For Each ctl In core_delivery_manager_UI.Frame1.Controls
         If TypeName(ctl) = "ListBox" Then
             ctl.Selected(0) = False
@@ -569,14 +569,14 @@ Dim ctl As MSForms.Control
 Dim Say1 As Integer, Say2 As Integer, Cont1 As Integer, Cont2 As Integer
 Dim LstBx As MSForms.ListBox
 
-'Tümünü seç
+'TÃ¼mÃ¼nÃ¼ seÃ§
 If CheckBox2.Value = True Then
     For Each ctl In core_delivery_manager_UI.Frame2.Controls
         If TypeName(ctl) = "ListBox" Then
             ctl.Selected(0) = True
         End If
     Next ctl
-Else 'Tümünü iptal et
+Else 'TÃ¼mÃ¼nÃ¼ iptal et
     For Each ctl In core_delivery_manager_UI.Frame2.Controls
         If TypeName(ctl) = "ListBox" Then
             ctl.Selected(0) = False
@@ -596,7 +596,7 @@ Dim LblSira2 As MSForms.Label
 
 Application.ScreenUpdating = False
 
-'Aktarým için en az bir veri seçili olmalýdýr.
+'AktarÄ±m iÃ§in en az bir veri seÃ§ili olmalÄ±dÄ±r.
 Say1 = 0
 For Each ctl In core_delivery_manager_UI.Frame1.Controls
     If TypeName(ctl) = "ListBox" Then
@@ -638,7 +638,7 @@ For Each ctl In core_delivery_manager_UI.Frame1.Controls
             Frame1.Controls.Remove ctl.name
         End If
     End If
-    'Sýra nolarý temizle
+    'SÄ±ra nolarÄ± temizle
     If TypeName(ctl) = "Label" Then
         Frame1.Controls.Remove ctl.name
     End If
@@ -668,7 +668,7 @@ Else
     Frame1.ScrollBars = fmScrollBarsNone
 End If
 
-'Frame1 tekrar sýrala
+'Frame1 tekrar sÄ±rala
 Say1 = 0
 For Each ctl In core_delivery_manager_UI.Frame1.Controls
     If TypeName(ctl) = "ListBox" Then
@@ -725,7 +725,7 @@ Dim LblSira2 As MSForms.Label
 
 Application.ScreenUpdating = False
 
-'Aktarým için en az bir veri seçili olmalýdýr.
+'AktarÄ±m iÃ§in en az bir veri seÃ§ili olmalÄ±dÄ±r.
 Say2 = 0
 For Each ctl In core_delivery_manager_UI.Frame2.Controls
     If TypeName(ctl) = "ListBox" Then
@@ -767,7 +767,7 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls
             Frame2.Controls.Remove ctl.name
         End If
     End If
-    'Sýra nolarý temizle
+    'SÄ±ra nolarÄ± temizle
     If TypeName(ctl) = "Label" Then
         Frame2.Controls.Remove ctl.name
     End If
@@ -797,7 +797,7 @@ Else
     Frame2.ScrollBars = fmScrollBarsNone
 End If
 
-'Frame2 tekrar sýrala
+'Frame2 tekrar sÄ±rala
 Say2 = 0
 For Each ctl In core_delivery_manager_UI.Frame2.Controls
     If TypeName(ctl) = "ListBox" Then
@@ -868,12 +868,12 @@ Application.DisplayAlerts = False
 AutoPath = ThisWorkbook.Path
 DestOperasyon = AutoPath & "\System Files\Operation\"
 'Taslak
-SourceTaslak = AutoPath & "\System Files\Help Documents\Delivery Manager Panel – Help.docm"
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+SourceTaslak = AutoPath & "\System Files\Help Documents\Delivery Manager Panel â€“ Help.docm"
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
-'System Files klasör adýný kontrol et.
+'System Files klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(AutoPath & "\System Files\", vbDirectory) <> vbNullString Then
     MsgBox AutoPath & "\System Files\" & " directory could not be accessed. The folder named 'System Files' might have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
@@ -886,16 +886,16 @@ If Not Dir(DestOperasyon, vbDirectory) <> vbNullString Then
 End If
 
 
-'RmDir DestOpUserFolder 'Sistem kapanýrken DestOpUserFolder klasörünü temizle EKLENECEK!
+'RmDir DestOpUserFolder 'Sistem kapanÄ±rken DestOpUserFolder klasÃ¶rÃ¼nÃ¼ temizle EKLENECEK!
 '_______________
 
-'Klasör isimlerini kontrol et.
+'KlasÃ¶r isimlerini kontrol et.
 If Not Dir(SourceTaslak, vbDirectory) <> vbNullString Then
     MsgBox SourceTaslak & " directory could not be accessed. The names of the folders and/or files under this directory might have been changed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
 
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
@@ -907,11 +907,11 @@ ReNameTaslak = "Help Documents"
 'Close the all Word application
 Call ModuleReport1.OpenWordControl
 
-'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
 OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
 Do While OpenKontrolName <> ""
     OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-    If OpenControl = True Then 'Açýksa
+    If OpenControl = True Then 'AÃ§Ä±ksa
         On Error Resume Next
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
@@ -919,7 +919,7 @@ Do While OpenKontrolName <> ""
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
         objWord.Quit SaveChanges:=True
-        'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+        'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
 
     End If
     OpenKontrolName = Dir()
@@ -930,7 +930,7 @@ Set objDoc = Nothing
 '________________________________________
 
 On Error Resume Next
-'    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
 Do While KontrolFile <> ""
@@ -942,13 +942,13 @@ If ContSay > 0 Then
 End If
 
 
-'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
 fso.CopyFile (SourceTaslak), DestOpUserFolder & ReNameTaslak & ".docm", True
 
 '________________________________________
 
-'Oluþturulacak dosyayý aç
+'OluÅŸturulacak dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -956,7 +956,7 @@ Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 If objWord Is Nothing Then
-    'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+    'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
     Set objWord = CreateObject("Word.Application")
     objWord.Visible = False
 End If
@@ -1001,7 +1001,7 @@ If CalTarih = "" Then
     GoTo Son
 End If
 
-'Verileri çaðýr baþlatýldýðýnda Frame 1 ve 2 yi boþalt
+'Verileri Ã§aÄŸÄ±r baÅŸlatÄ±ldÄ±ÄŸÄ±nda Frame 1 ve 2 yi boÅŸalt
 For Each ctl In core_delivery_manager_UI.Frame1.Controls
     If TypeName(ctl) = "ListBox" Then
        Frame1.Controls.Remove ctl.name
@@ -1143,7 +1143,7 @@ End If
 
 SourceTeslim = AutoPath & "\System Files\System Templates\Acceptance and Delivery Statements\" & EkFormu & ".docm"
 
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
@@ -1165,7 +1165,7 @@ If Not Dir(SourceTeslim, vbDirectory) <> vbNullString Then
     GoTo Son
 End If
 
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
@@ -1178,11 +1178,11 @@ ReNameTeslim = EkFormu
 'Close the all Word application
 Call ModuleReport1.OpenWordControl
 
-'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
 OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
 Do While OpenKontrolName <> ""
     OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-    If OpenControl = True Then 'Açýksa
+    If OpenControl = True Then 'AÃ§Ä±ksa
         On Error Resume Next
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
@@ -1190,7 +1190,7 @@ Do While OpenKontrolName <> ""
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
         objWord.Quit SaveChanges:=True
-        'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+        'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
     End If
     OpenKontrolName = Dir()
 Loop
@@ -1201,7 +1201,7 @@ Set objDoc = Nothing
 '________________________________________
 
 On Error Resume Next
-'    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
 Do While KontrolFile <> ""
@@ -1212,12 +1212,12 @@ If ContSay > 0 Then
     Kill DestOpUserFolder & "*.???"
 End If
 
-'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
 fso.CopyFile (SourceTeslim), DestOpUserFolder & ReNameTeslim & ".docm", True
 '________________________________________
 
-'Oluþturulacak dosyayý aç
+'OluÅŸturulacak dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -1225,7 +1225,7 @@ Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 If objWord Is Nothing Then
-    'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+    'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
     Set objWord = CreateObject("Word.Application")
     objWord.Visible = False
 End If
@@ -1238,19 +1238,19 @@ Set objDoc = GetObject(DestOpUserFolder & ReNameTeslim & ".docm")
 '________________________________________
 
 'Birim
-Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I")) & " UNIT"
+Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I")) & " UNIT"
 objDoc.Tables(1).Cell(Row:=1, Column:=1).Range.Text = Birimx
 ''Tutanak tarihi
 'objDoc.Tables(1).Cell(Row:=4, Column:=3).Range.Text = TutanakTarihiText.Value
 
-'________________AKTARIMLAR 1 (Baþlangýç)
+'________________AKTARIMLAR 1 (BaÅŸlangÄ±Ã§)
 
 Say2 = 0
 AdetSay = 0
-For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR1 BÖLÜMÜ (Baþlangýç, Tüm Raporlarýn Ortak Bölümü)
+For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR1 BÃ–LÃœMÃœ (BaÅŸlangÄ±Ã§, TÃ¼m RaporlarÄ±n Ortak BÃ¶lÃ¼mÃ¼)
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
-        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ö" Then
+        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ã–" Then
             
             Set SonSiraBul = ThisWorkbook.Worksheets(3).Range("CF7:CF100000").Find(What:=Left(ctl.List(0), InStr(ctl.List(0), "|") - 2), SearchDirection:=xlNext, _
                             SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -1267,33 +1267,33 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR1
             IlkSira = IlkSiraGlobal
             GidenTema = GidenTemaGlobal
             
-            'Tabloya satýr ekle
+            'Tabloya satÄ±r ekle
             Say2 = Say2 + 1
             'MsgBox Left(Ctl.List(0), InStr(Ctl.List(0), "|") - 2)
             If Say2 > 1 Then
                 objDoc.Tables(2).Rows.Add BeforeRow:=objDoc.Tables(2).Rows(Say2 + 1)
             End If
-            'Sýra no
+            'SÄ±ra no
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=1).Range.Text = Say2
-            'Gönderilen birim
+            'GÃ¶nderilen birim
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = GidenTema
-            'kayýt no
+            'kayÄ±t no
             Tip1Ekler = ""
             For i = IlkSira To SonSira
                 If Tip1Ekler = "" Then
                     If ThisWorkbook.Worksheets(3).Cells(i, 59).Value <> "" Then
-                        Tip1Ekler = "ÖR/" & ThisWorkbook.Worksheets(3).Cells(i, 59).Value
+                        Tip1Ekler = "Ã–R/" & ThisWorkbook.Worksheets(3).Cells(i, 59).Value
                     End If
                 Else
                     If ThisWorkbook.Worksheets(3).Cells(i, 59).Value <> "" Then
-                        Tip1Ekler = Tip1Ekler & ", ÖR/" & ThisWorkbook.Worksheets(3).Cells(i, 59).Value
+                        Tip1Ekler = Tip1Ekler & ", Ã–R/" & ThisWorkbook.Worksheets(3).Cells(i, 59).Value
                     End If
                 End If
             Next i
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=3).Range.Text = Tip1Ekler 'ThisWorkbook.Worksheets(3).Cells(IlkSira, 59).Value
             'Tutanak2 tarihi
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=2).Range.Text = TutanakTarihiText.Value
-            'Ek sayýsý (üst yazýnýn)
+            'Ek sayÄ±sÄ± (Ã¼st yazÄ±nÄ±n)
             IlgiYaziFotoSayfa = Application.Sum(ThisWorkbook.Worksheets(3).Range(ThisWorkbook.Worksheets(3).Cells(IlkSira, 74), ThisWorkbook.Worksheets(3).Cells(SonSira, 74)))
             GidenPaketAdet = Application.Sum(ThisWorkbook.Worksheets(3).Range(ThisWorkbook.Worksheets(3).Cells(IlkSira, 68), ThisWorkbook.Worksheets(3).Cells(SonSira, 68)))
             Tutanak1Sayfa = Application.Sum(ThisWorkbook.Worksheets(3).Range(ThisWorkbook.Worksheets(3).Cells(IlkSira, 89), ThisWorkbook.Worksheets(3).Cells(SonSira, 89)))
@@ -1307,10 +1307,10 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR1
         End If
     End If
 Tip1Rapor1Devam1:
-Next ctl '________________RAPOR1 BÖLÜMÜ (Bitiþ, Tüm Raporlarýn Ortak Bölümü)
+Next ctl '________________RAPOR1 BÃ–LÃœMÃœ (BitiÅŸ, TÃ¼m RaporlarÄ±n Ortak BÃ¶lÃ¼mÃ¼)
 
 
-For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR BÖLÜMÜ (Baþlangýç, Tüm Raporlarýn Ortak Bölümü)'Rapor ve Bilgilendirme
+For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR BÃ–LÃœMÃœ (BaÅŸlangÄ±Ã§, TÃ¼m RaporlarÄ±n Ortak BÃ¶lÃ¼mÃ¼)'Rapor ve Bilgilendirme
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " R" Then
@@ -1330,22 +1330,22 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR 
             IlkSira = IlkSiraGlobal
             GidenTema = GidenTemaGlobal
             
-            'XXXMud, bilgilendirme ve sonuç yazýlarý için süreç
+            'XXXMud, bilgilendirme ve sonuÃ§ yazÄ±larÄ± iÃ§in sÃ¼reÃ§
             If ThisWorkbook.Worksheets(4).Cells(IlkSira, 174).Value = "Yes" Then
                 GoTo Bilgilendirme
             End If
             
-            'Tabloya satýr ekle
+            'Tabloya satÄ±r ekle
             Say2 = Say2 + 1
             'MsgBox Left(Ctl.List(0), InStr(Ctl.List(0), "|") - 2)
             If Say2 > 1 Then
                 objDoc.Tables(2).Rows.Add BeforeRow:=objDoc.Tables(2).Rows(Say2 + 1)
             End If
-            'Sýra no
+            'SÄ±ra no
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=1).Range.Text = Say2
-            'Gönderilen birim
+            'GÃ¶nderilen birim
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = GidenTema
-            'Çýkýþ kayýt no
+            'Ã‡Ä±kÄ±ÅŸ kayÄ±t no
             Tip1Ekler = ""
             For i = IlkSira To SonSira
                 If Tip1Ekler = "" Then
@@ -1361,7 +1361,7 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR 
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=3).Range.Text = Tip1Ekler 'ThisWorkbook.Worksheets(3).Cells(IlkSira, 59).Value
             'Tutanak2 tarihi
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=2).Range.Text = TutanakTarihiText.Value
-            'Ek sayýsý (üst yazýnýn)
+            'Ek sayÄ±sÄ± (Ã¼st yazÄ±nÄ±n)
             IlgiYaziFotoSayfa = Application.Sum(ThisWorkbook.Worksheets(4).Range(ThisWorkbook.Worksheets(4).Cells(IlkSira, 82), ThisWorkbook.Worksheets(4).Cells(SonSira, 82)))
             GidenPaketAdet = Application.Sum(ThisWorkbook.Worksheets(4).Range(ThisWorkbook.Worksheets(4).Cells(IlkSira, 76), ThisWorkbook.Worksheets(4).Cells(SonSira, 76)))
             Tutanak1Sayfa = Application.Sum(ThisWorkbook.Worksheets(4).Range(ThisWorkbook.Worksheets(4).Cells(IlkSira, 97), ThisWorkbook.Worksheets(4).Cells(SonSira, 97)))
@@ -1375,18 +1375,18 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR 
             
 Bilgilendirme:
 
-            'BÝLGÝLENDÝRME
-            'Tabloya satýr ekle
+            'BÄ°LGÄ°LENDÄ°RME
+            'Tabloya satÄ±r ekle
             Say2 = Say2 + 1
             'MsgBox Left(Ctl.List(0), InStr(Ctl.List(0), "|") - 2)
             If Say2 > 1 Then
                 objDoc.Tables(2).Rows.Add BeforeRow:=objDoc.Tables(2).Rows(Say2 + 1)
             End If
-            'Sýra no
+            'SÄ±ra no
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=1).Range.Text = Say2
-            'Gönderilen birim
+            'GÃ¶nderilen birim
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = GidenTema
-            'Çýkýþ kayýt no
+            'Ã‡Ä±kÄ±ÅŸ kayÄ±t no
             Tip1Ekler = ""
             For i = IlkSira To SonSira
                 If Tip1Ekler = "" Then
@@ -1403,10 +1403,10 @@ Bilgilendirme:
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=3).Range.Text = Tip1Ekler 'ThisWorkbook.Worksheets(3).Cells(IlkSira, 59).Value
             'Tutanak2 tarihi
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=2).Range.Text = TutanakTarihiText.Value
-            'Ek sayýsý (üst yazýnýn)
+            'Ek sayÄ±sÄ± (Ã¼st yazÄ±nÄ±n)
             IlgiYaziFotoSayfa = Application.Sum(ThisWorkbook.Worksheets(4).Range(ThisWorkbook.Worksheets(4).Cells(IlkSira, 206), ThisWorkbook.Worksheets(4).Cells(SonSira, 206)))
             Tutanak1Sayfa = Application.Sum(ThisWorkbook.Worksheets(4).Range(ThisWorkbook.Worksheets(4).Cells(IlkSira, 221), ThisWorkbook.Worksheets(4).Cells(SonSira, 221)))
-            'Yukarýdaki Tutanak1Sayfa,esasýnda ilgi b (XXXMud'ye yazýlan üst yazýnýn) yazý fotokopisidir.
+            'YukarÄ±daki Tutanak1Sayfa,esasÄ±nda ilgi b (XXXMud'ye yazÄ±lan Ã¼st yazÄ±nÄ±n) yazÄ± fotokopisidir.
             RaporSayfa = Application.Sum(ThisWorkbook.Worksheets(4).Range(ThisWorkbook.Worksheets(4).Cells(IlkSira, 219), ThisWorkbook.Worksheets(4).Cells(SonSira, 219)))
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=5).Range.Text = IlgiYaziFotoSayfa + Tutanak1Sayfa + RaporSayfa
             'Kilitlenme bilgisi
@@ -1415,10 +1415,10 @@ Bilgilendirme:
         End If
     End If
 Tip1RaporDevam1:
-Next ctl '________________RAPOR BÖLÜMÜ (Bitiþ, Tüm Raporlarýn Ortak Bölümü)
+Next ctl '________________RAPOR BÃ–LÃœMÃœ (BitiÅŸ, TÃ¼m RaporlarÄ±n Ortak BÃ¶lÃ¼mÃ¼)
 
 
-For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR BÖLÜMÜ (Baþlangýç, Tüm Raporlarýn Ortak Bölümü)'XXXMud
+For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR BÃ–LÃœMÃœ (BaÅŸlangÄ±Ã§, TÃ¼m RaporlarÄ±n Ortak BÃ¶lÃ¼mÃ¼)'XXXMud
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " B" And InStr(ctl.List(0), "XXXMud") <> 0 Then
@@ -1438,18 +1438,18 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR 
             GidenTema = GidenTemaGlobal
 
             'XXXMud
-            'Tabloya satýr ekle
+            'Tabloya satÄ±r ekle
             Say2 = Say2 + 1
             'MsgBox Left(Ctl.List(0), InStr(Ctl.List(0), "|") - 2)
             If Say2 > 1 Then
                 objDoc.Tables(2).Rows.Add BeforeRow:=objDoc.Tables(2).Rows(Say2 + 1)
             End If
-            'Sýra no
+            'SÄ±ra no
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=1).Range.Text = Say2
-            'Gönderilen birim
+            'GÃ¶nderilen birim
             GidenTema = "ORGANIZATION A XXX Directorate"
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = GidenTema
-            'Çýkýþ kayýt no
+            'Ã‡Ä±kÄ±ÅŸ kayÄ±t no
             Tip1Ekler = ""
 
             If ThisWorkbook.Worksheets(4).Cells(IlkSira, 187).Value = "All" Then
@@ -1485,7 +1485,7 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR 
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=3).Range.Text = Tip1Ekler 'ThisWorkbook.Worksheets(3).Cells(IlkSira, 59).Value
             'Tutanak2 tarihi
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=2).Range.Text = TutanakTarihiText.Value
-            'Ek sayýsý (üst yazýnýn)
+            'Ek sayÄ±sÄ± (Ã¼st yazÄ±nÄ±n)
             IlgiYaziFotoSayfa = Application.Sum(ThisWorkbook.Worksheets(4).Range(ThisWorkbook.Worksheets(4).Cells(IlkSira, 206), ThisWorkbook.Worksheets(4).Cells(SonSira, 206)))
             Tutanak2Sayfa = Application.Sum(ThisWorkbook.Worksheets(4).Range(ThisWorkbook.Worksheets(4).Cells(IlkSira, 220), ThisWorkbook.Worksheets(4).Cells(SonSira, 220)))
             GidenPaketAdet = Application.Sum(ThisWorkbook.Worksheets(4).Range(ThisWorkbook.Worksheets(4).Cells(IlkSira, 185), ThisWorkbook.Worksheets(4).Cells(SonSira, 185)))
@@ -1496,10 +1496,10 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR 
         End If
     End If
 Tip1RaporDevam2:
-Next ctl '________________RAPOR BÖLÜMÜ (Bitiþ, Tüm Raporlarýn Ortak Bölümü)
+Next ctl '________________RAPOR BÃ–LÃœMÃœ (BitiÅŸ, TÃ¼m RaporlarÄ±n Ortak BÃ¶lÃ¼mÃ¼)
 
 
-For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR BÖLÜMÜ (Baþlangýç, Tüm Raporlarýn Ortak Bölümü)'Sonuç
+For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR BÃ–LÃœMÃœ (BaÅŸlangÄ±Ã§, TÃ¼m RaporlarÄ±n Ortak BÃ¶lÃ¼mÃ¼)'SonuÃ§
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " B" And InStr(ctl.List(0), "XXXMud") = 0 Then
@@ -1519,18 +1519,18 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR 
             IlkSira = IlkSiraGlobal
             GidenTema = GidenTemaGlobal
 
-            'SONUÇ
-            'Tabloya satýr ekle
+            'SONUÃ‡
+            'Tabloya satÄ±r ekle
             Say2 = Say2 + 1
             'MsgBox Left(Ctl.List(0), InStr(Ctl.List(0), "|") - 2)
             If Say2 > 1 Then
                 objDoc.Tables(2).Rows.Add BeforeRow:=objDoc.Tables(2).Rows(Say2 + 1)
             End If
-            'Sýra no
+            'SÄ±ra no
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=1).Range.Text = Say2
-            'Gönderilen birim
+            'GÃ¶nderilen birim
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = GidenTema
-            'Çýkýþ kayýt no
+            'Ã‡Ä±kÄ±ÅŸ kayÄ±t no
             Tip1Ekler = ""
             For i = IlkSira To SonSira
                 If Tip1Ekler = "" Then
@@ -1544,7 +1544,7 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR 
                 End If
             Next i
 
-            'Rapor2_2 rapor numaralarýnýn önüne B harfi gelecek
+            'Rapor2_2 rapor numaralarÄ±nÄ±n Ã¶nÃ¼ne B harfi gelecek
             'BstrContent = ""
             StrContent = "B/" & ThisWorkbook.Worksheets(4).Cells(IlkSira, 65).Value
 '            For i = 1 To Len(StrContent)
@@ -1563,7 +1563,7 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR 
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=3).Range.Text = Tip1Ekler 'ThisWorkbook.Worksheets(3).Cells(IlkSira, 59).Value
             'Tutanak2 tarihi
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=2).Range.Text = TutanakTarihiText.Value
-            'Ek sayýsý (üst yazýnýn)
+            'Ek sayÄ±sÄ± (Ã¼st yazÄ±nÄ±n)
             Rapor2_2RaporSayfa = Application.Sum(ThisWorkbook.Worksheets(4).Range(ThisWorkbook.Worksheets(4).Cells(IlkSira, 173), ThisWorkbook.Worksheets(4).Cells(SonSira, 173)))
             DigitalIcerikAdedi = Application.Sum(ThisWorkbook.Worksheets(4).Range(ThisWorkbook.Worksheets(4).Cells(IlkSira, 181), ThisWorkbook.Worksheets(4).Cells(SonSira, 181)))
             AnalizSayfa = Application.Sum(ThisWorkbook.Worksheets(4).Range(ThisWorkbook.Worksheets(4).Cells(IlkSira, 182), ThisWorkbook.Worksheets(4).Cells(SonSira, 182)))
@@ -1578,9 +1578,9 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR 
         End If
     End If
 Tip1RaporDevam3:
-Next ctl '________________RAPOR BÖLÜMÜ (Bitiþ, Tüm Raporlarýn Ortak Bölümü)
+Next ctl '________________RAPOR BÃ–LÃœMÃœ (BitiÅŸ, TÃ¼m RaporlarÄ±n Ortak BÃ¶lÃ¼mÃ¼)
 
-For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3_1 BÖLÜMÜ (Baþlangýç, Tüm Raporlarýn Ortak Bölümü)
+For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3_1 BÃ–LÃœMÃœ (BaÅŸlangÄ±Ã§, TÃ¼m RaporlarÄ±n Ortak BÃ¶lÃ¼mÃ¼)
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " G" Then
@@ -1600,18 +1600,18 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3
             IlkSira = IlkSiraGlobal
             GidenTema = GidenTemaGlobal
             
-            'Tabloya satýr ekle
+            'Tabloya satÄ±r ekle
             Say2 = Say2 + 1
             'MsgBox Left(Ctl.List(0), InStr(Ctl.List(0), "|") - 2)
             If Say2 > 1 Then
                 objDoc.Tables(2).Rows.Add BeforeRow:=objDoc.Tables(2).Rows(Say2 + 1)
             End If
-            'Sýra no
+            'SÄ±ra no
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=1).Range.Text = Say2
-            'Gönderilen birim
+            'GÃ¶nderilen birim
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = GidenTema
             
-            'Çýkýþ kayýt no 'Tema/Temax no
+            'Ã‡Ä±kÄ±ÅŸ kayÄ±t no 'Tema/Temax no
             Tip1Ekler = ""
             For i = IlkSira To SonSira
                 If Tip1Ekler = "" Then
@@ -1632,7 +1632,7 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3
             
             'Tutanak2 tarihi
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=2).Range.Text = TutanakTarihiText.Value
-            'Ek sayýsý (üst yazýnýn)
+            'Ek sayÄ±sÄ± (Ã¼st yazÄ±nÄ±n)
             KimlikSayfa = Application.Sum(ThisWorkbook.Worksheets(5).Range(ThisWorkbook.Worksheets(5).Cells(IlkSira, 126), ThisWorkbook.Worksheets(5).Cells(SonSira, 126)))
             GidenPaketAdet = Application.Sum(ThisWorkbook.Worksheets(5).Range(ThisWorkbook.Worksheets(5).Cells(IlkSira, 150), ThisWorkbook.Worksheets(5).Cells(SonSira, 150)))
             Tutanak1Sayfa = Application.Sum(ThisWorkbook.Worksheets(5).Range(ThisWorkbook.Worksheets(5).Cells(IlkSira, 169), ThisWorkbook.Worksheets(5).Cells(SonSira, 169)))
@@ -1645,10 +1645,10 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3
         End If
     End If
 Tip1Rapor3_1Devam1:
-Next ctl '________________RAPOR3_1 BÖLÜMÜ (Bitiþ, Tüm Raporlarýn Ortak Bölümü)
+Next ctl '________________RAPOR3_1 BÃ–LÃœMÃœ (BitiÅŸ, TÃ¼m RaporlarÄ±n Ortak BÃ¶lÃ¼mÃ¼)
 
 
-For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3_2 BÖLÜMÜ (Baþlangýç, Tüm Raporlarýn Ortak Bölümü)
+For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3_2 BÃ–LÃœMÃœ (BaÅŸlangÄ±Ã§, TÃ¼m RaporlarÄ±n Ortak BÃ¶lÃ¼mÃ¼)
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " M" Then 'And Mid(ctl.List(0), InStrRev(ctl.List(0), "-") - 5, 5) <> "FinansalBirim" Then 'And InStr(ctl.List(0), "(FinansalBirim-TipA)") = 0 Then
@@ -1671,19 +1671,19 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3
                 IlkSira = IlkSiraGlobal
                 GidenTema = ThisWorkbook.Worksheets(5).Cells(IlkSira, 30).Value & " " & ThisWorkbook.Worksheets(5).Cells(IlkSira, 31).Value 'GidenTemaGlobal
                 
-                'Tabloya satýr ekle
+                'Tabloya satÄ±r ekle
                 Say2 = Say2 + 1
                 'MsgBox Left(Ctl.List(0), InStr(Ctl.List(0), "|") - 2)
                 If Say2 > 1 Then
                     objDoc.Tables(2).Rows.Add BeforeRow:=objDoc.Tables(2).Rows(Say2 + 1)
                 End If
-                'Sýra no
+                'SÄ±ra no
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=1).Range.Text = Say2
-                'Gönderilen birim
+                'GÃ¶nderilen birim
                ' GidenTema = ThisWorkbook.Worksheets(5).Cells(IlkSira, 30).Value
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = GidenTema
                 
-                'Çýkýþ kayýt no
+                'Ã‡Ä±kÄ±ÅŸ kayÄ±t no
                 Tip1Ekler = ""
                 For i = IlkSira To SonSira
                     If Tip1Ekler = "" Then
@@ -1704,7 +1704,7 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3
                 
                 'Tutanak2 tarihi
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=2).Range.Text = TutanakTarihiText.Value
-                'Ek sayýsý (üst yazýnýn)
+                'Ek sayÄ±sÄ± (Ã¼st yazÄ±nÄ±n)
                 TesDuzDekSayfa = Application.Sum(ThisWorkbook.Worksheets(5).Range(ThisWorkbook.Worksheets(5).Cells(IlkSira, 80), ThisWorkbook.Worksheets(5).Cells(SonSira, 80)))
                 TutanakSayfa = Application.Sum(ThisWorkbook.Worksheets(5).Range(ThisWorkbook.Worksheets(5).Cells(IlkSira, 169), ThisWorkbook.Worksheets(5).Cells(SonSira, 169)))
                 DesteBandiAdet = Application.Sum(ThisWorkbook.Worksheets(5).Range(ThisWorkbook.Worksheets(5).Cells(IlkSira, 81), ThisWorkbook.Worksheets(5).Cells(SonSira, 81)))
@@ -1730,18 +1730,18 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3
                 IlkSira = IlkSiraGlobal
                 GidenTema = GidenTemaGlobal
                 
-                'Tabloya satýr ekle
+                'Tabloya satÄ±r ekle
                 Say2 = Say2 + 1
                 'MsgBox Left(Ctl.List(0), InStr(Ctl.List(0), "|") - 2)
                 If Say2 > 1 Then
                     objDoc.Tables(2).Rows.Add BeforeRow:=objDoc.Tables(2).Rows(Say2 + 1)
                 End If
-                'Sýra no
+                'SÄ±ra no
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=1).Range.Text = Say2
-                'Gönderilen birim
+                'GÃ¶nderilen birim
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = GidenTema
                 
-                'Çýkýþ kayýt no
+                'Ã‡Ä±kÄ±ÅŸ kayÄ±t no
                 Tip1Ekler = ""
                 For i = IlkSira To SonSira
                     If Tip1Ekler = "" Then
@@ -1762,7 +1762,7 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3
                 
                 'Tutanak2 tarihi
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=2).Range.Text = TutanakTarihiText.Value
-                'Ek sayýsý (üst yazýnýn)
+                'Ek sayÄ±sÄ± (Ã¼st yazÄ±nÄ±n)
                 DesteBandiFotoSayfa = Application.Sum(ThisWorkbook.Worksheets(5).Range(ThisWorkbook.Worksheets(5).Cells(IlkSira, 49), ThisWorkbook.Worksheets(5).Cells(SonSira, 49)))
                 TesDekFotoSayfa = Application.Sum(ThisWorkbook.Worksheets(5).Range(ThisWorkbook.Worksheets(5).Cells(IlkSira, 50), ThisWorkbook.Worksheets(5).Cells(SonSira, 50)))
                 GidenPaketAdet = Application.Sum(ThisWorkbook.Worksheets(5).Range(ThisWorkbook.Worksheets(5).Cells(IlkSira, 72), ThisWorkbook.Worksheets(5).Cells(SonSira, 72)))
@@ -1778,17 +1778,17 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3
         End If
     End If
 Tip1Rapor3_2Devam1:
-Next ctl '________________RAPOR3_2 BÖLÜMÜ (Bitiþ, Tüm Raporlarýn Ortak Bölümü)
+Next ctl '________________RAPOR3_2 BÃ–LÃœMÃœ (BitiÅŸ, TÃ¼m RaporlarÄ±n Ortak BÃ¶lÃ¼mÃ¼)
 
 
 
-'________________AKTARIMLAR 1 (Bitiþ)
+'________________AKTARIMLAR 1 (BitiÅŸ)
 
-'Artýk satýrý sil
+'ArtÄ±k satÄ±rÄ± sil
 objDoc.Tables(2).Rows(Say2 + 2).Delete
 
 
-'Tip1 imzalarý
+'Tip1 imzalarÄ±
 Set ItemBul = Worksheets(2).Range("DY6:DY1000").Find(What:=Tip1Imza1.Value, SearchDirection:=xlNext, _
                 SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
 If Not ItemBul Is Nothing Then
@@ -1839,7 +1839,7 @@ End If
 'Alt bilgi ekle
 objDoc.Sections(1).Footers(wdHeaderFooterPrimary).Range.Tables(1).Cell(Row:=1, Column:=1).Range.Text = ReNameTeslim
 
-'Direkt yazdýr
+'Direkt yazdÄ±r
 If TeslimTutanaklariFormuDirektYazdir = True Then
     objWord.Activate
 '    For i = 1 To TeslimTutanaklariFormuSayPrt
@@ -1884,7 +1884,7 @@ If Not SiraBul Is Nothing Then
     'Cells(SiraBul.Row, 31).Value
     IlkSiraGlobal = SiraBul.Row
 Else
-    'MsgBox "Belirtilen tarihte herhangi bir üst yazý hazýrlanmadýðýndan iþleminiz gerçekleþtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+    'MsgBox "Belirtilen tarihte herhangi bir Ã¼st yazÄ± hazÄ±rlanmadÄ±ÄŸÄ±ndan iÅŸleminiz gerÃ§ekleÅŸtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Rapor1Devam1
 End If
 
@@ -1968,7 +1968,7 @@ Dim SiraBul As Range
 Dim KoorGonderilen As Long, KoorGidenTema As Long, KoorIl As Long, KoorIlce As Long
 
 
-'Rapor ve Bilgilendirme üst yazýsýný ayrýþtýr
+'Rapor ve Bilgilendirme Ã¼st yazÄ±sÄ±nÄ± ayrÄ±ÅŸtÄ±r
 
 IlkSiraGlobal = 0
 Set SiraBul = ThisWorkbook.Worksheets(4).Range("E7:E100000").Find(What:=Left(ctl.List(0), InStr(ctl.List(0), "|") - 2), SearchDirection:=xlNext, _
@@ -1977,7 +1977,7 @@ If Not SiraBul Is Nothing Then
     'Cells(SiraBul.Row, 31).Value
     IlkSiraGlobal = SiraBul.Row
 Else
-    'MsgBox "Belirtilen tarihte herhangi bir üst yazý hazýrlanmadýðýndan iþleminiz gerçekleþtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+    'MsgBox "Belirtilen tarihte herhangi bir Ã¼st yazÄ± hazÄ±rlanmadÄ±ÄŸÄ±ndan iÅŸleminiz gerÃ§ekleÅŸtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo RaporDevam1
 End If
 
@@ -1985,14 +1985,14 @@ End If
 GidenTemaGlobal = ""
 
 
-'Deðiþken Koordinat Düzenleyicisi
+'DeÄŸiÅŸken Koordinat DÃ¼zenleyicisi
 If ThisWorkbook.Worksheets(4).Cells(IlkSiraGlobal, 174).Value = "Yes" Then 'Bilgilendirme (Rapor2_2 evet)
     'Bilgilendirme
     KoorGidenTema = 199
     KoorGonderilen = 200
     KoorIl = 203
     KoorIlce = 204
-Else 'Rapor (Rapor2_2 hayýr)
+Else 'Rapor (Rapor2_2 hayÄ±r)
     'Rapor
     KoorGidenTema = 72
     KoorGonderilen = 73
@@ -2079,7 +2079,7 @@ Sub Rapor2_2GidenTema()
 Dim SiraBul As Range
 Dim KoorGonderilen As Long, KoorGidenTema As Long, KoorIl As Long, KoorIlce As Long
 
-'Sonuç üst yazýsý için tema
+'SonuÃ§ Ã¼st yazÄ±sÄ± iÃ§in tema
 
 IlkSiraGlobal = 0
 Set SiraBul = ThisWorkbook.Worksheets(4).Range("E7:E100000").Find(What:=Left(ctl.List(0), InStr(ctl.List(0), "|") - 2), SearchDirection:=xlNext, _
@@ -2088,14 +2088,14 @@ If Not SiraBul Is Nothing Then
     'Cells(SiraBul.Row, 31).Value
     IlkSiraGlobal = SiraBul.Row
 Else
-    'MsgBox "Belirtilen tarihte herhangi bir üst yazý hazýrlanmadýðýndan iþleminiz gerçekleþtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+    'MsgBox "Belirtilen tarihte herhangi bir Ã¼st yazÄ± hazÄ±rlanmadÄ±ÄŸÄ±ndan iÅŸleminiz gerÃ§ekleÅŸtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Rapor2_2Devam1
 End If
             
 'Giden tema
 GidenTemaGlobal = ""
 
-'Deðiþken Koordinat Düzenleyicisi
+'DeÄŸiÅŸken Koordinat DÃ¼zenleyicisi
 'Bilgilendirme
 KoorGidenTema = 199
 KoorGonderilen = 200
@@ -2187,7 +2187,7 @@ If Not SiraBul Is Nothing Then
     'Cells(SiraBul.Row, 31).Value
     IlkSiraGlobal = SiraBul.Row
 Else
-    'MsgBox "Belirtilen tarihte herhangi bir üst yazý hazýrlanmadýðýndan iþleminiz gerçekleþtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+    'MsgBox "Belirtilen tarihte herhangi bir Ã¼st yazÄ± hazÄ±rlanmadÄ±ÄŸÄ±ndan iÅŸleminiz gerÃ§ekleÅŸtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Rapor3_1Devam1
 End If
 
@@ -2277,7 +2277,7 @@ If Not SiraBul Is Nothing Then
     'Cells(SiraBul.Row, 31).Value
     IlkSiraGlobal = SiraBul.Row
 Else
-    'MsgBox "Belirtilen tarihte herhangi bir üst yazý hazýrlanmadýðýndan iþleminiz gerçekleþtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+    'MsgBox "Belirtilen tarihte herhangi bir Ã¼st yazÄ± hazÄ±rlanmadÄ±ÄŸÄ±ndan iÅŸleminiz gerÃ§ekleÅŸtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Rapor3_2Devam1
 End If
 
@@ -2441,7 +2441,7 @@ End If
 SourceTeslim = AutoPath & "\System Files\System Templates\Acceptance and Delivery Statements\" & EkFormu & ".docm"
 SourceTip5 = AutoPath & "\System Files\System Templates\Acceptance and Delivery Statements\" & EkFormuTip5 & ".docm"
 
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
@@ -2463,7 +2463,7 @@ If Not Dir(SourceTeslim, vbDirectory) <> vbNullString Then
     GoTo Son
 End If
 
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
@@ -2477,11 +2477,11 @@ ReNameTip5 = EkFormuTip5
 'Close the all Word application
 Call ModuleReport1.OpenWordControl
 
-'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
 OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
 Do While OpenKontrolName <> ""
     OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-    If OpenControl = True Then 'Açýksa
+    If OpenControl = True Then 'AÃ§Ä±ksa
         On Error Resume Next
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
@@ -2489,7 +2489,7 @@ Do While OpenKontrolName <> ""
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
         objWord.Quit SaveChanges:=True
-        'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+        'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
     End If
     OpenKontrolName = Dir()
 Loop
@@ -2500,7 +2500,7 @@ Set objDoc = Nothing
 '________________________________________
 
 On Error Resume Next
-'    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
 Do While KontrolFile <> ""
@@ -2511,12 +2511,12 @@ If ContSay > 0 Then
     Kill DestOpUserFolder & "*.???"
 End If
 
-'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
 fso.CopyFile (SourceTeslim), DestOpUserFolder & ReNameTeslim & ".docm", True
 '________________________________________
 
-'Oluþturulacak dosyayý aç
+'OluÅŸturulacak dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -2524,7 +2524,7 @@ Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 If objWord Is Nothing Then
-    'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+    'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
     Set objWord = CreateObject("Word.Application")
     objWord.Visible = False
 End If
@@ -2538,7 +2538,7 @@ Set objDoc = GetObject(DestOpUserFolder & ReNameTeslim & ".docm")
 
 
 'Birim
-Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I")) & " UNIT"
+Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I")) & " UNIT"
 objDoc.Tables(1).Cell(Row:=1, Column:=1).Range.Text = Birimx
 If Tip2Option.Value = True Or Tip3Option.Value = True Or Tip4Option.Value = True Then
     'Tutanak tarihi
@@ -2548,14 +2548,14 @@ If Tip2Option.Value = True Or Tip3Option.Value = True Or Tip4Option.Value = True
 End If
 
 
-'________________AKTARIMLAR 1 (Baþlangýç)
+'________________AKTARIMLAR 1 (BaÅŸlangÄ±Ã§)
 
 Say2 = 0
 AdetSay = 0
-For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR1 BÖLÜMÜ (Baþlangýç, Tüm Raporlarýn Ortak Bölümü)
+For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR1 BÃ–LÃœMÃœ (BaÅŸlangÄ±Ã§, TÃ¼m RaporlarÄ±n Ortak BÃ¶lÃ¼mÃ¼)
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
-        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ö" Then
+        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ã–" Then
 
             Call Rapor1GidenTema
             If IlkSiraGlobal = 0 Then
@@ -2564,23 +2564,23 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR1
             
             IlkSira = IlkSiraGlobal
             GidenTema = GidenTemaGlobal
-            'Tabloya satýr ekle
+            'Tabloya satÄ±r ekle
             Say2 = Say2 + 1
             'MsgBox Left(Ctl.List(0), InStr(Ctl.List(0), "|") - 2)
             If Say2 > 1 Then
                 objDoc.Tables(2).Rows.Add BeforeRow:=objDoc.Tables(2).Rows(Say2 + 1)
             End If
-            'Sýra no
+            'SÄ±ra no
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=1).Range.Text = Say2
-            'Gönderilen birim
+            'GÃ¶nderilen birim
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=2).Range.Text = GidenTema
-            'Çýkýþ kayýt no
+            'Ã‡Ä±kÄ±ÅŸ kayÄ±t no
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=3).Range.Text = ThisWorkbook.Worksheets(3).Cells(IlkSira, 76).Value
             'Package A/Package B/Package C
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = 1 * ThisWorkbook.Worksheets(3).Cells(IlkSira, 68).Value & " unit(s) of " & Left(ThisWorkbook.Worksheets(3).Cells(IlkSira, 67).Value, InStr(ThisWorkbook.Worksheets(3).Cells(IlkSira, 67).Value, "/") - 1)
             AdetSay = AdetSay + ThisWorkbook.Worksheets(3).Cells(IlkSira, 68).Value
             If Tip2Option.Value = True Then
-                'Gönderim þekli
+                'GÃ¶nderim ÅŸekli
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=5).Range.Text = WorksheetFunction.Proper(Mid(ThisWorkbook.Worksheets(3).Cells(IlkSira, 67).Value, InStr(ThisWorkbook.Worksheets(3).Cells(IlkSira, 67).Value, "/") + 1, Len(ThisWorkbook.Worksheets(3).Cells(IlkSira, 67).Value) - InStr(ThisWorkbook.Worksheets(3).Cells(IlkSira, 67).Value, "/") + 1))
             End If
             'Kilitlenme bilgisi
@@ -2588,9 +2588,9 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR1
         End If
     End If
 Rapor1Devam1:
-Next ctl '________________RAPOR1 BÖLÜMÜ (Bitiþ, Tüm Raporlarýn Ortak Bölümü)
+Next ctl '________________RAPOR1 BÃ–LÃœMÃœ (BitiÅŸ, TÃ¼m RaporlarÄ±n Ortak BÃ¶lÃ¼mÃ¼)
 
-For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR BÖLÜMÜ (Baþlangýç, Tüm Raporlarýn Ortak Bölümü)'Rapor ve bilgilendirme için ortak
+For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR BÃ–LÃœMÃœ (BaÅŸlangÄ±Ã§, TÃ¼m RaporlarÄ±n Ortak BÃ¶lÃ¼mÃ¼)'Rapor ve bilgilendirme iÃ§in ortak
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " R" Then
@@ -2602,17 +2602,17 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR 
             IlkSira = IlkSiraGlobal
             GidenTema = GidenTemaGlobal
 
-            'Tabloya satýr ekle
+            'Tabloya satÄ±r ekle
             Say2 = Say2 + 1
             'MsgBox Left(Ctl.List(0), InStr(Ctl.List(0), "|") - 2)
             If Say2 > 1 Then
                 objDoc.Tables(2).Rows.Add BeforeRow:=objDoc.Tables(2).Rows(Say2 + 1)
             End If
-            'Sýra no
+            'SÄ±ra no
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=1).Range.Text = Say2
-            'Gönderilen birim
+            'GÃ¶nderilen birim
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=2).Range.Text = GidenTema
-            'Çýkýþ kayýt no
+            'Ã‡Ä±kÄ±ÅŸ kayÄ±t no
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=3).Range.Text = ThisWorkbook.Worksheets(4).Cells(IlkSira, 84).Value
 
             If ThisWorkbook.Worksheets(4).Cells(IlkSiraGlobal, 174).Value = "Yes" Then 'Bilgilendirme (Rapor2_2 evet)
@@ -2621,7 +2621,7 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR 
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = 1 * 1 & " unit(s) of " & Left(ThisWorkbook.Worksheets(4).Cells(IlkSira, 81).Value, InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 81).Value, "/") - 1) 'ThisWorkbook.Worksheets(4).Cells(IlkSira, 76).Value & " unit(s) of " & Left(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, "/") - 1)
                 AdetSay = AdetSay + 1 'ThisWorkbook.Worksheets(4).Cells(IlkSira, 76).Value
                 If Tip2Option.Value = True Then
-                    'Gönderim þekli
+                    'GÃ¶nderim ÅŸekli
                     objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=5).Range.Text = WorksheetFunction.Proper(Mid(ThisWorkbook.Worksheets(4).Cells(IlkSira, 81).Value, InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 81).Value, "/") + 1, Len(ThisWorkbook.Worksheets(4).Cells(IlkSira, 81).Value) - InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 81).Value, "/") + 1))
                 End If
             Else
@@ -2629,7 +2629,7 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR 
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = 1 * ThisWorkbook.Worksheets(4).Cells(IlkSira, 76).Value & " unit(s) of " & Left(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, "/") - 1)
                 AdetSay = AdetSay + ThisWorkbook.Worksheets(4).Cells(IlkSira, 76).Value
                 If Tip2Option.Value = True Then
-                    'Gönderim þekli
+                    'GÃ¶nderim ÅŸekli
                     objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=5).Range.Text = WorksheetFunction.Proper(Mid(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, "/") + 1, Len(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value) - InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, "/") + 1))
                 End If
             End If
@@ -2638,10 +2638,10 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR 
         End If
     End If
 RaporDevam1:
-Next ctl '________________RAPOR BÖLÜMÜ (Bitiþ, Tüm Raporlarýn Ortak Bölümü)
+Next ctl '________________RAPOR BÃ–LÃœMÃœ (BitiÅŸ, TÃ¼m RaporlarÄ±n Ortak BÃ¶lÃ¼mÃ¼)
 
 
-For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR BÖLÜMÜ (Baþlangýç, Tüm Raporlarýn Ortak Bölümü)'XXXMud
+For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR BÃ–LÃœMÃœ (BaÅŸlangÄ±Ã§, TÃ¼m RaporlarÄ±n Ortak BÃ¶lÃ¼mÃ¼)'XXXMud
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " B" And InStr(ctl.List(0), "XXXMud") <> 0 Then
@@ -2653,24 +2653,24 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR 
             IlkSira = IlkSiraGlobal
             GidenTema = GidenTemaGlobal
 
-            'Tabloya satýr ekle
+            'Tabloya satÄ±r ekle
             Say2 = Say2 + 1
             'MsgBox Left(Ctl.List(0), InStr(Ctl.List(0), "|") - 2)
             If Say2 > 1 Then
                 objDoc.Tables(2).Rows.Add BeforeRow:=objDoc.Tables(2).Rows(Say2 + 1)
             End If
-            'Sýra no
+            'SÄ±ra no
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=1).Range.Text = Say2
-            'Gönderilen birim
+            'GÃ¶nderilen birim
             GidenTema = "ORGANIZATION A XXX Directorate"
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=2).Range.Text = GidenTema
-            'Çýkýþ kayýt no
+            'Ã‡Ä±kÄ±ÅŸ kayÄ±t no
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=3).Range.Text = ThisWorkbook.Worksheets(4).Cells(IlkSira, 176).Value
             'Package A/Package B/Package C
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = 1 * ThisWorkbook.Worksheets(4).Cells(IlkSira, 185).Value & " unit(s) of " & Left(ThisWorkbook.Worksheets(4).Cells(IlkSira, 184).Value, InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 184).Value, "/") - 1)
             AdetSay = AdetSay + ThisWorkbook.Worksheets(4).Cells(IlkSira, 185).Value
             If Tip2Option.Value = True Then
-                'Gönderim þekli
+                'GÃ¶nderim ÅŸekli
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=5).Range.Text = WorksheetFunction.Proper(Mid(ThisWorkbook.Worksheets(4).Cells(IlkSira, 184).Value, InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 184).Value, "/") + 1, Len(ThisWorkbook.Worksheets(4).Cells(IlkSira, 184).Value) - InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 184).Value, "/") + 1))
             End If
             'Kilitlenme bilgisi
@@ -2678,10 +2678,10 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR 
         End If
     End If
 RaporDevam1XXXMud:
-Next ctl '________________RAPOR BÖLÜMÜ (Bitiþ, Tüm Raporlarýn Ortak Bölümü)
+Next ctl '________________RAPOR BÃ–LÃœMÃœ (BitiÅŸ, TÃ¼m RaporlarÄ±n Ortak BÃ¶lÃ¼mÃ¼)
 
 
-For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR BÖLÜMÜ (Baþlangýç, Tüm Raporlarýn Ortak Bölümü)'Sonuç
+For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR BÃ–LÃœMÃœ (BaÅŸlangÄ±Ã§, TÃ¼m RaporlarÄ±n Ortak BÃ¶lÃ¼mÃ¼)'SonuÃ§
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " B" And InStr(ctl.List(0), "XXXMud") = 0 Then
@@ -2694,56 +2694,56 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR 
             IlkSira = IlkSiraGlobal
             GidenTema = GidenTemaGlobal
 
-            'Tabloya satýr ekle
+            'Tabloya satÄ±r ekle
             Say2 = Say2 + 1
             'MsgBox Left(Ctl.List(0), InStr(Ctl.List(0), "|") - 2)
             If Say2 > 1 Then
                 objDoc.Tables(2).Rows.Add BeforeRow:=objDoc.Tables(2).Rows(Say2 + 1)
             End If
-            'Sýra no
+            'SÄ±ra no
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=1).Range.Text = Say2
-            'Gönderilen birim
-            objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=2).Range.Text = GidenTema & " (Sonuç)"
-            'Çýkýþ kayýt no
+            'GÃ¶nderilen birim
+            objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=2).Range.Text = GidenTema & " (SonuÃ§)"
+            'Ã‡Ä±kÄ±ÅŸ kayÄ±t no
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=3).Range.Text = ThisWorkbook.Worksheets(4).Cells(IlkSira, 178).Value
 
 
-            'Senaryo düzenleyicisi (veriler  kurum tutanak2sýndan mý, XXXMud tutanak2sýndan mý yok sa her ikisinden mi alýnacak)
+            'Senaryo dÃ¼zenleyicisi (veriler  kurum tutanak2sÄ±ndan mÄ±, XXXMud tutanak2sÄ±ndan mÄ± yok sa her ikisinden mi alÄ±nacak)
             If ThisWorkbook.Worksheets(4).Cells(IlkSira, 187).Value = "All" Then 'XXXMudya giden
-                If ThisWorkbook.Worksheets(4).Cells(IlkSira, 188).Value = "Yes" Then 'XXXMud'den gelen paketin açýlma durumu
+                If ThisWorkbook.Worksheets(4).Cells(IlkSira, 188).Value = "Yes" Then 'XXXMud'den gelen paketin aÃ§Ä±lma durumu
                     'Kurum
                     GidenPaketAdet = Application.Sum(ThisWorkbook.Worksheets(4).Range(ThisWorkbook.Worksheets(4).Cells(IlkSira, 76), ThisWorkbook.Worksheets(4).Cells(IlkSira, 76)))
                     'Package A/Package B/Package C
                     objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = 1 * GidenPaketAdet & " unit(s) of " & Left(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, "/") - 1)
                     AdetSay = AdetSay + GidenPaketAdet
                     If Tip2Option.Value = True Then
-                        'Gönderim þekli
+                        'GÃ¶nderim ÅŸekli
                         objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=5).Range.Text = WorksheetFunction.Proper(Mid(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, "/") + 1, Len(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value) - InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, "/") + 1))
                     End If
-                ElseIf ThisWorkbook.Worksheets(4).Cells(IlkSira, 188).Value = "No" Then 'XXXMud'den gelen paketin açýlma durumu
+                ElseIf ThisWorkbook.Worksheets(4).Cells(IlkSira, 188).Value = "No" Then 'XXXMud'den gelen paketin aÃ§Ä±lma durumu
                     'XXXMud
                     GidenPaketAdet = Application.Sum(ThisWorkbook.Worksheets(4).Range(ThisWorkbook.Worksheets(4).Cells(IlkSira, 202), ThisWorkbook.Worksheets(4).Cells(IlkSira, 202)))
                     'Package A/Package B/Package C
                     objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = 1 * GidenPaketAdet & " unit(s) of " & Left(ThisWorkbook.Worksheets(4).Cells(IlkSira, 201).Value, InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 201).Value, "/") - 1)
                     AdetSay = AdetSay + GidenPaketAdet
                     If Tip2Option.Value = True Then
-                        'Gönderim þekli
+                        'GÃ¶nderim ÅŸekli
                         objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=5).Range.Text = WorksheetFunction.Proper(Mid(ThisWorkbook.Worksheets(4).Cells(IlkSira, 201).Value, InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 201).Value, "/") + 1, Len(ThisWorkbook.Worksheets(4).Cells(IlkSira, 201).Value) - InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 201).Value, "/") + 1))
                     End If
                 End If
             ElseIf ThisWorkbook.Worksheets(4).Cells(IlkSira, 187).Value = "Technique A" Then 'XXXMudya giden
-                If ThisWorkbook.Worksheets(4).Cells(IlkSira, 188).Value = "Yes" Then 'XXXMud'den gelen paketin açýlma durumu
-                    If ThisWorkbook.Worksheets(4).Cells(IlkSira, 189).Value = "Yes" Then 'Tutanak2 tut. birleþme durumu
+                If ThisWorkbook.Worksheets(4).Cells(IlkSira, 188).Value = "Yes" Then 'XXXMud'den gelen paketin aÃ§Ä±lma durumu
+                    If ThisWorkbook.Worksheets(4).Cells(IlkSira, 189).Value = "Yes" Then 'Tutanak2 tut. birleÅŸme durumu
                         'Kurum
                         GidenPaketAdet = Application.Sum(ThisWorkbook.Worksheets(4).Range(ThisWorkbook.Worksheets(4).Cells(IlkSira, 76), ThisWorkbook.Worksheets(4).Cells(IlkSira, 76)))
                         'Package A/Package B/Package C
                         objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = 1 * GidenPaketAdet & " unit(s) of " & Left(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, "/") - 1)
                         AdetSay = AdetSay + GidenPaketAdet
                         If Tip2Option.Value = True Then
-                            'Gönderim þekli
+                            'GÃ¶nderim ÅŸekli
                             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=5).Range.Text = WorksheetFunction.Proper(Mid(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, "/") + 1, Len(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value) - InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, "/") + 1))
                         End If
-                    ElseIf ThisWorkbook.Worksheets(4).Cells(IlkSira, 189).Value = "No" Then 'Tutanak2 tut. birleþme durumu
+                    ElseIf ThisWorkbook.Worksheets(4).Cells(IlkSira, 189).Value = "No" Then 'Tutanak2 tut. birleÅŸme durumu
                         'Kurum ve XXXMud
                         GidenPaketAdet = Application.Sum(ThisWorkbook.Worksheets(4).Range(ThisWorkbook.Worksheets(4).Cells(IlkSira, 76), ThisWorkbook.Worksheets(4).Cells(IlkSira, 76)))
                         GidenPaketAdet = GidenPaketAdet + Application.Sum(ThisWorkbook.Worksheets(4).Range(ThisWorkbook.Worksheets(4).Cells(IlkSira, 202), ThisWorkbook.Worksheets(4).Cells(IlkSira, 202)))
@@ -2751,18 +2751,18 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR 
                         objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = 1 * GidenPaketAdet & " unit(s) of " & Left(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, "/") - 1)
                         AdetSay = AdetSay + GidenPaketAdet
                         If Tip2Option.Value = True Then
-                            'Gönderim þekli
+                            'GÃ¶nderim ÅŸekli
                             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=5).Range.Text = WorksheetFunction.Proper(Mid(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, "/") + 1, Len(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value) - InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, "/") + 1))
                         End If
                     End If
-                ElseIf ThisWorkbook.Worksheets(4).Cells(IlkSira, 188).Value = "No" Then 'XXXMud'den gelen paketin açýlma durumu
+                ElseIf ThisWorkbook.Worksheets(4).Cells(IlkSira, 188).Value = "No" Then 'XXXMud'den gelen paketin aÃ§Ä±lma durumu
                     'Kurum
                     GidenPaketAdet = Application.Sum(ThisWorkbook.Worksheets(4).Range(ThisWorkbook.Worksheets(4).Cells(IlkSira, 76), ThisWorkbook.Worksheets(4).Cells(IlkSira, 76)))
                     'Package A/Package B/Package C
                     objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = 1 * GidenPaketAdet & " unit(s) of " & Left(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, "/") - 1)
                     AdetSay = AdetSay + GidenPaketAdet
                     If Tip2Option.Value = True Then
-                        'Gönderim þekli
+                        'GÃ¶nderim ÅŸekli
                         objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=5).Range.Text = WorksheetFunction.Proper(Mid(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, "/") + 1, Len(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value) - InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, "/") + 1))
                     End If
                 End If
@@ -2773,10 +2773,10 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR 
         End If
     End If
 RaporDevam1Sonuc:
-Next ctl '________________RAPOR BÖLÜMÜ (Bitiþ, Tüm Raporlarýn Ortak Bölümü)
+Next ctl '________________RAPOR BÃ–LÃœMÃœ (BitiÅŸ, TÃ¼m RaporlarÄ±n Ortak BÃ¶lÃ¼mÃ¼)
 
 
-For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3_1 BÖLÜMÜ (Baþlangýç, Tüm Raporlarýn Ortak Bölümü)
+For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3_1 BÃ–LÃœMÃœ (BaÅŸlangÄ±Ã§, TÃ¼m RaporlarÄ±n Ortak BÃ¶lÃ¼mÃ¼)
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " G" Then
@@ -2788,23 +2788,23 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3
             
             IlkSira = IlkSiraGlobal
             GidenTema = GidenTemaGlobal
-            'Tabloya satýr ekle
+            'Tabloya satÄ±r ekle
             Say2 = Say2 + 1
             'MsgBox Left(Ctl.List(0), InStr(Ctl.List(0), "|") - 2)
             If Say2 > 1 Then
                 objDoc.Tables(2).Rows.Add BeforeRow:=objDoc.Tables(2).Rows(Say2 + 1)
             End If
-            'Sýra no
+            'SÄ±ra no
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=1).Range.Text = Say2
-            'Gönderilen birim
+            'GÃ¶nderilen birim
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=2).Range.Text = GidenTema
-            'Çýkýþ kayýt no
+            'Ã‡Ä±kÄ±ÅŸ kayÄ±t no
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=3).Range.Text = ThisWorkbook.Worksheets(5).Cells(IlkSira, 156).Value
             'Package A/Package B/Package C
             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = 1 * ThisWorkbook.Worksheets(5).Cells(IlkSira, 150).Value & " unit(s) of " & Left(ThisWorkbook.Worksheets(5).Cells(IlkSira, 149).Value, InStr(ThisWorkbook.Worksheets(5).Cells(IlkSira, 149).Value, "/") - 1)
             AdetSay = AdetSay + ThisWorkbook.Worksheets(5).Cells(IlkSira, 150).Value
             If Tip2Option.Value = True Then
-                'Gönderim þekli
+                'GÃ¶nderim ÅŸekli
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=5).Range.Text = WorksheetFunction.Proper(Mid(ThisWorkbook.Worksheets(5).Cells(IlkSira, 149).Value, InStr(ThisWorkbook.Worksheets(5).Cells(IlkSira, 149).Value, "/") + 1, Len(ThisWorkbook.Worksheets(5).Cells(IlkSira, 149).Value) - InStr(ThisWorkbook.Worksheets(5).Cells(IlkSira, 149).Value, "/") + 1))
             End If
             'Kilitlenme bilgisi
@@ -2812,13 +2812,13 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3
         End If
     End If
 Rapor3_1Devam1:
-Next ctl '________________RAPOR3_1 BÖLÜMÜ (Bitiþ, Tüm Raporlarýn Ortak Bölümü)
+Next ctl '________________RAPOR3_1 BÃ–LÃœMÃœ (BitiÅŸ, TÃ¼m RaporlarÄ±n Ortak BÃ¶lÃ¼mÃ¼)
 
-'MsgBox "Burada mýsýn?"
-For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3_2 BÖLÜMÜ (Baþlangýç, Tüm Raporlarýn Ortak Bölümü)
+'MsgBox "Burada mÄ±sÄ±n?"
+For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3_2 BÃ–LÃœMÃœ (BaÅŸlangÄ±Ã§, TÃ¼m RaporlarÄ±n Ortak BÃ¶lÃ¼mÃ¼)
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
-        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " M" Then 'And Mid(ctl.List(0), InStrRev(ctl.List(0), "-") - 5, 5) <> "FinansalBirim" Then 'BU YÖNTEMDE HATA VAR. TUTANAK ÝÇÝN RAPOR1 VEYA RAPOR3_1 SEÇÝLÝRSE BURDAKÝ KOÞULUN ÝÇÝNE GÝREBÝLÝYOR
+        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " M" Then 'And Mid(ctl.List(0), InStrRev(ctl.List(0), "-") - 5, 5) <> "FinansalBirim" Then 'BU YÃ–NTEMDE HATA VAR. TUTANAK Ä°Ã‡Ä°N RAPOR1 VEYA RAPOR3_1 SEÃ‡Ä°LÄ°RSE BURDAKÄ° KOÅžULUN Ä°Ã‡Ä°NE GÄ°REBÄ°LÄ°YOR
             
             'MsgBox "Test1: " & Mid(ctl.List(0), InStrRev(ctl.List(0), "-") - 5, 5)
             
@@ -2832,25 +2832,25 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3
     
                 IlkSira = IlkSiraGlobal
                 GidenTema = ThisWorkbook.Worksheets(5).Cells(IlkSira, 30).Value & " " & ThisWorkbook.Worksheets(5).Cells(IlkSira, 31).Value 'GidenTemaGlobal
-                'Tabloya satýr ekle
+                'Tabloya satÄ±r ekle
                 Say2 = Say2 + 1
                 'MsgBox Left(Ctl.List(0), InStr(Ctl.List(0), "|") - 2)
                 If Say2 > 1 Then
                     objDoc.Tables(2).Rows.Add BeforeRow:=objDoc.Tables(2).Rows(Say2 + 1)
                 End If
-                'Sýra no
+                'SÄ±ra no
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=1).Range.Text = Say2
     
-                'Gönderilen birim
+                'GÃ¶nderilen birim
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=2).Range.Text = GidenTema
-                'Çýkýþ kayýt no
+                'Ã‡Ä±kÄ±ÅŸ kayÄ±t no
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=3).Range.Text = ThisWorkbook.Worksheets(5).Cells(IlkSira, 76).Value
     
                 'Package A/Package B/Package C
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = "1 Adet Package A"
                 AdetSay = AdetSay + 1
                 If Tip2Option.Value = True Then
-                    'Gönderim þekli
+                    'GÃ¶nderim ÅŸekli
                     objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=5).Range.Text = ThisWorkbook.Worksheets(5).Cells(IlkSira, 85).Value
                 End If
                 
@@ -2866,23 +2866,23 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3
                 
                 IlkSira = IlkSiraGlobal
                 GidenTema = GidenTemaGlobal
-                'Tabloya satýr ekle
+                'Tabloya satÄ±r ekle
                 Say2 = Say2 + 1
                 'MsgBox Left(Ctl.List(0), InStr(Ctl.List(0), "|") - 2)
                 If Say2 > 1 Then
                     objDoc.Tables(2).Rows.Add BeforeRow:=objDoc.Tables(2).Rows(Say2 + 1)
                 End If
-                'Sýra no
+                'SÄ±ra no
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=1).Range.Text = Say2
-                'Gönderilen birim
+                'GÃ¶nderilen birim
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=2).Range.Text = GidenTema
-                'Çýkýþ kayýt no
+                'Ã‡Ä±kÄ±ÅŸ kayÄ±t no
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=3).Range.Text = ThisWorkbook.Worksheets(5).Cells(IlkSira, 84).Value
                 'Package A/Package B/Package C
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = 1 * ThisWorkbook.Worksheets(5).Cells(IlkSira, 72).Value & " unit(s) of " & Left(ThisWorkbook.Worksheets(5).Cells(IlkSira, 71).Value, InStr(ThisWorkbook.Worksheets(5).Cells(IlkSira, 71).Value, "/") - 1)
                 AdetSay = AdetSay + ThisWorkbook.Worksheets(5).Cells(IlkSira, 72).Value
                 If Tip2Option.Value = True Then
-                    'Gönderim þekli
+                    'GÃ¶nderim ÅŸekli
                     objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=5).Range.Text = WorksheetFunction.Proper(Mid(ThisWorkbook.Worksheets(5).Cells(IlkSira, 71).Value, InStr(ThisWorkbook.Worksheets(5).Cells(IlkSira, 71).Value, "/") + 1, Len(ThisWorkbook.Worksheets(5).Cells(IlkSira, 71).Value) - InStr(ThisWorkbook.Worksheets(5).Cells(IlkSira, 71).Value, "/") + 1))
                 End If
                 'Kilitlenme bilgisi
@@ -2891,11 +2891,11 @@ For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3
         End If
     End If
 Rapor3_2Devam1:
-Next ctl '________________RAPOR3_2 BÖLÜMÜ (Bitiþ, Tüm Raporlarýn Ortak Bölümü)
+Next ctl '________________RAPOR3_2 BÃ–LÃœMÃœ (BitiÅŸ, TÃ¼m RaporlarÄ±n Ortak BÃ¶lÃ¼mÃ¼)
 
 
 
-'________________AKTARIMLAR 1 (Bitiþ)
+'________________AKTARIMLAR 1 (BitiÅŸ)
 
 
 If Tip2Option.Value = True Or Tip3Option.Value = True Or Tip4Option.Value = True Then
@@ -2906,13 +2906,13 @@ If Tip2Option.Value = True Or Tip3Option.Value = True Or Tip4Option.Value = True
         Ek1 = "item"
     End If
     If Tip2Option.Value = True Then
-        'Ýlk metin
+        'Ä°lk metin
         objDoc.Tables(3).Cell(Row:=1, Column:=1).Range.Text = "Delivery of the " & AdetSay & " " & Ek1 & " mentioned above (Package A/B/C) has been completed."
     ElseIf Tip3Option.Value = True Or Tip4Option.Value = True Then
-        'Ýlk metin
+        'Ä°lk metin
         objDoc.Tables(3).Cell(Row:=1, Column:=1).Range.Text = "The " & AdetSay & " " & Ek1 & " mentioned above (Package A/B/C) have been handed over to the authorized personnel."
     End If
-    'Ýkinci metin
+    'Ä°kinci metin
     objDoc.Tables(3).Cell(Row:=11, Column:=1).Range.Text = "The " & AdetSay & " " & Ek1 & " (Package A/B/C) have been received."
     'Adedi bold yap.
     Set MyRange = objDoc.Tables(3).Cell(Row:=1, Column:=1).Range
@@ -2933,10 +2933,10 @@ If Tip2Option.Value = True Or Tip3Option.Value = True Or Tip4Option.Value = True
     
 End If
 
-'Artýk satýrý sil
+'ArtÄ±k satÄ±rÄ± sil
 objDoc.Tables(2).Rows(Say2 + 2).Delete
 If Tip2Option.Value = True Then
-'    'Ýmza boþluðunu sayfaya sýðdýrmak için düzenle
+'    'Ä°mza boÅŸluÄŸunu sayfaya sÄ±ÄŸdÄ±rmak iÃ§in dÃ¼zenle
     If Say2 = 13 Then
         objDoc.Tables(3).Rows(2).Delete
         objDoc.Tables(3).Rows(11).Delete
@@ -3086,7 +3086,7 @@ If Tip2Option.Value = True Then
     End If
 ElseIf Tip3Option.Value = True Then
     
-'    'Ýmza boþluðunu sayfaya sýðdýrmak için düzenle
+'    'Ä°mza boÅŸluÄŸunu sayfaya sÄ±ÄŸdÄ±rmak iÃ§in dÃ¼zenle
     If Say2 = 10 Then
         objDoc.Tables(3).Rows(2).Delete
         objDoc.Tables(3).Rows(11).Delete
@@ -3324,7 +3324,7 @@ ElseIf Tip3Option.Value = True Then
     End If
 ElseIf Tip4Option.Value = True Then
 
-'    'Ýmza boþluðunu sayfaya sýðdýrmak için düzenle
+'    'Ä°mza boÅŸluÄŸunu sayfaya sÄ±ÄŸdÄ±rmak iÃ§in dÃ¼zenle
     If Say2 = 13 Then
         objDoc.Tables(3).Rows(2).Delete
         objDoc.Tables(3).Rows(11).Delete
@@ -3479,7 +3479,7 @@ ElseIf Tip4Option.Value = True Then
 End If
 
 
-'Direkt yazdýr
+'Direkt yazdÄ±r
 If TeslimTutanaklariFormuDirektYazdir = True Then
     objWord.Activate
 '    For i = 1 To TeslimTutanaklariFormuSayPrt
@@ -3491,14 +3491,14 @@ If TeslimTutanaklariFormuDirektYazdir = True Then
     objWord.Visible = False
 End If
 
-'Tip4 oluþturulduðunda Tip5 da oluþturulsun.
+'Tip4 oluÅŸturulduÄŸunda Tip5 da oluÅŸturulsun.
 If Tip4Option.Value = True Then
     'MsgBox "Test"
-    'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+    'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
     Set fso = CreateObject("Scripting.FileSystemObject")
     fso.CopyFile (SourceTip5), DestOpUserFolder & ReNameTip5 & ".docm", True
     '________________________________________
-    'Oluþturulacak dosyayý aç
+    'OluÅŸturulacak dosyayÄ± aÃ§
     On Error Resume Next
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
@@ -3506,7 +3506,7 @@ If Tip4Option.Value = True Then
     Set objWord = GetObject(, "Word.Application")
     Set objWord = GetObject(, "Word.Application")
     If objWord Is Nothing Then
-        'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+        'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
         Set objWord = CreateObject("Word.Application")
         objWord.Visible = False
     End If
@@ -3519,19 +3519,19 @@ If Tip4Option.Value = True Then
     '________________________________________
     
     'Birim
-    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "ý", "I")) & " UNIT"
+    Birimx = UCase(Replace(Replace(Worksheets(2).Cells(6, 99).Value, "i", "I"), "Ä±", "I")) & " UNIT"
     objDoc.Tables(1).Cell(Row:=1, Column:=1).Range.Text = Birimx
     'Tutanak tarihi
     objDoc.Tables(1).Cell(Row:=4, Column:=3).Range.Text = TutanakTarihiText.Value
 
-'________________AKTARIMLAR 2 (Baþlangýç)
+'________________AKTARIMLAR 2 (BaÅŸlangÄ±Ã§)
 
     Say2 = 0
     AdetSay = 0
-    For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR1 BÖLÜMÜ (Baþlangýç, Tip5)
+    For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR1 BÃ–LÃœMÃœ (BaÅŸlangÄ±Ã§, Tip5)
         If TypeName(ctl) = "ListBox" Then
             'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
-            If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ö" Then
+            If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ã–" Then
                 
                 Call Rapor1GidenTema
                 If IlkSiraGlobal = 0 Then
@@ -3541,17 +3541,17 @@ If Tip4Option.Value = True Then
                 IlkSira = IlkSiraGlobal
                 GidenTema = GidenTemaGlobal
     
-                'Tabloya satýr ekle
+                'Tabloya satÄ±r ekle
                 Say2 = Say2 + 1
                 'MsgBox Left(Ctl.List(0), InStr(Ctl.List(0), "|") - 2)
                 If Say2 > 1 Then
                     objDoc.Tables(2).Rows.Add BeforeRow:=objDoc.Tables(2).Rows(Say2 + 1)
                 End If
-                'Sýra no
+                'SÄ±ra no
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=1).Range.Text = Say2
-                'Gönderilen birim
+                'GÃ¶nderilen birim
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=2).Range.Text = GidenTema
-                'Çýkýþ kayýt no
+                'Ã‡Ä±kÄ±ÅŸ kayÄ±t no
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=3).Range.Text = ThisWorkbook.Worksheets(3).Cells(IlkSira, 76).Value
                 'Package A/Package B/Package C
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = ThisWorkbook.Worksheets(3).Cells(IlkSira, 68).Value & " unit(s) of " & Left(ThisWorkbook.Worksheets(3).Cells(IlkSira, 67).Value, InStr(ThisWorkbook.Worksheets(3).Cells(IlkSira, 67).Value, "/") - 1)
@@ -3559,9 +3559,9 @@ If Tip4Option.Value = True Then
             End If
         End If
 Rapor1Devam2:
-    Next ctl '________________RAPOR1 BÖLÜMÜ (Bitiþ, Tip5)
+    Next ctl '________________RAPOR1 BÃ–LÃœMÃœ (BitiÅŸ, Tip5)
     
-    For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR BÖLÜMÜ (Baþlangýç, Tip5) 'Rapor ve bilgilendirme için ortak
+    For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR BÃ–LÃœMÃœ (BaÅŸlangÄ±Ã§, Tip5) 'Rapor ve bilgilendirme iÃ§in ortak
         If TypeName(ctl) = "ListBox" Then
             'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
             If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " R" Then
@@ -3574,17 +3574,17 @@ Rapor1Devam2:
                 IlkSira = IlkSiraGlobal
                 GidenTema = GidenTemaGlobal
     
-                'Tabloya satýr ekle
+                'Tabloya satÄ±r ekle
                 Say2 = Say2 + 1
                 'MsgBox Left(Ctl.List(0), InStr(Ctl.List(0), "|") - 2)
                 If Say2 > 1 Then
                     objDoc.Tables(2).Rows.Add BeforeRow:=objDoc.Tables(2).Rows(Say2 + 1)
                 End If
-                'Sýra no
+                'SÄ±ra no
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=1).Range.Text = Say2
-                'Gönderilen birim
+                'GÃ¶nderilen birim
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=2).Range.Text = GidenTema
-                'Çýkýþ kayýt no
+                'Ã‡Ä±kÄ±ÅŸ kayÄ±t no
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=3).Range.Text = ThisWorkbook.Worksheets(4).Cells(IlkSira, 84).Value
 
                 If ThisWorkbook.Worksheets(4).Cells(IlkSiraGlobal, 174).Value = "Yes" Then 'Bilgilendirme (Rapor2_2 evet)
@@ -3600,9 +3600,9 @@ Rapor1Devam2:
             End If
         End If
 RaporDevam2:
-    Next ctl '________________RAPOR BÖLÜMÜ (Bitiþ, Tip5)
+    Next ctl '________________RAPOR BÃ–LÃœMÃœ (BitiÅŸ, Tip5)
 
-    For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR BÖLÜMÜ (Baþlangýç, Tip5) 'XXXMud
+    For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR BÃ–LÃœMÃœ (BaÅŸlangÄ±Ã§, Tip5) 'XXXMud
         If TypeName(ctl) = "ListBox" Then
             'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
             If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " B" And InStr(ctl.List(0), "XXXMud") <> 0 Then
@@ -3615,18 +3615,18 @@ RaporDevam2:
                 IlkSira = IlkSiraGlobal
                 GidenTema = GidenTemaGlobal
     
-                'Tabloya satýr ekle
+                'Tabloya satÄ±r ekle
                 Say2 = Say2 + 1
                 'MsgBox Left(Ctl.List(0), InStr(Ctl.List(0), "|") - 2)
                 If Say2 > 1 Then
                     objDoc.Tables(2).Rows.Add BeforeRow:=objDoc.Tables(2).Rows(Say2 + 1)
                 End If
-                'Sýra no
+                'SÄ±ra no
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=1).Range.Text = Say2
-                'Gönderilen birim
+                'GÃ¶nderilen birim
                 GidenTema = "ORGANIZATION A XXX Directorate"
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=2).Range.Text = GidenTema
-                'Çýkýþ kayýt no
+                'Ã‡Ä±kÄ±ÅŸ kayÄ±t no
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=3).Range.Text = ThisWorkbook.Worksheets(4).Cells(IlkSira, 176).Value
                 'Package A/Package B/Package C
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = ThisWorkbook.Worksheets(4).Cells(IlkSira, 185).Value & " unit(s) of " & Left(ThisWorkbook.Worksheets(4).Cells(IlkSira, 184).Value, InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 184).Value, "/") - 1)
@@ -3634,9 +3634,9 @@ RaporDevam2:
             End If
         End If
 RaporDevam2XXXMud:
-    Next ctl '________________RAPOR BÖLÜMÜ (Bitiþ, Tip5)
+    Next ctl '________________RAPOR BÃ–LÃœMÃœ (BitiÅŸ, Tip5)
     
-    For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR BÖLÜMÜ (Baþlangýç, Tip5) 'Sonuç
+    For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR BÃ–LÃœMÃœ (BaÅŸlangÄ±Ã§, Tip5) 'SonuÃ§
         If TypeName(ctl) = "ListBox" Then
             'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
             If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " B" And InStr(ctl.List(0), "XXXMud") = 0 Then
@@ -3649,28 +3649,28 @@ RaporDevam2XXXMud:
                 IlkSira = IlkSiraGlobal
                 GidenTema = GidenTemaGlobal
     
-                'Tabloya satýr ekle
+                'Tabloya satÄ±r ekle
                 Say2 = Say2 + 1
                 'MsgBox Left(Ctl.List(0), InStr(Ctl.List(0), "|") - 2)
                 If Say2 > 1 Then
                     objDoc.Tables(2).Rows.Add BeforeRow:=objDoc.Tables(2).Rows(Say2 + 1)
                 End If
-                'Sýra no
+                'SÄ±ra no
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=1).Range.Text = Say2
-                'Gönderilen birim
+                'GÃ¶nderilen birim
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=2).Range.Text = GidenTema
-                'Çýkýþ kayýt no
+                'Ã‡Ä±kÄ±ÅŸ kayÄ±t no
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=3).Range.Text = ThisWorkbook.Worksheets(4).Cells(IlkSira, 178).Value
                 
-                'Senaryo düzenleyicisi (veriler  kurum tutanak2sýndan mý, XXXMud tutanak2sýndan mý yok sa her ikisinden mi alýnacak)
+                'Senaryo dÃ¼zenleyicisi (veriler  kurum tutanak2sÄ±ndan mÄ±, XXXMud tutanak2sÄ±ndan mÄ± yok sa her ikisinden mi alÄ±nacak)
                 If ThisWorkbook.Worksheets(4).Cells(IlkSira, 187).Value = "All" Then 'XXXMudya giden
-                    If ThisWorkbook.Worksheets(4).Cells(IlkSira, 188).Value = "Yes" Then 'XXXMud'den gelen paketin açýlma durumu
+                    If ThisWorkbook.Worksheets(4).Cells(IlkSira, 188).Value = "Yes" Then 'XXXMud'den gelen paketin aÃ§Ä±lma durumu
                         'Kurum
                         GidenPaketAdet = Application.Sum(ThisWorkbook.Worksheets(4).Range(ThisWorkbook.Worksheets(4).Cells(IlkSira, 76), ThisWorkbook.Worksheets(4).Cells(IlkSira, 76)))
                         'Package A/Package B/Package C
                         objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = GidenPaketAdet & " unit(s) of " & Left(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, "/") - 1)
                         AdetSay = AdetSay + GidenPaketAdet
-                    ElseIf ThisWorkbook.Worksheets(4).Cells(IlkSira, 188).Value = "No" Then 'XXXMud'den gelen paketin açýlma durumu
+                    ElseIf ThisWorkbook.Worksheets(4).Cells(IlkSira, 188).Value = "No" Then 'XXXMud'den gelen paketin aÃ§Ä±lma durumu
                         'XXXMud
                         GidenPaketAdet = Application.Sum(ThisWorkbook.Worksheets(4).Range(ThisWorkbook.Worksheets(4).Cells(IlkSira, 202), ThisWorkbook.Worksheets(4).Cells(IlkSira, 202)))
                         'Package A/Package B/Package C
@@ -3678,14 +3678,14 @@ RaporDevam2XXXMud:
                         AdetSay = AdetSay + GidenPaketAdet
                     End If
                 ElseIf ThisWorkbook.Worksheets(4).Cells(IlkSira, 187).Value = "Technique A" Then 'XXXMudya giden
-                    If ThisWorkbook.Worksheets(4).Cells(IlkSira, 188).Value = "Yes" Then 'XXXMud'den gelen paketin açýlma durumu
-                        If ThisWorkbook.Worksheets(4).Cells(IlkSira, 189).Value = "Yes" Then 'Tutanak2 tut. birleþme durumu
+                    If ThisWorkbook.Worksheets(4).Cells(IlkSira, 188).Value = "Yes" Then 'XXXMud'den gelen paketin aÃ§Ä±lma durumu
+                        If ThisWorkbook.Worksheets(4).Cells(IlkSira, 189).Value = "Yes" Then 'Tutanak2 tut. birleÅŸme durumu
                             'Kurum
                             GidenPaketAdet = Application.Sum(ThisWorkbook.Worksheets(4).Range(ThisWorkbook.Worksheets(4).Cells(IlkSira, 76), ThisWorkbook.Worksheets(4).Cells(IlkSira, 76)))
                             'Package A/Package B/Paket C
                             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = GidenPaketAdet & " unit(s) of " & Left(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, "/") - 1)
                             AdetSay = AdetSay + GidenPaketAdet
-                        ElseIf ThisWorkbook.Worksheets(4).Cells(IlkSira, 189).Value = "No" Then 'Tutanak2 tut. birleþme durumu
+                        ElseIf ThisWorkbook.Worksheets(4).Cells(IlkSira, 189).Value = "No" Then 'Tutanak2 tut. birleÅŸme durumu
                             'Kurum ve XXXMud
                             GidenPaketAdet = Application.Sum(ThisWorkbook.Worksheets(4).Range(ThisWorkbook.Worksheets(4).Cells(IlkSira, 76), ThisWorkbook.Worksheets(4).Cells(IlkSira, 76)))
                             GidenPaketAdet = GidenPaketAdet + Application.Sum(ThisWorkbook.Worksheets(4).Range(ThisWorkbook.Worksheets(4).Cells(IlkSira, 202), ThisWorkbook.Worksheets(4).Cells(IlkSira, 202)))
@@ -3693,7 +3693,7 @@ RaporDevam2XXXMud:
                             objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = GidenPaketAdet & " unit(s) of " & Left(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, InStr(ThisWorkbook.Worksheets(4).Cells(IlkSira, 75).Value, "/") - 1)
                             AdetSay = AdetSay + GidenPaketAdet
                         End If
-                    ElseIf ThisWorkbook.Worksheets(4).Cells(IlkSira, 188).Value = "No" Then 'XXXMud'den gelen paketin açýlma durumu
+                    ElseIf ThisWorkbook.Worksheets(4).Cells(IlkSira, 188).Value = "No" Then 'XXXMud'den gelen paketin aÃ§Ä±lma durumu
                         'Kurum
                         GidenPaketAdet = Application.Sum(ThisWorkbook.Worksheets(4).Range(ThisWorkbook.Worksheets(4).Cells(IlkSira, 76), ThisWorkbook.Worksheets(4).Cells(IlkSira, 76)))
                         'Package A/Package B/Package C
@@ -3705,10 +3705,10 @@ RaporDevam2XXXMud:
             End If
         End If
 RaporDevam2Sonuc:
-    Next ctl '________________RAPOR BÖLÜMÜ (Bitiþ, Tip5)
+    Next ctl '________________RAPOR BÃ–LÃœMÃœ (BitiÅŸ, Tip5)
 
 
-    For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3_1 BÖLÜMÜ (Baþlangýç, Tip5)
+    For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3_1 BÃ–LÃœMÃœ (BaÅŸlangÄ±Ã§, Tip5)
         If TypeName(ctl) = "ListBox" Then
             'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
             If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " G" Then
@@ -3721,17 +3721,17 @@ RaporDevam2Sonuc:
                 IlkSira = IlkSiraGlobal
                 GidenTema = GidenTemaGlobal
     
-                'Tabloya satýr ekle
+                'Tabloya satÄ±r ekle
                 Say2 = Say2 + 1
                 'MsgBox Left(Ctl.List(0), InStr(Ctl.List(0), "|") - 2)
                 If Say2 > 1 Then
                     objDoc.Tables(2).Rows.Add BeforeRow:=objDoc.Tables(2).Rows(Say2 + 1)
                 End If
-                'Sýra no
+                'SÄ±ra no
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=1).Range.Text = Say2
-                'Gönderilen birim
+                'GÃ¶nderilen birim
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=2).Range.Text = GidenTema
-                'Çýkýþ kayýt no
+                'Ã‡Ä±kÄ±ÅŸ kayÄ±t no
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=3).Range.Text = ThisWorkbook.Worksheets(5).Cells(IlkSira, 156).Value
                 'Package A/Package B/Package C
                 objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = ThisWorkbook.Worksheets(5).Cells(IlkSira, 150).Value & " unit(s) of " & Left(ThisWorkbook.Worksheets(5).Cells(IlkSira, 149).Value, InStr(ThisWorkbook.Worksheets(5).Cells(IlkSira, 149).Value, "/") - 1)
@@ -3739,10 +3739,10 @@ RaporDevam2Sonuc:
             End If
         End If
 Rapor3_1Devam2:
-    Next ctl '________________RAPOR3_1 BÖLÜMÜ (Bitiþ, Tip5)
+    Next ctl '________________RAPOR3_1 BÃ–LÃœMÃœ (BitiÅŸ, Tip5)
 
 
-    For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3_2 BÖLÜMÜ (Baþlangýç, Tip5)
+    For Each ctl In core_delivery_manager_UI.Frame2.Controls '________________RAPOR3_2 BÃ–LÃœMÃœ (BaÅŸlangÄ±Ã§, Tip5)
         If TypeName(ctl) = "ListBox" Then
             'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
             If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " M" Then  'Mid(ctl.List(0), InStrRev(ctl.List(0), "-") - 5, 5) <> "FinansalBirim" Then
@@ -3757,25 +3757,25 @@ Rapor3_1Devam2:
         
                     IlkSira = IlkSiraGlobal
                     GidenTema = ThisWorkbook.Worksheets(5).Cells(IlkSira, 30).Value & " " & ThisWorkbook.Worksheets(5).Cells(IlkSira, 31).Value 'GidenTemaGlobal
-                    'Tabloya satýr ekle
+                    'Tabloya satÄ±r ekle
                     Say2 = Say2 + 1
                     'MsgBox Left(Ctl.List(0), InStr(Ctl.List(0), "|") - 2)
                     If Say2 > 1 Then
                         objDoc.Tables(2).Rows.Add BeforeRow:=objDoc.Tables(2).Rows(Say2 + 1)
                     End If
-                    'Sýra no
+                    'SÄ±ra no
                     objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=1).Range.Text = Say2
         
-                    'Gönderilen birim
+                    'GÃ¶nderilen birim
                     objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=2).Range.Text = GidenTema
-                    'Çýkýþ kayýt no
+                    'Ã‡Ä±kÄ±ÅŸ kayÄ±t no
                     objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=3).Range.Text = ThisWorkbook.Worksheets(5).Cells(IlkSira, 76).Value
         
                     'Package A/Package B/Package C
                     objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = "1 Adet Package A"
                     AdetSay = AdetSay + 1
                     If Tip2Option.Value = True Then
-                        'Gönderim þekli
+                        'GÃ¶nderim ÅŸekli
                         objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=5).Range.Text = ThisWorkbook.Worksheets(5).Cells(IlkSira, 85).Value
                     End If
                     
@@ -3790,17 +3790,17 @@ Rapor3_1Devam2:
                     IlkSira = IlkSiraGlobal
                     GidenTema = GidenTemaGlobal
         
-                    'Tabloya satýr ekle
+                    'Tabloya satÄ±r ekle
                     Say2 = Say2 + 1
                     'MsgBox Left(Ctl.List(0), InStr(Ctl.List(0), "|") - 2)
                     If Say2 > 1 Then
                         objDoc.Tables(2).Rows.Add BeforeRow:=objDoc.Tables(2).Rows(Say2 + 1)
                     End If
-                    'Sýra no
+                    'SÄ±ra no
                     objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=1).Range.Text = Say2
-                    'Gönderilen birim
+                    'GÃ¶nderilen birim
                     objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=2).Range.Text = GidenTema
-                    'Çýkýþ kayýt no
+                    'Ã‡Ä±kÄ±ÅŸ kayÄ±t no
                     objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=3).Range.Text = ThisWorkbook.Worksheets(5).Cells(IlkSira, 84).Value
                     'Package A/Package B/Package C
                     objDoc.Tables(2).Cell(Row:=Say2 + 1, Column:=4).Range.Text = ThisWorkbook.Worksheets(5).Cells(IlkSira, 72).Value & " unit(s) of " & Left(ThisWorkbook.Worksheets(5).Cells(IlkSira, 71).Value, InStr(ThisWorkbook.Worksheets(5).Cells(IlkSira, 71).Value, "/") - 1)
@@ -3810,10 +3810,10 @@ Rapor3_1Devam2:
             End If
         End If
 Rapor3_2Devam2:
-    Next ctl '________________RAPOR3_2 BÖLÜMÜ (Bitiþ, Tip5)
+    Next ctl '________________RAPOR3_2 BÃ–LÃœMÃœ (BitiÅŸ, Tip5)
     
     
-'________________AKTARIMLAR 2 (Bitiþ)
+'________________AKTARIMLAR 2 (BitiÅŸ)
 
 
     'Tip5 metin
@@ -3828,9 +3828,9 @@ Rapor3_2Devam2:
     'Alt bilgi ekle
     objDoc.Sections(1).Footers(wdHeaderFooterPrimary).Range.Tables(1).Cell(Row:=1, Column:=1).Range.Text = ReNameTip5
     
-    'Artýk satýrý sil
+    'ArtÄ±k satÄ±rÄ± sil
     objDoc.Tables(2).Rows(Say2 + 2).Delete
-    'Ýmza boþluðunu sayfaya sýðdýrmak için düzenle
+    'Ä°mza boÅŸluÄŸunu sayfaya sÄ±ÄŸdÄ±rmak iÃ§in dÃ¼zenle
     If Say2 = 19 Then
         objDoc.Tables(4).Rows(1).Delete
         objDoc.Tables(4).Rows(2).Delete
@@ -3863,7 +3863,7 @@ Rapor3_2Devam2:
         Next i
     End If
 
-    'Direkt yazdýr
+    'Direkt yazdÄ±r
     If TeslimTutanaklariFormuDirektYazdir = True Then
         objWord.Activate
 '        For i = 1 To TeslimTutanaklariFormuSayPrt
@@ -3877,11 +3877,11 @@ Rapor3_2Devam2:
 
 End If
 
-    'Tutanak numarasýný kaydet
+    'Tutanak numarasÄ±nÄ± kaydet
     ThisWorkbook.Worksheets(6).Unprotect Password:="123"
     'Tip2
     If Tip2Option.Value = True Then
-        'Comboda tanýmlý deðer ise
+        'Comboda tanÄ±mlÄ± deÄŸer ise
         a() = TutanakNoText.List
         For b = LBound(a) To UBound(a)
             If a(b, 0) = TutanakNoText.Value Then
@@ -3898,7 +3898,7 @@ Tip2NoEklemedenAtla:
 
     'Ek 181
     If Tip3Option.Value = True Then
-        'Comboda tanýmlý deðer ise
+        'Comboda tanÄ±mlÄ± deÄŸer ise
         a() = TutanakNoText.List
         For b = LBound(a) To UBound(a)
             If a(b, 0) = TutanakNoText.Value Then
@@ -3915,7 +3915,7 @@ Tip3NoEklemedenAtla:
 
     'Ek 182
     If Tip4Option.Value = True Then
-        'Comboda tanýmlý deðer ise
+        'Comboda tanÄ±mlÄ± deÄŸer ise
         a() = TutanakNoText.List
         For b = LBound(a) To UBound(a)
             If a(b, 0) = TutanakNoText.Value Then
@@ -3985,7 +3985,7 @@ End Sub
 Private Sub TutanakTarihiText_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
     
     On Error Resume Next
-    'Delete ve Backspace tuþlarý textboxu sil.
+    'Delete ve Backspace tuÅŸlarÄ± textboxu sil.
     If KeyCode = vbKeyDelete Then
         TutanakTarihiText.Value = ""
     End If
@@ -4045,7 +4045,7 @@ For Each ClrLab In core_delivery_manager_UI.Controls
         ClrLab.ForeColor = RGB(30, 30, 30)
     End If
     
-    'YENÝ
+    'YENÄ°
     If TypeName(ClrLab) = "Frame" Then
         ClrLab.BackColor = RGB(254, 254, 254)
         ClrLab.ForeColor = RGB(30, 30, 30)
@@ -4053,8 +4053,8 @@ For Each ClrLab In core_delivery_manager_UI.Controls
     End If
 Next ClrLab
 
-UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
-AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
+UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
+AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
 LblBilgilendirme.BackColor = RGB(254, 254, 254)
 
 TakvimBtn.BackColor = RGB(225, 235, 245)
@@ -4067,7 +4067,7 @@ Tutanak.BackColor = RGB(225, 235, 245)
 Tutanak.ForeColor = RGB(30, 30, 30)
 DirektYazdir.BackColor = RGB(225, 235, 245)
 DirektYazdir.ForeColor = RGB(30, 30, 30)
-core_delivery_manager_UI.BackColor = RGB(230, 230, 230) 'YENÝ
+core_delivery_manager_UI.BackColor = RGB(230, 230, 230) 'YENÄ°
 
 LblSiraNo1.BorderColor = RGB(180, 180, 180)
 LblBelgeNo1.BorderColor = RGB(180, 180, 180)
@@ -4076,7 +4076,7 @@ LblSiraNo2.BorderColor = RGB(180, 180, 180)
 LblBelgeNo2.BorderColor = RGB(180, 180, 180)
 LblGonderen2.BorderColor = RGB(180, 180, 180)
 
-TutanakNoFrame.Visible = False 'Açýlýþta tutanak no olmasýn
+TutanakNoFrame.Visible = False 'AÃ§Ä±lÄ±ÅŸta tutanak no olmasÄ±n
 
 TasiyiciFrame.Height = 514
 Frame1x.Height = 264
@@ -4148,7 +4148,7 @@ Dim Say As Long, j As Long, Cont As Long, Tno As Variant
 
 Application.ScreenUpdating = False
 
-'Tutanak numarasýný getir
+'Tutanak numarasÄ±nÄ± getir
 ThisWorkbook.Unprotect "123"
 ThisWorkbook.Worksheets(6).Unprotect Password:="123"
 

@@ -64,13 +64,13 @@ Dim OgeIdNoKontSatir As Integer, AciklamaKontSatir As Integer
 Dim WsFarkGiris As Worksheet, SayA As Integer, SayD As Integer, SayG As Integer, SayJ As Integer, SayM As Integer, SayFarkGiris As Integer
 
 
-'Fark Giriþleri sayfasýnda bulunan verileri temizle.
+'Fark GiriÅŸleri sayfasÄ±nda bulunan verileri temizle.
 Set WsFarkGiris = ThisWorkbook.Worksheets(7)
-'Potect/Unprotect kodlarý gelecek
+'Potect/Unprotect kodlarÄ± gelecek
 ThisWorkbook.Unprotect "123"
 ThisWorkbook.Worksheets(7).Unprotect Password:="123"
 
-'Maksimum deðerler.
+'Maksimum deÄŸerler.
 SayA = WsFarkGiris.Range("A100000").End(xlUp).Row
 SayD = WsFarkGiris.Range("D100000").End(xlUp).Row
 SayG = WsFarkGiris.Range("G100000").End(xlUp).Row
@@ -84,7 +84,7 @@ End If
 
 '______________________
 
-'Tüm bölümler için ön kontrol
+'TÃ¼m bÃ¶lÃ¼mler iÃ§in Ã¶n kontrol
 TumKontx = 0
 For Each ctl In support_discrepancy_entry_UI.ScrollFrame.Controls 'ScrollFrame
     If TypeName(ctl) = "ComboBox" Then
@@ -104,7 +104,7 @@ End If
 '______________________
 
 
-'Arada boþ býrakýlan satýrlarýn kontrolü; öðe türü, öðe deðeri, adet, öðe ID no (ve açýklama)
+'Arada boÅŸ bÄ±rakÄ±lan satÄ±rlarÄ±n kontrolÃ¼; Ã¶ÄŸe tÃ¼rÃ¼, Ã¶ÄŸe deÄŸeri, adet, Ã¶ÄŸe ID no (ve aÃ§Ä±klama)
 If OgeTuru.Value = "" Then
     Bilgi = MsgBox("Item type is not specified. Please check the rows and try again.", vbOKOnly + vbExclamation, "Enterprise Document Automation System")
     GoTo Son
@@ -126,11 +126,11 @@ If OgeIdNo.Value = "" Then
 End If
 
 If Aciklama.Value = "" Then
-    ' (Ýlgili eylemi buraya ekleyebilirsiniz.)
+    ' (Ä°lgili eylemi buraya ekleyebilirsiniz.)
 End If
 
 
-'Aradaki satýrlarý kontrol et.
+'Aradaki satÄ±rlarÄ± kontrol et.
 Kont = 0
 For OgeFrame = 1 To 19
     If Controls("OgeTuruFrame" & OgeFrame).Visible = True Then
@@ -186,8 +186,8 @@ If Maxi > 0 Then
 '        End If
     Next i
 End If
-'Yukarýdaki maxi deðeri, (aþaðýda bulunan kodlarda) verilerin rapor1 formundan
-'sayfaya aktarýlmasýnda kullanýlýyor.
+'YukarÄ±daki maxi deÄŸeri, (aÅŸaÄŸÄ±da bulunan kodlarda) verilerin rapor1 formundan
+'sayfaya aktarÄ±lmasÄ±nda kullanÄ±lÄ±yor.
 If OgeTuruKontSatir <> 0 And OgeDegeriKontSatir <> 0 And AdetKontSatir <> 0 And OgeIdNoKontSatir Then
     Bilgi = MsgBox("It has been detected that a row was skipped. Please check the rows and try again.", vbOKOnly + vbExclamation, "Enterprise Document Automation System")
     GoTo Son
@@ -211,7 +211,7 @@ ElseIf AciklamaKontSatir <> 0 Then
 End If
 
 
-'Verileri geçici olarak kaydet
+'Verileri geÃ§ici olarak kaydet
 WsFarkGiris.Cells(3, 1).Value = OgeTuru.Value
 WsFarkGiris.Cells(3, 4).Value = OgeDegeri.Value
 WsFarkGiris.Cells(3, 7).Value = Adet.Value
@@ -262,7 +262,7 @@ Private Sub LblOgeTuruUst_Click()
 MsgBox "Select the item type related to the inspected item from the dropdown list below." & vbNewLine & vbNewLine & _
 "After clicking once on the dropdown list below, you can also press the first letter of your desired selection on the keyboard until it appears." & vbNewLine & vbNewLine & _
 "To enter multiple item types/item values/quantities, click the + sign at the far right of this row. To remove item type/item value/quantity rows, click the - sign at the same location." & vbNewLine & vbNewLine & _
-"If the relevant item type is not listed in the dropdown, click the ± sign to the left of the Item Type label and follow the instructions in the opened window to define the item type in the system." & vbNewLine & vbNewLine & _
+"If the relevant item type is not listed in the dropdown, click the Â± sign to the left of the Item Type label and follow the instructions in the opened window to define the item type in the system." & vbNewLine & vbNewLine & _
 "The selection made in the Item Type field is used in Statement 1, Report 1, and Statement 2. For more details, click the Help button in the top right corner.", vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
 
@@ -270,7 +270,7 @@ Private Sub LblOgeDegeriUst_Click()
 MsgBox "Select the item value related to the inspected item from the dropdown list below." & vbNewLine & vbNewLine & _
 "After clicking once on the dropdown list below, you can also press the first digit of your desired selection on the keyboard until it appears." & vbNewLine & vbNewLine & _
 "To enter multiple item types/item values/quantities, click the + sign at the far right of this row. To remove item type/item value/quantity rows, click the - sign at the same location." & vbNewLine & vbNewLine & _
-"If the relevant item value is not listed in the dropdown, click the ± sign to the left of the Item Value label and follow the instructions in the opened window to define the item value in the system." & vbNewLine & vbNewLine & _
+"If the relevant item value is not listed in the dropdown, click the Â± sign to the left of the Item Value label and follow the instructions in the opened window to define the item value in the system." & vbNewLine & vbNewLine & _
 "The selection made in the Item Value field is used in Statement 1, Report 1, and Statement 2. For more details, click the Help button in the top right corner.", vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
 
@@ -374,9 +374,9 @@ End If
 End Sub
 
 Private Sub KaldirOge_Click()
-'Çoðaltýlan diðer satýrlar için de verilerin silinmesi eklenecek.
+'Ã‡oÄŸaltÄ±lan diÄŸer satÄ±rlar iÃ§in de verilerin silinmesi eklenecek.
 
-'_____________________Güncelleme 18112019 1238
+'_____________________GÃ¼ncelleme 18112019 1238
 
 Dim OgeFrame As Integer, SonDoluSatir As Integer, IlkBosSatir As Integer
 
@@ -400,7 +400,7 @@ If SonDoluSatir = 0 Then
  GoTo NormalProsedureGit
 End If
 
-'Baþlangýç satýrý boþsa
+'BaÅŸlangÄ±Ã§ satÄ±rÄ± boÅŸsa
 If OgeTuru.Value = "" And OgeDegeri.Value = "" And Adet.Value = "" And OgeIdNo.Value = "" And Aciklama.Value = "" Then
 
     For OgeFrame = 1 To SonDoluSatir
@@ -450,7 +450,7 @@ If OgeTuru.Value = "" And OgeDegeri.Value = "" And Adet.Value = "" And OgeIdNo.V
 
 End If
 
-'Baþlangýç satýrýndan sonraki iþlemler boþsa
+'BaÅŸlangÄ±Ã§ satÄ±rÄ±ndan sonraki iÅŸlemler boÅŸsa
 IlkBosSatir = 0
 For OgeFrame = 1 To SonDoluSatir
     If Controls("OgeTuru" & OgeFrame).Value = "" And _
@@ -470,7 +470,7 @@ If IlkBosSatir = 0 Then
  GoTo NormalProsedureGit
 End If
 
-'Baþlangýç satýrýndan sonraki iþlemler boþsa
+'BaÅŸlangÄ±Ã§ satÄ±rÄ±ndan sonraki iÅŸlemler boÅŸsa
 For OgeFrame = IlkBosSatir + 1 To SonDoluSatir
 
     If Controls("OgeTuru" & OgeFrame).Value <> "" Or _
@@ -497,7 +497,7 @@ Next OgeFrame
 
 NormalProsedureGit:
 
-'_____________________Güncelleme 18112019 1238
+'_____________________GÃ¼ncelleme 18112019 1238
 
 
 If OgeTuruFrame19.Visible = True Then
@@ -656,7 +656,7 @@ End If
 
 Son:
 
-'Açýk dropdown kapat
+'AÃ§Ä±k dropdown kapat
 Call ModuleSystemSettings.DropDownKapat
 
 If ScrollTakip2 > 0 Then
@@ -694,7 +694,7 @@ Private Sub OgeTuru_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift 
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru.SetFocus
     End If
@@ -756,7 +756,7 @@ Private Sub OgeTuru1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru.SetFocus
     End If
@@ -818,7 +818,7 @@ Private Sub OgeTuru2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru1.SetFocus
     End If
@@ -880,7 +880,7 @@ Private Sub OgeTuru3_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru2.SetFocus
     End If
@@ -942,7 +942,7 @@ Private Sub OgeTuru4_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru3.SetFocus
     End If
@@ -1004,7 +1004,7 @@ Private Sub OgeTuru5_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru4.SetFocus
     End If
@@ -1066,7 +1066,7 @@ Private Sub OgeTuru6_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru5.SetFocus
     End If
@@ -1128,7 +1128,7 @@ Private Sub OgeTuru7_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru6.SetFocus
     End If
@@ -1190,7 +1190,7 @@ Private Sub OgeTuru8_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru7.SetFocus
     End If
@@ -1252,7 +1252,7 @@ Private Sub OgeTuru9_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru8.SetFocus
     End If
@@ -1314,7 +1314,7 @@ Private Sub OgeTuru10_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru9.SetFocus
     End If
@@ -1376,7 +1376,7 @@ Private Sub OgeTuru11_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru10.SetFocus
     End If
@@ -1438,7 +1438,7 @@ Private Sub OgeTuru12_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru11.SetFocus
     End If
@@ -1500,7 +1500,7 @@ Private Sub OgeTuru13_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru12.SetFocus
     End If
@@ -1562,7 +1562,7 @@ Private Sub OgeTuru14_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru13.SetFocus
     End If
@@ -1624,7 +1624,7 @@ Private Sub OgeTuru15_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru14.SetFocus
     End If
@@ -1686,7 +1686,7 @@ Private Sub OgeTuru16_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru15.SetFocus
     End If
@@ -1749,7 +1749,7 @@ Private Sub OgeTuru17_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru16.SetFocus
     End If
@@ -1812,7 +1812,7 @@ Private Sub OgeTuru18_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru17.SetFocus
     End If
@@ -1874,7 +1874,7 @@ Private Sub OgeTuru19_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru18.SetFocus
     End If
@@ -1936,7 +1936,7 @@ Private Sub OgeDegeri_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         'OgeDegeri0.SetFocus
     End If
@@ -1997,7 +1997,7 @@ Private Sub OgeDegeri1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri.SetFocus
     End If
@@ -2058,7 +2058,7 @@ Private Sub OgeDegeri2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri1.SetFocus
     End If
@@ -2119,7 +2119,7 @@ Private Sub OgeDegeri3_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri2.SetFocus
     End If
@@ -2180,7 +2180,7 @@ Private Sub OgeDegeri4_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri3.SetFocus
     End If
@@ -2241,7 +2241,7 @@ Private Sub OgeDegeri5_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri4.SetFocus
     End If
@@ -2302,7 +2302,7 @@ Private Sub OgeDegeri6_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri5.SetFocus
     End If
@@ -2363,7 +2363,7 @@ Private Sub OgeDegeri7_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri6.SetFocus
     End If
@@ -2424,7 +2424,7 @@ Private Sub OgeDegeri8_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri7.SetFocus
     End If
@@ -2485,7 +2485,7 @@ Private Sub OgeDegeri9_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri8.SetFocus
     End If
@@ -2546,7 +2546,7 @@ Private Sub OgeDegeri10_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri9.SetFocus
     End If
@@ -2607,7 +2607,7 @@ Private Sub OgeDegeri11_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri10.SetFocus
     End If
@@ -2668,7 +2668,7 @@ Private Sub OgeDegeri12_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri11.SetFocus
     End If
@@ -2729,7 +2729,7 @@ Private Sub OgeDegeri13_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri12.SetFocus
     End If
@@ -2790,7 +2790,7 @@ Private Sub OgeDegeri14_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri13.SetFocus
     End If
@@ -2851,7 +2851,7 @@ Private Sub OgeDegeri15_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri14.SetFocus
     End If
@@ -2912,7 +2912,7 @@ Private Sub OgeDegeri16_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri15.SetFocus
     End If
@@ -2973,7 +2973,7 @@ Private Sub OgeDegeri17_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri16.SetFocus
     End If
@@ -3034,7 +3034,7 @@ Private Sub OgeDegeri18_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri17.SetFocus
     End If
@@ -3095,7 +3095,7 @@ Private Sub OgeDegeri19_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri18.SetFocus
     End If
@@ -3153,7 +3153,7 @@ Private Sub Adet_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As 
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet.SetFocus
     End If
@@ -3179,7 +3179,7 @@ Private Sub Adet1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet.SetFocus
     End If
@@ -3204,7 +3204,7 @@ Private Sub Adet2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet1.SetFocus
     End If
@@ -3229,7 +3229,7 @@ Private Sub Adet3_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet2.SetFocus
     End If
@@ -3254,7 +3254,7 @@ Private Sub Adet4_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet3.SetFocus
     End If
@@ -3279,7 +3279,7 @@ Private Sub Adet5_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet4.SetFocus
     End If
@@ -3304,7 +3304,7 @@ Private Sub Adet6_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet5.SetFocus
     End If
@@ -3329,7 +3329,7 @@ Private Sub Adet7_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet6.SetFocus
     End If
@@ -3354,7 +3354,7 @@ Private Sub Adet8_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet7.SetFocus
     End If
@@ -3379,7 +3379,7 @@ Private Sub Adet9_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet8.SetFocus
     End If
@@ -3404,7 +3404,7 @@ Private Sub Adet10_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet9.SetFocus
     End If
@@ -3429,7 +3429,7 @@ Private Sub Adet11_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet10.SetFocus
     End If
@@ -3454,7 +3454,7 @@ Private Sub Adet12_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet11.SetFocus
     End If
@@ -3479,7 +3479,7 @@ Private Sub Adet13_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet12.SetFocus
     End If
@@ -3504,7 +3504,7 @@ Private Sub Adet14_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet13.SetFocus
     End If
@@ -3529,7 +3529,7 @@ Private Sub Adet15_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet14.SetFocus
     End If
@@ -3554,7 +3554,7 @@ Private Sub Adet16_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet15.SetFocus
     End If
@@ -3579,7 +3579,7 @@ Private Sub Adet17_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet16.SetFocus
     End If
@@ -3604,7 +3604,7 @@ Private Sub Adet18_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet17.SetFocus
     End If
@@ -3629,7 +3629,7 @@ Private Sub Adet19_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet18.SetFocus
     End If
@@ -3660,7 +3660,7 @@ Private Sub OgeIdNo_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift 
     
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo.SetFocus
     End If
@@ -3681,7 +3681,7 @@ Private Sub OgeIdNo1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo.SetFocus
     End If
@@ -3702,7 +3702,7 @@ Private Sub OgeIdNo2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo1.SetFocus
     End If
@@ -3723,7 +3723,7 @@ Private Sub OgeIdNo3_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo2.SetFocus
     End If
@@ -3744,7 +3744,7 @@ Private Sub OgeIdNo4_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo3.SetFocus
     End If
@@ -3765,7 +3765,7 @@ Private Sub OgeIdNo5_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo4.SetFocus
     End If
@@ -3786,7 +3786,7 @@ Private Sub OgeIdNo6_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo5.SetFocus
     End If
@@ -3807,7 +3807,7 @@ Private Sub OgeIdNo7_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo6.SetFocus
     End If
@@ -3828,7 +3828,7 @@ Private Sub OgeIdNo8_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo7.SetFocus
     End If
@@ -3849,7 +3849,7 @@ Private Sub OgeIdNo9_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo8.SetFocus
     End If
@@ -3870,7 +3870,7 @@ Private Sub OgeIdNo10_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo9.SetFocus
     End If
@@ -3891,7 +3891,7 @@ Private Sub OgeIdNo11_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo10.SetFocus
     End If
@@ -3912,7 +3912,7 @@ Private Sub OgeIdNo12_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo11.SetFocus
     End If
@@ -3933,7 +3933,7 @@ Private Sub OgeIdNo13_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo12.SetFocus
     End If
@@ -3954,7 +3954,7 @@ Private Sub OgeIdNo14_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo13.SetFocus
     End If
@@ -3975,7 +3975,7 @@ Private Sub OgeIdNo15_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo14.SetFocus
     End If
@@ -3996,7 +3996,7 @@ Private Sub OgeIdNo16_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo15.SetFocus
     End If
@@ -4017,7 +4017,7 @@ Private Sub OgeIdNo17_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo16.SetFocus
     End If
@@ -4038,7 +4038,7 @@ Private Sub OgeIdNo18_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo17.SetFocus
     End If
@@ -4059,7 +4059,7 @@ Private Sub OgeIdNo19_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo18.SetFocus
     End If
@@ -4080,7 +4080,7 @@ Private Sub Aciklama_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama.SetFocus
     End If
@@ -4101,7 +4101,7 @@ Private Sub Aciklama1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama.SetFocus
     End If
@@ -4122,7 +4122,7 @@ Private Sub Aciklama2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama1.SetFocus
     End If
@@ -4143,7 +4143,7 @@ Private Sub Aciklama3_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama2.SetFocus
     End If
@@ -4164,7 +4164,7 @@ Private Sub Aciklama4_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama3.SetFocus
     End If
@@ -4185,7 +4185,7 @@ Private Sub Aciklama5_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama4.SetFocus
     End If
@@ -4206,7 +4206,7 @@ Private Sub Aciklama6_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama5.SetFocus
     End If
@@ -4227,7 +4227,7 @@ Private Sub Aciklama7_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama6.SetFocus
     End If
@@ -4248,7 +4248,7 @@ Private Sub Aciklama8_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama7.SetFocus
     End If
@@ -4269,7 +4269,7 @@ Private Sub Aciklama9_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama8.SetFocus
     End If
@@ -4290,7 +4290,7 @@ Private Sub Aciklama10_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama9.SetFocus
     End If
@@ -4311,7 +4311,7 @@ Private Sub Aciklama11_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama10.SetFocus
     End If
@@ -4332,7 +4332,7 @@ Private Sub Aciklama12_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama11.SetFocus
     End If
@@ -4353,7 +4353,7 @@ Private Sub Aciklama13_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama12.SetFocus
     End If
@@ -4374,7 +4374,7 @@ Private Sub Aciklama14_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama13.SetFocus
     End If
@@ -4395,7 +4395,7 @@ Private Sub Aciklama15_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama14.SetFocus
     End If
@@ -4416,7 +4416,7 @@ Private Sub Aciklama16_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama15.SetFocus
     End If
@@ -4437,7 +4437,7 @@ Private Sub Aciklama17_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama16.SetFocus
     End If
@@ -4458,7 +4458,7 @@ Private Sub Aciklama18_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama17.SetFocus
     End If
@@ -4479,7 +4479,7 @@ Private Sub Aciklama19_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama18.SetFocus
     End If
@@ -4524,7 +4524,7 @@ End Sub
 
 
 
-'SCROLABLE COMBOBOXES (Öðe Alaný)
+'SCROLABLE COMBOBOXES (Ã–ÄŸe AlanÄ±)
 Private Sub OgeTuru1_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal x As Single, ByVal y As Single)
 Call SetComboBoxHook(OgeTuru1) 'Open scrollable with mouse
 End Sub
@@ -4716,9 +4716,9 @@ Dim OgeFrame As Integer, Fark As Long
 Dim WsFarkGiris As Worksheet, SayA As Integer, SayD As Integer, SayG As Integer, SayJ As Integer, SayM As Integer, SayFarkGiris As Integer
 
 SayFarkGiris = 0
-'Fark Giriþleri sayfasýnda bulunan verileri temizle.
+'Fark GiriÅŸleri sayfasÄ±nda bulunan verileri temizle.
 Set WsFarkGiris = ThisWorkbook.Worksheets(7)
-'Maksimum deðerler.
+'Maksimum deÄŸerler.
 SayA = WsFarkGiris.Range("A100000").End(xlUp).Row
 SayD = WsFarkGiris.Range("D100000").End(xlUp).Row
 SayG = WsFarkGiris.Range("G100000").End(xlUp).Row
@@ -4730,14 +4730,14 @@ If SayFarkGiris < 3 Then
     GoTo Son
 End If
 
-'Ýlk satýrý aktar
+'Ä°lk satÄ±rÄ± aktar
 OgeTuru.Value = WsFarkGiris.Cells(3, 1).Value
 OgeDegeri.Value = WsFarkGiris.Cells(3, 4).Value
 Adet.Value = WsFarkGiris.Cells(3, 7).Value
 OgeIdNo.Value = WsFarkGiris.Cells(3, 10).Value
 Aciklama.Value = WsFarkGiris.Cells(3, 13).Value
 
-'Sonraki satýrlarda varsa aktar
+'Sonraki satÄ±rlarda varsa aktar
 Fark = SayFarkGiris - 3 + 1
 If Fark > 1 And Fark < 21 Then
     For OgeFrame = 1 To Fark - 1
@@ -4753,7 +4753,7 @@ If Fark > 1 And Fark < 21 Then
     Next OgeFrame
 End If
 
-'Açýk dropdown kapat
+'AÃ§Ä±k dropdown kapat
 Call ModuleSystemSettings.DropDownKapat
 
 Son:
@@ -4790,7 +4790,7 @@ For Each ClrLab In support_discrepancy_entry_UI.Controls
         ClrLab.ForeColor = RGB(30, 30, 30)
     End If
     
-    'YENÝ
+    'YENÄ°
     If TypeName(ClrLab) = "Frame" Then
         ClrLab.BackColor = RGB(254, 254, 254)
         ClrLab.ForeColor = RGB(30, 30, 30)
@@ -4798,8 +4798,8 @@ For Each ClrLab In support_discrepancy_entry_UI.Controls
     End If
 Next ClrLab
 
-UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
-AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
+UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
+AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
 TasiyiciFrame.Height = 328
 
 Kapat.BackColor = RGB(225, 235, 245)
@@ -4807,9 +4807,9 @@ Kapat.ForeColor = RGB(30, 30, 30)
 Kaydet.BackColor = RGB(225, 235, 245)
 Kaydet.ForeColor = RGB(30, 30, 30)
 
-support_discrepancy_entry_UI.BackColor = RGB(230, 230, 230) 'YENÝ
+support_discrepancy_entry_UI.BackColor = RGB(230, 230, 230) 'YENÄ°
 
-'Geçici kayýtlarý, frak arayüzüne yükle
+'GeÃ§ici kayÄ±tlarÄ±, frak arayÃ¼zÃ¼ne yÃ¼kle
 Call GeciciKayitlariCagir
 
 

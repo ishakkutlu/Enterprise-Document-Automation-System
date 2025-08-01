@@ -103,20 +103,20 @@ FileName = "Definitions.xlsx"
 ItemName = ComboOgeTuru.Value
 
 If ItemName <> "" Then
-    'Birden fazla boþluk varsa kaldýr
+    'Birden fazla boÅŸluk varsa kaldÄ±r
     For i = 1 To 50
         ItemName = Replace(ItemName, "  ", " ")
     Next i
-    'Saðdaki ve soldaki tek boþluðu kaldýr
+    'SaÄŸdaki ve soldaki tek boÅŸluÄŸu kaldÄ±r
     Do While Left(ItemName, 1) = " "
         ItemName = Right(ItemName, Len(ItemName) - 1)
     Loop
     Do While Right(ItemName, 1) = " "
         ItemName = Left(ItemName, Len(ItemName) - 1)
     Loop
-    'Ýlk harfler büyük
+    'Ä°lk harfler bÃ¼yÃ¼k
     ItemName = WorksheetFunction.Proper(ItemName)
-    'Tireden sonraki harfler büyük. Tireden önce ve sonra boþluk ekle.
+    'Tireden sonraki harfler bÃ¼yÃ¼k. Tireden Ã¶nce ve sonra boÅŸluk ekle.
     If InStr(ItemName, "-") <> 0 Then
         If Mid(ItemName, InStr(ItemName, "-") - 1, 1) = " " Then
             '
@@ -133,14 +133,14 @@ If ItemName <> "" Then
         If Kisaltma = " X2" Then
             Kisaltma = " X2"
         Else
-            Kisaltma = UCase(Replace(Replace(Kisaltma, "ý", "I"), "i", "I"))
+            Kisaltma = UCase(Replace(Replace(Kisaltma, "Ä±", "I"), "i", "I"))
         End If
         ItemName = Left(ItemName, InStr(ItemName, "-") - 1) & "-" & Kisaltma
     Else
     MsgBox "Since a hyphen (-) was not detected before the item type abbreviation, the operation could not be completed. Please enter the item type as shown in the example above.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
         GoTo Son
     End If
-    'Comboya tanýmlý deðer girilemez.
+    'Comboya tanÄ±mlÄ± deÄŸer girilemez.
     a() = ComboOgeTuru.List
     For i = LBound(a) To UBound(a)
         If a(i, 0) = ItemName Then
@@ -153,7 +153,7 @@ Else
 End If
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -171,7 +171,7 @@ If SayHedef > 104 Then
     GoTo Son
 End If
 
-'Arada boþ satýr varsa onu bul ve öðeyi boþ satýra yaz.
+'Arada boÅŸ satÄ±r varsa onu bul ve Ã¶ÄŸeyi boÅŸ satÄ±ra yaz.
 If SayHedef > 6 Then
     For j = 6 To SayHedef
         If Workbooks(FileName).Worksheets(1).Cells(j, 103).Value = "" Then
@@ -181,7 +181,7 @@ If SayHedef > 6 Then
     Next j
 End If
 DonguSon:
-'Ve kelimelerini düzelt
+'Ve kelimelerini dÃ¼zelt
 If InStr(ItemName, " And ") <> 0 Then
     ItemName = Replace(ItemName, " And ", " and ")
 End If
@@ -189,10 +189,10 @@ End If
 Workbooks(FileName).Worksheets(1).Cells(SayHedef + 1, 103).Value = ItemName
 ThisWorkbook.Worksheets(2).Cells(SayHedef + 1, 103).Value = ItemName
 
-'Sýralama ekle komutuna da uygulanacak.
+'SÄ±ralama ekle komutuna da uygulanacak.
 SayHedef = Workbooks(FileName).Worksheets(1).Range("CY1000").End(xlUp).Row
 If SayHedef > 7 Then
-    'A'dan Z'ye sýrala ve böylece arada bulunan boþ satýrlarý da kaldýr.
+    'A'dan Z'ye sÄ±rala ve bÃ¶ylece arada bulunan boÅŸ satÄ±rlarÄ± da kaldÄ±r.
     Workbooks(FileName).Worksheets(1).Unprotect Password:="123"
     ThisWorkbook.Unprotect "123"
     ThisWorkbook.Worksheets(2).Unprotect Password:="123"
@@ -214,7 +214,7 @@ MsgBox "The item type named " & ItemName & " has been successfully defined for t
 Son:
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -244,7 +244,7 @@ FileName = "Definitions.xlsx"
 ItemName = ComboOgeTuru.Value
 
 If ItemName <> "" Then
-    'Comboya tanýmlý deðer girilmelidir.
+    'Comboya tanÄ±mlÄ± deÄŸer girilmelidir.
     ListControl = 0
     a() = ComboOgeTuru.List
     For i = LBound(a) To UBound(a)
@@ -263,7 +263,7 @@ If ListControl = 0 Then
 End If
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -283,10 +283,10 @@ End If
 Workbooks(FileName).Worksheets(1).Cells(ItemBul.Row, 103).Value = ""
 ThisWorkbook.Worksheets(2).Cells(ItemBul.Row, 103).Value = ""
 
-'Sýralama ekle komutuna da uygulanacak.
+'SÄ±ralama ekle komutuna da uygulanacak.
 SayHedef = Workbooks(FileName).Worksheets(1).Range("CY1000").End(xlUp).Row
 If SayHedef > 7 Then
-    'A'dan Z'ye sýrala ve böylece arada bulunan boþ satýrlarý da kaldýr.
+    'A'dan Z'ye sÄ±rala ve bÃ¶ylece arada bulunan boÅŸ satÄ±rlarÄ± da kaldÄ±r.
     Workbooks(FileName).Worksheets(1).Unprotect Password:="123"
     ThisWorkbook.Unprotect "123"
     ThisWorkbook.Worksheets(2).Unprotect Password:="123"
@@ -309,7 +309,7 @@ MsgBox "The item type named " & ItemName & " has been successfully removed from 
 Son:
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -354,7 +354,7 @@ For Each ClrLab In support_item_types_UI.Controls
         ClrLab.ForeColor = RGB(30, 30, 30)
     End If
     
-    'YENÝ
+    'YENÄ°
     If TypeName(ClrLab) = "Frame" Then
         ClrLab.BackColor = RGB(254, 254, 254)
         ClrLab.ForeColor = RGB(30, 30, 30)
@@ -362,8 +362,8 @@ For Each ClrLab In support_item_types_UI.Controls
     End If
 Next ClrLab
 
-UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
-AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
+UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
+AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
 LblBilgilendirme.BackColor = RGB(254, 254, 254)
 
 LabelEkle.BackColor = RGB(225, 235, 245)
@@ -373,7 +373,7 @@ LabelKapat.ForeColor = RGB(30, 30, 30)
 LabelKaldir.BackColor = RGB(225, 235, 245)
 LabelKaldir.ForeColor = RGB(30, 30, 30)
 
-support_item_types_UI.BackColor = RGB(230, 230, 230) 'YENÝ
+support_item_types_UI.BackColor = RGB(230, 230, 230) 'YENÄ°
 
 End Sub
 

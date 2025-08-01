@@ -242,7 +242,7 @@ CheckBoxRapor3VarlikEsas.Value = Rapor3
 
 End Sub
 
-''''''''''''''''''''Yardýmcý Varliklar
+''''''''''''''''''''YardÄ±mcÄ± Varliklar
 
 Private Sub CheckBoxTumVarliklar_Click()
 If CheckBoxTumVarliklar.Value = True Then
@@ -421,7 +421,7 @@ End Sub
 Private Sub VarlikTarihiText_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
     
     On Error Resume Next
-    'Delete ve Backspace tuþlarý textboxu sil.
+    'Delete ve Backspace tuÅŸlarÄ± textboxu sil.
     If KeyCode = vbKeyDelete Then
         VarlikTarihiText.Value = ""
     End If
@@ -465,7 +465,7 @@ Private Sub VarlikImza1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If VarlikImza1.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -474,7 +474,7 @@ Private Sub VarlikImza1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
             End If
             Me.VarlikImza1.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If VarlikImza1.ListIndex = VarlikImza1.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -511,7 +511,7 @@ Private Sub VarlikImza2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If VarlikImza2.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -520,7 +520,7 @@ Private Sub VarlikImza2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
             End If
             Me.VarlikImza2.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If VarlikImza2.ListIndex = VarlikImza2.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -557,7 +557,7 @@ Private Sub VarlikImza3_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If VarlikImza3.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -566,7 +566,7 @@ Private Sub VarlikImza3_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
             End If
             Me.VarlikImza3.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If VarlikImza3.ListIndex = VarlikImza3.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -935,14 +935,14 @@ Dim ctl As MSForms.Control
 Dim Say1 As Integer, Say2 As Integer, Cont1 As Integer, Cont2 As Integer
 Dim LstBx As MSForms.ListBox
 
-'Tümünü seç
+'TÃ¼mÃ¼nÃ¼ seÃ§
 If CheckBox1.Value = True Then
     For Each ctl In core_asset_manager_UI.FrameGiris.Controls
         If TypeName(ctl) = "ListBox" Then
             ctl.Selected(0) = True
         End If
     Next ctl
-Else 'Tümünü iptal et
+Else 'TÃ¼mÃ¼nÃ¼ iptal et
     For Each ctl In core_asset_manager_UI.FrameGiris.Controls
         If TypeName(ctl) = "ListBox" Then
             ctl.Selected(0) = False
@@ -957,14 +957,14 @@ Dim ctl As MSForms.Control
 Dim Say1 As Integer, Say2 As Integer, Cont1 As Integer, Cont2 As Integer
 Dim LstBx As MSForms.ListBox
 
-'Tümünü seç
+'TÃ¼mÃ¼nÃ¼ seÃ§
 If CheckBox2.Value = True Then
     For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
         If TypeName(ctl) = "ListBox" Then
             ctl.Selected(0) = True
         End If
     Next ctl
-Else 'Tümünü iptal et
+Else 'TÃ¼mÃ¼nÃ¼ iptal et
     For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
         If TypeName(ctl) = "ListBox" Then
             ctl.Selected(0) = False
@@ -979,14 +979,14 @@ Dim ctl As MSForms.Control
 Dim Say1 As Integer, Say2 As Integer, Cont1 As Integer, Cont2 As Integer
 Dim LstBx As MSForms.ListBox
 
-'Tümünü seç
+'TÃ¼mÃ¼nÃ¼ seÃ§
 If CheckBox3.Value = True Then
     For Each ctl In core_asset_manager_UI.FrameCikis.Controls
         If TypeName(ctl) = "ListBox" Then
             ctl.Selected(0) = True
         End If
     Next ctl
-Else 'Tümünü iptal et
+Else 'TÃ¼mÃ¼nÃ¼ iptal et
     For Each ctl In core_asset_manager_UI.FrameCikis.Controls
         If TypeName(ctl) = "ListBox" Then
             ctl.Selected(0) = False
@@ -1028,7 +1028,7 @@ Next ctl
 Worksheets(4).Protect Password:="123" ', DrawingObjects:=False
 ThisWorkbook.Protect "123"
 
-'Aktarým için en az bir veri seçili olmalýdýr.
+'AktarÄ±m iÃ§in en az bir veri seÃ§ili olmalÄ±dÄ±r.
 Say1 = 0
 For Each ctl In core_asset_manager_UI.FrameGiris.Controls
     If TypeName(ctl) = "ListBox" Then
@@ -1096,7 +1096,7 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls
         End If
     End If
 CTLDonguDevam1:
-    'Sýra nolarý temizle
+    'SÄ±ra nolarÄ± temizle
     If TypeName(ctl) = "Label" Then
         FrameGiris.Controls.Remove ctl.name
     End If
@@ -1126,7 +1126,7 @@ Else
     FrameGiris.ScrollBars = fmScrollBarsNone
 End If
 
-'FrameGiris tekrar sýrala
+'FrameGiris tekrar sÄ±rala
 Say1 = 0
 For Each ctl In core_asset_manager_UI.FrameGiris.Controls
     If TypeName(ctl) = "ListBox" Then
@@ -1184,7 +1184,7 @@ Dim LblSira2 As MSForms.Label
 
 Application.ScreenUpdating = False
 
-'Aktarým için en az bir veri seçili olmalýdýr.
+'AktarÄ±m iÃ§in en az bir veri seÃ§ili olmalÄ±dÄ±r.
 Say2 = 0
 For Each ctl In core_asset_manager_UI.FrameCikis.Controls
     If TypeName(ctl) = "ListBox" Then
@@ -1227,7 +1227,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             FrameCikis.Controls.Remove ctl.name
         End If
     End If
-    'Sýra nolarý temizle
+    'SÄ±ra nolarÄ± temizle
     If TypeName(ctl) = "Label" Then
         FrameCikis.Controls.Remove ctl.name
     End If
@@ -1257,7 +1257,7 @@ Else
     FrameCikis.ScrollBars = fmScrollBarsNone
 End If
 
-'FrameCikis tekrar sýrala
+'FrameCikis tekrar sÄ±rala
 Say2 = 0
 For Each ctl In core_asset_manager_UI.FrameCikis.Controls
     If TypeName(ctl) = "ListBox" Then
@@ -1335,7 +1335,7 @@ Next ctl
 Worksheets(4).Protect Password:="123" ', DrawingObjects:=False
 ThisWorkbook.Protect "123"
 
-'Aktarým için en az bir veri seçili olmalýdýr.
+'AktarÄ±m iÃ§in en az bir veri seÃ§ili olmalÄ±dÄ±r.
 Say1 = 0
 For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
     If TypeName(ctl) = "ListBox" Then
@@ -1404,7 +1404,7 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
         End If
     End If
 CTLDonguDevam1:
-    'Sýra nolarý temizle
+    'SÄ±ra nolarÄ± temizle
     If TypeName(ctl) = "Label" Then
         FrameMevcut.Controls.Remove ctl.name
     End If
@@ -1435,7 +1435,7 @@ Else
     FrameMevcut.ScrollBars = fmScrollBarsNone
 End If
 
-'FrameMevcut tekrar sýrala
+'FrameMevcut tekrar sÄ±rala
 Say1 = 0
 For Each ctl In core_asset_manager_UI.FrameMevcut.Controls
     If TypeName(ctl) = "ListBox" Then
@@ -1493,7 +1493,7 @@ Dim LblSira2 As MSForms.Label
 
 Application.ScreenUpdating = False
 
-'Aktarým için en az bir veri seçili olmalýdýr.
+'AktarÄ±m iÃ§in en az bir veri seÃ§ili olmalÄ±dÄ±r.
 Say2 = 0
 For Each ctl In core_asset_manager_UI.FrameCikis.Controls
     If TypeName(ctl) = "ListBox" Then
@@ -1536,7 +1536,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls
             FrameCikis.Controls.Remove ctl.name
         End If
     End If
-    'Sýra nolarý temizle
+    'SÄ±ra nolarÄ± temizle
     If TypeName(ctl) = "Label" Then
         FrameCikis.Controls.Remove ctl.name
     End If
@@ -1566,7 +1566,7 @@ Else
     FrameCikis.ScrollBars = fmScrollBarsNone
 End If
 
-'FrameCikis tekrar sýrala
+'FrameCikis tekrar sÄ±rala
 Say2 = 0
 For Each ctl In core_asset_manager_UI.FrameCikis.Controls
     If TypeName(ctl) = "ListBox" Then
@@ -1640,7 +1640,7 @@ If VarlikTarihiText.Value = "" Then
 End If
 CalTarih = VarlikTarihiText.Value
 
-'Verileri çaðýr baþlatýldýðýnda Frameleri boþalt
+'Verileri Ã§aÄŸÄ±r baÅŸlatÄ±ldÄ±ÄŸÄ±nda Frameleri boÅŸalt
 For Each ctl In core_asset_manager_UI.FrameGiris.Controls
     If TypeName(ctl) = "ListBox" Then
        FrameGiris.Controls.Remove ctl.name
@@ -1714,7 +1714,7 @@ End If
 Son:
 
 ''ThisWorkbook.Worksheets(7).Visible = False
-''Call ModuleRibbon.Rapor1 'Bu kod geçici daha sonra sheet1 olacak.
+''Call ModuleRibbon.Rapor1 'Bu kod geÃ§ici daha sonra sheet1 olacak.
 
 Application.ScreenUpdating = True
 
@@ -1726,7 +1726,7 @@ Private Sub DirektYazdir_Click()
     core_asset_manager_UIDirektYazdir = True
 
     On Error GoTo Son
-    core_asset_manager_UISayPrt = InputBox(Prompt:="Yazdýrmak istediðiniz çýktý sayýsýný giriniz.", Title:="Enterprise Document Automation System")
+    core_asset_manager_UISayPrt = InputBox(Prompt:="YazdÄ±rmak istediÄŸiniz Ã§Ä±ktÄ± sayÄ±sÄ±nÄ± giriniz.", Title:="Enterprise Document Automation System")
     If core_asset_manager_UISayPrt = "" Or core_asset_manager_UISayPrt = 0 Then
         GoTo Son
     End If
@@ -1769,8 +1769,8 @@ Application.DisplayAlerts = False
 AutoPath = ThisWorkbook.Path
 DestOperasyon = AutoPath & "\System Files\Operation\"
 'Taslak
-SourceTaslak = AutoPath & "\System Files\Help Documents\Asset Manager Panel – Help.docm"
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+SourceTaslak = AutoPath & "\System Files\Help Documents\Asset Manager Panel â€“ Help.docm"
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
@@ -1792,7 +1792,7 @@ If Not Dir(SourceTaslak, vbDirectory) <> vbNullString Then
     GoTo Son
 End If
 
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
@@ -1804,11 +1804,11 @@ ReNameTaslak = "Help Documents"
 'Close the all Word application
 Call ModuleReport1.OpenWordControl
 
-'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
 OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
 Do While OpenKontrolName <> ""
     OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-    If OpenControl = True Then 'Açýksa
+    If OpenControl = True Then 'AÃ§Ä±ksa
         On Error Resume Next
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
@@ -1816,7 +1816,7 @@ Do While OpenKontrolName <> ""
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
         objWord.Quit SaveChanges:=True
-        'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+        'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
 
     End If
     OpenKontrolName = Dir()
@@ -1827,7 +1827,7 @@ Set objDoc = Nothing
 '________________________________________
 
 On Error Resume Next
-'    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
 Do While KontrolFile <> ""
@@ -1839,13 +1839,13 @@ If ContSay > 0 Then
 End If
 
 
-'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
 fso.CopyFile (SourceTaslak), DestOpUserFolder & ReNameTaslak & ".docm", True
 
 '________________________________________
 
-'Oluþturulacak dosyayý aç
+'OluÅŸturulacak dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -1853,7 +1853,7 @@ Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 If objWord Is Nothing Then
-    'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+    'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
     Set objWord = CreateObject("Word.Application")
     objWord.Visible = False
 End If
@@ -1899,17 +1899,17 @@ Worksheets(3).Unprotect Password:="123"
 Worksheets(4).Unprotect Password:="123"
 Worksheets(5).Unprotect Password:="123"
 
-'Tarih kontrolü
+'Tarih kontrolÃ¼
 If VarlikTarihiText.Value = "" Then
     MsgBox "The process cannot be started because the asset date has not been selected.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
 
 
-For Each ctl In core_asset_manager_UI.FrameCikis.Controls '________________RAPOR1 BÖLÜMÜ
+For Each ctl In core_asset_manager_UI.FrameCikis.Controls '________________RAPOR1 BÃ–LÃœMÃœ
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
-        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ö" Then
+        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ã–" Then
             Call Rapor1SiraNo
             If IlkSiraGlobal = 0 Then
                 GoTo Rapor1Devam1
@@ -1919,12 +1919,12 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls '________________RAPOR
         End If
     End If
 Rapor1Devam1:
-Next ctl '________________RAPOR1 BÖLÜMÜ
+Next ctl '________________RAPOR1 BÃ–LÃœMÃœ
 
-For Each ctl In core_asset_manager_UI.FrameGiris.Controls '________________RAPOR1 BÖLÜMÜ
+For Each ctl In core_asset_manager_UI.FrameGiris.Controls '________________RAPOR1 BÃ–LÃœMÃœ
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
-        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ö" Then
+        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ã–" Then
             Call Rapor1SiraNo
             If IlkSiraGlobal = 0 Then
                 GoTo Rapor1Devam2
@@ -1937,12 +1937,12 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls '________________RAPOR
         End If
     End If
 Rapor1Devam2:
-Next ctl '________________RAPOR1 BÖLÜMÜ
+Next ctl '________________RAPOR1 BÃ–LÃœMÃœ
 
-For Each ctl In core_asset_manager_UI.FrameMevcut.Controls '________________RAPOR1 BÖLÜMÜ
+For Each ctl In core_asset_manager_UI.FrameMevcut.Controls '________________RAPOR1 BÃ–LÃœMÃœ
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
-        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ö" Then
+        If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " Ã–" Then
             Call Rapor1SiraNo
             If IlkSiraGlobal = 0 Then
                 GoTo Rapor1Devam3
@@ -1955,11 +1955,11 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls '________________RAPO
         End If
     End If
 Rapor1Devam3:
-Next ctl '________________RAPOR1 BÖLÜMÜ
+Next ctl '________________RAPOR1 BÃ–LÃœMÃœ
 
 
 
-For Each ctl In core_asset_manager_UI.FrameCikis.Controls '________________RAPOR BÖLÜMÜ
+For Each ctl In core_asset_manager_UI.FrameCikis.Controls '________________RAPOR BÃ–LÃœMÃœ
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " R" Then
@@ -1972,9 +1972,9 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls '________________RAPOR
         End If
     End If
 RaporDevam1:
-Next ctl '________________RAPOR BÖLÜMÜ
+Next ctl '________________RAPOR BÃ–LÃœMÃœ
 
-For Each ctl In core_asset_manager_UI.FrameGiris.Controls '________________RAPOR BÖLÜMÜ
+For Each ctl In core_asset_manager_UI.FrameGiris.Controls '________________RAPOR BÃ–LÃœMÃœ
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " R" Then
@@ -1990,9 +1990,9 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls '________________RAPOR
         End If
     End If
 RaporDevam2:
-Next ctl '________________RAPOR BÖLÜMÜ
+Next ctl '________________RAPOR BÃ–LÃœMÃœ
 
-For Each ctl In core_asset_manager_UI.FrameMevcut.Controls '________________RAPOR BÖLÜMÜ
+For Each ctl In core_asset_manager_UI.FrameMevcut.Controls '________________RAPOR BÃ–LÃœMÃœ
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " R" Then
@@ -2008,11 +2008,11 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls '________________RAPO
         End If
     End If
 RaporDevam3:
-Next ctl '________________RAPOR BÖLÜMÜ
+Next ctl '________________RAPOR BÃ–LÃœMÃœ
 
 
 
-For Each ctl In core_asset_manager_UI.FrameCikis.Controls '________________RAPOR2_2 BÖLÜMÜ
+For Each ctl In core_asset_manager_UI.FrameCikis.Controls '________________RAPOR2_2 BÃ–LÃœMÃœ
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " B" Then
@@ -2021,7 +2021,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls '________________RAPOR
                 GoTo Rapor2_2Devam1
             End If
             IlkSira = IlkSiraGlobal
-            'If ThisWorkbook.Worksheets(4).Cells(IlkSira, 191).Value <> "" Then 'XXXMuddan geliþ
+            'If ThisWorkbook.Worksheets(4).Cells(IlkSira, 191).Value <> "" Then 'XXXMuddan geliÅŸ
             If InStr(ctl.List(0), "(Gelen)") <> 0 Then
                 If InStr(ctl.List(0), "<T>") <> 0 Then
                     ThisWorkbook.Worksheets(4).Cells(IlkSira, 106).Value = VarlikTarihiText.Value
@@ -2029,7 +2029,7 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls '________________RAPOR
                 If InStr(ctl.List(0), "<L>") <> 0 Then
                     ThisWorkbook.Worksheets(4).Cells(IlkSira, 106).Value = VarlikTarihiText.Value
                 End If
-            Else 'XXXMudya gidiþ
+            Else 'XXXMudya gidiÅŸ
                 If InStr(ctl.List(0), "<T>") <> 0 Then
                     ThisWorkbook.Worksheets(4).Cells(IlkSira, 105).Value = VarlikTarihiText.Value
                 End If
@@ -2044,9 +2044,9 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls '________________RAPOR
         End If
     End If
 Rapor2_2Devam1:
-Next ctl '________________RAPOR2_2 BÖLÜMÜ
+Next ctl '________________RAPOR2_2 BÃ–LÃœMÃœ
 
-For Each ctl In core_asset_manager_UI.FrameGiris.Controls '________________RAPOR2_2 BÖLÜMÜ
+For Each ctl In core_asset_manager_UI.FrameGiris.Controls '________________RAPOR2_2 BÃ–LÃœMÃœ
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " B" Then
@@ -2093,9 +2093,9 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls '________________RAPOR
         End If
     End If
 Rapor2_2Devam2:
-Next ctl '________________RAPOR2_2 BÖLÜMÜ
+Next ctl '________________RAPOR2_2 BÃ–LÃœMÃœ
 
-For Each ctl In core_asset_manager_UI.FrameMevcut.Controls '________________RAPOR2_2 BÖLÜMÜ
+For Each ctl In core_asset_manager_UI.FrameMevcut.Controls '________________RAPOR2_2 BÃ–LÃœMÃœ
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " B" Then
@@ -2142,11 +2142,11 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls '________________RAPO
         End If
     End If
 Rapor2_2Devam3:
-Next ctl '________________RAPOR2_2 BÖLÜMÜ
+Next ctl '________________RAPOR2_2 BÃ–LÃœMÃœ
 
 
 
-For Each ctl In core_asset_manager_UI.FrameCikis.Controls '________________RAPOR3_2 BÖLÜMÜ
+For Each ctl In core_asset_manager_UI.FrameCikis.Controls '________________RAPOR3_2 BÃ–LÃœMÃœ
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " M" Then
@@ -2159,9 +2159,9 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls '________________RAPOR
         End If
     End If
 Rapor3Rapor3_2Devam1:
-Next ctl '________________RAPOR3_2 BÖLÜMÜ
+Next ctl '________________RAPOR3_2 BÃ–LÃœMÃœ
 
-For Each ctl In core_asset_manager_UI.FrameGiris.Controls '________________RAPOR3_2 BÖLÜMÜ
+For Each ctl In core_asset_manager_UI.FrameGiris.Controls '________________RAPOR3_2 BÃ–LÃœMÃœ
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " M" Then
@@ -2177,9 +2177,9 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls '________________RAPOR
         End If
     End If
 Rapor3Rapor3_2Devam2:
-Next ctl '________________RAPOR3_2 BÖLÜMÜ
+Next ctl '________________RAPOR3_2 BÃ–LÃœMÃœ
 
-For Each ctl In core_asset_manager_UI.FrameMevcut.Controls '________________RAPOR3_2 BÖLÜMÜ
+For Each ctl In core_asset_manager_UI.FrameMevcut.Controls '________________RAPOR3_2 BÃ–LÃœMÃœ
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " M" Then
@@ -2195,11 +2195,11 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls '________________RAPO
         End If
     End If
 Rapor3Rapor3_2Devam3:
-Next ctl '________________RAPOR3_2 BÖLÜMÜ
+Next ctl '________________RAPOR3_2 BÃ–LÃœMÃœ
 
 
 
-For Each ctl In core_asset_manager_UI.FrameCikis.Controls '________________RAPOR3_1 BÖLÜMÜ
+For Each ctl In core_asset_manager_UI.FrameCikis.Controls '________________RAPOR3_1 BÃ–LÃœMÃœ
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " G" Then
@@ -2212,9 +2212,9 @@ For Each ctl In core_asset_manager_UI.FrameCikis.Controls '________________RAPOR
         End If
     End If
 Rapor3Rapor3_1Devam1:
-Next ctl '________________RAPOR3_1 BÖLÜMÜ
+Next ctl '________________RAPOR3_1 BÃ–LÃœMÃœ
 
-For Each ctl In core_asset_manager_UI.FrameGiris.Controls '________________RAPOR3_1 BÖLÜMÜ
+For Each ctl In core_asset_manager_UI.FrameGiris.Controls '________________RAPOR3_1 BÃ–LÃœMÃœ
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " G" Then
@@ -2230,9 +2230,9 @@ For Each ctl In core_asset_manager_UI.FrameGiris.Controls '________________RAPOR
         End If
     End If
 Rapor3Rapor3_1Devam2:
-Next ctl '________________RAPOR3_1 BÖLÜMÜ
+Next ctl '________________RAPOR3_1 BÃ–LÃœMÃœ
 
-For Each ctl In core_asset_manager_UI.FrameMevcut.Controls '________________RAPOR3_1 BÖLÜMÜ
+For Each ctl In core_asset_manager_UI.FrameMevcut.Controls '________________RAPOR3_1 BÃ–LÃœMÃœ
     If TypeName(ctl) = "ListBox" Then
         'MsgBox Mid(Ctl.List(0), InStr(Ctl.List(0), "|") + 1, 2)
         If Mid(ctl.List(0), InStr(ctl.List(0), "|") + 1, 2) = " G" Then
@@ -2248,14 +2248,14 @@ For Each ctl In core_asset_manager_UI.FrameMevcut.Controls '________________RAPO
         End If
     End If
 Rapor3Rapor3_1Devam3:
-Next ctl '________________RAPOR3_1 BÖLÜMÜ
+Next ctl '________________RAPOR3_1 BÃ–LÃœMÃœ
 
 
-''Açýk tüm excel varlýk dosyalarýný kapat.
+''AÃ§Ä±k tÃ¼m excel varlÄ±k dosyalarÄ±nÄ± kapat.
 'Pathfinder...
 AutoPath = ThisWorkbook.Path
 DestOperasyon = AutoPath & "\System Files\Operation\"
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
@@ -2271,7 +2271,7 @@ On Error GoTo 0
 
 'GoTo Son
 
-'Varlik tutanaklarý
+'Varlik tutanaklarÄ±
 VarlikSecimKontrol = 0
 'Esas Varliklar
 If CheckBoxRapor1VarlikEsas.Value = True Then
@@ -2294,7 +2294,7 @@ If CheckBoxGenelVarlikEsas.Value = True Then
     Call ModuleAsset.GenelVarlikEsas
     VarlikSecimKontrol = 1
 End If
-'Yardýmcý Varliklar
+'YardÄ±mcÄ± Varliklar
 If CheckBoxRapor1Varlik.Value = True Then
     Call ModuleAsset.Rapor1Varlik
     VarlikSecimKontrol = 1
@@ -2435,7 +2435,7 @@ For Each ClrLab In core_asset_manager_UI.Controls
         ClrLab.ForeColor = RGB(30, 30, 30)
     End If
     
-    'YENÝ
+    'YENÄ°
     If TypeName(ClrLab) = "Frame" Then
         ClrLab.BackColor = RGB(254, 254, 254)
         ClrLab.ForeColor = RGB(30, 30, 30)
@@ -2443,8 +2443,8 @@ For Each ClrLab In core_asset_manager_UI.Controls
     End If
 Next ClrLab
 
-UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
-AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
+UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
+AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
 
 DirektYazdir.BackColor = RGB(225, 235, 245)
 DirektYazdir.ForeColor = RGB(30, 30, 30)
@@ -2455,7 +2455,7 @@ Yardim.ForeColor = RGB(30, 30, 30)
 Kapat.BackColor = RGB(225, 235, 245)
 Kapat.ForeColor = RGB(30, 30, 30)
 
-core_asset_manager_UI.BackColor = RGB(230, 230, 230) 'YENÝ
+core_asset_manager_UI.BackColor = RGB(230, 230, 230) 'YENÄ°
 
 LabelSiraGiris.BorderColor = RGB(180, 180, 180)
 LabelKayitNoGiris.BorderColor = RGB(180, 180, 180)

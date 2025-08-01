@@ -118,7 +118,7 @@ FileName = "Definitions.xlsx"
 ItemName = ComboGelenGidenMuhatapTemasi.Value
 
 If ItemName <> "" Then
-    'Comboya tanýmlý deðer girilemez.(Rezerv tanýmlarý için)
+    'Comboya tanÄ±mlÄ± deÄŸer girilemez.(Rezerv tanÄ±mlarÄ± iÃ§in)
     a() = ComboGelenGidenMuhatapTemasi.List
     For i = LBound(a) To UBound(a)
         If a(i, 0) = ItemName Then
@@ -127,11 +127,11 @@ If ItemName <> "" Then
         End If
     Next i
     
-    'Birden fazla boþluk varsa kaldýr
+    'Birden fazla boÅŸluk varsa kaldÄ±r
     For i = 1 To 50
         ItemName = Replace(ItemName, "  ", " ")
     Next i
-    'Saðdaki ve soldaki tek boþluðu kaldýr
+    'SaÄŸdaki ve soldaki tek boÅŸluÄŸu kaldÄ±r
     Do While Left(ItemName, 1) = " "
         ItemName = Right(ItemName, Len(ItemName) - 1)
     Loop
@@ -139,7 +139,7 @@ If ItemName <> "" Then
         ItemName = Left(ItemName, Len(ItemName) - 1)
     Loop
     
-    'Harfleri büyüt
+    'Harfleri bÃ¼yÃ¼t
     'ItemNameBuyuk = UCase(ItemName)
     
     'Directorate, Arbitration, Decision Board kelimelerini kontrol et
@@ -155,7 +155,7 @@ If ItemName <> "" Then
     End If
     
     
-    'X.X.'den sonraki ilk harfler büyük
+    'X.X.'den sonraki ilk harfler bÃ¼yÃ¼k
     'ItemName = WorksheetFunction.Proper(Mid(ItemName, 5, Len(ItemName) - 4))
     'ItemName = TC & ItemName
     If CheckBoxDuzelt.Value = True Then
@@ -172,11 +172,11 @@ If ItemName <> "" Then
         Else
             ItemName = WorksheetFunction.Proper(ItemName)
         End If
-        'Yukarýdaki düzeltme sonrasý boþluk oluþursa kaldýr.
+        'YukarÄ±daki dÃ¼zeltme sonrasÄ± boÅŸluk oluÅŸursa kaldÄ±r.
         For i = 1 To 50
             ItemName = Replace(ItemName, "  ", " ")
         Next i
-        'Saðdaki ve soldaki tek boþluðu kaldýr
+        'SaÄŸdaki ve soldaki tek boÅŸluÄŸu kaldÄ±r
         Do While Left(ItemName, 1) = " "
             ItemName = Right(ItemName, Len(ItemName) - 1)
         Loop
@@ -184,17 +184,17 @@ If ItemName <> "" Then
             ItemName = Left(ItemName, Len(ItemName) - 1)
         Loop
         
-        'Ve kelimelerini düzelt
+        'Ve kelimelerini dÃ¼zelt
         If InStr(ItemName, " And ") <> 0 Then
             ItemName = Replace(ItemName, " And ", " and ")
         End If
     End If
 
-'    'XX ile devamý arasýnda birden fazla boþluk varsa teke düþür
+'    'XX ile devamÄ± arasÄ±nda birden fazla boÅŸluk varsa teke dÃ¼ÅŸÃ¼r
 '    For i = 1 To 5
 '        ItemName = Replace(ItemName, "  ", " ")
 '    Next i
-    'Comboya tanýmlý deðer girilemez.
+    'Comboya tanÄ±mlÄ± deÄŸer girilemez.
     a() = ComboGelenGidenMuhatapTemasi.List
     For i = LBound(a) To UBound(a)
         If a(i, 0) = ItemName Then
@@ -207,7 +207,7 @@ Else
 End If
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -225,7 +225,7 @@ If SayHedef > 304 Then
     GoTo Son
 End If
 
-'Arada boþ satýr varsa onu bul ve öðeyi boþ satýra yaz.
+'Arada boÅŸ satÄ±r varsa onu bul ve Ã¶ÄŸeyi boÅŸ satÄ±ra yaz.
 If SayHedef > 6 Then
     For j = 6 To SayHedef
         If Workbooks(FileName).Worksheets(1).Cells(j, 100).Value = "" Then
@@ -235,7 +235,7 @@ If SayHedef > 6 Then
     Next j
 End If
 DonguSon:
-''Ve kelimelerini düzelt
+''Ve kelimelerini dÃ¼zelt
 'If InStr(ItemName, " And ") <> 0 Then
 '    ItemName = Replace(ItemName, " And ", " and ")
 'End If
@@ -243,10 +243,10 @@ DonguSon:
 Workbooks(FileName).Worksheets(1).Cells(SayHedef + 1, 100).Value = ItemName
 ThisWorkbook.Worksheets(2).Cells(SayHedef + 1, 100).Value = ItemName
 
-'Sýralama ekle komutuna da uygulanacak.
+'SÄ±ralama ekle komutuna da uygulanacak.
 SayHedef = Workbooks(FileName).Worksheets(1).Range("CV1000").End(xlUp).Row
 If SayHedef > 14 Then
-    'A'dan Z'ye sýrala ve böylece arada bulunan boþ satýrlarý da kaldýr.
+    'A'dan Z'ye sÄ±rala ve bÃ¶ylece arada bulunan boÅŸ satÄ±rlarÄ± da kaldÄ±r.
     Workbooks(FileName).Worksheets(1).Unprotect Password:="123"
     ThisWorkbook.Unprotect "123"
     ThisWorkbook.Worksheets(2).Unprotect Password:="123"
@@ -268,7 +268,7 @@ MsgBox "The incoming/outgoing contact theme information named " & ItemName & " h
 Son:
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -276,8 +276,8 @@ End If
 
 ThisWorkbook.Activate
 
-'Sadece RAPOR FORMU için
-'Ýlgili birim combobox list (GelenMuhatapTemasi'nin sadece Directoratelýk ve Karar Kurullarý)
+'Sadece RAPOR FORMU iÃ§in
+'Ä°lgili birim combobox list (GelenMuhatapTemasi'nin sadece DirectoratelÄ±k ve Karar KurullarÄ±)
 core_report2_entry_UI.IlgiliBirim.Clear
 a() = core_report2_entry_UI.GelenMuhatapTemasi.List
 j = 0
@@ -309,7 +309,7 @@ FileName = "Definitions.xlsx"
 ItemName = ComboGelenGidenMuhatapTemasi.Value
 
 If ItemName <> "" Then
-    'Comboya tanýmlý deðer girilmelidir.
+    'Comboya tanÄ±mlÄ± deÄŸer girilmelidir.
     ListControl = 0
     a() = ComboGelenGidenMuhatapTemasi.List
     For i = LBound(a) To UBound(a)
@@ -327,7 +327,7 @@ If ListControl = 0 Then
 End If
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -355,10 +355,10 @@ End If
 Workbooks(FileName).Worksheets(1).Cells(ItemBul.Row, 100).Value = ""
 ThisWorkbook.Worksheets(2).Cells(ItemBul.Row, 100).Value = ""
 
-'Sýralama ekle komutuna da uygulanacak.
+'SÄ±ralama ekle komutuna da uygulanacak.
 SayHedef = Workbooks(FileName).Worksheets(1).Range("CV1000").End(xlUp).Row
 If SayHedef > 14 Then
-    'A'dan Z'ye sýrala ve böylece arada bulunan boþ satýrlarý da kaldýr.
+    'A'dan Z'ye sÄ±rala ve bÃ¶ylece arada bulunan boÅŸ satÄ±rlarÄ± da kaldÄ±r.
     Workbooks(FileName).Worksheets(1).Unprotect Password:="123"
     ThisWorkbook.Unprotect "123"
     ThisWorkbook.Worksheets(2).Unprotect Password:="123"
@@ -380,7 +380,7 @@ MsgBox "The incoming/outgoing contact theme named " & ItemName & " has been succ
 Son:
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -425,7 +425,7 @@ For Each ClrLab In support_contact_themes_UI.Controls
         ClrLab.ForeColor = RGB(30, 30, 30)
     End If
     
-    'YENÝ
+    'YENÄ°
     If TypeName(ClrLab) = "Frame" Then
         ClrLab.BackColor = RGB(254, 254, 254)
         ClrLab.ForeColor = RGB(30, 30, 30)
@@ -433,8 +433,8 @@ For Each ClrLab In support_contact_themes_UI.Controls
     End If
 Next ClrLab
 
-UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
-AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
+UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
+AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
 LblBilgilendirme.BackColor = RGB(254, 254, 254)
 
 LabelEkle.BackColor = RGB(225, 235, 245)
@@ -444,7 +444,7 @@ LabelKapat.ForeColor = RGB(30, 30, 30)
 LabelKaldir.BackColor = RGB(225, 235, 245)
 LabelKaldir.ForeColor = RGB(30, 30, 30)
 
-support_contact_themes_UI.BackColor = RGB(230, 230, 230) 'YENÝ
+support_contact_themes_UI.BackColor = RGB(230, 230, 230) 'YENÄ°
 
 CheckBoxDuzelt.Value = True
 

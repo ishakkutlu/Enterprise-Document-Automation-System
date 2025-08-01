@@ -76,11 +76,11 @@ Dim i As Long
 
 Worksheets(5).Unprotect Password:="123"
 
-'Rapor butonlarýný oluþtur...
+'Rapor butonlarÄ±nÄ± oluÅŸtur...
 On Error Resume Next
 Set BtnRapor = ActiveSheet.OLEObjects("RaporOlustur")
-If (ActiveCell.Value = "ü" And ActiveCell.Row > 6 And Cells(ActiveCell.Row, 217).Value <> "" And ActiveCell.Column = 7) Or _
-   (ActiveCell.Value = "ü" And ActiveCell.Row > 6 And ActiveCell.Value <> "" And _
+If (ActiveCell.Value = "Ã¼" And ActiveCell.Row > 6 And Cells(ActiveCell.Row, 217).Value <> "" And ActiveCell.Column = 7) Or _
+   (ActiveCell.Value = "Ã¼" And ActiveCell.Row > 6 And ActiveCell.Value <> "" And _
    (ActiveCell.Column = 6 Or ActiveCell.Column = 8 Or ActiveCell.Column = 9 Or ActiveCell.Column = 10 Or _
    ActiveCell.Column = 11)) Then
     If BtnRapor Is Nothing Then
@@ -91,7 +91,7 @@ If (ActiveCell.Value = "ü" And ActiveCell.Row > 6 And Cells(ActiveCell.Row, 217)
         End With
         Set BtnRapor = ActiveSheet.OLEObjects("RaporOlustur")
     End If
-    'Butonlarý isimlendir
+    'ButonlarÄ± isimlendir
     If ActiveCell.Column = 7 Then
         If Cells(ActiveCell.Row, 5).Value = "" Then
             For i = ActiveCell.Row To 7 Step -1
@@ -140,7 +140,7 @@ Sub OpenWordControl()
 Dim ObjWordx As Object
 Dim objDocx As Object
 
-'MsgBox "OpenWordControl prosedürü baþlýyor."
+'MsgBox "OpenWordControl prosedÃ¼rÃ¼ baÅŸlÄ±yor."
 
     On Error GoTo NoOpenDoc
     Set ObjWordx = GetObject(, "Word.Application")
@@ -157,10 +157,10 @@ NoOpenDocAtla:
         'MsgBox objWordx.ActiveDocument.Name
         If ObjWordx.ActiveDocument.name <> "" Then
             ObjWordx.Quit SaveChanges:=True
-            'MsgBox "Dosya OpenWordControl methodu ile kapatýldý."
+            'MsgBox "Dosya OpenWordControl methodu ile kapatÄ±ldÄ±."
         End If
     Else
-        'MsgBox "Açýk word dokümaný yok."
+        'MsgBox "AÃ§Ä±k word dokÃ¼manÄ± yok."
     End If
 
 Son:

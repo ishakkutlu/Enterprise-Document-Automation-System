@@ -159,7 +159,7 @@ Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 
      
-'Öncekini temizle
+'Ã–ncekini temizle
 TextIlk.Value = ""
 For j = 1 To 6
     Controls("Text" & j).Value = ""
@@ -178,14 +178,14 @@ End If
 FileName = ComboRaporTipi.Value
 HedefFile = DestTarget & FileName & ".docm"
 
-'Dosyanýn olup olmadýðýný kontrol et.
+'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If Not Dir(HedefFile, vbDirectory) <> vbNullString Then
     MsgBox "The report type named " & FileName & " cannot be retrieved because it has not been created before.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
 
 
-'dosyayý aç
+'dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -203,7 +203,7 @@ Set objDoc = GetObject(HedefFile)
 
 If objDoc.Tables(3).Rows.Count > 0 Then
     TextIlk.Value = objDoc.Tables(3).Cell(Row:=2, Column:=1).Range.Text
-    'Boþluklarý ve boþ satýrlarý kaldýr
+    'BoÅŸluklarÄ± ve boÅŸ satÄ±rlarÄ± kaldÄ±r
     TextIlk.Value = Replace(Replace(TextIlk.Value, Chr(10), ""), Chr(13), "")
     TextLine = TextIlk.Value
     Do While Left(TextLine, 1) = " " ' Delete any excess spaces
@@ -218,7 +218,7 @@ End If
 If objDoc.Tables(4).Rows.Count > 0 Then
     For j = 1 To objDoc.Tables(4).Rows.Count
         Controls("Text" & j).Value = objDoc.Tables(4).Cell(Row:=j, Column:=2).Range.Text
-        'Boþluklarý ve boþ satýrlarý kaldýr
+        'BoÅŸluklarÄ± ve boÅŸ satÄ±rlarÄ± kaldÄ±r
         Controls("Text" & j).Value = Replace(Replace(Controls("Text" & j).Value, Chr(10), ""), Chr(13), "")
         TextLine = Controls("Text" & j).Value
         Do While Left(TextLine, 1) = " " ' Delete any excess spaces
@@ -233,7 +233,7 @@ End If
 
 If objDoc.Tables(5).Rows.Count > 0 Then
     TextSon.Value = objDoc.Tables(5).Cell(Row:=1, Column:=1).Range.Text
-    'Boþluklarý ve boþ satýrlarý kaldýr
+    'BoÅŸluklarÄ± ve boÅŸ satÄ±rlarÄ± kaldÄ±r
     TextSon.Value = Replace(Replace(TextSon.Value, Chr(10), ""), Chr(13), "")
     TextLine = TextSon.Value
     Do While Left(TextLine, 1) = " " ' Delete any excess spaces
@@ -302,7 +302,7 @@ If InStr(TextIlk, "<item>") = 0 Then
 End If
 
 
-'ilk harfler büyük
+'ilk harfler bÃ¼yÃ¼k
 ComboRaporTipi.Value = WorksheetFunction.Proper(ComboRaporTipi.Value)
 
 FileName = ComboRaporTipi.Value
@@ -313,13 +313,13 @@ If Not Dir(SourceFile, vbDirectory) <> vbNullString Then
     GoTo Son
 End If
 
-'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
 fso.CopyFile (SourceFile), DestTarget & FileName & ".docm", True
 
 HedefFile = DestTarget & FileName & ".docm"
 
-'dosyayý aç
+'dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -335,18 +335,18 @@ objWord.Documents.Open FileName:=HedefFile
 'objWord.Activate 'Ekrana getirir.
 Set objDoc = GetObject(HedefFile)
 
-'Ýlk bölümü doldur
+'Ä°lk bÃ¶lÃ¼mÃ¼ doldur
 If TextIlk.Value <> "" Then
     objDoc.Tables(3).Cell(Row:=2, Column:=1).Range.Text = TextIlk.Value
 End If
 
-'Önce satýrlarý sil ve teke düþür
+'Ã–nce satÄ±rlarÄ± sil ve teke dÃ¼ÅŸÃ¼r
 For j = 1 To objDoc.Tables(4).Rows.Count - 1
     objDoc.Tables(4).Rows(2).Delete
 Next j
-'Satýr bold olmasýn
+'SatÄ±r bold olmasÄ±n
 objDoc.Tables(4).Cell(Row:=1, Column:=2).Range.Font.Bold = False
-'Sonra tabloya satýr ekle
+'Sonra tabloya satÄ±r ekle
 Cont = 0
 For j = 1 To 6
     If Controls("Text" & j).Value <> "" Then
@@ -359,44 +359,44 @@ For j = 1 To 6
         End If
     End If
 Next j
-'Arayý doldur
+'ArayÄ± doldur
 If Cont > 0 Then
     For j = 1 To Cont
         objDoc.Tables(4).Cell(Row:=j, Column:=2).Range.Text = Controls("Text" & j).Value
     Next j
 End If
-'Son bölümü doldur
+'Son bÃ¶lÃ¼mÃ¼ doldur
 If TextSon.Value <> "" Then
     objDoc.Tables(5).Cell(Row:=1, Column:=1).Range.Text = TextSon.Value
 End If
 
-'ANAHTAR KELÝMELERÝ BOLD YAP
-'invalid (ilk satýr)
+'ANAHTAR KELÄ°MELERÄ° BOLD YAP
+'invalid (ilk satÄ±r)
 Set MyRange = objDoc.Tables(3).Cell(Row:=2, Column:=1).Range
 MyRange.Find.Execute FindText:="invalid"
 If InStr(MyRange.Text, "invalid") <> 0 Or InStr(MyRange.Text, "invalid") <> 0 Then
     MyRange.Font.Bold = True
 End If
-'valid (ilk satýr)
+'valid (ilk satÄ±r)
 Set MyRange = objDoc.Tables(3).Cell(Row:=2, Column:=1).Range
 MyRange.Find.Execute FindText:="valid"
 If InStr(MyRange.Text, "valid") <> 0 Or InStr(MyRange.Text, "valid") <> 0 Then
     MyRange.Font.Bold = True
 End If
-'invalid (1. satýr)
+'invalid (1. satÄ±r)
 Set MyRange = objDoc.Tables(4).Cell(Row:=1, Column:=2).Range
 MyRange.Find.Execute FindText:="invalid"
 If InStr(MyRange.Text, "invalid") <> 0 Or InStr(MyRange.Text, "invalid") <> 0 Then
     MyRange.Font.Bold = True
 End If
-'valid (1. satýr)
+'valid (1. satÄ±r)
 Set MyRange = objDoc.Tables(4).Cell(Row:=1, Column:=2).Range
 MyRange.Find.Execute FindText:="valid"
 If InStr(MyRange.Text, "valid") <> 0 Or InStr(MyRange.Text, "valid") <> 0 Then
     MyRange.Font.Bold = True
 End If
 
-'Kullanýlmayan satýrlarýn içeriðini boþalt.
+'KullanÄ±lmayan satÄ±rlarÄ±n iÃ§eriÄŸini boÅŸalt.
 If Text1.Value = "" Then
     objDoc.Tables(4).Cell(Row:=1, Column:=1).Range.Text = ""
     objDoc.Tables(4).Cell(Row:=1, Column:=1).Range.ListFormat.RemoveNumbers
@@ -406,10 +406,10 @@ If TextSon.Value = "" Then
     objDoc.Tables(5).Cell(Row:=1, Column:=1).Range.Text = ""
 End If
 
-'Öðeyi kaydet
+'Ã–ÄŸeyi kaydet
 objDoc.Close SaveChanges:=True
 
-'Yeni öðeyi comboya tanýt
+'Yeni Ã¶ÄŸeyi comboya tanÄ±t
 SayHedef = ThisWorkbook.Worksheets(2).Range("DL1000").End(xlUp).Row
 If SayHedef < 6 Then
     SayHedef = 6
@@ -419,7 +419,7 @@ If SayHedef > 304 Then
     MsgBox "The dropdown list for report types is full, so your template named " & FileName & " could not be defined.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Arada boþ satýr varsa onu bul ve öðeyi boþ satýra yaz.
+'Arada boÅŸ satÄ±r varsa onu bul ve Ã¶ÄŸeyi boÅŸ satÄ±ra yaz.
 If SayHedef > 6 Then
     For j = 6 To SayHedef
         If ThisWorkbook.Worksheets(2).Cells(j, 116).Value = "" Then
@@ -456,7 +456,7 @@ Application.DisplayAlerts = False
 AutoPath = ThisWorkbook.Path
 DestTarget = AutoPath & "\System Files\System Templates\Report 2 Templates\"
     
-'Rapor tipi boþ olamaz.
+'Rapor tipi boÅŸ olamaz.
 If ComboRaporTipi.Value = "" Then
     MsgBox "Delete operation cannot be started because no report type was selected.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
@@ -493,7 +493,7 @@ If SayHedef > 304 Then
     GoTo Son
 End If
 
-'Öðeyi skp'de bul ve sil.
+'Ã–ÄŸeyi skp'de bul ve sil.
 If SayHedef > 6 Then
     For j = 6 To SayHedef
         If ThisWorkbook.Worksheets(2).Cells(j, 116).Value = FileName Then
@@ -555,23 +555,23 @@ If InStr(ComboRaporTipi.Value, "/") > 0 Or InStr(ComboRaporTipi.Value, "\") > 0 
     GoTo Son
 End If
 
-'Comboda tanýmlý deðer girilmeli.(DÜZELT!!)
+'Comboda tanÄ±mlÄ± deÄŸer girilmeli.(DÃœZELT!!)
 'a() = ComboRaporTipi.List
 'For i = LBound(a) To UBound(a)
 '    If a(i, 0) = ComboRaporTipi.Value Then
-'        MsgBox "Rapor tipinde belirtilen isimde bir þablon bulunamadýðýndan güncellene gerçekleþtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+'        MsgBox "Rapor tipinde belirtilen isimde bir ÅŸablon bulunamadÄ±ÄŸÄ±ndan gÃ¼ncellene gerÃ§ekleÅŸtirilemiyor.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
 '        GoTo Son
 '    End If
 'Next i
 
-'<item> kontrolü
+'<item> kontrolÃ¼
 If InStr(TextIlk, "<item>") = 0 Then
     MsgBox "The <item> tag was not detected in the first line, so your template cannot be updated.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
 
 
-'ilk harfler büyük
+'ilk harfler bÃ¼yÃ¼k
 ComboRaporTipi.Value = WorksheetFunction.Proper(ComboRaporTipi.Value)
 
 FileName = ComboRaporTipi.Value
@@ -588,23 +588,23 @@ If Not Dir(HedefFile, vbDirectory) <> vbNullString Then
 End If
 
 
-'Önceki dosyayý sil
+'Ã–nceki dosyayÄ± sil
 Kill (HedefFile)
 
 SourceFile = DestTarget & "Standard Invalid.docm"
-'Kaynak dosyanýn olup olmadýðýný kontrol et.
+'Kaynak dosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If Not Dir(SourceFile, vbDirectory) <> vbNullString Then
     MsgBox "The source file could not be found, so the operation cannot be completed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
 
-'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
 fso.CopyFile (SourceFile), DestTarget & FileName & ".docm", True
 
 HedefFile = DestTarget & FileName & ".docm"
 
-'dosyayý aç
+'dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -620,18 +620,18 @@ objWord.Documents.Open FileName:=HedefFile
 'objWord.Activate 'Ekrana getirir.
 Set objDoc = GetObject(HedefFile)
 
-'Ýlk bölümü doldur
+'Ä°lk bÃ¶lÃ¼mÃ¼ doldur
 If TextIlk.Value <> "" Then
     objDoc.Tables(3).Cell(Row:=2, Column:=1).Range.Text = TextIlk.Value
 End If
 
-'Önce satýrlarý sil ve teke düþür
+'Ã–nce satÄ±rlarÄ± sil ve teke dÃ¼ÅŸÃ¼r
 For j = 1 To objDoc.Tables(4).Rows.Count - 1
     objDoc.Tables(4).Rows(2).Delete
 Next j
-'Satýr bold olmasýn
+'SatÄ±r bold olmasÄ±n
 objDoc.Tables(4).Cell(Row:=1, Column:=2).Range.Font.Bold = False
-'Sonra tabloya satýr ekle
+'Sonra tabloya satÄ±r ekle
 Cont = 0
 For j = 1 To 6
     If Controls("Text" & j).Value <> "" Then
@@ -644,44 +644,44 @@ For j = 1 To 6
         End If
     End If
 Next j
-'Arayý doldur
+'ArayÄ± doldur
 If Cont > 0 Then
     For j = 1 To Cont
         objDoc.Tables(4).Cell(Row:=j, Column:=2).Range.Text = Controls("Text" & j).Value
     Next j
 End If
-'Son bölümü doldur
+'Son bÃ¶lÃ¼mÃ¼ doldur
 If TextSon.Value <> "" Then
     objDoc.Tables(5).Cell(Row:=1, Column:=1).Range.Text = TextSon.Value
 End If
 
-'ANAHTAR KELÝMELERÝ BOLD YAP
-'invalid (ilk satýr)
+'ANAHTAR KELÄ°MELERÄ° BOLD YAP
+'invalid (ilk satÄ±r)
 Set MyRange = objDoc.Tables(3).Cell(Row:=2, Column:=1).Range
 MyRange.Find.Execute FindText:="invalid"
 If InStr(MyRange.Text, "invalid") <> 0 Or InStr(MyRange.Text, "invalid") <> 0 Then
     MyRange.Font.Bold = True
 End If
-'valid (ilk satýr)
+'valid (ilk satÄ±r)
 Set MyRange = objDoc.Tables(3).Cell(Row:=2, Column:=1).Range
 MyRange.Find.Execute FindText:="valid"
 If InStr(MyRange.Text, "valid") <> 0 Or InStr(MyRange.Text, "valid") <> 0 Then
     MyRange.Font.Bold = True
 End If
-'invalid (1. satýr)
+'invalid (1. satÄ±r)
 Set MyRange = objDoc.Tables(4).Cell(Row:=1, Column:=2).Range
 MyRange.Find.Execute FindText:="invalid"
 If InStr(MyRange.Text, "invalid") <> 0 Or InStr(MyRange.Text, "invalid") <> 0 Then
     MyRange.Font.Bold = True
 End If
-'valid (1. satýr)
+'valid (1. satÄ±r)
 Set MyRange = objDoc.Tables(4).Cell(Row:=1, Column:=2).Range
 MyRange.Find.Execute FindText:="valid"
 If InStr(MyRange.Text, "valid") <> 0 Or InStr(MyRange.Text, "valid") <> 0 Then
     MyRange.Font.Bold = True
 End If
 
-'Kullanýlmayan satýrlarýn içeriðini boþalt.
+'KullanÄ±lmayan satÄ±rlarÄ±n iÃ§eriÄŸini boÅŸalt.
 If Text1.Value = "" Then
     objDoc.Tables(4).Cell(Row:=1, Column:=1).Range.Text = ""
     objDoc.Tables(4).Cell(Row:=1, Column:=1).Range.ListFormat.RemoveNumbers
@@ -724,12 +724,12 @@ Application.DisplayAlerts = False
 AutoPath = ThisWorkbook.Path
 DestOperasyon = AutoPath & "\System Files\Operation\"
 'Taslak
-SourceTaslak = AutoPath & "\System Files\Help Documents\Report Templates Manager – Help.docm"
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+SourceTaslak = AutoPath & "\System Files\Help Documents\Report Templates Manager â€“ Help.docm"
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
-'System Files klasör adýný kontrol et.
+'System Files klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(AutoPath & "\System Files\", vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the directory " & AutoPath & "\System Files\" & ". The folder named 'System Files' may have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
@@ -742,16 +742,16 @@ If Not Dir(DestOperasyon, vbDirectory) <> vbNullString Then
 End If
 
 
-'RmDir DestOpUserFolder 'Sistem kapanýrken DestOpUserFolder klasörünü temizle EKLENECEK!
+'RmDir DestOpUserFolder 'Sistem kapanÄ±rken DestOpUserFolder klasÃ¶rÃ¼nÃ¼ temizle EKLENECEK!
 '_______________
 
-'Klasör isimlerini kontrol et.
+'KlasÃ¶r isimlerini kontrol et.
 If Not Dir(SourceTaslak, vbDirectory) <> vbNullString Then
     MsgBox "Cannot access the directory " & SourceTaslak & ". The names of folders and/or files in this directory may have been changed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
 
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
@@ -763,11 +763,11 @@ ReNameTaslak = "Help Documents"
 'Close the all Word application
 Call ModuleReport1.OpenWordControl
 
-'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
 OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
 Do While OpenKontrolName <> ""
     OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-    If OpenControl = True Then 'Açýksa
+    If OpenControl = True Then 'AÃ§Ä±ksa
         On Error Resume Next
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
@@ -775,7 +775,7 @@ Do While OpenKontrolName <> ""
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
         objWord.Quit SaveChanges:=True
-        'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+        'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
 
     End If
     OpenKontrolName = Dir()
@@ -786,7 +786,7 @@ Set objDoc = Nothing
 '________________________________________
 
 On Error Resume Next
-'    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
 Do While KontrolFile <> ""
@@ -798,13 +798,13 @@ If ContSay > 0 Then
 End If
 
 
-'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
 fso.CopyFile (SourceTaslak), DestOpUserFolder & ReNameTaslak & ".docm", True
 
 '________________________________________
 
-'Oluþturulacak dosyayý aç
+'OluÅŸturulacak dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -812,7 +812,7 @@ Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 If objWord Is Nothing Then
-    'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+    'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
     Set objWord = CreateObject("Word.Application")
     objWord.Visible = False
 End If
@@ -867,7 +867,7 @@ For Each ClrLab In support_report_templates_UI.Controls
         ClrLab.ForeColor = RGB(30, 30, 30)
     End If
     
-    'YENÝ
+    'YENÄ°
     If TypeName(ClrLab) = "Frame" Then
         ClrLab.BackColor = RGB(254, 254, 254)
         ClrLab.ForeColor = RGB(30, 30, 30)
@@ -875,8 +875,8 @@ For Each ClrLab In support_report_templates_UI.Controls
     End If
 Next ClrLab
 
-UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
-AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
+UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
+AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
 LblBilgilendirme.BackColor = RGB(254, 254, 254)
 
 LabelEkle.BackColor = RGB(225, 235, 245)
@@ -890,7 +890,7 @@ LabelYardim.ForeColor = RGB(30, 30, 30)
 LabelKaldir.BackColor = RGB(225, 235, 245)
 LabelKaldir.ForeColor = RGB(30, 30, 30)
 
-support_report_templates_UI.BackColor = RGB(230, 230, 230) 'YENÝ
+support_report_templates_UI.BackColor = RGB(230, 230, 230) 'YENÄ°
 
 End Sub
 

@@ -200,7 +200,7 @@ End Sub
 Private Sub GunlukTarihi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
     
     On Error Resume Next
-    'Delete ve Backspace tuþlarý textboxu sil.
+    'Delete ve Backspace tuÅŸlarÄ± textboxu sil.
     If KeyCode = vbKeyDelete Then
         GunlukTarihi.Value = ""
     End If
@@ -248,7 +248,7 @@ End Sub
 Private Sub AylikTarihi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
     
     On Error Resume Next
-    'Delete ve Backspace tuþlarý textboxu sil.
+    'Delete ve Backspace tuÅŸlarÄ± textboxu sil.
     If KeyCode = vbKeyDelete Then
         AylikTarihi.Value = ""
     End If
@@ -349,7 +349,7 @@ SourceSysRapor = IslemGunlukleriKlasor & SistemRapor
 'SourceSysRapor2_2 = IslemGunlukleriKlasor & SistemRapor2_2
 
 
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
@@ -359,7 +359,7 @@ If Not Dir(DestOperasyon, vbDirectory) <> vbNullString Then
     GoTo Out
 End If
 
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
@@ -407,18 +407,18 @@ End If
 
 
 
-On Error Resume Next 'Operation içinde .xlsx dosyasý yoksa oluþacak hata için
-'Ýþlem günlüðü açýksa kaydet ve kapat.
+On Error Resume Next 'Operation iÃ§inde .xlsx dosyasÄ± yoksa oluÅŸacak hata iÃ§in
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(Rapor1Op)
 If OpenControl = True Then
     Workbooks(StrRapor1).Close SaveChanges:=False
 End If
-'Ýþlem günlüðü açýksa kaydet ve kapat.
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(RaporOp)
 If OpenControl = True Then
     Workbooks(StrRapor).Close SaveChanges:=False
 End If
-''Ýþlem günlüðü açýksa kaydet ve kapat.
+''Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
 'OpenControl = IsWorkBookOpen(Rapor2_2Op)
 'If OpenControl = True Then
 '    Workbooks(StrRapor2_2).Close SaveChanges:=False
@@ -428,19 +428,19 @@ OpenControl = IsWorkBookOpen(SourceSysRapor1)
 If OpenControl = True Then
     Workbooks(SistemRapor1).Close SaveChanges:=False
 End If
-'Ýþlem günlüðü açýksa kaydet ve kapat.
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(SourceSysRapor)
 If OpenControl = True Then
     Workbooks(SistemRapor).Close SaveChanges:=False
 End If
-''Ýþlem günlüðü açýksa kaydet ve kapat.
+''Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
 'OpenControl = IsWorkBookOpen(SourceSysRapor2_2)
 'If OpenControl = True Then
 '    Workbooks(SistemRapor2_2).Close SaveChanges:=False
 'End If
 
 
-'Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 On Error Resume Next
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
@@ -454,7 +454,7 @@ End If
 
 On Error GoTo 0
 
-'Dosyayý operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
 fso.CopyFile (SourceRapor1), DestOpUserFolder & StrRapor1, True
 fso.CopyFile (SourceRapor), DestOpUserFolder & StrRapor, True
@@ -470,7 +470,7 @@ If CheckBoxRapor1Aylik.Value = True Then
     Workbooks.Open (Rapor1Op)
     Set WsRapor1 = Workbooks(StrRapor1).Worksheets(1)
 
-    'Ýþlem günlüðünde baþlangýç ve bitiþ satýrlarýný tespit et.
+    'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼nde baÅŸlangÄ±Ã§ ve bitiÅŸ satÄ±rlarÄ±nÄ± tespit et.
     'Say1IslemGunlugu = WsSysRapor1.Range("B100000").End(xlUp).Row
     Say2IslemGunlugu = WsSysRapor1.Range("C100000").End(xlUp).Row
     If Say2IslemGunlugu < 8 Then
@@ -478,16 +478,16 @@ If CheckBoxRapor1Aylik.Value = True Then
     End If
     'SayAyracIslemGunlugu = WsSysRapor1.Range("E100000").End(xlUp).Row
 
-    'Ayracý oluþtur
+    'AyracÄ± oluÅŸtur
     ModulTarih = StrRaporTarihiAylik
     ModulAyrac = "01" & Right(ModulTarih, 8)
     SiraNo = 0
     
     Set BulIslemGunlugu = WsSysRapor1.Range("E:E").Find(What:=CDate(ModulAyrac), SearchDirection:=xlNext, _
             SearchOrder:=xlByRows, LookIn:=xlFormulas, LookAt:=xlWhole)
-    If Not BulIslemGunlugu Is Nothing Then 'HEDEF DÖNEMÝ bul
+    If Not BulIslemGunlugu Is Nothing Then 'HEDEF DÃ–NEMÄ° bul
         ilkrow = BulIslemGunlugu.Row + 1
-        ModulAyrac = DateAdd("m", 1, CDate(ModulAyrac)) 'Sonraki dönemi bul ve onun üstüne satýr ekle
+        ModulAyrac = DateAdd("m", 1, CDate(ModulAyrac)) 'Sonraki dÃ¶nemi bul ve onun Ã¼stÃ¼ne satÄ±r ekle
         Set BulIslemGunlugux = WsSysRapor1.Range("E:E").Find(What:=CDate(ModulAyrac), SearchDirection:=xlNext, _
                 SearchOrder:=xlByRows, LookIn:=xlFormulas, LookAt:=xlWhole)
         If Not BulIslemGunlugux Is Nothing Then
@@ -495,7 +495,7 @@ If CheckBoxRapor1Aylik.Value = True Then
         Else
             sonrow = Say2IslemGunlugu
         End If
-        ModulAyrac = DateAdd("m", -1, CDate(ModulAyrac)) 'Yukarýda atadýðýn +1 ayý geri al
+        ModulAyrac = DateAdd("m", -1, CDate(ModulAyrac)) 'YukarÄ±da atadÄ±ÄŸÄ±n +1 ayÄ± geri al
         
         If WsSysRapor1.Cells(ilkrow, 6).Value <> "" Then
             SiraNo = 1
@@ -508,7 +508,7 @@ If CheckBoxRapor1Aylik.Value = True Then
     End If
 
 
-    'Kenarlýklar.
+    'KenarlÄ±klar.
     If SiraNo > 0 Then
         Set Kenarlar = WsRapor1.Range("A" & 1 & ":N" & 2 + sonrow - ilkrow)
         Kenarlar.Borders.LineStyle = xlNone
@@ -547,7 +547,7 @@ If CheckBoxRaporAylik.Value = True Then
     Workbooks.Open (RaporOp)
     Set WsRapor = Workbooks(StrRapor).Worksheets(1)
 
-    'Ýþlem günlüðünde baþlangýç ve bitiþ satýrlarýný tespit et.
+    'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼nde baÅŸlangÄ±Ã§ ve bitiÅŸ satÄ±rlarÄ±nÄ± tespit et.
     'Say1IslemGunlugu = WsSysRapor.Range("B100000").End(xlUp).Row
     Say2IslemGunlugu = WsSysRapor.Range("C100000").End(xlUp).Row
     If Say2IslemGunlugu < 8 Then
@@ -555,16 +555,16 @@ If CheckBoxRaporAylik.Value = True Then
     End If
     'SayAyracIslemGunlugu = WsSysRapor.Range("E100000").End(xlUp).Row
 
-    'Ayracý oluþtur
+    'AyracÄ± oluÅŸtur
     ModulTarih = StrRaporTarihiAylik
     ModulAyrac = "01" & Right(ModulTarih, 8)
     SiraNo = 0
     
     Set BulIslemGunlugu = WsSysRapor.Range("E:E").Find(What:=CDate(ModulAyrac), SearchDirection:=xlNext, _
             SearchOrder:=xlByRows, LookIn:=xlFormulas, LookAt:=xlWhole)
-    If Not BulIslemGunlugu Is Nothing Then 'HEDEF DÖNEMÝ bul
+    If Not BulIslemGunlugu Is Nothing Then 'HEDEF DÃ–NEMÄ° bul
         ilkrow = BulIslemGunlugu.Row + 1
-        ModulAyrac = DateAdd("m", 1, CDate(ModulAyrac)) 'Sonraki dönemi bul ve onun üstüne satýr ekle
+        ModulAyrac = DateAdd("m", 1, CDate(ModulAyrac)) 'Sonraki dÃ¶nemi bul ve onun Ã¼stÃ¼ne satÄ±r ekle
         Set BulIslemGunlugux = WsSysRapor.Range("E:E").Find(What:=CDate(ModulAyrac), SearchDirection:=xlNext, _
                 SearchOrder:=xlByRows, LookIn:=xlFormulas, LookAt:=xlWhole)
         If Not BulIslemGunlugux Is Nothing Then
@@ -572,7 +572,7 @@ If CheckBoxRaporAylik.Value = True Then
         Else
             sonrow = Say2IslemGunlugu
         End If
-        ModulAyrac = DateAdd("m", -1, CDate(ModulAyrac)) 'Yukarýda atadýðýn +1 ayý geri al
+        ModulAyrac = DateAdd("m", -1, CDate(ModulAyrac)) 'YukarÄ±da atadÄ±ÄŸÄ±n +1 ayÄ± geri al
         
         If WsSysRapor.Cells(ilkrow, 6).Value <> "" Then
             SiraNo = 1
@@ -584,7 +584,7 @@ If CheckBoxRaporAylik.Value = True Then
         '
     End If
     
-    'Kenarlýklar.
+    'KenarlÄ±klar.
     If SiraNo > 0 Then
         Set Kenarlar = WsRapor.Range("A" & 1 & ":O" & 2 + sonrow - ilkrow)
         Kenarlar.Borders.LineStyle = xlNone
@@ -716,7 +716,7 @@ SourceSysRapor = IslemGunlukleriKlasor & SistemRapor
 SourceSysRapor2_2 = IslemGunlukleriKlasor & SistemRapor2_2
 
 
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
@@ -726,7 +726,7 @@ If Not Dir(DestOperasyon, vbDirectory) <> vbNullString Then
     GoTo Out
 End If
 
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
@@ -773,18 +773,18 @@ If Not Dir(SourceSysRapor2_2, vbDirectory) <> vbNullString Then
 End If
 
 
-On Error Resume Next 'Operation içinde .xlsx dosyasý yoksa oluþacak hata için
-'Ýþlem günlüðü açýksa kaydet ve kapat.
+On Error Resume Next 'Operation iÃ§inde .xlsx dosyasÄ± yoksa oluÅŸacak hata iÃ§in
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(Rapor1Op)
 If OpenControl = True Then
     Workbooks(StrRapor1).Close SaveChanges:=False
 End If
-'Ýþlem günlüðü açýksa kaydet ve kapat.
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(RaporOp)
 If OpenControl = True Then
     Workbooks(StrRapor).Close SaveChanges:=False
 End If
-'Ýþlem günlüðü açýksa kaydet ve kapat.
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(Rapor2_2Op)
 If OpenControl = True Then
     Workbooks(StrRapor2_2).Close SaveChanges:=False
@@ -794,19 +794,19 @@ OpenControl = IsWorkBookOpen(SourceSysRapor1)
 If OpenControl = True Then
     Workbooks(SistemRapor1).Close SaveChanges:=False
 End If
-'Ýþlem günlüðü açýksa kaydet ve kapat.
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(SourceSysRapor)
 If OpenControl = True Then
     Workbooks(SistemRapor).Close SaveChanges:=False
 End If
-'Ýþlem günlüðü açýksa kaydet ve kapat.
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(SourceSysRapor2_2)
 If OpenControl = True Then
     Workbooks(SistemRapor2_2).Close SaveChanges:=False
 End If
 
 
-'Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 On Error Resume Next
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
@@ -820,7 +820,7 @@ End If
 
 On Error GoTo 0
 
-'Dosyayý operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
 fso.CopyFile (SourceRapor1), DestOpUserFolder & StrRapor1, True
 fso.CopyFile (SourceRapor), DestOpUserFolder & StrRapor, True
@@ -848,7 +848,7 @@ If CheckBoxRapor1.Value = True Then
     If Not MyFinderGlobal Is Nothing Then
         IlkAdresGlobal = MyFinderGlobal.Address
         'MsgBox Replace(IlkAdres, "$", ""), vbOKOnly, "ishakkutlu.com"
-        'Sonraki satýrlarda aramaya devam et
+        'Sonraki satÄ±rlarda aramaya devam et
         Do
 
             '______________
@@ -882,7 +882,7 @@ DoWhileBitir1:
         Loop While IlkAdresGlobal <> SonrakiAdresGlobal
     End If
 
-    'Kenarlýklar.
+    'KenarlÄ±klar.
     If SiraNo > 0 Then
         Set Kenarlar = WsRapor1.Range("A" & 1 & ":N" & sonrow)
         Kenarlar.Borders.LineStyle = xlNone
@@ -891,7 +891,7 @@ DoWhileBitir1:
         Kenarlar.Borders.LineStyle = xlContinuous
     End If
     With WsRapor1.PageSetup
-        .CenterFooter = "&""Open Sans""&18" & "Yeni kayýt giriþi yapýlan evrak bilgileri kontrol edilmiþtir. " & StrRaporTarihi
+        .CenterFooter = "&""Open Sans""&18" & "Yeni kayÄ±t giriÅŸi yapÄ±lan evrak bilgileri kontrol edilmiÅŸtir. " & StrRaporTarihi
     End With
     OpenControl = IsWorkBookOpen(Rapor1Op)
     If OpenControl = True Then
@@ -930,7 +930,7 @@ If CheckBoxRapor.Value = True Then
     If Not MyFinderGlobal Is Nothing Then
         IlkAdresGlobal = MyFinderGlobal.Address
         'MsgBox Replace(IlkAdres, "$", ""), vbOKOnly, "ishakkutlu.com"
-        'Sonraki satýrlarda aramaya devam et
+        'Sonraki satÄ±rlarda aramaya devam et
         Do
 
             '______________
@@ -964,7 +964,7 @@ DoWhileBitir2:
         Loop While IlkAdresGlobal <> SonrakiAdresGlobal
     End If
 
-    'Kenarlýklar.
+    'KenarlÄ±klar.
     If SiraNo > 0 Then
         Set Kenarlar = WsRapor.Range("A" & 1 & ":O" & sonrow)
         Kenarlar.Borders.LineStyle = xlNone
@@ -974,7 +974,7 @@ DoWhileBitir2:
     End If
     
     With WsRapor.PageSetup
-        .CenterFooter = "&""Open Sans""&18" & "Yeni kayýt giriþi yapýlan evrak bilgileri kontrol edilmiþtir. " & StrRaporTarihi
+        .CenterFooter = "&""Open Sans""&18" & "Yeni kayÄ±t giriÅŸi yapÄ±lan evrak bilgileri kontrol edilmiÅŸtir. " & StrRaporTarihi
     End With
     
     OpenControl = IsWorkBookOpen(RaporOp)
@@ -1014,7 +1014,7 @@ If CheckBoxRapor2_2.Value = True Then
     If Not MyFinderGlobal Is Nothing Then
         IlkAdresGlobal = MyFinderGlobal.Address
         'MsgBox Replace(IlkAdres, "$", ""), vbOKOnly, "ishakkutlu.com"
-        'Sonraki satýrlarda aramaya devam et
+        'Sonraki satÄ±rlarda aramaya devam et
         Do
 
             '______________
@@ -1048,7 +1048,7 @@ DoWhileBitir3:
         Loop While IlkAdresGlobal <> SonrakiAdresGlobal
     End If
 
-    'Kenarlýklar.
+    'KenarlÄ±klar.
     If SiraNo > 0 Then
         Set Kenarlar = WsRapor2_2.Range("A" & 1 & ":N" & sonrow)
         Kenarlar.Borders.LineStyle = xlNone
@@ -1058,7 +1058,7 @@ DoWhileBitir3:
     End If
 
     With WsRapor2_2.PageSetup
-        .CenterFooter = "&""Open Sans""&18" & "Yeni kayýt giriþi yapýlan evrak bilgileri kontrol edilmiþtir. " & StrRaporTarihi
+        .CenterFooter = "&""Open Sans""&18" & "Yeni kayÄ±t giriÅŸi yapÄ±lan evrak bilgileri kontrol edilmiÅŸtir. " & StrRaporTarihi
     End With
     
     OpenControl = IsWorkBookOpen(Rapor2_2Op)
@@ -1141,7 +1141,7 @@ For Each ClrLab In core_registry_reports_UI.Controls
         ClrLab.ForeColor = RGB(30, 30, 30)
     End If
     
-    'YENÝ
+    'YENÄ°
     If TypeName(ClrLab) = "Frame" Then
         ClrLab.BackColor = RGB(254, 254, 254)
         ClrLab.ForeColor = RGB(30, 30, 30)
@@ -1149,8 +1149,8 @@ For Each ClrLab In core_registry_reports_UI.Controls
     End If
 Next ClrLab
 
-UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
-AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
+UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
+AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
 LblBilgilendirme.BackColor = RGB(254, 254, 254)
 
 RaporlaGunluk.BackColor = RGB(225, 235, 245)
@@ -1161,7 +1161,7 @@ Kapat.BackColor = RGB(225, 235, 245)
 Kapat.ForeColor = RGB(30, 30, 30)
 
 
-core_registry_reports_UI.BackColor = RGB(230, 230, 230) 'YENÝ
+core_registry_reports_UI.BackColor = RGB(230, 230, 230) 'YENÄ°
 
 
 End Sub

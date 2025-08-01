@@ -195,13 +195,13 @@ FileName = "Definitions.xlsx"
 ItemName = ComboAdSoyad.Value
 ItemName1 = ComboUnvan.Value
 ItemName2 = ComboSicil.Value
-'Ýsim soyisim
+'Ä°sim soyisim
 If ItemName <> "" Then
-    'Birden fazla boþluk varsa kaldýr
+    'Birden fazla boÅŸluk varsa kaldÄ±r
     For i = 1 To 50
         ItemName = Replace(ItemName, "  ", " ")
     Next i
-    'Saðdaki ve soldaki tek boþluðu kaldýr
+    'SaÄŸdaki ve soldaki tek boÅŸluÄŸu kaldÄ±r
     Do While Left(ItemName, 1) = " "
         ItemName = Right(ItemName, Len(ItemName) - 1)
     Loop
@@ -209,7 +209,7 @@ If ItemName <> "" Then
         ItemName = Left(ItemName, Len(ItemName) - 1)
     Loop
 
-    'Karakterleri otomatik düzelt
+    'Karakterleri otomatik dÃ¼zelt
     If CheckBoxDuzelt.Value = True Then
         x = 0
         ItemName = WorksheetFunction.Proper(ItemName)
@@ -223,13 +223,13 @@ If ItemName <> "" Then
             End If
         Next j
 SoyadBulSon:
-        x = Len(ItemName) - x 'Soldan ad karakter sayýsý
+        x = Len(ItemName) - x 'Soldan ad karakter sayÄ±sÄ±
         Ad = Left(ItemName, x)
-        Soyad = UCase(Replace(Replace(Soyad, "i", "I"), "ý", "I"))
+        Soyad = UCase(Replace(Replace(Soyad, "i", "I"), "Ä±", "I"))
         ItemName = Ad & Soyad
     End If
     
-    'Comboya tanýmlý deðer girilemez.
+    'Comboya tanÄ±mlÄ± deÄŸer girilemez.
     a() = ComboAdSoyad.List
     For i = LBound(a) To UBound(a)
         If a(i, 0) = ItemName Then
@@ -243,11 +243,11 @@ Else
 End If
 'Unvan
 If ItemName1 <> "" Then
-    'Birden fazla boþluk varsa kaldýr
+    'Birden fazla boÅŸluk varsa kaldÄ±r
     For i = 1 To 50
         ItemName1 = Replace(ItemName1, "  ", " ")
     Next i
-    'Saðdaki ve soldaki tek boþluðu kaldýr
+    'SaÄŸdaki ve soldaki tek boÅŸluÄŸu kaldÄ±r
     Do While Left(ItemName1, 1) = " "
         ItemName1 = Right(ItemName1, Len(ItemName1) - 1)
     Loop
@@ -255,16 +255,16 @@ If ItemName1 <> "" Then
         ItemName1 = Left(ItemName1, Len(ItemName1) - 1)
     Loop
     
-    'Karakterleri otomatik düzelt
+    'Karakterleri otomatik dÃ¼zelt
     If CheckBoxDuzelt.Value = True Then
         ItemName1 = WorksheetFunction.Proper(ItemName1)
     End If
     
-'    'Comboya tanýmlý deðer girilemez.
+'    'Comboya tanÄ±mlÄ± deÄŸer girilemez.
 '    a() = ComboUnvan.List
 '    For i = LBound(a) To UBound(a)
 '        If a(i, 0) = ItemName1 Then
-'            MsgBox ItemName1 & " isimli unvan bilgisi ilgili açýlýr listeler için daha önce tanýmlanmýþ olduðundan iþleminiz gerçekleþtirilemedi.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
+'            MsgBox ItemName1 & " isimli unvan bilgisi ilgili aÃ§Ä±lÄ±r listeler iÃ§in daha Ã¶nce tanÄ±mlanmÄ±ÅŸ olduÄŸundan iÅŸleminiz gerÃ§ekleÅŸtirilemedi.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
 '            GoTo Son
 '        End If
 '    Next i
@@ -274,11 +274,11 @@ Else
 End If
 'Sicil
 If ItemName2 <> "" Then
-    'Birden fazla boþluk varsa kaldýr
+    'Birden fazla boÅŸluk varsa kaldÄ±r
     For i = 1 To 50
         ItemName2 = Replace(ItemName2, "  ", " ")
     Next i
-    'Saðdaki ve soldaki tek boþluðu kaldýr
+    'SaÄŸdaki ve soldaki tek boÅŸluÄŸu kaldÄ±r
     Do While Left(ItemName2, 1) = " "
         ItemName2 = Right(ItemName2, Len(ItemName2) - 1)
     Loop
@@ -286,12 +286,12 @@ If ItemName2 <> "" Then
         ItemName2 = Left(ItemName2, Len(ItemName2) - 1)
     Loop
     
-    'Karakterleri otomatik düzelt
+    'Karakterleri otomatik dÃ¼zelt
     If CheckBoxDuzelt.Value = True Then
-        ItemName2 = UCase(Replace(Replace(ItemName2, "i", "I"), "ý", "I"))
+        ItemName2 = UCase(Replace(Replace(ItemName2, "i", "I"), "Ä±", "I"))
     End If
     
-    'Comboya tanýmlý deðer girilemez.
+    'Comboya tanÄ±mlÄ± deÄŸer girilemez.
     a() = ComboSicil.List
     For i = LBound(a) To UBound(a)
         If a(i, 0) = ItemName2 Then
@@ -306,7 +306,7 @@ End If
 
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -324,7 +324,7 @@ If SayHedef > 304 Then
     GoTo Son
 End If
 
-'Arada boþ satýr varsa onu bul ve öðeyi boþ satýra yaz.
+'Arada boÅŸ satÄ±r varsa onu bul ve Ã¶ÄŸeyi boÅŸ satÄ±ra yaz.
 'If SayHedef > 6 Then
     For j = 6 To SayHedef
         If Workbooks(FileName).Worksheets(1).Cells(j, 129).Value = "" Then
@@ -334,7 +334,7 @@ End If
     Next j
 'End If
 DonguSon:
-'Ve kelimelerini düzelt
+'Ve kelimelerini dÃ¼zelt
 If InStr(ItemName, " And ") <> 0 Then
     ItemName = Replace(ItemName, " And ", " and ")
 End If
@@ -355,10 +355,10 @@ ComboAdSoyad.Value = ""
 ComboUnvan.Value = ""
 ComboSicil.Value = ""
 
-'Sýralama ekle komutuna da uygulanacak.
+'SÄ±ralama ekle komutuna da uygulanacak.
 SayHedef = Workbooks(FileName).Worksheets(1).Range("DY1000").End(xlUp).Row
 If SayHedef > 6 Then
-    'A'dan Z'ye sýrala ve böylece arada bulunan boþ satýrlarý da kaldýr.
+    'A'dan Z'ye sÄ±rala ve bÃ¶ylece arada bulunan boÅŸ satÄ±rlarÄ± da kaldÄ±r.
     Workbooks(FileName).Worksheets(1).Unprotect Password:="123"
     ThisWorkbook.Unprotect "123"
     ThisWorkbook.Worksheets(2).Unprotect Password:="123"
@@ -376,7 +376,7 @@ End If
 ThisWorkbook.Worksheets(2).Range("EB6:EB305").ClearContents
 Call TekilUnvanlar
 
-'Açýk dropdown kapat
+'AÃ§Ä±k dropdown kapat
 Call ModuleSystemSettings.DropDownKapat
 
 Workbooks(FileName).Save
@@ -387,7 +387,7 @@ Son:
 
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -419,7 +419,7 @@ ItemName1 = ComboUnvan.Value
 ItemName2 = ComboSicil.Value
 
 If ItemName <> "" Then
-    'Comboya tanýmlý deðer girilmelidir.
+    'Comboya tanÄ±mlÄ± deÄŸer girilmelidir.
     ListControl = 0
     a() = ComboAdSoyad.List
     For i = LBound(a) To UBound(a)
@@ -431,11 +431,11 @@ Else
     MsgBox "The person field cannot be left empty.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
-'Unvan combosunun içeriðini oluþturduktan sonra kontrol et. Yoksa combo içeriði bopþ kalýyor.
+'Unvan combosunun iÃ§eriÄŸini oluÅŸturduktan sonra kontrol et. Yoksa combo iÃ§eriÄŸi bopÅŸ kalÄ±yor.
 ThisWorkbook.Worksheets(2).Range("EB6:EB305").ClearContents
 Call TekilUnvanlar
 If ItemName1 <> "" Then
-    'Comboya tanýmlý deðer girilmelidir.
+    'Comboya tanÄ±mlÄ± deÄŸer girilmelidir.
     ListControl1 = 0
     b() = ComboUnvan.List
     For i = LBound(b) To UBound(b)
@@ -448,7 +448,7 @@ Else
     GoTo Son
 End If
 If ItemName2 <> "" Then
-    'Comboya tanýmlý deðer girilmelidir.
+    'Comboya tanÄ±mlÄ± deÄŸer girilmelidir.
     ListControl2 = 0
     c() = ComboSicil.List
     For i = LBound(c) To UBound(c)
@@ -478,7 +478,7 @@ End If
 
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -505,7 +505,7 @@ ComboAdSoyad.Value = ""
 ComboUnvan.Value = ""
 ComboSicil.Value = ""
 
-'Boþluklarý kaldýr
+'BoÅŸluklarÄ± kaldÄ±r
 SayHedef = ThisWorkbook.Worksheets(2).Range("DY1000").End(xlUp).Row
 If SayHedef < 6 Then
     SayHedef = 6
@@ -535,10 +535,10 @@ ThisWorkbook.Worksheets(2).Range("EC6:EE305").Value = ""
 ThisWorkbook.Worksheets(2).Range("EB6:EB305").ClearContents
 Call TekilUnvanlar
 
-'Sýralama ekle komutuna da uygulanacak.
+'SÄ±ralama ekle komutuna da uygulanacak.
 SayHedef = Workbooks(FileName).Worksheets(1).Range("DY1000").End(xlUp).Row
 If SayHedef > 6 Then
-    'A'dan Z'ye sýrala ve böylece arada bulunan boþ satýrlarý da kaldýr.
+    'A'dan Z'ye sÄ±rala ve bÃ¶ylece arada bulunan boÅŸ satÄ±rlarÄ± da kaldÄ±r.
     Workbooks(FileName).Worksheets(1).Unprotect Password:="123"
     ThisWorkbook.Unprotect "123"
     ThisWorkbook.Worksheets(2).Unprotect Password:="123"
@@ -552,7 +552,7 @@ If SayHedef > 6 Then
     ThisWorkbook.Protect "123"
 End If
 
-'Açýk dropdown kapat
+'AÃ§Ä±k dropdown kapat
 Call ModuleSystemSettings.DropDownKapat
 
 Workbooks(FileName).Save
@@ -562,7 +562,7 @@ MsgBox "The person named " & ItemName & ", with the title '" & ItemName1 & "' an
 Son:
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -618,7 +618,7 @@ For Each ClrLab In support_signatures_UI.Controls
         ClrLab.ForeColor = RGB(30, 30, 30)
     End If
     
-    'YENÝ
+    'YENÄ°
     If TypeName(ClrLab) = "Frame" Then
         ClrLab.BackColor = RGB(254, 254, 254)
         ClrLab.ForeColor = RGB(30, 30, 30)
@@ -626,8 +626,8 @@ For Each ClrLab In support_signatures_UI.Controls
     End If
 Next ClrLab
 
-UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
-AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
+UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
+AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
 LblBilgilendirme.BackColor = RGB(254, 254, 254)
 
 LabelEkle.BackColor = RGB(225, 235, 245)
@@ -637,7 +637,7 @@ LabelKapat.ForeColor = RGB(30, 30, 30)
 LabelKaldir.BackColor = RGB(225, 235, 245)
 LabelKaldir.ForeColor = RGB(30, 30, 30)
 
-support_signatures_UI.BackColor = RGB(230, 230, 230) 'YENÝ
+support_signatures_UI.BackColor = RGB(230, 230, 230) 'YENÄ°
 
 
 

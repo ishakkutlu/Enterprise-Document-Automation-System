@@ -104,7 +104,7 @@ End If
 If SifreText.Value = "123" Then
 
     If Application.Height < 766 Then
-        'Ýkinci aþama için formu aç
+        'Ä°kinci aÅŸama iÃ§in formu aÃ§
         With core_system_reset_wizard2_UI
             .StartUpPosition = 0
             .Left = Application.Left + (0.5 * Application.Width) - (0.5 * 708) + 100
@@ -112,7 +112,7 @@ If SifreText.Value = "123" Then
             .Show vbModal 'vbModal 'vbModeless
         End With
     Else
-        'Ýkinci aþama için formu aç
+        'Ä°kinci aÅŸama iÃ§in formu aÃ§
         With core_system_reset_wizard2_UI
             .StartUpPosition = 0
             .Left = Application.Left + (0.5 * Application.Width) - (0.5 * 708) + 100
@@ -165,7 +165,7 @@ For Each ClrLab In core_system_reset_wizard1_UI.Controls
         ClrLab.ForeColor = RGB(30, 30, 30)
     End If
     
-    'YENÝ
+    'YENÄ°
     If TypeName(ClrLab) = "Frame" Then
         ClrLab.BackColor = RGB(254, 254, 254)
         ClrLab.ForeColor = RGB(30, 30, 30)
@@ -173,8 +173,8 @@ For Each ClrLab In core_system_reset_wizard1_UI.Controls
     End If
 Next ClrLab
 
-UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
-AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
+UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
+AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
 LblBilgilendirme.BackColor = RGB(254, 254, 254)
 
 LabelDevam.BackColor = RGB(225, 235, 245)
@@ -182,7 +182,7 @@ LabelDevam.ForeColor = RGB(30, 30, 30)
 LabelKapat.BackColor = RGB(225, 235, 245)
 LabelKapat.ForeColor = RGB(30, 30, 30)
 
-core_system_reset_wizard1_UI.BackColor = RGB(230, 230, 230) 'YENÝ
+core_system_reset_wizard1_UI.BackColor = RGB(230, 230, 230) 'YENÄ°
 
 
 End Sub

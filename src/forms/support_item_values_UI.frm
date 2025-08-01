@@ -128,7 +128,7 @@ If InStr(ItemName, ",") <> 0 Then
 End If
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -154,7 +154,7 @@ If SayHedef > 104 Then
     GoTo Son
 End If
 
-'Arada boþ satýr varsa onu bul ve öðeyi boþ satýra yaz.
+'Arada boÅŸ satÄ±r varsa onu bul ve Ã¶ÄŸeyi boÅŸ satÄ±ra yaz.
 If SayHedef > 6 Then
     For j = 6 To SayHedef
         If Workbooks(FileName).Worksheets(1).Cells(j, 102).Value = "" Then
@@ -175,7 +175,7 @@ MsgBox ItemName & " item value has been successfully defined for the related dro
 Son:
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -205,7 +205,7 @@ FileName = "Definitions.xlsx"
 ItemName = ComboOgeDegeri.Value
 
 If ItemName <> "" Then
-    'Comboya tanýmlý deðer girilmelidir.
+    'Comboya tanÄ±mlÄ± deÄŸer girilmelidir.
     ListControl = 0
     a() = ComboOgeDegeri.List
     For i = LBound(a) To UBound(a)
@@ -223,7 +223,7 @@ If ListControl = 0 Then
 End If
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -250,7 +250,7 @@ MsgBox ItemName & " item value has been successfully removed from the related dr
 Son:
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -294,7 +294,7 @@ For Each ClrLab In support_item_values_UI.Controls
         ClrLab.ForeColor = RGB(30, 30, 30)
     End If
     
-    'YENÝ
+    'YENÄ°
     If TypeName(ClrLab) = "Frame" Then
         ClrLab.BackColor = RGB(254, 254, 254)
         ClrLab.ForeColor = RGB(30, 30, 30)
@@ -302,8 +302,8 @@ For Each ClrLab In support_item_values_UI.Controls
     End If
 Next ClrLab
 
-UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
-AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
+UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
+AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
 LblBilgilendirme.BackColor = RGB(254, 254, 254)
 
 LabelEkle.BackColor = RGB(225, 235, 245)
@@ -313,7 +313,7 @@ LabelKapat.ForeColor = RGB(30, 30, 30)
 LabelKaldir.BackColor = RGB(225, 235, 245)
 LabelKaldir.ForeColor = RGB(30, 30, 30)
 
-support_item_values_UI.BackColor = RGB(230, 230, 230) 'YENÝ
+support_item_values_UI.BackColor = RGB(230, 230, 230) 'YENÄ°
 
 End Sub
 

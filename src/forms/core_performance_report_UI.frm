@@ -114,7 +114,7 @@ Sub OpenWordControl()
 Dim ObjWordx As Object
 Dim objDocx As Object
 
-'MsgBox "OpenWordControl prosedürü baþlýyor."
+'MsgBox "OpenWordControl prosedÃ¼rÃ¼ baÅŸlÄ±yor."
 
     On Error GoTo NoOpenDoc
     Set ObjWordx = GetObject(, "Word.Application")
@@ -131,10 +131,10 @@ NoOpenDocAtla:
         'MsgBox objWordx.ActiveDocument.Name
         If ObjWordx.ActiveDocument.name <> "" Then
             ObjWordx.Quit SaveChanges:=True
-            'MsgBox "Dosya OpenWordControl methodu ile kapatýldý."
+            'MsgBox "Dosya OpenWordControl methodu ile kapatÄ±ldÄ±."
         End If
     Else
-        'MsgBox "Açýk word dokümaný yok."
+        'MsgBox "AÃ§Ä±k word dokÃ¼manÄ± yok."
     End If
 
 Son:
@@ -162,8 +162,8 @@ Application.DisplayAlerts = False
 AutoPath = ThisWorkbook.Path
 DestOperasyon = AutoPath & "\System Files\Operation\"
 'Taslak
-SourceTaslak = AutoPath & "\System Files\Help Documents\Performance Report Panel – Help.docm"
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+SourceTaslak = AutoPath & "\System Files\Help Documents\Performance Report Panel â€“ Help.docm"
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
@@ -179,7 +179,7 @@ If Not Dir(DestOperasyon, vbDirectory) <> vbNullString Then
 End If
 
 
-'RmDir DestOpUserFolder 'Sistem kapanýrken DestOpUserFolder klasörünü temizle EKLENECEK!
+'RmDir DestOpUserFolder 'Sistem kapanÄ±rken DestOpUserFolder klasÃ¶rÃ¼nÃ¼ temizle EKLENECEK!
 '_______________
 
 'Check folder names
@@ -188,7 +188,7 @@ If Not Dir(SourceTaslak, vbDirectory) <> vbNullString Then
     GoTo Son
 End If
 
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
@@ -200,11 +200,11 @@ ReNameTaslak = "Help Documents"
 'Close the all Word application
 Call OpenWordControl
 
-'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
 OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
 Do While OpenKontrolName <> ""
     OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-    If OpenControl = True Then 'Açýksa
+    If OpenControl = True Then 'AÃ§Ä±ksa
         On Error Resume Next
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
@@ -212,7 +212,7 @@ Do While OpenKontrolName <> ""
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
         objWord.Quit SaveChanges:=True
-        'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+        'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
 
     End If
     OpenKontrolName = Dir()
@@ -223,7 +223,7 @@ Set objDoc = Nothing
 '________________________________________
 
 On Error Resume Next
-'    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
 Do While KontrolFile <> ""
@@ -235,13 +235,13 @@ If ContSay > 0 Then
 End If
 
 
-'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
 fso.CopyFile (SourceTaslak), DestOpUserFolder & ReNameTaslak & ".docm", True
 
 '________________________________________
 
-'Oluþturulacak dosyayý aç
+'OluÅŸturulacak dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -249,7 +249,7 @@ Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 If objWord Is Nothing Then
-    'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+    'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
     Set objWord = CreateObject("Word.Application")
     objWord.Visible = False
 End If
@@ -310,7 +310,7 @@ DestOperasyon = AutoPath & "\System Files\Operation\"
 PerformansRaporuKlasor = AutoPath & "\System Files\System Templates\Performance Report\"
 PerformansRaporu = PerformansRaporuKlasor & "Performance Report.xlsx"
 
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
@@ -334,7 +334,7 @@ If Not Dir(DestOperasyon, vbDirectory) <> vbNullString Then
     GoTo Out
 End If
 
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
@@ -385,15 +385,15 @@ Else
     IlkTarihRapor1 = CDate(IlkTarihRapor1)
     IlkTarihRapor1 = DateAdd("d", 1, IlkTarihRapor1)
     IlkTarihRapor1 = CStr(IlkTarihRapor1)
-    If Mid(IlkTarihRapor1, 2, 1) = "." Then 'Günün soluna 0 ekle
+    If Mid(IlkTarihRapor1, 2, 1) = "." Then 'GÃ¼nÃ¼n soluna 0 ekle
         IlkTarihRapor1 = "0" & IlkTarihRapor1
     End If
-    If Mid(IlkTarihRapor1, 5, 1) = "." Then 'Ayýn soluna 0 ekle
+    If Mid(IlkTarihRapor1, 5, 1) = "." Then 'AyÄ±n soluna 0 ekle
         IlkTarihRapor1 = Left(IlkTarihRapor1, 3) & "0" & Mid(IlkTarihRapor1, 4, 6)
     End If
     'MsgBox IlkTarih
     Cont = Cont + 1
-    If Cont = 1460 Then '4 yýl
+    If Cont = 1460 Then '4 yÄ±l
         Rapor1Kont = 1
         GoTo Rapor3danDevam
     End If
@@ -411,15 +411,15 @@ Else
     SonTarihRapor1 = CDate(SonTarihRapor1)
     SonTarihRapor1 = DateAdd("d", -1, SonTarihRapor1)
     SonTarihRapor1 = CStr(SonTarihRapor1)
-    If Mid(SonTarihRapor1, 2, 1) = "." Then 'Günün soluna 0 ekle
+    If Mid(SonTarihRapor1, 2, 1) = "." Then 'GÃ¼nÃ¼n soluna 0 ekle
         SonTarihRapor1 = "0" & SonTarihRapor1
     End If
-    If Mid(SonTarihRapor1, 5, 1) = "." Then 'Ayýn soluna 0 ekle
+    If Mid(SonTarihRapor1, 5, 1) = "." Then 'AyÄ±n soluna 0 ekle
         SonTarihRapor1 = Left(SonTarihRapor1, 3) & "0" & Mid(SonTarihRapor1, 4, 6)
     End If
     'MsgBox SonTarih
     Cont = Cont + 1
-    If Cont = 1460 Then '4 yýl
+    If Cont = 1460 Then '4 yÄ±l
         Rapor1Kont = 1
         GoTo Rapor3danDevam
     End If
@@ -446,15 +446,15 @@ Else
     IlkTarihRapor3_2 = CDate(IlkTarihRapor3_2)
     IlkTarihRapor3_2 = DateAdd("d", 1, IlkTarihRapor3_2)
     IlkTarihRapor3_2 = CStr(IlkTarihRapor3_2)
-    If Mid(IlkTarihRapor3_2, 2, 1) = "." Then 'Günün soluna 0 ekle
+    If Mid(IlkTarihRapor3_2, 2, 1) = "." Then 'GÃ¼nÃ¼n soluna 0 ekle
         IlkTarihRapor3_2 = "0" & IlkTarihRapor3_2
     End If
-    If Mid(IlkTarihRapor3_2, 5, 1) = "." Then 'Ayýn soluna 0 ekle
+    If Mid(IlkTarihRapor3_2, 5, 1) = "." Then 'AyÄ±n soluna 0 ekle
         IlkTarihRapor3_2 = Left(IlkTarihRapor3_2, 3) & "0" & Mid(IlkTarihRapor3_2, 4, 6)
     End If
     'MsgBox IlkTarih
     Cont = Cont + 1
-    If Cont = 1460 Then '4 yýl
+    If Cont = 1460 Then '4 yÄ±l
         Rapor3_2Kont = 1
         GoTo Rapor3_1denDevam
     End If
@@ -472,15 +472,15 @@ Else
     SonTarihRapor3_2 = CDate(SonTarihRapor3_2)
     SonTarihRapor3_2 = DateAdd("d", -1, SonTarihRapor3_2)
     SonTarihRapor3_2 = CStr(SonTarihRapor3_2)
-    If Mid(SonTarihRapor3_2, 2, 1) = "." Then 'Günün soluna 0 ekle
+    If Mid(SonTarihRapor3_2, 2, 1) = "." Then 'GÃ¼nÃ¼n soluna 0 ekle
         SonTarihRapor3_2 = "0" & SonTarihRapor3_2
     End If
-    If Mid(SonTarihRapor3_2, 5, 1) = "." Then 'Ayýn soluna 0 ekle
+    If Mid(SonTarihRapor3_2, 5, 1) = "." Then 'AyÄ±n soluna 0 ekle
         SonTarihRapor3_2 = Left(SonTarihRapor3_2, 3) & "0" & Mid(SonTarihRapor3_2, 4, 6)
     End If
     'MsgBox SonTarih
     Cont = Cont + 1
-    If Cont = 1460 Then '4 yýl
+    If Cont = 1460 Then '4 yÄ±l
         Rapor3_2Kont = 1
         GoTo Rapor3_1denDevam
     End If
@@ -504,15 +504,15 @@ Else
     IlkTarihRapor3_1 = CDate(IlkTarihRapor3_1)
     IlkTarihRapor3_1 = DateAdd("d", 1, IlkTarihRapor3_1)
     IlkTarihRapor3_1 = CStr(IlkTarihRapor3_1)
-    If Mid(IlkTarihRapor3_1, 2, 1) = "." Then 'Günün soluna 0 ekle
+    If Mid(IlkTarihRapor3_1, 2, 1) = "." Then 'GÃ¼nÃ¼n soluna 0 ekle
         IlkTarihRapor3_1 = "0" & IlkTarihRapor3_1
     End If
-    If Mid(IlkTarihRapor3_1, 5, 1) = "." Then 'Ayýn soluna 0 ekle
+    If Mid(IlkTarihRapor3_1, 5, 1) = "." Then 'AyÄ±n soluna 0 ekle
         IlkTarihRapor3_1 = Left(IlkTarihRapor3_1, 3) & "0" & Mid(IlkTarihRapor3_1, 4, 6)
     End If
     'MsgBox IlkTarih
     Cont = Cont + 1
-    If Cont = 1460 Then '4 yýl
+    If Cont = 1460 Then '4 yÄ±l
         Rapor3_1Kont = 1
         GoTo RapordanDevam
     End If
@@ -530,15 +530,15 @@ Else
     SonTarihRapor3_1 = CDate(SonTarihRapor3_1)
     SonTarihRapor3_1 = DateAdd("d", -1, SonTarihRapor3_1)
     SonTarihRapor3_1 = CStr(SonTarihRapor3_1)
-    If Mid(SonTarihRapor3_1, 2, 1) = "." Then 'Günün soluna 0 ekle
+    If Mid(SonTarihRapor3_1, 2, 1) = "." Then 'GÃ¼nÃ¼n soluna 0 ekle
         SonTarihRapor3_1 = "0" & SonTarihRapor3_1
     End If
-    If Mid(SonTarihRapor3_1, 5, 1) = "." Then 'Ayýn soluna 0 ekle
+    If Mid(SonTarihRapor3_1, 5, 1) = "." Then 'AyÄ±n soluna 0 ekle
         SonTarihRapor3_1 = Left(SonTarihRapor3_1, 3) & "0" & Mid(SonTarihRapor3_1, 4, 6)
     End If
     'MsgBox SonTarih
     Cont = Cont + 1
-    If Cont = 1460 Then '4 yýl
+    If Cont = 1460 Then '4 yÄ±l
         Rapor3_1Kont = 1
         GoTo RapordanDevam
     End If
@@ -547,7 +547,7 @@ End If
 
 
 
-'______________________RAPOR ve BÝLGÝLENDÝRME
+'______________________RAPOR ve BÄ°LGÄ°LENDÄ°RME
 
 RapordanDevam:
 
@@ -564,15 +564,15 @@ Else
     IlkTarihRapor = CDate(IlkTarihRapor)
     IlkTarihRapor = DateAdd("d", 1, IlkTarihRapor)
     IlkTarihRapor = CStr(IlkTarihRapor)
-    If Mid(IlkTarihRapor, 2, 1) = "." Then 'Günün soluna 0 ekle
+    If Mid(IlkTarihRapor, 2, 1) = "." Then 'GÃ¼nÃ¼n soluna 0 ekle
         IlkTarihRapor = "0" & IlkTarihRapor
     End If
-    If Mid(IlkTarihRapor, 5, 1) = "." Then 'Ayýn soluna 0 ekle
+    If Mid(IlkTarihRapor, 5, 1) = "." Then 'AyÄ±n soluna 0 ekle
         IlkTarihRapor = Left(IlkTarihRapor, 3) & "0" & Mid(IlkTarihRapor, 4, 6)
     End If
     'MsgBox IlkTarih
     Cont = Cont + 1
-    If Cont = 1460 Then '4 yýl
+    If Cont = 1460 Then '4 yÄ±l
         RaporKont = 1
         GoTo XXXMuddanDevam
     End If
@@ -590,15 +590,15 @@ Else
     SonTarihRapor = CDate(SonTarihRapor)
     SonTarihRapor = DateAdd("d", -1, SonTarihRapor)
     SonTarihRapor = CStr(SonTarihRapor)
-    If Mid(SonTarihRapor, 2, 1) = "." Then 'Günün soluna 0 ekle
+    If Mid(SonTarihRapor, 2, 1) = "." Then 'GÃ¼nÃ¼n soluna 0 ekle
         SonTarihRapor = "0" & SonTarihRapor
     End If
-    If Mid(SonTarihRapor, 5, 1) = "." Then 'Ayýn soluna 0 ekle
+    If Mid(SonTarihRapor, 5, 1) = "." Then 'AyÄ±n soluna 0 ekle
         SonTarihRapor = Left(SonTarihRapor, 3) & "0" & Mid(SonTarihRapor, 4, 6)
     End If
     'MsgBox SonTarih
     Cont = Cont + 1
-    If Cont = 1460 Then '4 yýl
+    If Cont = 1460 Then '4 yÄ±l
         RaporKont = 1
         GoTo XXXMuddanDevam
     End If
@@ -623,15 +623,15 @@ Else
     IlkTarihXXXMud = CDate(IlkTarihXXXMud)
     IlkTarihXXXMud = DateAdd("d", 1, IlkTarihXXXMud)
     IlkTarihXXXMud = CStr(IlkTarihXXXMud)
-    If Mid(IlkTarihXXXMud, 2, 1) = "." Then 'Günün soluna 0 ekle
+    If Mid(IlkTarihXXXMud, 2, 1) = "." Then 'GÃ¼nÃ¼n soluna 0 ekle
         IlkTarihXXXMud = "0" & IlkTarihXXXMud
     End If
-    If Mid(IlkTarihXXXMud, 5, 1) = "." Then 'Ayýn soluna 0 ekle
+    If Mid(IlkTarihXXXMud, 5, 1) = "." Then 'AyÄ±n soluna 0 ekle
         IlkTarihXXXMud = Left(IlkTarihXXXMud, 3) & "0" & Mid(IlkTarihXXXMud, 4, 6)
     End If
     'MsgBox IlkTarih
     Cont = Cont + 1
-    If Cont = 1460 Then '4 yýl
+    If Cont = 1460 Then '4 yÄ±l
         XXXMudKont = 1
         GoTo SonucdanDevam
     End If
@@ -649,15 +649,15 @@ Else
     SonTarihXXXMud = CDate(SonTarihXXXMud)
     SonTarihXXXMud = DateAdd("d", -1, SonTarihXXXMud)
     SonTarihXXXMud = CStr(SonTarihXXXMud)
-    If Mid(SonTarihXXXMud, 2, 1) = "." Then 'Günün soluna 0 ekle
+    If Mid(SonTarihXXXMud, 2, 1) = "." Then 'GÃ¼nÃ¼n soluna 0 ekle
         SonTarihXXXMud = "0" & SonTarihXXXMud
     End If
-    If Mid(SonTarihXXXMud, 5, 1) = "." Then 'Ayýn soluna 0 ekle
+    If Mid(SonTarihXXXMud, 5, 1) = "." Then 'AyÄ±n soluna 0 ekle
         SonTarihXXXMud = Left(SonTarihXXXMud, 3) & "0" & Mid(SonTarihXXXMud, 4, 6)
     End If
     'MsgBox SonTarih
     Cont = Cont + 1
-    If Cont = 1460 Then '4 yýl
+    If Cont = 1460 Then '4 yÄ±l
         XXXMudKont = 1
         GoTo SonucdanDevam
     End If
@@ -666,7 +666,7 @@ End If
 
 
 
-'______________________SONUÇ
+'______________________SONUÃ‡
 
 SonucdanDevam:
 
@@ -683,15 +683,15 @@ Else
     IlkTarihSonuc = CDate(IlkTarihSonuc)
     IlkTarihSonuc = DateAdd("d", 1, IlkTarihSonuc)
     IlkTarihSonuc = CStr(IlkTarihSonuc)
-    If Mid(IlkTarihSonuc, 2, 1) = "." Then 'Günün soluna 0 ekle
+    If Mid(IlkTarihSonuc, 2, 1) = "." Then 'GÃ¼nÃ¼n soluna 0 ekle
         IlkTarihSonuc = "0" & IlkTarihSonuc
     End If
-    If Mid(IlkTarihSonuc, 5, 1) = "." Then 'Ayýn soluna 0 ekle
+    If Mid(IlkTarihSonuc, 5, 1) = "." Then 'AyÄ±n soluna 0 ekle
         IlkTarihSonuc = Left(IlkTarihSonuc, 3) & "0" & Mid(IlkTarihSonuc, 4, 6)
     End If
     'MsgBox IlkTarih
     Cont = Cont + 1
-    If Cont = 1460 Then '4 yýl
+    If Cont = 1460 Then '4 yÄ±l
         SonucKont = 1
         GoTo DerlemedenDevam
     End If
@@ -709,15 +709,15 @@ Else
     SonTarihSonuc = CDate(SonTarihSonuc)
     SonTarihSonuc = DateAdd("d", -1, SonTarihSonuc)
     SonTarihSonuc = CStr(SonTarihSonuc)
-    If Mid(SonTarihSonuc, 2, 1) = "." Then 'Günün soluna 0 ekle
+    If Mid(SonTarihSonuc, 2, 1) = "." Then 'GÃ¼nÃ¼n soluna 0 ekle
         SonTarihSonuc = "0" & SonTarihSonuc
     End If
-    If Mid(SonTarihSonuc, 5, 1) = "." Then 'Ayýn soluna 0 ekle
+    If Mid(SonTarihSonuc, 5, 1) = "." Then 'AyÄ±n soluna 0 ekle
         SonTarihSonuc = Left(SonTarihSonuc, 3) & "0" & Mid(SonTarihSonuc, 4, 6)
     End If
     'MsgBox SonTarih
     Cont = Cont + 1
-    If Cont = 1460 Then '4 yýl
+    If Cont = 1460 Then '4 yÄ±l
         SonucKont = 1
         GoTo DerlemedenDevam
     End If
@@ -729,7 +729,7 @@ End If
 
 DerlemedenDevam:
 
-'______________________DERLEMEYE BAÞLA
+'______________________DERLEMEYE BAÅžLA
 
 If Rapor1Kont = 1 And Rapor3_2Kont = 1 And Rapor3_1Kont = 1 And RaporKont = 1 And XXXMudKont = 1 And SonucKont = 1 Then
     MsgBox "Your process cannot be completed because no response letter date was found within the specified date range in Report1, Report3, and report/report2_2 modules.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
@@ -737,15 +737,15 @@ If Rapor1Kont = 1 And Rapor3_2Kont = 1 And Rapor3_1Kont = 1 And RaporKont = 1 An
 End If
 
 
-On Error Resume Next 'Operation içinde Performance Report.xlsx dosyasý yoksa oluþacak hata için
+On Error Resume Next 'Operation iÃ§inde Performance Report.xlsx dosyasÄ± yoksa oluÅŸacak hata iÃ§in
 PerformansRaporuOp = DestOpUserFolder & "Performance Report.xlsx"
-'Ýþlem günlüðü açýksa kaydet ve kapat.
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(PerformansRaporuOp)
 If OpenControl = True Then
     Workbooks("Performance Report.xlsx").Close SaveChanges:=True
 End If
 
-'Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 On Error Resume Next
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
@@ -757,7 +757,7 @@ If ContSay > 0 Then
     Kill DestOpUserFolder & "*.???"
 End If
 
-'Dosyayý operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
 fso.CopyFile (PerformansRaporu), DestOpUserFolder & "Performance Report" & ".xlsx", True
 'open the file
@@ -769,7 +769,7 @@ WsPerfRap.Unprotect Password:="123"
 
 WsPerfRapSay = 9
 
-'Rapor1 Aktarýmý
+'Rapor1 AktarÄ±mÄ±
 If Rapor1Kont = 0 Then
     For i = IlkTarihBulRapor1.Row To SonTarihBulRapor1.Row
         If ThisWorkbook.Worksheets(3).Cells(i, 83).Value <> "" Then
@@ -845,7 +845,7 @@ If Rapor1Kont = 0 Then
                 End If
             End If
 
-            'Gönderen
+            'GÃ¶nderen
             WsPerfRap.Cells(WsPerfRapSay, 3) = GelenTema
             'Rapor Tipi
             WsPerfRap.Cells(WsPerfRapSay, 4) = "Report 1"
@@ -867,11 +867,11 @@ If Rapor1Kont = 0 Then
                 End If
             Next j
 jDongusuSonRapor1:
-            'Geliþ Tarihi
+            'GeliÅŸ Tarihi
             WsPerfRap.Cells(WsPerfRapSay, 6) = ThisWorkbook.Worksheets(3).Cells(i, 28)
-            'Üst Yazý Tarihi
+            'Ãœst YazÄ± Tarihi
             WsPerfRap.Cells(WsPerfRapSay, 7) = ThisWorkbook.Worksheets(3).Cells(i, 75)
-            'Sýra No
+            'SÄ±ra No
             WsPerfRap.Cells(WsPerfRapSay, 2) = WsPerfRapSay - 8
             
             WsPerfRapSay = WsPerfRapSay + 1
@@ -880,7 +880,7 @@ jDongusuSonRapor1:
 End If
 
 
-'Rapor3_2 Aktarýmý
+'Rapor3_2 AktarÄ±mÄ±
 If Rapor3_2Kont = 0 Then
     For i = IlkTarihBulRapor3_2.Row To SonTarihBulRapor3_2.Row
         If ThisWorkbook.Worksheets(5).Cells(i, 163).Value <> "" And ThisWorkbook.Worksheets(5).Cells(i, 12).Value = "Point2" Then
@@ -956,7 +956,7 @@ If Rapor3_2Kont = 0 Then
                 End If
             End If
 
-            'Gönderen
+            'GÃ¶nderen
             WsPerfRap.Cells(WsPerfRapSay, 3) = GelenTema
             'Rapor Tipi
             WsPerfRap.Cells(WsPerfRapSay, 4) = "Report 3.2"
@@ -978,11 +978,11 @@ If Rapor3_2Kont = 0 Then
                 End If
             Next j
 jDongusuSonRapor3_2:
-            'Geliþ Tarihi
+            'GeliÅŸ Tarihi
             WsPerfRap.Cells(WsPerfRapSay, 6) = ThisWorkbook.Worksheets(5).Cells(i, 23)
-            'Üst Yazý Tarihi
+            'Ãœst YazÄ± Tarihi
             WsPerfRap.Cells(WsPerfRapSay, 7) = ThisWorkbook.Worksheets(5).Cells(i, 83)
-            'Sýra No
+            'SÄ±ra No
             WsPerfRap.Cells(WsPerfRapSay, 2) = WsPerfRapSay - 8
             
             WsPerfRapSay = WsPerfRapSay + 1
@@ -990,7 +990,7 @@ jDongusuSonRapor3_2:
     Next i
 End If
 
-'Rapor3_1 Aktarýmý
+'Rapor3_1 AktarÄ±mÄ±
 If Rapor3_1Kont = 0 Then
     For i = IlkTarihBulRapor3_1.Row To SonTarihBulRapor3_1.Row
         If ThisWorkbook.Worksheets(5).Cells(i, 163).Value <> "" And ThisWorkbook.Worksheets(5).Cells(i, 12).Value = "Point1" Then
@@ -1066,7 +1066,7 @@ If Rapor3_1Kont = 0 Then
                 End If
             End If
 
-            'Gönderen
+            'GÃ¶nderen
             WsPerfRap.Cells(WsPerfRapSay, 3) = GelenTema
             'Rapor Tipi
             WsPerfRap.Cells(WsPerfRapSay, 4) = "Report 3.1"
@@ -1088,11 +1088,11 @@ If Rapor3_1Kont = 0 Then
                 End If
             Next j
 jDongusuSonRapor3_1:
-            'Geliþ Tarihi
+            'GeliÅŸ Tarihi
             WsPerfRap.Cells(WsPerfRapSay, 6) = ThisWorkbook.Worksheets(5).Cells(i, 95)
-            'Üst Yazý Tarihi
+            'Ãœst YazÄ± Tarihi
             WsPerfRap.Cells(WsPerfRapSay, 7) = ThisWorkbook.Worksheets(5).Cells(i, 155)
-            'Sýra No
+            'SÄ±ra No
             WsPerfRap.Cells(WsPerfRapSay, 2) = WsPerfRapSay - 8
             
             WsPerfRapSay = WsPerfRapSay + 1
@@ -1101,7 +1101,7 @@ jDongusuSonRapor3_1:
 End If
 
 
-'Rapor ve Bilgilendirme Aktarýmý
+'Rapor ve Bilgilendirme AktarÄ±mÄ±
 If RaporKont = 0 Then
     For i = IlkTarihBulRapor.Row To SonTarihBulRapor.Row
         If ThisWorkbook.Worksheets(4).Cells(i, 91).Value <> "" And ThisWorkbook.Worksheets(4).Cells(i, 174).Value = "No" Then
@@ -1177,7 +1177,7 @@ If RaporKont = 0 Then
                 End If
             End If
 
-            'Gönderen
+            'GÃ¶nderen
             WsPerfRap.Cells(WsPerfRapSay, 3) = GelenTema
             'Rapor Tipi
             WsPerfRap.Cells(WsPerfRapSay, 4) = "Report 2.1"
@@ -1199,11 +1199,11 @@ If RaporKont = 0 Then
                 End If
             Next j
 jDongusuSonRapor:
-            'Geliþ Tarihi
+            'GeliÅŸ Tarihi
             WsPerfRap.Cells(WsPerfRapSay, 6) = ThisWorkbook.Worksheets(4).Cells(i, 36)
-            'Üst Yazý Tarihi
+            'Ãœst YazÄ± Tarihi
             WsPerfRap.Cells(WsPerfRapSay, 7) = ThisWorkbook.Worksheets(4).Cells(i, 83)
-            'Sýra No
+            'SÄ±ra No
             WsPerfRap.Cells(WsPerfRapSay, 2) = WsPerfRapSay - 8
             
             WsPerfRapSay = WsPerfRapSay + 1
@@ -1211,7 +1211,7 @@ jDongusuSonRapor:
     Next i
 End If
 
-'Bilgilendirme Aktarýmý
+'Bilgilendirme AktarÄ±mÄ±
 If RaporKont = 0 Then
     For i = IlkTarihBulRapor.Row To SonTarihBulRapor.Row
         If ThisWorkbook.Worksheets(4).Cells(i, 91).Value <> "" And ThisWorkbook.Worksheets(4).Cells(i, 174).Value = "Yes" Then
@@ -1287,7 +1287,7 @@ If RaporKont = 0 Then
                 End If
             End If
 
-            'Gönderen
+            'GÃ¶nderen
             WsPerfRap.Cells(WsPerfRapSay, 3) = GelenTema & " (Information)"
             'Rapor Tipi
             WsPerfRap.Cells(WsPerfRapSay, 4) = "Report 2.1"
@@ -1309,11 +1309,11 @@ If RaporKont = 0 Then
                 End If
             Next j
 jDongusuSonRaporBilgilendirme:
-            'Geliþ Tarihi
+            'GeliÅŸ Tarihi
             WsPerfRap.Cells(WsPerfRapSay, 6) = ThisWorkbook.Worksheets(4).Cells(i, 36)
-            'Üst Yazý Tarihi
+            'Ãœst YazÄ± Tarihi
             WsPerfRap.Cells(WsPerfRapSay, 7) = ThisWorkbook.Worksheets(4).Cells(i, 83)
-            'Sýra No
+            'SÄ±ra No
             WsPerfRap.Cells(WsPerfRapSay, 2) = WsPerfRapSay - 8
             
             WsPerfRapSay = WsPerfRapSay + 1
@@ -1321,7 +1321,7 @@ jDongusuSonRaporBilgilendirme:
     Next i
 End If
 
-'XXXMud Aktarýmý
+'XXXMud AktarÄ±mÄ±
 If XXXMudKont = 0 Then
     For i = IlkTarihBulXXXMud.Row To SonTarihBulXXXMud.Row
         If ThisWorkbook.Worksheets(4).Cells(i, 91).Value <> "" And ThisWorkbook.Worksheets(4).Cells(i, 174).Value = "Yes" Then
@@ -1398,7 +1398,7 @@ If XXXMudKont = 0 Then
             End If
 
 
-            'Gönderen
+            'GÃ¶nderen
             WsPerfRap.Cells(WsPerfRapSay, 3) = GelenTema & " (Outgoing to XXX Directorate)"
             
             'Rapor Tipi
@@ -1406,11 +1406,11 @@ If XXXMudKont = 0 Then
             'Rapor Adedi
             AdetSay = 1
             WsPerfRap.Cells(WsPerfRapSay, 5) = AdetSay
-            'Geliþ Tarihi
+            'GeliÅŸ Tarihi
             WsPerfRap.Cells(WsPerfRapSay, 6) = ThisWorkbook.Worksheets(4).Cells(i, 36)
-            'Üst Yazý Tarihi
+            'Ãœst YazÄ± Tarihi
             WsPerfRap.Cells(WsPerfRapSay, 7) = ThisWorkbook.Worksheets(4).Cells(i, 175)
-            'Sýra No
+            'SÄ±ra No
             WsPerfRap.Cells(WsPerfRapSay, 2) = WsPerfRapSay - 8
             
             WsPerfRapSay = WsPerfRapSay + 1
@@ -1419,7 +1419,7 @@ If XXXMudKont = 0 Then
 End If
 
 
-'Sonuç Aktarýmý
+'SonuÃ§ AktarÄ±mÄ±
 If SonucKont = 0 Then
     For i = IlkTarihBulSonuc.Row To SonTarihBulSonuc.Row
         If ThisWorkbook.Worksheets(4).Cells(i, 91).Value <> "" And ThisWorkbook.Worksheets(4).Cells(i, 174).Value = "Yes" Then
@@ -1496,13 +1496,13 @@ If SonucKont = 0 Then
                     End If
                 End If
             End If
-            'Gönderen
+            'GÃ¶nderen
             WsPerfRap.Cells(WsPerfRapSay, 3) = GelenTema & " (Final)"
 
             'Rapor Tipi
             WsPerfRap.Cells(WsPerfRapSay, 4) = "Report 2.2"
 '            'Rapor Adedi
-'            'Rapor2_2 rapor numaralarýný say
+'            'Rapor2_2 rapor numaralarÄ±nÄ± say
 '            StrContent = ThisWorkbook.Worksheets(4).Cells(i, 180).Value
 '            If StrContent <> "" Then
 '                AdetSay = 1
@@ -1515,11 +1515,11 @@ If SonucKont = 0 Then
             AdetSay = 1
             WsPerfRap.Cells(WsPerfRapSay, 5) = AdetSay
             
-            'Geliþ Tarihi
+            'GeliÅŸ Tarihi
             WsPerfRap.Cells(WsPerfRapSay, 6) = ThisWorkbook.Worksheets(4).Cells(i, 191)
-            'Üst Yazý Tarihi
+            'Ãœst YazÄ± Tarihi
             WsPerfRap.Cells(WsPerfRapSay, 7) = ThisWorkbook.Worksheets(4).Cells(i, 177)
-            'Sýra No
+            'SÄ±ra No
             WsPerfRap.Cells(WsPerfRapSay, 2) = WsPerfRapSay - 8
             
             WsPerfRapSay = WsPerfRapSay + 1
@@ -1532,7 +1532,7 @@ Unload Me
 
 Son:
 
-'Kenarlýklar.
+'KenarlÄ±klar.
 If WsPerfRapSay = 9 Then
     WsPerfRapSay = 10
 End If
@@ -1608,7 +1608,7 @@ End Sub
 Private Sub FirstDateText_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
     
     On Error Resume Next
-    'Delete ve Backspace tuþlarý textboxu sil.
+    'Delete ve Backspace tuÅŸlarÄ± textboxu sil.
     If KeyCode = vbKeyDelete Then
         FirstDateText.Value = ""
     End If
@@ -1656,7 +1656,7 @@ End Sub
 Private Sub LastDateText_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
     
     On Error Resume Next
-    'Delete ve Backspace tuþlarý textboxu sil.
+    'Delete ve Backspace tuÅŸlarÄ± textboxu sil.
     If KeyCode = vbKeyDelete Then
         LastDateText.Value = ""
     End If
@@ -1711,7 +1711,7 @@ For Each ClrLab In core_performance_report_UI.Controls
         ClrLab.ForeColor = RGB(30, 30, 30)
     End If
     
-    'YENÝ
+    'YENÄ°
     If TypeName(ClrLab) = "Frame" Then
         ClrLab.BackColor = RGB(254, 254, 254)
         ClrLab.ForeColor = RGB(30, 30, 30)
@@ -1719,8 +1719,8 @@ For Each ClrLab In core_performance_report_UI.Controls
     End If
 Next ClrLab
 
-UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
-AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
+UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
+AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
 LblBilgilendirme.BackColor = RGB(254, 254, 254)
 
 Raporla.BackColor = RGB(225, 235, 245)
@@ -1729,7 +1729,7 @@ Kapat.BackColor = RGB(225, 235, 245)
 Kapat.ForeColor = RGB(30, 30, 30)
 Yardim.BackColor = RGB(225, 235, 245)
 Yardim.ForeColor = RGB(30, 30, 30)
-core_performance_report_UI.BackColor = RGB(230, 230, 230) 'YENÝ
+core_performance_report_UI.BackColor = RGB(230, 230, 230) 'YENÄ°
 
 
 End Sub

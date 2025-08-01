@@ -49,7 +49,7 @@ For Each ClrLab In suppport_calendar_UI.Controls
         ClrLab.ForeColor = RGB(30, 30, 30)
     End If
 
-    'YENÝ
+    'YENÄ°
     If TypeName(ClrLab) = "Frame" Then
         ClrLab.BackColor = RGB(254, 254, 254)
         ClrLab.ForeColor = RGB(30, 30, 30)
@@ -59,7 +59,7 @@ Next ClrLab
 FrameKapat.BackColor = RGB(254, 254, 254)
 
 
-suppport_calendar_UI.BackColor = RGB(230, 230, 230) 'YENÝ'RGB(225, 235, 245)
+suppport_calendar_UI.BackColor = RGB(230, 230, 230) 'YENÄ°'RGB(225, 235, 245)
 cmbMonth.BackColor = RGB(255, 255, 255)
 cmbYear.BackColor = RGB(255, 255, 255)
 

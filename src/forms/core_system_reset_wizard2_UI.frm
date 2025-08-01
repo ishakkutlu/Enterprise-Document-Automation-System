@@ -81,7 +81,7 @@ If SifreText.Value = "123" Then
     Unload core_system_reset_wizard1_UI
     
     'GlobalResetKapsami = 1 'dahil
-    'GlobalResetKapsami = 2 'hariç
+    'GlobalResetKapsami = 2 'hariÃ§
 ElseIf SifreText.Value = "" Then
     MsgBox "Please enter the password to proceed the reset process.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
@@ -127,7 +127,7 @@ For Each ClrLab In core_system_reset_wizard2_UI.Controls
         ClrLab.ForeColor = RGB(30, 30, 30)
     End If
     
-    'YENÝ
+    'YENÄ°
     If TypeName(ClrLab) = "Frame" Then
         ClrLab.BackColor = RGB(254, 254, 254)
         ClrLab.ForeColor = RGB(30, 30, 30)
@@ -135,8 +135,8 @@ For Each ClrLab In core_system_reset_wizard2_UI.Controls
     End If
 Next ClrLab
 
-UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
-AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
+UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
+AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
 LblBilgilendirme.BackColor = RGB(254, 254, 254)
 LblSecimler.BackColor = RGB(254, 254, 254)
 
@@ -145,23 +145,23 @@ LabelResetle.ForeColor = RGB(30, 30, 30)
 LabelKapat.BackColor = RGB(225, 235, 245)
 LabelKapat.ForeColor = RGB(30, 30, 30)
 
-core_system_reset_wizard2_UI.BackColor = RGB(230, 230, 230) 'YENÝ
+core_system_reset_wizard2_UI.BackColor = RGB(230, 230, 230) 'YENÄ°
 
 GlobalResetKapsami = 0
-'System Reset kapsamýný tespit et
+'System Reset kapsamÄ±nÄ± tespit et
 If core_system_reset_wizard1_UI.VarlikDahilOption.Value = True Then
     GlobalResetKapsami = 1
 End If
 If core_system_reset_wizard1_UI.VarlikHaricOption.Value = True Then
     GlobalResetKapsami = 2
 End If
-'Kapsama göre uyarý metnini deðiþtir.
+'Kapsama gÃ¶re uyarÄ± metnini deÄŸiÅŸtir.
 If GlobalResetKapsami = 1 Then
     LblSecimler.Caption = "WARNING!" & vbNewLine & _
-    "Except for unit-specific definitions, ALL data in the system — INCLUDING operations WITHOUT asset output — will be deleted within the boundaries you defined in the previous step."
+    "Except for unit-specific definitions, ALL data in the system â€” INCLUDING operations WITHOUT asset output â€” will be deleted within the boundaries you defined in the previous step."
 ElseIf GlobalResetKapsami = 2 Then
     LblSecimler.Caption = "WARNING!" & vbNewLine & _
-    "Except for unit-specific definitions, ALL data in the system — EXCLUDING operations WITHOUT asset output — will be deleted within the boundaries you defined in the previous step."
+    "Except for unit-specific definitions, ALL data in the system â€” EXCLUDING operations WITHOUT asset output â€” will be deleted within the boundaries you defined in the previous step."
 End If
 
 

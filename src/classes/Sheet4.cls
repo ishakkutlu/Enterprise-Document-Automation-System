@@ -35,11 +35,11 @@ Dim i As Long
 
 Worksheets(4).Unprotect Password:="123"
 
-'Rapor butonlarýný oluþtur...
+'Rapor butonlarÄ±nÄ± oluÅŸtur...
 On Error Resume Next
 Set BtnRapor = ActiveSheet.OLEObjects("RaporOlustur")
-If (ActiveCell.Value = "ü" And ActiveCell.Row > 6 And Cells(ActiveCell.Row, 67).Value <> "" And (ActiveCell.Column = 7 Or ActiveCell.Column = 14)) Or _
-   (ActiveCell.Value = "ü" And ActiveCell.Row > 6 And ActiveCell.Value <> "" And _
+If (ActiveCell.Value = "Ã¼" And ActiveCell.Row > 6 And Cells(ActiveCell.Row, 67).Value <> "" And (ActiveCell.Column = 7 Or ActiveCell.Column = 14)) Or _
+   (ActiveCell.Value = "Ã¼" And ActiveCell.Row > 6 And ActiveCell.Value <> "" And _
    (ActiveCell.Column = 6 Or ActiveCell.Column = 8 Or ActiveCell.Column = 9 Or ActiveCell.Column = 10 Or _
    ActiveCell.Column = 13 Or ActiveCell.Column = 15 Or ActiveCell.Column = 16 Or ActiveCell.Column = 17 Or ActiveCell.Column = 18 Or ActiveCell.Column = 19 Or ActiveCell.Column = 20 Or ActiveCell.Column = 21 Or ActiveCell.Column = 22)) Then
     If BtnRapor Is Nothing Then
@@ -50,7 +50,7 @@ If (ActiveCell.Value = "ü" And ActiveCell.Row > 6 And Cells(ActiveCell.Row, 67).
         End With
         Set BtnRapor = ActiveSheet.OLEObjects("RaporOlustur")
     End If
-    'Butonlarý isimlendir
+    'ButonlarÄ± isimlendir
     If ActiveCell.Column = 7 Or ActiveCell.Column = 14 Then
         If Cells(ActiveCell.Row, 5).Value = "" Then
             For i = ActiveCell.Row To 7 Step -1
@@ -98,7 +98,7 @@ Sub OpenWordControl()
 Dim ObjWordx As Object
 Dim objDocx As Object
 
-'MsgBox "OpenWordControl prosedürü baþlýyor."
+'MsgBox "OpenWordControl prosedÃ¼rÃ¼ baÅŸlÄ±yor."
 
     On Error GoTo NoOpenDoc
     Set ObjWordx = GetObject(, "Word.Application")
@@ -115,10 +115,10 @@ NoOpenDocAtla:
         'MsgBox objWordx.ActiveDocument.Name
         If ObjWordx.ActiveDocument.name <> "" Then
             ObjWordx.Quit SaveChanges:=True
-            'MsgBox "Dosya OpenWordControl methodu ile kapatýldý."
+            'MsgBox "Dosya OpenWordControl methodu ile kapatÄ±ldÄ±."
         End If
     Else
-        'MsgBox "Açýk word dokümaný yok."
+        'MsgBox "AÃ§Ä±k word dokÃ¼manÄ± yok."
     End If
 
 Son:

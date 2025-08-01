@@ -58,7 +58,7 @@ Set WsEtiket = Nothing
 
 PrtNo = CInt(ThisWorkbook.Worksheets(2).Cells(8, 115).Value)
 
-'ETÝKET YAZICI
+'ETÄ°KET YAZICI
 If EtiketPrinterOption.Value = True Then
     Set WsEtiket = ThisWorkbook.Worksheets(12)
     WsEtiket.Rows("1:30").EntireRow.Delete
@@ -85,7 +85,7 @@ If EtiketPrinterOption.Value = True Then
         j = j + 1
     End If
 
-    'Gönderi tipi boþ ise 1 satýr boþluk býrak
+    'GÃ¶nderi tipi boÅŸ ise 1 satÄ±r boÅŸluk bÄ±rak
     If TextGonderiSekli.Value = "" Then
         j = j + 1
     End If
@@ -105,27 +105,27 @@ If EtiketPrinterOption.Value = True Then
 
 End If
 
-'PÝKÜR YAZICI
+'PÄ°KÃœR YAZICI
 If PikurPrinterOption.Value = True Then
 
-    If LblAltMenuButton1.BackColor = RGB(180, 210, 240) Then 'tutanak2 zarfý
+    If LblAltMenuButton1.BackColor = RGB(180, 210, 240) Then 'tutanak2 zarfÄ±
         GoTo Tutanak2ZarfinaGit
-    ElseIf LblAltMenuButton2.BackColor = RGB(180, 210, 240) Or LblAltMenuButton6.BackColor = RGB(180, 210, 240) Then 'Küçük Zarf
+    ElseIf LblAltMenuButton2.BackColor = RGB(180, 210, 240) Or LblAltMenuButton6.BackColor = RGB(180, 210, 240) Then 'KÃ¼Ã§Ã¼k Zarf
         GoTo KucukZarfaGit
-    ElseIf LblAltMenuButton3.BackColor = RGB(180, 210, 240) Or LblAltMenuButton7.BackColor = RGB(180, 210, 240) Then 'Büyük Zarf
+    ElseIf LblAltMenuButton3.BackColor = RGB(180, 210, 240) Or LblAltMenuButton7.BackColor = RGB(180, 210, 240) Then 'BÃ¼yÃ¼k Zarf
         GoTo BuyukZarfaGit
     End If
 
     If Rapor3_2.BackColor = RGB(180, 210, 240) Then
-        If LblAltMenuButton4.BackColor = RGB(180, 210, 240) Then 'Küçük Zarf
+        If LblAltMenuButton4.BackColor = RGB(180, 210, 240) Then 'KÃ¼Ã§Ã¼k Zarf
             GoTo KucukZarfaGit
-        ElseIf LblAltMenuButton5.BackColor = RGB(180, 210, 240) Then 'Büyük Zarf
+        ElseIf LblAltMenuButton5.BackColor = RGB(180, 210, 240) Then 'BÃ¼yÃ¼k Zarf
             GoTo BuyukZarfaGit
         End If
     End If
     
     If Rapor2_2.BackColor = RGB(180, 210, 240) Then
-        If LblAltMenuButton4.BackColor = RGB(180, 210, 240) Or LblAltMenuButton5.BackColor = RGB(180, 210, 240) Then 'Tutanak2 zarfý
+        If LblAltMenuButton4.BackColor = RGB(180, 210, 240) Or LblAltMenuButton5.BackColor = RGB(180, 210, 240) Then 'Tutanak2 zarfÄ±
             GoTo Tutanak2ZarfinaGit
         End If
     End If
@@ -137,7 +137,7 @@ GoTo Son
 '________________________
 
 Tutanak2ZarfinaGit:
-'Tutanak2 zarfý-ayar
+'Tutanak2 zarfÄ±-ayar
 Set WsEtiket = ThisWorkbook.Worksheets(13)
 WsEtiket.Rows("1:100").EntireRow.Delete
 'WsEtiket.UsedRange.ClearContents
@@ -162,7 +162,7 @@ If TextGonderiSekli.Value <> "" Then
     j = j + 1
 End If
 
-'Gönderi tipi boþ ise 1 satýr boþluk býrak
+'GÃ¶nderi tipi boÅŸ ise 1 satÄ±r boÅŸluk bÄ±rak
 If TextGonderiSekli.Value = "" Then
     j = j + 1
 End If
@@ -187,7 +187,7 @@ GoTo Yazdir
 
 
 KucukZarfaGit:
-'Küçük Zarf-ayar
+'KÃ¼Ã§Ã¼k Zarf-ayar
 Set WsEtiket = ThisWorkbook.Worksheets(14)
 WsEtiket.Rows("1:100").EntireRow.Delete
 'WsEtiket.UsedRange.ClearContents
@@ -212,7 +212,7 @@ If TextGonderiSekli.Value <> "" Then
     j = j + 1
 End If
 
-''Gönderi tipi boþ ise 1 satýr boþluk býrak
+''GÃ¶nderi tipi boÅŸ ise 1 satÄ±r boÅŸluk bÄ±rak
 'If TextGonderiSekli.Value = "" Then
 '    j = j + 1
 'End If
@@ -237,7 +237,7 @@ GoTo Yazdir
 
 
 BuyukZarfaGit:
-'Büyük Zarf-ayar
+'BÃ¼yÃ¼k Zarf-ayar
 Set WsEtiket = ThisWorkbook.Worksheets(15)
 WsEtiket.Rows("1:100").EntireRow.Delete
 'WsEtiket.UsedRange.ClearContents
@@ -262,7 +262,7 @@ If TextGonderiSekli.Value <> "" Then
     j = j + 1
 End If
 
-''Gönderi tipi boþ ise 1 satýr boþluk býrak
+''GÃ¶nderi tipi boÅŸ ise 1 satÄ±r boÅŸluk bÄ±rak
 'If TextGonderiSekli.Value = "" Then
 '    j = j + 1
 'End If
@@ -353,7 +353,7 @@ DestTarget = AutoPath & "\System Files\System Definitions\"
 FileName = "Definitions.xlsx"
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -413,7 +413,7 @@ End If
 Son:
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -448,7 +448,7 @@ DestTarget = AutoPath & "\System Files\System Definitions\"
 FileName = "Definitions.xlsx"
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -503,7 +503,7 @@ End If
 Son:
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -538,7 +538,7 @@ DestTarget = AutoPath & "\System Files\System Definitions\"
 FileName = "Definitions.xlsx"
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -552,7 +552,7 @@ MyCurrentPrinter = Application.ActivePrinter
 If Application.Dialogs(xlDialogPrinterSetup).Show = False Then GoTo Son
 
 onlyPrinterName = Application.ActivePrinter
-onlyPrinterName = Replace(Application.ActivePrinter, " üzerindeki ", " on ")
+onlyPrinterName = Replace(Application.ActivePrinter, " Ã¼zerindeki ", " on ")
 onlyPrinterName = Left(onlyPrinterName, InStr(onlyPrinterName, " on ") - 1)
 
 
@@ -568,7 +568,7 @@ Workbooks(FileName).Worksheets(1).Activate
 Workbooks(FileName).Worksheets(1).Cells(6, 115).Value = onlyPrinterName
 Workbooks(FileName).Save
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=False
 ElseIf OpenControl = False Then
     '
@@ -583,7 +583,7 @@ MsgBox "The printer named """ & onlyPrinterName & """ has been successfully assi
 Son:
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -591,7 +591,7 @@ End If
 
 ThisWorkbook.Activate
 
-Application.ActivePrinter = MyCurrentPrinter 'varsayýlan aktif yazýcýya geri dön
+Application.ActivePrinter = MyCurrentPrinter 'varsayÄ±lan aktif yazÄ±cÄ±ya geri dÃ¶n
 
 ActiveSheet.DisplayPageBreaks = False
 
@@ -620,7 +620,7 @@ DestTarget = AutoPath & "\System Files\System Definitions\"
 FileName = "Definitions.xlsx"
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -634,7 +634,7 @@ MyCurrentPrinter = Application.ActivePrinter
 If Application.Dialogs(xlDialogPrinterSetup).Show = False Then GoTo Son
 
 onlyPrinterName = Application.ActivePrinter
-onlyPrinterName = Replace(Application.ActivePrinter, " üzerindeki ", " on ")
+onlyPrinterName = Replace(Application.ActivePrinter, " Ã¼zerindeki ", " on ")
 onlyPrinterName = Left(onlyPrinterName, InStr(onlyPrinterName, " on ") - 1)
 
 Bilgi = MsgBox("Click '" & "Yes" & "' to assign the printer named '" & onlyPrinterName & "' as the RECEIPT PRINTER, or click '" & "No" & "' to cancel the operation.", vbYesNo + vbInformation, "Enterprise Document Automation System")
@@ -650,7 +650,7 @@ Workbooks(FileName).Worksheets(1).Activate
 Workbooks(FileName).Worksheets(1).Cells(7, 115).Value = onlyPrinterName
 Workbooks(FileName).Save
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=False
 ElseIf OpenControl = False Then
     '
@@ -665,7 +665,7 @@ MsgBox "The printer named """ & onlyPrinterName & """ has been successfully assi
 Son:
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -673,7 +673,7 @@ End If
 
 ThisWorkbook.Activate
 
-Application.ActivePrinter = MyCurrentPrinter 'varsayýlan aktif yazýcýya geri dön
+Application.ActivePrinter = MyCurrentPrinter 'varsayÄ±lan aktif yazÄ±cÄ±ya geri dÃ¶n
 
 ActiveSheet.DisplayPageBreaks = False
 
@@ -1218,10 +1218,10 @@ LblAltMenuButton4.ForeColor = RGB(30, 30, 30)
 LblAltMenuButton5.Caption = "R2.2 - Env. 5" '"Kurum T2. Zf."
 LblAltMenuButton5.ForeColor = RGB(30, 30, 30)
 
-LblAltMenuButton6.Caption = "R2.2 - Env. 6" '"Sonuç K. Zf."
+LblAltMenuButton6.Caption = "R2.2 - Env. 6" '"SonuÃ§ K. Zf."
 LblAltMenuButton6.ForeColor = RGB(30, 30, 30)
 
-LblAltMenuButton7.Caption = "R2.2 - Env. 7" '"Sonuç B. Zf."
+LblAltMenuButton7.Caption = "R2.2 - Env. 7" '"SonuÃ§ B. Zf."
 LblAltMenuButton7.ForeColor = RGB(30, 30, 30)
 
 
@@ -1404,23 +1404,23 @@ Call EtiketAlanlariReset
 
 If Rapor1.BackColor = RGB(180, 210, 240) Then
     'MsgBox "Rapor1"
-    'Tutanak2 zarfý
+    'Tutanak2 zarfÄ±
     Call Rapor1Tutanak2Zarfi
 ElseIf Rapor.BackColor = RGB(180, 210, 240) Then
     'MsgBox "Rapor"
-    'Tutanak2 zarfý
+    'Tutanak2 zarfÄ±
     Call RaporTutanak2Zarfi
 ElseIf Rapor2_2.BackColor = RGB(180, 210, 240) Then
     'MsgBox "Rapor2_2"
-    'Tutanak2 zarfý
+    'Tutanak2 zarfÄ±
     Call XXXMudGidenTutanak2Zarfi
 ElseIf Rapor3_1.BackColor = RGB(180, 210, 240) Then
     'MsgBox "Report 3.1"
-    'Tutanak2 zarfý
+    'Tutanak2 zarfÄ±
     Call Rapor3_1Tutanak2Zarfi
 ElseIf Rapor3_2.BackColor = RGB(180, 210, 240) Then
     'MsgBox "Report 3.2"
-    'Tutanak2 zarfý
+    'Tutanak2 zarfÄ±
     Call Rapor3_2Tutanak2Zarfi
 End If
 
@@ -1492,9 +1492,9 @@ If SonSiraGlobal - IlkSiraGlobal + 1 < 7 Then
     j = 0
     For i = IlkSiraGlobal To SonSiraGlobal
         j = j + 1
-        '1 Adet 10 Öðe Türü-X1 gibi yazacak
+        '1 Adet 10 Ã–ÄŸe TÃ¼rÃ¼-X1 gibi yazacak
         Controls("TextMuhatapTema" & j).Value = Cells(i, 44).Value & " unit(s) of " & Cells(i, 41).Value & " " & Cells(i, 38).Value
-        If i = SonSiraGlobal Then 'Tema no en lat satýra
+        If i = SonSiraGlobal Then 'Tema no en lat satÄ±ra
             j = j + 1
             Controls("TextMuhatapTema" & j).Value = "Theme 1 No: " & Cells(IlkSiraGlobal, 23).Value
         End If
@@ -1565,9 +1565,9 @@ If SonSiraGlobal - IlkSiraGlobal + 1 < 7 Then
     j = 0
     For i = IlkSiraGlobal To SonSiraGlobal
         j = j + 1
-        '1 Adet 10 Öðe Türü-X1 gibi yazacak
+        '1 Adet 10 Ã–ÄŸe TÃ¼rÃ¼-X1 gibi yazacak
         Controls("TextMuhatapTema" & j).Value = Cells(i, 52).Value & " unit(s) of " & Cells(i, 49).Value & " " & Cells(i, 46).Value
-        If i = SonSiraGlobal Then 'Tema no en lat satýra
+        If i = SonSiraGlobal Then 'Tema no en lat satÄ±ra
             j = j + 1
             Controls("TextMuhatapTema" & j).Value = "Theme 1 No: " & Cells(IlkSiraGlobal, 31).Value
         End If
@@ -1639,9 +1639,9 @@ If Cells(IlkSiraGlobal, 187).Value = "All" Then
         j = 0
         For i = IlkSiraGlobal To SonSiraGlobal
             j = j + 1
-            '1 Adet 10 Öðe Türü-X1 gibi yazacak
+            '1 Adet 10 Ã–ÄŸe TÃ¼rÃ¼-X1 gibi yazacak
             Controls("TextMuhatapTema" & j).Value = Cells(i, 52).Value & " unit(s) of " & Cells(i, 49).Value & " " & Cells(i, 46).Value
-            If i = SonSiraGlobal Then 'Tema no en lat satýra
+            If i = SonSiraGlobal Then 'Tema no en lat satÄ±ra
                 j = j + 1
                 Controls("TextMuhatapTema" & j).Value = "Theme 1 No: " & Cells(IlkSiraGlobal, 31).Value
             End If
@@ -1653,10 +1653,10 @@ ElseIf Cells(IlkSiraGlobal, 187).Value = "Technique A" Then 'Sadece Technique A
         For i = IlkSiraGlobal To SonSiraGlobal
             If Left(Cells(i, 63).Value, 11) = "Technique A" Then
                 j = j + 1
-                '1 Adet 10 Öðe Türü-X1 gibi yazacak
+                '1 Adet 10 Ã–ÄŸe TÃ¼rÃ¼-X1 gibi yazacak
                 Controls("TextMuhatapTema" & j).Value = Cells(i, 52).Value & " unit(s) of " & Cells(i, 49).Value & " " & Cells(i, 46).Value
             End If
-            If i = SonSiraGlobal Then 'Tema no en lat satýra
+            If i = SonSiraGlobal Then 'Tema no en lat satÄ±ra
                 j = j + 1
                 Controls("TextMuhatapTema" & j).Value = "Theme 1 No: " & Cells(IlkSiraGlobal, 31).Value
             End If
@@ -1718,9 +1718,9 @@ End If
 
 '__________
 
-If Cells(IlkSiraGlobal, 187).Value = "All" Then 'TÜM TipALAR
+If Cells(IlkSiraGlobal, 187).Value = "All" Then 'TÃœM TipALAR
 
-    If Cells(IlkSiraGlobal, 188).Value = "No" Then 'XXXMud'den gelen paket açýlmayacak
+    If Cells(IlkSiraGlobal, 188).Value = "No" Then 'XXXMud'den gelen paket aÃ§Ä±lmayacak
         For Each ctl In UstMenuFrameAlt.Controls
             If TypeName(ctl) = "Label" Then
                 ctl.BackColor = RGB(225, 235, 245)  'RGB(254, 254, 254)
@@ -1729,7 +1729,7 @@ If Cells(IlkSiraGlobal, 187).Value = "All" Then 'TÜM TipALAR
         Next ctl
         MsgBox "Since it is indicated in the Report 2.2 entry section that all Type A items will be sent to XXXMud and the package received from XXXMud will not be opened, it is not possible to print a label/envelope for the Statement 2 envelope.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
         GoTo Son
-    ElseIf Cells(IlkSiraGlobal, 188).Value = "Yes" Then 'XXXMud'den gelen paket iþlenecek, dolayýsýyla tüm tipAlar tek zarfa girecek
+    ElseIf Cells(IlkSiraGlobal, 188).Value = "Yes" Then 'XXXMud'den gelen paket iÅŸlenecek, dolayÄ±sÄ±yla tÃ¼m tipAlar tek zarfa girecek
         For Each ctl In UstMenuFrameAlt.Controls
             If TypeName(ctl) = "Label" Then
                 ctl.BackColor = RGB(225, 235, 245)  'RGB(254, 254, 254)
@@ -1738,7 +1738,7 @@ If Cells(IlkSiraGlobal, 187).Value = "All" Then 'TÜM TipALAR
         Next ctl
         MsgBox "Since it is indicated in the Report 2.2 entry section that all Type A items will be sent to XXXMud and the package received from XXXMud will be opened, only one Statement 2 operation can be performed. To print the label/envelope for the Statement 2 envelope, please click the 'Institution Statement 2 Envelope' button.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
         GoTo Son
-    Else 'XXXMud'den gelen paket kararý yok; henüz açýlmadýðý varsayýldý.
+    Else 'XXXMud'den gelen paket kararÄ± yok; henÃ¼z aÃ§Ä±lmadÄ±ÄŸÄ± varsayÄ±ldÄ±.
         For Each ctl In UstMenuFrameAlt.Controls
             If TypeName(ctl) = "Label" Then
                 ctl.BackColor = RGB(225, 235, 245)  'RGB(254, 254, 254)
@@ -1751,7 +1751,7 @@ If Cells(IlkSiraGlobal, 187).Value = "All" Then 'TÜM TipALAR
 
 ElseIf Cells(IlkSiraGlobal, 187).Value = "Technique A" Then 'SADECE Technique A TipALAR
 
-    If Cells(IlkSiraGlobal, 188).Value = "No" Then 'XXXMud'den gelen paket açýlmayacak
+    If Cells(IlkSiraGlobal, 188).Value = "No" Then 'XXXMud'den gelen paket aÃ§Ä±lmayacak
         For Each ctl In UstMenuFrameAlt.Controls
             If TypeName(ctl) = "Label" Then
                 ctl.BackColor = RGB(225, 235, 245)  'RGB(254, 254, 254)
@@ -1760,9 +1760,9 @@ ElseIf Cells(IlkSiraGlobal, 187).Value = "Technique A" Then 'SADECE Technique A 
         Next ctl
         MsgBox "Since it is specified in the Report 2.2 entry section that the package received from XXXMud will not be opened, the label/envelope for the Statement 2 envelope received from XXXMud cannot be printed. Please click the 'Institution Statement 2 Envelope' button to print the envelope/label for the Statement 2 of type A items that are not sent to XXXMud (i.e., those retained within the unit).", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
         GoTo Son
-    ElseIf Cells(IlkSiraGlobal, 188).Value = "Yes" Then 'XXXMud'den gelen paket iþlenecek, dolayýsýyla tüm tipAlar tek zarfa girecek
+    ElseIf Cells(IlkSiraGlobal, 188).Value = "Yes" Then 'XXXMud'den gelen paket iÅŸlenecek, dolayÄ±sÄ±yla tÃ¼m tipAlar tek zarfa girecek
         
-        If Cells(IlkSiraGlobal, 189).Value = "Yes" Then 'tutanak2 birleþecek(Tüm tipAlar bu zarfta)
+        If Cells(IlkSiraGlobal, 189).Value = "Yes" Then 'tutanak2 birleÅŸecek(TÃ¼m tipAlar bu zarfta)
             For Each ctl In UstMenuFrameAlt.Controls
                 If TypeName(ctl) = "Label" Then
                     ctl.BackColor = RGB(225, 235, 245)  'RGB(254, 254, 254)
@@ -1771,7 +1771,7 @@ ElseIf Cells(IlkSiraGlobal, 187).Value = "Technique A" Then 'SADECE Technique A 
             Next ctl
             MsgBox "Since it is specified in the Report 2.2 entry section that only Technique A type A items will be sent to XXXMud, the package received from XXXMud will be opened, and the Statement 2 processes will be merged, only one Statement 2 operation can be performed. Please click the 'Institution Statement 2 Envelope' button to print the envelope/label for the Statement 2.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
             GoTo Son
-        ElseIf Cells(IlkSiraGlobal, 189).Value = "No" Then 'tutanak2 birleþmeyecek, sadece Technique Ai tekrar kapat
+        ElseIf Cells(IlkSiraGlobal, 189).Value = "No" Then 'tutanak2 birleÅŸmeyecek, sadece Technique Ai tekrar kapat
             
             'Etiket bilgileri
             TextKURUM_A.Value = "ORGANIZATION A"
@@ -1782,10 +1782,10 @@ ElseIf Cells(IlkSiraGlobal, 187).Value = "Technique A" Then 'SADECE Technique A 
                 For i = IlkSiraGlobal To SonSiraGlobal
                     If Left(Cells(i, 63).Value, 11) = "Technique A" Then
                         j = j + 1
-                        '1 Adet 10 Öðe Türü-X1 gibi yazacak
+                        '1 Adet 10 Ã–ÄŸe TÃ¼rÃ¼-X1 gibi yazacak
                         Controls("TextMuhatapTema" & j).Value = Cells(i, 52).Value & " unit(s) of " & Cells(i, 49).Value & " " & Cells(i, 46).Value
                     End If
-                    If i = SonSiraGlobal Then 'Tema no en lat satýra
+                    If i = SonSiraGlobal Then 'Tema no en lat satÄ±ra
                         j = j + 1
                         Controls("TextMuhatapTema" & j).Value = "Theme 1 No: " & Cells(IlkSiraGlobal, 31).Value
                     End If
@@ -1803,7 +1803,7 @@ ElseIf Cells(IlkSiraGlobal, 187).Value = "Technique A" Then 'SADECE Technique A 
             GoTo Son
         End If
 
-    Else 'XXXMud'den gelen paket kararý yok; henüz açýlmadýðý varsayýldý.
+    Else 'XXXMud'den gelen paket kararÄ± yok; henÃ¼z aÃ§Ä±lmadÄ±ÄŸÄ± varsayÄ±ldÄ±.
         For Each ctl In UstMenuFrameAlt.Controls
             If TypeName(ctl) = "Label" Then
                 ctl.BackColor = RGB(225, 235, 245)  'RGB(254, 254, 254)
@@ -1880,9 +1880,9 @@ End If
 
 '__________
 
-If Cells(IlkSiraGlobal, 187).Value = "All" Then 'TÜM TipALAR
+If Cells(IlkSiraGlobal, 187).Value = "All" Then 'TÃœM TipALAR
 
-    If Cells(IlkSiraGlobal, 188).Value = "No" Then 'XXXMud'den gelen paket açýlmayacak
+    If Cells(IlkSiraGlobal, 188).Value = "No" Then 'XXXMud'den gelen paket aÃ§Ä±lmayacak
         For Each ctl In UstMenuFrameAlt.Controls
             If TypeName(ctl) = "Label" Then
                 ctl.BackColor = RGB(225, 235, 245)  'RGB(254, 254, 254)
@@ -1891,7 +1891,7 @@ If Cells(IlkSiraGlobal, 187).Value = "All" Then 'TÜM TipALAR
         Next ctl
         MsgBox "Since the Report 2.2 entry section indicates that all Technique A items will be sent to XXXMud and the package received from XXXMud will not be opened, the label/envelope for the Statement 2 envelope cannot be printed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
         GoTo Son
-    ElseIf Cells(IlkSiraGlobal, 188).Value = "Yes" Then 'XXXMud'den gelen paket iþlenecek, dolayýsýyla tüm tipAlar tek zarfa girecek
+    ElseIf Cells(IlkSiraGlobal, 188).Value = "Yes" Then 'XXXMud'den gelen paket iÅŸlenecek, dolayÄ±sÄ±yla tÃ¼m tipAlar tek zarfa girecek
 
         'Etiket bilgileri
         TextKURUM_A.Value = "ORGANIZATION A"
@@ -1901,16 +1901,16 @@ If Cells(IlkSiraGlobal, 187).Value = "All" Then 'TÜM TipALAR
             j = 0
             For i = IlkSiraGlobal To SonSiraGlobal
                 j = j + 1
-                '1 Adet 10 Öðe Türü-X1 gibi yazacak
+                '1 Adet 10 Ã–ÄŸe TÃ¼rÃ¼-X1 gibi yazacak
                 Controls("TextMuhatapTema" & j).Value = Cells(i, 52).Value & " unit(s) of " & Cells(i, 49).Value & " " & Cells(i, 46).Value
-                If i = SonSiraGlobal Then 'Tema no en lat satýra
+                If i = SonSiraGlobal Then 'Tema no en lat satÄ±ra
                     j = j + 1
                     Controls("TextMuhatapTema" & j).Value = "Theme 1 No: " & Cells(IlkSiraGlobal, 31).Value
                 End If
             Next i
         End If
         
-    Else 'XXXMud'den gelen paket kararý yok; henüz açýlmadýðý varsayýldý.
+    Else 'XXXMud'den gelen paket kararÄ± yok; henÃ¼z aÃ§Ä±lmadÄ±ÄŸÄ± varsayÄ±ldÄ±.
         For Each ctl In UstMenuFrameAlt.Controls
             If TypeName(ctl) = "Label" Then
                 ctl.BackColor = RGB(225, 235, 245)  'RGB(254, 254, 254)
@@ -1923,7 +1923,7 @@ If Cells(IlkSiraGlobal, 187).Value = "All" Then 'TÜM TipALAR
 
 ElseIf Cells(IlkSiraGlobal, 187).Value = "Technique A" Then 'SADECE Technique A TipALAR
 
-    If Cells(IlkSiraGlobal, 188).Value = "No" Then 'XXXMud'den gelen paket açýlmayacak, sadece Technique A olmayanlar kapatýlacak
+    If Cells(IlkSiraGlobal, 188).Value = "No" Then 'XXXMud'den gelen paket aÃ§Ä±lmayacak, sadece Technique A olmayanlar kapatÄ±lacak
 
         'Etiket bilgileri
         TextKURUM_A.Value = "ORGANIZATION A"
@@ -1934,19 +1934,19 @@ ElseIf Cells(IlkSiraGlobal, 187).Value = "Technique A" Then 'SADECE Technique A 
             For i = IlkSiraGlobal To SonSiraGlobal
                 If Left(Cells(i, 63).Value, 8) <> "Technique A" Then
                     j = j + 1
-                    '1 Adet 10 Öðe Türü-X1 gibi yazacak
+                    '1 Adet 10 Ã–ÄŸe TÃ¼rÃ¼-X1 gibi yazacak
                     Controls("TextMuhatapTema" & j).Value = Cells(i, 52).Value & " unit(s) of " & Cells(i, 49).Value & " " & Cells(i, 46).Value
                 End If
-                If i = SonSiraGlobal Then 'Tema no en lat satýra
+                If i = SonSiraGlobal Then 'Tema no en lat satÄ±ra
                     j = j + 1
                     Controls("TextMuhatapTema" & j).Value = "Theme 1 No: " & Cells(IlkSiraGlobal, 31).Value
                 End If
             Next i
         End If
         
-    ElseIf Cells(IlkSiraGlobal, 188).Value = "Yes" Then 'XXXMud'den gelen paket iþlenecek, dolayýsýyla tüm tipAlar tek zarfa girecek
+    ElseIf Cells(IlkSiraGlobal, 188).Value = "Yes" Then 'XXXMud'den gelen paket iÅŸlenecek, dolayÄ±sÄ±yla tÃ¼m tipAlar tek zarfa girecek
         
-        If Cells(IlkSiraGlobal, 189).Value = "Yes" Then 'tutanak2 birleþecek(Tüm tipAlar bu zarfta)
+        If Cells(IlkSiraGlobal, 189).Value = "Yes" Then 'tutanak2 birleÅŸecek(TÃ¼m tipAlar bu zarfta)
 
             'Etiket bilgileri
             TextKURUM_A.Value = "ORGANIZATION A"
@@ -1956,16 +1956,16 @@ ElseIf Cells(IlkSiraGlobal, 187).Value = "Technique A" Then 'SADECE Technique A 
                 j = 0
                 For i = IlkSiraGlobal To SonSiraGlobal
                     j = j + 1
-                    '1 Adet 10 Öðe Türü-X1 gibi yazacak
+                    '1 Adet 10 Ã–ÄŸe TÃ¼rÃ¼-X1 gibi yazacak
                     Controls("TextMuhatapTema" & j).Value = Cells(i, 52).Value & " unit(s) of " & Cells(i, 49).Value & " " & Cells(i, 46).Value
-                    If i = SonSiraGlobal Then 'Tema no en lat satýra
+                    If i = SonSiraGlobal Then 'Tema no en lat satÄ±ra
                         j = j + 1
                         Controls("TextMuhatapTema" & j).Value = "Theme 1 No: " & Cells(IlkSiraGlobal, 31).Value
                     End If
                 Next i
             End If
         
-        ElseIf Cells(IlkSiraGlobal, 189).Value = "No" Then 'tutanak2 birleþmeyecek, sadece Technique A olmayanlarý kapat
+        ElseIf Cells(IlkSiraGlobal, 189).Value = "No" Then 'tutanak2 birleÅŸmeyecek, sadece Technique A olmayanlarÄ± kapat
    
             'Etiket bilgileri
             TextKURUM_A.Value = "ORGANIZATION A"
@@ -1976,10 +1976,10 @@ ElseIf Cells(IlkSiraGlobal, 187).Value = "Technique A" Then 'SADECE Technique A 
                 For i = IlkSiraGlobal To SonSiraGlobal
                     If Left(Cells(i, 63).Value, 8) <> "Technique A" Then
                         j = j + 1
-                        '1 Adet 10 Öðe Türü-X1 gibi yazacak
+                        '1 Adet 10 Ã–ÄŸe TÃ¼rÃ¼-X1 gibi yazacak
                         Controls("TextMuhatapTema" & j).Value = Cells(i, 52).Value & " unit(s) of " & Cells(i, 49).Value & " " & Cells(i, 46).Value
                     End If
-                    If i = SonSiraGlobal Then 'Tema no en lat satýra
+                    If i = SonSiraGlobal Then 'Tema no en lat satÄ±ra
                         j = j + 1
                         Controls("TextMuhatapTema" & j).Value = "Theme 1 No: " & Cells(IlkSiraGlobal, 31).Value
                     End If
@@ -1997,7 +1997,7 @@ ElseIf Cells(IlkSiraGlobal, 187).Value = "Technique A" Then 'SADECE Technique A 
             GoTo Son
         End If
 
-    Else 'XXXMud'den gelen paket kararý yok; henüz açýlmadýðý varsayýldý.
+    Else 'XXXMud'den gelen paket kararÄ± yok; henÃ¼z aÃ§Ä±lmadÄ±ÄŸÄ± varsayÄ±ldÄ±.
         For Each ctl In UstMenuFrameAlt.Controls
             If TypeName(ctl) = "Label" Then
                 ctl.BackColor = RGB(225, 235, 245)  'RGB(254, 254, 254)
@@ -2086,9 +2086,9 @@ If SonSiraGlobal - IlkSiraGlobal + 1 < 7 Then
     j = 0
     For i = IlkSiraGlobal To SonSiraGlobal
         j = j + 1
-        '1 Adet 10 Öðe Türü-X1 gibi yazacak
+        '1 Adet 10 Ã–ÄŸe TÃ¼rÃ¼-X1 gibi yazacak
         Controls("TextMuhatapTema" & j).Value = Cells(i, 136).Value & " unit(s) of " & Cells(i, 133).Value & " " & Cells(i, 130).Value
-        If i = SonSiraGlobal Then 'Tema no en lat satýra
+        If i = SonSiraGlobal Then 'Tema no en lat satÄ±ra
             j = j + 1
             If Cells(IlkSiraGlobal, 100).Value = "Type A" Then
                 Controls("TextMuhatapTema" & j).Value = "Theme 1 No: " & Cells(IlkSiraGlobal, 98).Value
@@ -2163,9 +2163,9 @@ If SonSiraGlobal - IlkSiraGlobal + 1 < 7 Then
     j = 0
     For i = IlkSiraGlobal To SonSiraGlobal
         j = j + 1
-        '1 Adet 10 Öðe Türü-X1 gibi yazacak
+        '1 Adet 10 Ã–ÄŸe TÃ¼rÃ¼-X1 gibi yazacak
         Controls("TextMuhatapTema" & j).Value = Cells(i, 58).Value & " unit(s) of " & Cells(i, 55).Value & " " & Cells(i, 52).Value
-        If i = SonSiraGlobal Then 'Tema no en lat satýra
+        If i = SonSiraGlobal Then 'Tema no en lat satÄ±ra
             j = j + 1
             If Cells(IlkSiraGlobal, 28).Value = "Type A" Then
                 Controls("TextMuhatapTema" & j).Value = "Theme 1 No: " & Cells(IlkSiraGlobal, 26).Value
@@ -2213,23 +2213,23 @@ Call EtiketAlanlariReset
 
 If Rapor1.BackColor = RGB(180, 210, 240) Then
     'MsgBox "Rapor1"
-    'Küçük Zarf
+    'KÃ¼Ã§Ã¼k Zarf
     Call Rapor1KucukZarf
 ElseIf Rapor.BackColor = RGB(180, 210, 240) Then
     'MsgBox "Rapor"
-    'Küçük Zarf
+    'KÃ¼Ã§Ã¼k Zarf
     Call RaporKucukZarf
 ElseIf Rapor2_2.BackColor = RGB(180, 210, 240) Then
     'MsgBox "Rapor2_2"
-    'Küçük Zarf
+    'KÃ¼Ã§Ã¼k Zarf
     Call BilgilendirmeKucukZarf
 ElseIf Rapor3_1.BackColor = RGB(180, 210, 240) Then
     'MsgBox "Report 3.1"
-    'Küçük Zarf
+    'KÃ¼Ã§Ã¼k Zarf
     Call Rapor3_1KucukZarf
 ElseIf Rapor3_2.BackColor = RGB(180, 210, 240) Then
     'MsgBox "Report 3.2"
-    'Küçük Zarf
+    'KÃ¼Ã§Ã¼k Zarf
     Call Rapor3_2KucukZarf
 End If
 
@@ -2304,7 +2304,7 @@ AutoPath = ThisWorkbook.Path
 DestTaslak = AutoPath & "\System Files\System Templates\Report 1 Cover Letter Template\"
 TaslakFile = "Report 1 Cover Letter.docm"
 
-'System Files klasör adýný kontrol et.
+'System Files klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(AutoPath & "\System Files\", vbDirectory) <> vbNullString Then
     For Each ctl In UstMenuFrameAlt.Controls
         If TypeName(ctl) = "Label" Then
@@ -2329,7 +2329,7 @@ End If
 'Close the all Word application
 Call OpenWordControl
 
-'Oluþturulacak dosyayý aç
+'OluÅŸturulacak dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -2337,7 +2337,7 @@ Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 If objWord Is Nothing Then
-    'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+    'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
     Set objWord = CreateObject("Word.Application")
     objWord.Visible = False
 End If
@@ -2449,7 +2449,7 @@ AutoPath = ThisWorkbook.Path
 DestTaslak = AutoPath & "\System Files\System Templates\Report 2 Cover Letter Templates\"
 TaslakFile = "Report 2 Cover Letter.docm"
 
-'System Files klasör adýný kontrol et.
+'System Files klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(AutoPath & "\System Files\", vbDirectory) <> vbNullString Then
     For Each ctl In UstMenuFrameAlt.Controls
         If TypeName(ctl) = "Label" Then
@@ -2474,7 +2474,7 @@ End If
 'Close the all Word application
 Call OpenWordControl
 
-'Oluþturulacak dosyayý aç
+'OluÅŸturulacak dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -2482,7 +2482,7 @@ Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 If objWord Is Nothing Then
-    'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+    'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
     Set objWord = CreateObject("Word.Application")
     objWord.Visible = False
 End If
@@ -2592,7 +2592,7 @@ AutoPath = ThisWorkbook.Path
 DestTaslak = AutoPath & "\System Files\System Templates\Report 2 Cover Letter Templates\"
 TaslakFile = "Informative Cover Letter.docm"
 
-'System Files klasör adýný kontrol et.
+'System Files klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(AutoPath & "\System Files\", vbDirectory) <> vbNullString Then
     For Each ctl In UstMenuFrameAlt.Controls
         If TypeName(ctl) = "Label" Then
@@ -2617,7 +2617,7 @@ End If
 'Close the all Word application
 Call OpenWordControl
 
-'Oluþturulacak dosyayý aç
+'OluÅŸturulacak dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -2625,7 +2625,7 @@ Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 If objWord Is Nothing Then
-    'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+    'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
     Set objWord = CreateObject("Word.Application")
     objWord.Visible = False
 End If
@@ -2734,12 +2734,12 @@ End If
 AutoPath = ThisWorkbook.Path
 DestTaslak = AutoPath & "\System Files\System Templates\Report 3 Cover Letter Templates\"
 If Cells(IlkSiraGlobal, 100).Value = "Type A" Then
-    TaslakFile = "Report 3.1 – Type A Cover Letter.docm"
+    TaslakFile = "Report 3.1 â€“ Type A Cover Letter.docm"
 Else
-    TaslakFile = "Report 3.1 – Type B Cover Letter.docm"
+    TaslakFile = "Report 3.1 â€“ Type B Cover Letter.docm"
 End If
 
-'System Files klasör adýný kontrol et.
+'System Files klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(AutoPath & "\System Files\", vbDirectory) <> vbNullString Then
     For Each ctl In UstMenuFrameAlt.Controls
         If TypeName(ctl) = "Label" Then
@@ -2764,7 +2764,7 @@ End If
 'Close the all Word application
 Call OpenWordControl
 
-'Oluþturulacak dosyayý aç
+'OluÅŸturulacak dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -2772,7 +2772,7 @@ Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 If objWord Is Nothing Then
-    'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+    'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
     Set objWord = CreateObject("Word.Application")
     objWord.Visible = False
 End If
@@ -2880,12 +2880,12 @@ End If
 AutoPath = ThisWorkbook.Path
 DestTaslak = AutoPath & "\System Files\System Templates\Report 3 Cover Letter Templates\"
 If Cells(IlkSiraGlobal, 28).Value = "Type A" Then
-    TaslakFile = "Report 3.2 – Type A Cover Letter.docm"
+    TaslakFile = "Report 3.2 â€“ Type A Cover Letter.docm"
 Else
-    TaslakFile = "Report 3.2 – Type B Cover Letter.docm"
+    TaslakFile = "Report 3.2 â€“ Type B Cover Letter.docm"
 End If
 
-'System Files klasör adýný kontrol et.
+'System Files klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(AutoPath & "\System Files\", vbDirectory) <> vbNullString Then
     For Each ctl In UstMenuFrameAlt.Controls
         If TypeName(ctl) = "Label" Then
@@ -2910,7 +2910,7 @@ End If
 'Close the all Word application
 Call OpenWordControl
 
-'Oluþturulacak dosyayý aç
+'OluÅŸturulacak dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -2918,7 +2918,7 @@ Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 If objWord Is Nothing Then
-    'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+    'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
     Set objWord = CreateObject("Word.Application")
     objWord.Visible = False
 End If
@@ -2998,28 +2998,28 @@ End If
 
 Call EtiketAlanlariReset
 
-'NOT: Küçük Zarf ile tek farký gizli yerine göndri þeklinin yer almasý olduðundan
-'BoolBuyukZarf ve BoolKucukZarf mantýksal deðiþkenleri yardýmýyla sadece KucukZarf prosedürleri kullanýldý.
+'NOT: KÃ¼Ã§Ã¼k Zarf ile tek farkÄ± gizli yerine gÃ¶ndri ÅŸeklinin yer almasÄ± olduÄŸundan
+'BoolBuyukZarf ve BoolKucukZarf mantÄ±ksal deÄŸiÅŸkenleri yardÄ±mÄ±yla sadece KucukZarf prosedÃ¼rleri kullanÄ±ldÄ±.
 
 If Rapor1.BackColor = RGB(180, 210, 240) Then
     'MsgBox "Rapor1"
-    'Büyük Zarf
+    'BÃ¼yÃ¼k Zarf
     Call Rapor1KucukZarf
 ElseIf Rapor.BackColor = RGB(180, 210, 240) Then
     'MsgBox "Rapor"
-    'Büyük Zarf
+    'BÃ¼yÃ¼k Zarf
     Call RaporKucukZarf
 ElseIf Rapor2_2.BackColor = RGB(180, 210, 240) Then
     'MsgBox "Rapor2_2"
-    'Büyük Zarf
+    'BÃ¼yÃ¼k Zarf
     Call BilgilendirmeKucukZarf
 ElseIf Rapor3_1.BackColor = RGB(180, 210, 240) Then
     'MsgBox "Report 3.1"
-    'Büyük Zarf
+    'BÃ¼yÃ¼k Zarf
     Call Rapor3_1KucukZarf
 ElseIf Rapor3_2.BackColor = RGB(180, 210, 240) Then
     'MsgBox "Report 3.2"
-    'Büyük Zarf
+    'BÃ¼yÃ¼k Zarf
     Call Rapor3_2KucukZarf
 End If
 
@@ -3066,11 +3066,11 @@ Call EtiketAlanlariReset
 
 If Rapor3_2.BackColor = RGB(180, 210, 240) Then
     'MsgBox "Report 3.2"
-    'FinansalBirim küçük Zarf
+    'FinansalBirim kÃ¼Ã§Ã¼k Zarf
     Call FinansalBirimKucukZarf
 ElseIf Rapor2_2.BackColor = RGB(180, 210, 240) Then
     'MsgBox "Rapor2_2"
-    'XXXMud Gelen Tutanak2 Zarfý
+    'XXXMud Gelen Tutanak2 ZarfÄ±
     Call XXXMudGelenTutanak2Zarfi
 End If
 
@@ -3143,12 +3143,12 @@ End If
 AutoPath = ThisWorkbook.Path
 DestTaslak = AutoPath & "\System Files\System Templates\Report 3 Cover Letter Templates\"
 If Cells(IlkSiraGlobal, 28).Value = "Type A" Then
-    TaslakFile = "Report 3.2 – Type A Cover Letter – Financial Unit.docm"
+    TaslakFile = "Report 3.2 â€“ Type A Cover Letter â€“ Financial Unit.docm"
 Else
-    TaslakFile = "Report 3.2 – Type B Cover Letter – Financial Unit.docm"
+    TaslakFile = "Report 3.2 â€“ Type B Cover Letter â€“ Financial Unit.docm"
 End If
 
-'System Files klasör adýný kontrol et.
+'System Files klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(AutoPath & "\System Files\", vbDirectory) <> vbNullString Then
     For Each ctl In UstMenuFrameAlt.Controls
         If TypeName(ctl) = "Label" Then
@@ -3174,7 +3174,7 @@ End If
 'Close the all Word application
 Call OpenWordControl
 
-'Oluþturulacak dosyayý aç
+'OluÅŸturulacak dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -3182,7 +3182,7 @@ Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 If objWord Is Nothing Then
-    'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+    'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
     Set objWord = CreateObject("Word.Application")
     objWord.Visible = False
 End If
@@ -3225,7 +3225,7 @@ If BoolFinansalBirimKucukZarf = True Then
 End If
 
 If BoolFinansalBirimBuyukZarf = True Then
-    TextGonderiSekli.Value = UCase(Replace(Replace(Cells(IlkSiraGlobal, 85).Value, "i", "I"), "ý", "I"))
+    TextGonderiSekli.Value = UCase(Replace(Replace(Cells(IlkSiraGlobal, 85).Value, "i", "I"), "Ä±", "I"))
 End If
     
 Son:
@@ -3262,16 +3262,16 @@ End If
 
 Call EtiketAlanlariReset
 
-'NOT: Küçük Zarf ile tek farký gizli yerine gönderi þeklinin yer almasý olduðundan
-'BoolFinansalBirimBuyukZarf ve BoolFinansalBirimKucukZarf mantýksal deðiþkenleri yardýmýyla sadece KucukZarf prosedürleri kullanýldý.
+'NOT: KÃ¼Ã§Ã¼k Zarf ile tek farkÄ± gizli yerine gÃ¶nderi ÅŸeklinin yer almasÄ± olduÄŸundan
+'BoolFinansalBirimBuyukZarf ve BoolFinansalBirimKucukZarf mantÄ±ksal deÄŸiÅŸkenleri yardÄ±mÄ±yla sadece KucukZarf prosedÃ¼rleri kullanÄ±ldÄ±.
 
 If Rapor3_2.BackColor = RGB(180, 210, 240) Then
     'MsgBox "Report 3.2"
-    'FinansalBirim büyük Zarf
+    'FinansalBirim bÃ¼yÃ¼k Zarf
     Call FinansalBirimKucukZarf
 ElseIf Rapor2_2.BackColor = RGB(180, 210, 240) Then
     'MsgBox "Rapor2_2"
-    'Kurum Tutanak2 Zarfý
+    'Kurum Tutanak2 ZarfÄ±
     Call KurumTutanak2Zarfi
 End If
 
@@ -3320,7 +3320,7 @@ Call EtiketAlanlariReset
 
 If Rapor2_2.BackColor = RGB(180, 210, 240) Then
     'MsgBox "Rapor2_2"
-    'Sonuç Küçük Zarfý
+    'SonuÃ§ KÃ¼Ã§Ã¼k ZarfÄ±
     Call SonucKucukZarf
 End If
 
@@ -3395,7 +3395,7 @@ AutoPath = ThisWorkbook.Path
 DestTaslak = AutoPath & "\System Files\System Templates\Report 2 Cover Letter Templates\"
 TaslakFile = "Final Cover Letter.docm"
 
-'System Files klasör adýný kontrol et.
+'System Files klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(AutoPath & "\System Files\", vbDirectory) <> vbNullString Then
     For Each ctl In UstMenuFrameAlt.Controls
         If TypeName(ctl) = "Label" Then
@@ -3420,7 +3420,7 @@ End If
 'Close the all Word application
 Call OpenWordControl
 
-'Oluþturulacak dosyayý aç
+'OluÅŸturulacak dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -3428,7 +3428,7 @@ Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 If objWord Is Nothing Then
-    'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+    'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
     Set objWord = CreateObject("Word.Application")
     objWord.Visible = False
 End If
@@ -3516,7 +3516,7 @@ Call EtiketAlanlariReset
 
 If Rapor2_2.BackColor = RGB(180, 210, 240) Then
     'MsgBox "Rapor2_2"
-    'Sonuç Küçük Zarfý
+    'SonuÃ§ KÃ¼Ã§Ã¼k ZarfÄ±
     Call SonucKucukZarf
 End If
 
@@ -3535,7 +3535,7 @@ End Sub
 Sub ComboGetirResetRapor1()
 Dim Say As Long, i As Long
 
-On Error Resume Next ' Son Sýra numarasý sayýsal olmayan karakter içeriyorsa userform açýlmýyor.
+On Error Resume Next ' Son SÄ±ra numarasÄ± sayÄ±sal olmayan karakter iÃ§eriyorsa userform aÃ§Ä±lmÄ±yor.
 ComboGetir.Value = ""
 ComboGetir.Clear
 Say = ThisWorkbook.Worksheets(3).Range("E100000").End(xlUp).Row
@@ -3543,7 +3543,7 @@ If Say < 7 Then
     GoTo GetirBos
 End If
 
-'Getir liste deðerleri
+'Getir liste deÄŸerleri
 For i = Say To 7 Step -1
     If ThisWorkbook.Worksheets(3).Range("E" & i).Value <> "" Then
         With ComboGetir
@@ -3558,7 +3558,7 @@ End Sub
 Sub ComboGetirResetRapor()
 Dim Say As Long, i As Long
 
-On Error Resume Next ' Son Sýra numarasý sayýsal olmayan karakter içeriyorsa userform açýlmýyor.
+On Error Resume Next ' Son SÄ±ra numarasÄ± sayÄ±sal olmayan karakter iÃ§eriyorsa userform aÃ§Ä±lmÄ±yor.
 ComboGetir.Value = ""
 ComboGetir.Clear
 Say = ThisWorkbook.Worksheets(4).Range("E100000").End(xlUp).Row
@@ -3566,7 +3566,7 @@ If Say < 7 Then
     GoTo GetirBos
 End If
 
-'Getir liste deðerleri
+'Getir liste deÄŸerleri
 For i = Say To 7 Step -1
     If ThisWorkbook.Worksheets(4).Range("E" & i).Value <> "" Then
         If ThisWorkbook.Worksheets(4).Range("FR" & i) <> "Yes" Then
@@ -3583,7 +3583,7 @@ End Sub
 Sub ComboGetirResetRapor2_2()
 Dim Say As Long, i As Long
 
-On Error Resume Next ' Son Sýra numarasý sayýsal olmayan karakter içeriyorsa userform açýlmýyor.
+On Error Resume Next ' Son SÄ±ra numarasÄ± sayÄ±sal olmayan karakter iÃ§eriyorsa userform aÃ§Ä±lmÄ±yor.
 ComboGetir.Value = ""
 ComboGetir.Clear
 Say = ThisWorkbook.Worksheets(4).Range("E100000").End(xlUp).Row
@@ -3591,7 +3591,7 @@ If Say < 7 Then
     GoTo GetirBos
 End If
 
-'Getir liste deðerleri
+'Getir liste deÄŸerleri
 For i = Say To 7 Step -1
     If ThisWorkbook.Worksheets(4).Range("E" & i).Value <> "" Then
         If ThisWorkbook.Worksheets(4).Range("FR" & i) = "Yes" Then
@@ -3609,13 +3609,13 @@ End Sub
 Sub ComboGetirResetRapor3_2()
 Dim Say As Long, i As Long
 
-On Error Resume Next ' Son Sýra numarasý sayýsal olmayan karakter içeriyorsa userform açýlmýyor.
+On Error Resume Next ' Son SÄ±ra numarasÄ± sayÄ±sal olmayan karakter iÃ§eriyorsa userform aÃ§Ä±lmÄ±yor.
 ComboGetir.Clear
 Say = ThisWorkbook.Worksheets(5).Range("E100000").End(xlUp).Row
 If Say < 7 Then
     GoTo GetirBos
 End If
-'Getir liste deðerleri
+'Getir liste deÄŸerleri
 For i = Say To 7 Step -1
     If ThisWorkbook.Worksheets(5).Range("L" & i) = "Point2" Or ThisWorkbook.Worksheets(5).Range("L" & i) = "Point3" Then
         With ComboGetir
@@ -3631,13 +3631,13 @@ End Sub
 Sub ComboGetirResetRapor3_1()
 Dim Say As Long, i As Long
 
-On Error Resume Next ' Son Sýra numarasý sayýsal olmayan karakter içeriyorsa userform açýlmýyor.
+On Error Resume Next ' Son SÄ±ra numarasÄ± sayÄ±sal olmayan karakter iÃ§eriyorsa userform aÃ§Ä±lmÄ±yor.
 ComboGetir.Clear
 Say = ThisWorkbook.Worksheets(5).Range("E100000").End(xlUp).Row
 If Say < 7 Then
     GoTo GetirBos
 End If
-'Getir liste deðerleri
+'Getir liste deÄŸerleri
 For i = Say To 7 Step -1
     If ThisWorkbook.Worksheets(5).Range("L" & i) = "Point1" Then
         With ComboGetir
@@ -3660,7 +3660,7 @@ Dim KullanilanYazici As String, prtDogrula As Boolean
 ThisWorkbook.Activate
 
 
-'__________________Kullanýlan printeri tespit et ve hazýrla
+'__________________KullanÄ±lan printeri tespit et ve hazÄ±rla
 
 prtDogrula = False
 If ThisWorkbook.Worksheets(2).Cells(8, 115).Value <> "" And IsNumeric(ThisWorkbook.Worksheets(2).Cells(8, 115).Value) = True Then
@@ -3704,7 +3704,7 @@ Else
     PikurPrinterOption.Value = False
 End If
 
-'__________________Kullanýlan printeri tespit et ve hazýrla
+'__________________KullanÄ±lan printeri tespit et ve hazÄ±rla
 
 
 
@@ -3728,7 +3728,7 @@ For Each ClrLab In core_label_envelope_printing_UI.Controls
     If TypeName(ClrLab) = "ComboBox" Then
         ClrLab.ForeColor = RGB(30, 30, 30)
     End If
-    'YENÝ
+    'YENÄ°
     If TypeName(ClrLab) = "Frame" Then
         ClrLab.BackColor = RGB(254, 254, 254)
         ClrLab.ForeColor = RGB(30, 30, 30)
@@ -3736,9 +3736,9 @@ For Each ClrLab In core_label_envelope_printing_UI.Controls
     End If
 Next ClrLab
 
-UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
-UstMenuFrameAlt.BackColor = RGB(225, 235, 245) 'YENÝ
-AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
+UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
+UstMenuFrameAlt.BackColor = RGB(225, 235, 245) 'YENÄ°
+AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
 
 
 Yazdir.BackColor = RGB(225, 235, 245)
@@ -3783,10 +3783,10 @@ LblAltMenuButton7.BackColor = RGB(225, 235, 245)
 LblAltMenuButton7.ForeColor = RGB(30, 30, 30)
 
 
-core_label_envelope_printing_UI.BackColor = RGB(230, 230, 230) 'YENÝ
+core_label_envelope_printing_UI.BackColor = RGB(230, 230, 230) 'YENÄ°
 ComboGetir.BackColor = RGB(225, 235, 245)
 
-On Error Resume Next ' Son Sýra numarasý sayýsal olmayan karakter içeriyorsa userform açýlmýyor.
+On Error Resume Next ' Son SÄ±ra numarasÄ± sayÄ±sal olmayan karakter iÃ§eriyorsa userform aÃ§Ä±lmÄ±yor.
 ComboGetir.Value = ""
 ComboGetir.Clear
 On Error GoTo 0
@@ -3800,7 +3800,7 @@ BoolFinansalBirimKucukZarf = False
 BoolFinansalBirimBuyukZarf = False
 
 
-'Açýk dropdown kapat
+'AÃ§Ä±k dropdown kapat
 Call ModuleSystemSettings.DropDownKapat
 
 
@@ -3808,7 +3808,7 @@ End Sub
 
 Sub EtiketAlanlariReset()
 
-'Etiket alanlarýný boþalt
+'Etiket alanlarÄ±nÄ± boÅŸalt
 TextKURUM_A.Value = ""
 TextSube.Value = ""
 TextTeskilatDosyaNoBelgeNo.Value = ""
@@ -3862,7 +3862,7 @@ Sub OpenWordControl()
 Dim ObjWordx As Object
 Dim objDocx As Object
 
-'MsgBox "OpenWordControl prosedürü baþlýyor."
+'MsgBox "OpenWordControl prosedÃ¼rÃ¼ baÅŸlÄ±yor."
 
     On Error GoTo NoOpenDoc
     Set ObjWordx = GetObject(, "Word.Application")
@@ -3879,10 +3879,10 @@ NoOpenDocAtla:
         'MsgBox objWordx.ActiveDocument.Name
         If ObjWordx.ActiveDocument.name <> "" Then
             ObjWordx.Quit SaveChanges:=True
-            'MsgBox "Dosya OpenWordControl methodu ile kapatýldý."
+            'MsgBox "Dosya OpenWordControl methodu ile kapatÄ±ldÄ±."
         End If
     Else
-        'MsgBox "Açýk word dokümaný yok."
+        'MsgBox "AÃ§Ä±k word dokÃ¼manÄ± yok."
     End If
 
 Son:
@@ -3900,10 +3900,10 @@ End If
 
 
 'Muhatap
-IlBuyukHarf = UCase(Replace(Replace(Cells(IlkSiraGlobal, 69).Value, "i", "I"), "ý", "I"))
+IlBuyukHarf = UCase(Replace(Replace(Cells(IlkSiraGlobal, 69).Value, "i", "I"), "Ä±", "I"))
 IlKucukHarf = Cells(IlkSiraGlobal, 69).Value
 If IlceSakla <> "" Then
-    IlceBuyukHarf = UCase(Replace(Replace(IlceSakla, "i", "I"), "ý", "I"))
+    IlceBuyukHarf = UCase(Replace(Replace(IlceSakla, "i", "I"), "Ä±", "I"))
     IlceKucukHarf = IlceSakla
 Else
     IlceBuyukHarf = ""
@@ -3915,36 +3915,36 @@ Else
     Bolum3 = IlBuyukHarf
 End If
 
-'YENÝ MUHATAP TEMASI
+'YENÄ° MUHATAP TEMASI
 
 M2 = False
 M3 = False
 M4 = False
 
-'4'lük
+'4'lÃ¼k
 If Cells(IlkSiraGlobal, 65).Value <> "" Then
     If Cells(IlkSiraGlobal, 64).Value = "Provincial Directorate B" Or Cells(IlkSiraGlobal, 64).Value = "Provincial Directorate C" Or _
-    Cells(IlkSiraGlobal, 64).Value = "Provincial Directorate D" Or Cells(IlkSiraGlobal, 64).Value = "Provincial Directorate E" Then 'VALÝLÝK
+    Cells(IlkSiraGlobal, 64).Value = "Provincial Directorate D" Or Cells(IlkSiraGlobal, 64).Value = "Provincial Directorate E" Then 'VALÄ°LÄ°K
         TextMuhatapTema1.Value = IlBuyukHarf & " PROVINCIAL GOVERNORSHIP"
-        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 64).Value  'UCase(Replace(Replace(Cells(IlkSiraGlobal, 64).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 64).Value  'UCase(Replace(Replace(Cells(IlkSiraGlobal, 64).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = "(" & Cells(IlkSiraGlobal, 65).Value & ")"
         TextMuhatapTema4.Value = Bolum3
         M4 = True
     ElseIf Cells(IlkSiraGlobal, 64).Value = "District Directorate B" Or Cells(IlkSiraGlobal, 64).Value = "District Directorate C" Or _
     Cells(IlkSiraGlobal, 64).Value = "District Directorate D" Or Cells(IlkSiraGlobal, 64).Value = "District Directorate E" Then 'KAYMAKAMLIK
         TextMuhatapTema1.Value = IlceBuyukHarf & " DISTRICT GOVERNORSHIP"
-        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 64).Value 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 64).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 64).Value 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 64).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = "(" & Cells(IlkSiraGlobal, 65).Value & ")"
         TextMuhatapTema4.Value = Bolum3
         M4 = True
     ElseIf InStr(Cells(IlkSiraGlobal, 64).Value, "General Directorate") <> 0 Or InStr(Cells(IlkSiraGlobal, 64).Value, "Regional Directorate") <> 0 Then
-        TextMuhatapTema1.Value = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "ý", "I"))
-        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 64).Value 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 64).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema1.Value = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "Ä±", "I"))
+        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 64).Value 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 64).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = "(" & Cells(IlkSiraGlobal, 65).Value & ")"
         TextMuhatapTema4.Value = Bolum3
         M4 = True
-    Else 'YARGI 3'lük
-        Bolum1 = UCase(Replace(Replace(Cells(IlkSiraGlobal, 64).Value, "i", "I"), "ý", "I"))
+    Else 'YARGI 3'lÃ¼k
+        Bolum1 = UCase(Replace(Replace(Cells(IlkSiraGlobal, 64).Value, "i", "I"), "Ä±", "I"))
         If InStr(Bolum1, "X.X. ") > 0 Then
             TextMuhatapTema1.Value = Mid(Bolum1, 6, Len(Bolum1))
             TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 65).Value & ")"
@@ -3958,27 +3958,27 @@ If Cells(IlkSiraGlobal, 65).Value <> "" Then
         End If
     End If
 End If
-'3'lük
+'3'lÃ¼k
 If Cells(IlkSiraGlobal, 65).Value = "" Then
     If Cells(IlkSiraGlobal, 64).Value = "Provincial Directorate B" Or Cells(IlkSiraGlobal, 64).Value = "Provincial Directorate C" Or _
-    Cells(IlkSiraGlobal, 64).Value = "Provincial Directorate D" Or Cells(IlkSiraGlobal, 64).Value = "Provincial Directorate E" Then 'VALÝLÝK
+    Cells(IlkSiraGlobal, 64).Value = "Provincial Directorate D" Or Cells(IlkSiraGlobal, 64).Value = "Provincial Directorate E" Then 'VALÄ°LÄ°K
         TextMuhatapTema1.Value = IlBuyukHarf & " PROVINCIAL GOVERNORSHIP"
-        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 64).Value & ")" 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 64).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 64).Value & ")" 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 64).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = Bolum3
         M3 = True
     ElseIf Cells(IlkSiraGlobal, 64).Value = "District Directorate B" Or Cells(IlkSiraGlobal, 64).Value = "District Directorate C" Or _
     Cells(IlkSiraGlobal, 64).Value = "District Directorate D" Or Cells(IlkSiraGlobal, 64).Value = "District Directorate E" Then
         TextMuhatapTema1.Value = IlceBuyukHarf & " DISTRICT GOVERNORSHIP"
-        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 64).Value & ")" 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 64).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 64).Value & ")" 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 64).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = Bolum3
         M3 = True
     ElseIf InStr(Cells(IlkSiraGlobal, 64).Value, "General Directorate") <> 0 Or InStr(Cells(IlkSiraGlobal, 64).Value, "Regional Directorate") <> 0 Then
-        TextMuhatapTema1.Value = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "ý", "I"))
-        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 64).Value & ")"  'UCase(Replace(Replace(Cells(IlkSiraGlobal, 64).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema1.Value = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "Ä±", "I"))
+        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 64).Value & ")"  'UCase(Replace(Replace(Cells(IlkSiraGlobal, 64).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = Bolum3
         M3 = True
     Else 'YARGI 2'lik
-        Bolum1 = UCase(Replace(Replace(Cells(IlkSiraGlobal, 64).Value, "i", "I"), "ý", "I"))
+        Bolum1 = UCase(Replace(Replace(Cells(IlkSiraGlobal, 64).Value, "i", "I"), "Ä±", "I"))
         If InStr(Bolum1, "X.X. ") > 0 Then
             TextMuhatapTema1.Value = Mid(Bolum1, 6, Len(Bolum1))
             TextMuhatapTema2.Value = Bolum3
@@ -4002,10 +4002,10 @@ End If
 
 
 'Muhatap
-IlBuyukHarf = UCase(Replace(Replace(Cells(IlkSiraGlobal, 77).Value, "i", "I"), "ý", "I"))
+IlBuyukHarf = UCase(Replace(Replace(Cells(IlkSiraGlobal, 77).Value, "i", "I"), "Ä±", "I"))
 IlKucukHarf = Cells(IlkSiraGlobal, 77).Value
 If IlceSakla <> "" Then
-    IlceBuyukHarf = UCase(Replace(Replace(IlceSakla, "i", "I"), "ý", "I"))
+    IlceBuyukHarf = UCase(Replace(Replace(IlceSakla, "i", "I"), "Ä±", "I"))
     IlceKucukHarf = IlceSakla
 Else
     IlceBuyukHarf = ""
@@ -4017,36 +4017,36 @@ Else
     Bolum3 = IlBuyukHarf
 End If
 
-'YENÝ MUHATAP TEMASI
+'YENÄ° MUHATAP TEMASI
 
 M2 = False
 M3 = False
 M4 = False
 
-'4'lük
+'4'lÃ¼k
 If Cells(IlkSiraGlobal, 73).Value <> "" Then
     If Cells(IlkSiraGlobal, 72).Value = "Provincial Directorate B" Or Cells(IlkSiraGlobal, 72).Value = "Provincial Directorate C" Or _
-    Cells(IlkSiraGlobal, 72).Value = "Provincial Directorate D" Or Cells(IlkSiraGlobal, 72).Value = "Provincial Directorate E" Then 'VALÝLÝK
+    Cells(IlkSiraGlobal, 72).Value = "Provincial Directorate D" Or Cells(IlkSiraGlobal, 72).Value = "Provincial Directorate E" Then 'VALÄ°LÄ°K
         TextMuhatapTema1.Value = IlBuyukHarf & " PROVINCIAL GOVERNORSHIP"
-        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 72).Value  'UCase(Replace(Replace(Cells(IlkSiraGlobal, 72).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 72).Value  'UCase(Replace(Replace(Cells(IlkSiraGlobal, 72).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = "(" & Cells(IlkSiraGlobal, 73).Value & ")"
         TextMuhatapTema4.Value = Bolum3
         M4 = True
     ElseIf Cells(IlkSiraGlobal, 72).Value = "District Directorate B" Or Cells(IlkSiraGlobal, 72).Value = "District Directorate C" Or _
     Cells(IlkSiraGlobal, 72).Value = "District Directorate D" Or Cells(IlkSiraGlobal, 72).Value = "District Directorate E" Then 'KAYMAKAMLIK
         TextMuhatapTema1.Value = IlceBuyukHarf & " DISTRICT GOVERNORSHIP"
-        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 72).Value 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 72).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 72).Value 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 72).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = "(" & Cells(IlkSiraGlobal, 73).Value & ")"
         TextMuhatapTema4.Value = Bolum3
         M4 = True
     ElseIf InStr(Cells(IlkSiraGlobal, 72).Value, "General Directorate") <> 0 Or InStr(Cells(IlkSiraGlobal, 72).Value, "Regional Directorate") <> 0 Then
-        TextMuhatapTema1.Value = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "ý", "I"))
-        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 72).Value 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 72).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema1.Value = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "Ä±", "I"))
+        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 72).Value 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 72).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = "(" & Cells(IlkSiraGlobal, 73).Value & ")"
         TextMuhatapTema4.Value = Bolum3
         M4 = True
-    Else 'YARGI 3'lük
-        Bolum1 = UCase(Replace(Replace(Cells(IlkSiraGlobal, 72).Value, "i", "I"), "ý", "I"))
+    Else 'YARGI 3'lÃ¼k
+        Bolum1 = UCase(Replace(Replace(Cells(IlkSiraGlobal, 72).Value, "i", "I"), "Ä±", "I"))
         If InStr(Bolum1, "X.X. ") > 0 Then
             TextMuhatapTema1.Value = Mid(Bolum1, 6, Len(Bolum1))
             TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 73).Value & ")"
@@ -4060,27 +4060,27 @@ If Cells(IlkSiraGlobal, 73).Value <> "" Then
         End If
     End If
 End If
-'3'lük
+'3'lÃ¼k
 If Cells(IlkSiraGlobal, 73).Value = "" Then
     If Cells(IlkSiraGlobal, 72).Value = "Provincial Directorate B" Or Cells(IlkSiraGlobal, 72).Value = "Provincial Directorate C" Or _
-    Cells(IlkSiraGlobal, 72).Value = "Provincial Directorate D" Or Cells(IlkSiraGlobal, 72).Value = "Provincial Directorate E" Then 'VALÝLÝK
+    Cells(IlkSiraGlobal, 72).Value = "Provincial Directorate D" Or Cells(IlkSiraGlobal, 72).Value = "Provincial Directorate E" Then 'VALÄ°LÄ°K
         TextMuhatapTema1.Value = IlBuyukHarf & " PROVINCIAL GOVERNORSHIP"
-        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 72).Value & ")" 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 72).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 72).Value & ")" 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 72).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = Bolum3
         M3 = True
     ElseIf Cells(IlkSiraGlobal, 72).Value = "District Directorate B" Or Cells(IlkSiraGlobal, 72).Value = "District Directorate C" Or _
     Cells(IlkSiraGlobal, 72).Value = "District Directorate D" Or Cells(IlkSiraGlobal, 72).Value = "District Directorate E" Then
         TextMuhatapTema1.Value = IlceBuyukHarf & " DISTRICT GOVERNORSHIP"
-        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 72).Value & ")" 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 72).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 72).Value & ")" 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 72).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = Bolum3
         M3 = True
     ElseIf InStr(Cells(IlkSiraGlobal, 72).Value, "General Directorate") <> 0 Or InStr(Cells(IlkSiraGlobal, 72).Value, "Regional Directorate") <> 0 Then
-        TextMuhatapTema1.Value = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "ý", "I"))
-        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 72).Value & ")"  'UCase(Replace(Replace(Cells(IlkSiraGlobal, 72).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema1.Value = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "Ä±", "I"))
+        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 72).Value & ")"  'UCase(Replace(Replace(Cells(IlkSiraGlobal, 72).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = Bolum3
         M3 = True
     Else 'YARGI 2'lik
-        Bolum1 = UCase(Replace(Replace(Cells(IlkSiraGlobal, 72).Value, "i", "I"), "ý", "I"))
+        Bolum1 = UCase(Replace(Replace(Cells(IlkSiraGlobal, 72).Value, "i", "I"), "Ä±", "I"))
         If InStr(Bolum1, "X.X. ") > 0 Then
             TextMuhatapTema1.Value = Mid(Bolum1, 6, Len(Bolum1))
             TextMuhatapTema2.Value = Bolum3
@@ -4104,10 +4104,10 @@ End If
 
 
 'Muhatap
-IlBuyukHarf = UCase(Replace(Replace(Cells(IlkSiraGlobal, 203).Value, "i", "I"), "ý", "I"))
+IlBuyukHarf = UCase(Replace(Replace(Cells(IlkSiraGlobal, 203).Value, "i", "I"), "Ä±", "I"))
 IlKucukHarf = Cells(IlkSiraGlobal, 203).Value
 If IlceSakla <> "" Then
-    IlceBuyukHarf = UCase(Replace(Replace(IlceSakla, "i", "I"), "ý", "I"))
+    IlceBuyukHarf = UCase(Replace(Replace(IlceSakla, "i", "I"), "Ä±", "I"))
     IlceKucukHarf = IlceSakla
 Else
     IlceBuyukHarf = ""
@@ -4119,36 +4119,36 @@ Else
     Bolum3 = IlBuyukHarf
 End If
 
-'YENÝ MUHATAP TEMASI
+'YENÄ° MUHATAP TEMASI
 
 M2 = False
 M3 = False
 M4 = False
 
-'4'lük
+'4'lÃ¼k
 If Cells(IlkSiraGlobal, 200).Value <> "" Then
     If Cells(IlkSiraGlobal, 199).Value = "Provincial Directorate B" Or Cells(IlkSiraGlobal, 199).Value = "Provincial Directorate C" Or _
-    Cells(IlkSiraGlobal, 199).Value = "Provincial Directorate D" Or Cells(IlkSiraGlobal, 199).Value = "Provincial Directorate E" Then 'VALÝLÝK
+    Cells(IlkSiraGlobal, 199).Value = "Provincial Directorate D" Or Cells(IlkSiraGlobal, 199).Value = "Provincial Directorate E" Then 'VALÄ°LÄ°K
         TextMuhatapTema1.Value = IlBuyukHarf & " PROVINCIAL GOVERNORSHIP"
-        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 199).Value  'UCase(Replace(Replace(Cells(IlkSiraGlobal, 199).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 199).Value  'UCase(Replace(Replace(Cells(IlkSiraGlobal, 199).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = "(" & Cells(IlkSiraGlobal, 200).Value & ")"
         TextMuhatapTema4.Value = Bolum3
         M4 = True
     ElseIf Cells(IlkSiraGlobal, 199).Value = "District Directorate B" Or Cells(IlkSiraGlobal, 199).Value = "District Directorate C" Or _
     Cells(IlkSiraGlobal, 199).Value = "District Directorate D" Or Cells(IlkSiraGlobal, 199).Value = "District Directorate E" Then 'KAYMAKAMLIK
         TextMuhatapTema1.Value = IlceBuyukHarf & " DISTRICT GOVERNORSHIP"
-        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 199).Value 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 199).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 199).Value 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 199).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = "(" & Cells(IlkSiraGlobal, 200).Value & ")"
         TextMuhatapTema4.Value = Bolum3
         M4 = True
     ElseIf InStr(Cells(IlkSiraGlobal, 199).Value, "General Directorate") <> 0 Or InStr(Cells(IlkSiraGlobal, 199).Value, "Regional Directorate") <> 0 Then
-        TextMuhatapTema1.Value = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "ý", "I"))
-        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 199).Value 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 199).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema1.Value = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "Ä±", "I"))
+        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 199).Value 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 199).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = "(" & Cells(IlkSiraGlobal, 200).Value & ")"
         TextMuhatapTema4.Value = Bolum3
         M4 = True
-    Else 'YARGI 3'lük
-        Bolum1 = UCase(Replace(Replace(Cells(IlkSiraGlobal, 199).Value, "i", "I"), "ý", "I"))
+    Else 'YARGI 3'lÃ¼k
+        Bolum1 = UCase(Replace(Replace(Cells(IlkSiraGlobal, 199).Value, "i", "I"), "Ä±", "I"))
         If InStr(Bolum1, "X.X. ") > 0 Then
             TextMuhatapTema1.Value = Mid(Bolum1, 6, Len(Bolum1))
             TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 200).Value & ")"
@@ -4162,27 +4162,27 @@ If Cells(IlkSiraGlobal, 200).Value <> "" Then
         End If
     End If
 End If
-'3'lük
+'3'lÃ¼k
 If Cells(IlkSiraGlobal, 200).Value = "" Then
     If Cells(IlkSiraGlobal, 199).Value = "Provincial Directorate B" Or Cells(IlkSiraGlobal, 199).Value = "Provincial Directorate C" Or _
-    Cells(IlkSiraGlobal, 199).Value = "Provincial Directorate D" Or Cells(IlkSiraGlobal, 199).Value = "Provincial Directorate E" Then 'VALÝLÝK
+    Cells(IlkSiraGlobal, 199).Value = "Provincial Directorate D" Or Cells(IlkSiraGlobal, 199).Value = "Provincial Directorate E" Then 'VALÄ°LÄ°K
         TextMuhatapTema1.Value = IlBuyukHarf & " PROVINCIAL GOVERNORSHIP"
-        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 199).Value & ")" 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 199).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 199).Value & ")" 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 199).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = Bolum3
         M3 = True
     ElseIf Cells(IlkSiraGlobal, 199).Value = "District Directorate B" Or Cells(IlkSiraGlobal, 199).Value = "District Directorate C" Or _
     Cells(IlkSiraGlobal, 199).Value = "District Directorate D" Or Cells(IlkSiraGlobal, 199).Value = "District Directorate E" Then
         TextMuhatapTema1.Value = IlceBuyukHarf & " DISTRICT GOVERNORSHIP"
-        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 199).Value & ")" 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 199).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 199).Value & ")" 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 199).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = Bolum3
         M3 = True
     ElseIf InStr(Cells(IlkSiraGlobal, 199).Value, "General Directorate") <> 0 Or InStr(Cells(IlkSiraGlobal, 199).Value, "Regional Directorate") <> 0 Then
-        TextMuhatapTema1.Value = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "ý", "I"))
-        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 199).Value & ")"  'UCase(Replace(Replace(Cells(IlkSiraGlobal, 199).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema1.Value = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "Ä±", "I"))
+        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 199).Value & ")"  'UCase(Replace(Replace(Cells(IlkSiraGlobal, 199).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = Bolum3
         M3 = True
     Else 'YARGI 2'lik
-        Bolum1 = UCase(Replace(Replace(Cells(IlkSiraGlobal, 199).Value, "i", "I"), "ý", "I"))
+        Bolum1 = UCase(Replace(Replace(Cells(IlkSiraGlobal, 199).Value, "i", "I"), "Ä±", "I"))
         If InStr(Bolum1, "X.X. ") > 0 Then
             TextMuhatapTema1.Value = Mid(Bolum1, 6, Len(Bolum1))
             TextMuhatapTema2.Value = Bolum3
@@ -4208,10 +4208,10 @@ End If
 
 
 'Muhatap
-IlBuyukHarf = UCase(Replace(Replace(Cells(IlkSiraGlobal, 91).Value, "i", "I"), "ý", "I"))
+IlBuyukHarf = UCase(Replace(Replace(Cells(IlkSiraGlobal, 91).Value, "i", "I"), "Ä±", "I"))
 IlKucukHarf = Cells(IlkSiraGlobal, 91).Value
 If IlceSakla <> "" Then
-    IlceBuyukHarf = UCase(Replace(Replace(IlceSakla, "i", "I"), "ý", "I"))
+    IlceBuyukHarf = UCase(Replace(Replace(IlceSakla, "i", "I"), "Ä±", "I"))
     IlceKucukHarf = IlceSakla
 Else
     IlceBuyukHarf = ""
@@ -4223,36 +4223,36 @@ Else
     Bolum3 = IlBuyukHarf
 End If
 
-'YENÝ MUHATAP TEMASI
+'YENÄ° MUHATAP TEMASI
 
 M2 = False
 M3 = False
 M4 = False
 
-'4'lük
+'4'lÃ¼k
 If Cells(IlkSiraGlobal, 103).Value <> "" Then
     If Cells(IlkSiraGlobal, 102).Value = "Provincial Directorate B" Or Cells(IlkSiraGlobal, 102).Value = "Provincial Directorate C" Or _
-    Cells(IlkSiraGlobal, 102).Value = "Provincial Directorate D" Or Cells(IlkSiraGlobal, 102).Value = "Provincial Directorate E" Then 'VALÝLÝK
+    Cells(IlkSiraGlobal, 102).Value = "Provincial Directorate D" Or Cells(IlkSiraGlobal, 102).Value = "Provincial Directorate E" Then 'VALÄ°LÄ°K
         TextMuhatapTema1.Value = IlBuyukHarf & " PROVINCIAL GOVERNORSHIP"
-        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 102).Value  'UCase(Replace(Replace(Cells(IlkSiraGlobal, 102).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 102).Value  'UCase(Replace(Replace(Cells(IlkSiraGlobal, 102).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = "(" & Cells(IlkSiraGlobal, 103).Value & ")"
         TextMuhatapTema4.Value = Bolum3
         M4 = True
     ElseIf Cells(IlkSiraGlobal, 102).Value = "District Directorate B" Or Cells(IlkSiraGlobal, 102).Value = "District Directorate C" Or _
     Cells(IlkSiraGlobal, 102).Value = "District Directorate D" Or Cells(IlkSiraGlobal, 102).Value = "District Directorate E" Then 'KAYMAKAMLIK
         TextMuhatapTema1.Value = IlceBuyukHarf & " DISTRICT GOVERNORSHIP"
-        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 102).Value 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 102).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 102).Value 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 102).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = "(" & Cells(IlkSiraGlobal, 103).Value & ")"
         TextMuhatapTema4.Value = Bolum3
         M4 = True
     ElseIf InStr(Cells(IlkSiraGlobal, 102).Value, "General Directorate") <> 0 Or InStr(Cells(IlkSiraGlobal, 102).Value, "Regional Directorate") <> 0 Then
-        TextMuhatapTema1.Value = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "ý", "I"))
-        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 102).Value 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 102).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema1.Value = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "Ä±", "I"))
+        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 102).Value 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 102).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = "(" & Cells(IlkSiraGlobal, 103).Value & ")"
         TextMuhatapTema4.Value = Bolum3
         M4 = True
-    Else 'YARGI 3'lük
-        Bolum1 = UCase(Replace(Replace(Cells(IlkSiraGlobal, 102).Value, "i", "I"), "ý", "I"))
+    Else 'YARGI 3'lÃ¼k
+        Bolum1 = UCase(Replace(Replace(Cells(IlkSiraGlobal, 102).Value, "i", "I"), "Ä±", "I"))
         If InStr(Bolum1, "X.X. ") > 0 Then
             TextMuhatapTema1.Value = Mid(Bolum1, 6, Len(Bolum1))
             TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 103).Value & ")"
@@ -4266,27 +4266,27 @@ If Cells(IlkSiraGlobal, 103).Value <> "" Then
         End If
     End If
 End If
-'3'lük
+'3'lÃ¼k
 If Cells(IlkSiraGlobal, 103).Value = "" Then
     If Cells(IlkSiraGlobal, 102).Value = "Provincial Directorate B" Or Cells(IlkSiraGlobal, 102).Value = "Provincial Directorate C" Or _
-    Cells(IlkSiraGlobal, 102).Value = "Provincial Directorate D" Or Cells(IlkSiraGlobal, 102).Value = "Provincial Directorate E" Then 'VALÝLÝK
+    Cells(IlkSiraGlobal, 102).Value = "Provincial Directorate D" Or Cells(IlkSiraGlobal, 102).Value = "Provincial Directorate E" Then 'VALÄ°LÄ°K
         TextMuhatapTema1.Value = IlBuyukHarf & " PROVINCIAL GOVERNORSHIP"
-        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 102).Value & ")" 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 102).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 102).Value & ")" 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 102).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = Bolum3
         M3 = True
     ElseIf Cells(IlkSiraGlobal, 102).Value = "District Directorate B" Or Cells(IlkSiraGlobal, 102).Value = "District Directorate C" Or _
     Cells(IlkSiraGlobal, 102).Value = "District Directorate D" Or Cells(IlkSiraGlobal, 102).Value = "District Directorate E" Then
         TextMuhatapTema1.Value = IlceBuyukHarf & " DISTRICT GOVERNORSHIP"
-        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 102).Value & ")" 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 102).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 102).Value & ")" 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 102).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = Bolum3
         M3 = True
     ElseIf InStr(Cells(IlkSiraGlobal, 102).Value, "General Directorate") <> 0 Or InStr(Cells(IlkSiraGlobal, 102).Value, "Regional Directorate") <> 0 Then
-        TextMuhatapTema1.Value = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "ý", "I"))
-        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 102).Value & ")"  'UCase(Replace(Replace(Cells(IlkSiraGlobal, 102).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema1.Value = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "Ä±", "I"))
+        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 102).Value & ")"  'UCase(Replace(Replace(Cells(IlkSiraGlobal, 102).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = Bolum3
         M3 = True
     Else 'YARGI 2'lik
-        Bolum1 = UCase(Replace(Replace(Cells(IlkSiraGlobal, 102).Value, "i", "I"), "ý", "I"))
+        Bolum1 = UCase(Replace(Replace(Cells(IlkSiraGlobal, 102).Value, "i", "I"), "Ä±", "I"))
         If InStr(Bolum1, "X.X. ") > 0 Then
             TextMuhatapTema1.Value = Mid(Bolum1, 6, Len(Bolum1))
             TextMuhatapTema2.Value = Bolum3
@@ -4310,10 +4310,10 @@ End If
 
 
 'Muhatap
-IlBuyukHarf = UCase(Replace(Replace(Cells(IlkSiraGlobal, 19).Value, "i", "I"), "ý", "I"))
+IlBuyukHarf = UCase(Replace(Replace(Cells(IlkSiraGlobal, 19).Value, "i", "I"), "Ä±", "I"))
 IlKucukHarf = Cells(IlkSiraGlobal, 19).Value
 If IlceSakla <> "" Then
-    IlceBuyukHarf = UCase(Replace(Replace(IlceSakla, "i", "I"), "ý", "I"))
+    IlceBuyukHarf = UCase(Replace(Replace(IlceSakla, "i", "I"), "Ä±", "I"))
     IlceKucukHarf = IlceSakla
 Else
     IlceBuyukHarf = ""
@@ -4325,36 +4325,36 @@ Else
     Bolum3 = IlBuyukHarf
 End If
 
-'YENÝ MUHATAP TEMASI
+'YENÄ° MUHATAP TEMASI
 
 M2 = False
 M3 = False
 M4 = False
 
-'4'lük
+'4'lÃ¼k
 If Cells(IlkSiraGlobal, 48).Value <> "" Then
     If Cells(IlkSiraGlobal, 47).Value = "Provincial Directorate B" Or Cells(IlkSiraGlobal, 47).Value = "Provincial Directorate C" Or _
-    Cells(IlkSiraGlobal, 47).Value = "Provincial Directorate D" Or Cells(IlkSiraGlobal, 47).Value = "Provincial Directorate E" Then 'VALÝLÝK
+    Cells(IlkSiraGlobal, 47).Value = "Provincial Directorate D" Or Cells(IlkSiraGlobal, 47).Value = "Provincial Directorate E" Then 'VALÄ°LÄ°K
         TextMuhatapTema1.Value = IlBuyukHarf & " PROVINCIAL GOVERNORSHIP"
-        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 47).Value  'UCase(Replace(Replace(Cells(IlkSiraGlobal, 47).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 47).Value  'UCase(Replace(Replace(Cells(IlkSiraGlobal, 47).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = "(" & Cells(IlkSiraGlobal, 48).Value & ")"
         TextMuhatapTema4.Value = Bolum3
         M4 = True
     ElseIf Cells(IlkSiraGlobal, 47).Value = "District Directorate B" Or Cells(IlkSiraGlobal, 47).Value = "District Directorate C" Or _
     Cells(IlkSiraGlobal, 47).Value = "District Directorate D" Or Cells(IlkSiraGlobal, 47).Value = "District Directorate E" Then 'KAYMAKAMLIK
         TextMuhatapTema1.Value = IlceBuyukHarf & " DISTRICT GOVERNORSHIP"
-        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 47).Value 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 47).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 47).Value 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 47).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = "(" & Cells(IlkSiraGlobal, 48).Value & ")"
         TextMuhatapTema4.Value = Bolum3
         M4 = True
     ElseIf InStr(Cells(IlkSiraGlobal, 47).Value, "General Directorate") <> 0 Or InStr(Cells(IlkSiraGlobal, 47).Value, "Regional Directorate") <> 0 Then
-        TextMuhatapTema1.Value = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "ý", "I"))
-        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 47).Value 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 47).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema1.Value = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "Ä±", "I"))
+        TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 47).Value 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 47).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = "(" & Cells(IlkSiraGlobal, 48).Value & ")"
         TextMuhatapTema4.Value = Bolum3
         M4 = True
-    Else 'YARGI 3'lük
-        Bolum1 = UCase(Replace(Replace(Cells(IlkSiraGlobal, 47).Value, "i", "I"), "ý", "I"))
+    Else 'YARGI 3'lÃ¼k
+        Bolum1 = UCase(Replace(Replace(Cells(IlkSiraGlobal, 47).Value, "i", "I"), "Ä±", "I"))
         If InStr(Bolum1, "X.X. ") > 0 Then
             TextMuhatapTema1.Value = Mid(Bolum1, 6, Len(Bolum1))
             TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 48).Value & ")"
@@ -4368,27 +4368,27 @@ If Cells(IlkSiraGlobal, 48).Value <> "" Then
         End If
     End If
 End If
-'3'lük
+'3'lÃ¼k
 If Cells(IlkSiraGlobal, 48).Value = "" Then
     If Cells(IlkSiraGlobal, 47).Value = "Provincial Directorate B" Or Cells(IlkSiraGlobal, 47).Value = "Provincial Directorate C" Or _
-    Cells(IlkSiraGlobal, 47).Value = "Provincial Directorate D" Or Cells(IlkSiraGlobal, 47).Value = "Provincial Directorate E" Then 'VALÝLÝK
+    Cells(IlkSiraGlobal, 47).Value = "Provincial Directorate D" Or Cells(IlkSiraGlobal, 47).Value = "Provincial Directorate E" Then 'VALÄ°LÄ°K
         TextMuhatapTema1.Value = IlBuyukHarf & " PROVINCIAL GOVERNORSHIP"
-        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 47).Value & ")" 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 47).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 47).Value & ")" 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 47).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = Bolum3
         M3 = True
     ElseIf Cells(IlkSiraGlobal, 47).Value = "District Directorate B" Or Cells(IlkSiraGlobal, 47).Value = "District Directorate C" Or _
     Cells(IlkSiraGlobal, 47).Value = "District Directorate D" Or Cells(IlkSiraGlobal, 47).Value = "District Directorate E" Then
         TextMuhatapTema1.Value = IlceBuyukHarf & " DISTRICT GOVERNORSHIP"
-        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 47).Value & ")" 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 47).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 47).Value & ")" 'UCase(Replace(Replace(Cells(IlkSiraGlobal, 47).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = Bolum3
         M3 = True
     ElseIf InStr(Cells(IlkSiraGlobal, 47).Value, "General Directorate") <> 0 Or InStr(Cells(IlkSiraGlobal, 47).Value, "Regional Directorate") <> 0 Then
-        TextMuhatapTema1.Value = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "ý", "I"))
-        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 47).Value & ")"  'UCase(Replace(Replace(Cells(IlkSiraGlobal, 47).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema1.Value = UCase(Replace(Replace(ThisWorkbook.Worksheets(2).Cells(6, 111).Value, "i", "I"), "Ä±", "I"))
+        TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 47).Value & ")"  'UCase(Replace(Replace(Cells(IlkSiraGlobal, 47).Value, "i", "I"), "Ä±", "I"))
         TextMuhatapTema3.Value = Bolum3
         M3 = True
     Else 'YARGI 2'lik
-        Bolum1 = UCase(Replace(Replace(Cells(IlkSiraGlobal, 47).Value, "i", "I"), "ý", "I"))
+        Bolum1 = UCase(Replace(Replace(Cells(IlkSiraGlobal, 47).Value, "i", "I"), "Ä±", "I"))
         If InStr(Bolum1, "X.X. ") > 0 Then
             TextMuhatapTema1.Value = Mid(Bolum1, 6, Len(Bolum1))
             TextMuhatapTema2.Value = Bolum3
@@ -4412,29 +4412,29 @@ If InStr(Cells(IlkSiraGlobal, 78).Value, " Organization A") <> 0 Then
 End If
 
 
-'YENÝ MUHATAP TEMASI
+'YENÄ° MUHATAP TEMASI
 M2 = False
 M3 = False
 M4 = False
 
 'Muhatap
 If Cells(IlkSiraGlobal, 82).Value <> "" Then
-    TextMuhatapTema1.Value = UCase(Replace(Replace(Cells(IlkSiraGlobal, 30).Value, "i", "I"), "ý", "I")) 'FinansalBirim
+    TextMuhatapTema1.Value = UCase(Replace(Replace(Cells(IlkSiraGlobal, 30).Value, "i", "I"), "Ä±", "I")) 'FinansalBirim
     TextMuhatapTema2.Value = "(" & Cells(IlkSiraGlobal, 82).Value & ")" 'Birim
     TextMuhatapTema3.Value = Cells(IlkSiraGlobal, 79).Value 'Adres
     If IlceSakla <> "" Then
-        TextMuhatapTema4.Value = IlceSakla & "/" & UCase(Replace(Replace(Cells(IlkSiraGlobal, 77).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema4.Value = IlceSakla & "/" & UCase(Replace(Replace(Cells(IlkSiraGlobal, 77).Value, "i", "I"), "Ä±", "I"))
     Else
-        TextMuhatapTema4.Value = UCase(Replace(Replace(Cells(IlkSiraGlobal, 77).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema4.Value = UCase(Replace(Replace(Cells(IlkSiraGlobal, 77).Value, "i", "I"), "Ä±", "I"))
     End If
     M4 = True
 Else
-    TextMuhatapTema1.Value = UCase(Replace(Replace(Cells(IlkSiraGlobal, 30).Value, "i", "I"), "ý", "I")) 'FinansalBirim
+    TextMuhatapTema1.Value = UCase(Replace(Replace(Cells(IlkSiraGlobal, 30).Value, "i", "I"), "Ä±", "I")) 'FinansalBirim
     TextMuhatapTema2.Value = Cells(IlkSiraGlobal, 79).Value 'Adres
     If IlceSakla <> "" Then
-        TextMuhatapTema3.Value = IlceSakla & "/" & UCase(Replace(Replace(Cells(IlkSiraGlobal, 77).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema3.Value = IlceSakla & "/" & UCase(Replace(Replace(Cells(IlkSiraGlobal, 77).Value, "i", "I"), "Ä±", "I"))
     Else
-        TextMuhatapTema3.Value = UCase(Replace(Replace(Cells(IlkSiraGlobal, 77).Value, "i", "I"), "ý", "I"))
+        TextMuhatapTema3.Value = UCase(Replace(Replace(Cells(IlkSiraGlobal, 77).Value, "i", "I"), "Ä±", "I"))
     End If
     M3 = True
 End If

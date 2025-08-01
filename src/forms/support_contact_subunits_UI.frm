@@ -118,11 +118,11 @@ FileName = "Definitions.xlsx"
 ItemName = ComboGonderenGonderilen.Value
 
 If ItemName <> "" Then
-    'Birden fazla boþluk varsa kaldýr
+    'Birden fazla boÅŸluk varsa kaldÄ±r
     For i = 1 To 50
         ItemName = Replace(ItemName, "  ", " ")
     Next i
-    'Saðdaki ve soldaki tek boþluðu kaldýr
+    'SaÄŸdaki ve soldaki tek boÅŸluÄŸu kaldÄ±r
     Do While Left(ItemName, 1) = " "
         ItemName = Right(ItemName, Len(ItemName) - 1)
     Loop
@@ -131,15 +131,15 @@ If ItemName <> "" Then
     Loop
     
     If CheckBoxDuzelt.Value = True Then
-        'Ýlk harfler büyük
+        'Ä°lk harfler bÃ¼yÃ¼k
         ItemName = WorksheetFunction.Proper(ItemName)
-        'Ve kelimelerini düzelt
+        'Ve kelimelerini dÃ¼zelt
         If InStr(ItemName, " And ") <> 0 Then
             ItemName = Replace(ItemName, " And ", " and ")
         End If
     End If
     
-    'Comboya tanýmlý deðer girilemez.
+    'Comboya tanÄ±mlÄ± deÄŸer girilemez.
     a() = ComboGonderenGonderilen.List
     For i = LBound(a) To UBound(a)
         If a(i, 0) = ItemName Then
@@ -152,7 +152,7 @@ Else
 End If
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -170,7 +170,7 @@ If SayHedef > 304 Then
     GoTo Son
 End If
 
-'Arada boþ satýr varsa onu bul ve öðeyi boþ satýra yaz.
+'Arada boÅŸ satÄ±r varsa onu bul ve Ã¶ÄŸeyi boÅŸ satÄ±ra yaz.
 If SayHedef > 8 Then
     For j = 8 To SayHedef
         If Workbooks(FileName).Worksheets(1).Cells(j, 101).Value = "" Then
@@ -180,7 +180,7 @@ If SayHedef > 8 Then
     Next j
 End If
 DonguSon:
-''Ve kelimelerini düzelt
+''Ve kelimelerini dÃ¼zelt
 'If InStr(ItemName, " And ") <> 0 Then
 '    ItemName = Replace(ItemName, " And ", " and ")
 'End If
@@ -189,10 +189,10 @@ Workbooks(FileName).Worksheets(1).Cells(SayHedef + 1, 101).Value = ItemName
 ThisWorkbook.Worksheets(2).Cells(SayHedef + 1, 101).Value = ItemName
 
 
-'Sýralama ekle komutuna da uygulanacak.
+'SÄ±ralama ekle komutuna da uygulanacak.
 SayHedef = Workbooks(FileName).Worksheets(1).Range("CW1000").End(xlUp).Row
 If SayHedef > 8 Then
-    'A'dan Z'ye sýrala ve böylece arada bulunan boþ satýrlarý da kaldýr.
+    'A'dan Z'ye sÄ±rala ve bÃ¶ylece arada bulunan boÅŸ satÄ±rlarÄ± da kaldÄ±r.
     Workbooks(FileName).Worksheets(1).Unprotect Password:="123"
     ThisWorkbook.Unprotect "123"
     ThisWorkbook.Worksheets(2).Unprotect Password:="123"
@@ -215,7 +215,7 @@ MsgBox "The sender/recipient subunit information named " & ItemName & " has been
 Son:
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -244,7 +244,7 @@ FileName = "Definitions.xlsx"
 ItemName = ComboGonderenGonderilen.Value
 
 If ItemName <> "" Then
-    'Comboya tanýmlý deðer girilmelidir.
+    'Comboya tanÄ±mlÄ± deÄŸer girilmelidir.
     ListControl = 0
     a() = ComboGonderenGonderilen.List
     For i = LBound(a) To UBound(a)
@@ -262,7 +262,7 @@ If ListControl = 0 Then
 End If
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -282,10 +282,10 @@ End If
 Workbooks(FileName).Worksheets(1).Cells(ItemBul.Row, 101).Value = ""
 ThisWorkbook.Worksheets(2).Cells(ItemBul.Row, 101).Value = ""
 
-'Sýralama ekle komutuna da uygulanacak.
+'SÄ±ralama ekle komutuna da uygulanacak.
 SayHedef = Workbooks(FileName).Worksheets(1).Range("CW1000").End(xlUp).Row
 If SayHedef > 8 Then
-    'A'dan Z'ye sýrala ve böylece arada bulunan boþ satýrlarý da kaldýr.
+    'A'dan Z'ye sÄ±rala ve bÃ¶ylece arada bulunan boÅŸ satÄ±rlarÄ± da kaldÄ±r.
     Workbooks(FileName).Worksheets(1).Unprotect Password:="123"
     ThisWorkbook.Unprotect "123"
     ThisWorkbook.Worksheets(2).Unprotect Password:="123"
@@ -308,7 +308,7 @@ MsgBox "The subunit '" & ItemName & "' was successfully removed from the dropdow
 Son:
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -352,7 +352,7 @@ For Each ClrLab In support_contact_subunits_UI.Controls
         ClrLab.ForeColor = RGB(30, 30, 30)
     End If
     
-    'YENÝ
+    'YENÄ°
     If TypeName(ClrLab) = "Frame" Then
         ClrLab.BackColor = RGB(254, 254, 254)
         ClrLab.ForeColor = RGB(30, 30, 30)
@@ -360,8 +360,8 @@ For Each ClrLab In support_contact_subunits_UI.Controls
     End If
 Next ClrLab
 
-UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
-AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
+UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
+AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
 LblBilgilendirme.BackColor = RGB(254, 254, 254)
 
 LabelEkle.BackColor = RGB(225, 235, 245)
@@ -371,7 +371,7 @@ LabelKapat.ForeColor = RGB(30, 30, 30)
 LabelKaldir.BackColor = RGB(225, 235, 245)
 LabelKaldir.ForeColor = RGB(30, 30, 30)
 
-support_contact_subunits_UI.BackColor = RGB(230, 230, 230) 'YENÝ
+support_contact_subunits_UI.BackColor = RGB(230, 230, 230) 'YENÄ°
 
 CheckBoxDuzelt.Value = True
 

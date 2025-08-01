@@ -232,21 +232,21 @@ ItemName3 = ComboTel.Value
 ItemUserName = ComboUserName.Value
 
 
-'Oturum adý
+'Oturum adÄ±
 If ItemUserName <> "" Then
 
-    'Boþluklarý kaldýr
+    'BoÅŸluklarÄ± kaldÄ±r
     For i = 1 To 50
         ItemUserName = Replace(ItemUserName, " ", "")
     Next i
     
     If CheckBoxDuzelt.Value = True Then
-        'Alfabetik karakter büyük harf olsun
-        'ItemUserName = UCase(Replace(Replace(ItemUserName, "i", "I"), "ý", "I"))
+        'Alfabetik karakter bÃ¼yÃ¼k harf olsun
+        'ItemUserName = UCase(Replace(Replace(ItemUserName, "i", "I"), "Ä±", "I"))
         ItemUserName = UCase(ItemUserName)
     End If
     
-'    'Comboya tanýmlý deðer girilemez.
+'    'Comboya tanÄ±mlÄ± deÄŸer girilemez.
 '    a() = ComboUserName.List
 '    For i = LBound(a) To UBound(a)
 '        If a(i, 0) = ItemUserName Then
@@ -259,13 +259,13 @@ Else
     GoTo Son
 End If
 
-'Ýsim soyisim
+'Ä°sim soyisim
 If ItemName <> "" Then
-    'Birden fazla boþluk varsa kaldýr
+    'Birden fazla boÅŸluk varsa kaldÄ±r
     For i = 1 To 50
         ItemName = Replace(ItemName, "  ", " ")
     Next i
-    'Saðdaki ve soldaki tek boþluðu kaldýr
+    'SaÄŸdaki ve soldaki tek boÅŸluÄŸu kaldÄ±r
     Do While Left(ItemName, 1) = " "
         ItemName = Right(ItemName, Len(ItemName) - 1)
     Loop
@@ -273,7 +273,7 @@ If ItemName <> "" Then
         ItemName = Left(ItemName, Len(ItemName) - 1)
     Loop
 
-    'Karakterleri otomatik düzelt
+    'Karakterleri otomatik dÃ¼zelt
     If CheckBoxDuzelt.Value = True Then
         x = 0
         ItemName = WorksheetFunction.Proper(ItemName)
@@ -287,9 +287,9 @@ If ItemName <> "" Then
             End If
         Next j
 SoyadBulSon:
-        x = Len(ItemName) - x 'Soldan ad karakter sayýsý
+        x = Len(ItemName) - x 'Soldan ad karakter sayÄ±sÄ±
         Ad = Left(ItemName, x)
-        Soyad = UCase(Replace(Replace(Soyad, "i", "I"), "ý", "I"))
+        Soyad = UCase(Replace(Replace(Soyad, "i", "I"), "Ä±", "I"))
         ItemName = Ad & Soyad
     End If
 Else
@@ -298,11 +298,11 @@ Else
 End If
 'Unvan
 If ItemName1 <> "" Then
-    'Birden fazla boþluk varsa kaldýr
+    'Birden fazla boÅŸluk varsa kaldÄ±r
     For i = 1 To 50
         ItemName1 = Replace(ItemName1, "  ", " ")
     Next i
-    'Saðdaki ve soldaki tek boþluðu kaldýr
+    'SaÄŸdaki ve soldaki tek boÅŸluÄŸu kaldÄ±r
     Do While Left(ItemName1, 1) = " "
         ItemName1 = Right(ItemName1, Len(ItemName1) - 1)
     Loop
@@ -310,7 +310,7 @@ If ItemName1 <> "" Then
         ItemName1 = Left(ItemName1, Len(ItemName1) - 1)
     Loop
     
-    'Karakterleri otomatik düzelt
+    'Karakterleri otomatik dÃ¼zelt
     If CheckBoxDuzelt.Value = True Then
         ItemName1 = WorksheetFunction.Proper(ItemName1)
     End If
@@ -321,14 +321,14 @@ Else
 End If
 'Sicil
 If ItemName2 <> "" Then
-    'Tüm boþluklarý kaldýr
+    'TÃ¼m boÅŸluklarÄ± kaldÄ±r
     For i = 1 To 50
         ItemName2 = Replace(ItemName2, " ", "")
     Next i
     
-    'Karakterleri otomatik düzelt
+    'Karakterleri otomatik dÃ¼zelt
     If CheckBoxDuzelt.Value = True Then
-        ItemName2 = UCase(Replace(Replace(ItemName2, "i", "I"), "ý", "I"))
+        ItemName2 = UCase(Replace(Replace(ItemName2, "i", "I"), "Ä±", "I"))
     End If
     
 Else
@@ -339,7 +339,7 @@ End If
 'Tel
 If ItemName3 <> "" Then
     If CheckBoxDuzelt.Value = True Then
-        'Tüm boþluklarý kaldýr
+        'TÃ¼m boÅŸluklarÄ± kaldÄ±r
         For i = 1 To 50
             ItemName3 = Replace(ItemName3, " ", "")
         Next i
@@ -348,28 +348,28 @@ If ItemName3 <> "" Then
                 ItemName3 = "(" & ItemName3
             End If
     
-            If Mid(ItemName3, 2, 1) <> 0 Then '(0xxx) Parantez içinde 0 yoksa ekle
+            If Mid(ItemName3, 2, 1) <> 0 Then '(0xxx) Parantez iÃ§inde 0 yoksa ekle
                 ItemName3 = Replace(ItemName3, "(", "(0")
             End If
     
-            If Mid(ItemName3, 6, 1) <> ")" Then '(0xxx) Saðda parantez yoksa ekle
+            If Mid(ItemName3, 6, 1) <> ")" Then '(0xxx) SaÄŸda parantez yoksa ekle
                 ItemDuzenle = Left(ItemName3, 5) & ")"
                 ItemName3 = ItemDuzenle & Mid(ItemName3, 6, Len(ItemName3))
             End If
             
-            If Len(ItemName3) <> 13 Then 'Parantezler ve 0 dahil 13 karakter olmalý
+            If Len(ItemName3) <> 13 Then 'Parantezler ve 0 dahil 13 karakter olmalÄ±
                 MsgBox "The phone number for " & ItemName3 & " is invalid because, excluding spaces and parentheses, it does not consist of 11 digits or an internal extension number with 4 digits. Please enter your phone number in the format 0xxx xxx xx xx for an 11-digit number, or enter your internal extension as a 4-digit number (xxxx) in the Tel field.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
                 GoTo Son
             End If
             
-            'Numaralar arasýna boþluk ekle
-            ItemDuzenle = Left(ItemName3, 6) & " " 'Birinci boþluk
-            ItemDuzenle = ItemDuzenle & Mid(ItemName3, 7, 3) & " " 'Ýkinci boþluk
-            ItemDuzenle = ItemDuzenle & Mid(ItemName3, 10, 2) & " " 'Üçüncü boþluk
+            'Numaralar arasÄ±na boÅŸluk ekle
+            ItemDuzenle = Left(ItemName3, 6) & " " 'Birinci boÅŸluk
+            ItemDuzenle = ItemDuzenle & Mid(ItemName3, 7, 3) & " " 'Ä°kinci boÅŸluk
+            ItemDuzenle = ItemDuzenle & Mid(ItemName3, 10, 2) & " " 'ÃœÃ§Ã¼ncÃ¼ boÅŸluk
             ItemDuzenle = ItemDuzenle & Mid(ItemName3, 12, 2)
             ItemName3 = ItemDuzenle
         Else
-            If Len(ItemName3) <> 4 Then 'Parantezler ve 0 dahil 13 karakter olmalý
+            If Len(ItemName3) <> 4 Then 'Parantezler ve 0 dahil 13 karakter olmalÄ±
                 MsgBox "The internal phone number for " & ItemName3 & " is invalid because it does not consist of 4 digits. Please enter your internal phone number as a 4-digit number in the Tel field.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
                 GoTo Son
             End If
@@ -388,7 +388,7 @@ End If
 
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -409,7 +409,7 @@ Set foundCell = ThisWorkbook.Worksheets(2).Range("DS6:DS104").Find(What:=ComboAd
 If Not foundCell Is Nothing Then
     firstAddress = foundCell.Address
     Do
-        ' Ayný satýrdaki ComboAdSoyad deðerini kontrol et (DR sütunu)
+        ' AynÄ± satÄ±rdaki ComboAdSoyad deÄŸerini kontrol et (DR sÃ¼tunu)
         If ThisWorkbook.Worksheets(2).Cells(foundCell.Row, "DR").Value = ComboUserName.Value Then
             SayHedef = foundCell.Row
             GoTo Updade
@@ -436,7 +436,7 @@ End If
 
 Updade:
 
-'Kayýt iþlemi: dýþ dosya
+'KayÄ±t iÅŸlemi: dÄ±ÅŸ dosya
 With Workbooks(FileName).Worksheets(1)
     .Cells(SayHedef, 122).Value = ItemUserName
     .Cells(SayHedef, 123).Value = ItemName
@@ -445,7 +445,7 @@ With Workbooks(FileName).Worksheets(1)
     .Cells(SayHedef, 126).Value = ItemName3
 End With
 
-'Kayýt iþlemi: iç dosya
+'KayÄ±t iÅŸlemi: iÃ§ dosya
 With ThisWorkbook.Worksheets(2)
     .Cells(SayHedef, 122).Value = ItemUserName
     .Cells(SayHedef, 123).Value = ItemName
@@ -461,10 +461,10 @@ ComboUnvan.Value = ""
 ComboSicil.Value = ""
 ComboTel.Value = ""
 
-'Sýralama ekle komutuna da uygulanacak.
+'SÄ±ralama ekle komutuna da uygulanacak.
 SayHedef = Workbooks(FileName).Worksheets(1).Range("DR1000").End(xlUp).Row
 If SayHedef >= 6 Then
-    'A'dan Z'ye sýrala ve böylece arada bulunan boþ satýrlarý da kaldýr.
+    'A'dan Z'ye sÄ±rala ve bÃ¶ylece arada bulunan boÅŸ satÄ±rlarÄ± da kaldÄ±r.
     Workbooks(FileName).Worksheets(1).Unprotect Password:="123"
     ThisWorkbook.Unprotect "123"
     ThisWorkbook.Worksheets(2).Unprotect Password:="123"
@@ -482,7 +482,7 @@ End If
 ThisWorkbook.Worksheets(2).Range("EB6:EB105").ClearContents
 Call TekilUnvanlar
 
-'Etiketi düzeltmen gerekiyorsa düzelt
+'Etiketi dÃ¼zeltmen gerekiyorsa dÃ¼zelt
 UserName = Environ("UserProfile")
 UserName = UCase(Right(UserName, 7))
 If ItemUserName = UserName Then
@@ -490,7 +490,7 @@ If ItemUserName = UserName Then
     LblUserNameBilgi.ForeColor = RGB(19, 117, 71)
 End If
 
-'Açýk dropdown kapat
+'AÃ§Ä±k dropdown kapat
 Call ModuleSystemSettings.DropDownKapat
 
 Workbooks(FileName).Save
@@ -508,7 +508,7 @@ Son:
 
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -542,20 +542,20 @@ ItemName2 = ComboSicil.Value
 ItemName3 = ComboTel.Value
 ItemUserName = ComboUserName.Value
 
-'Oturum adý
+'Oturum adÄ±
 If ItemUserName <> "" Then
-    'Boþluklarý kaldýr
+    'BoÅŸluklarÄ± kaldÄ±r
     For i = 1 To 50
         ItemUserName = Replace(ItemUserName, " ", "")
     Next i
     
     If CheckBoxDuzelt.Value = True Then
-        'Alfabetik karakter büyük harf olsun
-        'ItemUserName = UCase(Replace(Replace(ItemUserName, "i", "I"), "ý", "I"))
+        'Alfabetik karakter bÃ¼yÃ¼k harf olsun
+        'ItemUserName = UCase(Replace(Replace(ItemUserName, "i", "I"), "Ä±", "I"))
         ItemUserName = UCase(ItemUserName)
     End If
     
-    'Comboya tanýmlý deðer girilmelidir.
+    'Comboya tanÄ±mlÄ± deÄŸer girilmelidir.
     ListControl = 0
     a() = ComboUserName.List
     For i = LBound(a) To UBound(a)
@@ -576,7 +576,7 @@ End If
 
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -611,7 +611,7 @@ ComboUnvan.Value = ""
 ComboSicil.Value = ""
 ComboTel.Value = ""
 
-'Boþluklarý kaldýr
+'BoÅŸluklarÄ± kaldÄ±r
 SayHedef = ThisWorkbook.Worksheets(2).Range("DR1000").End(xlUp).Row
 If SayHedef < 6 Then
     SayHedef = 6
@@ -646,10 +646,10 @@ ThisWorkbook.Worksheets(2).Range("EC6:EG105").Value = ""
 ThisWorkbook.Worksheets(2).Range("EB6:EB105").ClearContents
 Call TekilUnvanlar
 
-'Sýralama ekle komutuna da uygulanacak.
+'SÄ±ralama ekle komutuna da uygulanacak.
 SayHedef = Workbooks(FileName).Worksheets(1).Range("DR1000").End(xlUp).Row
 If SayHedef > 6 Then
-    'A'dan Z'ye sýrala ve böylece arada bulunan boþ satýrlarý da kaldýr.
+    'A'dan Z'ye sÄ±rala ve bÃ¶ylece arada bulunan boÅŸ satÄ±rlarÄ± da kaldÄ±r.
     Workbooks(FileName).Worksheets(1).Unprotect Password:="123"
     ThisWorkbook.Unprotect "123"
     ThisWorkbook.Worksheets(2).Unprotect Password:="123"
@@ -663,7 +663,7 @@ If SayHedef > 6 Then
     ThisWorkbook.Protect "123"
 End If
 
-'Etiketi düzeltmen gerekiyorsa düzelt
+'Etiketi dÃ¼zeltmen gerekiyorsa dÃ¼zelt
 UserName = Environ("UserProfile")
 UserName = UCase(Right(UserName, 7))
 If ItemUserName = UserName Then
@@ -671,7 +671,7 @@ If ItemUserName = UserName Then
     LblUserNameBilgi.ForeColor = RGB(60, 100, 180)
 End If
 
-'Açýk dropdown kapat
+'AÃ§Ä±k dropdown kapat
 Call ModuleSystemSettings.DropDownKapat
 
 Workbooks(FileName).Save
@@ -688,7 +688,7 @@ MsgBox "The session named '" & ItemUserName & "' has been successfully removed f
 Son:
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa
+If OpenControl = True Then 'AÃ§Ä±ksa
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -744,7 +744,7 @@ For Each ClrLab In core_initials_UI.Controls
         ClrLab.ForeColor = RGB(30, 30, 30)
     End If
     
-    'YENÝ
+    'YENÄ°
     If TypeName(ClrLab) = "Frame" Then
         ClrLab.BackColor = RGB(254, 254, 254)
         ClrLab.ForeColor = RGB(30, 30, 30)
@@ -752,8 +752,8 @@ For Each ClrLab In core_initials_UI.Controls
     End If
 Next ClrLab
 
-UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
-AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
+UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
+AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
 LblBilgilendirme.BackColor = RGB(254, 254, 254)
 
 LabelEkle.BackColor = RGB(225, 235, 245)
@@ -763,7 +763,7 @@ LabelKapat.ForeColor = RGB(30, 30, 30)
 LabelKaldir.BackColor = RGB(225, 235, 245)
 LabelKaldir.ForeColor = RGB(30, 30, 30)
 
-core_initials_UI.BackColor = RGB(230, 230, 230) 'YENÝ
+core_initials_UI.BackColor = RGB(230, 230, 230) 'YENÄ°
 
 
 
@@ -775,9 +775,9 @@ Worksheets(2).Range("EB6:EB105").ClearContents
 
 CheckBoxDuzelt.Value = True
 
-'Username kontrolü
+'Username kontrolÃ¼
 UserName = Environ("UserProfile")
-'UserName = UCase(Replace(Replace(Right(UserName, 7), "i", "I"), "ý", "I"))
+'UserName = UCase(Replace(Replace(Right(UserName, 7), "i", "I"), "Ä±", "I"))
 UserName = UCase(Right(UserName, 7))
 Set ItemBul = Worksheets(2).Range("DR6:DR1000").Find(What:=UserName, SearchDirection:=xlNext, _
                 SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)

@@ -157,17 +157,17 @@ End If
 FileName = ComboOgeTuru.Value
 HedefFile = DestTarget & FileName & ".txt"
 
-'Dosyanýn olup olmadýðýný kontrol et.
+'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If Dir(HedefFile, vbDirectory) <> vbNullString Then
     MsgBox "A note named " & FileName & " has already been created, so the add operation cannot be completed. If you want to update a note related to an item type, please use the update button.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
 
 
-'Not için text dosyasý oluþtur.
+'Not iÃ§in text dosyasÄ± oluÅŸtur.
 Set fso = CreateObject("Scripting.FileSystemObject")
 FileName = ComboOgeTuru.Value
-Set NotTxtFile = fso.CreateTextFile(DestTarget & FileName & ".txt", True, False) 'ANSI için False olmalý
+Set NotTxtFile = fso.CreateTextFile(DestTarget & FileName & ".txt", True, False) 'ANSI iÃ§in False olmalÄ±
 NotTxtFile.Write NotText.Value
 NotTxtFile.Close
 
@@ -198,7 +198,7 @@ Application.EnableEvents = False
 AutoPath = ThisWorkbook.Path
 DestTarget = AutoPath & "\System Files\System Templates\Item Notes\"
 
-'Öðe türü seçimi yapýlmalýdýr.
+'Ã–ÄŸe tÃ¼rÃ¼ seÃ§imi yapÄ±lmalÄ±dÄ±r.
 If ComboOgeTuru.Value = "" Then
     MsgBox "Note removal could not be completed because no item type was selected.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     NotText.Value = ""
@@ -207,7 +207,7 @@ End If
 
 FileName = ComboOgeTuru.Value
 HedefFile = DestTarget & FileName & ".txt"
-'Dosyanýn olup olmadýðýný kontrol et.
+'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If Not Dir(HedefFile, vbDirectory) <> vbNullString Then
     MsgBox "Since no note has been created for the " & FileName & ", the removal operation cannot be completed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
@@ -243,17 +243,17 @@ Application.EnableEvents = False
 AutoPath = ThisWorkbook.Path
 DestTarget = AutoPath & "\System Files\System Templates\Item Notes\"
 
-'Öðe türü seçimi yapýlmalýdýr.
+'Ã–ÄŸe tÃ¼rÃ¼ seÃ§imi yapÄ±lmalÄ±dÄ±r.
 If ComboOgeTuru.Value = "" Then
     MsgBox "Note retrieval could not be completed because no item type was selected.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
 
 If NotText.Value = "" Then
-    'Notu çaðýr
+    'Notu Ã§aÄŸÄ±r
     FileName = ComboOgeTuru.Value
     HedefFile = DestTarget & FileName & ".txt"
-    'Dosyanýn olup olmadýðýný kontrol et.
+    'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
     If Not Dir(HedefFile, vbDirectory) <> vbNullString Then
     MsgBox "Since no note has been created for the " & FileName & ", the data retrieval operation cannot be completed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
         GoTo Son
@@ -293,7 +293,7 @@ Application.EnableEvents = False
 AutoPath = ThisWorkbook.Path
 DestTarget = AutoPath & "\System Files\System Templates\Item Notes\"
 
-'Öðe türü seçimi yapýlmalýdýr.
+'Ã–ÄŸe tÃ¼rÃ¼ seÃ§imi yapÄ±lmalÄ±dÄ±r.
 If ComboOgeTuru.Value = "" Then
     MsgBox "Note update could not be completed because no item type was selected.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
@@ -302,7 +302,7 @@ End If
 FileName = ComboOgeTuru.Value
 HedefFile = DestTarget & FileName & ".txt"
 
-'Dosyanýn olup olmadýðýný kontrol et.
+'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If Not Dir(HedefFile, vbDirectory) <> vbNullString Then
     MsgBox "Since a note named " & FileName & " has not been created before, the update operation cannot be completed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
@@ -314,10 +314,10 @@ MsgBox "Since no note could be found for the " & FileName & ", the update operat
         "First, select an item type and then click the Load Data button to load the defined note (if any) into the text box. After editing the note in the text box, click the Update button.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 Else
-    'Notu güncelle.
+    'Notu gÃ¼ncelle.
     Set fso = CreateObject("Scripting.FileSystemObject")
     FileName = ComboOgeTuru.Value
-    Set NotTxtFile = fso.CreateTextFile(DestTarget & FileName & ".txt", True, False) 'ANSI için False olmalý
+    Set NotTxtFile = fso.CreateTextFile(DestTarget & FileName & ".txt", True, False) 'ANSI iÃ§in False olmalÄ±
     NotTxtFile.Write NotText.Value
     NotTxtFile.Close
     MsgBox "Your note for the " & FileName & " has been successfully updated.", vbOKOnly + vbInformation, "Enterprise Document Automation System"
@@ -366,7 +366,7 @@ For Each ClrLab In support_item_type_notes_UI.Controls
         ClrLab.ForeColor = RGB(30, 30, 30)
     End If
     
-    'YENÝ
+    'YENÄ°
     If TypeName(ClrLab) = "Frame" Then
         ClrLab.BackColor = RGB(254, 254, 254)
         ClrLab.ForeColor = RGB(30, 30, 30)
@@ -374,8 +374,8 @@ For Each ClrLab In support_item_type_notes_UI.Controls
     End If
 Next ClrLab
 
-UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
-AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÝ
+UstMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
+AltMenuFrame.BackColor = RGB(225, 235, 245) 'YENÄ°
 LblBilgilendirme.BackColor = RGB(254, 254, 254)
 
 LabelEkle.BackColor = RGB(225, 235, 245)
@@ -387,7 +387,7 @@ LabelKapat.ForeColor = RGB(30, 30, 30)
 LabelKaldir.BackColor = RGB(225, 235, 245)
 LabelKaldir.ForeColor = RGB(30, 30, 30)
 
-support_item_type_notes_UI.BackColor = RGB(230, 230, 230) 'YENÝ
+support_item_type_notes_UI.BackColor = RGB(230, 230, 230) 'YENÄ°
 
 End Sub
 

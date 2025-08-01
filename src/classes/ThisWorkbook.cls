@@ -24,10 +24,10 @@ Call ModuleSystemSettings.TimeStop
 Application.EnableEvents = False
 Application.EnableEvents = True
 
-'Gizli Word uygulamasýný kapat
+'Gizli Word uygulamasÄ±nÄ± kapat
 Call CloseWordApp
 
-'___________________Operation klasöründeki kalýntýlarý temizle.
+'___________________Operation klasÃ¶rÃ¼ndeki kalÄ±ntÄ±larÄ± temizle.
 
 'Pathfinder...
 AutoPath = ThisWorkbook.Path
@@ -35,19 +35,19 @@ DestOperasyon = AutoPath & "\System Files\Operation\"
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1)
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName
 
-'System Files klasör adýný kontrol et.
+'System Files klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(AutoPath & "\System Files\", vbDirectory) <> vbNullString Then
     MsgBox AutoPath & "\System Files\" & " directory cannot be accessed. The folder named 'System Files' may have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
 
-'Operation klasörü adýný kontrol et.
+'Operation klasÃ¶rÃ¼ adÄ±nÄ± kontrol et.
 If Not Dir(DestOperasyon, vbDirectory) <> vbNullString Then
     MsgBox DestOperasyon & " directory cannot be accessed. The folder named 'Operation' may have been renamed or the 'System Files' folder may have been deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
 
-'Operation kalýntýlarýný temizle
+'Operation kalÄ±ntÄ±larÄ±nÄ± temizle
 On Error Resume Next
 Set fso = CreateObject("Scripting.FileSystemObject")
 fso.DeleteFolder DestOpUserFolder
@@ -55,7 +55,7 @@ fso.DeleteFolder DestOpUserFolder
 
 ''''''''''''''''''''''
 
-'Button ve picture artýklarýný temizle
+'Button ve picture artÄ±klarÄ±nÄ± temizle
 ThisWorkbook.Unprotect "123"
 
 On Error Resume Next
@@ -154,7 +154,7 @@ DestTarget = AutoPath & "\System Files\System Definitions\"
 FileName = "Definitions.xlsx"
 Tanimlar = DestTarget & FileName
 
-'___________________________________________Bu dosyanýn ayný kullanýcýda açýk olup olmadýðýný kontrol et.
+'___________________________________________Bu dosyanÄ±n aynÄ± kullanÄ±cÄ±da aÃ§Ä±k olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 
 'Pathfinder...
 DestOperasyon = AutoPath & "\System Files\Operation\"
@@ -187,11 +187,11 @@ If Not Dir(Tanimlar, vbDirectory) <> vbNullString Then
     GoTo Son
 End If
 
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MsgBox "Enterprise Document Automation System is already running and cannot be opened again. For data security, the application will be closed automatically. If you think the application is not open on any computer, please try reopening it.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
 
-    'Op kalýntýlarýný temizle
+    'Op kalÄ±ntÄ±larÄ±nÄ± temizle
     On Error Resume Next
     Set fso = CreateObject("Scripting.FileSystemObject")
     fso.DeleteFolder DestOpUserFolder
@@ -205,7 +205,7 @@ MkDir DestOpUserFolder
 '___________________________________________
 
 
-'Klasör isimlerini kontrol et.
+'KlasÃ¶r isimlerini kontrol et.
 If Not Dir(SourceFile, vbDirectory) <> vbNullString Then
     MsgBox SourceFile & " directory cannot be accessed. The names of folders and/or files in this directory might have been changed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
@@ -213,19 +213,19 @@ End If
 
 '______________________________________
 
-'SÝSTEM SAYFASI OLMAYANLARI SÝL (Baþlangýç)____________________________
+'SÄ°STEM SAYFASI OLMAYANLARI SÄ°L (BaÅŸlangÄ±Ã§)____________________________
 
 ThisWorkbook.Unprotect "123"
 Call ModuleSystemSettings.DelSheet
 ThisWorkbook.Protect "123"
 
-'SÝSTEM SAYFASI OLMAYANLARI SÝL (Bitiþ) ____________________________
+'SÄ°STEM SAYFASI OLMAYANLARI SÄ°L (BitiÅŸ) ____________________________
 
 
-'System Definitions dosyasýný içe aktar.
+'System Definitions dosyasÄ±nÄ± iÃ§e aktar.
 
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa kapat
+If OpenControl = True Then 'AÃ§Ä±ksa kapat
     Workbooks(FileName).Close SaveChanges:=True
 ElseIf OpenControl = False Then
     '
@@ -247,7 +247,7 @@ ThisWorkbook.Protect "123"
 
 'Workbooks(FileName).Save
 OpenControl = IsFileOpen(DestTarget & FileName)
-If OpenControl = True Then 'Açýksa kapat
+If OpenControl = True Then 'AÃ§Ä±ksa kapat
     Workbooks(FileName).Close SaveChanges:=False
 ElseIf OpenControl = False Then
     '
@@ -257,10 +257,10 @@ ThisWorkbook.Activate
 
 '________________________________________
 
-'Rapor çeþitleri için rapor System Templatesýndan verileri çek.
-'Öncekini temizle
+'Rapor Ã§eÅŸitleri iÃ§in rapor System TemplatesÄ±ndan verileri Ã§ek.
+'Ã–ncekini temizle
 ThisWorkbook.Worksheets(2).Range("DL6:DL305").Value = ""
-'Açýlýr liste için verileri çek
+'AÃ§Ä±lÄ±r liste iÃ§in verileri Ã§ek
 j = 6
 KontrolFile = Dir(SourceFile & "*.docm")
 Do While KontrolFile <> ""

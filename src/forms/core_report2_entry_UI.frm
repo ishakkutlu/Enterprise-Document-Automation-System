@@ -118,7 +118,7 @@ For i = 1 To 19
     Controls("OgeIdNo" & i).Value = ""
     Controls("Aciklama" & i).Value = ""
     'If Rapor1Frame.Visible = True Then
-        'Rapor1 için
+        'Rapor1 iÃ§in
         Controls("Sonuc" & i).Value = ""
         Controls("UretimOzelligi" & i).Value = ""
         Controls("NotCheck" & i).Value = False
@@ -139,7 +139,7 @@ Next i
     GidenPaketAdedi.Value = ""
 'End If
 
-'Üst yazý
+'Ãœst yazÄ±
 'If UstYaziFrame.Visible = True Then
     UstYaziTarihiText.Value = ""
     UstYaziNoText.Value = ""
@@ -148,7 +148,7 @@ Next i
     BilgilendirmeGonderiTipi.Value = ""
 'End If
 
-'Rapor2_2 Süreci
+'Rapor2_2 SÃ¼reci
 TumuOption.Value = False
 SadeceTeknik_AGecersizlerOption.Value = False
 XXXMudPaketiOptionEvet.Value = False
@@ -160,7 +160,7 @@ Tutanak2BirlestirmeOptionHayir.Value = False
 Tutanak2BirlestirmeOptionEvet.Enabled = False
 Tutanak2BirlestirmeOptionHayir.Enabled = False
 
-'XXXMud üst yazý
+'XXXMud Ã¼st yazÄ±
 XXXMudUstYaziTarihiText.Value = ""
 XXXMudUstYaziNoText.Value = ""
 XXXMudIlgiYaziFotokopisi.Value = ""
@@ -189,7 +189,7 @@ BilgilendirmeIlGiden.Value = ""
 BilgilendirmeIlceGiden.Value = ""
 GelenXXXMudTutanak2TutSayfa.Value = ""
 
-'Rapor2_2 üst yazý
+'Rapor2_2 Ã¼st yazÄ±
 Rapor2_2UstYaziTarihiText.Value = ""
 Rapor2_2UstYaziNoText.Value = ""
 Rapor2_2RaporTarihiText.Value = ""
@@ -217,14 +217,14 @@ ComboGetir.BackColor = RGB(225, 235, 245)
 ComboGetir.ForeColor = RGB(30, 30, 30)
 
 
-'Rapor2_2 Süreci arayüz düzenlemesi
+'Rapor2_2 SÃ¼reci arayÃ¼z dÃ¼zenlemesi
 '_________________
 
 Call Rapor2_2Kontrol
 
 '_________________
 
-'Açýk dropdown kapat
+'AÃ§Ä±k dropdown kapat
 Call ModuleSystemSettings.DropDownKapat
  
 End Sub
@@ -290,7 +290,7 @@ If Rapor2_2CheckBox.Value = True Then
     UstYaziGirisi.BackColor = RGB(180, 210, 240)
     UstYaziGirisi.ForeColor = RGB(30, 30, 30)
     
-    'Rapor üst yazý notunu ve ilgi fotokopi sayfa sayýsýný gizle
+    'Rapor Ã¼st yazÄ± notunu ve ilgi fotokopi sayfa sayÄ±sÄ±nÄ± gizle
     UstYaziNotuFrame.Visible = False
     TemaNotuFrame.Visible = False
     IlgiYaziFotokopisiFrame.Visible = False
@@ -328,7 +328,7 @@ Else
     UstYaziFrame.Visible = True
     Tutanak2Frame.Visible = True
 
-    'Rapor üst yazý notunu ve ilgi fotokopi sayfa sayýsýný göster
+    'Rapor Ã¼st yazÄ± notunu ve ilgi fotokopi sayfa sayÄ±sÄ±nÄ± gÃ¶ster
     UstYaziNotuFrame.Visible = True
     TemaNotuFrame.Visible = True
     IlgiYaziFotokopisiFrame.Visible = True
@@ -339,7 +339,7 @@ Else
     BilgilendirmeGonderilenBirimFrame.Visible = False
     BilgilendirmeGonderiTipiFrame.Visible = False
 
-    'Kurum Tutanak2 kontrollerini göster
+    'Kurum Tutanak2 kontrollerini gÃ¶ster
     IlGidenFrame.Visible = True
     IlceGidenFrame.Visible = True
     GonderilenBirimFrame.Visible = True
@@ -363,10 +363,10 @@ Else
     LblRapor2_2No.Visible = False
     Rapor2_2No.Visible = False
 
-    'Ekrana göre formun ayarlanmasý
+    'Ekrana gÃ¶re formun ayarlanmasÄ±
     If EkranKontrol = True Then
     
-        'Formun görünümü
+        'Formun gÃ¶rÃ¼nÃ¼mÃ¼
         AltMenuFrame.Top = 462 + Rapor1Frame.Height + Tutanak2Frame.Height + UstYaziFrame.Height + 18
         TasiyiciFrame.Height = 486 + Rapor1Frame.Height + Tutanak2Frame.Height + UstYaziFrame.Height + 18
         core_report2_entry_UI.Height = 485 '556 + Rapor1Frame.Height + Tutanak2Frame.Height + UstYaziFrame.Height + 18
@@ -376,7 +376,7 @@ Else
         core_report2_entry_UI.ScrollTop = 0
         
     Else
-        'Formun görünümü
+        'Formun gÃ¶rÃ¼nÃ¼mÃ¼
         AltMenuFrame.Top = 462 + Rapor1Frame.Height + Tutanak2Frame.Height + UstYaziFrame.Height + 18
         TasiyiciFrame.Height = 486 + Rapor1Frame.Height + Tutanak2Frame.Height + UstYaziFrame.Height + 18
         core_report2_entry_UI.Height = 556 + Rapor1Frame.Height + Tutanak2Frame.Height + UstYaziFrame.Height + 18
@@ -433,7 +433,7 @@ End If
 Call UstYaziGirisi_Click
 
  
-'Veri tabanýný kontrol et
+'Veri tabanÄ±nÄ± kontrol et
 Say = Range("CM100000").End(xlUp).Row
 If Say < 7 Or ComboGetir.Value = "" Then
     GoTo Son
@@ -457,8 +457,8 @@ Else
 End If
 
 'Verileri sayfadan rapor1 formuna aktar.
-'Tutanak1 bölümü
-'Cells(IlkSira, 5)'Sýra numarasý
+'Tutanak1 bÃ¶lÃ¼mÃ¼
+'Cells(IlkSira, 5)'SÄ±ra numarasÄ±
 Il.Value = Cells(IlkSira, 25).Value
 Ilce.Value = Cells(IlkSira, 26).Value
 BelgeTarihiText.Value = Cells(IlkSira, 28).Value
@@ -499,11 +499,11 @@ DokumListesi.Value = Cells(IlkSira, 44).Value
 
 '________________
 
-'Fark giriþleri için varsa esas kayýtlarý geçici kayýtlara aktar
+'Fark giriÅŸleri iÃ§in varsa esas kayÄ±tlarÄ± geÃ§ici kayÄ±tlara aktar
 If Tutanak1Sonucu.Value = "d. Discrepancy Detected" Then
     
-    ThisWorkbook.Worksheets(7).Rows("3:30").EntireRow.Delete 'eski kaydý sil; düzenleden farklý bir sýra numarasý çaðrýlýrsa, önceki geçici kayýtlar silinsin.
-                                                             'Varsa yenisi geçici kayýtlar sayfasýna yüklensin.
+    ThisWorkbook.Worksheets(7).Rows("3:30").EntireRow.Delete 'eski kaydÄ± sil; dÃ¼zenleden farklÄ± bir sÄ±ra numarasÄ± Ã§aÄŸrÄ±lÄ±rsa, Ã¶nceki geÃ§ici kayÄ±tlar silinsin.
+                                                             'Varsa yenisi geÃ§ici kayÄ±tlar sayfasÄ±na yÃ¼klensin.
     
     Set WsFarkGirisRapor1 = ThisWorkbook.Worksheets(9)
     Set IlkSiraBul = WsFarkGirisRapor1.Range("P3:P100000").Find(What:=ComboGetir.Value, SearchDirection:=xlNext, _
@@ -631,7 +631,7 @@ If Cells(IlkSira, 71).Value <> "" Or Cells(IlkSira, 72).Value <> "" Or Cells(Ilk
     'Call Rapor1NoListClear
     Tutanak2TarihiText.Value = Cells(IlkSira, 71).Value
     
-    If Rapor2_2CheckBox.Value = False Then 'Rapor2_2 ise Tema, Gönderilen, Ýl ve Ýlçe olmayacak
+    If Rapor2_2CheckBox.Value = False Then 'Rapor2_2 ise Tema, GÃ¶nderilen, Ä°l ve Ä°lÃ§e olmayacak
         GidenMuhatapTemasi.Value = Cells(IlkSira, 72).Value
         If Cells(IlkSira, 73).Value <> "" Then
             GonderilenBirim.Value = Cells(IlkSira, 73).Value
@@ -646,7 +646,7 @@ If Cells(IlkSira, 71).Value <> "" Or Cells(IlkSira, 72).Value <> "" Or Cells(Ilk
     GidenPaketAdedi.Value = Cells(IlkSira, 76).Value
 End If
 
-'Üst yazý
+'Ãœst yazÄ±
 If Cells(IlkSira, 83).Value <> "" Or Cells(IlkSira, 84).Value <> "" Then
     'UstYaziFrame.Visible = True
     'Call UstYaziGirisi_Click
@@ -672,7 +672,7 @@ End If
 
 
 
-'RAPOR2_2 seçimi (Bu bölüm, tipA sonuçlarýnýn üstündeydi. Ama tutanak2 içeriði seçimleri düzenle komutunda hata mesajý görüntülediði için aþaðý alýndý.)
+'RAPOR2_2 seÃ§imi (Bu bÃ¶lÃ¼m, tipA sonuÃ§larÄ±nÄ±n Ã¼stÃ¼ndeydi. Ama tutanak2 iÃ§eriÄŸi seÃ§imleri dÃ¼zenle komutunda hata mesajÄ± gÃ¶rÃ¼ntÃ¼lediÄŸi iÃ§in aÅŸaÄŸÄ± alÄ±ndÄ±.)
 If Cells(IlkSira, 174).Value = "Yes" Then
     Rapor2_2CheckBox.Value = True
 ElseIf Cells(IlkSira, 174).Value = "No" Then
@@ -683,7 +683,7 @@ End If
 
 If Rapor2_2CheckBox.Value = True Then
     Rapor2_2No.Value = Cells(IlkSira, 65).Value
-    'Tutanak2 içeriði
+    'Tutanak2 iÃ§eriÄŸi
     If Cells(IlkSira, 187).Value = "All" Then
         TumuOption.Value = True
     ElseIf Cells(IlkSira, 187).Value = "Technique A" Then
@@ -693,7 +693,7 @@ If Rapor2_2CheckBox.Value = True Then
         SadeceTeknik_AGecersizlerOption.Value = False
     End If
 
-    'XXXMud'den gelen paketin açýlma durumu
+    'XXXMud'den gelen paketin aÃ§Ä±lma durumu
     If Cells(IlkSira, 188).Value = "Yes" Then
         XXXMudPaketiOptionEvet.Value = True
     ElseIf Cells(IlkSira, 188).Value = "No" Then
@@ -702,7 +702,7 @@ If Rapor2_2CheckBox.Value = True Then
         XXXMudPaketiOptionEvet.Value = False
         XXXMudPaketiOptionHayir.Value = False
     End If
-    'Tutanak2 birleþtirme
+    'Tutanak2 birleÅŸtirme
     If Cells(IlkSira, 189).Value = "Yes" Then
         Tutanak2BirlestirmeOptionEvet.Enabled = True
         Tutanak2BirlestirmeOptionHayir.Enabled = True
@@ -723,7 +723,7 @@ If Rapor2_2CheckBox.Value = True Then
 End If
 
 
-''RAPOR2_2 Süreci
+''RAPOR2_2 SÃ¼reci
 ''_________________
 '
 'Call Rapor2_2Kontrol
@@ -732,7 +732,7 @@ End If
 
 
 If Rapor2_2CheckBox.Value = True Then
-    'Bilgilendirme eki (Esasýnda üst yazý bilgilendirmeye eþit)
+    'Bilgilendirme eki (EsasÄ±nda Ã¼st yazÄ± bilgilendirmeye eÅŸit)
     BilgilendirmeGonderiTipi.Value = Cells(IlkSira, 81).Value
     
     'XXXMud Tutanak2 (Giden)
@@ -740,7 +740,7 @@ If Rapor2_2CheckBox.Value = True Then
     XXXMudGidenPaketTipi.Value = Cells(IlkSira, 184).Value
     XXXMudGidenPaketAdedi.Value = Cells(IlkSira, 185).Value
     
-    'XXXMud Üst Yazýsý
+    'XXXMud Ãœst YazÄ±sÄ±
     XXXMudUstYaziTarihiText.Value = Cells(IlkSira, 175).Value
     XXXMudUstYaziNoText.Value = Cells(IlkSira, 176).Value
     XXXMudIlgiYaziFotokopisi.Value = Cells(IlkSira, 206).Value
@@ -771,7 +771,7 @@ If Rapor2_2CheckBox.Value = True Then
     BilgilendirmeIlceGiden.Value = Cells(IlkSira, 204).Value
     GelenXXXMudTutanak2TutSayfa.Value = Cells(IlkSira, 205).Value
 
-    'Sonuç Üst Yazýsý
+    'SonuÃ§ Ãœst YazÄ±sÄ±
     Rapor2_2UstYaziTarihiText.Value = Cells(IlkSira, 177).Value
     Rapor2_2UstYaziNoText.Value = Cells(IlkSira, 178).Value
     Rapor2_2RaporTarihiText.Value = Cells(IlkSira, 179).Value
@@ -790,7 +790,7 @@ If Rapor2_2CheckBox.Value = True Then
     
 End If
 
-'RAPOR2_2 Süreci
+'RAPOR2_2 SÃ¼reci
 '_________________
 
 Call Rapor2_2Kontrol
@@ -799,12 +799,12 @@ Call Rapor2_2Kontrol
 
 If Rapor2_2CheckBox.Value = False Then
 
-    '_______________________________________TEKRARLAYAN KODLAR Baþlangýcý
+    '_______________________________________TEKRARLAYAN KODLAR BaÅŸlangÄ±cÄ±
     
-    'Rapor2_2CheckBox.Value= False komutu Rapor2_2Kontrol prosedürünü tetikliyor ve
-    'iþlem sadece tutanak1 olduðunda tutanak2 ve üst yazý frameleri visible oluyor. Ayrýca maxi mini de geniþletme aþamasýnda kayboluyor.
-    'Çözüm rapor prosedüründe tutanak1, raporlama, tutanak2 ve üst yazý click prosedürleri giriþte olmasýnýn yaný sýra çýkýþta da
-    'yani bu bölüme de eklendi.
+    'Rapor2_2CheckBox.Value= False komutu Rapor2_2Kontrol prosedÃ¼rÃ¼nÃ¼ tetikliyor ve
+    'iÅŸlem sadece tutanak1 olduÄŸunda tutanak2 ve Ã¼st yazÄ± frameleri visible oluyor. AyrÄ±ca maxi mini de geniÅŸletme aÅŸamasÄ±nda kayboluyor.
+    'Ã‡Ã¶zÃ¼m rapor prosedÃ¼rÃ¼nde tutanak1, raporlama, tutanak2 ve Ã¼st yazÄ± click prosedÃ¼rleri giriÅŸte olmasÄ±nÄ±n yanÄ± sÄ±ra Ã§Ä±kÄ±ÅŸta da
+    'yani bu bÃ¶lÃ¼me de eklendi.
     
     Call Tutanak1Girisi_Click
     'GoTo Son
@@ -837,7 +837,7 @@ If Rapor2_2CheckBox.Value = False Then
         'Call Rapor1NoListClear
         Tutanak2TarihiText.Value = Cells(IlkSira, 71).Value
     
-        If Rapor2_2CheckBox.Value = False Then 'Rapor2_2 ise Tema, Gönderilen, Ýl ve Ýlçe olmayacak
+        If Rapor2_2CheckBox.Value = False Then 'Rapor2_2 ise Tema, GÃ¶nderilen, Ä°l ve Ä°lÃ§e olmayacak
             GidenMuhatapTemasi.Value = Cells(IlkSira, 72).Value
             If Cells(IlkSira, 73).Value <> "" Then
                 GonderilenBirim.Value = Cells(IlkSira, 73).Value
@@ -852,7 +852,7 @@ If Rapor2_2CheckBox.Value = False Then
         GidenPaketAdedi.Value = Cells(IlkSira, 76).Value
     End If
     
-    'Üst yazý
+    'Ãœst yazÄ±
     If Cells(IlkSira, 83).Value <> "" Or Cells(IlkSira, 84).Value <> "" Then
         'UstYaziFrame.Visible = True
         'Call UstYaziGirisi_Click
@@ -875,14 +875,14 @@ If Rapor2_2CheckBox.Value = False Then
         End If
     End If
     
-    '_______________________________________TEKRARLAYAN KODLAR Bitiþi
+    '_______________________________________TEKRARLAYAN KODLAR BitiÅŸi
     
 End If
 
 LblDuzeltme.BackColor = RGB(180, 210, 240)
 LblDuzeltme.ForeColor = RGB(30, 30, 30)
 
-'Açýk dropdown kapat
+'AÃ§Ä±k dropdown kapat
 Call ModuleSystemSettings.DropDownKapat
 
 Son:
@@ -905,7 +905,7 @@ End Sub
 Private Sub LblIl_Click()
 MsgBox "Select the province where the request letter originated from the dropdown list on the right." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the desired province on your keyboard to quickly locate it. For example, pressing the letter A once may select Province 1, pressing it again may switch to Province 2." & vbNewLine & vbNewLine & _
-"To update the details of a province or district, or to add a new one, click the ± icon and follow the instructions in the window that appears." & vbNewLine & vbNewLine & _
+"To update the details of a province or district, or to add a new one, click the Â± icon and follow the instructions in the window that appears." & vbNewLine & vbNewLine & _
 "The selected province is used for automatic TEMA code generation and appears in Statement 1, the Dispatch List, Report 1, and the Response Letter. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
@@ -913,7 +913,7 @@ End Sub
 Private Sub LblIlce_Click()
 MsgBox "Select the district where the request letter originated from the dropdown list on the right." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the desired district on your keyboard to locate it quickly. For example, to select 'District 2' under Province 1, press the letter A once to highlight District 1, and again to reach District 2." & vbNewLine & vbNewLine & _
-"To update the information of a district or to add a new one, click the ± icon next to the Province label and follow the instructions in the window that appears." & vbNewLine & vbNewLine & _
+"To update the information of a district or to add a new one, click the Â± icon next to the Province label and follow the instructions in the window that appears." & vbNewLine & vbNewLine & _
 "The selected district is used in automatic TEMA code generation and appears in Statement 1, the Dispatch List, Report 1, and the Response Letter. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
@@ -939,7 +939,7 @@ vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
 
 Private Sub LblTemaNo_Click()
-MsgBox "If all required fields—Province, District, Document Date, Document Number, and TEMA Type—are filled in, selecting the 'Automatic' option will generate the TEMA code automatically. While the Automatic option is selected, the TEMA code cannot be edited manually. If the Manual option is selected, the user can edit the TEMA code." & vbNewLine & vbNewLine & _
+MsgBox "If all required fieldsâ€”Province, District, Document Date, Document Number, and TEMA Typeâ€”are filled in, selecting the 'Automatic' option will generate the TEMA code automatically. While the Automatic option is selected, the TEMA code cannot be edited manually. If the Manual option is selected, the user can edit the TEMA code." & vbNewLine & vbNewLine & _
 "When the Automatic option is active, and changes are made to any of the fields that form the TEMA code (Province, District, Document Date, Document Number, or TEMA Type), these changes will only be reflected in the TEMA code if the Manual option is selected first and then switched back to Automatic." & vbNewLine & vbNewLine & _
 "The value in the TEMA Number field (i.e., the TEMA code) is used in Statement 1, Report 1, and Statement 2. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
@@ -947,16 +947,16 @@ End Sub
 
 Private Sub LblGelenMuhatapTemasi_Click()
 MsgBox "Select the recipient mentioned in the request letter from the dropdown list on the right (e.g., a Directorate, Decision Board, or a theme such as Provincial Directorate B or District Directorate B)." & vbNewLine & vbNewLine & _
-"For example, if the request letter was sent by the XXX Governorship Provincial Directorate B – XXX Unit Directorate, select 'Provincial Directorate B'. If it was sent by the X.X. X1 Process Monitoring Directorate – XXX Office, select 'X.X. X1 Process Monitoring Directorate'. The XXX Unit Directorate or XXX Office should be selected separately in the Sender Unit field." & vbNewLine & vbNewLine & _
-"If the desired Directorate or Decision Board is not listed in the dropdown, click the ± icon on the right and follow the instructions in the window to add it to the system." & vbNewLine & vbNewLine & _
+"For example, if the request letter was sent by the XXX Governorship Provincial Directorate B â€“ XXX Unit Directorate, select 'Provincial Directorate B'. If it was sent by the X.X. X1 Process Monitoring Directorate â€“ XXX Office, select 'X.X. X1 Process Monitoring Directorate'. The XXX Unit Directorate or XXX Office should be selected separately in the Sender Unit field." & vbNewLine & vbNewLine & _
+"If the desired Directorate or Decision Board is not listed in the dropdown, click the Â± icon on the right and follow the instructions in the window to add it to the system." & vbNewLine & vbNewLine & _
 "The selection made in the Incoming Contact Theme field is used in Statement 1, the Dispatch List, Report 1, and the Response Letter. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
 
 Private Sub LblGonderenBirim_Click()
 MsgBox "Select the unit that sent the request letter from the dropdown list on the right." & vbNewLine & vbNewLine & _
-"For example, if the request letter was sent by the XXX Governorship Provincial Directorate B – XXX Unit Directorate, select the 'XXX Unit Directorate'. If it was sent by the X.X. X1 Process Monitoring Directorate – XXX Office, select the 'XXX Office'. If the request letter does not clearly indicate the unit (e.g., whether it is a unit directorate or an office), select the Incoming Contact Theme instead." & vbNewLine & vbNewLine & _
-"If the desired unit name is not available in the dropdown list, click the ± icon on the right and follow the instructions in the window to add it to the system." & vbNewLine & vbNewLine & _
+"For example, if the request letter was sent by the XXX Governorship Provincial Directorate B â€“ XXX Unit Directorate, select the 'XXX Unit Directorate'. If it was sent by the X.X. X1 Process Monitoring Directorate â€“ XXX Office, select the 'XXX Office'. If the request letter does not clearly indicate the unit (e.g., whether it is a unit directorate or an office), select the Incoming Contact Theme instead." & vbNewLine & vbNewLine & _
+"If the desired unit name is not available in the dropdown list, click the Â± icon on the right and follow the instructions in the window to add it to the system." & vbNewLine & vbNewLine & _
 "The selection made in the Sender Unit field is used in Statement 1, the Dispatch List, Report 1, and the Response Letter. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
@@ -1000,15 +1000,15 @@ End Sub
 
 Private Sub LblTutanak1Imza1_Click()
 MsgBox "Select the person to be displayed in the first signature field from the dropdown list on the right." & vbNewLine & vbNewLine & _
-"If the name of the relevant person is not available in the list, click the ± icon on the right and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
-"After clicking the dropdown once, you can also press the first letter of the person’s name on your keyboard to navigate quickly." & vbNewLine & vbNewLine & _
+"If the name of the relevant person is not available in the list, click the Â± icon on the right and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
+"After clicking the dropdown once, you can also press the first letter of the personâ€™s name on your keyboard to navigate quickly." & vbNewLine & vbNewLine & _
 "The selection made in the Signature field is used in Statement 1. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
 Private Sub LblTutanak1Imza2_Click()
 MsgBox "Select the person to be displayed in the second signature field from the dropdown list on the right." & vbNewLine & vbNewLine & _
-"If the name of the relevant person is not available in the list, click the ± icon on the right and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
-"After clicking the dropdown once, you can also press the first letter of the person’s name on your keyboard to navigate quickly." & vbNewLine & vbNewLine & _
+"If the name of the relevant person is not available in the list, click the Â± icon on the right and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
+"After clicking the dropdown once, you can also press the first letter of the personâ€™s name on your keyboard to navigate quickly." & vbNewLine & vbNewLine & _
 "The selection made in the Signature field is used in Statement 1. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
@@ -1030,7 +1030,7 @@ Private Sub LblOgeTuruUst_Click()
 MsgBox "Select the item type related to the subject under review from the dropdown list below." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the desired item on your keyboard to quickly navigate to it." & vbNewLine & vbNewLine & _
 "To enter multiple item types/values/quantities, click the + icon at the far right of this row. To remove item type/value/quantity rows, click the - icon at the same location." & vbNewLine & vbNewLine & _
-"If the desired item type is not listed, click the ± icon to the left of the Item Type label and follow the instructions in the window to define it in the system." & vbNewLine & vbNewLine & _
+"If the desired item type is not listed, click the Â± icon to the left of the Item Type label and follow the instructions in the window to define it in the system." & vbNewLine & vbNewLine & _
 "The selection made in the Item Type field is used in Statement 1, the report, and Statement 2. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
@@ -1039,7 +1039,7 @@ Private Sub LblOgeDegeriUst_Click()
 MsgBox "Select the item value related to the subject under review from the dropdown list below." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first digit of the desired value on your keyboard to quickly navigate to it." & vbNewLine & vbNewLine & _
 "To enter multiple item types/values/quantities, click the + icon at the far right of this row. To remove item type/value/quantity rows, click the - icon at the same location." & vbNewLine & vbNewLine & _
-"If the desired item value is not listed, click the ± icon to the left of the Nominal Value label and follow the instructions in the window to define it in the system." & vbNewLine & vbNewLine & _
+"If the desired item value is not listed, click the Â± icon to the left of the Nominal Value label and follow the instructions in the window to define it in the system." & vbNewLine & vbNewLine & _
 "The selection made in the Nominal Value field is used in Statement 1, the report, and Statement 2. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
@@ -1084,8 +1084,8 @@ End Sub
 Private Sub LblRapor1NoUst_Click()
 MsgBox "Enter the report number into the dropdown list below." & vbNewLine & vbNewLine & _
 "If a report number is assigned to each row, the system will generate a separate report for each row. If report numbers are assigned at intervals, the system will combine the rows from top to bottom until the next report number and generate one consolidated report." & vbNewLine & vbNewLine & _
-"For example, assume 5 different item types are entered — the first 3 are valid and the last 2 are invalid. If all 5 rows have a report number (e.g., 180-1, 180-2, 180-3, 180-4, 180-5), the system will generate 5 separate reports." & vbNewLine & vbNewLine & _
-"If only the 1st, 4th, and 5th rows are assigned report numbers, then rows 1, 2, and 3 (valid items) will be combined into one report, and rows 4 and 5 (invalid items) will each generate a separate report — resulting in a total of 3 reports." & vbNewLine & vbNewLine & _
+"For example, assume 5 different item types are entered â€” the first 3 are valid and the last 2 are invalid. If all 5 rows have a report number (e.g., 180-1, 180-2, 180-3, 180-4, 180-5), the system will generate 5 separate reports." & vbNewLine & vbNewLine & _
+"If only the 1st, 4th, and 5th rows are assigned report numbers, then rows 1, 2, and 3 (valid items) will be combined into one report, and rows 4 and 5 (invalid items) will each generate a separate report â€” resulting in a total of 3 reports." & vbNewLine & vbNewLine & _
 "The value entered in the Report Number field is used in the report and the response letter. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
@@ -1094,7 +1094,7 @@ Private Sub LblRaporOzelligiUst_Click()
 MsgBox "If a report number has been assigned to the item, select the report feature (e.g., normal, feature1, feature2) from the dropdown list below. If no report number is assigned from the first row onwards, the system will not allow selection in the Report Feature field." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the desired option on your keyboard to quickly navigate to it." & vbNewLine & vbNewLine & _
 "To enter multiple item types/values/quantities, click the + icon at the far right of this row. To remove item type/value/quantity rows, click the - icon at the same location." & vbNewLine & vbNewLine & _
-"If the desired report feature is not listed, click the ± icon to the left of the label and follow the instructions in the window to define it in the system." & vbNewLine & vbNewLine & _
+"If the desired report feature is not listed, click the Â± icon to the left of the label and follow the instructions in the window to define it in the system." & vbNewLine & vbNewLine & _
 "The selection made in the Report Feature field is used in the report. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
@@ -1107,8 +1107,8 @@ End Sub
 
 Private Sub LblNotUst_Click()
 MsgBox "If a report number has been assigned to the item, the Add Note option will appear. To add a note to the relevant report (provided you have previously defined a note for the related item type in the system), select the Add Note option. If no report number is assigned after the first row, the system will not display the Add Note option." & vbNewLine & vbNewLine & _
-"If the system does not allow you to add a note for the related item type, it means no note has been previously defined for that item type. Click the ± icon to the left of this label and follow the instructions in the window to define a note for the item type in the system." & vbNewLine & vbNewLine & _
-"The selection made in the Add Note field is used in the report’s footnote. For more details, click the Help button in the top-right corner.", _
+"If the system does not allow you to add a note for the related item type, it means no note has been previously defined for that item type. Click the Â± icon to the left of this label and follow the instructions in the window to define a note for the item type in the system." & vbNewLine & vbNewLine & _
+"The selection made in the Add Note field is used in the reportâ€™s footnote. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
 
@@ -1122,14 +1122,14 @@ End Sub
 Private Sub LblIlgiliBirim_Click()
 MsgBox "If the system allows you to select the relevant unit from the dropdown list on the right, please select it. If a choice other than Directorate or Decision Board is made in the Incoming Contact Theme section, the system will allow unit selection; otherwise, unit selection will be disabled." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the desired selection on your keyboard to quickly navigate." & vbNewLine & vbNewLine & _
-"If the desired Directorate or Decision Board name is not listed, click the ± icon on the right and follow the instructions in the window to define it in the system." & vbNewLine & vbNewLine & _
+"If the desired Directorate or Decision Board name is not listed, click the Â± icon on the right and follow the instructions in the window to define it in the system." & vbNewLine & vbNewLine & _
 "The selection made in the Relevant Unit field is used in the report. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
 
 Private Sub LblRaporImza1_Click()
 MsgBox "Select the person to be displayed in the second signature field from the dropdown list on the right." & vbNewLine & vbNewLine & _
-"If the desired person's name is not available in the list, click the ± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
+"If the desired person's name is not available in the list, click the Â± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the person's name on your keyboard to quickly navigate." & vbNewLine & vbNewLine & _
 "The selection made in the signature field is used in the report. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
@@ -1137,7 +1137,7 @@ End Sub
 
 Private Sub LblRaporImza2_Click()
 MsgBox "Select the person to be displayed in the third signature field from the dropdown list on the right." & vbNewLine & vbNewLine & _
-"If the desired person's name is not available in the list, click the ± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
+"If the desired person's name is not available in the list, click the Â± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the person's name on your keyboard to quickly navigate." & vbNewLine & vbNewLine & _
 "The selection made in the signature field is used in the report. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
@@ -1145,7 +1145,7 @@ End Sub
 
 Private Sub LblRaporImza3_Click()
 MsgBox "Select the person to be displayed in the first signature field from the dropdown list on the right." & vbNewLine & vbNewLine & _
-"If the desired person's name is not available in the list, click the ± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
+"If the desired person's name is not available in the list, click the Â± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the person's name on your keyboard to quickly navigate." & vbNewLine & vbNewLine & _
 "The selection made in the signature field is used in the report. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
@@ -1160,16 +1160,16 @@ End Sub
 
 Private Sub LblGidenMuhatapTemasi_Click()
 MsgBox "Select the recipient of the response letter from the dropdown list on the right (e.g., Directorate, Decision Board, or a theme such as Provincial Directorate B or District Directorate B)." & vbNewLine & vbNewLine & _
-"If the response letter will be sent to the XXX Governorship Provincial Directorate B – XXX Unit Directorate, select 'Provincial Directorate B'. If it will be sent to the X.X. X1 Process Monitoring Directorate – XXX Office, select 'X.X. X1 Process Monitoring Directorate'. The XXX Unit Directorate or XXX Office should be selected in the Recipient Unit field." & vbNewLine & vbNewLine & _
-"If the desired Directorate or Decision Board name is not listed, click the ± icon on the right and follow the instructions in the window to define it in the system." & vbNewLine & vbNewLine & _
+"If the response letter will be sent to the XXX Governorship Provincial Directorate B â€“ XXX Unit Directorate, select 'Provincial Directorate B'. If it will be sent to the X.X. X1 Process Monitoring Directorate â€“ XXX Office, select 'X.X. X1 Process Monitoring Directorate'. The XXX Unit Directorate or XXX Office should be selected in the Recipient Unit field." & vbNewLine & vbNewLine & _
+"If the desired Directorate or Decision Board name is not listed, click the Â± icon on the right and follow the instructions in the window to define it in the system." & vbNewLine & vbNewLine & _
 "The selection made in the Outgoing Contact Theme field is used in Statement 2 and the response letter. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
 
 Private Sub LblGonderilenBirim_Click()
 MsgBox "Select the unit to which the response letter will be sent from the dropdown list on the right." & vbNewLine & vbNewLine & _
-"If the response letter will be sent to the XXX Governorship Provincial Directorate B – XXX Unit Directorate, select 'XXX Unit Directorate'. If it will be sent to the X.X. X1 Process Monitoring Directorate – XXX Office, select 'XXX Office'. If the response letter is to be sent directly to the recipient specified in the Outgoing Contact Theme (without specifying a unit such as XXX Unit Directorate or XXX Office), select 'Outgoing Contact Theme'." & vbNewLine & vbNewLine & _
-"If the desired unit name is not listed, click the ± icon on the right and follow the instructions in the window to define it in the system." & vbNewLine & vbNewLine & _
+"If the response letter will be sent to the XXX Governorship Provincial Directorate B â€“ XXX Unit Directorate, select 'XXX Unit Directorate'. If it will be sent to the X.X. X1 Process Monitoring Directorate â€“ XXX Office, select 'XXX Office'. If the response letter is to be sent directly to the recipient specified in the Outgoing Contact Theme (without specifying a unit such as XXX Unit Directorate or XXX Office), select 'Outgoing Contact Theme'." & vbNewLine & vbNewLine & _
+"If the desired unit name is not listed, click the Â± icon on the right and follow the instructions in the window to define it in the system." & vbNewLine & vbNewLine & _
 "The selection made in the Recipient Unit field is used in Statement 2 and the response letter. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
@@ -1177,7 +1177,7 @@ End Sub
 Private Sub LblIlGiden_Click()
 MsgBox "Select the province to which the response letter will be sent from the dropdown list on the right." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the desired province on your keyboard to quickly navigate. For example, pressing 'A' once may select Province 1, and pressing it again may select Province 2." & vbNewLine & vbNewLine & _
-"To update the details of a province or district, or to add a new one, click the ± icon next to the Province label in the Statement 1 Entry section and follow the instructions in the window." & vbNewLine & vbNewLine & _
+"To update the details of a province or district, or to add a new one, click the Â± icon next to the Province label in the Statement 1 Entry section and follow the instructions in the window." & vbNewLine & vbNewLine & _
 "The selection made in the Province field in this section is used in Statement 2 and the response letter. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
@@ -1185,7 +1185,7 @@ End Sub
 Private Sub LblIlceGiden_Click()
 MsgBox "Select the district to which the response letter will be sent from the dropdown list on the right." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the desired district on your keyboard to quickly navigate. For example, pressing 'A' once may select District 1, and pressing it again may select District 2." & vbNewLine & vbNewLine & _
-"To update the details of a district or to add a new one, click the ± icon next to the Province label in the Statement 1 Entry section and follow the instructions in the window." & vbNewLine & vbNewLine & _
+"To update the details of a district or to add a new one, click the Â± icon next to the Province label in the Statement 1 Entry section and follow the instructions in the window." & vbNewLine & vbNewLine & _
 "The selection made in the District field in this section is used in Statement 2 and the response letter. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
@@ -1205,7 +1205,7 @@ End Sub
 
 Private Sub LblTutanak2Imza1_Click()
 MsgBox "Select the person to be displayed in the first signature field from the dropdown list on the right." & vbNewLine & vbNewLine & _
-"If the desired name is not available in the list, click the ± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
+"If the desired name is not available in the list, click the Â± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the person's name on your keyboard to quickly navigate." & vbNewLine & vbNewLine & _
 "The selection made in the signature field is used in Statement 2. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
@@ -1213,7 +1213,7 @@ End Sub
 
 Private Sub LblTutanak2Imza2_Click()
 MsgBox "Select the person to be displayed in the second signature field from the dropdown list on the right." & vbNewLine & vbNewLine & _
-"If the desired name is not available in the list, click the ± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
+"If the desired name is not available in the list, click the Â± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the person's name on your keyboard to quickly navigate." & vbNewLine & vbNewLine & _
 "The selection made in the signature field is used in Statement 2. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
@@ -1252,7 +1252,7 @@ End Sub
 
 Private Sub LblUstYaziImza1_Click()
 MsgBox "Select the person to be displayed in the first signature field from the dropdown list on the right." & vbNewLine & vbNewLine & _
-"If the desired name is not available in the list, click the ± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
+"If the desired name is not available in the list, click the Â± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the person's name on your keyboard to quickly navigate." & vbNewLine & vbNewLine & _
 "The selection made in the signature field is used in the response letter for the report and in the notification cover letter for Report 2.2. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
@@ -1260,7 +1260,7 @@ End Sub
 
 Private Sub LblUstYaziImza2_Click()
 MsgBox "Select the person to be displayed in the second signature field from the dropdown list on the right." & vbNewLine & vbNewLine & _
-"If the desired name is not available in the list, click the ± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
+"If the desired name is not available in the list, click the Â± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the person's name on your keyboard to quickly navigate." & vbNewLine & vbNewLine & _
 "The selection made in the signature field is used in the response letter for the report and in the notification cover letter for Report 2.2. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
@@ -1307,7 +1307,7 @@ vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
 
 Private Sub LblXXXMudTutanak2Imza1_Click()
-MsgBox "If the desired name is not available in the dropdown list, click the ± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
+MsgBox "If the desired name is not available in the dropdown list, click the Â± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the person's name on your keyboard to quickly navigate." & vbNewLine & vbNewLine & _
 "The selection made in the signature field is used in the Statement 2 report for items sent to XXX Directorate. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
@@ -1315,7 +1315,7 @@ End Sub
 
 Private Sub LblXXXMudTutanak2Imza2_Click()
 MsgBox "Select the person to be displayed in the second signature field from the dropdown list on the right." & vbNewLine & vbNewLine & _
-"If the desired person's name is not listed, click the ± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
+"If the desired person's name is not listed, click the Â± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the person's name on your keyboard to quickly navigate." & vbNewLine & vbNewLine & _
 "The selection made in the signature field is used in the Statement 2 report for items sent to XXX Directorate. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
@@ -1342,14 +1342,14 @@ End Sub
 
 Private Sub LblXXXMudUstYaziImza1_Click()
 MsgBox "Select the person to be displayed below the 'Unit X Manager' text in the signature field from the dropdown list on the right." & vbNewLine & vbNewLine & _
-"If the desired person's name is not available in the list, click the ± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
+"If the desired person's name is not available in the list, click the Â± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the person's name on your keyboard to quickly navigate." & vbNewLine & vbNewLine & _
 "The selection made in the signature field is used in the cover letter sent to XXX Directorate. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
 
 Private Sub LblImzaNiteligi_Click()
-MsgBox "Select one of the signature options—authorized, temporary, deputy, or representative—for the 'Unit X Manager' text to be displayed in the signature field." & vbNewLine & vbNewLine & _
+MsgBox "Select one of the signature optionsâ€”authorized, temporary, deputy, or representativeâ€”for the 'Unit X Manager' text to be displayed in the signature field." & vbNewLine & vbNewLine & _
 "In the cover letter to be sent to XXX Directorate (internal document), when 'authorized' is selected, 'Unit X Manager' is displayed; when 'deputy' is selected, 'Unit X Manager D.'; when 'temporary' is selected, 'Unit X Manager T.'; and when 'representative' is selected, 'Unit X Manager R.' is displayed." & vbNewLine & vbNewLine & _
 "For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
@@ -1363,16 +1363,16 @@ End Sub
 
 Private Sub BilgilendirmeLblGidenMuhatapTemasi_Click()
 MsgBox "Select the recipient of the information letter from the dropdown list on the right (e.g., Directorate, Decision Board, or a theme such as Provincial Directorate B or District Directorate B)." & vbNewLine & vbNewLine & _
-"If the information letter will be sent to the XXX Governorship Provincial Directorate B – XXX Unit Directorate, select 'Provincial Directorate B'. If it will be sent to the X.X. X1 Process Monitoring Directorate – XXX Office, select 'X.X. X1 Process Monitoring Directorate'. The XXX Unit Directorate or XXX Office should be selected in the Recipient Unit field." & vbNewLine & vbNewLine & _
-"If the desired Directorate or Decision Board name is not listed, click the ± icon on the right and follow the instructions in the window to define it in the system." & vbNewLine & vbNewLine & _
+"If the information letter will be sent to the XXX Governorship Provincial Directorate B â€“ XXX Unit Directorate, select 'Provincial Directorate B'. If it will be sent to the X.X. X1 Process Monitoring Directorate â€“ XXX Office, select 'X.X. X1 Process Monitoring Directorate'. The XXX Unit Directorate or XXX Office should be selected in the Recipient Unit field." & vbNewLine & vbNewLine & _
+"If the desired Directorate or Decision Board name is not listed, click the Â± icon on the right and follow the instructions in the window to define it in the system." & vbNewLine & vbNewLine & _
 "The selection made in the Outgoing Contact Theme field is used in the information letter, all Statement 2 documents to be sent to the institution, and the result letter. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
 
 Private Sub BilgilendirmeLblGonderilenBirim_Click()
 MsgBox "Select the unit to which the information letter will be sent from the dropdown list on the right." & vbNewLine & vbNewLine & _
-"If the information letter will be sent to the XXX Governorship Provincial Directorate B – XXX Unit Directorate, select 'XXX Unit Directorate'. If it will be sent to the X.X. X1 Process Monitoring Directorate – XXX Office, select 'XXX Office'. If the information letter is to be sent directly to the recipient specified in the Outgoing Contact Theme (without specifying a unit such as XXX Unit Directorate or XXX Office), select 'Outgoing Contact Theme'." & vbNewLine & vbNewLine & _
-"If the desired unit name is not listed, click the ± icon on the right and follow the instructions in the window to define it in the system." & vbNewLine & vbNewLine & _
+"If the information letter will be sent to the XXX Governorship Provincial Directorate B â€“ XXX Unit Directorate, select 'XXX Unit Directorate'. If it will be sent to the X.X. X1 Process Monitoring Directorate â€“ XXX Office, select 'XXX Office'. If the information letter is to be sent directly to the recipient specified in the Outgoing Contact Theme (without specifying a unit such as XXX Unit Directorate or XXX Office), select 'Outgoing Contact Theme'." & vbNewLine & vbNewLine & _
+"If the desired unit name is not listed, click the Â± icon on the right and follow the instructions in the window to define it in the system." & vbNewLine & vbNewLine & _
 "The selection made in the Recipient Unit field is used in the information letter, all Statement 2 documents to be sent to the institution, and the result letter. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
@@ -1380,7 +1380,7 @@ End Sub
 Private Sub BilgilendirmeLblIlGiden_Click()
 MsgBox "Select the province to which the information letter will be sent from the dropdown list on the right." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the desired province on your keyboard to quickly navigate. For example, pressing 'A' once may select Province 1, and pressing it again may select Province 2." & vbNewLine & vbNewLine & _
-"To update the details of a province or district, or to add a new one, click the ± icon next to the Province label in the Statement 1 Entry section and follow the instructions in the window." & vbNewLine & vbNewLine & _
+"To update the details of a province or district, or to add a new one, click the Â± icon next to the Province label in the Statement 1 Entry section and follow the instructions in the window." & vbNewLine & vbNewLine & _
 "The selection made in the Province field in this section is used in the information letter, all Statement 2 documents to be sent to the institution, and the result letter. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
@@ -1388,7 +1388,7 @@ End Sub
 Private Sub BilgilendirmeLblIlceGiden_Click()
 MsgBox "Select the district to which the information letter will be sent from the dropdown list on the right." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the desired district on your keyboard to quickly navigate. For example, pressing 'A' once may select District 1, and pressing it again may select District 2." & vbNewLine & vbNewLine & _
-"To update the details of a district or to add a new one, click the ± icon next to the Province label in the Statement 1 Entry section and follow the instructions in the window." & vbNewLine & vbNewLine & _
+"To update the details of a district or to add a new one, click the Â± icon next to the Province label in the Statement 1 Entry section and follow the instructions in the window." & vbNewLine & vbNewLine & _
 "The selection made in the District field in this section is used in the information letter, all Statement 2 documents to be sent to the institution, and the result letter. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
@@ -1444,14 +1444,14 @@ End Sub
 
 Private Sub GelenXXXMudLblTutanak1Imza1_Click()
 MsgBox "Select the person to be displayed in the first signature field from the dropdown list on the right." & vbNewLine & vbNewLine & _
-"If the desired name is not available in the list, click the ± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
+"If the desired name is not available in the list, click the Â± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the person's name on your keyboard to quickly navigate." & vbNewLine & vbNewLine & _
 "The selection made in the signature field is used in the Statement 1 report prepared for the dispatch received from XXX Directorate. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
 End Sub
 Private Sub GelenXXXMudLblTutanak1Imza2_Click()
 MsgBox "Select the person to be displayed in the second signature field from the dropdown list on the right." & vbNewLine & vbNewLine & _
-"If the desired name is not available in the list, click the ± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
+"If the desired name is not available in the list, click the Â± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the person's name on your keyboard to quickly navigate." & vbNewLine & vbNewLine & _
 "The selection made in the signature field is used in the Statement 1 report prepared for the dispatch received from XXX Directorate. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
@@ -1485,7 +1485,7 @@ End Sub
 
 Private Sub GelenXXXMudLblTutanak2Imza1_Click()
 MsgBox "Select the person to be displayed in the first signature field from the dropdown list on the right." & vbNewLine & vbNewLine & _
-"If the desired name is not listed, click the ± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
+"If the desired name is not listed, click the Â± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the person's name on your keyboard to quickly navigate." & vbNewLine & vbNewLine & _
 "The selection made in the signature field is used in the Statement 2 report prepared for the dispatch of items received from XXX Directorate to the institution. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
@@ -1493,7 +1493,7 @@ End Sub
 
 Private Sub GelenXXXMudLblTutanak2Imza2_Click()
 MsgBox "Select the person to be displayed in the second signature field from the dropdown list on the right." & vbNewLine & vbNewLine & _
-"If the desired name is not listed, click the ± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
+"If the desired name is not listed, click the Â± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the person's name on your keyboard to quickly navigate." & vbNewLine & vbNewLine & _
 "The selection made in the signature field is used in the Statement 2 report prepared for the dispatch of items received from XXX Directorate to the institution. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
@@ -1550,7 +1550,7 @@ End Sub
 
 Private Sub LblRapor2_2UstYaziImza1_Click()
 MsgBox "Select the person to be displayed in the first signature field from the dropdown list on the right." & vbNewLine & vbNewLine & _
-"If the desired name is not listed, click the ± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
+"If the desired name is not listed, click the Â± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the person's name on your keyboard to quickly navigate." & vbNewLine & vbNewLine & _
 "The selection made in the signature field is used in the result letter. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
@@ -1558,7 +1558,7 @@ End Sub
 
 Private Sub LblRapor2_2UstYaziImza2_Click()
 MsgBox "Select the person to be displayed in the second signature field from the dropdown list on the right." & vbNewLine & vbNewLine & _
-"If the desired name is not listed, click the ± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
+"If the desired name is not listed, click the Â± icon and follow the instructions in the window to add the person to the system." & vbNewLine & vbNewLine & _
 "After clicking the dropdown once, you can also press the first letter of the person's name on your keyboard to quickly navigate." & vbNewLine & vbNewLine & _
 "The selection made in the signature field is used in the result letter. For more details, click the Help button in the top-right corner.", _
 vbOKOnly + vbInformation, "Enterprise Document Automation System"
@@ -1600,7 +1600,7 @@ End If
 'Close the all Word application
 Call OpenWordControl
 
-'Oluþturulacak dosyayý aç
+'OluÅŸturulacak dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -1608,7 +1608,7 @@ Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 If objWord Is Nothing Then
-    'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+    'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
     Set objWord = CreateObject("Word.Application")
     objWord.Visible = False
 End If
@@ -1645,12 +1645,12 @@ Sub Teknik_AKontrol()
 Dim ctl As MSForms.Control, OgeFrame As Integer, Kont As Integer, KontSatir As Integer
 Dim Teknik_ASay As Integer, Teknik_AOlmayanSay As Integer
 
-'invalidlerin tümü Technique A ise sadece Technique A seçilemez. Tümü seçilmelidir.
-'invalid Technique A yoksa kullanýcýnýn ilerlemesine izin verme.
+'invalidlerin tÃ¼mÃ¼ Technique A ise sadece Technique A seÃ§ilemez. TÃ¼mÃ¼ seÃ§ilmelidir.
+'invalid Technique A yoksa kullanÄ±cÄ±nÄ±n ilerlemesine izin verme.
 
 If SadeceTeknik_AGecersizlerOption.Value = True Or TumuOption.Value = True Or _
    XXXMudPaketiOptionEvet.Value = True Or XXXMudPaketiOptionHayir.Value = True Then
-    'Satýr sayýsýný hesapla
+    'SatÄ±r sayÄ±sÄ±nÄ± hesapla
     Kont = 0
     KontSatir = 0
     For OgeFrame = 1 To 19
@@ -1663,7 +1663,7 @@ If SadeceTeknik_AGecersizlerOption.Value = True Or TumuOption.Value = True Or _
     
     If KontSatir = 1 Then
     
-        'Rapor2_2 kategorisi deðil
+        'Rapor2_2 kategorisi deÄŸil
         If Left(UretimOzelligi.Value, 11) <> "Technique A" Then
             SadeceTeknik_AGecersizlerOption.Value = False
             TumuOption.Value = False
@@ -1679,7 +1679,7 @@ If SadeceTeknik_AGecersizlerOption.Value = True Or TumuOption.Value = True Or _
             GoTo Son
         End If
         If SadeceTeknik_AGecersizlerOption.Value = True Then
-            'Rapor2_2 kategorisinde, ama Tümü seçilmeli.
+            'Rapor2_2 kategorisinde, ama TÃ¼mÃ¼ seÃ§ilmeli.
             If Sonuc.Value = "invalid" And Left(UretimOzelligi.Value, 11) = "Technique A" Then
                 MsgBox "Since all invalid Type A items in the operation contain the 'Technique A' production technique, the 'Only Technique A' option cannot be selected. Therefore, after closing this message, the 'All' option will be automatically selected.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
                 SadeceTeknik_AGecersizlerOption.Value = False
@@ -1687,9 +1687,9 @@ If SadeceTeknik_AGecersizlerOption.Value = True Or TumuOption.Value = True Or _
                 GoTo Son
             End If
         End If
-    Else 'Kont>0 anlamýna gelir.
+    Else 'Kont>0 anlamÄ±na gelir.
     
-        'Rapor2_2 kategorisi deðil
+        'Rapor2_2 kategorisi deÄŸil
         Teknik_AOlmayanSay = 0
         If Left(UretimOzelligi.Value, 11) <> "Technique A" Then
             Teknik_AOlmayanSay = Teknik_AOlmayanSay + 1
@@ -1715,7 +1715,7 @@ If SadeceTeknik_AGecersizlerOption.Value = True Or TumuOption.Value = True Or _
         End If
     
         If SadeceTeknik_AGecersizlerOption.Value = True Then
-            'Rapor2_2 kategorisinde, ama Tümü seçilmeli.
+            'Rapor2_2 kategorisinde, ama TÃ¼mÃ¼ seÃ§ilmeli.
             Teknik_ASay = 0
             If Sonuc.Value = "invalid" And Left(UretimOzelligi.Value, 11) = "Technique A" Then
                 Teknik_ASay = Teknik_ASay + 1
@@ -1794,13 +1794,13 @@ End Sub
 Sub ComboGetirReset()
 Dim Say As Long, i As Long
 
-On Error Resume Next ' Son Sýra numarasý sayýsal olmayan karakter içeriyorsa userform açýlmýyor.
+On Error Resume Next ' Son SÄ±ra numarasÄ± sayÄ±sal olmayan karakter iÃ§eriyorsa userform aÃ§Ä±lmÄ±yor.
 ComboGetir.Clear
 Say = ThisWorkbook.Worksheets(4).Range("E100000").End(xlUp).Row
 If Say < 7 Then
     GoTo GetirBos
 End If
-'Getir liste deðerleri
+'Getir liste deÄŸerleri
 For i = Say To 7 Step -1
     If ThisWorkbook.Worksheets(4).Range("E" & i).Value <> "" Then
         With ComboGetir
@@ -1848,7 +1848,7 @@ If ComboGetir.Value = "" Then
     GoTo Out
 End If
 
-'Veri tabanýný kontrol et
+'Veri tabanÄ±nÄ± kontrol et
 Say = ThisWorkbook.Worksheets(4).Range("CM100000").End(xlUp).Row
 If Say < 7 Or ComboGetir.Value = "" Then
     GoTo Out
@@ -1872,7 +1872,7 @@ Else
 End If
 
 
-'Registry Reports klasör adýný kontrol et.
+'Registry Reports klasÃ¶r adÄ±nÄ± kontrol et.
 'Check the name of the Operation Logs folder.
 If Not Dir(IslemGunlukleriKlasor, vbDirectory) <> vbNullString Then
     MsgBox IslemGunlukleriKlasor & " directory is not accessible. The folder named 'Registry Reports' may have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
@@ -1887,7 +1887,7 @@ If Not Dir(Rapor2_2IslemGunlugu, vbDirectory) <> vbNullString Then
     GoTo Out
 End If
 
-'Hazýrlýk
+'HazÄ±rlÄ±k
 SiraNoSakla = ThisWorkbook.Worksheets(4).Cells(IlkSira, 5).Value
 OncekiSiraNo = ThisWorkbook.Worksheets(4).Cells(IlkSira, 5).Value - 1
 Set WsRapor = ThisWorkbook.Worksheets(4)
@@ -1897,8 +1897,8 @@ If ThisWorkbook.Worksheets(4).Cells(IlkSira, 174) = "Yes" Then
     Sifre = InputBox(Prompt:="To delete the operation with serial number " & ThisWorkbook.Worksheets(4).Cells(IlkSira, 5).Value & " from the system, please enter the password value '123'.", Title:="Enterprise Document Automation System")
     If Sifre = "123" Then
 
-        'RAPOR2_2 ÝÞLEM GÜNLÜÐÜ
-        'Ýþlem günlüðü açýksa kaydet ve kapat.
+        'RAPOR2_2 Ä°ÅžLEM GÃœNLÃœÄžÃœ
+        'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
         OpenControl = IsWorkBookOpen(Rapor2_2IslemGunlugu)
         If OpenControl = True Then
             Workbooks("System Registry Report 2.2.xlsx").Save
@@ -1909,13 +1909,13 @@ If ThisWorkbook.Worksheets(4).Cells(IlkSira, 174) = "Yes" Then
         WsIslemGunlugu.Unprotect Password:="123"
         WsIslemGunlugu.Columns("B:C").EntireColumn.Hidden = False
         
-        'Ýþlem günlüðünde baþlangýç ve bitiþ satýrlarýný tespit et.
+        'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼nde baÅŸlangÄ±Ã§ ve bitiÅŸ satÄ±rlarÄ±nÄ± tespit et.
         Say1IslemGunlugu = WsIslemGunlugu.Range("B100000").End(xlUp).Row
         Say2IslemGunlugu = WsIslemGunlugu.Range("C100000").End(xlUp).Row
         SayAyracIslemGunlugu = WsIslemGunlugu.Range("E100000").End(xlUp).Row
         
         Set IslemGunluguIlkSiraBul = WsIslemGunlugu.Range("B7:B100000").Find(What:=WsRapor.Cells(IlkSira, 93).Value, SearchDirection:=xlNext, _
-                        SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasýný ara
+                        SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasÄ±nÄ± ara
         Set IslemGunluguSonSiraBul = WsIslemGunlugu.Range("C7:C100000").Find(What:=WsRapor.Cells(IlkSira, 93).Value, SearchDirection:=xlNext, _
                         SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
         If Not IslemGunluguIlkSiraBul Is Nothing Then
@@ -1924,25 +1924,25 @@ If ThisWorkbook.Worksheets(4).Cells(IlkSira, 174) = "Yes" Then
                 IslemGunluguSonSira = IslemGunluguSonSiraBul.Row
             End If
     
-            'kayýt def. verileri sil, satýrlarý iþaretle
+            'kayÄ±t def. verileri sil, satÄ±rlarÄ± iÅŸaretle
             WsIslemGunlugu.Range(WsIslemGunlugu.Cells(IslemGunluguIlkSira, 2), WsIslemGunlugu.Cells(IslemGunluguSonSira, 19)).ClearContents
-            WsIslemGunlugu.Cells(IslemGunluguIlkSira, 2).Value = "Sil" 'ilk satýrý silmek üzere iþaretle
-            WsIslemGunlugu.Cells(IslemGunluguSonSira, 3).Value = "Sil" 'son satýrý silmek üzere iþaretle
+            WsIslemGunlugu.Cells(IslemGunluguIlkSira, 2).Value = "Sil" 'ilk satÄ±rÄ± silmek Ã¼zere iÅŸaretle
+            WsIslemGunlugu.Cells(IslemGunluguSonSira, 3).Value = "Sil" 'son satÄ±rÄ± silmek Ã¼zere iÅŸaretle
             
-            'Dönem sýra no.larý güncelle
+            'DÃ¶nem sÄ±ra no.larÄ± gÃ¼ncelle
             i = IslemGunluguSonSira
-            Do Until WsIslemGunlugu.Cells(i, 5).Value <> "" 'silinecek verinin dönemi en alt satýrda deðilse stop koþulu
+            Do Until WsIslemGunlugu.Cells(i, 5).Value <> "" 'silinecek verinin dÃ¶nemi en alt satÄ±rda deÄŸilse stop koÅŸulu
                 i = i + 1
-                If i > Say2IslemGunlugu Then 'silinecek verinin dönemi en alt satýrda ise stop koþulu
+                If i > Say2IslemGunlugu Then 'silinecek verinin dÃ¶nemi en alt satÄ±rda ise stop koÅŸulu
                     GoTo SilDonemSiraNo2
                 End If
-                If WsIslemGunlugu.Cells(i, 6).Value <> "" And IsNumeric(WsIslemGunlugu.Cells(i, 6).Value) Then 'silinen veriden sonraki verileri dönem sýra no.larý 1 azalýr
+                If WsIslemGunlugu.Cells(i, 6).Value <> "" And IsNumeric(WsIslemGunlugu.Cells(i, 6).Value) Then 'silinen veriden sonraki verileri dÃ¶nem sÄ±ra no.larÄ± 1 azalÄ±r
                     WsIslemGunlugu.Cells(i, 6).Value = WsIslemGunlugu.Cells(i, 6).Value - 1
                 End If
             Loop
 SilDonemSiraNo2:
     
-            'Genel sýra no.larý güncelle
+            'Genel sÄ±ra no.larÄ± gÃ¼ncelle
             SayGenel = WsIslemGunlugu.Range("D100000").End(xlUp).Row
             i = IslemGunluguSonSira
             Do Until i > SayGenel
@@ -1977,7 +1977,7 @@ SilDonemSiraNo2:
                 End With
             End If
     
-            'Silinecek dönemde yer alan boþ satýr aralýðýný kaldýr
+            'Silinecek dÃ¶nemde yer alan boÅŸ satÄ±r aralÄ±ÄŸÄ±nÄ± kaldÄ±r
             Set BulIslemGunlugu = WsIslemGunlugu.Range("B:B").Find(What:="Sil", SearchDirection:=xlNext, _
             SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
             If Not BulIslemGunlugu Is Nothing Then
@@ -1994,7 +1994,7 @@ SilDonemSiraNo2:
             'Nothing
         End If
         
-        'Ýþlem günlüðünde aþaðý git
+        'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼nde aÅŸaÄŸÄ± git
         Say2IslemGunlugu = WsIslemGunlugu.Range("C100000").End(xlUp).Row
         On Error Resume Next
         ActiveWindow.ScrollRow = Say2IslemGunlugu - 10
@@ -2004,7 +2004,7 @@ SilDonemSiraNo2:
 
         WsIslemGunlugu.Protect Password:="123"
 
-        'Ýþlem günlüðü açýksa kaydet ve kapat.
+        'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
         OpenControl = IsWorkBookOpen(Rapor2_2IslemGunlugu)
         If OpenControl = True Then
             Workbooks("System Registry Report 2.2.xlsx").Save
@@ -2014,8 +2014,8 @@ SilDonemSiraNo2:
         
         '___________________________
         
-        'RAPOR ÝÞLEM GÜNLÜÐÜ
-        'Ýþlem günlüðü açýksa kaydet ve kapat.
+        'RAPOR Ä°ÅžLEM GÃœNLÃœÄžÃœ
+        'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
         OpenControl = IsWorkBookOpen(IslemGunlugu)
         If OpenControl = True Then
             Workbooks("System Registry Report 2.1.xlsx").Save
@@ -2026,13 +2026,13 @@ SilDonemSiraNo2:
         WsIslemGunlugu.Unprotect Password:="123"
         WsIslemGunlugu.Columns("B:C").EntireColumn.Hidden = False
         
-        'Ýþlem günlüðünde baþlangýç ve bitiþ satýrlarýný tespit et.
+        'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼nde baÅŸlangÄ±Ã§ ve bitiÅŸ satÄ±rlarÄ±nÄ± tespit et.
         Say1IslemGunlugu = WsIslemGunlugu.Range("B100000").End(xlUp).Row
         Say2IslemGunlugu = WsIslemGunlugu.Range("C100000").End(xlUp).Row
         SayAyracIslemGunlugu = WsIslemGunlugu.Range("E100000").End(xlUp).Row
         
         Set IslemGunluguIlkSiraBul = WsIslemGunlugu.Range("B7:B100000").Find(What:=WsRapor.Cells(IlkSira, 93).Value, SearchDirection:=xlNext, _
-                        SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasýný ara
+                        SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasÄ±nÄ± ara
         Set IslemGunluguSonSiraBul = WsIslemGunlugu.Range("C7:C100000").Find(What:=WsRapor.Cells(IlkSira, 93).Value, SearchDirection:=xlNext, _
                         SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
         If Not IslemGunluguIlkSiraBul Is Nothing Then
@@ -2041,25 +2041,25 @@ SilDonemSiraNo2:
                 IslemGunluguSonSira = IslemGunluguSonSiraBul.Row
             End If
         
-            'kayýt def. verileri sil, satýrlarý iþaretle
+            'kayÄ±t def. verileri sil, satÄ±rlarÄ± iÅŸaretle
             WsIslemGunlugu.Range(WsIslemGunlugu.Cells(IslemGunluguIlkSira, 2), WsIslemGunlugu.Cells(IslemGunluguSonSira, 20)).ClearContents
-            WsIslemGunlugu.Cells(IslemGunluguIlkSira, 2).Value = "Sil" 'ilk satýrý silmek üzere iþaretle
-            WsIslemGunlugu.Cells(IslemGunluguSonSira, 3).Value = "Sil" 'son satýrý silmek üzere iþaretle
+            WsIslemGunlugu.Cells(IslemGunluguIlkSira, 2).Value = "Sil" 'ilk satÄ±rÄ± silmek Ã¼zere iÅŸaretle
+            WsIslemGunlugu.Cells(IslemGunluguSonSira, 3).Value = "Sil" 'son satÄ±rÄ± silmek Ã¼zere iÅŸaretle
             
-            'Dönem sýra no.larý güncelle
+            'DÃ¶nem sÄ±ra no.larÄ± gÃ¼ncelle
             i = IslemGunluguSonSira
-            Do Until WsIslemGunlugu.Cells(i, 5).Value <> "" 'silinecek verinin dönemi en alt satýrda deðilse stop koþulu
+            Do Until WsIslemGunlugu.Cells(i, 5).Value <> "" 'silinecek verinin dÃ¶nemi en alt satÄ±rda deÄŸilse stop koÅŸulu
                 i = i + 1
-                If i > Say2IslemGunlugu Then 'silinecek verinin dönemi en alt satýrda ise stop koþulu
+                If i > Say2IslemGunlugu Then 'silinecek verinin dÃ¶nemi en alt satÄ±rda ise stop koÅŸulu
                     GoTo SilDonemSiraNo1
                 End If
-                If WsIslemGunlugu.Cells(i, 6).Value <> "" And IsNumeric(WsIslemGunlugu.Cells(i, 6).Value) Then 'silinen veriden sonraki verileri dönem sýra no.larý 1 azalýr
+                If WsIslemGunlugu.Cells(i, 6).Value <> "" And IsNumeric(WsIslemGunlugu.Cells(i, 6).Value) Then 'silinen veriden sonraki verileri dÃ¶nem sÄ±ra no.larÄ± 1 azalÄ±r
                     WsIslemGunlugu.Cells(i, 6).Value = WsIslemGunlugu.Cells(i, 6).Value - 1
                 End If
             Loop
 SilDonemSiraNo1:
         
-            'Genel sýra no.larý güncelle
+            'Genel sÄ±ra no.larÄ± gÃ¼ncelle
             SayGenel = WsIslemGunlugu.Range("D100000").End(xlUp).Row
             i = IslemGunluguSonSira
             Do Until i > SayGenel
@@ -2094,7 +2094,7 @@ SilDonemSiraNo1:
                 End With
             End If
         
-            'Silinecek dönemde yer alan boþ satýr aralýðýný kaldýr
+            'Silinecek dÃ¶nemde yer alan boÅŸ satÄ±r aralÄ±ÄŸÄ±nÄ± kaldÄ±r
             Set BulIslemGunlugu = WsIslemGunlugu.Range("B:B").Find(What:="Sil", SearchDirection:=xlNext, _
             SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
             If Not BulIslemGunlugu Is Nothing Then
@@ -2112,7 +2112,7 @@ SilDonemSiraNo1:
             'Nothing
         End If
         
-        'Ýþlem günlüðünde aþaðý git
+        'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼nde aÅŸaÄŸÄ± git
         Say2IslemGunlugu = WsIslemGunlugu.Range("C100000").End(xlUp).Row
         On Error Resume Next
         ActiveWindow.ScrollRow = Say2IslemGunlugu - 10
@@ -2122,7 +2122,7 @@ SilDonemSiraNo1:
     
         WsIslemGunlugu.Protect Password:="123"
     
-        'Ýþlem günlüðü açýksa kaydet ve kapat.
+        'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
         OpenControl = IsWorkBookOpen(IslemGunlugu)
         If OpenControl = True Then
             Workbooks("System Registry Report 2.1.xlsx").Save
@@ -2131,20 +2131,20 @@ SilDonemSiraNo1:
 
 
 
-        'MODÜL iþlemleri
+        'MODÃœL iÅŸlemleri
         Set WsRapor = ThisWorkbook.Worksheets(4)
         'On Error Resume Next
-        'Sira numaralarýný düzelt
+        'Sira numaralarÄ±nÄ± dÃ¼zelt
         If Say > IlkSira Then
             For i = IlkSira + 1 To Say
                 If WsRapor.Cells(i, 5).Value <> "" Then
                     OncekiSiraNo = OncekiSiraNo + 1
                     WsRapor.Cells(i, 5).Value = OncekiSiraNo
-                    WsRapor.Cells(i, 91).Value = OncekiSiraNo 'baþlangýç
+                    WsRapor.Cells(i, 91).Value = OncekiSiraNo 'baÅŸlangÄ±Ã§
                     
                     For j = i To i + 1000
                         If WsRapor.Cells(j, 92).Value <> "" Then
-                            WsRapor.Cells(j, 92).Value = OncekiSiraNo 'bitiþ
+                            WsRapor.Cells(j, 92).Value = OncekiSiraNo 'bitiÅŸ
                             GoTo DonguJSonRapor
                         End If
                     Next j
@@ -2152,9 +2152,9 @@ DonguJSonRapor:
                 End If
             Next i
 
-            'Geçici fark kayýtlarýný sil
+            'GeÃ§ici fark kayÄ±tlarÄ±nÄ± sil
             ThisWorkbook.Worksheets(7).Rows("3:30").EntireRow.Delete
-            'Kalýcý fark kayýtlarýný sil
+            'KalÄ±cÄ± fark kayÄ±tlarÄ±nÄ± sil
             Set WsFarkGirisRapor1 = ThisWorkbook.Worksheets(9)
             Set IlkSiraBul = WsFarkGirisRapor1.Range("P3:P100000").Find(What:=SiraNoSakla, SearchDirection:=xlNext, _
                             SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -2172,8 +2172,8 @@ DonguJSonRapor:
             End If
             WsFarkGirisRapor1.Rows(IlkSiraFarkGirisRapor1 & ":" & SonSiraFarkGirisRapor1).EntireRow.Delete
     
-            'Fark giriþlerindeki sýra no.lar, modül içindeki sýra no.lar ile senkronize olarak deðiþtirilmesi gerekir.
-            'Fark giriþlerindeki sýra no.lar (modülün aksine) ardýþýk olarak birbirine takip etmeyebilir.
+            'Fark giriÅŸlerindeki sÄ±ra no.lar, modÃ¼l iÃ§indeki sÄ±ra no.lar ile senkronize olarak deÄŸiÅŸtirilmesi gerekir.
+            'Fark giriÅŸlerindeki sÄ±ra no.lar (modÃ¼lÃ¼n aksine) ardÄ±ÅŸÄ±k olarak birbirine takip etmeyebilir.
             For i = SiraNoSakla To OncekiSiraNo
                 Set IlkSiraBul = WsFarkGirisRapor1.Range("P3:P100000").Find(What:=i + 1, SearchDirection:=xlNext, _
                                 SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -2196,11 +2196,11 @@ FarkGirisNoDuzeltAtla:
 FarkGirisSilAtla2:
 
         ElseIf Say = IlkSira Then
-            'MsgBox " Modül: Güncellenecek no yok!"
+            'MsgBox " ModÃ¼l: GÃ¼ncellenecek no yok!"
 
-            'Geçici fark kayýtlarýný sil
+            'GeÃ§ici fark kayÄ±tlarÄ±nÄ± sil
             ThisWorkbook.Worksheets(7).Rows("3:30").EntireRow.Delete
-            'Kalýcý fark kayýtlarýný sil
+            'KalÄ±cÄ± fark kayÄ±tlarÄ±nÄ± sil
             Set WsFarkGirisRapor1 = ThisWorkbook.Worksheets(9)
             Set IlkSiraBul = WsFarkGirisRapor1.Range("P3:P100000").Find(What:=SiraNoSakla, SearchDirection:=xlNext, _
                             SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -2221,14 +2221,14 @@ FarkGirisSilAtla1:
 
         End If
         
-        'Rapor no sayfasýnda silme iþlemini yap
+        'Rapor no sayfasÄ±nda silme iÅŸlemini yap
         
         '__________Rapor No Senkronizasyon 30.11.2021
     
         Set WsRaporNo = ThisWorkbook.Worksheets(10)
     
         Set RnoIlkSiraBul = WsRaporNo.Range("D6:D100000").Find(What:=Cells(IlkSira, 93).Value, SearchDirection:=xlNext, _
-                        SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasýný ara
+                        SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasÄ±nÄ± ara
         Set RnoSonSiraBul = WsRaporNo.Range("E6:E100000").Find(What:=Cells(IlkSira, 93).Value, SearchDirection:=xlNext, _
                         SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
         If Not RnoIlkSiraBul Is Nothing Then
@@ -2242,7 +2242,7 @@ FarkGirisSilAtla1:
         '__________Rapor No Senkronizasyon 30.11.2021
         
         
-        'Modülde silme iþlemini gerçekleþtir.
+        'ModÃ¼lde silme iÅŸlemini gerÃ§ekleÅŸtir.
         WsRapor.Rows(IlkSira & ":" & SonSira).EntireRow.Delete
         
 
@@ -2262,19 +2262,19 @@ FarkGirisSilAtla1:
         MsgBox "The operation with serial number " & SiraNoSakla & " has been successfully deleted from the system.", vbOKOnly + vbInformation, "Enterprise Document Automation System"
         
     ElseIf Sifre = vbCancel Then
-        'MsgBox "Þifre iptal"
+        'MsgBox "Åžifre iptal"
         GoTo Out
     ElseIf Sifre <> "" And Sifre <> "123" Then
         MsgBox "The operation with serial number " & SiraNoSakla & " could not be deleted from the system due to an incorrect password.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
         GoTo Out
-    End If 'Þifre koþulu sonu
+    End If 'Åžifre koÅŸulu sonu
 
 Else 'RAPOR
 
     Sifre = InputBox(Prompt:="To delete the operation with serial number " & ThisWorkbook.Worksheets(4).Cells(IlkSira, 5).Value & " from the system, please enter the password value '123'.", Title:="Enterprise Document Automation System")
     If Sifre = "123" Then
-        'RAPOR ÝÞLEM GÜNLÜÐÜ
-        'Ýþlem günlüðü açýksa kaydet ve kapat.
+        'RAPOR Ä°ÅžLEM GÃœNLÃœÄžÃœ
+        'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
         OpenControl = IsWorkBookOpen(IslemGunlugu)
         If OpenControl = True Then
             Workbooks("System Registry Report 2.1.xlsx").Save
@@ -2285,13 +2285,13 @@ Else 'RAPOR
         WsIslemGunlugu.Unprotect Password:="123"
         WsIslemGunlugu.Columns("B:C").EntireColumn.Hidden = False
         
-        'Ýþlem günlüðünde baþlangýç ve bitiþ satýrlarýný tespit et.
+        'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼nde baÅŸlangÄ±Ã§ ve bitiÅŸ satÄ±rlarÄ±nÄ± tespit et.
         Say1IslemGunlugu = WsIslemGunlugu.Range("B100000").End(xlUp).Row
         Say2IslemGunlugu = WsIslemGunlugu.Range("C100000").End(xlUp).Row
         SayAyracIslemGunlugu = WsIslemGunlugu.Range("E100000").End(xlUp).Row
         
         Set IslemGunluguIlkSiraBul = WsIslemGunlugu.Range("B7:B100000").Find(What:=WsRapor.Cells(IlkSira, 93).Value, SearchDirection:=xlNext, _
-                        SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasýný ara
+                        SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasÄ±nÄ± ara
         Set IslemGunluguSonSiraBul = WsIslemGunlugu.Range("C7:C100000").Find(What:=WsRapor.Cells(IlkSira, 93).Value, SearchDirection:=xlNext, _
                         SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
         If Not IslemGunluguIlkSiraBul Is Nothing Then
@@ -2300,25 +2300,25 @@ Else 'RAPOR
                 IslemGunluguSonSira = IslemGunluguSonSiraBul.Row
             End If
         
-            'kayýt def. verileri sil, satýrlarý iþaretle
+            'kayÄ±t def. verileri sil, satÄ±rlarÄ± iÅŸaretle
             WsIslemGunlugu.Range(WsIslemGunlugu.Cells(IslemGunluguIlkSira, 2), WsIslemGunlugu.Cells(IslemGunluguSonSira, 20)).ClearContents
-            WsIslemGunlugu.Cells(IslemGunluguIlkSira, 2).Value = "Sil" 'ilk satýrý silmek üzere iþaretle
-            WsIslemGunlugu.Cells(IslemGunluguSonSira, 3).Value = "Sil" 'son satýrý silmek üzere iþaretle
+            WsIslemGunlugu.Cells(IslemGunluguIlkSira, 2).Value = "Sil" 'ilk satÄ±rÄ± silmek Ã¼zere iÅŸaretle
+            WsIslemGunlugu.Cells(IslemGunluguSonSira, 3).Value = "Sil" 'son satÄ±rÄ± silmek Ã¼zere iÅŸaretle
             
-            'Dönem sýra no.larý güncelle
+            'DÃ¶nem sÄ±ra no.larÄ± gÃ¼ncelle
             i = IslemGunluguSonSira
-            Do Until WsIslemGunlugu.Cells(i, 5).Value <> "" 'silinecek verinin dönemi en alt satýrda deðilse stop koþulu
+            Do Until WsIslemGunlugu.Cells(i, 5).Value <> "" 'silinecek verinin dÃ¶nemi en alt satÄ±rda deÄŸilse stop koÅŸulu
                 i = i + 1
-                If i > Say2IslemGunlugu Then 'silinecek verinin dönemi en alt satýrda ise stop koþulu
+                If i > Say2IslemGunlugu Then 'silinecek verinin dÃ¶nemi en alt satÄ±rda ise stop koÅŸulu
                     GoTo SilDonemSiraNo
                 End If
-                If WsIslemGunlugu.Cells(i, 6).Value <> "" And IsNumeric(WsIslemGunlugu.Cells(i, 6).Value) Then 'silinen veriden sonraki verileri dönem sýra no.larý 1 azalýr
+                If WsIslemGunlugu.Cells(i, 6).Value <> "" And IsNumeric(WsIslemGunlugu.Cells(i, 6).Value) Then 'silinen veriden sonraki verileri dÃ¶nem sÄ±ra no.larÄ± 1 azalÄ±r
                     WsIslemGunlugu.Cells(i, 6).Value = WsIslemGunlugu.Cells(i, 6).Value - 1
                 End If
             Loop
 SilDonemSiraNo:
         
-            'Genel sýra no.larý güncelle
+            'Genel sÄ±ra no.larÄ± gÃ¼ncelle
             SayGenel = WsIslemGunlugu.Range("D100000").End(xlUp).Row
             i = IslemGunluguSonSira
             Do Until i > SayGenel
@@ -2353,7 +2353,7 @@ SilDonemSiraNo:
                 End With
             End If
         
-            'Silinecek dönemde yer alan boþ satýr aralýðýný kaldýr
+            'Silinecek dÃ¶nemde yer alan boÅŸ satÄ±r aralÄ±ÄŸÄ±nÄ± kaldÄ±r
             Set BulIslemGunlugu = WsIslemGunlugu.Range("B:B").Find(What:="Sil", SearchDirection:=xlNext, _
             SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
             If Not BulIslemGunlugu Is Nothing Then
@@ -2371,7 +2371,7 @@ SilDonemSiraNo:
             'Nothing
         End If
         
-        'Ýþlem günlüðünde aþaðý git
+        'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼nde aÅŸaÄŸÄ± git
         Say2IslemGunlugu = WsIslemGunlugu.Range("C100000").End(xlUp).Row
         On Error Resume Next
         ActiveWindow.ScrollRow = Say2IslemGunlugu - 10
@@ -2381,27 +2381,27 @@ SilDonemSiraNo:
     
         WsIslemGunlugu.Protect Password:="123"
     
-        'Ýþlem günlüðü açýksa kaydet ve kapat.
+        'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
         OpenControl = IsWorkBookOpen(IslemGunlugu)
         If OpenControl = True Then
             Workbooks("System Registry Report 2.1.xlsx").Save
             Workbooks("System Registry Report 2.1.xlsx").Close SaveChanges:=False
         End If
         
-        'MODÜL iþlemleri
+        'MODÃœL iÅŸlemleri
         Set WsRapor = ThisWorkbook.Worksheets(4)
         'On Error Resume Next
-        'Sira numaralarýný düzelt
+        'Sira numaralarÄ±nÄ± dÃ¼zelt
         If Say > IlkSira Then
             For i = IlkSira + 1 To Say
                 If WsRapor.Cells(i, 5).Value <> "" Then
                     OncekiSiraNo = OncekiSiraNo + 1
                     WsRapor.Cells(i, 5).Value = OncekiSiraNo
-                    WsRapor.Cells(i, 91).Value = OncekiSiraNo 'baþlangýç
+                    WsRapor.Cells(i, 91).Value = OncekiSiraNo 'baÅŸlangÄ±Ã§
                                         
                     For j = i To i + 1000
                         If WsRapor.Cells(j, 92).Value <> "" Then
-                            WsRapor.Cells(j, 92).Value = OncekiSiraNo 'bitiþ
+                            WsRapor.Cells(j, 92).Value = OncekiSiraNo 'bitiÅŸ
                             GoTo DonguJSon
                         End If
                     Next j
@@ -2409,9 +2409,9 @@ DonguJSon:
                 End If
             Next i
             
-            'Geçici fark kayýtlarýný sil
+            'GeÃ§ici fark kayÄ±tlarÄ±nÄ± sil
             ThisWorkbook.Worksheets(7).Rows("3:30").EntireRow.Delete
-            'Kalýcý fark kayýtlarýný sil
+            'KalÄ±cÄ± fark kayÄ±tlarÄ±nÄ± sil
             Set WsFarkGirisRapor1 = ThisWorkbook.Worksheets(9)
             Set IlkSiraBul = WsFarkGirisRapor1.Range("P3:P100000").Find(What:=SiraNoSakla, SearchDirection:=xlNext, _
                             SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -2429,8 +2429,8 @@ DonguJSon:
             End If
             WsFarkGirisRapor1.Rows(IlkSiraFarkGirisRapor1 & ":" & SonSiraFarkGirisRapor1).EntireRow.Delete
     
-            'Fark giriþlerindeki sýra no.lar, modül içindeki sýra no.lar ile senkronize olarak deðiþtirilmesi gerekir.
-            'Fark giriþlerindeki sýra no.lar (modülün aksine) ardýþýk olarak birbirine takip etmeyebilir.
+            'Fark giriÅŸlerindeki sÄ±ra no.lar, modÃ¼l iÃ§indeki sÄ±ra no.lar ile senkronize olarak deÄŸiÅŸtirilmesi gerekir.
+            'Fark giriÅŸlerindeki sÄ±ra no.lar (modÃ¼lÃ¼n aksine) ardÄ±ÅŸÄ±k olarak birbirine takip etmeyebilir.
             For i = SiraNoSakla To OncekiSiraNo
                 Set IlkSiraBul = WsFarkGirisRapor1.Range("P3:P100000").Find(What:=i + 1, SearchDirection:=xlNext, _
                                 SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -2453,11 +2453,11 @@ FarkGirisNoDuzeltAtlax:
 FarkGirisSilAtla2x:
     
         ElseIf Say = IlkSira Then
-            'MsgBox " Modül: Güncellenecek no yok!"
+            'MsgBox " ModÃ¼l: GÃ¼ncellenecek no yok!"
     
-            'Geçici fark kayýtlarýný sil
+            'GeÃ§ici fark kayÄ±tlarÄ±nÄ± sil
             ThisWorkbook.Worksheets(7).Rows("3:30").EntireRow.Delete
-            'Kalýcý fark kayýtlarýný sil
+            'KalÄ±cÄ± fark kayÄ±tlarÄ±nÄ± sil
             Set WsFarkGirisRapor1 = ThisWorkbook.Worksheets(9)
             Set IlkSiraBul = WsFarkGirisRapor1.Range("P3:P100000").Find(What:=SiraNoSakla, SearchDirection:=xlNext, _
                             SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -2478,14 +2478,14 @@ FarkGirisSilAtla1x:
     
         End If
 
-        'Rapor no sayfasýnda silme iþlemini yap
+        'Rapor no sayfasÄ±nda silme iÅŸlemini yap
         
         '__________Rapor No Senkronizasyon 30.11.2021
     
         Set WsRaporNo = ThisWorkbook.Worksheets(10)
     
         Set RnoIlkSiraBul = WsRaporNo.Range("D6:D100000").Find(What:=Cells(IlkSira, 93).Value, SearchDirection:=xlNext, _
-                        SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasýný ara
+                        SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasÄ±nÄ± ara
         Set RnoSonSiraBul = WsRaporNo.Range("E6:E100000").Find(What:=Cells(IlkSira, 93).Value, SearchDirection:=xlNext, _
                         SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
         If Not RnoIlkSiraBul Is Nothing Then
@@ -2499,7 +2499,7 @@ FarkGirisSilAtla1x:
         '__________Rapor No Senkronizasyon 30.11.2021
         
         
-        'Modülde silme iþlemini gerçekleþtir.
+        'ModÃ¼lde silme iÅŸlemini gerÃ§ekleÅŸtir.
         WsRapor.Rows(IlkSira & ":" & SonSira).EntireRow.Delete
     
     
@@ -2519,12 +2519,12 @@ FarkGirisSilAtla1x:
         MsgBox "The operation with serial number " & SiraNoSakla & " has been successfully deleted from the system.", vbOKOnly + vbInformation, "Enterprise Document Automation System"
 
     ElseIf Sifre = vbCancel Then
-        'MsgBox "Þifre iptal"
+        'MsgBox "Åžifre iptal"
         GoTo Out
     ElseIf Sifre <> "" And Sifre <> "123" Then
         MsgBox "The operation with serial number " & SiraNoSakla & " could not be deleted from the system due to an incorrect password.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
         GoTo Out
-    End If 'Þifre koþulu sonu
+    End If 'Åžifre koÅŸulu sonu
 
 End If
 
@@ -2532,14 +2532,14 @@ End If
 
 Out:
 
-'Ýþlem günlüðü açýksa kaydet ve kapat.
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(Rapor2_2IslemGunlugu)
 If OpenControl = True Then
     Workbooks("System Registry Report 2.2.xlsx").Save
     Workbooks("System Registry Report 2.2.xlsx").Close SaveChanges:=False
 End If
 
-'Ýþlem günlüðü açýksa kaydet ve kapat.
+'Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ aÃ§Ä±ksa kaydet ve kapat.
 OpenControl = IsWorkBookOpen(IslemGunlugu)
 If OpenControl = True Then
     Workbooks("System Registry Report 2.1.xlsx").Save
@@ -2577,7 +2577,7 @@ KilitIptal = True
 Call LblDuzeltme_Click
 ComboGetir.Value = ""
 
-'Rapor1 no deðerlerini sýfýrla
+'Rapor1 no deÄŸerlerini sÄ±fÄ±rla
 Call Son20RaporNo
 Call Son20Rapor2_2No
 Rapor1No.Value = ""
@@ -2762,7 +2762,7 @@ Sub OpenWordControl()
 Dim ObjWordx As Object
 Dim objDocx As Object
 
-'MsgBox "OpenWordControl prosedürü baþlýyor."
+'MsgBox "OpenWordControl prosedÃ¼rÃ¼ baÅŸlÄ±yor."
 
     On Error GoTo NoOpenDoc
     Set ObjWordx = GetObject(, "Word.Application")
@@ -2779,10 +2779,10 @@ NoOpenDocAtla:
         'MsgBox objWordx.ActiveDocument.Name
         If ObjWordx.ActiveDocument.name <> "" Then
             ObjWordx.Quit SaveChanges:=True
-            'MsgBox "Dosya OpenWordControl methodu ile kapatýldý."
+            'MsgBox "Dosya OpenWordControl methodu ile kapatÄ±ldÄ±."
         End If
     Else
-        'MsgBox "Açýk word dokümaný yok."
+        'MsgBox "AÃ§Ä±k word dokÃ¼manÄ± yok."
     End If
 
 Son:
@@ -2814,12 +2814,12 @@ Application.DisplayAlerts = False
 AutoPath = ThisWorkbook.Path
 DestOperasyon = AutoPath & "\System Files\Operation\"
 'Draft File
-SourceTaslak = AutoPath & "\System Files\Help Documents\Report 2 Entry – Help.docm"
-'Birden fazla kullanýcýnýn operasyon klasöründe çakýþmasýný önlemek için operasyon klasörünün içinde yeni klasör aç.
+SourceTaslak = AutoPath & "\System Files\Help Documents\Report 2 Entry â€“ Help.docm"
+'Birden fazla kullanÄ±cÄ±nÄ±n operasyon klasÃ¶rÃ¼nde Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in operasyon klasÃ¶rÃ¼nÃ¼n iÃ§inde yeni klasÃ¶r aÃ§.
 DestOpUserFolderName = "Operation-" & Left(ThisWorkbook.name, InStr(ThisWorkbook.name, ".") - 1) '& " " & Format(Now(), "ddmmyyyyhhmmss")
 DestOpUserFolder = DestOperasyon & DestOpUserFolderName & "\"
 
-'System Files klasör adýný kontrol et.
+'System Files klasÃ¶r adÄ±nÄ± kontrol et.
 If Not Dir(AutoPath & "\System Files\", vbDirectory) <> vbNullString Then
     MsgBox AutoPath & "\System Files\" & " directory cannot be accessed. The folder named 'System Files' may have been renamed or deleted.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
@@ -2832,16 +2832,16 @@ If Not Dir(DestOperasyon, vbDirectory) <> vbNullString Then
 End If
 
 
-'RmDir DestOpUserFolder 'Sistem kapanýrken DestOpUserFolder klasörünü temizle EKLENECEK!
+'RmDir DestOpUserFolder 'Sistem kapanÄ±rken DestOpUserFolder klasÃ¶rÃ¼nÃ¼ temizle EKLENECEK!
 '_______________
 
-'Klasör isimlerini kontrol et.
+'KlasÃ¶r isimlerini kontrol et.
 If Not Dir(SourceTaslak, vbDirectory) <> vbNullString Then
     MsgBox SourceTaslak & " directory cannot be accessed. Folder and/or file names in this directory may have been changed.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     GoTo Son
 End If
 
-'Operation klasörü içinde kullanýcý modülü klasörü yoksa oluþtur.
+'Operation klasÃ¶rÃ¼ iÃ§inde kullanÄ±cÄ± modÃ¼lÃ¼ klasÃ¶rÃ¼ yoksa oluÅŸtur.
 If Not Dir(DestOpUserFolder, vbDirectory) <> vbNullString Then
     MkDir DestOpUserFolder
 End If
@@ -2853,11 +2853,11 @@ ReNameTaslak = "Help Documents"
 'Close the all Word application
 Call OpenWordControl
 
-'Operation klasöründeki docm uzantýlý word dosyalarýndan açýk olanlarý kapat ve temizle.
+'Operation klasÃ¶rÃ¼ndeki docm uzantÄ±lÄ± word dosyalarÄ±ndan aÃ§Ä±k olanlarÄ± kapat ve temizle.
 OpenKontrolName = Dir(DestOpUserFolder & "*.docm")
 Do While OpenKontrolName <> ""
     OpenControl = IsFileOpen(DestOpUserFolder & OpenKontrolName)
-    If OpenControl = True Then 'Açýksa
+    If OpenControl = True Then 'AÃ§Ä±ksa
         On Error Resume Next
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
@@ -2865,7 +2865,7 @@ Do While OpenKontrolName <> ""
         Set objWord = GetObject(, "Word.Application")
         Set objWord = GetObject(, "Word.Application")
         objWord.Quit SaveChanges:=True
-        'MsgBox "Dosya OpenKontrol methodu ile kapatýldý."
+        'MsgBox "Dosya OpenKontrol methodu ile kapatÄ±ldÄ±."
 
     End If
     OpenKontrolName = Dir()
@@ -2876,7 +2876,7 @@ Set objDoc = Nothing
 '________________________________________
 
 On Error Resume Next
-'    Klasörün içindeki tüm dosyalarý sil (txt, docm vb.)
+'    KlasÃ¶rÃ¼n iÃ§indeki tÃ¼m dosyalarÄ± sil (txt, docm vb.)
 ContSay = 0
 KontrolFile = Dir(DestOpUserFolder & "*.???")
 Do While KontrolFile <> ""
@@ -2888,13 +2888,13 @@ If ContSay > 0 Then
 End If
 
 
-'Dosyayý þablondan operasyon klasörüne kopyala ve adýný deðiþtir.
+'DosyayÄ± ÅŸablondan operasyon klasÃ¶rÃ¼ne kopyala ve adÄ±nÄ± deÄŸiÅŸtir.
 Set fso = CreateObject("Scripting.FileSystemObject")
 fso.CopyFile (SourceTaslak), DestOpUserFolder & ReNameTaslak & ".docm", True
 
 '________________________________________
 
-'Oluþturulacak dosyayý aç
+'OluÅŸturulacak dosyayÄ± aÃ§
 On Error Resume Next
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
@@ -2902,7 +2902,7 @@ Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 Set objWord = GetObject(, "Word.Application")
 If objWord Is Nothing Then
-    'MsgBox "Dosya oluþturmada CreateObject methodu kullanýlacak."
+    'MsgBox "Dosya oluÅŸturmada CreateObject methodu kullanÄ±lacak."
     Set objWord = CreateObject("Word.Application")
     objWord.Visible = False
 End If
@@ -3324,12 +3324,12 @@ YinedeKaydet18Ek1:
 
 '___________________________
 
-'Farklý tutanak1 giriþi kontrolü
+'FarklÄ± tutanak1 giriÅŸi kontrolÃ¼
 SayFarkGiris = 1
 If Tutanak1Sonucu.Value = "d. Discrepancy Detected" Then
 
     Set WsFarkGiris = ThisWorkbook.Worksheets(7)
-    'Maksimum deðerler.
+    'Maksimum deÄŸerler.
     SayA = WsFarkGiris.Range("A100000").End(xlUp).Row
     SayD = WsFarkGiris.Range("D100000").End(xlUp).Row
     SayG = WsFarkGiris.Range("G100000").End(xlUp).Row
@@ -3354,7 +3354,7 @@ YinedeKaydet12FarkGirisi:
 '___________________________
 
 
-'Arada boþ býrakýlan satýrlarýn kontrolü; öðe türü, öðe deðeri, adet, öðe ID no (ve açýklama)
+'Arada boÅŸ bÄ±rakÄ±lan satÄ±rlarÄ±n kontrolÃ¼; Ã¶ÄŸe tÃ¼rÃ¼, Ã¶ÄŸe deÄŸeri, adet, Ã¶ÄŸe ID no (ve aÃ§Ä±klama)
 Kont = 0
 For OgeFrame = 1 To 19
     If Controls("OgeTuruFrame" & OgeFrame).Visible = True Then
@@ -3414,8 +3414,8 @@ If Maxi > 0 Then
 '        End If
     Next i
 End If
-'Yukarýdaki maxi deðeri, (aþaðýda bulunan kodlarda) verilerin rapor1 formundan
-'sayfaya aktarýlmasýnda kullanýlýyor.
+'YukarÄ±daki maxi deÄŸeri, (aÅŸaÄŸÄ±da bulunan kodlarda) verilerin rapor1 formundan
+'sayfaya aktarÄ±lmasÄ±nda kullanÄ±lÄ±yor.
 If OgeTuruKontSatir <> 0 And OgeDegeriKontSatir <> 0 And AdetKontSatir <> 0 And OgeIdNoKontSatir Then
     Bilgi = MsgBox("A skipped row has been detected. Click 'Yes' to save anyway or 'No' to make corrections.", vbYesNo + vbExclamation, "Enterprise Document Automation System")
     If Bilgi = vbYes Then
@@ -3556,9 +3556,9 @@ YinedeKaydet21AltNo1Degil:
     'MsgBox "RefSatir: " & RefSatir
     
     'MsgBox "IlkSiraGlobal: " & IlkSiraGlobal
-    If ComboGetir.Value <> "" Then 'Düzenleme iþlemi ise cari iþlemin rapor no.su aramalara takýlmasýn; bu yüzden saða al; sonra tekrar yerine koymayý unutma!
+    If ComboGetir.Value <> "" Then 'DÃ¼zenleme iÅŸlemi ise cari iÅŸlemin rapor no.su aramalara takÄ±lmasÄ±n; bu yÃ¼zden saÄŸa al; sonra tekrar yerine koymayÄ± unutma!
         Set RnoIlkSiraBul = WsRaporNo.Range("D6:D100000").Find(What:=Cells(IlkSiraGlobal, 93).Value, SearchDirection:=xlNext, _
-                        SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasýný ara
+                        SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasÄ±nÄ± ara
         Set RnoSonSiraBul = WsRaporNo.Range("E6:E100000").Find(What:=Cells(IlkSiraGlobal, 93).Value, SearchDirection:=xlNext, _
                         SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
         If Not RnoIlkSiraBul Is Nothing Then
@@ -3571,14 +3571,14 @@ YinedeKaydet21AltNo1Degil:
         End If
     End If
  
-    'Rapor1 numarasýnýn daha önce kullanýlýp kullanýlmadýðýný kontrol et.
+    'Rapor1 numarasÄ±nÄ±n daha Ã¶nce kullanÄ±lÄ±p kullanÄ±lmadÄ±ÄŸÄ±nÄ± kontrol et.
     If Rapor1No.Value <> "" Then
         
-        RaporTireTek = 0 '82-1 gibi tek deðer girilemez
+        RaporTireTek = 0 '82-1 gibi tek deÄŸer girilemez
         
-        If InStr(Rapor1No.Value, "-") = 0 Then 'rapor no giriþinde tire yok
+        If InStr(Rapor1No.Value, "-") = 0 Then 'rapor no giriÅŸinde tire yok
             
-            'Tiresiz deðerler içinde ara
+            'Tiresiz deÄŸerler iÃ§inde ara
             StrAramaGlobal = Rapor1No.Value
             Set MyRngGlobal = WsRaporNo.Range("A" & RefSatir & ":A100000")
             Set Rapor1NoBulIlk = MyRngGlobal.Find(What:=StrAramaGlobal, SearchDirection:=xlNext, _
@@ -3595,7 +3595,7 @@ YinedeKaydet21AltNo1Degil:
                 End If
             End If
         
-            'Tireli deðerler içinde ara
+            'Tireli deÄŸerler iÃ§inde ara
             StrAramaGlobal = Rapor1No.Value & "-"
             Set MyRngGlobal = WsRaporNo.Range("A" & RefSatir & ":A100000")
             Set MyFinderGlobal = MyRngGlobal.Find(What:=StrAramaGlobal, _
@@ -3614,7 +3614,7 @@ YinedeKaydet21AltNo1Degil:
                         'GoTo SonRapor
                     End If
                 End If
-                'Sonraki satýrlarda aramaya devam et
+                'Sonraki satÄ±rlarda aramaya devam et
                 Do
                     SonrakiAdresGlobal = MyFinderGlobal.Address
                     'MsgBox Replace(SonrakiAdres, "$", ""), vbOKOnly, "ishakkutlu.com"
@@ -3634,9 +3634,9 @@ YinedeKaydet21AltNo1Degil:
                 Loop While IlkAdresGlobal <> SonrakiAdresGlobal
             End If
         
-        Else 'rapor no giriþinde tire var
+        Else 'rapor no giriÅŸinde tire var
             RaporTireTek = 1
-            'Tiresiz deðerler içinde ara
+            'Tiresiz deÄŸerler iÃ§inde ara
             StrAramaGlobal = Left(Rapor1No.Value, InStr(Rapor1No.Value, "-") - 1)
             Set MyRngGlobal = WsRaporNo.Range("A" & RefSatir & ":A100000")
             Set Rapor1NoBulIlk = MyRngGlobal.Find(What:=StrAramaGlobal, SearchDirection:=xlNext, _
@@ -3653,7 +3653,7 @@ YinedeKaydet21AltNo1Degil:
                 End If
             End If
         
-            'Tireli deðerler içinde ara
+            'Tireli deÄŸerler iÃ§inde ara
             StrAramaGlobal = Left(Rapor1No.Value, InStr(Rapor1No.Value, "-") - 1) & "-"
             Set MyRngGlobal = WsRaporNo.Range("A" & RefSatir & ":A100000")
             Set MyFinderGlobal = MyRngGlobal.Find(What:=StrAramaGlobal, _
@@ -3672,7 +3672,7 @@ YinedeKaydet21AltNo1Degil:
                         'GoTo SonRapor
                     End If
                 End If
-                'Sonraki satýrlarda aramaya devam et
+                'Sonraki satÄ±rlarda aramaya devam et
                 Do
                     SonrakiAdresGlobal = MyFinderGlobal.Address
                     'MsgBox Replace(SonrakiAdres, "$", ""), vbOKOnly, "ishakkutlu.com"
@@ -3700,7 +3700,7 @@ YinedeKaydet21Ek1:
     '__________Rapor No Senkronizasyon 30.11.2021
 
 
-    'Arada boþ býrakýlan satýrlarýn kontrolü; öðe türü, öðe deðeri, adet, öðe ID no, sonuç (ve açýklama)
+    'Arada boÅŸ bÄ±rakÄ±lan satÄ±rlarÄ±n kontrolÃ¼; Ã¶ÄŸe tÃ¼rÃ¼, Ã¶ÄŸe deÄŸeri, adet, Ã¶ÄŸe ID no, sonuÃ§ (ve aÃ§Ä±klama)
     Kont = 0
     For OgeFrame = 1 To 19
         If Controls("OgeTuruFrame" & OgeFrame).Visible = True Then
@@ -3762,7 +3762,7 @@ YinedeKaydet21Ek1:
     
     MaxiR = Application.Max(OgeTuruKont, OgeDegeriKont, AdetKont, OgeIdNoKont, AciklamaKont, SonucKont, UretimOzelligiKont, RaporOzelligiKont)
     If MaxiR > 0 Then
-        'Combolara girilen rapor1 numaralarý ayný olamaz.
+        'Combolara girilen rapor1 numaralarÄ± aynÄ± olamaz.
         For j = 1 To MaxiR
             If Controls("Rapor1No" & j).Value <> "" And Controls("Rapor1No" & j).Value = Rapor1No.Value Then
                 Rapor1NoKontAyni = 1
@@ -3823,7 +3823,7 @@ YinedeKaydet21Ek1:
             If Controls("Rapor1No" & i).Value <> "" And Controls("RaporOzelligi" & i).Value = "" Then
                 RaporOzelligiKontSatir = i
             End If
-            'Rapor1 noyu valid/invalid durumuna göre kontrol et
+            'Rapor1 noyu valid/invalid durumuna gÃ¶re kontrol et
             If i = 1 Then
                 If Controls("Sonuc" & i).Value <> "" And Controls("Sonuc" & i).Value <> Sonuc.Value And Controls("Rapor1No" & i).Value = "" Then
                     Rapor1NoKont = i
@@ -3837,12 +3837,12 @@ YinedeKaydet21Ek1:
       
             '__________Rapor No Senkronizasyon 30.11.2021
          
-            'Rapor1 numarasýnýn daha önce kullanýlýp kullanýlmadýðýný kontrol et.
+            'Rapor1 numarasÄ±nÄ±n daha Ã¶nce kullanÄ±lÄ±p kullanÄ±lmadÄ±ÄŸÄ±nÄ± kontrol et.
             If i >= 1 And Controls("Rapor1No" & i).Value <> "" Then
             
-                If InStr(Controls("Rapor1No" & i).Value, "-") = 0 Then 'rapor no giriþinde tire yok
+                If InStr(Controls("Rapor1No" & i).Value, "-") = 0 Then 'rapor no giriÅŸinde tire yok
                     
-                    'Tiresiz deðerler içinde ara
+                    'Tiresiz deÄŸerler iÃ§inde ara
                     StrAramaGlobal = Controls("Rapor1No" & i).Value
                     Set MyRngGlobal = WsRaporNo.Range("A" & RefSatir & ":A100000")
                     Set Rapor1NoBul = MyRngGlobal.Find(What:=StrAramaGlobal, SearchDirection:=xlNext, _
@@ -3851,7 +3851,7 @@ YinedeKaydet21Ek1:
                         Rapor1NoBulKont = i
                     End If
                 
-                    'Tireli deðerler içinde ara
+                    'Tireli deÄŸerler iÃ§inde ara
                     StrAramaGlobal = Controls("Rapor1No" & i).Value & "-"
                     Set MyRngGlobal = WsRaporNo.Range("A" & RefSatir & ":A100000")
                     Set MyFinderGlobal = MyRngGlobal.Find(What:=StrAramaGlobal, _
@@ -3862,7 +3862,7 @@ YinedeKaydet21Ek1:
                         If Left(MyFinderGlobal.Value, Len(StrAramaGlobal)) = StrAramaGlobal Then
                             Rapor1NoBulKont = i
                         End If
-                        'Sonraki satýrlarda aramaya devam et
+                        'Sonraki satÄ±rlarda aramaya devam et
                         Do
                             SonrakiAdresGlobal = MyFinderGlobal.Address
                             'MsgBox Replace(SonrakiAdres, "$", ""), vbOKOnly, "ishakkutlu.com"
@@ -3874,9 +3874,9 @@ YinedeKaydet21Ek1:
                         Loop While IlkAdresGlobal <> SonrakiAdresGlobal
                     End If
                 
-                Else 'rapor no giriþinde tire var
-                    RaporTireTek = RaporTireTek + 1 '82-1 gibi tek deðer girilemez
-                    'Tiresiz deðerler içinde ara
+                Else 'rapor no giriÅŸinde tire var
+                    RaporTireTek = RaporTireTek + 1 '82-1 gibi tek deÄŸer girilemez
+                    'Tiresiz deÄŸerler iÃ§inde ara
                     StrAramaGlobal = Left(Controls("Rapor1No" & i).Value, InStr(Controls("Rapor1No" & i).Value, "-") - 1)
                     Set MyRngGlobal = WsRaporNo.Range("A" & RefSatir & ":A100000")
                     Set Rapor1NoBul = MyRngGlobal.Find(What:=StrAramaGlobal, SearchDirection:=xlNext, _
@@ -3885,7 +3885,7 @@ YinedeKaydet21Ek1:
                         Rapor1NoBulTireKont = i
                     End If
                 
-                    'Tireli deðerler içinde ara
+                    'Tireli deÄŸerler iÃ§inde ara
                     StrAramaGlobal = Left(Controls("Rapor1No" & i).Value, InStr(Controls("Rapor1No" & i).Value, "-") - 1) & "-"
                     Set MyRngGlobal = WsRaporNo.Range("A" & RefSatir & ":A100000")
                     Set MyFinderGlobal = MyRngGlobal.Find(What:=StrAramaGlobal, _
@@ -3896,7 +3896,7 @@ YinedeKaydet21Ek1:
                         If Left(MyFinderGlobal.Value, Len(StrAramaGlobal)) = StrAramaGlobal Then
                             Rapor1NoBulTireKont = i
                         End If
-                        'Sonraki satýrlarda aramaya devam et
+                        'Sonraki satÄ±rlarda aramaya devam et
                         Do
                             SonrakiAdresGlobal = MyFinderGlobal.Address
                             'MsgBox Replace(SonrakiAdres, "$", ""), vbOKOnly, "ishakkutlu.com"
@@ -3919,9 +3919,9 @@ YinedeKaydet21Ek1:
     
     '__________Rapor No Senkronizasyon 30.11.2021
     
-    If ComboGetir.Value <> "" Then 'Düzenleme iþlemi ise cari iþlemin rapor no.su aramalara takýlmasýn diye yukarýda yapýlan iþlemin geri alýnmasý
+    If ComboGetir.Value <> "" Then 'DÃ¼zenleme iÅŸlemi ise cari iÅŸlemin rapor no.su aramalara takÄ±lmasÄ±n diye yukarÄ±da yapÄ±lan iÅŸlemin geri alÄ±nmasÄ±
         Set RnoIlkSiraBul = WsRaporNo.Range("J6:J100000").Find(What:=Cells(IlkSiraGlobal, 93).Value, SearchDirection:=xlNext, _
-                        SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasýný ara
+                        SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasÄ±nÄ± ara
         Set RnoSonSiraBul = WsRaporNo.Range("K6:K100000").Find(What:=Cells(IlkSiraGlobal, 93).Value, SearchDirection:=xlNext, _
                         SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
         If Not RnoIlkSiraBul Is Nothing Then
@@ -3936,9 +3936,9 @@ YinedeKaydet21Ek1:
 
     GoTo DuzeltmeniYapDaGit1Atla
 DuzeltmeniYapDaGit1:
-    If ComboGetir.Value <> "" Then 'Düzenleme iþlemi ise cari iþlemin rapor no.su aramalara takýlmasýn diye yukarýda yapýlan iþlemin geri alýnmasý
+    If ComboGetir.Value <> "" Then 'DÃ¼zenleme iÅŸlemi ise cari iÅŸlemin rapor no.su aramalara takÄ±lmasÄ±n diye yukarÄ±da yapÄ±lan iÅŸlemin geri alÄ±nmasÄ±
         Set RnoIlkSiraBul = WsRaporNo.Range("J6:J100000").Find(What:=Cells(IlkSiraGlobal, 93).Value, SearchDirection:=xlNext, _
-                        SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasýný ara
+                        SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasÄ±nÄ± ara
         Set RnoSonSiraBul = WsRaporNo.Range("K6:K100000").Find(What:=Cells(IlkSiraGlobal, 93).Value, SearchDirection:=xlNext, _
                         SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
         If Not RnoIlkSiraBul Is Nothing Then
@@ -4068,7 +4068,7 @@ End If
 YinedeKaydet23Ek1TireTek:
 
 
-'If ComboGetir.Value = "" Then 'Düzeltme kaydý ise prosedürü baþlatma
+'If ComboGetir.Value = "" Then 'DÃ¼zeltme kaydÄ± ise prosedÃ¼rÃ¼ baÅŸlatma
     'Check if any report number has been used before (numbers before hyphen included both in form and system)
     If Rapor1NoBulKont <> 0 Then
         Bilgi = MsgBox("At least one report number has already been used. Click 'Yes' to save anyway or 'No' to make corrections.", vbYesNo + vbExclamation, "Enterprise Document Automation System")
@@ -4207,7 +4207,7 @@ YinedeKaydet27Ek1:
         End If
     End If
 YinedeKaydet27Ek3:
-    If InStr(GidenMuhatapTemasi.Value, "Ýlçe") <> 0 Then
+    If InStr(GidenMuhatapTemasi.Value, "Ä°lÃ§e") <> 0 Then
         If IlceGiden.Value = "" Then
             Bilgi = MsgBox("District is mentioned in outgoing contact theme but response letter destination district is missing. Click 'Yes' to save anyway or 'No' to make corrections.", vbYesNo + vbExclamation, "Enterprise Document Automation System")
             If Bilgi = vbYes Then
@@ -4302,7 +4302,7 @@ YinedeKaydet29Ek3:
 End If
 
 
-'Üst yazý kontrolleri
+'Ãœst yazÄ± kontrolleri
 'UstYaziKont = 2
 If UstYaziFrame.Visible = True Then
     UstYaziKont = 0
@@ -4401,7 +4401,7 @@ YinedeKaydet34:
 End If
 
 
-'Bu kontrol kullanýcý inisiyatifine býrakýlmamýþtýr. Otomatik olarak düzeltilip kullanýcý bilgilendirilir.
+'Bu kontrol kullanÄ±cÄ± inisiyatifine bÄ±rakÄ±lmamÄ±ÅŸtÄ±r. Otomatik olarak dÃ¼zeltilip kullanÄ±cÄ± bilgilendirilir.
     If UstYaziNotuCheck.Value = True Then
         Kont = 0
         SonucKontrol = False
@@ -4512,7 +4512,7 @@ If Il.Value = "" Then
     End If
 End If
 YinedeKaydet1:
-If InStr(GelenMuhatapTemasi.Value, "Ýlçe") <> 0 Then
+If InStr(GelenMuhatapTemasi.Value, "Ä°lÃ§e") <> 0 Then
     If Ilce.Value = "" Then
         Bilgi = MsgBox("District is missing despite being mentioned in incoming contact theme. Click 'Yes' to save anyway or 'No' to make corrections.", vbYesNo + vbExclamation, "Enterprise Document Automation System")
         If Bilgi = vbYes Then
@@ -4811,12 +4811,12 @@ End If
 
 '___________________________
 
-'Farklý tutanak1 giriþi kontrolü
+'FarklÄ± tutanak1 giriÅŸi kontrolÃ¼
 SayFarkGiris = 1
 If Tutanak1Sonucu.Value = "d. Discrepancy Detected" Then
 
     Set WsFarkGiris = ThisWorkbook.Worksheets(7)
-    'Maksimum deðerler.
+    'Maksimum deÄŸerler.
     SayA = WsFarkGiris.Range("A100000").End(xlUp).Row
     SayD = WsFarkGiris.Range("D100000").End(xlUp).Row
     SayG = WsFarkGiris.Range("G100000").End(xlUp).Row
@@ -4840,7 +4840,7 @@ YinedeKaydet12FarkGirisi:
 
 '___________________________
 
-'Arada boþ býrakýlan satýrlarýn kontrolü; öðe türü, öðe deðeri, adet, öðe ID no (ve açýklama)
+'Arada boÅŸ bÄ±rakÄ±lan satÄ±rlarÄ±n kontrolÃ¼; Ã¶ÄŸe tÃ¼rÃ¼, Ã¶ÄŸe deÄŸeri, adet, Ã¶ÄŸe ID no (ve aÃ§Ä±klama)
 Kont = 0
 For OgeFrame = 1 To 19
     If Controls("OgeTuruFrame" & OgeFrame).Visible = True Then
@@ -4900,8 +4900,8 @@ If Maxi > 0 Then
 '        End If
     Next i
 End If
-'Yukarýdaki maxi deðeri, (aþaðýda bulunan kodlarda) verilerin rapor1 formundan
-'sayfaya aktarýlmasýnda kullanýlýyor.
+'YukarÄ±daki maxi deÄŸeri, (aÅŸaÄŸÄ±da bulunan kodlarda) verilerin rapor1 formundan
+'sayfaya aktarÄ±lmasÄ±nda kullanÄ±lÄ±yor.
 If OgeTuruKontSatir <> 0 And OgeDegeriKontSatir <> 0 And AdetKontSatir <> 0 And OgeIdNoKontSatir Then
     Bilgi = MsgBox("A row appears to be skipped. Click 'Yes' to save anyway or 'No' to make corrections.", vbYesNo + vbExclamation, "Enterprise Document Automation System")
     If Bilgi = vbYes Then
@@ -5005,7 +5005,7 @@ Dim RefSatir As Long, Rapor1TarihBul As Range
 
 'Rapor1 kontrolleri
 If Rapor1Frame.Visible = True And Rapor2_2CheckBox.Value = True Then
-    'Rapor bölümü için ön kontrol
+    'Rapor bÃ¶lÃ¼mÃ¼ iÃ§in Ã¶n kontrol
     RaporOnKont = 0
     For Each ctl In core_report2_entry_UI.Rapor1Frame.Controls 'Rapor1Frame
         If TypeName(ctl) = "ComboBox" Then
@@ -5057,7 +5057,7 @@ If Rapor1Frame.Visible = True And Rapor2_2CheckBox.Value = True Then
 
 '_____________________________
 
-    'Kendisinden sonraki giriþlerin en az biri yapýlmýþ ve kendisi boþ býrakýlmýþsa bölüm atlamasý yaypýlmýþ demektir.
+    'Kendisinden sonraki giriÅŸlerin en az biri yapÄ±lmÄ±ÅŸ ve kendisi boÅŸ bÄ±rakÄ±lmÄ±ÅŸsa bÃ¶lÃ¼m atlamasÄ± yaypÄ±lmÄ±ÅŸ demektir.
     XXXMudGidenTutanak2OnKont = 0
     If XXXMudTutanak2Frame.Visible = True Then
         For Each ctl In core_report2_entry_UI.XXXMudTutanak2Frame.Controls
@@ -5256,7 +5256,7 @@ End If
 YinedeKaydet21B:
 
     If Rapor1No.Value <> "" Then
-        If InStr(Rapor1No.Value, "-") = 0 Then 'rapor no giriþinde tire yok
+        If InStr(Rapor1No.Value, "-") = 0 Then 'rapor no giriÅŸinde tire yok
             '
         Else 'Tire var
             If Mid(Rapor1No.Value, InStr(Rapor1No.Value, "-") + 1, 1) <> 1 Then
@@ -5292,10 +5292,10 @@ YinedeKaydet21AltNo1Degil:
     'MsgBox "RefSatir: " & RefSatir
     '______________
     
-    'Rapor2_2 numarasýnýn daha önce kullanýlýp kullanýlmadýðýný kontrol et.
+    'Rapor2_2 numarasÄ±nÄ±n daha Ã¶nce kullanÄ±lÄ±p kullanÄ±lmadÄ±ÄŸÄ±nÄ± kontrol et.
     
     If Rapor2_2No.Value <> "" Then
-        If ComboGetir.Value = "" Then 'Yeni kayýt
+        If ComboGetir.Value = "" Then 'Yeni kayÄ±t
             Set Rapor2_2NoBulIlk = Range("BM" & RefSatir & ":BM100000").Find(What:=Rapor2_2No.Value, SearchDirection:=xlNext, _
                 SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
             If Not Rapor2_2NoBulIlk Is Nothing Then
@@ -5308,7 +5308,7 @@ YinedeKaydet21AltNo1Degil:
                     GoTo SonRapor
                 End If
             End If
-        Else 'Düzeltme kaydý
+        Else 'DÃ¼zeltme kaydÄ±
             Set Rapor2_2NoBulIlk = Range("BM" & SonSiraGlobal + 1 & ":BM100000").Find(What:=Rapor2_2No.Value, SearchDirection:=xlNext, _
                 SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
             If Not Rapor2_2NoBulIlk Is Nothing Then
@@ -5362,9 +5362,9 @@ YinedeKaydet21Ek1Rapor2_2No:
     'MsgBox "RefSatir: " & RefSatir
 
     'MsgBox "IlkSiraGlobal: " & IlkSiraGlobal
-    If ComboGetir.Value <> "" Then 'Düzenleme iþlemi ise cari iþlemin rapor no.su aramalara takýlmasýn; bu yüzden saða al; sonra tekrar yerine koymayý unutma!
+    If ComboGetir.Value <> "" Then 'DÃ¼zenleme iÅŸlemi ise cari iÅŸlemin rapor no.su aramalara takÄ±lmasÄ±n; bu yÃ¼zden saÄŸa al; sonra tekrar yerine koymayÄ± unutma!
         Set RnoIlkSiraBul = WsRaporNo.Range("D6:D100000").Find(What:=Cells(IlkSiraGlobal, 93).Value, SearchDirection:=xlNext, _
-                        SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasýný ara
+                        SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasÄ±nÄ± ara
         Set RnoSonSiraBul = WsRaporNo.Range("E6:E100000").Find(What:=Cells(IlkSiraGlobal, 93).Value, SearchDirection:=xlNext, _
                         SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
         If Not RnoIlkSiraBul Is Nothing Then
@@ -5377,14 +5377,14 @@ YinedeKaydet21Ek1Rapor2_2No:
         End If
     End If
  
-    'Rapor1 numarasýnýn daha önce kullanýlýp kullanýlmadýðýný kontrol et.
+    'Rapor1 numarasÄ±nÄ±n daha Ã¶nce kullanÄ±lÄ±p kullanÄ±lmadÄ±ÄŸÄ±nÄ± kontrol et.
     If Rapor1No.Value <> "" Then
         
-        RaporTireTek = 0 '82-1 gibi tek deðer girilemez
+        RaporTireTek = 0 '82-1 gibi tek deÄŸer girilemez
         
-        If InStr(Rapor1No.Value, "-") = 0 Then 'rapor no giriþinde tire yok
+        If InStr(Rapor1No.Value, "-") = 0 Then 'rapor no giriÅŸinde tire yok
             
-            'Tiresiz deðerler içinde ara
+            'Tiresiz deÄŸerler iÃ§inde ara
             StrAramaGlobal = Rapor1No.Value
             Set MyRngGlobal = WsRaporNo.Range("A" & RefSatir & ":A100000")
             Set Rapor1NoBulIlk = MyRngGlobal.Find(What:=StrAramaGlobal, SearchDirection:=xlNext, _
@@ -5401,7 +5401,7 @@ YinedeKaydet21Ek1Rapor2_2No:
                 End If
             End If
         
-            'Tireli deðerler içinde ara
+            'Tireli deÄŸerler iÃ§inde ara
             StrAramaGlobal = Rapor1No.Value & "-"
             Set MyRngGlobal = WsRaporNo.Range("A" & RefSatir & ":A100000")
             Set MyFinderGlobal = MyRngGlobal.Find(What:=StrAramaGlobal, _
@@ -5420,7 +5420,7 @@ YinedeKaydet21Ek1Rapor2_2No:
                         'GoTo SonRapor
                     End If
                 End If
-                'Sonraki satýrlarda aramaya devam et
+                'Sonraki satÄ±rlarda aramaya devam et
                 Do
                     SonrakiAdresGlobal = MyFinderGlobal.Address
                     'MsgBox Replace(SonrakiAdres, "$", ""), vbOKOnly, "ishakkutlu.com"
@@ -5440,9 +5440,9 @@ YinedeKaydet21Ek1Rapor2_2No:
                 Loop While IlkAdresGlobal <> SonrakiAdresGlobal
             End If
         
-        Else 'rapor no giriþinde tire var
+        Else 'rapor no giriÅŸinde tire var
             RaporTireTek = 1
-            'Tiresiz deðerler içinde ara
+            'Tiresiz deÄŸerler iÃ§inde ara
             StrAramaGlobal = Left(Rapor1No.Value, InStr(Rapor1No.Value, "-") - 1)
             Set MyRngGlobal = WsRaporNo.Range("A" & RefSatir & ":A100000")
             Set Rapor1NoBulIlk = MyRngGlobal.Find(What:=StrAramaGlobal, SearchDirection:=xlNext, _
@@ -5459,7 +5459,7 @@ YinedeKaydet21Ek1Rapor2_2No:
                 End If
             End If
         
-            'Tireli deðerler içinde ara
+            'Tireli deÄŸerler iÃ§inde ara
             StrAramaGlobal = Left(Rapor1No.Value, InStr(Rapor1No.Value, "-") - 1) & "-"
             Set MyRngGlobal = WsRaporNo.Range("A" & RefSatir & ":A100000")
             Set MyFinderGlobal = MyRngGlobal.Find(What:=StrAramaGlobal, _
@@ -5478,7 +5478,7 @@ YinedeKaydet21Ek1Rapor2_2No:
                         'GoTo SonRapor
                     End If
                 End If
-                'Sonraki satýrlarda aramaya devam et
+                'Sonraki satÄ±rlarda aramaya devam et
                 Do
                     SonrakiAdresGlobal = MyFinderGlobal.Address
                     'MsgBox Replace(SonrakiAdres, "$", ""), vbOKOnly, "ishakkutlu.com"
@@ -5508,7 +5508,7 @@ YinedeKaydet21Ek1:
     
     
 
-    'Arada boþ býrakýlan satýrlarýn kontrolü; öðe türü, öðe deðeri, adet, öðe ID no, sonuç (ve açýklama)
+    'Arada boÅŸ bÄ±rakÄ±lan satÄ±rlarÄ±n kontrolÃ¼; Ã¶ÄŸe tÃ¼rÃ¼, Ã¶ÄŸe deÄŸeri, adet, Ã¶ÄŸe ID no, sonuÃ§ (ve aÃ§Ä±klama)
     Kont = 0
     For OgeFrame = 1 To 19
         If Controls("OgeTuruFrame" & OgeFrame).Visible = True Then
@@ -5570,7 +5570,7 @@ YinedeKaydet21Ek1:
     
     MaxiR = Application.Max(OgeTuruKont, OgeDegeriKont, AdetKont, OgeIdNoKont, AciklamaKont, SonucKont, UretimOzelligiKont, RaporOzelligiKont)
     If MaxiR > 0 Then
-        'Combolara girilen rapor1 numaralarý ayný olamaz.
+        'Combolara girilen rapor1 numaralarÄ± aynÄ± olamaz.
         For j = 1 To MaxiR
             If Controls("Rapor1No" & j).Value <> "" And Controls("Rapor1No" & j).Value = Rapor1No.Value Then
                 Rapor1NoKontAyni = 1
@@ -5631,7 +5631,7 @@ YinedeKaydet21Ek1:
             If Controls("Rapor1No" & i).Value <> "" And Controls("RaporOzelligi" & i).Value = "" Then
                 RaporOzelligiKontSatir = i
             End If
-            'Rapor1 noyu valid/invalid durumuna göre kontrol et
+            'Rapor1 noyu valid/invalid durumuna gÃ¶re kontrol et
             If i = 1 Then
                 If Controls("Sonuc" & i).Value <> "" And Controls("Sonuc" & i).Value <> Sonuc.Value And Controls("Rapor1No" & i).Value = "" Then
                     Rapor1NoKont = i
@@ -5645,12 +5645,12 @@ YinedeKaydet21Ek1:
 
             '__________Rapor No Senkronizasyon 30.11.2021
          
-            'Rapor1 numarasýnýn daha önce kullanýlýp kullanýlmadýðýný kontrol et.
+            'Rapor1 numarasÄ±nÄ±n daha Ã¶nce kullanÄ±lÄ±p kullanÄ±lmadÄ±ÄŸÄ±nÄ± kontrol et.
             If i >= 1 And Controls("Rapor1No" & i).Value <> "" Then
             
-                If InStr(Controls("Rapor1No" & i).Value, "-") = 0 Then 'rapor no giriþinde tire yok
+                If InStr(Controls("Rapor1No" & i).Value, "-") = 0 Then 'rapor no giriÅŸinde tire yok
                     
-                    'Tiresiz deðerler içinde ara
+                    'Tiresiz deÄŸerler iÃ§inde ara
                     StrAramaGlobal = Controls("Rapor1No" & i).Value
                     Set MyRngGlobal = WsRaporNo.Range("A" & RefSatir & ":A100000")
                     Set Rapor1NoBul = MyRngGlobal.Find(What:=StrAramaGlobal, SearchDirection:=xlNext, _
@@ -5659,7 +5659,7 @@ YinedeKaydet21Ek1:
                         Rapor1NoBulKont = i
                     End If
                 
-                    'Tireli deðerler içinde ara
+                    'Tireli deÄŸerler iÃ§inde ara
                     StrAramaGlobal = Controls("Rapor1No" & i).Value & "-"
                     Set MyRngGlobal = WsRaporNo.Range("A" & RefSatir & ":A100000")
                     Set MyFinderGlobal = MyRngGlobal.Find(What:=StrAramaGlobal, _
@@ -5670,7 +5670,7 @@ YinedeKaydet21Ek1:
                         If Left(MyFinderGlobal.Value, Len(StrAramaGlobal)) = StrAramaGlobal Then
                             Rapor1NoBulKont = i
                         End If
-                        'Sonraki satýrlarda aramaya devam et
+                        'Sonraki satÄ±rlarda aramaya devam et
                         Do
                             SonrakiAdresGlobal = MyFinderGlobal.Address
                             'MsgBox Replace(SonrakiAdres, "$", ""), vbOKOnly, "ishakkutlu.com"
@@ -5682,9 +5682,9 @@ YinedeKaydet21Ek1:
                         Loop While IlkAdresGlobal <> SonrakiAdresGlobal
                     End If
                 
-                Else 'rapor no giriþinde tire var
-                    RaporTireTek = RaporTireTek + 1 '82-1 gibi tek deðer girilemez
-                    'Tiresiz deðerler içinde ara
+                Else 'rapor no giriÅŸinde tire var
+                    RaporTireTek = RaporTireTek + 1 '82-1 gibi tek deÄŸer girilemez
+                    'Tiresiz deÄŸerler iÃ§inde ara
                     StrAramaGlobal = Left(Controls("Rapor1No" & i).Value, InStr(Controls("Rapor1No" & i).Value, "-") - 1)
                     Set MyRngGlobal = WsRaporNo.Range("A" & RefSatir & ":A100000")
                     Set Rapor1NoBul = MyRngGlobal.Find(What:=StrAramaGlobal, SearchDirection:=xlNext, _
@@ -5693,7 +5693,7 @@ YinedeKaydet21Ek1:
                         Rapor1NoBulTireKont = i
                     End If
                 
-                    'Tireli deðerler içinde ara
+                    'Tireli deÄŸerler iÃ§inde ara
                     StrAramaGlobal = Left(Controls("Rapor1No" & i).Value, InStr(Controls("Rapor1No" & i).Value, "-") - 1) & "-"
                     Set MyRngGlobal = WsRaporNo.Range("A" & RefSatir & ":A100000")
                     Set MyFinderGlobal = MyRngGlobal.Find(What:=StrAramaGlobal, _
@@ -5704,7 +5704,7 @@ YinedeKaydet21Ek1:
                         If Left(MyFinderGlobal.Value, Len(StrAramaGlobal)) = StrAramaGlobal Then
                             Rapor1NoBulTireKont = i
                         End If
-                        'Sonraki satýrlarda aramaya devam et
+                        'Sonraki satÄ±rlarda aramaya devam et
                         Do
                             SonrakiAdresGlobal = MyFinderGlobal.Address
                             'MsgBox Replace(SonrakiAdres, "$", ""), vbOKOnly, "ishakkutlu.com"
@@ -5728,9 +5728,9 @@ YinedeKaydet21Ek1:
     
     '__________Rapor No Senkronizasyon 30.11.2021
     
-    If ComboGetir.Value <> "" Then 'Düzenleme iþlemi ise cari iþlemin rapor no.su aramalara takýlmasýn diye yukarýda yapýlan iþlemin geri alýnmasý
+    If ComboGetir.Value <> "" Then 'DÃ¼zenleme iÅŸlemi ise cari iÅŸlemin rapor no.su aramalara takÄ±lmasÄ±n diye yukarÄ±da yapÄ±lan iÅŸlemin geri alÄ±nmasÄ±
         Set RnoIlkSiraBul = WsRaporNo.Range("J6:J100000").Find(What:=Cells(IlkSiraGlobal, 93).Value, SearchDirection:=xlNext, _
-                        SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasýný ara
+                        SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasÄ±nÄ± ara
         Set RnoSonSiraBul = WsRaporNo.Range("K6:K100000").Find(What:=Cells(IlkSiraGlobal, 93).Value, SearchDirection:=xlNext, _
                         SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
         If Not RnoIlkSiraBul Is Nothing Then
@@ -5745,9 +5745,9 @@ YinedeKaydet21Ek1:
 
     GoTo DuzeltmeniYapDaGit1Atla
 DuzeltmeniYapDaGit1:
-    If ComboGetir.Value <> "" Then 'Düzenleme iþlemi ise cari iþlemin rapor no.su aramalara takýlmasýn diye yukarýda yapýlan iþlemin geri alýnmasý
+    If ComboGetir.Value <> "" Then 'DÃ¼zenleme iÅŸlemi ise cari iÅŸlemin rapor no.su aramalara takÄ±lmasÄ±n diye yukarÄ±da yapÄ±lan iÅŸlemin geri alÄ±nmasÄ±
         Set RnoIlkSiraBul = WsRaporNo.Range("J6:J100000").Find(What:=Cells(IlkSiraGlobal, 93).Value, SearchDirection:=xlNext, _
-                        SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasýný ara
+                        SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasÄ±nÄ± ara
         Set RnoSonSiraBul = WsRaporNo.Range("K6:K100000").Find(What:=Cells(IlkSiraGlobal, 93).Value, SearchDirection:=xlNext, _
                         SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
         If Not RnoIlkSiraBul Is Nothing Then
@@ -6040,7 +6040,7 @@ Dim XXXMudGelenTutanak2OnKont As Integer, UstYaziOnKont As Integer
 
 'XXXMud Tutanak2 (Giden)
 If XXXMudTutanak2Frame.Visible = True And Rapor2_2CheckBox.Value = True Then
-    'XXXMud Tutanak2 (Giden) bölümü için ön kontrol
+    'XXXMud Tutanak2 (Giden) bÃ¶lÃ¼mÃ¼ iÃ§in Ã¶n kontrol
     XXXMudGidenTutanak2OnKont = 0
     For Each ctl In core_report2_entry_UI.XXXMudTutanak2Frame.Controls
         If TypeName(ctl) = "ComboBox" Then
@@ -6057,7 +6057,7 @@ If XXXMudTutanak2Frame.Visible = True And Rapor2_2CheckBox.Value = True Then
 
 '_____________________________
 
-    'Kendisinden sonraki giriþlerin en az biri yapýlmýþ ve kendisi boþ býrakýlmýþsa bölüm atlamasý yaypýlmýþ demektir.
+    'Kendisinden sonraki giriÅŸlerin en az biri yapÄ±lmÄ±ÅŸ ve kendisi boÅŸ bÄ±rakÄ±lmÄ±ÅŸsa bÃ¶lÃ¼m atlamasÄ± yaypÄ±lmÄ±ÅŸ demektir.
     XXXMudUstYaziOnKont = 0
     If XXXMudUstYaziFrame.Visible = True Then
         For Each ctl In core_report2_entry_UI.XXXMudUstYaziFrame.Controls
@@ -6233,7 +6233,7 @@ XXXMudGidenYinedeKaydet28:
     End If
 XXXMudGidenYinedeKaydet29:
 
-    'Tutanak2 tarihi öncelik/sonralýk kontrolü
+    'Tutanak2 tarihi Ã¶ncelik/sonralÄ±k kontrolÃ¼
     If XXXMudTutanak2TarihiText.Value <> "" And Rapor1TarihiText.Value <> "" And _
     Tutanak1TarihiText.Value <> "" And GelisTarihiText.Value <> "" And BelgeTarihiText.Value <> "" Then
         If Year(XXXMudTutanak2TarihiText.Value) < Year(BelgeTarihiText.Value) Or _
@@ -6323,9 +6323,9 @@ Dim XXXMudGidenTutanak2OnKont As Integer, XXXMudUstYaziOnKont As Integer, XXXMud
 Dim XXXMudGelenTutanak2OnKont As Integer, UstYaziOnKont As Integer
 
 
-'XXXMud üst yazýsý
+'XXXMud Ã¼st yazÄ±sÄ±
 If XXXMudUstYaziFrame.Visible = True And Rapor2_2CheckBox.Value = True Then
-    'XXXMud üst yazýsý bölümü için ön kontrol
+    'XXXMud Ã¼st yazÄ±sÄ± bÃ¶lÃ¼mÃ¼ iÃ§in Ã¶n kontrol
     XXXMudUstYaziOnKont = 0
     For Each ctl In core_report2_entry_UI.XXXMudUstYaziFrame.Controls
         If TypeName(ctl) = "ComboBox" Then
@@ -6343,7 +6343,7 @@ If XXXMudUstYaziFrame.Visible = True And Rapor2_2CheckBox.Value = True Then
 
 '_____________________________
 
-    'Kendisinden sonraki giriþlerin en az biri yapýlmýþ ve kendisi boþ býrakýlmýþsa bölüm atlamasý yaypýlmýþ demektir.
+    'Kendisinden sonraki giriÅŸlerin en az biri yapÄ±lmÄ±ÅŸ ve kendisi boÅŸ bÄ±rakÄ±lmÄ±ÅŸsa bÃ¶lÃ¼m atlamasÄ± yaypÄ±lmÄ±ÅŸ demektir.
     UstYaziOnKont = 0
     If UstYaziFrame.Visible = True Then
         For Each ctl In core_report2_entry_UI.UstYaziFrame.Controls
@@ -6611,10 +6611,10 @@ Dim RaporOnKont As Integer, Tutanak2OnKont As Integer, SonucUstYaziOnKont As Int
 Dim XXXMudGidenTutanak2OnKont As Integer, XXXMudUstYaziOnKont As Integer, XXXMudTutanak1OnKont As Integer
 Dim XXXMudGelenTutanak2OnKont As Integer, UstYaziOnKont As Integer
 
-'Üst yazý kontrolleri
+'Ãœst yazÄ± kontrolleri
 If UstYaziFrame.Visible = True And Rapor2_2CheckBox.Value = True Then
 
-    'Üst Yazý bölümü için ön kontrol
+    'Ãœst YazÄ± bÃ¶lÃ¼mÃ¼ iÃ§in Ã¶n kontrol
     UstYaziOnKont = 0
     For Each ctl In core_report2_entry_UI.UstYaziFrame.Controls
         If TypeName(ctl) = "ComboBox" Then
@@ -6631,7 +6631,7 @@ If UstYaziFrame.Visible = True And Rapor2_2CheckBox.Value = True Then
 
 '_____________________________
 
-    'Kendisinden sonraki giriþlerin en az biri yapýlmýþ ve kendisi boþ býrakýlmýþsa bölüm atlamasý yaypýlmýþ demektir.
+    'Kendisinden sonraki giriÅŸlerin en az biri yapÄ±lmÄ±ÅŸ ve kendisi boÅŸ bÄ±rakÄ±lmÄ±ÅŸsa bÃ¶lÃ¼m atlamasÄ± yaypÄ±lmÄ±ÅŸ demektir.
     XXXMudTutanak1OnKont = 0
     If GelenXXXMudTutanak1Frame.Visible = True Then
         For Each ctl In core_report2_entry_UI.GelenXXXMudTutanak1Frame.Controls
@@ -6786,7 +6786,7 @@ XXXMudGelenTutanak2YinedeKaydet27Ek1:
         End If
     End If
 XXXMudGelenTutanak2YinedeKaydet28:
-    If InStr(BilgilendirmeGidenMuhatapTemasi.Value, "Ýlçe") <> 0 Then
+    If InStr(BilgilendirmeGidenMuhatapTemasi.Value, "Ä°lÃ§e") <> 0 Then
         If BilgilendirmeIlceGiden.Value = "" Then 'And BilgilendirmeIlceGidenFrame.Visible = True Then
             Bilgi = MsgBox("Although the outgoing addressee theme of the information letter includes a district, the district is not specified. Click 'Yes' to save anyway, or 'No' to make corrections.", vbYesNo + vbExclamation, "Enterprise Document Automation System")
             If Bilgi = vbYes Then
@@ -6911,7 +6911,7 @@ Dim XXXMudGelenTutanak2OnKont As Integer, UstYaziOnKont As Integer
 
 'XXXMud Tutanak1 kontrolleri
 If GelenXXXMudTutanak1Frame.Visible = True And Rapor2_2CheckBox.Value = True Then
-    'XXXMud tutanak1 bölümü için ön kontrol
+    'XXXMud tutanak1 bÃ¶lÃ¼mÃ¼ iÃ§in Ã¶n kontrol
     XXXMudTutanak1OnKont = 0
     For Each ctl In core_report2_entry_UI.GelenXXXMudTutanak1Frame.Controls
         If TypeName(ctl) = "ComboBox" Then
@@ -6928,7 +6928,7 @@ If GelenXXXMudTutanak1Frame.Visible = True And Rapor2_2CheckBox.Value = True The
 
 '_____________________________
 
-    'Kendisinden sonraki giriþlerin en az biri yapýlmýþ ve kendisi boþ býrakýlmýþsa bölüm atlamasý yaypýlmýþ demektir.
+    'Kendisinden sonraki giriÅŸlerin en az biri yapÄ±lmÄ±ÅŸ ve kendisi boÅŸ bÄ±rakÄ±lmÄ±ÅŸsa bÃ¶lÃ¼m atlamasÄ± yaypÄ±lmÄ±ÅŸ demektir.
     XXXMudGelenTutanak2OnKont = 0
      If GelenXXXMudTutanak2Frame.Visible = True Then
         For Each ctl In core_report2_entry_UI.GelenXXXMudTutanak2Frame.Controls
@@ -7313,7 +7313,7 @@ Dim XXXMudGelenTutanak2OnKont As Integer, UstYaziOnKont As Integer
 
 'XXXMud Tutanak2 (Gelen)
 If GelenXXXMudTutanak2Frame.Visible = True And Rapor2_2CheckBox.Value = True Then
-    'XXXMud tutanak2 (gelen) bölümü için ön kontrol
+    'XXXMud tutanak2 (gelen) bÃ¶lÃ¼mÃ¼ iÃ§in Ã¶n kontrol
     XXXMudGelenTutanak2OnKont = 0
     For Each ctl In core_report2_entry_UI.GelenXXXMudTutanak2Frame.Controls
         If TypeName(ctl) = "ComboBox" Then
@@ -7330,7 +7330,7 @@ If GelenXXXMudTutanak2Frame.Visible = True And Rapor2_2CheckBox.Value = True The
 
 '_____________________________
 
-    'Kendisinden sonraki giriþlerin en az biri yapýlmýþ ve kendisi boþ býrakýlmýþsa bölüm atlamasý yaypýlmýþ demektir.
+    'Kendisinden sonraki giriÅŸlerin en az biri yapÄ±lmÄ±ÅŸ ve kendisi boÅŸ bÄ±rakÄ±lmÄ±ÅŸsa bÃ¶lÃ¼m atlamasÄ± yaypÄ±lmÄ±ÅŸ demektir.
     Tutanak2OnKont = 0
     If Tutanak2Frame.Visible = True Then
         For Each ctl In core_report2_entry_UI.Tutanak2Frame.Controls
@@ -7546,7 +7546,7 @@ Dim XXXMudGelenTutanak2OnKont As Integer, UstYaziOnKont As Integer
 
 'Tutanak2 kontrolleri
 If Tutanak2Frame.Visible = True And Rapor2_2CheckBox.Value = True Then
-    'Tutanak2 bölümü için ön kontrol
+    'Tutanak2 bÃ¶lÃ¼mÃ¼ iÃ§in Ã¶n kontrol
     Tutanak2OnKont = 0
     For Each ctl In core_report2_entry_UI.Tutanak2Frame.Controls
         If TypeName(ctl) = "ComboBox" Then
@@ -7563,7 +7563,7 @@ If Tutanak2Frame.Visible = True And Rapor2_2CheckBox.Value = True Then
 
 '_____________________________
 
-    'Kendisinden sonraki giriþlerin en az biri yapýlmýþ ve kendisi boþ býrakýlmýþsa bölüm atlamasý yaypýlmýþ demektir.
+    'Kendisinden sonraki giriÅŸlerin en az biri yapÄ±lmÄ±ÅŸ ve kendisi boÅŸ bÄ±rakÄ±lmÄ±ÅŸsa bÃ¶lÃ¼m atlamasÄ± yaypÄ±lmÄ±ÅŸ demektir.
     SonucUstYaziOnKont = 0
     If Rapor2_2UstYaziFrame.Visible = True Then
         For Each ctl In core_report2_entry_UI.Rapor2_2UstYaziFrame.Controls
@@ -7880,9 +7880,9 @@ Dim RaporOnKont As Integer, Tutanak2OnKont As Integer, SonucUstYaziOnKont As Int
 Dim XXXMudGidenTutanak2OnKont As Integer, XXXMudUstYaziOnKont As Integer, XXXMudTutanak1OnKont As Integer
 Dim XXXMudGelenTutanak2OnKont As Integer, UstYaziOnKont As Integer
     
-'Sonuç üst yazýsý
+'SonuÃ§ Ã¼st yazÄ±sÄ±
 If Rapor2_2UstYaziFrame.Visible = True And Rapor2_2CheckBox.Value = True Then
-    'Sonuç üst yazýsý bölümü için ön kontrol
+    'SonuÃ§ Ã¼st yazÄ±sÄ± bÃ¶lÃ¼mÃ¼ iÃ§in Ã¶n kontrol
     SonucUstYaziOnKont = 0
     For Each ctl In core_report2_entry_UI.Rapor2_2UstYaziFrame.Controls
         If TypeName(ctl) = "ComboBox" Then
@@ -8017,9 +8017,9 @@ SonucUstYaziKontYinedeKaydet27Ek2:
     
 SonucUstYaziKontYinedeKaydet27Ek2ilave:
 
-    'Senaryo 1: Tümü ve Hayýr
+    'Senaryo 1: TÃ¼mÃ¼ ve HayÄ±r
     If TumuOption.Value = True And XXXMudPaketiOptionHayir.Value = True Then
-        'Rapor2_2 sonuç yazýsý tarihi öncelik/sonralýk kontrolü
+        'Rapor2_2 sonuÃ§ yazÄ±sÄ± tarihi Ã¶ncelik/sonralÄ±k kontrolÃ¼
         If Rapor2_2UstYaziTarihiText.Value <> "" And UstYaziTarihiText.Value <> "" And XXXMudUstYaziTarihiText.Value <> "" And XXXMudTutanak2TarihiText.Value <> "" And Rapor1TarihiText.Value <> "" And _
         Rapor2_2RaporTarihiText.Value <> "" And Tutanak1TarihiText.Value <> "" And GelisTarihiText.Value <> "" And BelgeTarihiText.Value <> "" Then
             If Year(Rapor2_2UstYaziTarihiText.Value) < Year(BelgeTarihiText.Value) Or _
@@ -8077,9 +8077,9 @@ SonucSenaryo1YinedeKaydet29Ek2:
             End If
 SonucSenaryo1YinedeKaydet29Ek3:
         End If
-    'Senaryo 2: Tümü ve Evet
+    'Senaryo 2: TÃ¼mÃ¼ ve Evet
     ElseIf TumuOption.Value = True And XXXMudPaketiOptionEvet.Value = True Then
-        'Rapor2_2 sonuç yazýsý tarihi öncelik/sonralýk kontrolü
+        'Rapor2_2 sonuÃ§ yazÄ±sÄ± tarihi Ã¶ncelik/sonralÄ±k kontrolÃ¼
         If GelenXXXMudTutanak1TarihiText.Value <> "" And Tutanak2TarihiText.Value <> "" And _
            Rapor2_2UstYaziTarihiText.Value <> "" And UstYaziTarihiText.Value <> "" And XXXMudUstYaziTarihiText.Value <> "" And XXXMudTutanak2TarihiText.Value <> "" And Rapor1TarihiText.Value <> "" And _
            Rapor2_2RaporTarihiText.Value <> "" And GelenXXXMudGelisTarihiText.Value <> "" And GelenXXXMudBelgeTarihiText <> "" And _
@@ -8151,9 +8151,9 @@ SonucSenaryo2YinedeKaydet29Ek2:
             End If
 SonucSenaryo2YinedeKaydet29Ek3:
         End If
-    'Senaryo 3: Technique A ve Hayýr
+    'Senaryo 3: Technique A ve HayÄ±r
     ElseIf SadeceTeknik_AGecersizlerOption.Value = True And XXXMudPaketiOptionHayir.Value = True Then
-        'Rapor2_2 sonuç yazýsý tarihi öncelik/sonralýk kontrolü
+        'Rapor2_2 sonuÃ§ yazÄ±sÄ± tarihi Ã¶ncelik/sonralÄ±k kontrolÃ¼
         If Tutanak2TarihiText.Value <> "" And Rapor2_2UstYaziTarihiText.Value <> "" And UstYaziTarihiText.Value <> "" And XXXMudUstYaziTarihiText.Value <> "" And XXXMudTutanak2TarihiText.Value <> "" And Rapor1TarihiText.Value <> "" And _
            Rapor2_2RaporTarihiText.Value <> "" And Tutanak1TarihiText.Value <> "" And GelisTarihiText.Value <> "" And BelgeTarihiText.Value <> "" Then
             If Year(Rapor2_2UstYaziTarihiText.Value) < Year(BelgeTarihiText.Value) Or _
@@ -8216,7 +8216,7 @@ SonucSenaryo3YinedeKaydet29Ek3:
         End If
     'Senaryo 4: Technique A, Evet, Evet
     ElseIf SadeceTeknik_AGecersizlerOption.Value = True And XXXMudPaketiOptionEvet.Value = True And Tutanak2BirlestirmeOptionEvet.Value = True Then
-        'Rapor2_2 sonuç yazýsý tarihi öncelik/sonralýk kontrolü
+        'Rapor2_2 sonuÃ§ yazÄ±sÄ± tarihi Ã¶ncelik/sonralÄ±k kontrolÃ¼
         If GelenXXXMudTutanak1TarihiText.Value <> "" And Tutanak2TarihiText.Value <> "" And _
            Rapor2_2UstYaziTarihiText.Value <> "" And UstYaziTarihiText.Value <> "" And XXXMudUstYaziTarihiText.Value <> "" And XXXMudTutanak2TarihiText.Value <> "" And Rapor1TarihiText.Value <> "" And _
            Rapor2_2RaporTarihiText.Value <> "" And GelenXXXMudGelisTarihiText.Value <> "" And GelenXXXMudBelgeTarihiText <> "" And _
@@ -8288,9 +8288,9 @@ SonucSenaryo4YinedeKaydet29Ek2:
             End If
 SonucSenaryo4YinedeKaydet29Ek3:
         End If
-    'Senaryo 5: Technique A, Evet, Hayýr
+    'Senaryo 5: Technique A, Evet, HayÄ±r
     ElseIf SadeceTeknik_AGecersizlerOption.Value = True And XXXMudPaketiOptionEvet.Value = True And Tutanak2BirlestirmeOptionHayir.Value = True Then
-        'Rapor2_2 sonuç yazýsý tarihi öncelik/sonralýk kontrolü
+        'Rapor2_2 sonuÃ§ yazÄ±sÄ± tarihi Ã¶ncelik/sonralÄ±k kontrolÃ¼
         If GelenXXXMudTutanak1TarihiText.Value <> "" And Tutanak2TarihiText.Value <> "" And GelenXXXMudTutanak2TarihiText.Value <> "" And _
            Rapor2_2UstYaziTarihiText.Value <> "" And UstYaziTarihiText.Value <> "" And XXXMudUstYaziTarihiText.Value <> "" And XXXMudTutanak2TarihiText.Value <> "" And Rapor1TarihiText.Value <> "" And _
            Rapor2_2RaporTarihiText.Value <> "" And GelenXXXMudGelisTarihiText.Value <> "" And GelenXXXMudBelgeTarihiText <> "" And _
@@ -8454,8 +8454,8 @@ End Sub
 Sub KaydetOnKontroller()
 Dim ctl As MSForms.Control
 
-If Rapor2_2CheckBox.Value = True Then 'Rapor2_2 için
-    'Tüm bölümler için ön kontrol
+If Rapor2_2CheckBox.Value = True Then 'Rapor2_2 iÃ§in
+    'TÃ¼m bÃ¶lÃ¼mler iÃ§in Ã¶n kontrol
     TumKont = 0
     For Each ctl In core_report2_entry_UI.EsasFrame.Controls 'EsasFrame
         If TypeName(ctl) = "ComboBox" Then
@@ -8577,8 +8577,8 @@ If Rapor2_2CheckBox.Value = True Then 'Rapor2_2 için
             End If
         End If
     Next ctl
-Else 'Rapor için
-    'Tüm bölümler için ön kontrol
+Else 'Rapor iÃ§in
+    'TÃ¼m bÃ¶lÃ¼mler iÃ§in Ã¶n kontrol
     TumKont = 0
     For Each ctl In core_report2_entry_UI.EsasFrame.Controls 'EsasFrame
         If TypeName(ctl) = "ComboBox" Then
@@ -8678,14 +8678,14 @@ Dim ItemBul As Range
 
 Dim FarkSay1 As Integer, Fark1 As Long
 
-'DÜZELTME KAYDI
+'DÃœZELTME KAYDI
 
 YeniIslemAktarmaKontrol = 0
 ResetAktarmaKontrol = 0
     
 If ComboGetir.Value <> "" Then
 
-    'Veri tabanýný kontrol et
+    'Veri tabanÄ±nÄ± kontrol et
     Say = Range("CM100000").End(xlUp).Row
     If Say < 7 Then
         If Rapor2_2CheckBox.Value = True Then
@@ -8693,7 +8693,7 @@ If ComboGetir.Value <> "" Then
         Else
             ResetAktarmaKontrol = 1
         End If
-        GoTo ResetAtla 'BURADA GÜNCELLEME OLACAK!!!
+        GoTo ResetAtla 'BURADA GÃœNCELLEME OLACAK!!!
     End If
     
     Set IlkSiraBul = Range("CM7:CM100000").Find(What:=ComboGetir.Value, SearchDirection:=xlNext, _
@@ -8709,7 +8709,7 @@ If ComboGetir.Value <> "" Then
         Else
             ResetAktarmaKontrol = 1
         End If
-        GoTo ResetAtla 'BURADA GÜNCELLEME OLACAK!!!
+        GoTo ResetAtla 'BURADA GÃœNCELLEME OLACAK!!!
     End If
     If Not SonSiraBul Is Nothing Then
         SonSira = SonSiraBul.Row
@@ -8720,26 +8720,26 @@ If ComboGetir.Value <> "" Then
         Else
             ResetAktarmaKontrol = 1
         End If
-        GoTo ResetAtla 'BURADA GÜNCELLEME OLACAK!!!
+        GoTo ResetAtla 'BURADA GÃœNCELLEME OLACAK!!!
     End If
     
 
 '    IlkSiraAktar = IlkSira
-    'SonSiraAktar = SonSira 'Bunu kasýtlý kapatýyorum. Çünkü son sira aþaðýda deðiþebilir. Ýþlem günlüðü için bunu yaptým.
-    '25.11.2021, 20:49, ÝLAVE (iþlem günlüðünde yapýlan güncelleme için)
+    'SonSiraAktar = SonSira 'Bunu kasÄ±tlÄ± kapatÄ±yorum. Ã‡Ã¼nkÃ¼ son sira aÅŸaÄŸÄ±da deÄŸiÅŸebilir. Ä°ÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ iÃ§in bunu yaptÄ±m.
+    '25.11.2021, 20:49, Ä°LAVE (iÅŸlem gÃ¼nlÃ¼ÄŸÃ¼nde yapÄ±lan gÃ¼ncelleme iÃ§in)
     YeniIslemAktar = IlkSira
     
     
-'    'Önceki veriyi sil (04.07.2019, 23:40)
-'    'Kullanýcý bir iþlemi düzenlemek için çaðýrýr ve rapor2_2 karar sürecinde önceki verdiði kararý deðiþtirirse,
-'    '(visible frame kombinasyonu deðiþirse) veriler tamamen yeni karara göre kaydedilir.
-'Baþlangýç ve Bitiþ numaralarý, sayfalar, varlýk takipleri silinmeyecek (CM ve DG arasý silinmeyecek)
+'    'Ã–nceki veriyi sil (04.07.2019, 23:40)
+'    'KullanÄ±cÄ± bir iÅŸlemi dÃ¼zenlemek iÃ§in Ã§aÄŸÄ±rÄ±r ve rapor2_2 karar sÃ¼recinde Ã¶nceki verdiÄŸi kararÄ± deÄŸiÅŸtirirse,
+'    '(visible frame kombinasyonu deÄŸiÅŸirse) veriler tamamen yeni karara gÃ¶re kaydedilir.
+'BaÅŸlangÄ±Ã§ ve BitiÅŸ numaralarÄ±, sayfalar, varlÄ±k takipleri silinmeyecek (CM ve DG arasÄ± silinmeyecek)
     Range("F" & IlkSira & ":CG" & SonSira).ClearContents
-    Range("DH" & IlkSira & ":GX" & SonSira).ClearContents 'En sondaki sayfa sayýlarý da hariç
+    Range("DH" & IlkSira & ":GX" & SonSira).ClearContents 'En sondaki sayfa sayÄ±larÄ± da hariÃ§
     
     'Rapor1 formundan sayfaya aktar.
-    'Tutanak1 bölümü
-    'Cells(IlkSira, 5)'Sýra numarasý
+    'Tutanak1 bÃ¶lÃ¼mÃ¼
+    'Cells(IlkSira, 5)'SÄ±ra numarasÄ±
     Cells(IlkSira, 25).Value = Il.Value
     Cells(IlkSira, 26).Value = Ilce.Value
     Cells(IlkSira, 28).Value = BelgeTarihiText.Value
@@ -8772,14 +8772,14 @@ If ComboGetir.Value <> "" Then
     End If
     Cells(IlkSira, 44).Value = DokumListesi.Value
 
-    'Rapor2_2 seçimi
+    'Rapor2_2 seÃ§imi
     If Rapor2_2CheckBox.Value = True Then
         Cells(IlkSira, 174).Value = "Yes"
     ElseIf Rapor2_2CheckBox.Value = False Then
         Cells(IlkSira, 174).Value = "No"
     End If
 
-    'Tutanak1 imzalarý
+    'Tutanak1 imzalarÄ±
     Cells(IlkSira, 112).Value = Tutanak1Imza1.Value
     Set ItemBul = Worksheets(2).Range("DY6:DY1000").Find(What:=Tutanak1Imza1.Value, SearchDirection:=xlNext, _
                     SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -8825,7 +8825,7 @@ Tutanak1Imza2DuzeltmeIslemAtla:
         Cells(IlkSira, 11).Value = Rapor1No.Value
         Cells(IlkSira, 68).Value = Rapor1TarihiText.Value
         Cells(IlkSira, 69).Value = IlgiliBirim.Value
-        'Ýmzalar (hazýrlýk)
+        'Ä°mzalar (hazÄ±rlÄ±k)
         StrRaporUnvan1 = ""
         StrRaporSicil1 = ""
         StrRaporUnvan2 = ""
@@ -8864,15 +8864,15 @@ RaporImza2DuzeltmeIslemAtla:
         StrRaporUnvan3 = Worksheets(2).Range("DZ" & ItemBul.Row)
         StrRaporSicil3 = Worksheets(2).Range("EA" & ItemBul.Row)
 RaporImza3DuzeltmeIslemAtla:
-    '''''''''''Ýmzalar (hazýrlýk) sonu
+    '''''''''''Ä°mzalar (hazÄ±rlÄ±k) sonu
     End If
 
 
-    'Fark giriþleri
-    If SayFarkGiris > 2 Then  'Kalýcý kaydý yap, geçici kaydý sil
+    'Fark giriÅŸleri
+    If SayFarkGiris > 2 Then  'KalÄ±cÄ± kaydÄ± yap, geÃ§ici kaydÄ± sil
     
 '        Set WsFarkGiris = ThisWorkbook.Worksheets(7)
-'        'Maksimum deðerler.
+'        'Maksimum deÄŸerler.
 '        SayA = WsFarkGiris.Range("A100000").End(xlUp).Row
 '        SayD = WsFarkGiris.Range("D100000").End(xlUp).Row
 '        SayG = WsFarkGiris.Range("G100000").End(xlUp).Row
@@ -8888,7 +8888,7 @@ RaporImza3DuzeltmeIslemAtla:
         If Not IlkSiraBul Is Nothing Then
             IlkSiraFarkGirisRapor1 = IlkSiraBul.Row
         Else
-            'Maksimum deðerler.
+            'Maksimum deÄŸerler.
             SayA = WsFarkGirisRapor1.Range("A100000").End(xlUp).Row
             SayD = WsFarkGirisRapor1.Range("D100000").End(xlUp).Row
             SayG = WsFarkGirisRapor1.Range("G100000").End(xlUp).Row
@@ -8899,10 +8899,10 @@ RaporImza3DuzeltmeIslemAtla:
                 SayFarkGirisRapor1 = 2
             End If
             WsFarkGirisRapor1.Range("A" & SayFarkGirisRapor1 + 1 & ":M" & SayFarkGirisRapor1 + 1 + (SayFarkGiris - 3)).Value = WsFarkGiris.Range("A3:M" & SayFarkGiris).Value
-            'Fark giriþleri için baþlangýç bitiþ sýra no.larý iþaretle
+            'Fark giriÅŸleri iÃ§in baÅŸlangÄ±Ã§ bitiÅŸ sÄ±ra no.larÄ± iÅŸaretle
             WsFarkGirisRapor1.Cells(SayFarkGirisRapor1 + 1, 16).Value = ComboGetir.Value
             WsFarkGirisRapor1.Cells(SayFarkGirisRapor1 + 1 + (SayFarkGiris - 3), 17).Value = ComboGetir.Value
-            'Geçici kaydý sil
+            'GeÃ§ici kaydÄ± sil
             WsFarkGiris.Rows("3:30").EntireRow.Delete
     
             GoTo FarkGirisDuzeltmeAtla
@@ -8910,7 +8910,7 @@ RaporImza3DuzeltmeIslemAtla:
         If Not SonSiraBul Is Nothing Then
             SonSiraFarkGirisRapor1 = SonSiraBul.Row
         Else
-            'Maksimum deðerler.
+            'Maksimum deÄŸerler.
             SayA = WsFarkGirisRapor1.Range("A100000").End(xlUp).Row
             SayD = WsFarkGirisRapor1.Range("D100000").End(xlUp).Row
             SayG = WsFarkGirisRapor1.Range("G100000").End(xlUp).Row
@@ -8921,10 +8921,10 @@ RaporImza3DuzeltmeIslemAtla:
                 SayFarkGirisRapor1 = 2
             End If
             WsFarkGirisRapor1.Range("A" & SayFarkGirisRapor1 + 1 & ":M" & SayFarkGirisRapor1 + 1 + (SayFarkGiris - 3)).Value = WsFarkGiris.Range("A3:M" & SayFarkGiris).Value
-            'Fark giriþleri için baþlangýç bitiþ sýra no.larý iþaretle
+            'Fark giriÅŸleri iÃ§in baÅŸlangÄ±Ã§ bitiÅŸ sÄ±ra no.larÄ± iÅŸaretle
             WsFarkGirisRapor1.Cells(SayFarkGirisRapor1 + 1, 16).Value = ComboGetir.Value
             WsFarkGirisRapor1.Cells(SayFarkGirisRapor1 + 1 + (SayFarkGiris - 3), 17).Value = ComboGetir.Value
-            'Geçici kaydý sil
+            'GeÃ§ici kaydÄ± sil
             WsFarkGiris.Rows("3:30").EntireRow.Delete
             
             GoTo FarkGirisDuzeltmeAtla
@@ -8933,7 +8933,7 @@ RaporImza3DuzeltmeIslemAtla:
         Maxi1 = SayFarkGiris - 3 + 1
         Fark1 = SonSiraFarkGirisRapor1 - IlkSiraFarkGirisRapor1 + 1
         
-        If Maxi1 = Fark1 Then 'Sayfadaki satýr sayýsýný deðiþtirme
+        If Maxi1 = Fark1 Then 'Sayfadaki satÄ±r sayÄ±sÄ±nÄ± deÄŸiÅŸtirme
             If Maxi1 > 0 And Maxi1 < 21 Then
                 For OgeFrame = 0 To Maxi1 - 1
                     WsFarkGirisRapor1.Cells(IlkSiraFarkGirisRapor1 + OgeFrame, 1).Value = WsFarkGiris.Cells(3 + OgeFrame, 1).Value
@@ -8942,10 +8942,10 @@ RaporImza3DuzeltmeIslemAtla:
                     WsFarkGirisRapor1.Cells(IlkSiraFarkGirisRapor1 + OgeFrame, 10).Value = WsFarkGiris.Cells(3 + OgeFrame, 10).Value
                     WsFarkGirisRapor1.Cells(IlkSiraFarkGirisRapor1 + OgeFrame, 13).Value = WsFarkGiris.Cells(3 + OgeFrame, 13).Value
                 Next OgeFrame
-                'Geçici kaydý sil
+                'GeÃ§ici kaydÄ± sil
                 WsFarkGiris.Rows(3 & ":" & SayFarkGiris).EntireRow.Delete
             End If
-        ElseIf Maxi1 > Fark1 Then 'Sayfaya satýr ekle
+        ElseIf Maxi1 > Fark1 Then 'Sayfaya satÄ±r ekle
             If Maxi1 > 0 And Maxi1 < 21 Then
                 FarkSay1 = 0
                 For i = 1 To Maxi1 - Fark1
@@ -8963,10 +8963,10 @@ RaporImza3DuzeltmeIslemAtla:
                     WsFarkGirisRapor1.Cells(IlkSiraFarkGirisRapor1 + OgeFrame, 10).Value = WsFarkGiris.Cells(3 + OgeFrame, 10).Value
                     WsFarkGirisRapor1.Cells(IlkSiraFarkGirisRapor1 + OgeFrame, 13).Value = WsFarkGiris.Cells(3 + OgeFrame, 13).Value
                 Next OgeFrame
-                'Geçici kaydý sil
+                'GeÃ§ici kaydÄ± sil
                 WsFarkGiris.Rows(3 & ":" & SayFarkGiris).EntireRow.Delete
             End If
-        ElseIf Maxi1 < Fark1 Then 'Sayfadan satýr sil
+        ElseIf Maxi1 < Fark1 Then 'Sayfadan satÄ±r sil
             FarkSay1 = 0
             SiraNoSakla = WsFarkGirisRapor1.Cells(SonSiraFarkGirisRapor1, 17).Value
             For i = 1 To Fark1 - Maxi1
@@ -8982,14 +8982,14 @@ RaporImza3DuzeltmeIslemAtla:
                     WsFarkGirisRapor1.Cells(IlkSiraFarkGirisRapor1 + OgeFrame, 10).Value = WsFarkGiris.Cells(3 + OgeFrame, 10).Value
                     WsFarkGirisRapor1.Cells(IlkSiraFarkGirisRapor1 + OgeFrame, 13).Value = WsFarkGiris.Cells(3 + OgeFrame, 13).Value
                 Next OgeFrame
-                'Geçici kaydý sil
+                'GeÃ§ici kaydÄ± sil
                 WsFarkGiris.Rows(3 & ":" & SayFarkGiris).EntireRow.Delete
             End If
         End If
 FarkGirisDuzeltmeAtla:
-    Else 'SayFarkGiris 3'ten küçükse (varsayýlan deðeri 1)
+    Else 'SayFarkGiris 3'ten kÃ¼Ã§Ã¼kse (varsayÄ±lan deÄŸeri 1)
         
-        'Asýl kaydý bul ve sil (Ýlk kayýtta fark giriþi var; düzeltme kaydýnda ise farklar kaldýrýlarak geçici kayýt boþaltýlmýþ. Bu durumda kalýcý kayýt da silinmeli.)
+        'AsÄ±l kaydÄ± bul ve sil (Ä°lk kayÄ±tta fark giriÅŸi var; dÃ¼zeltme kaydÄ±nda ise farklar kaldÄ±rÄ±larak geÃ§ici kayÄ±t boÅŸaltÄ±lmÄ±ÅŸ. Bu durumda kalÄ±cÄ± kayÄ±t da silinmeli.)
         Set WsFarkGirisRapor1 = ThisWorkbook.Worksheets(9)
         Set IlkSiraBul = WsFarkGirisRapor1.Range("P3:P100000").Find(What:=ComboGetir.Value, SearchDirection:=xlNext, _
                         SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -9005,7 +9005,7 @@ FarkGirisDuzeltmeAtla:
         Else
             GoTo FarkGirisDuzeltmeAtla1
         End If
-        'Buraya asýl kayýtlarýn silinmesi kodlarý gelecek
+        'Buraya asÄ±l kayÄ±tlarÄ±n silinmesi kodlarÄ± gelecek
         WsFarkGirisRapor1.Rows(IlkSiraFarkGirisRapor1 & ":" & SonSiraFarkGirisRapor1).EntireRow.Delete
         
 FarkGirisDuzeltmeAtla1:
@@ -9017,7 +9017,7 @@ FarkGirisDuzeltmeAtla1:
     Fark = SonSira - IlkSira '+ 1
     MaxiAktar = Maxi
     FarkAktar = Fark
-    If Maxi = Fark Then 'Sayfadaki satýr sayýsýný deðiþtirme
+    If Maxi = Fark Then 'Sayfadaki satÄ±r sayÄ±sÄ±nÄ± deÄŸiÅŸtirme
         If Maxi > 0 And Maxi < 20 Then
             For OgeFrame = 1 To Maxi
                 Cells(IlkSira + OgeFrame, 46).Value = Controls("OgeTuru" & OgeFrame).Value
@@ -9037,7 +9037,7 @@ FarkGirisDuzeltmeAtla1:
                     End If
                     Cells(IlkSira + OgeFrame, 67).Value = Controls("Rapor1No" & OgeFrame).Value
                     Cells(IlkSira + OgeFrame, 11).Value = Controls("Rapor1No" & OgeFrame).Value
-                    'Raporda düzeltme yapýldýðýnda sayfa sayýlarýný tekrar düzenle
+                    'Raporda dÃ¼zeltme yapÄ±ldÄ±ÄŸÄ±nda sayfa sayÄ±larÄ±nÄ± tekrar dÃ¼zenle
                     If Cells(IlkSira + OgeFrame, 11).Value = "" Then
                         Cells(IlkSira + OgeFrame, 99).Value = ""
                         Cells(IlkSira + OgeFrame, 219).Value = ""
@@ -9045,7 +9045,7 @@ FarkGirisDuzeltmeAtla1:
                 End If
             Next OgeFrame
         End If
-    ElseIf Maxi > Fark Then 'Sayfaya satýr ekle
+    ElseIf Maxi > Fark Then 'Sayfaya satÄ±r ekle
         If Maxi > 0 And Maxi < 20 Then
             FarkSay = 0
             For i = 1 To Maxi - Fark
@@ -9071,7 +9071,7 @@ FarkGirisDuzeltmeAtla1:
                     Cells(IlkSira + OgeFrame, 64).Value = Controls("RaporOzelligi" & OgeFrame).Value
                     Cells(IlkSira + OgeFrame, 67).Value = Controls("Rapor1No" & OgeFrame).Value
                     Cells(IlkSira + OgeFrame, 11).Value = Controls("Rapor1No" & OgeFrame).Value
-                    'Raporda düzeltme yapýldýðýnda sayfa sayýlarýný tekrar düzenle
+                    'Raporda dÃ¼zeltme yapÄ±ldÄ±ÄŸÄ±nda sayfa sayÄ±larÄ±nÄ± tekrar dÃ¼zenle
                     If Cells(IlkSira + OgeFrame, 11).Value = "" Then
                         Cells(IlkSira + OgeFrame, 99).Value = ""
                         Cells(IlkSira + OgeFrame, 219).Value = ""
@@ -9079,7 +9079,7 @@ FarkGirisDuzeltmeAtla1:
                 End If
             Next OgeFrame
         End If
-    ElseIf Maxi < Fark Then 'Sayfadan satýr sil
+    ElseIf Maxi < Fark Then 'Sayfadan satÄ±r sil
         FarkSay = 0
         SiraNoSakla = Cells(SonSira, 92).Value
         For i = 1 To Fark - Maxi
@@ -9101,7 +9101,7 @@ FarkGirisDuzeltmeAtla1:
                     Cells(IlkSira + OgeFrame, 64).Value = Controls("RaporOzelligi" & OgeFrame).Value
                     Cells(IlkSira + OgeFrame, 67).Value = Controls("Rapor1No" & OgeFrame).Value
                     Cells(IlkSira + OgeFrame, 11).Value = Controls("Rapor1No" & OgeFrame).Value
-                    'Raporda düzeltme yapýldýðýnda sayfa sayýlarýný tekrar düzenle
+                    'Raporda dÃ¼zeltme yapÄ±ldÄ±ÄŸÄ±nda sayfa sayÄ±larÄ±nÄ± tekrar dÃ¼zenle
                     If Cells(IlkSira + OgeFrame, 11).Value = "" Then
                         Cells(IlkSira + OgeFrame, 99).Value = ""
                         Cells(IlkSira + OgeFrame, 219).Value = ""
@@ -9129,7 +9129,7 @@ FarkGirisDuzeltmeAtla1:
         Cells(IlkSira, 75).Value = GidenPaketTipi.Value
         Cells(IlkSira, 76).Value = GidenPaketAdedi.Value
 
-        'Tutanak2 imzalarý
+        'Tutanak2 imzalarÄ±
         Cells(IlkSira, 124).Value = Tutanak2Imza1.Value
         Set ItemBul = Worksheets(2).Range("DY6:DY1000").Find(What:=Tutanak2Imza1.Value, SearchDirection:=xlNext, _
                         SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -9157,10 +9157,10 @@ Tutanak2Imza2DuzeltmeIslemAtla:
 
     End If
 
-    'Rapor2_2 Karar Süreci
+    'Rapor2_2 Karar SÃ¼reci
     If Rapor2_2CheckBox.Value = True Then
         Cells(IlkSira, 65).Value = Rapor2_2No.Value
-        'Tutanak2 içeriði
+        'Tutanak2 iÃ§eriÄŸi
         If TumuOption.Value = True Then
             Cells(IlkSira, 187).Value = "All"
         ElseIf SadeceTeknik_AGecersizlerOption.Value = True Then
@@ -9168,7 +9168,7 @@ Tutanak2Imza2DuzeltmeIslemAtla:
         Else
             Cells(IlkSira, 187).Value = ""
         End If
-        'XXXMud'den gelen paketin açýlma durumu
+        'XXXMud'den gelen paketin aÃ§Ä±lma durumu
         If XXXMudPaketiOptionEvet.Value = True Then
             Cells(IlkSira, 188).Value = "Yes"
         ElseIf XXXMudPaketiOptionHayir.Value = True Then
@@ -9176,7 +9176,7 @@ Tutanak2Imza2DuzeltmeIslemAtla:
         Else
             Cells(IlkSira, 188).Value = ""
         End If
-        'Tutanak2 birleþtirme
+        'Tutanak2 birleÅŸtirme
         If Tutanak2BirlestirmeOptionEvet.Value = True Then
             Cells(IlkSira, 189).Value = "Yes"
         ElseIf Tutanak2BirlestirmeOptionHayir.Value = True Then
@@ -9192,7 +9192,7 @@ Tutanak2Imza2DuzeltmeIslemAtla:
         Cells(IlkSira, 184).Value = XXXMudGidenPaketTipi.Value
         Cells(IlkSira, 185).Value = XXXMudGidenPaketAdedi.Value
 
-        'Tutanak2 imzalarý XXXMud
+        'Tutanak2 imzalarÄ± XXXMud
         Cells(IlkSira, 148).Value = XXXMudTutanak2Imza1.Value
         Set ItemBul = Worksheets(2).Range("DY6:DY1000").Find(What:=XXXMudTutanak2Imza1.Value, SearchDirection:=xlNext, _
                         SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -9218,12 +9218,12 @@ XXXMudTutanak2Imza1DuzeltmeIslemAtla:
 XXXMudTutanak2Imza2DuzeltmeIslemAtla:
     End If
  
-    'XXXMud üst yazý bölümü
+    'XXXMud Ã¼st yazÄ± bÃ¶lÃ¼mÃ¼
     If XXXMudUstYaziFrame.Visible = True Then
         Cells(IlkSira, 175).Value = XXXMudUstYaziTarihiText.Value
         Cells(IlkSira, 176).Value = XXXMudUstYaziNoText.Value
         Cells(IlkSira, 206).Value = XXXMudIlgiYaziFotokopisi.Value
-        'Üst yazý imzalarý
+        'Ãœst yazÄ± imzalarÄ±
         Cells(IlkSira, 139).Value = XXXMudUstYaziImza1.Value
         Cells(IlkSira, 169).Value = ImzaNiteligi.Value
         If OptionBirlesik.Value = True Then
@@ -9244,7 +9244,7 @@ XXXMudUstYaziImza1IlkSiraAtla:
         ''''''''''''''
     End If
 
-    'Üst yazý
+    'Ãœst yazÄ±
     If UstYaziFrame.Visible = True Then
         Cells(IlkSira, 83).Value = UstYaziTarihiText.Value
         Cells(IlkSira, 84).Value = UstYaziNoText.Value
@@ -9274,7 +9274,7 @@ XXXMudUstYaziImza1IlkSiraAtla:
             Cells(IlkSira, 204).Value = BilgilendirmeIlceGiden.Value
         End If
         
-        'Üst yazý imzalarý
+        'Ãœst yazÄ± imzalarÄ±
         Cells(IlkSira, 130).Value = UstYaziImza1.Value
         Set ItemBul = Worksheets(2).Range("DY6:DY1000").Find(What:=UstYaziImza1.Value, SearchDirection:=xlNext, _
                         SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -9298,7 +9298,7 @@ UstYaziImza1DuzeltmeIslemAtla:
         Cells(IlkSira, 134).Value = Worksheets(2).Range("DZ" & ItemBul.Row)
         Cells(IlkSira, 135).Value = Worksheets(2).Range("EA" & ItemBul.Row)
 UstYaziImza2DuzeltmeIslemAtla:
-    ''''''''''''üst yazý imza sonu
+    ''''''''''''Ã¼st yazÄ± imza sonu
     End If
 
     'XXXMud Tutanak1
@@ -9310,7 +9310,7 @@ UstYaziImza2DuzeltmeIslemAtla:
         Cells(IlkSira, 194).Value = GelenXXXMudBelgeNoText.Value
         Cells(IlkSira, 195).Value = GelenXXXMudGelenPaketTipi.Value
         Cells(IlkSira, 196).Value = GelenXXXMudGelisSekli.Value
-        'Tutanak1 imzalarý XXXMud
+        'Tutanak1 imzalarÄ± XXXMud
         Cells(IlkSira, 154).Value = GelenXXXMudTutanak1Imza1.Value
         Set ItemBul = Worksheets(2).Range("DY6:DY1000").Find(What:=GelenXXXMudTutanak1Imza1.Value, SearchDirection:=xlNext, _
                         SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -9347,7 +9347,7 @@ GelenXXXMudTutanak1Imza2DuzeltmeIslemAtla:
             Cells(IlkSira, 202).Value = GelenXXXMudGidenPaketAdedi.Value
             Cells(IlkSira, 205).Value = GelenXXXMudTutanak2TutSayfa.Value
         End If
-        'Tutanak2 imzalarý XXXMud
+        'Tutanak2 imzalarÄ± XXXMud
         Cells(IlkSira, 160).Value = GelenXXXMudTutanak2Imza1.Value
         Set ItemBul = Worksheets(2).Range("DY6:DY1000").Find(What:=GelenXXXMudTutanak2Imza1.Value, SearchDirection:=xlNext, _
                         SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -9374,7 +9374,7 @@ GelenXXXMudTutanak2Imza2DuzeltmeIslemAtla:
     End If
     
     
-    'Sonuç üst yazýsý
+    'SonuÃ§ Ã¼st yazÄ±sÄ±
     If Rapor2_2UstYaziFrame.Visible = True Then
         Cells(IlkSira, 177).Value = Rapor2_2UstYaziTarihiText.Value
         Cells(IlkSira, 178).Value = Rapor2_2UstYaziNoText.Value
@@ -9393,7 +9393,7 @@ GelenXXXMudTutanak2Imza2DuzeltmeIslemAtla:
         If SonucGelenXXXMudGelisTarihiFrame.Visible = True Then
             Cells(IlkSira, 191).Value = SonucGelenXXXMudGelisTarihiText.Value
         End If
-        'Üst yazý imzalarý
+        'Ãœst yazÄ± imzalarÄ±
         Cells(IlkSira, 142).Value = Rapor2_2UstYaziImza1.Value
         Set ItemBul = Worksheets(2).Range("DY6:DY1000").Find(What:=Rapor2_2UstYaziImza1.Value, SearchDirection:=xlNext, _
                         SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -9420,7 +9420,7 @@ Rapor2_2UstYaziImza2IlkSiraAtla:
         ''''''''''''''
     End If
 
-'    '________________________ÝÞLEM GÜNLÜÐÜ DÜZELTME KAYDI
+'    '________________________Ä°ÅžLEM GÃœNLÃœÄžÃœ DÃœZELTME KAYDI
 '
 '    Call ModuleReport2.IslemGunluguRaporDuzeltme
 '
@@ -9428,10 +9428,10 @@ Rapor2_2UstYaziImza2IlkSiraAtla:
 '        Call ModuleReport2.IslemGunluguRapor2_2Duzeltme
 '    End If
 '
-'    '________________________ÝÞLEM GÜNLÜÐÜ DÜZELTME KAYDI
+'    '________________________Ä°ÅžLEM GÃœNLÃœÄžÃœ DÃœZELTME KAYDI
 
 
-    'iþlem günlüðü için zaman damgasý 'ESKÝ VERÝLER ÝÇÝN ZAMAN DAMGASI OLUÞTUR
+    'iÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ iÃ§in zaman damgasÄ± 'ESKÄ° VERÄ°LER Ä°Ã‡Ä°N ZAMAN DAMGASI OLUÅžTUR
     If Len(Cells(IlkSira, 93).Value) < 12 Then
         StrTime = Format(Now, "ddmmyyyyhhmmss")
         Cells(IlkSira, 93).Value = StrTime
@@ -9443,7 +9443,7 @@ Rapor2_2UstYaziImza2IlkSiraAtla:
     Set WsRaporNo = ThisWorkbook.Worksheets(10)
 
     Set RnoIlkSiraBul = WsRaporNo.Range("D6:D100000").Find(What:=Cells(IlkSira, 93).Value, SearchDirection:=xlNext, _
-                    SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasýný ara
+                    SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole) 'zaman damgasÄ±nÄ± ara
     Set RnoSonSiraBul = WsRaporNo.Range("E6:E100000").Find(What:=Cells(IlkSira, 93).Value, SearchDirection:=xlNext, _
                     SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
     If Not RnoIlkSiraBul Is Nothing Then
@@ -9452,25 +9452,25 @@ Rapor2_2UstYaziImza2IlkSiraAtla:
             RnoSonSira = RnoSonSiraBul.Row
         End If
 
-        'Satýrlarý düzenle
+        'SatÄ±rlarÄ± dÃ¼zenle
         WsRaporNo.Range(WsRaporNo.Cells(RnoIlkSira, 1), WsRaporNo.Cells(RnoSonSira, 5)).ClearContents
         Fark = (RnoSonSira - RnoIlkSira) - (IlkSira + Maxi - IlkSira)
         'MsgBox "Fark: " & Fark
-        If Fark > 0 Then 'satýr silinecek
-            'MsgBox "Fark: " & Fark & " satýr kaldýr"
+        If Fark > 0 Then 'satÄ±r silinecek
+            'MsgBox "Fark: " & Fark & " satÄ±r kaldÄ±r"
             WsRaporNo.Rows(RnoSonSira - (Fark - 1) & ":" & RnoSonSira).EntireRow.Delete
             ilkrow = RnoIlkSira
             sonrow = RnoSonSira - Fark
-        ElseIf Fark < 0 Then 'satýr eklenecek
-            'MsgBox "Fark: " & Fark & " satýr ekle"
+        ElseIf Fark < 0 Then 'satÄ±r eklenecek
+            'MsgBox "Fark: " & Fark & " satÄ±r ekle"
             Fark = -1 * Fark
             For i = 1 To Fark
                 WsRaporNo.Rows(RnoSonSira + 1).EntireRow.Insert Shift:=xlUp
             Next i
             ilkrow = RnoIlkSira
             sonrow = RnoSonSira + Fark
-        ElseIf Fark = 0 Then 'satýrlarda deðiþiklik olmayacak
-            'MsgBox "Fark: " & Fark & " deðiþiklik yok"
+        ElseIf Fark = 0 Then 'satÄ±rlarda deÄŸiÅŸiklik olmayacak
+            'MsgBox "Fark: " & Fark & " deÄŸiÅŸiklik yok"
             ilkrow = RnoIlkSira
             sonrow = RnoSonSira
         End If
@@ -9479,8 +9479,8 @@ Rapor2_2UstYaziImza2IlkSiraAtla:
         WsRaporNo.Range(WsRaporNo.Cells(ilkrow, 1), WsRaporNo.Cells(sonrow, 1)).Value = Range(Cells(IlkSira, 11), Cells(IlkSira + Maxi, 11)).Value 'Rapor no
         WsRaporNo.Cells(ilkrow, 2).Value = Cells(IlkSira, 68).Value
         WsRaporNo.Cells(ilkrow, 3).Value = "Request"
-        WsRaporNo.Cells(ilkrow, 4).Value = Cells(IlkSira, 93).Value 'Ýlk zaman damgasý
-        WsRaporNo.Cells(sonrow, 5).Value = Cells(IlkSira, 93).Value 'Son zaman damgasý
+        WsRaporNo.Cells(ilkrow, 4).Value = Cells(IlkSira, 93).Value 'Ä°lk zaman damgasÄ±
+        WsRaporNo.Cells(sonrow, 5).Value = Cells(IlkSira, 93).Value 'Son zaman damgasÄ±
 
     End If
 
@@ -9488,7 +9488,7 @@ Rapor2_2UstYaziImza2IlkSiraAtla:
 
 
 
-    '________________________ÝÞLEM GÜNLÜÐÜ YENÝ KAYIT
+    '________________________Ä°ÅžLEM GÃœNLÃœÄžÃœ YENÄ° KAYIT
     
     Call ModuleReport2.IslemGunluguRapor2_1
     
@@ -9496,12 +9496,12 @@ Rapor2_2UstYaziImza2IlkSiraAtla:
         Call ModuleReport2.IslemGunluguRapor2_2
     End If
     
-    '________________________ÝÞLEM GÜNLÜÐÜ YENÝ KAYIT
+    '________________________Ä°ÅžLEM GÃœNLÃœÄžÃœ YENÄ° KAYIT
 
     
     ThisWorkbook.Activate
     
-    'Prosedür sonu düzeltmeleri
+    'ProsedÃ¼r sonu dÃ¼zeltmeleri
     YeniIslem = IlkSira
     YeniIslemAktar = YeniIslem
     YeniIslemAktarmaKontrol = 1
@@ -9548,7 +9548,7 @@ Dim FarkSay1 As Integer, Fark1 As Long
 
 
 
-'YENÝ ÝÞLEM
+'YENÄ° Ä°ÅžLEM
 YeniIslem = Range("CN100000").End(xlUp).Row
 If YeniIslem < 7 Then
     YeniIslem = 7
@@ -9578,11 +9578,11 @@ MaxiAktar = Maxi
 YeniIslemAktar = YeniIslem
 
 'Verileri rapor1 formundan sayfaya aktar.
-'Tutanak1 bölümü
+'Tutanak1 bÃ¶lÃ¼mÃ¼
 If YeniIslem = 7 Then
-    Cells(YeniIslem, 5).Value = 1 'Ýlk sýra numarasýný ver
+    Cells(YeniIslem, 5).Value = 1 'Ä°lk sÄ±ra numarasÄ±nÄ± ver
 Else
-    Cells(YeniIslem, 5).Value = Cells(YeniIslem - 1, 92).Value + 1 'Sýra numarasý ver
+    Cells(YeniIslem, 5).Value = Cells(YeniIslem - 1, 92).Value + 1 'SÄ±ra numarasÄ± ver
 End If
 Cells(YeniIslem, 25).Value = Il.Value
 Cells(YeniIslem, 26).Value = Ilce.Value
@@ -9616,14 +9616,14 @@ ElseIf DLHayirOption.Value = True Then
 End If
 Cells(YeniIslem, 44).Value = DokumListesi.Value
 
-'Rapor2_2 seçimi
+'Rapor2_2 seÃ§imi
 If Rapor2_2CheckBox.Value = True Then
     Cells(YeniIslem, 174).Value = "Yes"
 ElseIf Rapor2_2CheckBox.Value = False Then
     Cells(YeniIslem, 174).Value = "No"
 End If
     
-'Tutanak1 imzalarý
+'Tutanak1 imzalarÄ±
 Cells(YeniIslem, 112).Value = Tutanak1Imza1.Value
 Set ItemBul = Worksheets(2).Range("DY6:DY1000").Find(What:=Tutanak1Imza1.Value, SearchDirection:=xlNext, _
                 SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -9649,12 +9649,12 @@ Cells(YeniIslem, 117).Value = Worksheets(2).Range("EA" & ItemBul.Row)
 Tutanak1Imza2YeniIslemAtla:
 ''''''''''''''
 
-'Fark giriþleri
-If SayFarkGiris > 2 Then  'Kalýcý kaydý yap, geçici kaydý sil
+'Fark giriÅŸleri
+If SayFarkGiris > 2 Then  'KalÄ±cÄ± kaydÄ± yap, geÃ§ici kaydÄ± sil
     Set WsFarkGiris = ThisWorkbook.Worksheets(7)
     Set WsFarkGirisRapor1 = ThisWorkbook.Worksheets(9)
 
-    'Maksimum deðerler.
+    'Maksimum deÄŸerler.
     SayA = WsFarkGirisRapor1.Range("A100000").End(xlUp).Row
     SayD = WsFarkGirisRapor1.Range("D100000").End(xlUp).Row
     SayG = WsFarkGirisRapor1.Range("G100000").End(xlUp).Row
@@ -9666,7 +9666,7 @@ If SayFarkGiris > 2 Then  'Kalýcý kaydý yap, geçici kaydý sil
     End If
     
     WsFarkGirisRapor1.Range("A" & SayFarkGirisRapor1 + 1 & ":M" & SayFarkGirisRapor1 + 1 + (SayFarkGiris - 3)).Value = WsFarkGiris.Range("A3:M" & SayFarkGiris).Value
-    'Geçici kaydý sil
+    'GeÃ§ici kaydÄ± sil
     WsFarkGiris.Rows(3 & ":" & SayFarkGiris).EntireRow.Delete
 End If
 
@@ -9686,7 +9686,7 @@ If Maxi > 0 Then
     Next OgeFrame
 End If
 
-'Rapor bölümü
+'Rapor bÃ¶lÃ¼mÃ¼
 If Rapor1Frame.Visible = True Then
     Cells(YeniIslem, 62).Value = Sonuc.Value
     Cells(YeniIslem, 63).Value = UretimOzelligi.Value
@@ -9700,7 +9700,7 @@ If Rapor1Frame.Visible = True Then
     Cells(YeniIslem, 11).Value = Rapor1No.Value
     Cells(YeniIslem, 68).Value = Rapor1TarihiText.Value
     Cells(YeniIslem, 69).Value = IlgiliBirim.Value
-    'Ýmzalar (hazýrlýk)
+    'Ä°mzalar (hazÄ±rlÄ±k)
     StrRaporUnvan1 = ""
     StrRaporSicil1 = ""
     StrRaporUnvan2 = ""
@@ -9739,7 +9739,7 @@ RaporImza2YeniIslemAtla:
     StrRaporUnvan3 = Worksheets(2).Range("DZ" & ItemBul.Row)
     StrRaporSicil3 = Worksheets(2).Range("EA" & ItemBul.Row)
 RaporImza3YeniIslemAtla:
-'''''''''''Ýmzalar (hazýrlýk) sonu
+'''''''''''Ä°mzalar (hazÄ±rlÄ±k) sonu
 
     If Maxi > 0 Then
         For OgeFrame = 1 To Maxi
@@ -9757,7 +9757,7 @@ RaporImza3YeniIslemAtla:
     End If
 End If
 
-'Tutanak2 bölümü (Ayný zamanda rapor2_2 için ilgili birim tutanak2sý)
+'Tutanak2 bÃ¶lÃ¼mÃ¼ (AynÄ± zamanda rapor2_2 iÃ§in ilgili birim tutanak2sÄ±)
 If Tutanak2Frame.Visible = True Then
     Cells(YeniIslem, 71).Value = Tutanak2TarihiText.Value
 
@@ -9775,7 +9775,7 @@ If Tutanak2Frame.Visible = True Then
     Cells(YeniIslem, 75).Value = GidenPaketTipi.Value
     Cells(YeniIslem, 76).Value = GidenPaketAdedi.Value
 
-    'Tutanak2 imzalarý
+    'Tutanak2 imzalarÄ±
     Cells(YeniIslem, 124).Value = Tutanak2Imza1.Value
     Set ItemBul = Worksheets(2).Range("DY6:DY1000").Find(What:=Tutanak2Imza1.Value, SearchDirection:=xlNext, _
                     SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -9803,10 +9803,10 @@ Tutanak2Imza2YeniIslemAtla:
     
 End If
 
-'Rapor2_2 Karar Süreci
+'Rapor2_2 Karar SÃ¼reci
 If Rapor2_2CheckBox.Value = True Then
     Cells(YeniIslem, 65).Value = Rapor2_2No.Value
-    'Tutanak2 içeriði
+    'Tutanak2 iÃ§eriÄŸi
     If TumuOption.Value = True Then
         Cells(YeniIslem, 187).Value = "All"
     ElseIf SadeceTeknik_AGecersizlerOption.Value = True Then
@@ -9814,7 +9814,7 @@ If Rapor2_2CheckBox.Value = True Then
     Else
         Cells(YeniIslem, 187).Value = ""
     End If
-    'XXXMud'den gelen paketin açýlma durumu
+    'XXXMud'den gelen paketin aÃ§Ä±lma durumu
     If XXXMudPaketiOptionEvet.Value = True Then
         Cells(YeniIslem, 188).Value = "Yes"
     ElseIf XXXMudPaketiOptionHayir.Value = True Then
@@ -9822,7 +9822,7 @@ If Rapor2_2CheckBox.Value = True Then
     Else
         Cells(YeniIslem, 188).Value = ""
     End If
-    'Tutanak2 birleþtirme
+    'Tutanak2 birleÅŸtirme
     If Tutanak2BirlestirmeOptionEvet.Value = True Then
         Cells(YeniIslem, 189).Value = "Yes"
     ElseIf Tutanak2BirlestirmeOptionHayir.Value = True Then
@@ -9837,7 +9837,7 @@ If XXXMudTutanak2Frame.Visible = True Then
     Cells(YeniIslem, 183).Value = XXXMudTutanak2TarihiText.Value
     Cells(YeniIslem, 184).Value = XXXMudGidenPaketTipi.Value
     Cells(YeniIslem, 185).Value = XXXMudGidenPaketAdedi.Value
-    'Tutanak2 imzalarý XXXMud
+    'Tutanak2 imzalarÄ± XXXMud
     Cells(YeniIslem, 148).Value = XXXMudTutanak2Imza1.Value
     Set ItemBul = Worksheets(2).Range("DY6:DY1000").Find(What:=XXXMudTutanak2Imza1.Value, SearchDirection:=xlNext, _
                     SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -9863,13 +9863,13 @@ XXXMudTutanak2Imza1YeniIslemAtla:
 XXXMudTutanak2Imza2YeniIslemAtla:
 End If
 
-'XXXMud üst yazýsý
+'XXXMud Ã¼st yazÄ±sÄ±
 If XXXMudUstYaziFrame.Visible = True Then
     Cells(YeniIslem, 175).Value = XXXMudUstYaziTarihiText.Value
     Cells(YeniIslem, 176).Value = XXXMudUstYaziNoText.Value
     Cells(YeniIslem, 206).Value = XXXMudIlgiYaziFotokopisi.Value
     
-    'Üst yazý imzalarý
+    'Ãœst yazÄ± imzalarÄ±
     Cells(YeniIslem, 139).Value = XXXMudUstYaziImza1.Value
     Cells(YeniIslem, 169).Value = ImzaNiteligi.Value
     If OptionBirlesik.Value = True Then
@@ -9890,7 +9890,7 @@ XXXMudUstYaziImza1YeniIslemAtla:
     ''''''''''''''
 End If
 
-'Üst yazý bölümü (Ayný zamanda bilgilendirme)
+'Ãœst yazÄ± bÃ¶lÃ¼mÃ¼ (AynÄ± zamanda bilgilendirme)
 If UstYaziFrame.Visible = True Then
     Cells(YeniIslem, 83).Value = UstYaziTarihiText.Value
     Cells(YeniIslem, 84).Value = UstYaziNoText.Value
@@ -9920,7 +9920,7 @@ If UstYaziFrame.Visible = True Then
         Cells(YeniIslem, 204).Value = BilgilendirmeIlceGiden.Value
     End If
 
-    'Üst yazý imzalarý
+    'Ãœst yazÄ± imzalarÄ±
     Cells(YeniIslem, 130).Value = UstYaziImza1.Value
     Set ItemBul = Worksheets(2).Range("DY6:DY1000").Find(What:=UstYaziImza1.Value, SearchDirection:=xlNext, _
                     SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -9956,7 +9956,7 @@ If GelenXXXMudTutanak1Frame.Visible = True Then
     Cells(YeniIslem, 194).Value = GelenXXXMudBelgeNoText.Value
     Cells(YeniIslem, 195).Value = GelenXXXMudGelenPaketTipi.Value
     Cells(YeniIslem, 196).Value = GelenXXXMudGelisSekli.Value
-    'Tutanak1 imzalarý XXXMud
+    'Tutanak1 imzalarÄ± XXXMud
     Cells(YeniIslem, 154).Value = GelenXXXMudTutanak1Imza1.Value
     Set ItemBul = Worksheets(2).Range("DY6:DY1000").Find(What:=GelenXXXMudTutanak1Imza1.Value, SearchDirection:=xlNext, _
                     SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -9994,7 +9994,7 @@ If GelenXXXMudTutanak2Frame.Visible = True Then
         Cells(YeniIslem, 205).Value = GelenXXXMudTutanak2TutSayfa.Value
     End If
     
-    'Tutanak2 imzalarý XXXMud
+    'Tutanak2 imzalarÄ± XXXMud
     Cells(YeniIslem, 160).Value = GelenXXXMudTutanak2Imza1.Value
     Set ItemBul = Worksheets(2).Range("DY6:DY1000").Find(What:=GelenXXXMudTutanak2Imza1.Value, SearchDirection:=xlNext, _
                     SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -10020,7 +10020,7 @@ GelenXXXMudTutanak2Imza1YeniIslemAtla:
 GelenXXXMudTutanak2Imza2YeniIslemAtla:
 End If
     
-'Sonuç üst yazýsý
+'SonuÃ§ Ã¼st yazÄ±sÄ±
 If Rapor2_2UstYaziFrame.Visible = True Then
     Cells(YeniIslem, 177).Value = Rapor2_2UstYaziTarihiText.Value
     Cells(YeniIslem, 178).Value = Rapor2_2UstYaziNoText.Value
@@ -10039,7 +10039,7 @@ If Rapor2_2UstYaziFrame.Visible = True Then
     If SonucGelenXXXMudGelisTarihiFrame.Visible = True Then
         Cells(YeniIslem, 191).Value = SonucGelenXXXMudGelisTarihiText.Value
     End If
-    'Üst yazý imzalarý
+    'Ãœst yazÄ± imzalarÄ±
     Cells(YeniIslem, 142).Value = Rapor2_2UstYaziImza1.Value
     Set ItemBul = Worksheets(2).Range("DY6:DY1000").Find(What:=Rapor2_2UstYaziImza1.Value, SearchDirection:=xlNext, _
                     SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -10066,16 +10066,16 @@ Rapor2_2UstYaziImza2YeniIslemAtla:
     ''''''''''''''
 End If
 
-'iþlem günlüðü için zaman damgasý
+'iÅŸlem gÃ¼nlÃ¼ÄŸÃ¼ iÃ§in zaman damgasÄ±
 StrTime = Format(Now, "ddmmyyyyhhmmss")
 Cells(YeniIslem, 93).Value = StrTime
 
-'Ýlk ve son satýrlarý iþaretle
+'Ä°lk ve son satÄ±rlarÄ± iÅŸaretle
 Cells(YeniIslem, 91).Value = Cells(YeniIslem, 5).Value
 Cells(YeniIslem + Maxi, 92).Value = Cells(YeniIslem, 5).Value
 
-'Fark giriþleri
-If SayFarkGiris > 2 Then  'Fark giriþleri için baþlangýç bitiþ sýra no.larý iþaretle
+'Fark giriÅŸleri
+If SayFarkGiris > 2 Then  'Fark giriÅŸleri iÃ§in baÅŸlangÄ±Ã§ bitiÅŸ sÄ±ra no.larÄ± iÅŸaretle
     WsFarkGirisRapor1.Cells(SayFarkGirisRapor1 + 1, 16).Value = Cells(YeniIslem, 5).Value
     WsFarkGirisRapor1.Cells(SayFarkGirisRapor1 + 1 + (SayFarkGiris - 3), 17).Value = Cells(YeniIslem, 5).Value
 End If
@@ -10087,14 +10087,14 @@ End If
 WsRaporNo.Range(WsRaporNo.Cells(islemNew, 1), WsRaporNo.Cells(islemNew + Maxi, 1)).Value = Range(Cells(YeniIslem, 11), Cells(YeniIslem + Maxi, 11)).Value 'Rapor no
 WsRaporNo.Cells(islemNew, 2).Value = Cells(YeniIslem, 68).Value
 WsRaporNo.Cells(islemNew, 3).Value = "Request"
-WsRaporNo.Cells(islemNew, 4).Value = Cells(YeniIslem, 93).Value 'Ýlk zaman damgasý
-WsRaporNo.Cells(islemNew + Maxi, 5).Value = Cells(YeniIslem, 93).Value 'Son zaman damgasý
+WsRaporNo.Cells(islemNew, 4).Value = Cells(YeniIslem, 93).Value 'Ä°lk zaman damgasÄ±
+WsRaporNo.Cells(islemNew + Maxi, 5).Value = Cells(YeniIslem, 93).Value 'Son zaman damgasÄ±
 
 '__________Rapor No Senkronizasyon 30.11.2021
 
 
 
-'________________________ÝÞLEM GÜNLÜÐÜ YENÝ KAYIT
+'________________________Ä°ÅžLEM GÃœNLÃœÄžÃœ YENÄ° KAYIT
 
 Call ModuleReport2.IslemGunluguRapor2_1
 
@@ -10102,7 +10102,7 @@ If Rapor2_2CheckBox.Value = True Then
     Call ModuleReport2.IslemGunluguRapor2_2
 End If
 
-'________________________ÝÞLEM GÜNLÜÐÜ YENÝ KAYIT
+'________________________Ä°ÅžLEM GÃœNLÃœÄžÃœ YENÄ° KAYIT
 
 
 ThisWorkbook.Activate
@@ -10154,16 +10154,16 @@ ThisWorkbook.Worksheets(9).Unprotect Password:="123"
 ThisWorkbook.Worksheets(10).Unprotect Password:="123"
 
 UserName = Environ("UserProfile")
-UserName = UCase(Right(UserName, 7)) 'UCase(Replace(Replace(Mid(Right(UserName, 7), 4, 2), "i", "I"), "ý", "I"))
+UserName = UCase(Right(UserName, 7)) 'UCase(Replace(Replace(Mid(Right(UserName, 7), 4, 2), "i", "I"), "Ä±", "I"))
 
-'Rapor için
+'Rapor iÃ§in
 Tutanak1Kont = 3
 Rapor1Kont = 3
 Tutanak2Kont = 3
 UstYaziKont = 3
 YeniIslem = 0
 
-'Rapor2_2 için ilave (Rapor2_2 üsttekilere ilave olarak aþaðýdaki tanýmlarý da kullanýr.)
+'Rapor2_2 iÃ§in ilave (Rapor2_2 Ã¼sttekilere ilave olarak aÅŸaÄŸÄ±daki tanÄ±mlarÄ± da kullanÄ±r.)
 XXXMudGidenTutanak2Kont = 3
 XXXMudUstYaziKont = 3
 XXXMudTutanak1Kont = 3
@@ -10172,8 +10172,8 @@ SonucUstYaziKont = 3
     
 '___________________
 
-'Sýra numarasý bulunamazsa prosedürden çýk (Bu kýsým zorunlu deðildir. Esas bölüm düzeltme ksýmýndadýr.)
-'Kullanýcýnýn sýra numarasý vermesi engellenniþ olur.
+'SÄ±ra numarasÄ± bulunamazsa prosedÃ¼rden Ã§Ä±k (Bu kÄ±sÄ±m zorunlu deÄŸildir. Esas bÃ¶lÃ¼m dÃ¼zeltme ksÄ±mÄ±ndadÄ±r.)
+'KullanÄ±cÄ±nÄ±n sÄ±ra numarasÄ± vermesi engellenniÅŸ olur.
 
 '__________Rapor No Senkronizasyon 30.11.2021
 
@@ -10207,7 +10207,7 @@ End If
 'MsgBox "En az biri dolu."
 
 
-'Düzeltme kaydý ve yeni iþlem bilgilendirme mesajý
+'DÃ¼zeltme kaydÄ± ve yeni iÅŸlem bilgilendirme mesajÄ±
 If ComboGetir.Value <> "" Then
     Bilgi = MsgBox("The operation you are about to perform is a EDIT record for the transaction with serial number " & ComboGetir.Value & "." & vbNewLine & vbNewLine & _
                    "Click " & """" & "Yes" & """" & " to proceed with the edit, or " & """" & "No" & """" & " to cancel.", vbYesNo + vbInformation, "Enterprise Document Automation System")
@@ -10279,7 +10279,7 @@ End If
 
 '''''''''''''
 
-'DÜZELTME KAYDI
+'DÃœZELTME KAYDI
 '__________________________
 
 Call KaydetDuzeltme
@@ -10300,7 +10300,7 @@ End If
 '____________________________
 
 
-'YENÝ ÝÞLEM
+'YENÄ° Ä°ÅžLEM
 '____________________________
 
 Call KaydetYeniIslem
@@ -10310,14 +10310,14 @@ YeniIslem = YeniIslemAktar
 '____________________________
 
 
-'MsgBox Kont & ". satýr görünür."
+'MsgBox Kont & ". satÄ±r gÃ¶rÃ¼nÃ¼r."
 
 'TesteGit:
 
 YeniIslemiAtla:
 ThisWorkbook.Activate
 
-'Rapor1 için imzalar (Ek bölüm) Hem Düzeltme hem Yeni Ýþlem için kodlar.
+'Rapor1 iÃ§in imzalar (Ek bÃ¶lÃ¼m) Hem DÃ¼zeltme hem Yeni Ä°ÅŸlem iÃ§in kodlar.
 If Rapor1Frame.Visible = True Then
     Set IlkSiraBul = Range("CM7:CM100000").Find(What:=Cells(YeniIslem, 5).Value, SearchDirection:=xlNext, _
                     SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
@@ -10352,17 +10352,17 @@ End If
 LblDuzeltme.BackColor = RGB(225, 235, 245) 'RGB(60, 100, 180)
 LblDuzeltme.ForeColor = RGB(30, 30, 30)
 
-'Rapor1 no aralýklarýný buradan çekiyor.
+'Rapor1 no aralÄ±klarÄ±nÄ± buradan Ã§ekiyor.
 Set IlkSiraBul = Range("CM7:CM100000").Find(What:=Cells(YeniIslem, 5).Value, SearchDirection:=xlNext, _
                 SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
 Set SonSiraBul = Range("CN7:CN100000").Find(What:=Cells(YeniIslem, 5).Value, SearchDirection:=xlNext, _
                 SearchOrder:=xlByRows, LookIn:=xlValues, LookAt:=xlWhole)
 
-'Satýr renklendirme ve kenarlýklar.
+'SatÄ±r renklendirme ve kenarlÄ±klar.
 Set Kenarlar = Range("E" & IlkSiraBul.Row & ":HR" & SonSiraBul.Row)
 If Cells(YeniIslem, 5).Value Mod 2 = 0 Then
     Range("E" & IlkSiraBul.Row & ":HR" & SonSiraBul.Row).Interior.Color = RGB(201, 216, 230)
-    'Kenarlýklar.
+    'KenarlÄ±klar.
     With Kenarlar
         .Borders(xlEdgeLeft).LineStyle = xlNone '.Color = RGB(174, 185, 194)
         .Borders(xlEdgeTop).Color = RGB(174, 185, 194)
@@ -10373,7 +10373,7 @@ If Cells(YeniIslem, 5).Value Mod 2 = 0 Then
     End With
 Else
     Range("E" & IlkSiraBul.Row & ":HR" & SonSiraBul.Row).Interior.Color = RGB(174, 185, 194) 'RGB(180, 210, 240)
-    'Kenarlýklar.
+    'KenarlÄ±klar.
     With Kenarlar
         .Borders(xlEdgeLeft).LineStyle = xlNone '.Color = RGB(254, 254, 254)
         .Borders(xlEdgeTop).Color = RGB(201, 216, 230)
@@ -10384,7 +10384,7 @@ Else
     End With
 End If
 
-'Rapor2_2 ise rapor sonu prosedürünü atla
+'Rapor2_2 ise rapor sonu prosedÃ¼rÃ¼nÃ¼ atla
 If Rapor2_2CheckBox.Value = True Then
     GoTo Rapor2_2SonuProseduruneGit
 End If
@@ -10392,7 +10392,7 @@ End If
 Son:
 If Tutanak1Kont = 0 Then
     'Normal kaydet
-    Cells(YeniIslem, 6).Value = "ü"
+    Cells(YeniIslem, 6).Value = "Ã¼"
     Range("F" & YeniIslem).Font.Color = RGB(60, 100, 180)
     If Cells(YeniIslem, 7).Value = "" Then
         Cells(YeniIslem, 7).Value = "?"
@@ -10423,7 +10423,7 @@ ElseIf Tutanak1Kont = 1 Then
         Range("I" & YeniIslem).Font.Color = RGB(60, 100, 180)
     End If
 ElseIf Tutanak1Kont = 2 Then
-    'Hiçbir þey yapma
+    'HiÃ§bir ÅŸey yapma
     GoTo ResetAtla
 ElseIf Tutanak1Kont = 3 Then
     GoTo ReseteGit
@@ -10437,7 +10437,7 @@ If Rapor1Kont = 0 Then
             Range("G" & i).Font.Color = RGB(60, 100, 180)
             If Cells(i, 67).Value <> "" Then
                 'Normal kaydet
-                Cells(i, 7).Value = "ü"
+                Cells(i, 7).Value = "Ã¼"
                 Range("G" & i).Font.Color = RGB(60, 100, 180)
             End If
         Next i
@@ -10476,7 +10476,7 @@ ElseIf Rapor1Kont = 1 Then
         Range("I" & YeniIslem).Font.Color = RGB(60, 100, 180)
     End If
 ElseIf Rapor1Kont = 2 Then
-    'Hiçbir þey yapma
+    'HiÃ§bir ÅŸey yapma
     GoTo ResetAtla
 ElseIf Rapor1Kont = 3 Then
     GoTo ReseteGit
@@ -10485,7 +10485,7 @@ End If
 SonTutanak2:
 If Tutanak2Kont = 0 Then
     'Normal kaydet
-    Cells(YeniIslem, 8).Value = "ü"
+    Cells(YeniIslem, 8).Value = "Ã¼"
     Range("H" & YeniIslem).Font.Color = RGB(60, 100, 180)
     If Cells(YeniIslem, 9).Value = "" Then
         Cells(YeniIslem, 9).Value = "?"
@@ -10500,7 +10500,7 @@ ElseIf Tutanak2Kont = 1 Then
         Range("I" & YeniIslem).Font.Color = RGB(60, 100, 180)
     End If
 ElseIf Tutanak2Kont = 2 Then
-    'Hiçbir þey yapma
+    'HiÃ§bir ÅŸey yapma
     GoTo ResetAtla
 ElseIf Tutanak2Kont = 3 Then
     GoTo ReseteGit
@@ -10509,21 +10509,21 @@ End If
 SonUstYazi:
 If UstYaziKont = 0 Then
     'Normal kaydet
-    Cells(YeniIslem, 9).Value = "ü"
+    Cells(YeniIslem, 9).Value = "Ã¼"
     Range("I" & YeniIslem).Font.Color = RGB(60, 100, 180)
 ElseIf UstYaziKont = 1 Then
     'Sorunlu kaydet
     Cells(YeniIslem, 9).Value = "x"
     Range("I" & YeniIslem).Font.Color = RGB(60, 100, 180)
 ElseIf UstYaziKont = 2 Then
-    'Hiçbir þey yapma
+    'HiÃ§bir ÅŸey yapma
     GoTo ResetAtla
 ElseIf UstYaziKont = 3 Then
     GoTo ReseteGit
 End If
 
 ReseteGit:
-'Son 20 raporu güncelle
+'Son 20 raporu gÃ¼ncelle
 If Rapor1Frame.Visible = True Then
     Call Son20RaporNo
 End If
@@ -10541,7 +10541,7 @@ If Say < 7 Then
 Else
     SiraSay = Range("E100000").End(xlUp)
 End If
-'Getir liste deðerleri
+'Getir liste deÄŸerleri
 For i = SiraSay To 1 Step -1
     With ComboGetir
         .AddItem (i)
@@ -10549,11 +10549,11 @@ For i = SiraSay To 1 Step -1
 Next i
 GetirBos:
 
-'Tümünü oluþturu iþaretle
+'TÃ¼mÃ¼nÃ¼ oluÅŸturu iÅŸaretle
 If YeniIslem <> 0 Then
-    If Cells(YeniIslem, 6).Value = "ü" And Cells(YeniIslem, 7).Value = "ü" And Cells(YeniIslem, 8).Value = "ü" And Cells(YeniIslem, 9).Value = "ü" Then
+    If Cells(YeniIslem, 6).Value = "Ã¼" And Cells(YeniIslem, 7).Value = "Ã¼" And Cells(YeniIslem, 8).Value = "Ã¼" And Cells(YeniIslem, 9).Value = "Ã¼" Then
         'Normal kaydet
-        Cells(YeniIslem, 10).Value = "ü"
+        Cells(YeniIslem, 10).Value = "Ã¼"
         Range("J" & YeniIslem).Font.Color = RGB(60, 100, 180)
         Cells(YeniIslem, 12).Value = UserName
     Else
@@ -10567,9 +10567,9 @@ End If
 
 '______________________________________
 
-'Rapor2_2 sonu için prosedürler
+'Rapor2_2 sonu iÃ§in prosedÃ¼rler
 
-'Rapor2_2 deðil ise rapor2_2 sonu prosedürünü atla
+'Rapor2_2 deÄŸil ise rapor2_2 sonu prosedÃ¼rÃ¼nÃ¼ atla
 If Rapor2_2CheckBox.Value = False Then
     GoTo Rapor2_2SonuProsedurunuAtla
 End If
@@ -10579,7 +10579,7 @@ Rapor2_2SonuProseduruneGit:
 Rapor2_2Tutanak1Son:
 If Tutanak1Kont = 0 Then
     'Normal kaydet
-    Cells(YeniIslem, 13).Value = "ü"
+    Cells(YeniIslem, 13).Value = "Ã¼"
     Range("M" & YeniIslem).Font.Color = RGB(60, 100, 180)
     If Cells(YeniIslem, 14).Value = "" Then
         Cells(YeniIslem, 14).Value = "?"
@@ -10618,7 +10618,7 @@ ElseIf Tutanak1Kont = 1 Then
         Range("Q" & YeniIslem).Font.Color = RGB(60, 100, 180)
     End If
 ElseIf Tutanak1Kont = 2 Then
-    'Hiçbir þey yapma
+    'HiÃ§bir ÅŸey yapma
     GoTo Rapor2_2ResetAtla
 ElseIf Tutanak1Kont = 3 Then
     GoTo Rapor2_2ReseteGit
@@ -10632,7 +10632,7 @@ If Rapor1Kont = 0 Then
             Range("N" & i).Font.Color = RGB(60, 100, 180)
             If Cells(i, 67).Value <> "" Then
                 'Normal kaydet
-                Cells(i, 14).Value = "ü"
+                Cells(i, 14).Value = "Ã¼"
                 Range("N" & i).Font.Color = RGB(60, 100, 180)
             End If
         Next i
@@ -10679,7 +10679,7 @@ ElseIf Rapor1Kont = 1 Then
         Range("Q" & YeniIslem).Font.Color = RGB(60, 100, 180)
     End If
 ElseIf Rapor1Kont = 2 Then
-    'Hiçbir þey yapma
+    'HiÃ§bir ÅŸey yapma
     GoTo Rapor2_2ResetAtla
 ElseIf Rapor1Kont = 3 Then
     GoTo Rapor2_2ReseteGit
@@ -10688,7 +10688,7 @@ End If
 Rapor2_2XXXMudGidenTutanak2Son:
 If XXXMudGidenTutanak2Kont = 0 Then
     'Normal kaydet
-    Cells(YeniIslem, 15).Value = "ü"
+    Cells(YeniIslem, 15).Value = "Ã¼"
     Range("O" & YeniIslem).Font.Color = RGB(60, 100, 180)
     If Cells(YeniIslem, 16).Value = "" Then
         Cells(YeniIslem, 16).Value = "?"
@@ -10711,7 +10711,7 @@ ElseIf XXXMudGidenTutanak2Kont = 1 Then
         Range("Q" & YeniIslem).Font.Color = RGB(60, 100, 180)
     End If
 ElseIf XXXMudGidenTutanak2Kont = 2 Then
-    'Hiçbir þey yapma
+    'HiÃ§bir ÅŸey yapma
     GoTo Rapor2_2ResetAtla
 ElseIf XXXMudGidenTutanak2Kont = 3 Then
     GoTo Rapor2_2ReseteGit
@@ -10720,7 +10720,7 @@ End If
 Rapor2_2XXXMudUstYaziSon:
 If XXXMudUstYaziKont = 0 Then
     'Normal kaydet
-    Cells(YeniIslem, 16).Value = "ü"
+    Cells(YeniIslem, 16).Value = "Ã¼"
     Range("P" & YeniIslem).Font.Color = RGB(60, 100, 180)
     If Cells(YeniIslem, 17).Value = "" Then
         Cells(YeniIslem, 17).Value = "?"
@@ -10735,7 +10735,7 @@ ElseIf XXXMudUstYaziKont = 1 Then
         Range("Q" & YeniIslem).Font.Color = RGB(60, 100, 180)
     End If
 ElseIf XXXMudUstYaziKont = 2 Then
-    'Hiçbir þey yapma
+    'HiÃ§bir ÅŸey yapma
     GoTo Rapor2_2ResetAtla
 ElseIf XXXMudUstYaziKont = 3 Then
     GoTo Rapor2_2ReseteGit
@@ -10744,14 +10744,14 @@ End If
 Rapor2_2BilgilendirmeUstYaziSon:
 If UstYaziKont = 0 Then
     'Normal kaydet
-    Cells(YeniIslem, 17).Value = "ü"
+    Cells(YeniIslem, 17).Value = "Ã¼"
     Range("Q" & YeniIslem).Font.Color = RGB(60, 100, 180)
 ElseIf UstYaziKont = 1 Then
     'Sorunlu kaydet
     Cells(YeniIslem, 17).Value = "x"
     Range("Q" & YeniIslem).Font.Color = RGB(60, 100, 180)
 ElseIf UstYaziKont = 2 Then
-    'Hiçbir þey yapma
+    'HiÃ§bir ÅŸey yapma
     GoTo Rapor2_2ResetAtla
 ElseIf UstYaziKont = 3 Then
     GoTo Rapor2_2ReseteGit
@@ -10763,14 +10763,14 @@ End If
 Rapor2_2XXXMudGelenTutanak1Son:
 If XXXMudTutanak1Kont = 0 Then
     'Normal kaydet
-    Cells(YeniIslem, 19).Value = "ü"
+    Cells(YeniIslem, 19).Value = "Ã¼"
     Range("S" & YeniIslem).Font.Color = RGB(60, 100, 180)
 ElseIf XXXMudTutanak1Kont = 1 Then
     'Sorunlu kaydet
     Cells(YeniIslem, 19).Value = "x"
     Range("S" & YeniIslem).Font.Color = RGB(60, 100, 180)
 ElseIf XXXMudTutanak1Kont = 2 Then
-    'Hiçbir þey yapma
+    'HiÃ§bir ÅŸey yapma
     GoTo Rapor2_2ResetAtla
 ElseIf XXXMudTutanak1Kont = 3 Then
     'GoTo Rapor2_2ReseteGit
@@ -10782,7 +10782,7 @@ Rapor2_2XXXMudGelenTutanak2Son:
     If XXXMudGelenTutanak2Kont = 0 Then
         'Normal kaydet
         If SadeceTeknik_AGecersizlerOption.Value = True And XXXMudPaketiOptionEvet.Value = True And Tutanak2BirlestirmeOptionHayir.Value = True Then
-            Cells(YeniIslem, 20).Value = "ü"
+            Cells(YeniIslem, 20).Value = "Ã¼"
             Range("T" & YeniIslem).Font.Color = RGB(60, 100, 180)
         End If
     ElseIf XXXMudGelenTutanak2Kont = 1 Then
@@ -10792,7 +10792,7 @@ Rapor2_2XXXMudGelenTutanak2Son:
             Range("T" & YeniIslem).Font.Color = RGB(60, 100, 180)
         End If
     ElseIf XXXMudGelenTutanak2Kont = 2 Then
-        'Hiçbir þey yapma
+        'HiÃ§bir ÅŸey yapma
         GoTo Rapor2_2ResetAtla
     ElseIf XXXMudGelenTutanak2Kont = 3 Then
         'GoTo Rapor2_2ReseteGit
@@ -10802,14 +10802,14 @@ Rapor2_2XXXMudGelenTutanak2Son:
 Rapor2_2IlgiliBirimSon:
 If Tutanak2Kont = 0 Then
     'Normal kaydet
-    Cells(YeniIslem, 21).Value = "ü"
+    Cells(YeniIslem, 21).Value = "Ã¼"
     Range("U" & YeniIslem).Font.Color = RGB(60, 100, 180)
 ElseIf Tutanak2Kont = 1 Then
     'Sorunlu kaydet
     Cells(YeniIslem, 21).Value = "x"
     Range("U" & YeniIslem).Font.Color = RGB(60, 100, 180)
 ElseIf Tutanak2Kont = 2 Then
-    'Hiçbir þey yapma
+    'HiÃ§bir ÅŸey yapma
     GoTo Rapor2_2ResetAtla
 ElseIf Tutanak2Kont = 3 Then
     'GoTo Rapor2_2ReseteGit
@@ -10818,19 +10818,19 @@ End If
 Rapor2_2SonucUstYazi:
 If SonucUstYaziKont = 0 Then
     'Normal kaydet
-    Cells(YeniIslem, 22).Value = "ü"
+    Cells(YeniIslem, 22).Value = "Ã¼"
     Range("V" & YeniIslem).Font.Color = RGB(60, 100, 180)
 ElseIf SonucUstYaziKont = 1 Then
     'Sorunlu kaydet
     Cells(YeniIslem, 22).Value = "x"
     Range("V" & YeniIslem).Font.Color = RGB(60, 100, 180)
 ElseIf SonucUstYaziKont = 2 Then
-    'Hiçbir þey yapma
+    'HiÃ§bir ÅŸey yapma
     GoTo Rapor2_2ResetAtla
 ElseIf SonucUstYaziKont = 3 Then
     'GoTo Rapor2_2ReseteGit
 End If
-'XXXMud gelen tutanak2da eksiklik varsa, sonuç üst yazýsýný oluþturmaya izin verme
+'XXXMud gelen tutanak2da eksiklik varsa, sonuÃ§ Ã¼st yazÄ±sÄ±nÄ± oluÅŸturmaya izin verme
 If XXXMudGelenTutanak2Kont = 1 Then
     'Sorunlu kaydet
     Cells(YeniIslem, 22).Value = "x"
@@ -10840,7 +10840,7 @@ End If
 '______________________________________
 
 Rapor2_2ReseteGit:
-'Son 20 raporu güncelle
+'Son 20 raporu gÃ¼ncelle
 If Rapor1Frame.Visible = True Then
     Call Son20RaporNo
     Call Son20Rapor2_2No
@@ -10859,7 +10859,7 @@ If Say < 7 Then
 Else
     SiraSay = Range("E100000").End(xlUp)
 End If
-'Getir liste deðerleri
+'Getir liste deÄŸerleri
 For i = SiraSay To 1 Step -1
     With ComboGetir
         .AddItem (i)
@@ -10867,11 +10867,11 @@ For i = SiraSay To 1 Step -1
 Next i
 Rapor2_2GetirBos:
 
-'Tümünü oluþturu iþaretle
+'TÃ¼mÃ¼nÃ¼ oluÅŸturu iÅŸaretle
 If YeniIslem <> 0 Then
-    If Cells(YeniIslem, 13).Value = "ü" And Cells(YeniIslem, 14).Value = "ü" And Cells(YeniIslem, 15).Value = "ü" And Cells(YeniIslem, 16).Value = "ü" And Cells(YeniIslem, 17).Value = "ü" Then
+    If Cells(YeniIslem, 13).Value = "Ã¼" And Cells(YeniIslem, 14).Value = "Ã¼" And Cells(YeniIslem, 15).Value = "Ã¼" And Cells(YeniIslem, 16).Value = "Ã¼" And Cells(YeniIslem, 17).Value = "Ã¼" Then
         'Normal kaydet
-        Cells(YeniIslem, 18).Value = "ü"
+        Cells(YeniIslem, 18).Value = "Ã¼"
         Range("R" & YeniIslem).Font.Color = RGB(60, 100, 180)
         Cells(YeniIslem, 12).Value = UserName
     Else
@@ -10899,7 +10899,7 @@ ThisWorkbook.Worksheets(9).Protect Password:="123"
 ThisWorkbook.Worksheets(10).Protect Password:="123"
 ThisWorkbook.Protect "123"
 
-'Açýk dropdown kapat
+'AÃ§Ä±k dropdown kapat
 Call ModuleSystemSettings.DropDownKapat
 
 End Sub
@@ -10909,7 +10909,7 @@ Dim i As Integer
 Dim Say As Long, j As Long, Cont As Long, Rno As Variant
 Dim RefSatir As Long, Rapor1TarihBul As Range
 
-'Verilen son 20 rapor numarasýný göster
+'Verilen son 20 rapor numarasÄ±nÄ± gÃ¶ster
 
 ThisWorkbook.Activate
 
@@ -10918,7 +10918,7 @@ ThisWorkbook.Activate
     
 Set WsRaporNo = ThisWorkbook.Worksheets(10)
 
-'Ýlk satýrda bulunan rapor1 numarasý
+'Ä°lk satÄ±rda bulunan rapor1 numarasÄ±
 Say = WsRaporNo.Range("E100000").End(xlUp).Row
 If Say < 7 Then
     Say = 7
@@ -10958,7 +10958,7 @@ For j = Say To RefSatir Step -1
     End If
 Next j
 
-'Sonraki satýrlarda bulunan rapor1 numaralarý
+'Sonraki satÄ±rlarda bulunan rapor1 numaralarÄ±
 For i = 1 To 19
     Controls("Sonuc" & i).Visible = True
     Controls("LblSonuc" & i).Visible = True
@@ -10971,7 +10971,7 @@ For i = 1 To 19
     Controls("UretimOzelligi" & i).Visible = True
     Controls("LblUretimOzelligi" & i).Visible = True
     
-    'Verilen son 20 rapor numarasýný göster
+    'Verilen son 20 rapor numarasÄ±nÄ± gÃ¶ster
     Say = WsRaporNo.Range("E100000").End(xlUp).Row
     If Say < 7 Then
         Say = 7
@@ -11000,11 +11000,11 @@ Dim i As Integer
 Dim Say As Long, j As Long, Cont As Long, Rno As Variant
 Dim RefSatir As Long, Rapor1TarihBul As Range
 
-'Verilen son 20 rapor numarasýný göster
+'Verilen son 20 rapor numarasÄ±nÄ± gÃ¶ster
 
 ThisWorkbook.Activate
 
-'Ýlk satýrda bulunan rapor1 numarasý
+'Ä°lk satÄ±rda bulunan rapor1 numarasÄ±
 Say = Range("CN100000").End(xlUp).Row
 If Say < 7 Then
     Say = 7
@@ -11118,7 +11118,7 @@ Next ctl
 '    LblDuzeltme.ForeColor = RGB(30, 30, 30)
 'End If
 
-'OgeTurleriFrameUst.Caption = "Tutanak1 Giriþi"
+'OgeTurleriFrameUst.Caption = "Tutanak1 GiriÅŸi"
 
 
 If Rapor2_2CheckBox.Value = True Then
@@ -11126,25 +11126,25 @@ If Rapor2_2CheckBox.Value = True Then
 Else
     '
 End If
-'Formun görünümü
+'Formun gÃ¶rÃ¼nÃ¼mÃ¼
 If Rapor2_2CheckBox.Value = False Then
 '    AltMenuFrame.Top = 299
 '    core_report2_entry_UI.Height = 352
 
-    'Ekrana göre formun ayarlanmasý
+    'Ekrana gÃ¶re formun ayarlanmasÄ±
     If EkranKontrol = True Then
         
         core_report2_entry_UI.ScrollTop = 0
         core_report2_entry_UI.ScrollHeight = 0
         core_report2_entry_UI.ScrollBars = fmScrollBarsNone
     
-        'Formun görünümü
+        'Formun gÃ¶rÃ¼nÃ¼mÃ¼
         AltMenuFrame.Top = 462 '444 '299
         TasiyiciFrame.Height = 486
         core_report2_entry_UI.Height = 546 '556 '497 '352
         core_report2_entry_UI.Width = 1024
     Else
-        'Formun görünümü
+        'Formun gÃ¶rÃ¼nÃ¼mÃ¼
         AltMenuFrame.Top = 462 '444 '299
         TasiyiciFrame.Height = 486
         core_report2_entry_UI.Height = 556 '497 '352
@@ -11196,7 +11196,7 @@ UretimOzelligi.Visible = True
 NotEkleKaldirLabel.Visible = True
 LblNotUst.Visible = True
 NotCheck.Visible = True
-'Notlarý rapor nolara göre göster
+'NotlarÄ± rapor nolara gÃ¶re gÃ¶ster
 For i = 1 To 19
     If Controls("Rapor1No" & i).Value <> "" Then
         Controls("NotCheck" & i).Visible = True
@@ -11223,7 +11223,7 @@ If ComboGetir.Value <> "" Then
     LblDuzeltme.ForeColor = RGB(30, 30, 30)
 End If
 
-'OgeTurleriFrameUst.Caption = "Tutanak1 & Rapor Giriþi"
+'OgeTurleriFrameUst.Caption = "Tutanak1 & Rapor GiriÅŸi"
 
 If Rapor2_2CheckBox.Value = True Then
     UstYaziFrame.Caption = "Informative Cover Letter Entry"
@@ -11250,14 +11250,14 @@ Else
     '
 End If
 
-'Formun görünümü
+'Formun gÃ¶rÃ¼nÃ¼mÃ¼
 If Rapor2_2CheckBox.Value = False Then
 '    AltMenuFrame.Top = 299 + Rapor1Frame.Height
 '    core_report2_entry_UI.Height = 352 + Rapor1Frame.Height
 
     If EkranKontrol = True Then
     
-        'Formun görünümü
+        'Formun gÃ¶rÃ¼nÃ¼mÃ¼
         AltMenuFrame.Top = 462 + Rapor1Frame.Height + 6
         TasiyiciFrame.Height = 486 + Rapor1Frame.Height + 6
         core_report2_entry_UI.Height = 485 '556 + Rapor1Frame.Height + 6
@@ -11268,18 +11268,18 @@ If Rapor2_2CheckBox.Value = False Then
         core_report2_entry_UI.Width = 1024 + 12
         
     Else
-        'Formun görünümü
+        'Formun gÃ¶rÃ¼nÃ¼mÃ¼
         AltMenuFrame.Top = 462 + Rapor1Frame.Height + 6
         TasiyiciFrame.Height = 486 + Rapor1Frame.Height + 6
         core_report2_entry_UI.Height = 556 + Rapor1Frame.Height + 6
     End If
 Else
 
-    'Ekrana göre formun ayarlanmasý
+    'Ekrana gÃ¶re formun ayarlanmasÄ±
     If EkranKontrol = True Then '760 Then '710 Then '572 Then
-        'Yukarýdaki Call Rapor2_2Options yönetiyor.
+        'YukarÄ±daki Call Rapor2_2Options yÃ¶netiyor.
     Else
-        'Yukarýdaki Call Rapor2_2Options yönetiyor.
+        'YukarÄ±daki Call Rapor2_2Options yÃ¶netiyor.
     End If
 
 End If
@@ -11314,7 +11314,7 @@ If ComboGetir.Value <> "" Then
     LblDuzeltme.ForeColor = RGB(30, 30, 30)
 End If
 
-'OgeTurleriFrameUst.Caption = "Tutanak1 & Rapor Giriþi"
+'OgeTurleriFrameUst.Caption = "Tutanak1 & Rapor GiriÅŸi"
 
 If Rapor2_2CheckBox.Value = True Then
     UstYaziFrame.Caption = "Informative Cover Letter Entry"
@@ -11339,15 +11339,15 @@ Else
     '
 End If
 
-'Formun görünümü
+'Formun gÃ¶rÃ¼nÃ¼mÃ¼
 If Rapor2_2CheckBox.Value = False Then
 '    AltMenuFrame.Top = 299 + Rapor1Frame.Height + Tutanak2Frame.Height
 '    core_report2_entry_UI.Height = 352 + Rapor1Frame.Height + Tutanak2Frame.Height
 
-    'Ekrana göre formun ayarlanmasý
+    'Ekrana gÃ¶re formun ayarlanmasÄ±
     If EkranKontrol = True Then
     
-        'Formun görünümü
+        'Formun gÃ¶rÃ¼nÃ¼mÃ¼
         AltMenuFrame.Top = 462 + Rapor1Frame.Height + Tutanak2Frame.Height + 12
         TasiyiciFrame.Height = 486 + Rapor1Frame.Height + Tutanak2Frame.Height + 12
         core_report2_entry_UI.Height = 485 '556 + Rapor1Frame.Height + Tutanak2Frame.Height + 12
@@ -11358,18 +11358,18 @@ If Rapor2_2CheckBox.Value = False Then
         core_report2_entry_UI.Width = 1024 + 12
         
     Else
-        'Formun görünümü
+        'Formun gÃ¶rÃ¼nÃ¼mÃ¼
         AltMenuFrame.Top = 462 + Rapor1Frame.Height + Tutanak2Frame.Height + 12
         TasiyiciFrame.Height = 486 + Rapor1Frame.Height + Tutanak2Frame.Height + 12
         core_report2_entry_UI.Height = 556 + Rapor1Frame.Height + Tutanak2Frame.Height + 12
     End If
 Else
 
-    'Ekrana göre formun ayarlanmasý
+    'Ekrana gÃ¶re formun ayarlanmasÄ±
     If EkranKontrol = True Then '760 Then '710 Then '572 Then
-        'Yukarýdaki Call Rapor2_2Options yönetiyor.
+        'YukarÄ±daki Call Rapor2_2Options yÃ¶netiyor.
     Else
-        'Yukarýdaki Call Rapor2_2Options yönetiyor.
+        'YukarÄ±daki Call Rapor2_2Options yÃ¶netiyor.
     End If
 
 End If
@@ -11426,15 +11426,15 @@ If ComboGetir.Value <> "" Then
     LblDuzeltme.ForeColor = RGB(30, 30, 30)
 End If
 
-'OgeTurleriFrameUst.Caption = "Tutanak1 & Rapor Giriþi"
+'OgeTurleriFrameUst.Caption = "Tutanak1 & Rapor GiriÅŸi"
 
-'Formun görünümü
+'Formun gÃ¶rÃ¼nÃ¼mÃ¼
 If Rapor2_2CheckBox.Value = False Then
 
-    'Ekrana göre formun ayarlanmasý
+    'Ekrana gÃ¶re formun ayarlanmasÄ±
     If EkranKontrol = True Then
     
-        'Formun görünümü
+        'Formun gÃ¶rÃ¼nÃ¼mÃ¼
         AltMenuFrame.Top = 462 + Rapor1Frame.Height + Tutanak2Frame.Height + UstYaziFrame.Height + 18
         TasiyiciFrame.Height = 486 + Rapor1Frame.Height + Tutanak2Frame.Height + UstYaziFrame.Height + 18
         core_report2_entry_UI.Height = 485 '556 + Rapor1Frame.Height + Tutanak2Frame.Height + UstYaziFrame.Height + 18
@@ -11445,18 +11445,18 @@ If Rapor2_2CheckBox.Value = False Then
         core_report2_entry_UI.Width = 1024 + 12
         
     Else
-        'Formun görünümü
+        'Formun gÃ¶rÃ¼nÃ¼mÃ¼
         AltMenuFrame.Top = 462 + Rapor1Frame.Height + Tutanak2Frame.Height + UstYaziFrame.Height + 18
         TasiyiciFrame.Height = 486 + Rapor1Frame.Height + Tutanak2Frame.Height + UstYaziFrame.Height + 18
         core_report2_entry_UI.Height = 556 + Rapor1Frame.Height + Tutanak2Frame.Height + UstYaziFrame.Height + 18
     End If
 Else
 
-    'Ekrana göre formun ayarlanmasý
+    'Ekrana gÃ¶re formun ayarlanmasÄ±
     If EkranKontrol = True Then '760 Then '710 Then '572 Then
-        'Yukarýdaki Call Rapor2_2Options yönetiyor.
+        'YukarÄ±daki Call Rapor2_2Options yÃ¶netiyor.
     Else
-        'Yukarýdaki Call Rapor2_2Options yönetiyor.
+        'YukarÄ±daki Call Rapor2_2Options yÃ¶netiyor.
     End If
 
 End If
@@ -11467,7 +11467,7 @@ End Sub
 
 Sub ColorChangerGenel()
 
-'Düzeltme
+'DÃ¼zeltme
 If LblDuzeltme.BackColor <> RGB(180, 210, 240) Then
     If LblDuzeltme.BackColor <> RGB(225, 235, 245) Then
         LblDuzeltme.BackColor = RGB(225, 235, 245) 'RGB(60, 100, 180)
@@ -11514,7 +11514,7 @@ If Tutanak2Girisi.BackColor <> RGB(180, 210, 240) Then
         Tutanak2Girisi.ForeColor = RGB(30, 30, 30)
     End If
 End If
-'Üst yazý
+'Ãœst yazÄ±
 If UstYaziGirisi.BackColor <> RGB(180, 210, 240) Then
     If UstYaziGirisi.BackColor <> RGB(225, 235, 245) Then
         UstYaziGirisi.BackColor = RGB(225, 235, 245)
@@ -12295,7 +12295,7 @@ Call ColorChangerGenel
 End Sub
 
 
-'SCROLABLE COMBOBOXES (Öðe Alaný)
+'SCROLABLE COMBOBOXES (Ã–ÄŸe AlanÄ±)
 Private Sub OgeTuru1_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal x As Single, ByVal y As Single)
 Call SetComboBoxHook(OgeTuru1) 'Open scrollable with mouse
 End Sub
@@ -12985,7 +12985,7 @@ Call SetComboBoxHook(IlceGiden) 'Open scrollable with mouse
 End Sub
 
 
-'Ýkinci bölüm
+'Ä°kinci bÃ¶lÃ¼m
 'TemaTipi
 Private Sub TemaTipi_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal x As Single, ByVal y As Single)
 Call SetComboBoxHook(TemaTipi) 'Open scrollable with mouse
@@ -13082,7 +13082,7 @@ Dim TemaYil As String, TemaSayi As String, TireFinder As Integer, i As Integer
             Else
                 IlceDegeri = ""
             End If
-            'Muhatap temasý
+            'Muhatap temasÄ±
             Makam = ""
             If InStr(TemaTipi.Value, "Organization A") <> 0 Then
                 Makam = "A"
@@ -13106,7 +13106,7 @@ Dim TemaYil As String, TemaSayi As String, TireFinder As Integer, i As Integer
                 TemaNoText.Value = ""
                 GoTo Son
             End If
-            If InStr(BelgeNoText.Value, "/") <> 0 Or InStr(BelgeNoText.Value, "-") <> 0 Then 'Belge numarasýnda slash varsa
+            If InStr(BelgeNoText.Value, "/") <> 0 Or InStr(BelgeNoText.Value, "-") <> 0 Then 'Belge numarasÄ±nda slash varsa
                 SlashFinder = InStr(BelgeNoText.Value, "/")
                 TireFinder = InStr(BelgeNoText.Value, "-")
                 CharLen = Len(BelgeNoText.Value)
@@ -13136,14 +13136,14 @@ Dim TemaYil As String, TemaSayi As String, TireFinder As Integer, i As Integer
                     GoTo Son
                 End If
             Else
-                'Yýl
+                'YÄ±l
                 Yil = ""
                 Yil = Right(BelgeTarihiText, 2)
-                'Belge numarasý
+                'Belge numarasÄ±
                 EvrakNo = ""
                 EvrakNo = Right(BelgeNoText.Value, 5)
             End If
-            'Belge numarasýnýn baþýna sýfýr ekleme
+            'Belge numarasÄ±nÄ±n baÅŸÄ±na sÄ±fÄ±r ekleme
             If Len(EvrakNo) = 1 Then
                 EvrakNo = 0 & 0 & 0 & 0 & EvrakNo
             ElseIf Len(EvrakNo) = 2 Then
@@ -13155,7 +13155,7 @@ Dim TemaYil As String, TemaSayi As String, TireFinder As Integer, i As Integer
             ElseIf Len(EvrakNo) >= 5 Then
                 EvrakNo = Right(EvrakNo, 5)
             End If
-            'Tema no oluþtur
+            'Tema no oluÅŸtur
             If IlDegeri <> "" And IlceDegeri <> "" And Makam <> "" And Yil <> "" And EvrakNo <> "" Then
                 If InStr(TemaTipi.Value, "Organization A") <> 0 Then
                     IlceDegeri = "00"
@@ -13201,14 +13201,14 @@ Private Sub ComboGetir_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
     If KeyCode = vbKeyReturn Then
         'GetirLabelDuzeltme_Click
     End If
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         '
     End If
     If KeyCode = vbKeyDown Then
         Il.SetFocus
     End If
-    'Saða ve sola
+    'SaÄŸa ve sola
     If KeyCode = vbKeyLeft Then
         '
     End If
@@ -13257,7 +13257,7 @@ Private Sub IlGiden_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift 
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If IlGiden.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -13266,7 +13266,7 @@ Private Sub IlGiden_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift 
             End If
             Me.IlGiden.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If IlGiden.ListIndex = IlGiden.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -13287,7 +13287,7 @@ If IlGiden.ListIndex = -1 And IlGiden.Value <> "" Then
    GoTo Son
 End If
 
-'Ilçe seçimlerini Ýl seçimine göre göster.
+'IlÃ§e seÃ§imlerini Ä°l seÃ§imine gÃ¶re gÃ¶ster.
 On Error GoTo Bos
 IlceGiden.RowSource = Replace(IlGiden.Value, " ", "_")
 
@@ -13326,7 +13326,7 @@ Private Sub IlceGiden_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If IlceGiden.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -13335,7 +13335,7 @@ Private Sub IlceGiden_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
             End If
             Me.IlceGiden.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If IlceGiden.ListIndex = IlceGiden.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -13384,7 +13384,7 @@ Private Sub Il_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As In
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If Il.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -13393,7 +13393,7 @@ Private Sub Il_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As In
             End If
             Me.Il.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If Il.ListIndex = Il.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -13414,7 +13414,7 @@ If Il.ListIndex = -1 And Il.Value <> "" Then
    GoTo Son
 End If
 
-'Ilçe seçimlerini Ýl seçimine göre göster.
+'IlÃ§e seÃ§imlerini Ä°l seÃ§imine gÃ¶re gÃ¶ster.
 On Error GoTo Bos
 Ilce.RowSource = Replace(Il.Value, " ", "_")
 'Il.DropDown
@@ -13437,7 +13437,7 @@ Il.ForeColor = RGB(30, 30, 30)
 End If
 
 If OtomatikOption.Value = True Then
-    'Tema güncelle
+    'Tema gÃ¼ncelle
     Call OtomatikOption_Click
 End If
 
@@ -13458,7 +13458,7 @@ Private Sub Ilce_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As 
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If Ilce.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -13467,7 +13467,7 @@ Private Sub Ilce_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As 
             End If
             Me.Ilce.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If Ilce.ListIndex = Ilce.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -13501,7 +13501,7 @@ Ilce.ForeColor = RGB(30, 30, 30)
 End If
 
 If OtomatikOption.Value = True Then
-    'Tema güncelle
+    'Tema gÃ¼ncelle
     Call OtomatikOption_Click
 End If
 
@@ -13512,7 +13512,7 @@ Private Sub BelgeTarihiText_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
     
     On Error Resume Next
     
-    'Delete ve Backspace tuþlarý textboxu sil.
+    'Delete ve Backspace tuÅŸlarÄ± textboxu sil.
     If KeyCode = vbKeyDelete Then
         BelgeTarihiText.Value = ""
     End If
@@ -13531,7 +13531,7 @@ End Sub
 
 Private Sub BelgeTarihiText_Change()
 If OtomatikOption.Value = True Then
-    'Tema güncelle
+    'Tema gÃ¼ncelle
     Call OtomatikOption_Click
 End If
 End Sub
@@ -13571,7 +13571,7 @@ BelgeNoText.BackColor = RGB(255, 255, 255)
 BelgeNoText.ForeColor = RGB(30, 30, 30)
 
 If OtomatikOption.Value = True Then
-    'Tema güncelle
+    'Tema gÃ¼ncelle
     Call OtomatikOption_Click
 End If
 
@@ -13590,7 +13590,7 @@ Private Sub TemaTipi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If TemaTipi.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -13599,7 +13599,7 @@ Private Sub TemaTipi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
             End If
             Me.TemaTipi.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If TemaTipi.ListIndex = TemaTipi.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -13634,7 +13634,7 @@ TemaTipi.ForeColor = RGB(30, 30, 30)
 End If
 
 If OtomatikOption.Value = True Then
-    'Tema güncelle
+    'Tema gÃ¼ncelle
     Call OtomatikOption_Click
 End If
 
@@ -13666,7 +13666,7 @@ Private Sub GelenMuhatapTemasi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, B
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If GelenMuhatapTemasi.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -13675,7 +13675,7 @@ Private Sub GelenMuhatapTemasi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, B
             End If
             Me.GelenMuhatapTemasi.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If GelenMuhatapTemasi.ListIndex = GelenMuhatapTemasi.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -13740,7 +13740,7 @@ Private Sub GonderenBirim_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal 
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If GonderenBirim.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -13749,7 +13749,7 @@ Private Sub GonderenBirim_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal 
             End If
             Me.GonderenBirim.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If GonderenBirim.ListIndex = GonderenBirim.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -13787,7 +13787,7 @@ Private Sub GelisTarihiText_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
 
     On Error Resume Next
 
-    'Delete ve Backspace tuþlarý textboxu sil.
+    'Delete ve Backspace tuÅŸlarÄ± textboxu sil.
     If KeyCode = vbKeyDelete Then
         GelisTarihiText.Value = ""
     End If
@@ -13837,7 +13837,7 @@ Private Sub GelenPaketTipi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If GelenPaketTipi.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -13846,7 +13846,7 @@ Private Sub GelenPaketTipi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal
             End If
             Me.GelenPaketTipi.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If GelenPaketTipi.ListIndex = GelenPaketTipi.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -13894,7 +13894,7 @@ Private Sub GelisSekli_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If GelisSekli.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -13903,7 +13903,7 @@ Private Sub GelisSekli_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
             End If
             Me.GelisSekli.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If GelisSekli.ListIndex = GelisSekli.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -13942,7 +13942,7 @@ Private Sub Tutanak1TarihiText_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, B
 
     On Error Resume Next
 
-    'Delete ve Backspace tuþlarý textboxu sil.
+    'Delete ve Backspace tuÅŸlarÄ± textboxu sil.
     If KeyCode = vbKeyDelete Then
         Tutanak1TarihiText.Value = ""
     End If
@@ -13992,7 +13992,7 @@ Private Sub Tutanak1Sonucu_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If Tutanak1Sonucu.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14001,7 +14001,7 @@ Private Sub Tutanak1Sonucu_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal
             End If
             Me.Tutanak1Sonucu.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If Tutanak1Sonucu.ListIndex = Tutanak1Sonucu.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14068,7 +14068,7 @@ Private Sub GelenBelgeSayfa_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If GelenBelgeSayfa.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14077,7 +14077,7 @@ Private Sub GelenBelgeSayfa_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
             End If
             Me.GelenBelgeSayfa.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If GelenBelgeSayfa.ListIndex = GelenBelgeSayfa.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14125,7 +14125,7 @@ Private Sub DokumListesi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal S
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If DokumListesi.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14134,7 +14134,7 @@ Private Sub DokumListesi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal S
             End If
             Me.DokumListesi.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If DokumListesi.ListIndex = DokumListesi.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14181,7 +14181,7 @@ Private Sub Tutanak1Imza1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal 
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If Tutanak1Imza1.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14190,7 +14190,7 @@ Private Sub Tutanak1Imza1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal 
             End If
             Me.Tutanak1Imza1.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If Tutanak1Imza1.ListIndex = Tutanak1Imza1.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14239,7 +14239,7 @@ Private Sub Tutanak1Imza2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal 
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If Tutanak1Imza2.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14248,7 +14248,7 @@ Private Sub Tutanak1Imza2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal 
             End If
             Me.Tutanak1Imza2.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If Tutanak1Imza2.ListIndex = Tutanak1Imza2.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14298,7 +14298,7 @@ Private Sub RaporImza1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If RaporImza1.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14307,7 +14307,7 @@ Private Sub RaporImza1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
             End If
             Me.RaporImza1.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If RaporImza1.ListIndex = RaporImza1.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14357,7 +14357,7 @@ Private Sub RaporImza2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If RaporImza2.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14366,7 +14366,7 @@ Private Sub RaporImza2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
             End If
             Me.RaporImza2.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If RaporImza2.ListIndex = RaporImza2.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14415,7 +14415,7 @@ Private Sub RaporImza3_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If RaporImza3.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14424,7 +14424,7 @@ Private Sub RaporImza3_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
             End If
             Me.RaporImza3.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If RaporImza3.ListIndex = RaporImza3.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14473,7 +14473,7 @@ Private Sub Tutanak2Imza1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal 
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If Tutanak2Imza1.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14482,7 +14482,7 @@ Private Sub Tutanak2Imza1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal 
             End If
             Me.Tutanak2Imza1.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If Tutanak2Imza1.ListIndex = Tutanak2Imza1.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14532,7 +14532,7 @@ Private Sub Tutanak2Imza2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal 
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If Tutanak2Imza2.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14541,7 +14541,7 @@ Private Sub Tutanak2Imza2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal 
             End If
             Me.Tutanak2Imza2.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If Tutanak2Imza2.ListIndex = Tutanak2Imza2.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14590,7 +14590,7 @@ Private Sub XXXMudTutanak2Imza1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, 
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If XXXMudTutanak2Imza1.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14599,7 +14599,7 @@ Private Sub XXXMudTutanak2Imza1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, 
             End If
             Me.XXXMudTutanak2Imza1.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If XXXMudTutanak2Imza1.ListIndex = XXXMudTutanak2Imza1.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14649,7 +14649,7 @@ Private Sub XXXMudTutanak2Imza2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, 
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If XXXMudTutanak2Imza2.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14658,7 +14658,7 @@ Private Sub XXXMudTutanak2Imza2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, 
             End If
             Me.XXXMudTutanak2Imza2.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If XXXMudTutanak2Imza2.ListIndex = XXXMudTutanak2Imza2.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14708,7 +14708,7 @@ Private Sub UstYaziImza1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal S
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If UstYaziImza1.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14717,7 +14717,7 @@ Private Sub UstYaziImza1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal S
             End If
             Me.UstYaziImza1.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If UstYaziImza1.ListIndex = UstYaziImza1.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14766,7 +14766,7 @@ Private Sub UstYaziImza2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal S
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If UstYaziImza2.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14775,7 +14775,7 @@ Private Sub UstYaziImza2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal S
             End If
             Me.UstYaziImza2.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If UstYaziImza2.ListIndex = UstYaziImza2.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14882,7 +14882,7 @@ Private Sub GelenXXXMudTutanak1TarihiText_KeyDown(ByVal KeyCode As MSForms.Retur
 
     On Error Resume Next
 
-    'Delete ve Backspace tuþlarý textboxu sil.
+    'Delete ve Backspace tuÅŸlarÄ± textboxu sil.
     If KeyCode = vbKeyDelete Then
         GelenXXXMudTutanak1TarihiText.Value = ""
     End If
@@ -14923,7 +14923,7 @@ Private Sub GelenXXXMudGelisTarihiText_KeyDown(ByVal KeyCode As MSForms.ReturnIn
 
     On Error Resume Next
 
-    'Delete ve Backspace tuþlarý textboxu sil.
+    'Delete ve Backspace tuÅŸlarÄ± textboxu sil.
     If KeyCode = vbKeyDelete Then
         GelenXXXMudGelisTarihiText.Value = ""
     End If
@@ -14973,7 +14973,7 @@ Private Sub GelenXXXMudTutanak1Sonucu_KeyDown(ByVal KeyCode As MSForms.ReturnInt
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If GelenXXXMudTutanak1Sonucu.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -14982,7 +14982,7 @@ Private Sub GelenXXXMudTutanak1Sonucu_KeyDown(ByVal KeyCode As MSForms.ReturnInt
             End If
             Me.GelenXXXMudTutanak1Sonucu.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If GelenXXXMudTutanak1Sonucu.ListIndex = GelenXXXMudTutanak1Sonucu.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15021,7 +15021,7 @@ Private Sub GelenXXXMudBelgeTarihiText_KeyDown(ByVal KeyCode As MSForms.ReturnIn
     
     On Error Resume Next
     
-    'Delete ve Backspace tuþlarý textboxu sil.
+    'Delete ve Backspace tuÅŸlarÄ± textboxu sil.
     If KeyCode = vbKeyDelete Then
         GelenXXXMudBelgeTarihiText.Value = ""
     End If
@@ -15083,7 +15083,7 @@ Private Sub GelenXXXMudGelenPaketTipi_KeyDown(ByVal KeyCode As MSForms.ReturnInt
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If GelenXXXMudGelenPaketTipi.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15092,7 +15092,7 @@ Private Sub GelenXXXMudGelenPaketTipi_KeyDown(ByVal KeyCode As MSForms.ReturnInt
             End If
             Me.GelenXXXMudGelenPaketTipi.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If GelenXXXMudGelenPaketTipi.ListIndex = GelenXXXMudGelenPaketTipi.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15140,7 +15140,7 @@ Private Sub GelenXXXMudGelisSekli_KeyDown(ByVal KeyCode As MSForms.ReturnInteger
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If GelenXXXMudGelisSekli.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15149,7 +15149,7 @@ Private Sub GelenXXXMudGelisSekli_KeyDown(ByVal KeyCode As MSForms.ReturnInteger
             End If
             Me.GelenXXXMudGelisSekli.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If GelenXXXMudGelisSekli.ListIndex = GelenXXXMudGelisSekli.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15197,7 +15197,7 @@ Private Sub GelenXXXMudTutanak1Imza1_KeyDown(ByVal KeyCode As MSForms.ReturnInte
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If GelenXXXMudTutanak1Imza1.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15206,7 +15206,7 @@ Private Sub GelenXXXMudTutanak1Imza1_KeyDown(ByVal KeyCode As MSForms.ReturnInte
             End If
             Me.GelenXXXMudTutanak1Imza1.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If GelenXXXMudTutanak1Imza1.ListIndex = GelenXXXMudTutanak1Imza1.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15255,7 +15255,7 @@ Private Sub GelenXXXMudTutanak1Imza2_KeyDown(ByVal KeyCode As MSForms.ReturnInte
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If GelenXXXMudTutanak1Imza2.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15264,7 +15264,7 @@ Private Sub GelenXXXMudTutanak1Imza2_KeyDown(ByVal KeyCode As MSForms.ReturnInte
             End If
             Me.GelenXXXMudTutanak1Imza2.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If GelenXXXMudTutanak1Imza2.ListIndex = GelenXXXMudTutanak1Imza2.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15305,7 +15305,7 @@ Private Sub GelenXXXMudTutanak2TarihiText_KeyDown(ByVal KeyCode As MSForms.Retur
 
     On Error Resume Next
 
-    'Delete ve Backspace tuþlarý textboxu sil.
+    'Delete ve Backspace tuÅŸlarÄ± textboxu sil.
     If KeyCode = vbKeyDelete Then
         GelenXXXMudTutanak2TarihiText.Value = ""
     End If
@@ -15355,7 +15355,7 @@ Private Sub BilgilendirmeGidenMuhatapTemasi_KeyDown(ByVal KeyCode As MSForms.Ret
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If BilgilendirmeGidenMuhatapTemasi.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15364,7 +15364,7 @@ Private Sub BilgilendirmeGidenMuhatapTemasi_KeyDown(ByVal KeyCode As MSForms.Ret
             End If
             Me.BilgilendirmeGidenMuhatapTemasi.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If BilgilendirmeGidenMuhatapTemasi.ListIndex = BilgilendirmeGidenMuhatapTemasi.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15412,7 +15412,7 @@ Private Sub BilgilendirmeGonderilenBirim_KeyDown(ByVal KeyCode As MSForms.Return
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If BilgilendirmeGonderilenBirim.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15421,7 +15421,7 @@ Private Sub BilgilendirmeGonderilenBirim_KeyDown(ByVal KeyCode As MSForms.Return
             End If
             Me.BilgilendirmeGonderilenBirim.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If BilgilendirmeGonderilenBirim.ListIndex = BilgilendirmeGonderilenBirim.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15470,7 +15470,7 @@ Private Sub GelenXXXMudGidenPaketTipi_KeyDown(ByVal KeyCode As MSForms.ReturnInt
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If GelenXXXMudGidenPaketTipi.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15479,7 +15479,7 @@ Private Sub GelenXXXMudGidenPaketTipi_KeyDown(ByVal KeyCode As MSForms.ReturnInt
             End If
             Me.GelenXXXMudGidenPaketTipi.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If GelenXXXMudGidenPaketTipi.ListIndex = GelenXXXMudGidenPaketTipi.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15526,7 +15526,7 @@ Private Sub GelenXXXMudGidenPaketAdedi_KeyDown(ByVal KeyCode As MSForms.ReturnIn
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If GelenXXXMudGidenPaketAdedi.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15535,7 +15535,7 @@ Private Sub GelenXXXMudGidenPaketAdedi_KeyDown(ByVal KeyCode As MSForms.ReturnIn
             End If
             Me.GelenXXXMudGidenPaketAdedi.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If GelenXXXMudGidenPaketAdedi.ListIndex = GelenXXXMudGidenPaketAdedi.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15583,7 +15583,7 @@ Private Sub GelenXXXMudTutanak2TutSayfa_KeyDown(ByVal KeyCode As MSForms.ReturnI
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If GelenXXXMudTutanak2TutSayfa.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15592,7 +15592,7 @@ Private Sub GelenXXXMudTutanak2TutSayfa_KeyDown(ByVal KeyCode As MSForms.ReturnI
             End If
             Me.GelenXXXMudTutanak2TutSayfa.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If GelenXXXMudTutanak2TutSayfa.ListIndex = GelenXXXMudTutanak2TutSayfa.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15640,7 +15640,7 @@ Private Sub BilgilendirmeIlGiden_KeyDown(ByVal KeyCode As MSForms.ReturnInteger,
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If BilgilendirmeIlGiden.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15649,7 +15649,7 @@ Private Sub BilgilendirmeIlGiden_KeyDown(ByVal KeyCode As MSForms.ReturnInteger,
             End If
             Me.BilgilendirmeIlGiden.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If BilgilendirmeIlGiden.ListIndex = BilgilendirmeIlGiden.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15670,7 +15670,7 @@ If BilgilendirmeIlGiden.ListIndex = -1 And BilgilendirmeIlGiden.Value <> "" Then
    GoTo Son
 End If
 
-'BilgilendirmeIlGidençe seçimlerini Ýl seçimine göre göster.
+'BilgilendirmeIlGidenÃ§e seÃ§imlerini Ä°l seÃ§imine gÃ¶re gÃ¶ster.
 On Error GoTo Bos
 BilgilendirmeIlceGiden.RowSource = Replace(BilgilendirmeIlGiden.Value, " ", "_")
 'BilgilendirmeIlGiden.DropDown
@@ -15709,7 +15709,7 @@ Private Sub BilgilendirmeIlceGiden_KeyDown(ByVal KeyCode As MSForms.ReturnIntege
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If BilgilendirmeIlceGiden.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15718,7 +15718,7 @@ Private Sub BilgilendirmeIlceGiden_KeyDown(ByVal KeyCode As MSForms.ReturnIntege
             End If
             Me.BilgilendirmeIlceGiden.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If BilgilendirmeIlceGiden.ListIndex = BilgilendirmeIlceGiden.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15766,7 +15766,7 @@ Private Sub GelenXXXMudTutanak2Imza1_KeyDown(ByVal KeyCode As MSForms.ReturnInte
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If GelenXXXMudTutanak2Imza1.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15775,7 +15775,7 @@ Private Sub GelenXXXMudTutanak2Imza1_KeyDown(ByVal KeyCode As MSForms.ReturnInte
             End If
             Me.GelenXXXMudTutanak2Imza1.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If GelenXXXMudTutanak2Imza1.ListIndex = GelenXXXMudTutanak2Imza1.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15824,7 +15824,7 @@ Private Sub GelenXXXMudTutanak2Imza2_KeyDown(ByVal KeyCode As MSForms.ReturnInte
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If GelenXXXMudTutanak2Imza2.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15833,7 +15833,7 @@ Private Sub GelenXXXMudTutanak2Imza2_KeyDown(ByVal KeyCode As MSForms.ReturnInte
             End If
             Me.GelenXXXMudTutanak2Imza2.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If GelenXXXMudTutanak2Imza2.ListIndex = GelenXXXMudTutanak2Imza2.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -15882,7 +15882,7 @@ Private Sub OgeTuru_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift 
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru.SetFocus
     End If
@@ -15951,7 +15951,7 @@ Private Sub OgeTuru1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru.SetFocus
     End If
@@ -16020,7 +16020,7 @@ Private Sub OgeTuru2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru1.SetFocus
     End If
@@ -16088,7 +16088,7 @@ Private Sub OgeTuru3_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru2.SetFocus
     End If
@@ -16157,7 +16157,7 @@ Private Sub OgeTuru4_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru3.SetFocus
     End If
@@ -16225,7 +16225,7 @@ Private Sub OgeTuru5_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru4.SetFocus
     End If
@@ -16293,7 +16293,7 @@ Private Sub OgeTuru6_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru5.SetFocus
     End If
@@ -16361,7 +16361,7 @@ Private Sub OgeTuru7_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru6.SetFocus
     End If
@@ -16429,7 +16429,7 @@ Private Sub OgeTuru8_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru7.SetFocus
     End If
@@ -16497,7 +16497,7 @@ Private Sub OgeTuru9_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru8.SetFocus
     End If
@@ -16565,7 +16565,7 @@ Private Sub OgeTuru10_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru9.SetFocus
     End If
@@ -16633,7 +16633,7 @@ Private Sub OgeTuru11_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru10.SetFocus
     End If
@@ -16701,7 +16701,7 @@ Private Sub OgeTuru12_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru11.SetFocus
     End If
@@ -16769,7 +16769,7 @@ Private Sub OgeTuru13_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru12.SetFocus
     End If
@@ -16837,7 +16837,7 @@ Private Sub OgeTuru14_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru13.SetFocus
     End If
@@ -16905,7 +16905,7 @@ Private Sub OgeTuru15_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru14.SetFocus
     End If
@@ -16973,7 +16973,7 @@ Private Sub OgeTuru16_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru15.SetFocus
     End If
@@ -17041,7 +17041,7 @@ Private Sub OgeTuru17_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru16.SetFocus
     End If
@@ -17110,7 +17110,7 @@ Private Sub OgeTuru18_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru17.SetFocus
     End If
@@ -17178,7 +17178,7 @@ Private Sub OgeTuru19_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeTuru18.SetFocus
     End If
@@ -17246,7 +17246,7 @@ Private Sub OgeDegeri_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         'OgeDegeri0.SetFocus
     End If
@@ -17307,7 +17307,7 @@ Private Sub OgeDegeri1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri.SetFocus
     End If
@@ -17368,7 +17368,7 @@ Private Sub OgeDegeri2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri1.SetFocus
     End If
@@ -17429,7 +17429,7 @@ Private Sub OgeDegeri3_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri2.SetFocus
     End If
@@ -17490,7 +17490,7 @@ Private Sub OgeDegeri4_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri3.SetFocus
     End If
@@ -17551,7 +17551,7 @@ Private Sub OgeDegeri5_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri4.SetFocus
     End If
@@ -17612,7 +17612,7 @@ Private Sub OgeDegeri6_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri5.SetFocus
     End If
@@ -17673,7 +17673,7 @@ Private Sub OgeDegeri7_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri6.SetFocus
     End If
@@ -17734,7 +17734,7 @@ Private Sub OgeDegeri8_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri7.SetFocus
     End If
@@ -17795,7 +17795,7 @@ Private Sub OgeDegeri9_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri8.SetFocus
     End If
@@ -17856,7 +17856,7 @@ Private Sub OgeDegeri10_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri9.SetFocus
     End If
@@ -17917,7 +17917,7 @@ Private Sub OgeDegeri11_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri10.SetFocus
     End If
@@ -17978,7 +17978,7 @@ Private Sub OgeDegeri12_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri11.SetFocus
     End If
@@ -18039,7 +18039,7 @@ Private Sub OgeDegeri13_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri12.SetFocus
     End If
@@ -18100,7 +18100,7 @@ Private Sub OgeDegeri14_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri13.SetFocus
     End If
@@ -18161,7 +18161,7 @@ Private Sub OgeDegeri15_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri14.SetFocus
     End If
@@ -18222,7 +18222,7 @@ Private Sub OgeDegeri16_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri15.SetFocus
     End If
@@ -18283,7 +18283,7 @@ Private Sub OgeDegeri17_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri16.SetFocus
     End If
@@ -18344,7 +18344,7 @@ Private Sub OgeDegeri18_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri17.SetFocus
     End If
@@ -18405,7 +18405,7 @@ Private Sub OgeDegeri19_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeDegeri18.SetFocus
     End If
@@ -18463,7 +18463,7 @@ Private Sub Adet_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As 
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet.SetFocus
     End If
@@ -18489,7 +18489,7 @@ Private Sub Adet1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet.SetFocus
     End If
@@ -18514,7 +18514,7 @@ Private Sub Adet2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet1.SetFocus
     End If
@@ -18539,7 +18539,7 @@ Private Sub Adet3_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet2.SetFocus
     End If
@@ -18564,7 +18564,7 @@ Private Sub Adet4_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet3.SetFocus
     End If
@@ -18589,7 +18589,7 @@ Private Sub Adet5_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet4.SetFocus
     End If
@@ -18614,7 +18614,7 @@ Private Sub Adet6_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet5.SetFocus
     End If
@@ -18639,7 +18639,7 @@ Private Sub Adet7_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet6.SetFocus
     End If
@@ -18664,7 +18664,7 @@ Private Sub Adet8_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet7.SetFocus
     End If
@@ -18689,7 +18689,7 @@ Private Sub Adet9_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet8.SetFocus
     End If
@@ -18714,7 +18714,7 @@ Private Sub Adet10_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet9.SetFocus
     End If
@@ -18739,7 +18739,7 @@ Private Sub Adet11_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet10.SetFocus
     End If
@@ -18764,7 +18764,7 @@ Private Sub Adet12_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet11.SetFocus
     End If
@@ -18789,7 +18789,7 @@ Private Sub Adet13_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet12.SetFocus
     End If
@@ -18814,7 +18814,7 @@ Private Sub Adet14_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet13.SetFocus
     End If
@@ -18839,7 +18839,7 @@ Private Sub Adet15_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet14.SetFocus
     End If
@@ -18864,7 +18864,7 @@ Private Sub Adet16_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet15.SetFocus
     End If
@@ -18889,7 +18889,7 @@ Private Sub Adet17_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet16.SetFocus
     End If
@@ -18914,7 +18914,7 @@ Private Sub Adet18_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet17.SetFocus
     End If
@@ -18939,7 +18939,7 @@ Private Sub Adet19_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Adet18.SetFocus
     End If
@@ -18970,7 +18970,7 @@ Private Sub OgeIdNo_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift 
     
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo.SetFocus
     End If
@@ -18991,7 +18991,7 @@ Private Sub OgeIdNo1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo.SetFocus
     End If
@@ -19012,7 +19012,7 @@ Private Sub OgeIdNo2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo1.SetFocus
     End If
@@ -19033,7 +19033,7 @@ Private Sub OgeIdNo3_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo2.SetFocus
     End If
@@ -19054,7 +19054,7 @@ Private Sub OgeIdNo4_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo3.SetFocus
     End If
@@ -19075,7 +19075,7 @@ Private Sub OgeIdNo5_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo4.SetFocus
     End If
@@ -19096,7 +19096,7 @@ Private Sub OgeIdNo6_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo5.SetFocus
     End If
@@ -19117,7 +19117,7 @@ Private Sub OgeIdNo7_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo6.SetFocus
     End If
@@ -19138,7 +19138,7 @@ Private Sub OgeIdNo8_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo7.SetFocus
     End If
@@ -19159,7 +19159,7 @@ Private Sub OgeIdNo9_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo8.SetFocus
     End If
@@ -19180,7 +19180,7 @@ Private Sub OgeIdNo10_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo9.SetFocus
     End If
@@ -19201,7 +19201,7 @@ Private Sub OgeIdNo11_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo10.SetFocus
     End If
@@ -19222,7 +19222,7 @@ Private Sub OgeIdNo12_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo11.SetFocus
     End If
@@ -19243,7 +19243,7 @@ Private Sub OgeIdNo13_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo12.SetFocus
     End If
@@ -19264,7 +19264,7 @@ Private Sub OgeIdNo14_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo13.SetFocus
     End If
@@ -19285,7 +19285,7 @@ Private Sub OgeIdNo15_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo14.SetFocus
     End If
@@ -19306,7 +19306,7 @@ Private Sub OgeIdNo16_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo15.SetFocus
     End If
@@ -19327,7 +19327,7 @@ Private Sub OgeIdNo17_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo16.SetFocus
     End If
@@ -19348,7 +19348,7 @@ Private Sub OgeIdNo18_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo17.SetFocus
     End If
@@ -19369,7 +19369,7 @@ Private Sub OgeIdNo19_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         OgeIdNo18.SetFocus
     End If
@@ -19390,7 +19390,7 @@ Private Sub Aciklama_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama.SetFocus
     End If
@@ -19411,7 +19411,7 @@ Private Sub Aciklama1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama.SetFocus
     End If
@@ -19432,7 +19432,7 @@ Private Sub Aciklama2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama1.SetFocus
     End If
@@ -19453,7 +19453,7 @@ Private Sub Aciklama3_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama2.SetFocus
     End If
@@ -19474,7 +19474,7 @@ Private Sub Aciklama4_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama3.SetFocus
     End If
@@ -19495,7 +19495,7 @@ Private Sub Aciklama5_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama4.SetFocus
     End If
@@ -19516,7 +19516,7 @@ Private Sub Aciklama6_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama5.SetFocus
     End If
@@ -19537,7 +19537,7 @@ Private Sub Aciklama7_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama6.SetFocus
     End If
@@ -19558,7 +19558,7 @@ Private Sub Aciklama8_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama7.SetFocus
     End If
@@ -19579,7 +19579,7 @@ Private Sub Aciklama9_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama8.SetFocus
     End If
@@ -19600,7 +19600,7 @@ Private Sub Aciklama10_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama9.SetFocus
     End If
@@ -19621,7 +19621,7 @@ Private Sub Aciklama11_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama10.SetFocus
     End If
@@ -19642,7 +19642,7 @@ Private Sub Aciklama12_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama11.SetFocus
     End If
@@ -19663,7 +19663,7 @@ Private Sub Aciklama13_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama12.SetFocus
     End If
@@ -19684,7 +19684,7 @@ Private Sub Aciklama14_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama13.SetFocus
     End If
@@ -19705,7 +19705,7 @@ Private Sub Aciklama15_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama14.SetFocus
     End If
@@ -19726,7 +19726,7 @@ Private Sub Aciklama16_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama15.SetFocus
     End If
@@ -19747,7 +19747,7 @@ Private Sub Aciklama17_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama16.SetFocus
     End If
@@ -19768,7 +19768,7 @@ Private Sub Aciklama18_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama17.SetFocus
     End If
@@ -19789,7 +19789,7 @@ Private Sub Aciklama19_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Aciklama18.SetFocus
     End If
@@ -19811,7 +19811,7 @@ Private Sub Sonuc_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Sonuc.SetFocus
     End If
@@ -19884,7 +19884,7 @@ Private Sub Sonuc1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Sonuc.SetFocus
     End If
@@ -19957,7 +19957,7 @@ Private Sub Sonuc2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Sonuc1.SetFocus
     End If
@@ -20031,7 +20031,7 @@ Private Sub Sonuc3_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Sonuc2.SetFocus
     End If
@@ -20105,7 +20105,7 @@ Private Sub Sonuc4_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Sonuc3.SetFocus
     End If
@@ -20179,7 +20179,7 @@ Private Sub Sonuc5_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Sonuc4.SetFocus
     End If
@@ -20253,7 +20253,7 @@ Private Sub Sonuc6_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Sonuc5.SetFocus
     End If
@@ -20326,7 +20326,7 @@ Private Sub Sonuc7_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Sonuc6.SetFocus
     End If
@@ -20399,7 +20399,7 @@ Private Sub Sonuc8_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Sonuc7.SetFocus
     End If
@@ -20472,7 +20472,7 @@ Private Sub Sonuc9_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift A
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Sonuc8.SetFocus
     End If
@@ -20545,7 +20545,7 @@ Private Sub Sonuc10_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift 
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Sonuc9.SetFocus
     End If
@@ -20618,7 +20618,7 @@ Private Sub Sonuc11_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift 
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Sonuc10.SetFocus
     End If
@@ -20691,7 +20691,7 @@ Private Sub Sonuc12_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift 
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Sonuc11.SetFocus
     End If
@@ -20764,7 +20764,7 @@ Private Sub Sonuc13_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift 
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Sonuc12.SetFocus
     End If
@@ -20837,7 +20837,7 @@ Private Sub Sonuc14_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift 
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Sonuc13.SetFocus
     End If
@@ -20910,7 +20910,7 @@ Private Sub Sonuc15_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift 
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Sonuc14.SetFocus
     End If
@@ -20983,7 +20983,7 @@ Private Sub Sonuc16_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift 
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Sonuc15.SetFocus
     End If
@@ -21056,7 +21056,7 @@ Private Sub Sonuc17_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift 
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Sonuc16.SetFocus
     End If
@@ -21129,7 +21129,7 @@ Private Sub Sonuc18_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift 
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Sonuc17.SetFocus
     End If
@@ -21202,7 +21202,7 @@ Private Sub Sonuc19_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift 
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Sonuc18.SetFocus
     End If
@@ -21276,7 +21276,7 @@ Private Sub UretimOzelligi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         UretimOzelligi.SetFocus
     End If
@@ -21338,7 +21338,7 @@ Private Sub UretimOzelligi1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         UretimOzelligi.SetFocus
     End If
@@ -21400,7 +21400,7 @@ Private Sub UretimOzelligi2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         UretimOzelligi1.SetFocus
     End If
@@ -21462,7 +21462,7 @@ Private Sub UretimOzelligi3_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         UretimOzelligi2.SetFocus
     End If
@@ -21524,7 +21524,7 @@ Private Sub UretimOzelligi4_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         UretimOzelligi3.SetFocus
     End If
@@ -21586,7 +21586,7 @@ Private Sub UretimOzelligi5_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         UretimOzelligi4.SetFocus
     End If
@@ -21648,7 +21648,7 @@ Private Sub UretimOzelligi6_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         UretimOzelligi5.SetFocus
     End If
@@ -21710,7 +21710,7 @@ Private Sub UretimOzelligi7_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         UretimOzelligi6.SetFocus
     End If
@@ -21772,7 +21772,7 @@ Private Sub UretimOzelligi8_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         UretimOzelligi7.SetFocus
     End If
@@ -21834,7 +21834,7 @@ Private Sub UretimOzelligi9_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         UretimOzelligi8.SetFocus
     End If
@@ -21896,7 +21896,7 @@ Private Sub UretimOzelligi10_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByV
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         UretimOzelligi9.SetFocus
     End If
@@ -21958,7 +21958,7 @@ Private Sub UretimOzelligi11_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByV
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         UretimOzelligi10.SetFocus
     End If
@@ -22020,7 +22020,7 @@ Private Sub UretimOzelligi12_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByV
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         UretimOzelligi11.SetFocus
     End If
@@ -22082,7 +22082,7 @@ Private Sub UretimOzelligi13_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByV
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         UretimOzelligi12.SetFocus
     End If
@@ -22144,7 +22144,7 @@ Private Sub UretimOzelligi14_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByV
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         UretimOzelligi13.SetFocus
     End If
@@ -22206,7 +22206,7 @@ Private Sub UretimOzelligi15_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByV
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         UretimOzelligi14.SetFocus
     End If
@@ -22268,7 +22268,7 @@ Private Sub UretimOzelligi16_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByV
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         UretimOzelligi15.SetFocus
     End If
@@ -22331,7 +22331,7 @@ Private Sub UretimOzelligi17_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByV
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         UretimOzelligi16.SetFocus
     End If
@@ -22394,7 +22394,7 @@ Private Sub UretimOzelligi18_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByV
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         UretimOzelligi17.SetFocus
     End If
@@ -22456,7 +22456,7 @@ Private Sub UretimOzelligi19_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByV
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         UretimOzelligi18.SetFocus
     End If
@@ -22517,7 +22517,7 @@ Private Sub Rapor1No_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Rapor1No.SetFocus
     End If
@@ -22531,7 +22531,7 @@ Dim a() As Variant, i As Variant
 Dim j As Integer
 
 'If ComboGetir.Value = "" Then
-''Comboda tanýmlý deðer girilemez.
+''Comboda tanÄ±mlÄ± deÄŸer girilemez.
 'a() = Rapor1No.List
 'For i = LBound(a) To UBound(a)
 '    If a(i, 0) = Rapor1No.Value Then
@@ -22540,26 +22540,26 @@ Dim j As Integer
 'Next i
 'End If
 
-'Kullanýlamaz karakterler...
+'KullanÄ±lamaz karakterler...
 If InStr(Rapor1No.Value, "/") > 0 Or InStr(Rapor1No.Value, "\") > 0 Or InStr(Rapor1No.Value, "<") > 0 Or InStr(Rapor1No.Value, ">") > 0 Or InStr(Rapor1No.Value, ":") > 0 Or InStr(Rapor1No.Value, "*") > 0 Or InStr(Rapor1No.Value, "?") > 0 Or InStr(Rapor1No.Value, "|") > 0 Or InStr(Rapor1No.Value, """") > 0 Or InStr(Rapor1No.Value, "[") > 0 Or InStr(Rapor1No.Value, "]") > 0 Or InStr(Rapor1No.Value, "_") > 0 Or InStr(Rapor1No.Value, "(") > 0 Or InStr(Rapor1No.Value, ")") > 0 Or InStr(Rapor1No.Value, ".") > 0 Or InStr(Rapor1No.Value, ",") > 0 Then
     MsgBox """" & "/, \, <, >, ], [, :, " & """" & " , *, |, ?, _, (, ), ., ," & """" & " characters are reserved by the system and cannot be used when creating the Report 2.1 number. Please avoid using any of these characters in the Report 2.1 number. You may use the dash (-) character instead.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     Rapor1No.Value = ""
 End If
         
-'Boþluklara izin verme
+'BoÅŸluklara izin verme
 For j = 1 To 20
 Rapor1No.Value = Replace(Rapor1No.Value, " ", "")
 Next j
-'Daima büyük harf
-Rapor1No.Value = UCase(Replace(Replace(Rapor1No.Value, "ý", "I"), "i", "I"))
+'Daima bÃ¼yÃ¼k harf
+Rapor1No.Value = UCase(Replace(Replace(Rapor1No.Value, "Ä±", "I"), "i", "I"))
 
-'Tire hariç alfabetik karaktere izin verme
+'Tire hariÃ§ alfabetik karaktere izin verme
 For i = 1 To 50
     If Mid(Rapor1No.Value, i, 1) = "-" Then
         'MsgBox Mid(Rapor1No.Value, i, 1)
     ElseIf IsNumeric(Mid(Rapor1No.Value, i, 1)) = False And Mid(Rapor1No.Value, i, 1) <> "" Then
         'MsgBox Mid(Rapor1No.Value, i, 1)
-        'MsgBox "Sayýsal olmayan karakter var."
+        'MsgBox "SayÄ±sal olmayan karakter var."
         Rapor1No.Value = ""
         MsgBox "Please avoid using alphabetic characters when specifying the Report 2.1 number, except for the dash (-). The required prefix for the Report 2.1 number will be automatically added to the relevant documents.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     End If
@@ -22581,7 +22581,7 @@ Private Sub Rapor2_2No_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Rapor2_2No.SetFocus
     End If
@@ -22595,7 +22595,7 @@ Dim a() As Variant, i As Variant
 Dim j As Integer
 
 'If ComboGetir.Value = "" Then
-''Comboda tanýmlý deðer girilemez.
+''Comboda tanÄ±mlÄ± deÄŸer girilemez.
 'a() = Rapor2_2No.List
 'For i = LBound(a) To UBound(a)
 '    If a(i, 0) = Rapor2_2No.Value Then
@@ -22604,22 +22604,22 @@ Dim j As Integer
 'Next i
 'End If
 
-'Kullanýlamaz karakterler...
+'KullanÄ±lamaz karakterler...
 If InStr(Rapor2_2No.Value, "/") > 0 Or InStr(Rapor2_2No.Value, "\") > 0 Or InStr(Rapor2_2No.Value, "<") > 0 Or InStr(Rapor2_2No.Value, ">") > 0 Or InStr(Rapor2_2No.Value, ":") > 0 Or InStr(Rapor2_2No.Value, "*") > 0 Or InStr(Rapor2_2No.Value, "?") > 0 Or InStr(Rapor2_2No.Value, "|") > 0 Or InStr(Rapor2_2No.Value, """") > 0 Or InStr(Rapor2_2No.Value, "[") > 0 Or InStr(Rapor2_2No.Value, "]") > 0 Or InStr(Rapor2_2No.Value, "_") > 0 Or InStr(Rapor2_2No.Value, "(") > 0 Or InStr(Rapor2_2No.Value, ")") > 0 Or InStr(Rapor2_2No.Value, ".") > 0 Or InStr(Rapor2_2No.Value, ",") > 0 Then
     MsgBox """" & "/, \, <, >, ], [, :, " & """" & " , *, |, ?, _, (, ), ., ," & """" & " characters are reserved by the system and cannot be used when creating the Report 2.2 number. Please avoid using any of these characters in the Report 2.2 number. You may use the dash (-) character instead.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     Rapor2_2No.Value = ""
 End If
         
-'Boþluklara izin verme
+'BoÅŸluklara izin verme
 For j = 1 To 20
 Rapor2_2No.Value = Replace(Rapor2_2No.Value, " ", "")
 Next j
-'Daima büyük harf
-Rapor2_2No.Value = UCase(Replace(Replace(Rapor2_2No.Value, "ý", "I"), "i", "I"))
+'Daima bÃ¼yÃ¼k harf
+Rapor2_2No.Value = UCase(Replace(Replace(Rapor2_2No.Value, "Ä±", "I"), "i", "I"))
 
 'Alfabetik karaktere izin verme
 If IsNumeric(Rapor2_2No.Value) = False And Rapor2_2No.Value <> "" Then
-    'MsgBox "Sayýsal olmayan karakter var."
+    'MsgBox "SayÄ±sal olmayan karakter var."
     Rapor2_2No.Value = ""
     MsgBox "Please avoid using alphabetic characters when specifying the Report 2.2 number, except for the dash (-). The required prefix for the Report 2.2 number will be automatically added to the relevant documents.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
 End If
@@ -22641,7 +22641,7 @@ Private Sub Rapor1No1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Rapor1No.SetFocus
     End If
@@ -22656,7 +22656,7 @@ Dim a() As Variant, i As Variant
 Dim j As Integer
 
 'If ComboGetir.Value = "" Then
-''Comboda tanýmlý deðer girilemez.
+''Comboda tanÄ±mlÄ± deÄŸer girilemez.
 'a() = Rapor1No1.List
 'For i = LBound(a) To UBound(a)
 '    If a(i, 0) = Rapor1No1.Value Then
@@ -22665,18 +22665,18 @@ Dim j As Integer
 'Next i
 'End If
 
-'Kullanýlamaz karakterler...
+'KullanÄ±lamaz karakterler...
 If InStr(Rapor1No1.Value, "/") > 0 Or InStr(Rapor1No1.Value, "\") > 0 Or InStr(Rapor1No1.Value, "<") > 0 Or InStr(Rapor1No1.Value, ">") > 0 Or InStr(Rapor1No1.Value, ":") > 0 Or InStr(Rapor1No1.Value, "*") > 0 Or InStr(Rapor1No1.Value, "?") > 0 Or InStr(Rapor1No1.Value, "|") > 0 Or InStr(Rapor1No1.Value, """") > 0 Or InStr(Rapor1No1.Value, "[") > 0 Or InStr(Rapor1No1.Value, "]") > 0 Or InStr(Rapor1No1.Value, "_") > 0 Or InStr(Rapor1No1.Value, "(") > 0 Or InStr(Rapor1No1.Value, ")") > 0 Or InStr(Rapor1No1.Value, ".") > 0 Or InStr(Rapor1No1.Value, ",") > 0 Then
     MsgBox """" & "/, \, <, >, ], [, :, " & """" & " , *, |, ?, _, (, ), ., ," & """" & " characters are reserved by the system and cannot be used when creating the Report 2.1 number. Please avoid using any of these characters in the Report 2.1 number. You may use the dash (-) character instead.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     Rapor1No1.Value = ""
 End If
 
-'Boþluklara izin verme
+'BoÅŸluklara izin verme
 For j = 1 To 20
 Rapor1No1.Value = Replace(Rapor1No1.Value, " ", "")
 Next j
-'Daima büyük harf
-Rapor1No1.Value = UCase(Replace(Replace(Rapor1No1.Value, "ý", "I"), "i", "I"))
+'Daima bÃ¼yÃ¼k harf
+Rapor1No1.Value = UCase(Replace(Replace(Rapor1No1.Value, "Ä±", "I"), "i", "I"))
 
 If Rapor1No1 <> "" Then
     NotCheck1.Visible = True
@@ -22688,13 +22688,13 @@ Else
     RaporOzelligi1.Enabled = False
 End If
 
-'Tire hariç alfabetik karaktere izin verme
+'Tire hariÃ§ alfabetik karaktere izin verme
 For i = 1 To 50
     If Mid(Rapor1No1.Value, i, 1) = "-" Then
         'MsgBox Mid(Rapor1No1.Value, i, 1)
     ElseIf IsNumeric(Mid(Rapor1No1.Value, i, 1)) = False And Mid(Rapor1No1.Value, i, 1) <> "" Then
         'MsgBox Mid(Rapor1No1.Value, i, 1)
-        'MsgBox "Sayýsal olmayan karakter var."
+        'MsgBox "SayÄ±sal olmayan karakter var."
         Rapor1No1.Value = ""
         MsgBox "Please avoid using alphabetic characters when specifying the Report 2.1 number, except for the dash (-). The required prefix for the Report 2.1 number will be automatically added to the relevant documents.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     End If
@@ -22715,7 +22715,7 @@ Private Sub Rapor1No2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Rapor1No1.SetFocus
     End If
@@ -22729,7 +22729,7 @@ Dim a() As Variant, i As Variant
 Dim j As Integer
 
 'If ComboGetir.Value = "" Then
-''Comboda tanýmlý deðer girilemez.
+''Comboda tanÄ±mlÄ± deÄŸer girilemez.
 'a() = Rapor1No2.List
 'For i = LBound(a) To UBound(a)
 '    If a(i, 0) = Rapor1No2.Value Then
@@ -22738,17 +22738,17 @@ Dim j As Integer
 'Next i
 'End If
 
-'Kullanýlamaz karakterler...
+'KullanÄ±lamaz karakterler...
 If InStr(Rapor1No2.Value, "/") > 0 Or InStr(Rapor1No2.Value, "\") > 0 Or InStr(Rapor1No2.Value, "<") > 0 Or InStr(Rapor1No2.Value, ">") > 0 Or InStr(Rapor1No2.Value, ":") > 0 Or InStr(Rapor1No2.Value, "*") > 0 Or InStr(Rapor1No2.Value, "?") > 0 Or InStr(Rapor1No2.Value, "|") > 0 Or InStr(Rapor1No2.Value, """") > 0 Or InStr(Rapor1No2.Value, "[") > 0 Or InStr(Rapor1No2.Value, "]") > 0 Or InStr(Rapor1No2.Value, "_") > 0 Or InStr(Rapor1No2.Value, "(") > 0 Or InStr(Rapor1No2.Value, ")") > 0 Or InStr(Rapor1No2.Value, ".") > 0 Or InStr(Rapor1No2.Value, ",") > 0 Then
     MsgBox """" & "/, \, <, >, ], [, :, " & """" & " , *, |, ?, _, (, ), ., ," & """" & " characters are reserved by the system and cannot be used when creating the Report 2.1 number. Please avoid using any of these characters in the Report 2.1 number. You may use the dash (-) character instead.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     Rapor1No2.Value = ""
 End If
-'Boþluklara izin verme
+'BoÅŸluklara izin verme
 For j = 1 To 20
 Rapor1No2.Value = Replace(Rapor1No2.Value, " ", "")
 Next j
-'Daima büyük harf
-Rapor1No2.Value = UCase(Replace(Replace(Rapor1No2.Value, "ý", "I"), "i", "I"))
+'Daima bÃ¼yÃ¼k harf
+Rapor1No2.Value = UCase(Replace(Replace(Rapor1No2.Value, "Ä±", "I"), "i", "I"))
 
 If Rapor1No2 <> "" Then
     NotCheck2.Visible = True
@@ -22760,13 +22760,13 @@ Else
     RaporOzelligi2.Enabled = False
 End If
 
-'Tire hariç alfabetik karaktere izin verme
+'Tire hariÃ§ alfabetik karaktere izin verme
 For i = 1 To 50
     If Mid(Rapor1No2.Value, i, 1) = "-" Then
         'MsgBox Mid(Rapor1No2.Value, i, 1)
     ElseIf IsNumeric(Mid(Rapor1No2.Value, i, 1)) = False And Mid(Rapor1No2.Value, i, 1) <> "" Then
         'MsgBox Mid(Rapor1No2.Value, i, 1)
-        'MsgBox "Sayýsal olmayan karakter var."
+        'MsgBox "SayÄ±sal olmayan karakter var."
         Rapor1No2.Value = ""
         MsgBox "Please avoid using alphabetic characters when specifying the Report 2.1 number, except for the dash (-). The required prefix for the Report 2.1 number will be automatically added to the relevant documents.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     End If
@@ -22787,7 +22787,7 @@ Private Sub Rapor1No3_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Rapor1No2.SetFocus
     End If
@@ -22801,7 +22801,7 @@ Dim a() As Variant, i As Variant
 Dim j As Integer
 
 'If ComboGetir.Value = "" Then
-''Comboda tanýmlý deðer girilemez.
+''Comboda tanÄ±mlÄ± deÄŸer girilemez.
 'a() = Rapor1No3.List
 'For i = LBound(a) To UBound(a)
 '    If a(i, 0) = Rapor1No3.Value Then
@@ -22810,17 +22810,17 @@ Dim j As Integer
 'Next i
 'End If
 
-'Kullanýlamaz karakterler...
+'KullanÄ±lamaz karakterler...
 If InStr(Rapor1No3.Value, "/") > 0 Or InStr(Rapor1No3.Value, "\") > 0 Or InStr(Rapor1No3.Value, "<") > 0 Or InStr(Rapor1No3.Value, ">") > 0 Or InStr(Rapor1No3.Value, ":") > 0 Or InStr(Rapor1No3.Value, "*") > 0 Or InStr(Rapor1No3.Value, "?") > 0 Or InStr(Rapor1No3.Value, "|") > 0 Or InStr(Rapor1No3.Value, """") > 0 Or InStr(Rapor1No3.Value, "[") > 0 Or InStr(Rapor1No3.Value, "]") > 0 Or InStr(Rapor1No3.Value, "_") > 0 Or InStr(Rapor1No3.Value, "(") > 0 Or InStr(Rapor1No3.Value, ")") > 0 Or InStr(Rapor1No3.Value, ".") > 0 Or InStr(Rapor1No3.Value, ",") > 0 Then
     MsgBox """" & "/, \, <, >, ], [, :, " & """" & " , *, |, ?, _, (, ), ., ," & """" & " characters are reserved by the system and cannot be used when creating the Report 2.1 number. Please avoid using any of these characters in the Report 2.1 number. You may use the dash (-) character instead.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     Rapor1No3.Value = ""
 End If
-'Boþluklara izin verme
+'BoÅŸluklara izin verme
 For j = 1 To 20
 Rapor1No3.Value = Replace(Rapor1No3.Value, " ", "")
 Next j
-'Daima büyük harf
-Rapor1No3.Value = UCase(Replace(Replace(Rapor1No3.Value, "ý", "I"), "i", "I"))
+'Daima bÃ¼yÃ¼k harf
+Rapor1No3.Value = UCase(Replace(Replace(Rapor1No3.Value, "Ä±", "I"), "i", "I"))
 
 If Rapor1No3 <> "" Then
     NotCheck3.Visible = True
@@ -22832,25 +22832,25 @@ Else
     RaporOzelligi3.Enabled = False
 End If
 
-'Tire hariç alfabetik karaktere izin verme
+'Tire hariÃ§ alfabetik karaktere izin verme
 For i = 1 To 50
     If Mid(Rapor1No2.Value, i, 1) = "-" Then
         'MsgBox Mid(Rapor1No2.Value, i, 1)
     ElseIf IsNumeric(Mid(Rapor1No2.Value, i, 1)) = False And Mid(Rapor1No2.Value, i, 1) <> "" Then
         'MsgBox Mid(Rapor1No2.Value, i, 1)
-        'MsgBox "Sayýsal olmayan karakter var."
+        'MsgBox "SayÄ±sal olmayan karakter var."
         Rapor1No2.Value = ""
         MsgBox "Please avoid using alphabetic characters when specifying the Report 2.1 number, except for the dash (-). The required prefix for the Report 2.1 number will be automatically added to the relevant documents.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     End If
 Next i
 
-'Tire hariç alfabetik karaktere izin verme
+'Tire hariÃ§ alfabetik karaktere izin verme
 For i = 1 To 50
     If Mid(Rapor1No3.Value, i, 1) = "-" Then
         'MsgBox Mid(Rapor1No3.Value, i, 1)
     ElseIf IsNumeric(Mid(Rapor1No3.Value, i, 1)) = False And Mid(Rapor1No3.Value, i, 1) <> "" Then
         'MsgBox Mid(Rapor1No3.Value, i, 1)
-        'MsgBox "Sayýsal olmayan karakter var."
+        'MsgBox "SayÄ±sal olmayan karakter var."
         Rapor1No3.Value = ""
         MsgBox "Please avoid using alphabetic characters when specifying the Report 2.1 number, except for the dash (-). The required prefix for the Report 2.1 number will be automatically added to the relevant documents.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     End If
@@ -22871,7 +22871,7 @@ Private Sub Rapor1No4_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Rapor1No3.SetFocus
     End If
@@ -22885,7 +22885,7 @@ Dim a() As Variant, i As Variant
 Dim j As Integer
 
 'If ComboGetir.Value = "" Then
-''Comboda tanýmlý deðer girilemez.
+''Comboda tanÄ±mlÄ± deÄŸer girilemez.
 'a() = Rapor1No4.List
 'For i = LBound(a) To UBound(a)
 '    If a(i, 0) = Rapor1No4.Value Then
@@ -22894,17 +22894,17 @@ Dim j As Integer
 'Next i
 'End If
 
-'Kullanýlamaz karakterler...
+'KullanÄ±lamaz karakterler...
 If InStr(Rapor1No4.Value, "/") > 0 Or InStr(Rapor1No4.Value, "\") > 0 Or InStr(Rapor1No4.Value, "<") > 0 Or InStr(Rapor1No4.Value, ">") > 0 Or InStr(Rapor1No4.Value, ":") > 0 Or InStr(Rapor1No4.Value, "*") > 0 Or InStr(Rapor1No4.Value, "?") > 0 Or InStr(Rapor1No4.Value, "|") > 0 Or InStr(Rapor1No4.Value, """") > 0 Or InStr(Rapor1No4.Value, "[") > 0 Or InStr(Rapor1No4.Value, "]") > 0 Or InStr(Rapor1No4.Value, "_") > 0 Or InStr(Rapor1No4.Value, "(") > 0 Or InStr(Rapor1No4.Value, ")") > 0 Or InStr(Rapor1No4.Value, ".") > 0 Or InStr(Rapor1No4.Value, ",") > 0 Then
     MsgBox """" & "/, \, <, >, ], [, :, " & """" & " , *, |, ?, _, (, ), ., ," & """" & " characters are reserved by the system and cannot be used when creating the Report 2.1 number. Please avoid using any of these characters in the Report 2.1 number. You may use the dash (-) character instead.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     Rapor1No4.Value = ""
 End If
-'Boþluklara izin verme
+'BoÅŸluklara izin verme
 For j = 1 To 20
 Rapor1No4.Value = Replace(Rapor1No4.Value, " ", "")
 Next j
-'Daima büyük harf
-Rapor1No4.Value = UCase(Replace(Replace(Rapor1No4.Value, "ý", "I"), "i", "I"))
+'Daima bÃ¼yÃ¼k harf
+Rapor1No4.Value = UCase(Replace(Replace(Rapor1No4.Value, "Ä±", "I"), "i", "I"))
 
 If Rapor1No4 <> "" Then
     NotCheck4.Visible = True
@@ -22916,13 +22916,13 @@ Else
     RaporOzelligi4.Enabled = False
 End If
 
-'Tire hariç alfabetik karaktere izin verme
+'Tire hariÃ§ alfabetik karaktere izin verme
 For i = 1 To 50
     If Mid(Rapor1No4.Value, i, 1) = "-" Then
         'MsgBox Mid(Rapor1No4.Value, i, 1)
     ElseIf IsNumeric(Mid(Rapor1No4.Value, i, 1)) = False And Mid(Rapor1No4.Value, i, 1) <> "" Then
         'MsgBox Mid(Rapor1No4.Value, i, 1)
-        'MsgBox "Sayýsal olmayan karakter var."
+        'MsgBox "SayÄ±sal olmayan karakter var."
         Rapor1No4.Value = ""
         MsgBox "Please avoid using alphabetic characters when specifying the Report 2.1 number, except for the dash (-). The required prefix for the Report 2.1 number will be automatically added to the relevant documents.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     End If
@@ -22943,7 +22943,7 @@ Private Sub Rapor1No5_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Rapor1No4.SetFocus
     End If
@@ -22957,7 +22957,7 @@ Dim a() As Variant, i As Variant
 Dim j As Integer
 
 'If ComboGetir.Value = "" Then
-''Comboda tanýmlý deðer girilemez.
+''Comboda tanÄ±mlÄ± deÄŸer girilemez.
 'a() = Rapor1No5.List
 'For i = LBound(a) To UBound(a)
 '    If a(i, 0) = Rapor1No5.Value Then
@@ -22966,17 +22966,17 @@ Dim j As Integer
 'Next i
 'End If
 
-'Kullanýlamaz karakterler...
+'KullanÄ±lamaz karakterler...
 If InStr(Rapor1No5.Value, "/") > 0 Or InStr(Rapor1No5.Value, "\") > 0 Or InStr(Rapor1No5.Value, "<") > 0 Or InStr(Rapor1No5.Value, ">") > 0 Or InStr(Rapor1No5.Value, ":") > 0 Or InStr(Rapor1No5.Value, "*") > 0 Or InStr(Rapor1No5.Value, "?") > 0 Or InStr(Rapor1No5.Value, "|") > 0 Or InStr(Rapor1No5.Value, """") > 0 Or InStr(Rapor1No5.Value, "[") > 0 Or InStr(Rapor1No5.Value, "]") > 0 Or InStr(Rapor1No5.Value, "_") > 0 Or InStr(Rapor1No5.Value, "(") > 0 Or InStr(Rapor1No5.Value, ")") > 0 Or InStr(Rapor1No5.Value, ".") > 0 Or InStr(Rapor1No5.Value, ",") > 0 Then
     MsgBox """" & "/, \, <, >, ], [, :, " & """" & " , *, |, ?, _, (, ), ., ," & """" & " characters are reserved by the system and cannot be used when creating the Report 2.1 number. Please avoid using any of these characters in the Report 2.1 number. You may use the dash (-) character instead.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     Rapor1No5.Value = ""
 End If
-'Boþluklara izin verme
+'BoÅŸluklara izin verme
 For j = 1 To 20
 Rapor1No5.Value = Replace(Rapor1No5.Value, " ", "")
 Next j
-'Daima büyük harf
-Rapor1No5.Value = UCase(Replace(Replace(Rapor1No5.Value, "ý", "I"), "i", "I"))
+'Daima bÃ¼yÃ¼k harf
+Rapor1No5.Value = UCase(Replace(Replace(Rapor1No5.Value, "Ä±", "I"), "i", "I"))
 
 If Rapor1No5 <> "" Then
     NotCheck5.Visible = True
@@ -22988,13 +22988,13 @@ Else
     RaporOzelligi5.Enabled = False
 End If
 
-'Tire hariç alfabetik karaktere izin verme
+'Tire hariÃ§ alfabetik karaktere izin verme
 For i = 1 To 50
     If Mid(Rapor1No5.Value, i, 1) = "-" Then
         'MsgBox Mid(Rapor1No5.Value, i, 1)
     ElseIf IsNumeric(Mid(Rapor1No5.Value, i, 1)) = False And Mid(Rapor1No5.Value, i, 1) <> "" Then
         'MsgBox Mid(Rapor1No5.Value, i, 1)
-        'MsgBox "Sayýsal olmayan karakter var."
+        'MsgBox "SayÄ±sal olmayan karakter var."
         Rapor1No5.Value = ""
         MsgBox "Please avoid using alphabetic characters when specifying the Report 2.1 number, except for the dash (-). The required prefix for the Report 2.1 number will be automatically added to the relevant documents.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     End If
@@ -23015,7 +23015,7 @@ Private Sub Rapor1No6_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Rapor1No5.SetFocus
     End If
@@ -23029,7 +23029,7 @@ Dim a() As Variant, i As Variant
 Dim j As Integer
 
 'If ComboGetir.Value = "" Then
-''Comboda tanýmlý deðer girilemez.
+''Comboda tanÄ±mlÄ± deÄŸer girilemez.
 'a() = Rapor1No6.List
 'For i = LBound(a) To UBound(a)
 '    If a(i, 0) = Rapor1No6.Value Then
@@ -23038,17 +23038,17 @@ Dim j As Integer
 'Next i
 'End If
 
-'Kullanýlamaz karakterler...
+'KullanÄ±lamaz karakterler...
 If InStr(Rapor1No6.Value, "/") > 0 Or InStr(Rapor1No6.Value, "\") > 0 Or InStr(Rapor1No6.Value, "<") > 0 Or InStr(Rapor1No6.Value, ">") > 0 Or InStr(Rapor1No6.Value, ":") > 0 Or InStr(Rapor1No6.Value, "*") > 0 Or InStr(Rapor1No6.Value, "?") > 0 Or InStr(Rapor1No6.Value, "|") > 0 Or InStr(Rapor1No6.Value, """") > 0 Or InStr(Rapor1No6.Value, "[") > 0 Or InStr(Rapor1No6.Value, "]") > 0 Or InStr(Rapor1No6.Value, "_") > 0 Or InStr(Rapor1No6.Value, "(") > 0 Or InStr(Rapor1No6.Value, ")") > 0 Or InStr(Rapor1No6.Value, ".") > 0 Or InStr(Rapor1No6.Value, ",") > 0 Then
     MsgBox """" & "/, \, <, >, ], [, :, " & """" & " , *, |, ?, _, (, ), ., ," & """" & " characters are reserved by the system and cannot be used when creating the Report 2.1 number. Please avoid using any of these characters in the Report 2.1 number. You may use the dash (-) character instead.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     Rapor1No6.Value = ""
 End If
-'Boþluklara izin verme
+'BoÅŸluklara izin verme
 For j = 1 To 20
 Rapor1No6.Value = Replace(Rapor1No6.Value, " ", "")
 Next j
-'Daima büyük harf
-Rapor1No6.Value = UCase(Replace(Replace(Rapor1No6.Value, "ý", "I"), "i", "I"))
+'Daima bÃ¼yÃ¼k harf
+Rapor1No6.Value = UCase(Replace(Replace(Rapor1No6.Value, "Ä±", "I"), "i", "I"))
 
 If Rapor1No6 <> "" Then
     NotCheck6.Visible = True
@@ -23060,13 +23060,13 @@ Else
     RaporOzelligi6.Enabled = False
 End If
 
-'Tire hariç alfabetik karaktere izin verme
+'Tire hariÃ§ alfabetik karaktere izin verme
 For i = 1 To 50
     If Mid(Rapor1No6.Value, i, 1) = "-" Then
         'MsgBox Mid(Rapor1No6.Value, i, 1)
     ElseIf IsNumeric(Mid(Rapor1No6.Value, i, 1)) = False And Mid(Rapor1No6.Value, i, 1) <> "" Then
         'MsgBox Mid(Rapor1No6.Value, i, 1)
-        'MsgBox "Sayýsal olmayan karakter var."
+        'MsgBox "SayÄ±sal olmayan karakter var."
         Rapor1No6.Value = ""
         MsgBox "Please avoid using alphabetic characters when specifying the Report 2.1 number, except for the dash (-). The required prefix for the Report 2.1 number will be automatically added to the relevant documents.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     End If
@@ -23087,7 +23087,7 @@ Private Sub Rapor1No7_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Rapor1No6.SetFocus
     End If
@@ -23101,7 +23101,7 @@ Dim a() As Variant, i As Variant
 Dim j As Integer
 
 'If ComboGetir.Value = "" Then
-''Comboda tanýmlý deðer girilemez.
+''Comboda tanÄ±mlÄ± deÄŸer girilemez.
 'a() = Rapor1No7.List
 'For i = LBound(a) To UBound(a)
 '    If a(i, 0) = Rapor1No7.Value Then
@@ -23110,17 +23110,17 @@ Dim j As Integer
 'Next i
 'End If
 
-'Kullanýlamaz karakterler...
+'KullanÄ±lamaz karakterler...
 If InStr(Rapor1No7.Value, "/") > 0 Or InStr(Rapor1No7.Value, "\") > 0 Or InStr(Rapor1No7.Value, "<") > 0 Or InStr(Rapor1No7.Value, ">") > 0 Or InStr(Rapor1No7.Value, ":") > 0 Or InStr(Rapor1No7.Value, "*") > 0 Or InStr(Rapor1No7.Value, "?") > 0 Or InStr(Rapor1No7.Value, "|") > 0 Or InStr(Rapor1No7.Value, """") > 0 Or InStr(Rapor1No7.Value, "[") > 0 Or InStr(Rapor1No7.Value, "]") > 0 Or InStr(Rapor1No7.Value, "_") > 0 Or InStr(Rapor1No7.Value, "(") > 0 Or InStr(Rapor1No7.Value, ")") > 0 Or InStr(Rapor1No7.Value, ".") > 0 Or InStr(Rapor1No7.Value, ",") > 0 Then
     MsgBox """" & "/, \, <, >, ], [, :, " & """" & " , *, |, ?, _, (, ), ., ," & """" & " characters are reserved by the system and cannot be used when creating the Report 2.1 number. Please avoid using any of these characters in the Report 2.1 number. You may use the dash (-) character instead.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     Rapor1No7.Value = ""
 End If
-'Boþluklara izin verme
+'BoÅŸluklara izin verme
 For j = 1 To 20
 Rapor1No7.Value = Replace(Rapor1No7.Value, " ", "")
 Next j
-'Daima büyük harf
-Rapor1No7.Value = UCase(Replace(Replace(Rapor1No7.Value, "ý", "I"), "i", "I"))
+'Daima bÃ¼yÃ¼k harf
+Rapor1No7.Value = UCase(Replace(Replace(Rapor1No7.Value, "Ä±", "I"), "i", "I"))
 
 If Rapor1No7 <> "" Then
     NotCheck7.Visible = True
@@ -23132,13 +23132,13 @@ Else
     RaporOzelligi7.Enabled = False
 End If
 
-'Tire hariç alfabetik karaktere izin verme
+'Tire hariÃ§ alfabetik karaktere izin verme
 For i = 1 To 50
     If Mid(Rapor1No7.Value, i, 1) = "-" Then
         'MsgBox Mid(Rapor1No7.Value, i, 1)
     ElseIf IsNumeric(Mid(Rapor1No7.Value, i, 1)) = False And Mid(Rapor1No7.Value, i, 1) <> "" Then
         'MsgBox Mid(Rapor1No7.Value, i, 1)
-        'MsgBox "Sayýsal olmayan karakter var."
+        'MsgBox "SayÄ±sal olmayan karakter var."
         Rapor1No7.Value = ""
         MsgBox "Please avoid using alphabetic characters when specifying the Report 2.1 number, except for the dash (-). The required prefix for the Report 2.1 number will be automatically added to the relevant documents.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     End If
@@ -23159,7 +23159,7 @@ Private Sub Rapor1No8_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Rapor1No7.SetFocus
     End If
@@ -23173,7 +23173,7 @@ Dim a() As Variant, i As Variant
 Dim j As Integer
 
 'If ComboGetir.Value = "" Then
-''Comboda tanýmlý deðer girilemez.
+''Comboda tanÄ±mlÄ± deÄŸer girilemez.
 'a() = Rapor1No8.List
 'For i = LBound(a) To UBound(a)
 '    If a(i, 0) = Rapor1No8.Value Then
@@ -23182,17 +23182,17 @@ Dim j As Integer
 'Next i
 'End If
 
-'Kullanýlamaz karakterler...
+'KullanÄ±lamaz karakterler...
 If InStr(Rapor1No8.Value, "/") > 0 Or InStr(Rapor1No8.Value, "\") > 0 Or InStr(Rapor1No8.Value, "<") > 0 Or InStr(Rapor1No8.Value, ">") > 0 Or InStr(Rapor1No8.Value, ":") > 0 Or InStr(Rapor1No8.Value, "*") > 0 Or InStr(Rapor1No8.Value, "?") > 0 Or InStr(Rapor1No8.Value, "|") > 0 Or InStr(Rapor1No8.Value, """") > 0 Or InStr(Rapor1No8.Value, "[") > 0 Or InStr(Rapor1No8.Value, "]") > 0 Or InStr(Rapor1No8.Value, "_") > 0 Or InStr(Rapor1No8.Value, "(") > 0 Or InStr(Rapor1No8.Value, ")") > 0 Or InStr(Rapor1No8.Value, ".") > 0 Or InStr(Rapor1No8.Value, ",") > 0 Then
     MsgBox """" & "/, \, <, >, ], [, :, " & """" & " , *, |, ?, _, (, ), ., ," & """" & " characters are reserved by the system and cannot be used when creating the Report 2.1 number. Please avoid using any of these characters in the Report 2.1 number. You may use the dash (-) character instead.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     Rapor1No8.Value = ""
 End If
-'Boþluklara izin verme
+'BoÅŸluklara izin verme
 For j = 1 To 20
 Rapor1No8.Value = Replace(Rapor1No8.Value, " ", "")
 Next j
-'Daima büyük harf
-Rapor1No8.Value = UCase(Replace(Replace(Rapor1No8.Value, "ý", "I"), "i", "I"))
+'Daima bÃ¼yÃ¼k harf
+Rapor1No8.Value = UCase(Replace(Replace(Rapor1No8.Value, "Ä±", "I"), "i", "I"))
 
 If Rapor1No8 <> "" Then
     NotCheck8.Visible = True
@@ -23204,13 +23204,13 @@ Else
     RaporOzelligi8.Enabled = False
 End If
 
-'Tire hariç alfabetik karaktere izin verme
+'Tire hariÃ§ alfabetik karaktere izin verme
 For i = 1 To 50
     If Mid(Rapor1No8.Value, i, 1) = "-" Then
         'MsgBox Mid(Rapor1No8.Value, i, 1)
     ElseIf IsNumeric(Mid(Rapor1No8.Value, i, 1)) = False And Mid(Rapor1No8.Value, i, 1) <> "" Then
         'MsgBox Mid(Rapor1No8.Value, i, 1)
-        'MsgBox "Sayýsal olmayan karakter var."
+        'MsgBox "SayÄ±sal olmayan karakter var."
         Rapor1No8.Value = ""
         MsgBox "Please avoid using alphabetic characters when specifying the Report 2.1 number, except for the dash (-). The required prefix for the Report 2.1 number will be automatically added to the relevant documents.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     End If
@@ -23231,7 +23231,7 @@ Private Sub Rapor1No9_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shif
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Rapor1No8.SetFocus
     End If
@@ -23245,7 +23245,7 @@ Dim a() As Variant, i As Variant
 Dim j As Integer
 
 'If ComboGetir.Value = "" Then
-''Comboda tanýmlý deðer girilemez.
+''Comboda tanÄ±mlÄ± deÄŸer girilemez.
 'a() = Rapor1No9.List
 'For i = LBound(a) To UBound(a)
 '    If a(i, 0) = Rapor1No9.Value Then
@@ -23254,17 +23254,17 @@ Dim j As Integer
 'Next i
 'End If
 
-'Kullanýlamaz karakterler...
+'KullanÄ±lamaz karakterler...
 If InStr(Rapor1No9.Value, "/") > 0 Or InStr(Rapor1No9.Value, "\") > 0 Or InStr(Rapor1No9.Value, "<") > 0 Or InStr(Rapor1No9.Value, ">") > 0 Or InStr(Rapor1No9.Value, ":") > 0 Or InStr(Rapor1No9.Value, "*") > 0 Or InStr(Rapor1No9.Value, "?") > 0 Or InStr(Rapor1No9.Value, "|") > 0 Or InStr(Rapor1No9.Value, """") > 0 Or InStr(Rapor1No9.Value, "[") > 0 Or InStr(Rapor1No9.Value, "]") > 0 Or InStr(Rapor1No9.Value, "_") > 0 Or InStr(Rapor1No9.Value, "(") > 0 Or InStr(Rapor1No9.Value, ")") > 0 Or InStr(Rapor1No9.Value, ".") > 0 Or InStr(Rapor1No9.Value, ",") > 0 Then
     MsgBox """" & "/, \, <, >, ], [, :, " & """" & " , *, |, ?, _, (, ), ., ," & """" & " characters are reserved by the system and cannot be used when creating the Report 2.1 number. Please avoid using any of these characters in the Report 2.1 number. You may use the dash (-) character instead.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     Rapor1No9.Value = ""
 End If
-'Boþluklara izin verme
+'BoÅŸluklara izin verme
 For j = 1 To 20
 Rapor1No9.Value = Replace(Rapor1No9.Value, " ", "")
 Next j
-'Daima büyük harf
-Rapor1No9.Value = UCase(Replace(Replace(Rapor1No9.Value, "ý", "I"), "i", "I"))
+'Daima bÃ¼yÃ¼k harf
+Rapor1No9.Value = UCase(Replace(Replace(Rapor1No9.Value, "Ä±", "I"), "i", "I"))
 
 If Rapor1No9 <> "" Then
     NotCheck9.Visible = True
@@ -23276,13 +23276,13 @@ Else
     RaporOzelligi9.Enabled = False
 End If
 
-'Tire hariç alfabetik karaktere izin verme
+'Tire hariÃ§ alfabetik karaktere izin verme
 For i = 1 To 50
     If Mid(Rapor1No9.Value, i, 1) = "-" Then
         'MsgBox Mid(Rapor1No9.Value, i, 1)
     ElseIf IsNumeric(Mid(Rapor1No9.Value, i, 1)) = False And Mid(Rapor1No9.Value, i, 1) <> "" Then
         'MsgBox Mid(Rapor1No9.Value, i, 1)
-        'MsgBox "Sayýsal olmayan karakter var."
+        'MsgBox "SayÄ±sal olmayan karakter var."
         Rapor1No9.Value = ""
         MsgBox "Please avoid using alphabetic characters when specifying the Report 2.1 number, except for the dash (-). The required prefix for the Report 2.1 number will be automatically added to the relevant documents.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     End If
@@ -23303,7 +23303,7 @@ Private Sub Rapor1No10_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Rapor1No9.SetFocus
     End If
@@ -23317,7 +23317,7 @@ Dim a() As Variant, i As Variant
 Dim j As Integer
 
 'If ComboGetir.Value = "" Then
-''Comboda tanýmlý deðer girilemez.
+''Comboda tanÄ±mlÄ± deÄŸer girilemez.
 'a() = Rapor1No10.List
 'For i = LBound(a) To UBound(a)
 '    If a(i, 0) = Rapor1No10.Value Then
@@ -23326,17 +23326,17 @@ Dim j As Integer
 'Next i
 'End If
 
-'Kullanýlamaz karakterler...
+'KullanÄ±lamaz karakterler...
 If InStr(Rapor1No10.Value, "/") > 0 Or InStr(Rapor1No10.Value, "\") > 0 Or InStr(Rapor1No10.Value, "<") > 0 Or InStr(Rapor1No10.Value, ">") > 0 Or InStr(Rapor1No10.Value, ":") > 0 Or InStr(Rapor1No10.Value, "*") > 0 Or InStr(Rapor1No10.Value, "?") > 0 Or InStr(Rapor1No10.Value, "|") > 0 Or InStr(Rapor1No10.Value, """") > 0 Or InStr(Rapor1No10.Value, "[") > 0 Or InStr(Rapor1No10.Value, "]") > 0 Or InStr(Rapor1No10.Value, "_") > 0 Or InStr(Rapor1No10.Value, "(") > 0 Or InStr(Rapor1No10.Value, ")") > 0 Or InStr(Rapor1No10.Value, ".") > 0 Or InStr(Rapor1No10.Value, ",") > 0 Then
     MsgBox """" & "/, \, <, >, ], [, :, " & """" & " , *, |, ?, _, (, ), ., ," & """" & " characters are reserved by the system and cannot be used when creating the Report 2.1 number. Please avoid using any of these characters in the Report 2.1 number. You may use the dash (-) character instead.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     Rapor1No10.Value = ""
 End If
-'Boþluklara izin verme
+'BoÅŸluklara izin verme
 For j = 1 To 20
 Rapor1No10.Value = Replace(Rapor1No10.Value, " ", "")
 Next j
-'Daima büyük harf
-Rapor1No10.Value = UCase(Replace(Replace(Rapor1No10.Value, "ý", "I"), "i", "I"))
+'Daima bÃ¼yÃ¼k harf
+Rapor1No10.Value = UCase(Replace(Replace(Rapor1No10.Value, "Ä±", "I"), "i", "I"))
 
 If Rapor1No10 <> "" Then
     NotCheck10.Visible = True
@@ -23348,13 +23348,13 @@ Else
     RaporOzelligi10.Enabled = False
 End If
 
-'Tire hariç alfabetik karaktere izin verme
+'Tire hariÃ§ alfabetik karaktere izin verme
 For i = 1 To 50
     If Mid(Rapor1No10.Value, i, 1) = "-" Then
         'MsgBox Mid(Rapor1No10.Value, i, 1)
     ElseIf IsNumeric(Mid(Rapor1No10.Value, i, 1)) = False And Mid(Rapor1No10.Value, i, 1) <> "" Then
         'MsgBox Mid(Rapor1No10.Value, i, 1)
-        'MsgBox "Sayýsal olmayan karakter var."
+        'MsgBox "SayÄ±sal olmayan karakter var."
         Rapor1No10.Value = ""
         MsgBox "Please avoid using alphabetic characters when specifying the Report 2.1 number, except for the dash (-). The required prefix for the Report 2.1 number will be automatically added to the relevant documents.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     End If
@@ -23375,7 +23375,7 @@ Private Sub Rapor1No11_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Rapor1No10.SetFocus
     End If
@@ -23389,7 +23389,7 @@ Dim a() As Variant, i As Variant
 Dim j As Integer
 
 'If ComboGetir.Value = "" Then
-''Comboda tanýmlý deðer girilemez.
+''Comboda tanÄ±mlÄ± deÄŸer girilemez.
 'a() = Rapor1No11.List
 'For i = LBound(a) To UBound(a)
 '    If a(i, 0) = Rapor1No11.Value Then
@@ -23398,17 +23398,17 @@ Dim j As Integer
 'Next i
 'End If
 
-'Kullanýlamaz karakterler...
+'KullanÄ±lamaz karakterler...
 If InStr(Rapor1No11.Value, "/") > 0 Or InStr(Rapor1No11.Value, "\") > 0 Or InStr(Rapor1No11.Value, "<") > 0 Or InStr(Rapor1No11.Value, ">") > 0 Or InStr(Rapor1No11.Value, ":") > 0 Or InStr(Rapor1No11.Value, "*") > 0 Or InStr(Rapor1No11.Value, "?") > 0 Or InStr(Rapor1No11.Value, "|") > 0 Or InStr(Rapor1No11.Value, """") > 0 Or InStr(Rapor1No11.Value, "[") > 0 Or InStr(Rapor1No11.Value, "]") > 0 Or InStr(Rapor1No11.Value, "_") > 0 Or InStr(Rapor1No11.Value, "(") > 0 Or InStr(Rapor1No11.Value, ")") > 0 Or InStr(Rapor1No11.Value, ".") > 0 Or InStr(Rapor1No11.Value, ",") > 0 Then
     MsgBox """" & "/, \, <, >, ], [, :, " & """" & " , *, |, ?, _, (, ), ., ," & """" & " characters are reserved by the system and cannot be used when creating the Report 2.1 number. Please avoid using any of these characters in the Report 2.1 number. You may use the dash (-) character instead.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     Rapor1No11.Value = ""
 End If
-'Boþluklara izin verme
+'BoÅŸluklara izin verme
 For j = 1 To 20
 Rapor1No11.Value = Replace(Rapor1No11.Value, " ", "")
 Next j
-'Daima büyük harf
-Rapor1No11.Value = UCase(Replace(Replace(Rapor1No11.Value, "ý", "I"), "i", "I"))
+'Daima bÃ¼yÃ¼k harf
+Rapor1No11.Value = UCase(Replace(Replace(Rapor1No11.Value, "Ä±", "I"), "i", "I"))
 
 If Rapor1No11 <> "" Then
     NotCheck11.Visible = True
@@ -23420,13 +23420,13 @@ Else
     RaporOzelligi11.Enabled = False
 End If
 
-'Tire hariç alfabetik karaktere izin verme
+'Tire hariÃ§ alfabetik karaktere izin verme
 For i = 1 To 50
     If Mid(Rapor1No11.Value, i, 1) = "-" Then
         'MsgBox Mid(Rapor1No11.Value, i, 1)
     ElseIf IsNumeric(Mid(Rapor1No11.Value, i, 1)) = False And Mid(Rapor1No11.Value, i, 1) <> "" Then
         'MsgBox Mid(Rapor1No11.Value, i, 1)
-        'MsgBox "Sayýsal olmayan karakter var."
+        'MsgBox "SayÄ±sal olmayan karakter var."
         Rapor1No11.Value = ""
         MsgBox "Please avoid using alphabetic characters when specifying the Report 2.1 number, except for the dash (-). The required prefix for the Report 2.1 number will be automatically added to the relevant documents.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     End If
@@ -23447,7 +23447,7 @@ Private Sub Rapor1No12_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Rapor1No11.SetFocus
     End If
@@ -23461,7 +23461,7 @@ Dim a() As Variant, i As Variant
 Dim j As Integer
 
 'If ComboGetir.Value = "" Then
-''Comboda tanýmlý deðer girilemez.
+''Comboda tanÄ±mlÄ± deÄŸer girilemez.
 'a() = Rapor1No12.List
 'For i = LBound(a) To UBound(a)
 '    If a(i, 0) = Rapor1No12.Value Then
@@ -23470,17 +23470,17 @@ Dim j As Integer
 'Next i
 'End If
 
-'Kullanýlamaz karakterler...
+'KullanÄ±lamaz karakterler...
 If InStr(Rapor1No12.Value, "/") > 0 Or InStr(Rapor1No12.Value, "\") > 0 Or InStr(Rapor1No12.Value, "<") > 0 Or InStr(Rapor1No12.Value, ">") > 0 Or InStr(Rapor1No12.Value, ":") > 0 Or InStr(Rapor1No12.Value, "*") > 0 Or InStr(Rapor1No12.Value, "?") > 0 Or InStr(Rapor1No12.Value, "|") > 0 Or InStr(Rapor1No12.Value, """") > 0 Or InStr(Rapor1No12.Value, "[") > 0 Or InStr(Rapor1No12.Value, "]") > 0 Or InStr(Rapor1No12.Value, "_") > 0 Or InStr(Rapor1No12.Value, "(") > 0 Or InStr(Rapor1No12.Value, ")") > 0 Or InStr(Rapor1No12.Value, ".") > 0 Or InStr(Rapor1No12.Value, ",") > 0 Then
     MsgBox """" & "/, \, <, >, ], [, :, " & """" & " , *, |, ?, _, (, ), ., ," & """" & " characters are reserved by the system and cannot be used when creating the Report 2.1 number. Please avoid using any of these characters in the Report 2.1 number. You may use the dash (-) character instead.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     Rapor1No12.Value = ""
 End If
-'Boþluklara izin verme
+'BoÅŸluklara izin verme
 For j = 1 To 20
 Rapor1No12.Value = Replace(Rapor1No12.Value, " ", "")
 Next j
-'Daima büyük harf
-Rapor1No12.Value = UCase(Replace(Replace(Rapor1No12.Value, "ý", "I"), "i", "I"))
+'Daima bÃ¼yÃ¼k harf
+Rapor1No12.Value = UCase(Replace(Replace(Rapor1No12.Value, "Ä±", "I"), "i", "I"))
 
 If Rapor1No12 <> "" Then
     NotCheck12.Visible = True
@@ -23492,13 +23492,13 @@ Else
     RaporOzelligi12.Enabled = False
 End If
 
-'Tire hariç alfabetik karaktere izin verme
+'Tire hariÃ§ alfabetik karaktere izin verme
 For i = 1 To 50
     If Mid(Rapor1No12.Value, i, 1) = "-" Then
         'MsgBox Mid(Rapor1No12.Value, i, 1)
     ElseIf IsNumeric(Mid(Rapor1No12.Value, i, 1)) = False And Mid(Rapor1No12.Value, i, 1) <> "" Then
         'MsgBox Mid(Rapor1No12.Value, i, 1)
-        'MsgBox "Sayýsal olmayan karakter var."
+        'MsgBox "SayÄ±sal olmayan karakter var."
         Rapor1No12.Value = ""
         MsgBox "Please avoid using alphabetic characters when specifying the Report 2.1 number, except for the dash (-). The required prefix for the Report 2.1 number will be automatically added to the relevant documents.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     End If
@@ -23519,7 +23519,7 @@ Private Sub Rapor1No13_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Rapor1No12.SetFocus
     End If
@@ -23533,7 +23533,7 @@ Dim a() As Variant, i As Variant
 Dim j As Integer
 
 'If ComboGetir.Value = "" Then
-''Comboda tanýmlý deðer girilemez.
+''Comboda tanÄ±mlÄ± deÄŸer girilemez.
 'a() = Rapor1No13.List
 'For i = LBound(a) To UBound(a)
 '    If a(i, 0) = Rapor1No13.Value Then
@@ -23542,17 +23542,17 @@ Dim j As Integer
 'Next i
 'End If
 
-'Kullanýlamaz karakterler...
+'KullanÄ±lamaz karakterler...
 If InStr(Rapor1No13.Value, "/") > 0 Or InStr(Rapor1No13.Value, "\") > 0 Or InStr(Rapor1No13.Value, "<") > 0 Or InStr(Rapor1No13.Value, ">") > 0 Or InStr(Rapor1No13.Value, ":") > 0 Or InStr(Rapor1No13.Value, "*") > 0 Or InStr(Rapor1No13.Value, "?") > 0 Or InStr(Rapor1No13.Value, "|") > 0 Or InStr(Rapor1No13.Value, """") > 0 Or InStr(Rapor1No13.Value, "[") > 0 Or InStr(Rapor1No13.Value, "]") > 0 Or InStr(Rapor1No13.Value, "_") > 0 Or InStr(Rapor1No13.Value, "(") > 0 Or InStr(Rapor1No13.Value, ")") > 0 Or InStr(Rapor1No13.Value, ".") > 0 Or InStr(Rapor1No13.Value, ",") > 0 Then
     MsgBox """" & "/, \, <, >, ], [, :, " & """" & " , *, |, ?, _, (, ), ., ," & """" & " characters are reserved by the system and cannot be used when creating the Report 2.1 number. Please avoid using any of these characters in the Report 2.1 number. You may use the dash (-) character instead.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     Rapor1No13.Value = ""
 End If
-'Boþluklara izin verme
+'BoÅŸluklara izin verme
 For j = 1 To 20
 Rapor1No13.Value = Replace(Rapor1No13.Value, " ", "")
 Next j
-'Daima büyük harf
-Rapor1No13.Value = UCase(Replace(Replace(Rapor1No13.Value, "ý", "I"), "i", "I"))
+'Daima bÃ¼yÃ¼k harf
+Rapor1No13.Value = UCase(Replace(Replace(Rapor1No13.Value, "Ä±", "I"), "i", "I"))
 
 If Rapor1No13 <> "" Then
     NotCheck13.Visible = True
@@ -23564,13 +23564,13 @@ Else
     RaporOzelligi13.Enabled = False
 End If
 
-'Tire hariç alfabetik karaktere izin verme
+'Tire hariÃ§ alfabetik karaktere izin verme
 For i = 1 To 50
     If Mid(Rapor1No13.Value, i, 1) = "-" Then
         'MsgBox Mid(Rapor1No13.Value, i, 1)
     ElseIf IsNumeric(Mid(Rapor1No13.Value, i, 1)) = False And Mid(Rapor1No13.Value, i, 1) <> "" Then
         'MsgBox Mid(Rapor1No13.Value, i, 1)
-        'MsgBox "Sayýsal olmayan karakter var."
+        'MsgBox "SayÄ±sal olmayan karakter var."
         Rapor1No13.Value = ""
         MsgBox "Please avoid using alphabetic characters when specifying the Report 2.1 number, except for the dash (-). The required prefix for the Report 2.1 number will be automatically added to the relevant documents.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     End If
@@ -23591,7 +23591,7 @@ Private Sub Rapor1No14_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Rapor1No13.SetFocus
     End If
@@ -23605,7 +23605,7 @@ Dim a() As Variant, i As Variant
 Dim j As Integer
 
 'If ComboGetir.Value = "" Then
-''Comboda tanýmlý deðer girilemez.
+''Comboda tanÄ±mlÄ± deÄŸer girilemez.
 'a() = Rapor1No14.List
 'For i = LBound(a) To UBound(a)
 '    If a(i, 0) = Rapor1No14.Value Then
@@ -23614,17 +23614,17 @@ Dim j As Integer
 'Next i
 'End If
 
-'Kullanýlamaz karakterler...
+'KullanÄ±lamaz karakterler...
 If InStr(Rapor1No14.Value, "/") > 0 Or InStr(Rapor1No14.Value, "\") > 0 Or InStr(Rapor1No14.Value, "<") > 0 Or InStr(Rapor1No14.Value, ">") > 0 Or InStr(Rapor1No14.Value, ":") > 0 Or InStr(Rapor1No14.Value, "*") > 0 Or InStr(Rapor1No14.Value, "?") > 0 Or InStr(Rapor1No14.Value, "|") > 0 Or InStr(Rapor1No14.Value, """") > 0 Or InStr(Rapor1No14.Value, "[") > 0 Or InStr(Rapor1No14.Value, "]") > 0 Or InStr(Rapor1No14.Value, "_") > 0 Or InStr(Rapor1No14.Value, "(") > 0 Or InStr(Rapor1No14.Value, ")") > 0 Or InStr(Rapor1No14.Value, ".") > 0 Or InStr(Rapor1No14.Value, ",") > 0 Then
     MsgBox """" & "/, \, <, >, ], [, :, " & """" & " , *, |, ?, _, (, ), ., ," & """" & " characters are reserved by the system and cannot be used when creating the Report 2.1 number. Please avoid using any of these characters in the Report 2.1 number. You may use the dash (-) character instead.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     Rapor1No14.Value = ""
 End If
-'Boþluklara izin verme
+'BoÅŸluklara izin verme
 For j = 1 To 20
 Rapor1No14.Value = Replace(Rapor1No14.Value, " ", "")
 Next j
-'Daima büyük harf
-Rapor1No14.Value = UCase(Replace(Replace(Rapor1No14.Value, "ý", "I"), "i", "I"))
+'Daima bÃ¼yÃ¼k harf
+Rapor1No14.Value = UCase(Replace(Replace(Rapor1No14.Value, "Ä±", "I"), "i", "I"))
 
 If Rapor1No14 <> "" Then
     NotCheck14.Visible = True
@@ -23636,13 +23636,13 @@ Else
     RaporOzelligi14.Enabled = False
 End If
 
-'Tire hariç alfabetik karaktere izin verme
+'Tire hariÃ§ alfabetik karaktere izin verme
 For i = 1 To 50
     If Mid(Rapor1No14.Value, i, 1) = "-" Then
         'MsgBox Mid(Rapor1No14.Value, i, 1)
     ElseIf IsNumeric(Mid(Rapor1No14.Value, i, 1)) = False And Mid(Rapor1No14.Value, i, 1) <> "" Then
         'MsgBox Mid(Rapor1No14.Value, i, 1)
-        'MsgBox "Sayýsal olmayan karakter var."
+        'MsgBox "SayÄ±sal olmayan karakter var."
         Rapor1No14.Value = ""
         MsgBox "Please avoid using alphabetic characters when specifying the Report 2.1 number, except for the dash (-). The required prefix for the Report 2.1 number will be automatically added to the relevant documents.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     End If
@@ -23663,7 +23663,7 @@ Private Sub Rapor1No15_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Rapor1No14.SetFocus
     End If
@@ -23677,7 +23677,7 @@ Dim a() As Variant, i As Variant
 Dim j As Integer
 
 'If ComboGetir.Value = "" Then
-''Comboda tanýmlý deðer girilemez.
+''Comboda tanÄ±mlÄ± deÄŸer girilemez.
 'a() = Rapor1No15.List
 'For i = LBound(a) To UBound(a)
 '    If a(i, 0) = Rapor1No15.Value Then
@@ -23686,17 +23686,17 @@ Dim j As Integer
 'Next i
 'End If
 
-'Kullanýlamaz karakterler...
+'KullanÄ±lamaz karakterler...
 If InStr(Rapor1No15.Value, "/") > 0 Or InStr(Rapor1No15.Value, "\") > 0 Or InStr(Rapor1No15.Value, "<") > 0 Or InStr(Rapor1No15.Value, ">") > 0 Or InStr(Rapor1No15.Value, ":") > 0 Or InStr(Rapor1No15.Value, "*") > 0 Or InStr(Rapor1No15.Value, "?") > 0 Or InStr(Rapor1No15.Value, "|") > 0 Or InStr(Rapor1No15.Value, """") > 0 Or InStr(Rapor1No15.Value, "[") > 0 Or InStr(Rapor1No15.Value, "]") > 0 Or InStr(Rapor1No15.Value, "_") > 0 Or InStr(Rapor1No15.Value, "(") > 0 Or InStr(Rapor1No15.Value, ")") > 0 Or InStr(Rapor1No15.Value, ".") > 0 Or InStr(Rapor1No15.Value, ",") > 0 Then
     MsgBox """" & "/, \, <, >, ], [, :, " & """" & " , *, |, ?, _, (, ), ., ," & """" & " characters are reserved by the system and cannot be used when creating the Report 2.1 number. Please avoid using any of these characters in the Report 2.1 number. You may use the dash (-) character instead.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     Rapor1No15.Value = ""
 End If
-'Boþluklara izin verme
+'BoÅŸluklara izin verme
 For j = 1 To 20
 Rapor1No15.Value = Replace(Rapor1No15.Value, " ", "")
 Next j
-'Daima büyük harf
-Rapor1No15.Value = UCase(Replace(Replace(Rapor1No15.Value, "ý", "I"), "i", "I"))
+'Daima bÃ¼yÃ¼k harf
+Rapor1No15.Value = UCase(Replace(Replace(Rapor1No15.Value, "Ä±", "I"), "i", "I"))
 
 If Rapor1No15 <> "" Then
     NotCheck15.Visible = True
@@ -23708,13 +23708,13 @@ Else
     RaporOzelligi15.Enabled = False
 End If
 
-'Tire hariç alfabetik karaktere izin verme
+'Tire hariÃ§ alfabetik karaktere izin verme
 For i = 1 To 50
     If Mid(Rapor1No15.Value, i, 1) = "-" Then
         'MsgBox Mid(Rapor1No15.Value, i, 1)
     ElseIf IsNumeric(Mid(Rapor1No15.Value, i, 1)) = False And Mid(Rapor1No15.Value, i, 1) <> "" Then
         'MsgBox Mid(Rapor1No15.Value, i, 1)
-        'MsgBox "Sayýsal olmayan karakter var."
+        'MsgBox "SayÄ±sal olmayan karakter var."
         Rapor1No15.Value = ""
         MsgBox "Please avoid using alphabetic characters when specifying the Report 2.1 number, except for the dash (-). The required prefix for the Report 2.1 number will be automatically added to the relevant documents.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     End If
@@ -23735,7 +23735,7 @@ Private Sub Rapor1No16_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Rapor1No15.SetFocus
     End If
@@ -23749,7 +23749,7 @@ Dim a() As Variant, i As Variant
 Dim j As Integer
 
 'If ComboGetir.Value = "" Then
-''Comboda tanýmlý deðer girilemez.
+''Comboda tanÄ±mlÄ± deÄŸer girilemez.
 'a() = Rapor1No16.List
 'For i = LBound(a) To UBound(a)
 '    If a(i, 0) = Rapor1No16.Value Then
@@ -23758,17 +23758,17 @@ Dim j As Integer
 'Next i
 'End If
 
-'Kullanýlamaz karakterler...
+'KullanÄ±lamaz karakterler...
 If InStr(Rapor1No16.Value, "/") > 0 Or InStr(Rapor1No16.Value, "\") > 0 Or InStr(Rapor1No16.Value, "<") > 0 Or InStr(Rapor1No16.Value, ">") > 0 Or InStr(Rapor1No16.Value, ":") > 0 Or InStr(Rapor1No16.Value, "*") > 0 Or InStr(Rapor1No16.Value, "?") > 0 Or InStr(Rapor1No16.Value, "|") > 0 Or InStr(Rapor1No16.Value, """") > 0 Or InStr(Rapor1No16.Value, "[") > 0 Or InStr(Rapor1No16.Value, "]") > 0 Or InStr(Rapor1No16.Value, "_") > 0 Or InStr(Rapor1No16.Value, "(") > 0 Or InStr(Rapor1No16.Value, ")") > 0 Or InStr(Rapor1No16.Value, ".") > 0 Or InStr(Rapor1No16.Value, ",") > 0 Then
     MsgBox """" & "/, \, <, >, ], [, :, " & """" & " , *, |, ?, _, (, ), ., ," & """" & " characters are reserved by the system and cannot be used when creating the Report 2.1 number. Please avoid using any of these characters in the Report 2.1 number. You may use the dash (-) character instead.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     Rapor1No16.Value = ""
 End If
-'Boþluklara izin verme
+'BoÅŸluklara izin verme
 For j = 1 To 20
 Rapor1No16.Value = Replace(Rapor1No16.Value, " ", "")
 Next j
-'Daima büyük harf
-Rapor1No16.Value = UCase(Replace(Replace(Rapor1No16.Value, "ý", "I"), "i", "I"))
+'Daima bÃ¼yÃ¼k harf
+Rapor1No16.Value = UCase(Replace(Replace(Rapor1No16.Value, "Ä±", "I"), "i", "I"))
 
 If Rapor1No16 <> "" Then
     NotCheck16.Visible = True
@@ -23780,13 +23780,13 @@ Else
     RaporOzelligi16.Enabled = False
 End If
 
-'Tire hariç alfabetik karaktere izin verme
+'Tire hariÃ§ alfabetik karaktere izin verme
 For i = 1 To 50
     If Mid(Rapor1No16.Value, i, 1) = "-" Then
         'MsgBox Mid(Rapor1No16.Value, i, 1)
     ElseIf IsNumeric(Mid(Rapor1No16.Value, i, 1)) = False And Mid(Rapor1No16.Value, i, 1) <> "" Then
         'MsgBox Mid(Rapor1No16.Value, i, 1)
-        'MsgBox "Sayýsal olmayan karakter var."
+        'MsgBox "SayÄ±sal olmayan karakter var."
         Rapor1No16.Value = ""
         MsgBox "Please avoid using alphabetic characters when specifying the Report 2.1 number, except for the dash (-). The required prefix for the Report 2.1 number will be automatically added to the relevant documents.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     End If
@@ -23807,7 +23807,7 @@ Private Sub Rapor1No17_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Rapor1No16.SetFocus
     End If
@@ -23821,7 +23821,7 @@ Dim a() As Variant, i As Variant
 Dim j As Integer
 
 'If ComboGetir.Value = "" Then
-''Comboda tanýmlý deðer girilemez.
+''Comboda tanÄ±mlÄ± deÄŸer girilemez.
 'a() = Rapor1No17.List
 'For i = LBound(a) To UBound(a)
 '    If a(i, 0) = Rapor1No17.Value Then
@@ -23830,17 +23830,17 @@ Dim j As Integer
 'Next i
 'End If
 
-'Kullanýlamaz karakterler...
+'KullanÄ±lamaz karakterler...
 If InStr(Rapor1No17.Value, "/") > 0 Or InStr(Rapor1No17.Value, "\") > 0 Or InStr(Rapor1No17.Value, "<") > 0 Or InStr(Rapor1No17.Value, ">") > 0 Or InStr(Rapor1No17.Value, ":") > 0 Or InStr(Rapor1No17.Value, "*") > 0 Or InStr(Rapor1No17.Value, "?") > 0 Or InStr(Rapor1No17.Value, "|") > 0 Or InStr(Rapor1No17.Value, """") > 0 Or InStr(Rapor1No17.Value, "[") > 0 Or InStr(Rapor1No17.Value, "]") > 0 Or InStr(Rapor1No17.Value, "_") > 0 Or InStr(Rapor1No17.Value, "(") > 0 Or InStr(Rapor1No17.Value, ")") > 0 Or InStr(Rapor1No17.Value, ".") > 0 Or InStr(Rapor1No17.Value, ",") > 0 Then
     MsgBox """" & "/, \, <, >, ], [, :, " & """" & " , *, |, ?, _, (, ), ., ," & """" & " characters are reserved by the system and cannot be used when creating the Report 2.1 number. Please avoid using any of these characters in the Report 2.1 number. You may use the dash (-) character instead.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     Rapor1No17.Value = ""
 End If
-'Boþluklara izin verme
+'BoÅŸluklara izin verme
 For j = 1 To 20
 Rapor1No17.Value = Replace(Rapor1No17.Value, " ", "")
 Next j
-'Daima büyük harf
-Rapor1No17.Value = UCase(Replace(Replace(Rapor1No17.Value, "ý", "I"), "i", "I"))
+'Daima bÃ¼yÃ¼k harf
+Rapor1No17.Value = UCase(Replace(Replace(Rapor1No17.Value, "Ä±", "I"), "i", "I"))
 
 If Rapor1No17 <> "" Then
     NotCheck17.Visible = True
@@ -23852,13 +23852,13 @@ Else
     RaporOzelligi17.Enabled = False
 End If
 
-'Tire hariç alfabetik karaktere izin verme
+'Tire hariÃ§ alfabetik karaktere izin verme
 For i = 1 To 50
     If Mid(Rapor1No17.Value, i, 1) = "-" Then
         'MsgBox Mid(Rapor1No17.Value, i, 1)
     ElseIf IsNumeric(Mid(Rapor1No17.Value, i, 1)) = False And Mid(Rapor1No17.Value, i, 1) <> "" Then
         'MsgBox Mid(Rapor1No17.Value, i, 1)
-        'MsgBox "Sayýsal olmayan karakter var."
+        'MsgBox "SayÄ±sal olmayan karakter var."
         Rapor1No17.Value = ""
         MsgBox "Please avoid using alphabetic characters when specifying the Report 2.1 number, except for the dash (-). The required prefix for the Report 2.1 number will be automatically added to the relevant documents.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     End If
@@ -23880,7 +23880,7 @@ Private Sub Rapor1No18_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Rapor1No17.SetFocus
     End If
@@ -23894,7 +23894,7 @@ Dim a() As Variant, i As Variant
 Dim j As Integer
 
 'If ComboGetir.Value = "" Then
-''Comboda tanýmlý deðer girilemez.
+''Comboda tanÄ±mlÄ± deÄŸer girilemez.
 'a() = Rapor1No18.List
 'For i = LBound(a) To UBound(a)
 '    If a(i, 0) = Rapor1No18.Value Then
@@ -23903,17 +23903,17 @@ Dim j As Integer
 'Next i
 'End If
 
-'Kullanýlamaz karakterler...
+'KullanÄ±lamaz karakterler...
 If InStr(Rapor1No18.Value, "/") > 0 Or InStr(Rapor1No18.Value, "\") > 0 Or InStr(Rapor1No18.Value, "<") > 0 Or InStr(Rapor1No18.Value, ">") > 0 Or InStr(Rapor1No18.Value, ":") > 0 Or InStr(Rapor1No18.Value, "*") > 0 Or InStr(Rapor1No18.Value, "?") > 0 Or InStr(Rapor1No18.Value, "|") > 0 Or InStr(Rapor1No18.Value, """") > 0 Or InStr(Rapor1No18.Value, "[") > 0 Or InStr(Rapor1No18.Value, "]") > 0 Or InStr(Rapor1No18.Value, "_") > 0 Or InStr(Rapor1No18.Value, "(") > 0 Or InStr(Rapor1No18.Value, ")") > 0 Or InStr(Rapor1No18.Value, ".") > 0 Or InStr(Rapor1No18.Value, ",") > 0 Then
     MsgBox """" & "/, \, <, >, ], [, :, " & """" & " , *, |, ?, _, (, ), ., ," & """" & " characters are reserved by the system and cannot be used when creating the Report 2.1 number. Please avoid using any of these characters in the Report 2.1 number. You may use the dash (-) character instead.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     Rapor1No18.Value = ""
 End If
-'Boþluklara izin verme
+'BoÅŸluklara izin verme
 For j = 1 To 20
 Rapor1No18.Value = Replace(Rapor1No18.Value, " ", "")
 Next j
-'Daima büyük harf
-Rapor1No18.Value = UCase(Replace(Replace(Rapor1No18.Value, "ý", "I"), "i", "I"))
+'Daima bÃ¼yÃ¼k harf
+Rapor1No18.Value = UCase(Replace(Replace(Rapor1No18.Value, "Ä±", "I"), "i", "I"))
 
 If Rapor1No18 <> "" Then
     NotCheck18.Visible = True
@@ -23925,13 +23925,13 @@ Else
     RaporOzelligi18.Enabled = False
 End If
 
-'Tire hariç alfabetik karaktere izin verme
+'Tire hariÃ§ alfabetik karaktere izin verme
 For i = 1 To 50
     If Mid(Rapor1No18.Value, i, 1) = "-" Then
         'MsgBox Mid(Rapor1No18.Value, i, 1)
     ElseIf IsNumeric(Mid(Rapor1No18.Value, i, 1)) = False And Mid(Rapor1No18.Value, i, 1) <> "" Then
         'MsgBox Mid(Rapor1No18.Value, i, 1)
-        'MsgBox "Sayýsal olmayan karakter var."
+        'MsgBox "SayÄ±sal olmayan karakter var."
         Rapor1No18.Value = ""
         MsgBox "Please avoid using alphabetic characters when specifying the Report 2.1 number, except for the dash (-). The required prefix for the Report 2.1 number will be automatically added to the relevant documents.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     End If
@@ -23952,7 +23952,7 @@ Private Sub Rapor1No19_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shi
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         Rapor1No18.SetFocus
     End If
@@ -23966,7 +23966,7 @@ Dim a() As Variant, i As Variant
 Dim j As Integer
 
 'If ComboGetir.Value = "" Then
-''Comboda tanýmlý deðer girilemez.
+''Comboda tanÄ±mlÄ± deÄŸer girilemez.
 'a() = Rapor1No19.List
 'For i = LBound(a) To UBound(a)
 '    If a(i, 0) = Rapor1No19.Value Then
@@ -23975,17 +23975,17 @@ Dim j As Integer
 'Next i
 'End If
 
-'Kullanýlamaz karakterler...
+'KullanÄ±lamaz karakterler...
 If InStr(Rapor1No19.Value, "/") > 0 Or InStr(Rapor1No19.Value, "\") > 0 Or InStr(Rapor1No19.Value, "<") > 0 Or InStr(Rapor1No19.Value, ">") > 0 Or InStr(Rapor1No19.Value, ":") > 0 Or InStr(Rapor1No19.Value, "*") > 0 Or InStr(Rapor1No19.Value, "?") > 0 Or InStr(Rapor1No19.Value, "|") > 0 Or InStr(Rapor1No19.Value, """") > 0 Or InStr(Rapor1No19.Value, "[") > 0 Or InStr(Rapor1No19.Value, "]") > 0 Or InStr(Rapor1No19.Value, "_") > 0 Or InStr(Rapor1No19.Value, "(") > 0 Or InStr(Rapor1No19.Value, ")") > 0 Or InStr(Rapor1No19.Value, ".") > 0 Or InStr(Rapor1No19.Value, ",") > 0 Then
     MsgBox """" & "/, \, <, >, ], [, :, " & """" & " , *, |, ?, _, (, ), ., ," & """" & " characters are reserved by the system and cannot be used when creating the Report 2.1 number. Please avoid using any of these characters in the Report 2.1 number. You may use the dash (-) character instead.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     Rapor1No19.Value = ""
 End If
-'Boþluklara izin verme
+'BoÅŸluklara izin verme
 For j = 1 To 20
 Rapor1No19.Value = Replace(Rapor1No19.Value, " ", "")
 Next j
-'Daima büyük harf
-Rapor1No19.Value = UCase(Replace(Replace(Rapor1No19.Value, "ý", "I"), "i", "I"))
+'Daima bÃ¼yÃ¼k harf
+Rapor1No19.Value = UCase(Replace(Replace(Rapor1No19.Value, "Ä±", "I"), "i", "I"))
 
 If Rapor1No19 <> "" Then
     NotCheck19.Visible = True
@@ -23997,13 +23997,13 @@ Else
     RaporOzelligi19.Enabled = False
 End If
 
-'Tire hariç alfabetik karaktere izin verme
+'Tire hariÃ§ alfabetik karaktere izin verme
 For i = 1 To 50
     If Mid(Rapor1No19.Value, i, 1) = "-" Then
         'MsgBox Mid(Rapor1No19.Value, i, 1)
     ElseIf IsNumeric(Mid(Rapor1No19.Value, i, 1)) = False And Mid(Rapor1No19.Value, i, 1) <> "" Then
         'MsgBox Mid(Rapor1No19.Value, i, 1)
-        'MsgBox "Sayýsal olmayan karakter var."
+        'MsgBox "SayÄ±sal olmayan karakter var."
         Rapor1No19.Value = ""
         MsgBox "Please avoid using alphabetic characters when specifying the Report 2.1 number, except for the dash (-). The required prefix for the Report 2.1 number will be automatically added to the relevant documents.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
     End If
@@ -24026,7 +24026,7 @@ Private Sub RaporOzelligi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal 
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         RaporOzelligi.SetFocus
     End If
@@ -24088,7 +24088,7 @@ Private Sub RaporOzelligi1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         RaporOzelligi.SetFocus
     End If
@@ -24150,7 +24150,7 @@ Private Sub RaporOzelligi2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         RaporOzelligi1.SetFocus
     End If
@@ -24212,7 +24212,7 @@ Private Sub RaporOzelligi3_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         RaporOzelligi2.SetFocus
     End If
@@ -24274,7 +24274,7 @@ Private Sub RaporOzelligi4_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         RaporOzelligi3.SetFocus
     End If
@@ -24336,7 +24336,7 @@ Private Sub RaporOzelligi5_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         RaporOzelligi4.SetFocus
     End If
@@ -24398,7 +24398,7 @@ Private Sub RaporOzelligi6_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         RaporOzelligi5.SetFocus
     End If
@@ -24460,7 +24460,7 @@ Private Sub RaporOzelligi7_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         RaporOzelligi6.SetFocus
     End If
@@ -24522,7 +24522,7 @@ Private Sub RaporOzelligi8_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         RaporOzelligi7.SetFocus
     End If
@@ -24584,7 +24584,7 @@ Private Sub RaporOzelligi9_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         RaporOzelligi8.SetFocus
     End If
@@ -24646,7 +24646,7 @@ Private Sub RaporOzelligi10_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         RaporOzelligi9.SetFocus
     End If
@@ -24708,7 +24708,7 @@ Private Sub RaporOzelligi11_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         RaporOzelligi10.SetFocus
     End If
@@ -24770,7 +24770,7 @@ Private Sub RaporOzelligi12_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         RaporOzelligi11.SetFocus
     End If
@@ -24832,7 +24832,7 @@ Private Sub RaporOzelligi13_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         RaporOzelligi12.SetFocus
     End If
@@ -24894,7 +24894,7 @@ Private Sub RaporOzelligi14_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         RaporOzelligi13.SetFocus
     End If
@@ -24956,7 +24956,7 @@ Private Sub RaporOzelligi15_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         RaporOzelligi14.SetFocus
     End If
@@ -25018,7 +25018,7 @@ Private Sub RaporOzelligi16_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         RaporOzelligi15.SetFocus
     End If
@@ -25081,7 +25081,7 @@ Private Sub RaporOzelligi17_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         RaporOzelligi16.SetFocus
     End If
@@ -25144,7 +25144,7 @@ Private Sub RaporOzelligi18_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         RaporOzelligi17.SetFocus
     End If
@@ -25206,7 +25206,7 @@ Private Sub RaporOzelligi19_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
 
     On Error Resume Next
     
-    'Yukarý ve aþaðýya
+    'YukarÄ± ve aÅŸaÄŸÄ±ya
     If KeyCode = vbKeyUp Then
         RaporOzelligi18.SetFocus
     End If
@@ -25270,7 +25270,7 @@ AutoPath = ThisWorkbook.Path
 DestTarget = AutoPath & "\System Files\System Templates\Item Notes\"
 FileName = OgeTuru.Value
 HedefFile = DestTarget & FileName & ".txt"
-'Dosyanýn olup olmadýðýný kontrol et.
+'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If NotCheck.Value = True And Not Dir(HedefFile, vbDirectory) <> vbNullString Then
     NotCheck.Value = False
     MsgBox "Since no note has been created for the " & FileName & ", the note cannot be added.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
@@ -25294,7 +25294,7 @@ AutoPath = ThisWorkbook.Path
 DestTarget = AutoPath & "\System Files\System Templates\Item Notes\"
 FileName = OgeTuru1.Value
 HedefFile = DestTarget & FileName & ".txt"
-'Dosyanýn olup olmadýðýný kontrol et.
+'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If NotCheck1.Value = True And Not Dir(HedefFile, vbDirectory) <> vbNullString Then
     NotCheck1.Value = False
     MsgBox "Since no note has been created for the " & FileName & ", the note cannot be added.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
@@ -25317,7 +25317,7 @@ AutoPath = ThisWorkbook.Path
 DestTarget = AutoPath & "\System Files\System Templates\Item Notes\"
 FileName = OgeTuru2.Value
 HedefFile = DestTarget & FileName & ".txt"
-'Dosyanýn olup olmadýðýný kontrol et.
+'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If NotCheck2.Value = True And Not Dir(HedefFile, vbDirectory) <> vbNullString Then
     NotCheck2.Value = False
     MsgBox "Since no note has been created for the " & FileName & ", the note cannot be added.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
@@ -25340,7 +25340,7 @@ AutoPath = ThisWorkbook.Path
 DestTarget = AutoPath & "\System Files\System Templates\Item Notes\"
 FileName = OgeTuru3.Value
 HedefFile = DestTarget & FileName & ".txt"
-'Dosyanýn olup olmadýðýný kontrol et.
+'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If NotCheck3.Value = True And Not Dir(HedefFile, vbDirectory) <> vbNullString Then
     NotCheck3.Value = False
     MsgBox "Since no note has been created for the " & FileName & ", the note cannot be added.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
@@ -25363,7 +25363,7 @@ AutoPath = ThisWorkbook.Path
 DestTarget = AutoPath & "\System Files\System Templates\Item Notes\"
 FileName = OgeTuru4.Value
 HedefFile = DestTarget & FileName & ".txt"
-'Dosyanýn olup olmadýðýný kontrol et.
+'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If NotCheck4.Value = True And Not Dir(HedefFile, vbDirectory) <> vbNullString Then
     NotCheck4.Value = False
     MsgBox "Since no note has been created for the " & FileName & ", the note cannot be added.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
@@ -25386,7 +25386,7 @@ AutoPath = ThisWorkbook.Path
 DestTarget = AutoPath & "\System Files\System Templates\Item Notes\"
 FileName = OgeTuru5.Value
 HedefFile = DestTarget & FileName & ".txt"
-'Dosyanýn olup olmadýðýný kontrol et.
+'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If NotCheck5.Value = True And Not Dir(HedefFile, vbDirectory) <> vbNullString Then
     NotCheck5.Value = False
     MsgBox "Since no note has been created for the " & FileName & ", the note cannot be added.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
@@ -25409,7 +25409,7 @@ AutoPath = ThisWorkbook.Path
 DestTarget = AutoPath & "\System Files\System Templates\Item Notes\"
 FileName = OgeTuru6.Value
 HedefFile = DestTarget & FileName & ".txt"
-'Dosyanýn olup olmadýðýný kontrol et.
+'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If NotCheck6.Value = True And Not Dir(HedefFile, vbDirectory) <> vbNullString Then
     NotCheck6.Value = False
     MsgBox "Since no note has been created for the " & FileName & ", the note cannot be added.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
@@ -25432,7 +25432,7 @@ AutoPath = ThisWorkbook.Path
 DestTarget = AutoPath & "\System Files\System Templates\Item Notes\"
 FileName = OgeTuru7.Value
 HedefFile = DestTarget & FileName & ".txt"
-'Dosyanýn olup olmadýðýný kontrol et.
+'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If NotCheck7.Value = True And Not Dir(HedefFile, vbDirectory) <> vbNullString Then
     NotCheck7.Value = False
     MsgBox "Since no note has been created for the " & FileName & ", the note cannot be added.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
@@ -25455,7 +25455,7 @@ AutoPath = ThisWorkbook.Path
 DestTarget = AutoPath & "\System Files\System Templates\Item Notes\"
 FileName = OgeTuru8.Value
 HedefFile = DestTarget & FileName & ".txt"
-'Dosyanýn olup olmadýðýný kontrol et.
+'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If NotCheck8.Value = True And Not Dir(HedefFile, vbDirectory) <> vbNullString Then
     NotCheck8.Value = False
     MsgBox "Since no note has been created for the " & FileName & ", the note cannot be added.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
@@ -25478,7 +25478,7 @@ AutoPath = ThisWorkbook.Path
 DestTarget = AutoPath & "\System Files\System Templates\Item Notes\"
 FileName = OgeTuru9.Value
 HedefFile = DestTarget & FileName & ".txt"
-'Dosyanýn olup olmadýðýný kontrol et.
+'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If NotCheck9.Value = True And Not Dir(HedefFile, vbDirectory) <> vbNullString Then
     NotCheck9.Value = False
     MsgBox "Since no note has been created for the " & FileName & ", the note cannot be added.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
@@ -25501,7 +25501,7 @@ AutoPath = ThisWorkbook.Path
 DestTarget = AutoPath & "\System Files\System Templates\Item Notes\"
 FileName = OgeTuru10.Value
 HedefFile = DestTarget & FileName & ".txt"
-'Dosyanýn olup olmadýðýný kontrol et.
+'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If NotCheck10.Value = True And Not Dir(HedefFile, vbDirectory) <> vbNullString Then
     NotCheck10.Value = False
     MsgBox "Since no note has been created for the " & FileName & ", the note cannot be added.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
@@ -25524,7 +25524,7 @@ AutoPath = ThisWorkbook.Path
 DestTarget = AutoPath & "\System Files\System Templates\Item Notes\"
 FileName = OgeTuru11.Value
 HedefFile = DestTarget & FileName & ".txt"
-'Dosyanýn olup olmadýðýný kontrol et.
+'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If NotCheck11.Value = True And Not Dir(HedefFile, vbDirectory) <> vbNullString Then
     NotCheck11.Value = False
     MsgBox "Since no note has been created for the " & FileName & ", the note cannot be added.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
@@ -25547,7 +25547,7 @@ AutoPath = ThisWorkbook.Path
 DestTarget = AutoPath & "\System Files\System Templates\Item Notes\"
 FileName = OgeTuru12.Value
 HedefFile = DestTarget & FileName & ".txt"
-'Dosyanýn olup olmadýðýný kontrol et.
+'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If NotCheck12.Value = True And Not Dir(HedefFile, vbDirectory) <> vbNullString Then
     NotCheck12.Value = False
     MsgBox "Since no note has been created for the " & FileName & ", the note cannot be added.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
@@ -25570,7 +25570,7 @@ AutoPath = ThisWorkbook.Path
 DestTarget = AutoPath & "\System Files\System Templates\Item Notes\"
 FileName = OgeTuru13.Value
 HedefFile = DestTarget & FileName & ".txt"
-'Dosyanýn olup olmadýðýný kontrol et.
+'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If NotCheck13.Value = True And Not Dir(HedefFile, vbDirectory) <> vbNullString Then
     NotCheck13.Value = False
     MsgBox "Since no note has been created for the " & FileName & ", the note cannot be added.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
@@ -25593,7 +25593,7 @@ AutoPath = ThisWorkbook.Path
 DestTarget = AutoPath & "\System Files\System Templates\Item Notes\"
 FileName = OgeTuru14.Value
 HedefFile = DestTarget & FileName & ".txt"
-'Dosyanýn olup olmadýðýný kontrol et.
+'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If NotCheck14.Value = True And Not Dir(HedefFile, vbDirectory) <> vbNullString Then
     NotCheck14.Value = False
     MsgBox "Since no note has been created for the " & FileName & ", the note cannot be added.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
@@ -25616,7 +25616,7 @@ AutoPath = ThisWorkbook.Path
 DestTarget = AutoPath & "\System Files\System Templates\Item Notes\"
 FileName = OgeTuru15.Value
 HedefFile = DestTarget & FileName & ".txt"
-'Dosyanýn olup olmadýðýný kontrol et.
+'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If NotCheck15.Value = True And Not Dir(HedefFile, vbDirectory) <> vbNullString Then
     NotCheck15.Value = False
     MsgBox "Since no note has been created for the " & FileName & ", the note cannot be added.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
@@ -25639,7 +25639,7 @@ AutoPath = ThisWorkbook.Path
 DestTarget = AutoPath & "\System Files\System Templates\Item Notes\"
 FileName = OgeTuru16.Value
 HedefFile = DestTarget & FileName & ".txt"
-'Dosyanýn olup olmadýðýný kontrol et.
+'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If NotCheck16.Value = True And Not Dir(HedefFile, vbDirectory) <> vbNullString Then
     NotCheck16.Value = False
     MsgBox "Since no note has been created for the " & FileName & ", the note cannot be added.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
@@ -25662,7 +25662,7 @@ AutoPath = ThisWorkbook.Path
 DestTarget = AutoPath & "\System Files\System Templates\Item Notes\"
 FileName = OgeTuru17.Value
 HedefFile = DestTarget & FileName & ".txt"
-'Dosyanýn olup olmadýðýný kontrol et.
+'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If NotCheck17.Value = True And Not Dir(HedefFile, vbDirectory) <> vbNullString Then
     NotCheck17.Value = False
     MsgBox "Since no note has been created for the " & FileName & ", the note cannot be added.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
@@ -25685,7 +25685,7 @@ AutoPath = ThisWorkbook.Path
 DestTarget = AutoPath & "\System Files\System Templates\Item Notes\"
 FileName = OgeTuru18.Value
 HedefFile = DestTarget & FileName & ".txt"
-'Dosyanýn olup olmadýðýný kontrol et.
+'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If NotCheck18.Value = True And Not Dir(HedefFile, vbDirectory) <> vbNullString Then
     NotCheck18.Value = False
     MsgBox "Since no note has been created for the " & FileName & ", the note cannot be added.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
@@ -25708,7 +25708,7 @@ AutoPath = ThisWorkbook.Path
 DestTarget = AutoPath & "\System Files\System Templates\Item Notes\"
 FileName = OgeTuru19.Value
 HedefFile = DestTarget & FileName & ".txt"
-'Dosyanýn olup olmadýðýný kontrol et.
+'DosyanÄ±n olup olmadÄ±ÄŸÄ±nÄ± kontrol et.
 If NotCheck19.Value = True And Not Dir(HedefFile, vbDirectory) <> vbNullString Then
     NotCheck19.Value = False
     MsgBox "Since no note has been created for the " & FileName & ", the note cannot be added.", vbOKOnly + vbExclamation, "Enterprise Document Automation System"
@@ -25722,7 +25722,7 @@ Private Sub Rapor1TarihiText_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByV
 
     On Error Resume Next
 
-    'Delete ve Backspace tuþlarý textboxu sil.
+    'Delete ve Backspace tuÅŸlarÄ± textboxu sil.
     If KeyCode = vbKeyDelete Then
         Rapor1TarihiText.Value = ""
     End If
@@ -25772,7 +25772,7 @@ Private Sub IlgiliBirim_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
     On Error Resume Next
     
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If IlgiliBirim.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -25781,7 +25781,7 @@ Private Sub IlgiliBirim_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Sh
             End If
             Me.IlgiliBirim.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If IlgiliBirim.ListIndex = IlgiliBirim.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -25819,7 +25819,7 @@ Private Sub Tutanak2TarihiText_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, B
 
     On Error Resume Next
 
-    'Delete ve Backspace tuþlarý textboxu sil.
+    'Delete ve Backspace tuÅŸlarÄ± textboxu sil.
     If KeyCode = vbKeyDelete Then
         Tutanak2TarihiText.Value = ""
     End If
@@ -25869,7 +25869,7 @@ Private Sub GidenMuhatapTemasi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, B
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If GidenMuhatapTemasi.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -25878,7 +25878,7 @@ Private Sub GidenMuhatapTemasi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, B
             End If
             Me.GidenMuhatapTemasi.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If GidenMuhatapTemasi.ListIndex = GidenMuhatapTemasi.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -25926,7 +25926,7 @@ Private Sub GonderilenBirim_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If GonderilenBirim.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -25935,7 +25935,7 @@ Private Sub GonderilenBirim_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
             End If
             Me.GonderilenBirim.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If GonderilenBirim.ListIndex = GonderilenBirim.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -25984,7 +25984,7 @@ Private Sub GidenPaketTipi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If GidenPaketTipi.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -25993,7 +25993,7 @@ Private Sub GidenPaketTipi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal
             End If
             Me.GidenPaketTipi.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If GidenPaketTipi.ListIndex = GidenPaketTipi.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -26040,7 +26040,7 @@ Private Sub GidenPaketAdedi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If GidenPaketAdedi.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -26049,7 +26049,7 @@ Private Sub GidenPaketAdedi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVa
             End If
             Me.GidenPaketAdedi.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If GidenPaketAdedi.ListIndex = GidenPaketAdedi.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -26088,7 +26088,7 @@ Private Sub XXXMudTutanak2TarihiText_KeyDown(ByVal KeyCode As MSForms.ReturnInte
 
     On Error Resume Next
 
-    'Delete ve Backspace tuþlarý textboxu sil.
+    'Delete ve Backspace tuÅŸlarÄ± textboxu sil.
     If KeyCode = vbKeyDelete Then
         XXXMudTutanak2TarihiText.Value = ""
     End If
@@ -26139,7 +26139,7 @@ Private Sub XXXMudGidenPaketTipi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger,
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If XXXMudGidenPaketTipi.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -26148,7 +26148,7 @@ Private Sub XXXMudGidenPaketTipi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger,
             End If
             Me.XXXMudGidenPaketTipi.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If XXXMudGidenPaketTipi.ListIndex = XXXMudGidenPaketTipi.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -26195,7 +26195,7 @@ Private Sub XXXMudGidenPaketAdedi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If XXXMudGidenPaketAdedi.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -26204,7 +26204,7 @@ Private Sub XXXMudGidenPaketAdedi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger
             End If
             Me.XXXMudGidenPaketAdedi.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If XXXMudGidenPaketAdedi.ListIndex = XXXMudGidenPaketAdedi.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -26267,7 +26267,7 @@ End Sub
 Private Sub UstYaziTarihiText_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
 
     On Error Resume Next
-    'Delete ve Backspace tuþlarý textboxu sil.
+    'Delete ve Backspace tuÅŸlarÄ± textboxu sil.
     If KeyCode = vbKeyDelete Then
         UstYaziTarihiText.Value = ""
     End If
@@ -26326,7 +26326,7 @@ Private Sub IlgiYaziFotokopisi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, B
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If IlgiYaziFotokopisi.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -26335,7 +26335,7 @@ Private Sub IlgiYaziFotokopisi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, B
             End If
             Me.IlgiYaziFotokopisi.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If IlgiYaziFotokopisi.ListIndex = IlgiYaziFotokopisi.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -26384,7 +26384,7 @@ Private Sub BilgilendirmeGonderiTipi_KeyDown(ByVal KeyCode As MSForms.ReturnInte
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If BilgilendirmeGonderiTipi.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -26393,7 +26393,7 @@ Private Sub BilgilendirmeGonderiTipi_KeyDown(ByVal KeyCode As MSForms.ReturnInte
             End If
             Me.BilgilendirmeGonderiTipi.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If BilgilendirmeGonderiTipi.ListIndex = BilgilendirmeGonderiTipi.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -26430,7 +26430,7 @@ End Sub
 Private Sub XXXMudUstYaziTarihiText_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
 
     On Error Resume Next
-    'Delete ve Backspace tuþlarý textboxu sil.
+    'Delete ve Backspace tuÅŸlarÄ± textboxu sil.
     If KeyCode = vbKeyDelete Then
         XXXMudUstYaziTarihiText.Value = ""
     End If
@@ -26489,7 +26489,7 @@ Private Sub XXXMudIlgiYaziFotokopisi_KeyDown(ByVal KeyCode As MSForms.ReturnInte
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If XXXMudIlgiYaziFotokopisi.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -26498,7 +26498,7 @@ Private Sub XXXMudIlgiYaziFotokopisi_KeyDown(ByVal KeyCode As MSForms.ReturnInte
             End If
             Me.XXXMudIlgiYaziFotokopisi.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If XXXMudIlgiYaziFotokopisi.ListIndex = XXXMudIlgiYaziFotokopisi.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -26546,7 +26546,7 @@ Private Sub XXXMudUstYaziImza1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, B
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If XXXMudUstYaziImza1.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -26555,7 +26555,7 @@ Private Sub XXXMudUstYaziImza1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, B
             End If
             Me.XXXMudUstYaziImza1.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If XXXMudUstYaziImza1.ListIndex = XXXMudUstYaziImza1.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -26603,7 +26603,7 @@ Private Sub ImzaNiteligi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal S
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If ImzaNiteligi.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -26612,7 +26612,7 @@ Private Sub ImzaNiteligi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal S
             End If
             Me.ImzaNiteligi.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If ImzaNiteligi.ListIndex = ImzaNiteligi.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -26650,7 +26650,7 @@ End Sub
 Private Sub Rapor2_2UstYaziTarihiText_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
 
     On Error Resume Next
-    'Delete ve Backspace tuþlarý textboxu sil.
+    'Delete ve Backspace tuÅŸlarÄ± textboxu sil.
     If KeyCode = vbKeyDelete Then
         Rapor2_2UstYaziTarihiText.Value = ""
     End If
@@ -26699,7 +26699,7 @@ End Sub
 Private Sub Rapor2_2RaporTarihiText_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
 
     On Error Resume Next
-    'Delete ve Backspace tuþlarý textboxu sil.
+    'Delete ve Backspace tuÅŸlarÄ± textboxu sil.
     If KeyCode = vbKeyDelete Then
         Rapor2_2RaporTarihiText.Value = ""
     End If
@@ -26758,7 +26758,7 @@ Private Sub Rapor2_2RaporSayfa_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, B
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If Rapor2_2RaporSayfa.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -26767,7 +26767,7 @@ Private Sub Rapor2_2RaporSayfa_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, B
             End If
             Me.Rapor2_2RaporSayfa.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If Rapor2_2RaporSayfa.ListIndex = Rapor2_2RaporSayfa.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -26815,7 +26815,7 @@ Private Sub DigitalIcerikAdedi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, B
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If DigitalIcerikAdedi.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -26824,7 +26824,7 @@ Private Sub DigitalIcerikAdedi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, B
             End If
             Me.DigitalIcerikAdedi.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If DigitalIcerikAdedi.ListIndex = DigitalIcerikAdedi.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -26872,7 +26872,7 @@ Private Sub AnalizCiktisi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal 
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If AnalizCiktisi.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -26881,7 +26881,7 @@ Private Sub AnalizCiktisi_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal 
             End If
             Me.AnalizCiktisi.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If AnalizCiktisi.ListIndex = AnalizCiktisi.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -26920,7 +26920,7 @@ Private Sub SonucGelenXXXMudGelisTarihiText_KeyDown(ByVal KeyCode As MSForms.Ret
 
     On Error Resume Next
 
-    'Delete ve Backspace tuþlarý textboxu sil.
+    'Delete ve Backspace tuÅŸlarÄ± textboxu sil.
     If KeyCode = vbKeyDelete Then
         SonucGelenXXXMudGelisTarihiText.Value = ""
     End If
@@ -26990,7 +26990,7 @@ Private Sub Rapor2_2UstYaziImza1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger,
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If Rapor2_2UstYaziImza1.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -26999,7 +26999,7 @@ Private Sub Rapor2_2UstYaziImza1_KeyDown(ByVal KeyCode As MSForms.ReturnInteger,
             End If
             Me.Rapor2_2UstYaziImza1.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If Rapor2_2UstYaziImza1.ListIndex = Rapor2_2UstYaziImza1.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -27047,7 +27047,7 @@ Private Sub Rapor2_2UstYaziImza2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger,
     On Error Resume Next
 
    Select Case KeyCode
-        Case 38  'Yukarý
+        Case 38  'YukarÄ±
             If Rapor2_2UstYaziImza2.ListIndex <= 0 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -27056,7 +27056,7 @@ Private Sub Rapor2_2UstYaziImza2_KeyDown(ByVal KeyCode As MSForms.ReturnInteger,
             End If
             Me.Rapor2_2UstYaziImza2.DropDown
             
-        Case 40 'Aþaðý
+        Case 40 'AÅŸaÄŸÄ±
             If Rapor2_2UstYaziImza2.ListIndex = Rapor2_2UstYaziImza2.ListCount - 1 Then KeyCode = 0
             Abort = True
             If Not KeyCode = 0 Then
@@ -27173,9 +27173,9 @@ End If
 End Sub
 
 Private Sub KaldirOge_Click()
-'Çoðaltýlan diðer satýrlar için de verilerin silinmesi eklenecek.
+'Ã‡oÄŸaltÄ±lan diÄŸer satÄ±rlar iÃ§in de verilerin silinmesi eklenecek.
 
-'_____________________Güncelleme 18112019 1238
+'_____________________GÃ¼ncelleme 18112019 1238
 
 Dim OgeFrame As Integer, SonDoluSatir As Integer, IlkBosSatir As Integer
 
@@ -27203,7 +27203,7 @@ If SonDoluSatir = 0 Then
  GoTo NormalProsedureGit
 End If
 
-'Baþlangýç satýrý boþsa
+'BaÅŸlangÄ±Ã§ satÄ±rÄ± boÅŸsa
 If OgeTuru.Value = "" And OgeDegeri.Value = "" And Adet.Value = "" And OgeIdNo.Value = "" And Aciklama.Value = "" And Sonuc.Value = "" And _
     UretimOzelligi.Value = "" And RaporOzelligi.Value = "" And Rapor1No.Value = "" Then
 
@@ -27282,7 +27282,7 @@ If OgeTuru.Value = "" And OgeDegeri.Value = "" And Adet.Value = "" And OgeIdNo.V
 
 End If
 
-'Baþlangýç satýrýndan sonraki iþlemler boþsa
+'BaÅŸlangÄ±Ã§ satÄ±rÄ±ndan sonraki iÅŸlemler boÅŸsa
 IlkBosSatir = 0
 For OgeFrame = 1 To SonDoluSatir
     If Controls("OgeTuru" & OgeFrame).Value = "" And _
@@ -27306,7 +27306,7 @@ If IlkBosSatir = 0 Then
  GoTo NormalProsedureGit
 End If
 
-'Baþlangýç satýrýndan sonraki iþlemler boþsa
+'BaÅŸlangÄ±Ã§ satÄ±rÄ±ndan sonraki iÅŸlemler boÅŸsa
 For OgeFrame = IlkBosSatir + 1 To SonDoluSatir
 
     If Controls("OgeTuru" & OgeFrame).Value <> "" Or _
@@ -27347,7 +27347,7 @@ Next OgeFrame
 
 NormalProsedureGit:
 
-'_____________________Güncelleme 18112019 1238
+'_____________________GÃ¼ncelleme 18112019 1238
 
 
 If OgeTuruFrame19.Visible = True Then
@@ -27639,7 +27639,7 @@ End If
 
 Son:
 
-'Açýk dropdown kapat
+'AÃ§Ä±k dropdown kapat
 Call ModuleSystemSettings.DropDownKapat
 
 If ScrollTakip > 0 Then
@@ -27714,7 +27714,7 @@ Dim a() As Variant, j As Variant
 ScrollTakip = 0
 Threshold = 126
 
-'Muhatap Temasýný uyarla.
+'Muhatap TemasÄ±nÄ± uyarla.
 ThisWorkbook.Unprotect "123"
 ThisWorkbook.Worksheets(2).Unprotect Password:="123"
 ThisWorkbook.Worksheets(7).Unprotect Password:="123"
@@ -27722,7 +27722,7 @@ ThisWorkbook.Worksheets(7).Unprotect Password:="123"
 ThisWorkbook.Worksheets(2).Range("CW6").Value = "Incoming Contact Theme"
 ThisWorkbook.Worksheets(2).Range("CW7").Value = "Outgoing Contact Theme"
 
-'Geçici fark kayýtlarýný sil
+'GeÃ§ici fark kayÄ±tlarÄ±nÄ± sil
 ThisWorkbook.Worksheets(7).Rows("3:30").EntireRow.Delete
 
 ThisWorkbook.Worksheets(2).Protect Password:="123" ', DrawingObjects:=False
@@ -27752,7 +27752,7 @@ For Each ClrLab In core_report2_entry_UI.Controls
         ClrLab.ForeColor = RGB(30, 30, 30)
     End If
     
-    'YENÝ
+    'YENÄ°
     If TypeName(ClrLab) = "Frame" Then
         ClrLab.BackColor = RGB(254, 254, 254)
         ClrLab.ForeColor = RGB(30, 30, 30)
@@ -27764,7 +27764,7 @@ Next ClrLab
 UstYaziFrame.Height = 54 '40
 Call UstYaziGirisi_Click
 
-core_report2_entry_UI.BackColor = RGB(230, 230, 230) 'YENÝ
+core_report2_entry_UI.BackColor = RGB(230, 230, 230) 'YENÄ°
 core_report2_entry_UI.UstMenuFrame.BackColor = RGB(225, 235, 245)
 core_report2_entry_UI.AltMenuFrame.BackColor = RGB(225, 235, 245)
 ComboGetir.BackColor = RGB(225, 235, 245)
@@ -27776,7 +27776,7 @@ Rapor2_2CheckBox.ForeColor = RGB(30, 30, 30)
 'Kaydet.ForeColor = RGB(30, 30, 30)
 
 core_report2_entry_UI.Rapor2_2KararFrame.BackColor = RGB(225, 235, 245)
-'Rapor2_2 Karar Giriþleri
+'Rapor2_2 Karar GiriÅŸleri
 For Each ctl In core_report2_entry_UI.Rapor2_2KararFrame.Controls
     If TypeName(ctl) = "Label" Or TypeName(ctl) = "CheckBox" Or TypeName(ctl) = "OptionButton" Or TypeName(ctl) = "Frame" Then
         ctl.BackColor = RGB(225, 235, 245)
@@ -27790,7 +27790,7 @@ MaxiMini.ForeColor = RGB(30, 30, 30)
 Kaydet.BackColor = RGB(225, 235, 245)
 Kaydet.ForeColor = RGB(30, 30, 30)
     
-'Ýlgili birim combobox list (GelenMuhatapTemasi'nin sadece Directoratelýk ve Karar Kurullarý)
+'Ä°lgili birim combobox list (GelenMuhatapTemasi'nin sadece DirectoratelÄ±k ve Karar KurullarÄ±)
 IlgiliBirim.Clear
 a() = GelenMuhatapTemasi.List
 i = 0
@@ -27805,7 +27805,7 @@ For j = LBound(a) To UBound(a)
     i = i + 1
 Next j
 
-'Rapor özelliðini ve üretim özelliðini açýlýþta kapat
+'Rapor Ã¶zelliÄŸini ve Ã¼retim Ã¶zelliÄŸini aÃ§Ä±lÄ±ÅŸta kapat
 'RaporOzelligi.Enabled = False
 UretimOzelligi.Enabled = False
 For i = 1 To 19
@@ -27825,14 +27825,14 @@ End Sub
 Private Sub MaxiMini_Click()
 'ThisWorkbook.Worksheets(3).Visible = True
 'ThisWorkbook.Worksheets(3).Activate
-If MaxiMini.Caption = "ÇÊ" Then
-    MaxiMini.Caption = "ÉÈ"
+If MaxiMini.Caption = "Ã‡ÃŠ" Then
+    MaxiMini.Caption = "Ã‰Ãˆ"
     ThisWorkbook.Activate
     'ThisWorkbook.Worksheets(3).Range("E6").Select
     Call FormPositionMini
 Else
-    MaxiMini.Caption = "ÉÈ"
-    MaxiMini.Caption = "ÇÊ"
+    MaxiMini.Caption = "Ã‰Ãˆ"
+    MaxiMini.Caption = "Ã‡ÃŠ"
     ThisWorkbook.Activate
     'ThisWorkbook.Worksheets(3).Range("E6").Select
     Call FormPositionMaxi
@@ -27867,14 +27867,14 @@ Next ClrLab
 Rapor2_2CheckBoxFrame.Visible = True
 
 
-'Saða doðru geniþlet
+'SaÄŸa doÄŸru geniÅŸlet
 BaslikFrame.Visible = True
 UstMenuFrame.Visible = True
 MaxiMini.Left = 926
 MaxiMini.Top = 18
 MaxiMini.Width = 50
 MaxiMini.Height = 18
-'Ekrana göre formun ayarlanmasý
+'Ekrana gÃ¶re formun ayarlanmasÄ±
 If EkranKontrol = True Then
     TasiyiciFrame.Left = 12
     TasiyiciFrame.Top = 12
@@ -27884,7 +27884,7 @@ Else
 End If
 
 
-'Ekrana göre formun ayarlanmasý
+'Ekrana gÃ¶re formun ayarlanmasÄ±
 If Rapor2_2CheckBox.Value = True Then
 
     If EkranKontrol = True Then
@@ -27892,14 +27892,14 @@ If Rapor2_2CheckBox.Value = True Then
         AppXCenter = Application.Left + (Application.Width / 2)
         AppYCenter = Application.Top + (Application.Height / 2)
     
-        'Formu önce ekrana ortala
+        'Formu Ã¶nce ekrana ortala
         With core_report2_entry_UI
             .StartUpPosition = 0
             .Left = Application.Left + (0.5 * Application.Width) - (0.5 * (1024 + 12))
             .Top = Application.Top '+ (0.5 * Application.Height) - (0.5 * 485)
         End With
 
-        'Formun görünümü
+        'Formun gÃ¶rÃ¼nÃ¼mÃ¼
         Do
         DoEvents
         genislik = genislik + 170
@@ -27916,7 +27916,7 @@ If Rapor2_2CheckBox.Value = True Then
         core_report2_entry_UI.ScrollTop = 12 '549 '449
         Rep = 485
 
-        'Aþaðý doðru geniþlet
+        'AÅŸaÄŸÄ± doÄŸru geniÅŸlet
         yukseklik = 70
         Do
         DoEvents
@@ -27938,7 +27938,7 @@ If Rapor2_2CheckBox.Value = True Then
         AppXCenter = Application.Left + (Application.Width / 2)
         AppYCenter = Application.Top + (Application.Height / 2)
         
-        'Formu önce ekrana ortala
+        'Formu Ã¶nce ekrana ortala
         With core_report2_entry_UI
             .StartUpPosition = 0
             .Left = Application.Left + (0.5 * Application.Width) - (0.5 * 1072)
@@ -27965,7 +27965,7 @@ If Rapor2_2CheckBox.Value = True Then
             Rep = 674
         End If
 
-        'Aþaðý doðru geniþlet
+        'AÅŸaÄŸÄ± doÄŸru geniÅŸlet
         yukseklik = 70
         Do
         DoEvents
@@ -27986,14 +27986,14 @@ Else
         AppXCenter = Application.Left + (Application.Width / 2)
         AppYCenter = Application.Top + (Application.Height / 2)
     
-        'Formu önce ekrana ortala
+        'Formu Ã¶nce ekrana ortala
         With core_report2_entry_UI
             .StartUpPosition = 0
             .Left = Application.Left + (0.5 * Application.Width) - (0.5 * (1024 + 12))
             .Top = Application.Top '+ (0.5 * Application.Height) - (0.5 * 485)
         End With
     
-        'Formun görünümü
+        'Formun gÃ¶rÃ¼nÃ¼mÃ¼
         Do
         DoEvents
         genislik = genislik + 170
@@ -28005,9 +28005,9 @@ Else
             End If
         Loop Until genislik = 1024 + 12
         
-        'Formun görünümü (DÝKEY FARKLILAÞMA)
+        'Formun gÃ¶rÃ¼nÃ¼mÃ¼ (DÄ°KEY FARKLILAÅžMA)
         If Rapor1Frame.Visible = True And Tutanak2Frame.Visible = True And UstYaziFrame.Visible = True Then
-            'Formun görünümü
+            'Formun gÃ¶rÃ¼nÃ¼mÃ¼
             AltMenuFrame.Top = 462 + Rapor1Frame.Height + Tutanak2Frame.Height + UstYaziFrame.Height + 18
             'TasiyiciFrame.Height = 486 + Rapor1Frame.Height + Tutanak2Frame.Height + UstYaziFrame.Height + 18
             Rep = 485 '556 + Rapor1Frame.Height + Tutanak2Frame.Height + UstYaziFrame.Height + 18
@@ -28018,7 +28018,7 @@ Else
             core_report2_entry_UI.ScrollHeight = 546 + Rapor1Frame.Height + Tutanak2Frame.Height + UstYaziFrame.Height + 18 - 30
             core_report2_entry_UI.ScrollTop = 0
         ElseIf Rapor1Frame.Visible = True And Tutanak2Frame.Visible = True And UstYaziFrame.Visible = False Then
-            'Formun görünümü
+            'Formun gÃ¶rÃ¼nÃ¼mÃ¼
             AltMenuFrame.Top = 462 + Rapor1Frame.Height + Tutanak2Frame.Height + 12
             'TasiyiciFrame.Height = 486 + Rapor1Frame.Height + Tutanak2Frame.Height + 12
             Rep = 485 '556 + Rapor1Frame.Height + Tutanak2Frame.Height + 12
@@ -28029,7 +28029,7 @@ Else
             core_report2_entry_UI.ScrollHeight = 546 + Rapor1Frame.Height + Tutanak2Frame.Height + 12 - 30
             core_report2_entry_UI.ScrollTop = 0
         ElseIf Rapor1Frame.Visible = True And Tutanak2Frame.Visible = False And UstYaziFrame.Visible = False Then
-            'Formun görünümü
+            'Formun gÃ¶rÃ¼nÃ¼mÃ¼
             AltMenuFrame.Top = 462 + Rapor1Frame.Height + 6
             'TasiyiciFrame.Height = 486 + Rapor1Frame.Height + 6
             Rep = 485 '556 + Rapor1Frame.Height + 6
@@ -28040,7 +28040,7 @@ Else
             core_report2_entry_UI.ScrollHeight = 546 + Rapor1Frame.Height + 6 - 30
             core_report2_entry_UI.ScrollTop = 0
         ElseIf Rapor1Frame.Visible = False And Tutanak2Frame.Visible = False And UstYaziFrame.Visible = False Then
-            'Formun görünümü
+            'Formun gÃ¶rÃ¼nÃ¼mÃ¼
             AltMenuFrame.Top = 462 '444 '299
             'TasiyiciFrame.Height = 486
             Rep = 546 '556 '497 '352
@@ -28053,7 +28053,7 @@ Else
             
         End If
     
-        'Aþaðý doðru geniþlet
+        'AÅŸaÄŸÄ± doÄŸru geniÅŸlet
         yukseklik = 70
         Do
         DoEvents
@@ -28071,7 +28071,7 @@ Else
         AppXCenter = Application.Left + (Application.Width / 2)
         AppYCenter = Application.Top + (Application.Height / 2)
         
-        'Formu önce ekrana ortala
+        'Formu Ã¶nce ekrana ortala
         With core_report2_entry_UI
             .StartUpPosition = 0
             .Left = Application.Left + (0.5 * Application.Width) - (0.5 * 1072)
@@ -28089,7 +28089,7 @@ Else
             End If
         Loop Until genislik = 1072
         
-        'Formun görünümü (DÝKEY FARKLILAÞMA)
+        'Formun gÃ¶rÃ¼nÃ¼mÃ¼ (DÄ°KEY FARKLILAÅžMA)
         If Rapor1Frame.Visible = True And Tutanak2Frame.Visible = True And UstYaziFrame.Visible = True Then
             AltMenuFrame.Top = 462 + Rapor1Frame.Height + Tutanak2Frame.Height + UstYaziFrame.Height + 18
             'TasiyiciFrame.Height = 486 + Rapor1Frame.Height + Tutanak2Frame.Height + UstYaziFrame.Height + 18
@@ -28112,7 +28112,7 @@ Else
             'Rep = core_report2_entry_UI.Height
         End If
         
-        'Aþaðý doðru geniþlet
+        'AÅŸaÄŸÄ± doÄŸru geniÅŸlet
         yukseklik = 70
         Do
         DoEvents
@@ -28128,7 +28128,7 @@ Else
     End If
 End If
 
-'Modeless modunda userformun mouseover seçeneði yavaþlýyor. Sorun bu þekilde çözüldü.
+'Modeless modunda userformun mouseover seÃ§eneÄŸi yavaÅŸlÄ±yor. Sorun bu ÅŸekilde Ã§Ã¶zÃ¼ldÃ¼.
 core_report2_entry_UI.Hide
 core_report2_entry_UI.Show vbModal
 
@@ -28168,7 +28168,7 @@ core_report2_entry_UI.ScrollBars = fmScrollBarsNone
 AppXCenter = Application.Left + (Application.Width / 2)
 AppYCenter = Application.Top + (Application.Height / 2)
 
-'Sað üst köþeye çek
+'SaÄŸ Ã¼st kÃ¶ÅŸeye Ã§ek
 With core_report2_entry_UI
     .StartUpPosition = 0
     .Left = Application.Left '+ (0.5 * Application.Width) - (0.5 * 1034)
@@ -28182,7 +28182,7 @@ If core_report2_entry_UI.ScrollHeight > 0 Then 'Scrollbar varsa
     core_report2_entry_UI.ScrollBars = fmScrollBarsNone
 End If
 
-'Yukarý doðru daralt
+'YukarÄ± doÄŸru daralt
 yukseklik = Me.Height
 Do
 DoEvents
@@ -28196,7 +28196,7 @@ yukseklik = yukseklik - 100
 Loop Until yukseklik = 52
 
 
-'__________Formu saða taþý ve geniþliðini daralt.
+'__________Formu saÄŸa taÅŸÄ± ve geniÅŸliÄŸini daralt.
 
 TasiyiciFrame.Left = 0
 TasiyiciFrame.Top = 0
@@ -28223,7 +28223,7 @@ BaslikFrame.Visible = False
 UstMenuFrame.Visible = False
 
 
-'Modeless modunda userformun mouseover seçeneði yavaþlýyor. Sorun bu þekilde çözüldü.
+'Modeless modunda userformun mouseover seÃ§eneÄŸi yavaÅŸlÄ±yor. Sorun bu ÅŸekilde Ã§Ã¶zÃ¼ldÃ¼.
 core_report2_entry_UI.Hide
 core_report2_entry_UI.Show vbModeless
 
