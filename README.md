@@ -1,4 +1,4 @@
-# Enterprise-Document-Automation-System
+# Enterprise Document Automation System
 
 ## 🔍 Overview
 This system automates the entire document lifecycle — from data entry and report generation to printing, validation, and compliance — using a modular architecture built on Excel and Word APIs. It is designed for public-sector scale operations, supporting multiple report types, dynamic templates, structured workflows, and rule-based decisions.
@@ -110,7 +110,7 @@ Based on practical testing and user feedback, preparing all documents via the sy
 
 ## 🛡️ Ethical & Technical Disclaimer
 
-Originally built for national-scale daily operations at a public institution — tailored for non-technical users. This version is a fully anonymized system prepared solely for portfolio presentation, preserving the full functionality, interface design, and automation logic. It contains no real data or institution-related content.
+This version is a fully anonymized system prepared solely for portfolio presentation, preserving the full functionality, interface design, and automation logic. It contains no real data or institution-related content.
 
 ---
 
