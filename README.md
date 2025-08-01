@@ -16,7 +16,7 @@ Originally developed for national-scale daily operations at a public institution
 - **Modular architecture with task-specific panels**  
   Enables guided data entry, reporting, and document generation — each panel serves a dedicated function in the process chain for operational clarity.
 
-- **Dynamic forms and context-aware layouts**
+- **Dynamic forms and context-aware layouts**  
   Forms adjust automatically based on the selected report type, item category, or user context — reducing user errors and simplifying data entry.
 
 - **Rule-based decision logic across all workflows**  
