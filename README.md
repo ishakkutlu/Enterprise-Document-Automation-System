@@ -13,11 +13,11 @@ Originally developed for national-scale daily operations at a public institution
 ## ✨ Key Features
 
 ### 🧱 System Architecture & Workflow Control
-- **Modular architecture with role-specific panels**  
+- **Modular architecture with task-specific panels**  
   Enables guided data entry, reporting, and document generation — each panel serves a dedicated function in the process chain for operational clarity.
 
-- **Dynamic form behavior and context-aware layouts**  
-  Forms adapt to selected report types, item categories, or user context — minimizing user error and streamlining workflows.
+- **Dynamic forms and context-aware layouts**
+  Forms adjust automatically based on the selected report type, item category, or user context — reducing user errors and simplifying data entry.
 
 - **Rule-based decision logic across all workflows**  
   Prevents invalid actions, enforces correct paths, and ensures process integrity through built-in logic.
@@ -37,14 +37,14 @@ Originally developed for national-scale daily operations at a public institution
   Multiple Word documents (with internal logic) are generated and printed in a single click — complete with print control and verification.
 
 - **Integrated asset management with traceable flows**  
-  Handles asset entry, exit, and carry-over via source-based logic — generates 10 report types automatically. Improves auditability and operational transparency in asset workflows.
+  Handles asset entry, exit, and carry-over through source-based logic — automatically generates 10 audit-ready reports. Enhances operational transparency and accountability.
 
 ### 🔒 Data Continuity & Operational Safety
 - **Version-controlled data reset and system update**  
-  Supports safe resets and lossless upgrades with dual confirmation, isolated user data, and a structured continuity architecture.
+  Enables safe resets and lossless upgrades — with dual confirmation, isolated user data, and a structured continuity architecture.
 
-- **Auto-close and session-specific continuity**  
-  Automatically saves and closes active documents across Windows sessions — ensuring integrity even during user switches. Protects documents from data loss and supports unattended operation.
+- **Auto-shutdown and session continuity**  
+  Automatically saves and closes system and other active documents across Windows sessions — preserving data integrity even during user switches and enabling unattended operation.
 
 ---
 
