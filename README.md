@@ -70,10 +70,10 @@ The original version of the system has been deployed in national-scale daily ope
 
 Key outcomes include:
 
+- **20,000 documents automated per month** — saving over 2,500 manual hours through scalable architecture.
+- **95% operational efficiency gain** — driven by structured automation, validation layers, and intelligent user guidance.
 - **50+ automated document formats** — including statements, cover letters, and dispatch lists — all fully integrated into end-to-end workflows.
 - **Dynamic template engine** — supports unlimited user-defined templates with full reusability and no developer dependency.
-- **20,000 documents automated per month** — saving over 2,500 manual hours through scalable automation.
-- **95% operational efficiency gain** — driven by structured automation, validation layers, and intelligent user guidance.
 - **Standardization across 20+ units** — ensuring consistent workflows and output quality.
 - **ERP-level process control** — delivering secure, traceable, and high-volume document processing.
 
