@@ -126,17 +126,24 @@ src/
 └── classes/        → Manages session events, calendar logic, and dynamic document labels (.cls files)
 ```
 
-**forms/core/ – Primary Workflow Interfaces**  
+### forms/core/ – Primary Workflow Interfaces  
 This folder contains the system’s core UI forms that enable document entry, asset tracking, unit configuration, and automated report generation. These forms control the primary workflow, providing structured data input, integrated validation, and seamless navigation across processes. Key panels include report input forms (Report 1–2–3), system reset wizard, asset manager, and registry dashboards.
 
-**forms/support/ – Supporting Panels & Master Data Interfaces**  
+### forms/support/ – Supporting Panels & Master Data Interfaces  
 This folder includes secondary UI forms that support the system’s dynamic logic and document customization. These panels manage static datasets, metadata inputs, and user-defined configurations — such as item types, report templates, contact themes, geographic lists, and calendar rules. They enhance flexibility and ensure consistency across document types and workflows.
 
-**modules/ – Automation Workflow Logic**  
+### modules/ – Automation Workflow Logic  
 This folder includes all core modules responsible for workflow automation, document generation, interface behavior, and system control. Each .bas file is tailored to manage a specific process or operational domain — enabling traceable document flows, guided user interaction, and reliable automation.
 
-**classes/ — Session Management & Document Labeling Logic**  
+### classes/ — Session Management & Document Labeling Logic  
 This folder contains reusable class modules that manage application-level session behavior, form-specific events, calendar logic, and context-aware document labeling. These components work together to maintain control across workflows, panels, and document templates.
+
+📌 **Note on System Scope:**  
+This repository includes **30** user interface forms ('.frm'), **10** workflow modules ('.bas'), and **5** class modules ('.cls').  
+Each component is functionally modular but collectively integrated into a unified document automation framework.
+
+📌 **Note on Language Usage**    
+This system was originally developed for a public institution in Turkey. While the interface, logic, and documentation have been fully translated into English for portfolio purposes, some variable names or comments in the source code may still appear in Turkish.
 
 ---
 
