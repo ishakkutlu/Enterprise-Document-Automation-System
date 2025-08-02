@@ -5,7 +5,7 @@ This system automates the entire document lifecycle — from data entry to docum
 
 It is designed for large-scale, institutional document operations and delivers multiple report types, dynamic templates, structured decision logic, and end-to-end process control.
 
-Each user interaction is guided by context-aware forms, grammar-smart logic, and real-time validation — ensuring that even non-technical users can operate the system safely and efficiently. Document structures adapt to content flow, inputs are reused across workflows, and generated outputs are fully traceable and compliant.
+Each user interaction is guided by context-aware forms, grammar-smart logic, and real-time validation — ensuring that even non-technical users can operate the system safely and efficiently. High-stakes document structures adapt to content flow, inputs are reused across workflows, and generated outputs are fully traceable and compliant.
 
 Originally developed for national-scale daily operations at a public institution, this anonymized version reflects the full automation logic, interface architecture, and process intelligence of the live system — which currently handles 20,000+ document outputs per month.
 
