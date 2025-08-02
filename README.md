@@ -11,6 +11,11 @@ Originally developed for national-scale daily operations at a public institution
 
 ---
 
+### 🖼️ System Workflow at a Glance  
+![Enterprise Document Automation System – Overview](./img/system-overview.png)
+
+---
+
 ## ✨ Key Features
 
 ### 🧱 System Architecture & Workflow Control
