@@ -164,7 +164,8 @@ This version is a fully anonymized system prepared solely for portfolio presenta
 The system was fully designed, developed, and deployed as a **solo project** — from architecture and interface to automation logic and real-world implementation.
 First deployed in 2017, the system powers institutional-scale daily operations and has played a key role in digitizing complex document workflows across departments.
 
-- **Technology:** Entirely built on VBA (Visual Basic for Applications), leveraging Excel and Word APIs to drive high-level automation, validation, and document generation.
+**This system orchestrates the complete document lifecycle through a modular VBA architecture.**
+
 - **Modular Automation Layer:** Coordinates Excel and Word APIs to manage rule-based data flows, interlinked validation, and dynamic document assembly.
 - **Codebase:** Over 150,000 lines of modular, production-grade code — architected as a reusable automation framework rather than a conventional script.
 - **Access:** The fully anonymized working version (ready-to-run with full UI) can be shared upon request — for professional evaluation purposes only.
