@@ -19,13 +19,13 @@ Originally developed for national-scale daily operations at a public institution
 ## ✨ Key Features
 
 ### 🧱 System Architecture & Workflow Control
-- **Modular architecture with task-specific panels**  
+- **Modular framework with task-specific panels**  
   Enables guided data entry, reporting, and document generation — each panel serves a dedicated function in the process chain for operational clarity.
 
 - **Dynamic forms and context-aware layouts**  
   Forms adjust automatically based on the selected report type, item category, or user context — reducing user errors and simplifying data entry.
 
-- **Rule-based decision logic across all workflows**  
+- **Rule-based decision structure across all workflows**  
   Prevents invalid actions, enforces correct paths, and ensures process integrity through built-in logic.
 
 ### 🤖 Smart Logic & Content Automation
