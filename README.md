@@ -69,7 +69,7 @@ Each part showcases real-world automation, UX-guided workflows, and a compliance
 
 Key topics include:
 
-- **[1] Modular Architecture and Seamless Data Entry**  
+- **[1] Modular Architecture and Smooth Data Entry**  
   Streamlined input with guided structure and dynamic, context-aware form.
 - **[2] Real-Time Validation**  
   Ensures accurate, complete, and compliant data at every step.
