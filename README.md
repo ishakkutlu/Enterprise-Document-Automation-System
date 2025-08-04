@@ -92,14 +92,14 @@ Key topics include:
 
 The original version of the system has been deployed in national-scale daily operations at a public institution — tailored for non-technical users.
 
-Key outcomes include:
+Real-World Impact
 
-- **20,000 documents automated per month** — saving over 2,500 manual hours through scalable architecture.
-- **95% operational efficiency gain** — driven by structured automation, validation layers, and intelligent user guidance.
-- **50+ automated document formats** — including statements, cover letters, and dispatch lists — all fully integrated into end-to-end workflows.
-- **Dynamic template engine** — supports unlimited user-defined templates with full reusability and no developer dependency.
-- **Standardization across 20+ units** — ensuring consistent workflows and output quality.
-- **ERP-level process control** — delivering secure, traceable, and high-volume document processing.
+- **20,000+ documents automated monthly** → 2,500+ hours saved
+- **95% efficiency gain** — driven by structured automation
+- **50+ formats automated**, including statements and reports
+- **Dynamic user-defined template engine** — no developer dependency
+- **Standardized outputs across 20+ units** — ensuring consistent workflows
+- **ERP-level process control** — integrated validation and secure handling
 
 📊 **Efficiency Calculation Methodology**
 <details>
