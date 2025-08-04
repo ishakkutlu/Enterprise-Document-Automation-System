@@ -65,6 +65,27 @@ Powered by a modular architecture tailored for high-volume workflows.
 
 📂 **18-Part Video Series (~1.5 min each)**  
 
+Each part demonstrates real-world automation, UX-guided workflows, and a compliance-driven architecture — built for ERP-level document processing.
+
+Key topics include:
+
+- [1] Seamless Data Entry
+  Streamlined input with guided structure and built-in validation.
+- [2] Real-Time Validation
+  Ensures accurate, complete, and compliant data at every step.
+- [3] Smart Layout Engine
+  Adapts document layout based on user selections and context.
+- [4] Multi-Type Reporting
+  Supports dynamic templates and multi-format document.
+- [5] Grammar-Aware Generation
+  Automatically adjusts phrasing, grammar, and structure.
+- [6] Audit-Ready Output
+  Produces traceable, standardized, and reviewable documents.
+- [7] Role-Aware Input Propagation
+  Auto-reuses unit and user data — ensuring traceability without repetition.
+- [8] Seamless System Update
+  Migrates data with full validation — restoring all user-defined structures intact.
+
 These short videos present:
 - Modular architecture and guided form logic
 - Rule-based workflows and grammar-aware document generation
