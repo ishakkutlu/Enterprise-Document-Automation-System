@@ -57,12 +57,14 @@ Originally developed for national-scale daily operations at a public institution
 ## 🎬 Video Showcase
 
 📺 **System Overview (5-min video)**  
+
 Built to eliminate real-world reporting bottlenecks — through scalable, structured, and traceable automation.
 Powered by a modular architecture tailored for high-volume workflows.
 
-[Watch the overview](https://youtu.be/XwRnCo3DQnU)
+▶️ [Watch the overview](https://youtu.be/XwRnCo3DQnU)
 
-▶️ **18-Part Video Series (~1.5 min each)**  
+📂 **18-Part Video Series (~1.5 min each)**  
+
 These short videos present:
 - Modular architecture and guided form logic
 - Rule-based workflows and grammar-aware document generation
@@ -72,7 +74,7 @@ These short videos present:
 
 Each part showcases real-world automation, UX-guided workflows, and a compliance-driven architecture — built for ERP-level document processing.
 
-[Watch the full showcase](https://www.youtube.com/playlist?list=PLn6Gqb2_dbpqLkj5eBjfCo8DCA1GB692D)
+▶️ [Watch the full showcase](https://www.youtube.com/playlist?list=PLn6Gqb2_dbpqLkj5eBjfCo8DCA1GB692D)
 
 ---
 
