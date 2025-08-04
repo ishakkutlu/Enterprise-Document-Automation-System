@@ -69,19 +69,19 @@ Each part showcases real-world automation, UX-guided workflows, and a compliance
 
 Key topics include:
 
-- **[1] Modular Architecture and Smooth Data Entry**  
+- **Modular Architecture and Smooth Data Entry**  
   Streamlined input with guided structure and dynamic, context-aware form.
-- **[2] Real-Time Validation**  
+- **Real-Time Validation**  
   Ensures accurate, complete, and compliant data at every step.
-- **[3] Smart Layout Engine**  
+- **Smart Layout Engine**  
   Adapts document layout based on user selections and context.
-- **[4] Multi-Type Reporting**  
+- **Multi-Type Reporting**  
   Supports dynamic templates and multi-format document.
-- **[5] Grammar-Aware Generation**  
+- **Grammar-Aware Generation**  
   Automatically adjusts phrasing, grammar, and structure.
-- **[6] Rule-based Workflows and Audit-Ready Reporting**  
+- **Rule-based Workflows and Audit-Ready Reporting**  
   Produces traceable, standardized, and reviewable documents.
-- **[7] Seamless System Update**  
+- **Seamless System Update**  
   Migrates data with full validation — restoring all user-defined structures intact.
 
 ▶️ [Watch the full showcase](https://www.youtube.com/playlist?list=PLn6Gqb2_dbpqLkj5eBjfCo8DCA1GB692D)
