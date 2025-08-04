@@ -175,7 +175,7 @@ This version is a fully anonymized system prepared solely for portfolio presenta
 
 ## 💻 Implementation Details
 
-🛠️ ***Development Note:**  
+🛠️ **Development Note:**  
 The system was fully designed, developed, and deployed as a **solo project** — from architecture and interface to automation logic and real-world implementation.
 First deployed in 2017, it powers institutional-scale daily operations and has played a key role in digitizing complex document workflows across units.
 
