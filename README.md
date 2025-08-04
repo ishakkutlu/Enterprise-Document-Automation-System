@@ -111,8 +111,8 @@ Key outcomes include:
 In public institutions, manually preparing formal documents — especially statements, annexed reports, or cover letters — typically takes **6 to 10 minutes per document**.  
 This includes locating the correct template, replacing outdated data, inserting updated content, adjusting formatting, and performing a final review. I conservatively estimated **8 minutes per document** to reflect this end-to-end effort in a structured but non-automated environment.
 
-- **Average process volume per department:**  
-Process volume varies by department size and workload. For this estimate, I assumed **100 processes per unit per month**, based on historical activity across 20+ units.
+- **Average process volume per unit:**  
+Process volume varies by unit size and workload. For this estimate, I assumed **100 processes per unit per month**, based on historical activity across 20+ units.
 
 - **Number of documents required per process:**  
 Each process typically involves multiple document types — such as statements, reports, annexes, and cover letters. Moreover, several documents of the same type may be generated within a single process (e.g., multiple reports or cover letters), depending on the workflow. Some processes require 15+ documents, others only 6–7. An average of **10 documents per process** was used in calculations.
@@ -177,7 +177,7 @@ This version is a fully anonymized system prepared solely for portfolio presenta
 
 🛠️ ***Development Note:**  
 The system was fully designed, developed, and deployed as a **solo project** — from architecture and interface to automation logic and real-world implementation.
-First deployed in 2017, it powers institutional-scale daily operations and has played a key role in digitizing complex document workflows across departments.
+First deployed in 2017, it powers institutional-scale daily operations and has played a key role in digitizing complex document workflows across units.
 
 **This system orchestrates the complete document lifecycle through a modular VBA architecture.**
 
