@@ -56,10 +56,10 @@ Originally developed for national-scale daily operations at a public institution
 
 ## 🎬 Video Showcase
 
-📺 **5-Minute System Overview**  
-[Watch the Overview](https://youtu.be/XwRnCo3DQnU)
+📺 **System Overview (5-min video)**  
+[Watch the overview](https://youtu.be/XwRnCo3DQnU)
 
-📂 **Complete System Demonstration (18-part video series)**  
+▶️ **18-Part Video Series (~1.5 min each)**  
 [Watch the full showcase](https://www.youtube.com/playlist?list=PLn6Gqb2_dbpqLkj5eBjfCo8DCA1GB692D)
 
 These short videos present:
