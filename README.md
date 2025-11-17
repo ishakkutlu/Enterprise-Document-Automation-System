@@ -3,7 +3,7 @@
 ## 🔍 Overview
 This system automates the entire document lifecycle — from data entry to document generation — through a secure and modular architecture that features traceable outputs, user-level data isolation, and structured validation.
 
-It is designed for large-scale, institutional document operations and delivers multiple report types, dynamic templates, structured decision logic, and end-to-end process control.
+It is designed for large-scale, institutional document operations and delivers multiple report types, dynamic templates, structured decision logic, and end-to-end process control. 
 
 Each user interaction is guided by context-aware forms, grammar-smart logic, and real-time validation, ensuring that even non-technical users can operate the system safely and efficiently. High-stakes document structures adapt to content flow, inputs are reused across workflows, and generated outputs are fully traceable and compliant.
 
